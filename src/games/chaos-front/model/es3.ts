@@ -1,3 +1,5 @@
+import { ModuleError } from '@sdk/error'
+
 export interface Es3Field {
   __type?: string
   value: unknown
@@ -41,13 +43,13 @@ export function stringifyEs3(doc: Es3Doc): string {
 
 export function getField<T>(doc: Es3Doc, key: string): T {
   const f = doc[key]
-  if (!f) throw new Error(`ES3 字段缺失: ${key}`)
+  if (!f) throw new ModuleError('MISSING_FIELD', [key])
   return f.value as T
 }
 
 /** 只改 value，保留 __type */
 export function setField(doc: Es3Doc, key: string, value: unknown): void {
   const f = doc[key]
-  if (!f) throw new Error(`ES3 字段缺失: ${key}`)
+  if (!f) throw new ModuleError('MISSING_FIELD', [key])
   f.value = value
 }

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { ModuleError } from '@sdk/error'
 import {
   getField,
   isWrapped,
@@ -57,6 +58,25 @@ describe('es3', () => {
     expect(doc.PlayerCredit.value).toBe(123)
     expect(doc.PlayerCredit.__type).toBe('int')
     expect(getField<number>(doc, 'PlayerCredit')).toBe(123)
+  })
+
+  it('missing key throws ModuleError MISSING_FIELD without Chinese message', () => {
+    const doc: Es3Doc = parseEs3(SAMPLE)
+    expect(() => getField(doc, 'NoSuchKey')).toThrow(ModuleError)
+    expect(() => setField(doc, 'NoSuchKey', 1)).toThrow(ModuleError)
+    for (const run of [
+      () => getField(doc, 'NoSuchKey'),
+      () => setField(doc, 'NoSuchKey', 1)
+    ]) {
+      try {
+        run()
+        expect.fail('expected throw')
+      } catch (e) {
+        expect(e).toBeInstanceOf(ModuleError)
+        expect((e as ModuleError).code).toBe('MISSING_FIELD')
+        expect(String(e)).not.toContain('ES3 字段缺失')
+      }
+    }
   })
 
   it('parses LitJson unquoted integer keys (real save CurrentArmyRanks)', () => {
