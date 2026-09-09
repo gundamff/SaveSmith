@@ -9,6 +9,11 @@ description = "Enables the list_dir_names command."
 commands.allow = ["list_dir_names"]
 
 [[permission]]
+identifier = "allow-list-relative-file-paths"
+description = "Enables the list_relative_file_paths command."
+commands.allow = ["list_relative_file_paths"]
+
+[[permission]]
 identifier = "allow-read-file-bytes"
 description = "Enables the read_file_bytes command."
 commands.allow = ["read_file_bytes"]

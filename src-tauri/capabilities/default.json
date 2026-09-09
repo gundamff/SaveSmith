@@ -8,6 +8,7 @@
     "dialog:allow-open",
     "allow-pick-folder",
     "allow-list-dir-names",
+    "allow-list-relative-file-paths",
     "allow-read-file-bytes",
     "allow-write-atomic",
     "allow-list-backups",

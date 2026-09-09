@@ -103,6 +103,26 @@ describe('useSessionStore', () => {
     expect(store.slots[0].id).toBe('gen-1')
   })
 
+  it('openGame surfaces listRelativeFilePaths failure as loadError', async () => {
+    const io = createMemoryIo({ 'Saves': enc('dir') })
+    io.listRelativeFilePaths = async () => {
+      throw new Error('command list_relative_file_paths not allowed')
+    }
+    const nested: GameModule<DummyState> = {
+      ...dummyModule,
+      locate: {
+        windowsPathTemplates: [],
+        identifyAnyOf: ['Saves'],
+        slotFilePatterns: ['Saves/Playtest/Generation_*/SaveData.json']
+      }
+    }
+    setSessionIo(io)
+    const store = useSessionStore()
+    await store.openGame(nested, 'D:\\saves')
+    expect(store.slots).toEqual([])
+    expect(store.loadError).toBeTruthy()
+  })
+
   it('openGame only reads identifyAnyOf names that exist', async () => {
     const io = createMemoryIo({
       'save.txt': enc('10'),

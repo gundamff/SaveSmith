@@ -109,18 +109,24 @@ export const useSessionStore = defineStore('session', () => {
     const files = await readIdentifyFiles(dir, names, mod.locate.identifyAnyOf)
     const patterns = mod.locate.slotFilePatterns
     if (patterns?.length && sessionIo.listRelativeFilePaths) {
-      const all = await sessionIo.listRelativeFilePaths(dir, 6)
-      const matched = matchSlotFilePatterns(all, patterns)
-      const existing = new Set(files.map((f) => f.relativePath.toLowerCase()))
-      for (const relativePath of matched) {
-        if (existing.has(relativePath.toLowerCase())) continue
-        existing.add(relativePath.toLowerCase())
-        try {
-          const bytes = await sessionIo.readFileBytes(dir, relativePath)
-          files.push({ relativePath, bytes })
-        } catch {
-          files.push({ relativePath, bytes: null })
+      try {
+        const all = await sessionIo.listRelativeFilePaths(dir, 6)
+        const matched = matchSlotFilePatterns(all, patterns)
+        const existing = new Set(files.map((f) => f.relativePath.toLowerCase()))
+        for (const relativePath of matched) {
+          if (existing.has(relativePath.toLowerCase())) continue
+          existing.add(relativePath.toLowerCase())
+          try {
+            const bytes = await sessionIo.readFileBytes(dir, relativePath)
+            files.push({ relativePath, bytes })
+          } catch {
+            files.push({ relativePath, bytes: null })
+          }
         }
+      } catch (e) {
+        loadError.value = translateError(e)
+        slots.value = []
+        return
       }
     }
     slots.value = mod.listSlots({ dir, files })
