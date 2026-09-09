@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, provide } from 'vue'
+import { computed, provide, ref, watch } from 'vue'
 import { ModuleError } from '@sdk/error'
 import { t, translateError } from '../i18n'
 import { useSessionStore } from '../stores/session'
@@ -13,6 +13,19 @@ provide('savesmithState', () => store.state)
 provide('savesmithMutate', store.mutate)
 
 const views = computed(() => store.game?.views ?? [])
+const activeViewId = ref<string | null>(null)
+
+watch(
+  views,
+  (list) => {
+    if (!list.some((v) => v.id === activeViewId.value)) {
+      activeViewId.value = list[0]?.id ?? null
+    }
+  },
+  { immediate: true }
+)
+
+const activeView = computed(() => views.value.find((v) => v.id === activeViewId.value) ?? views.value[0] ?? null)
 
 function confirmLeave(): boolean {
   if (!store.dirty) return true
@@ -70,9 +83,21 @@ async function onRestore(relativePath: string, backupName: string): Promise<void
       <div class="main">
         <ActionBar />
         <div v-if="store.state != null && views.length" class="views">
-          <section v-for="view in views" :key="view.id" :data-view="view.id">
-            <h2>{{ t(view.labelKey) }}</h2>
-            <component :is="view.component" />
+          <nav class="tabs" role="tablist">
+            <button
+              v-for="view in views"
+              :key="view.id"
+              type="button"
+              role="tab"
+              :aria-selected="activeView?.id === view.id"
+              :class="{ active: activeView?.id === view.id }"
+              @click="activeViewId = view.id"
+            >
+              {{ t(view.labelKey) }}
+            </button>
+          </nav>
+          <section v-if="activeView" :data-view="activeView.id">
+            <component :is="activeView.component" />
           </section>
         </div>
         <BackupPanel v-if="store.currentSlotId" @restore="onRestore" />
@@ -152,11 +177,27 @@ async function onRestore(relativePath: string, backupName: string): Promise<void
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.85rem;
 }
 
-.views h2 {
-  margin: 0 0 0.5rem;
-  font-size: 1rem;
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tabs button {
+  border-radius: 8px;
+  border: 1px solid #2c2c36;
+  background: #22222b;
+  color: #f3f3f5;
+  padding: 0.35em 0.8em;
+  font: inherit;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  background: #3b6dff;
+  border-color: #3b6dff;
 }
 </style>

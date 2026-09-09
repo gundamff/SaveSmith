@@ -47,12 +47,17 @@ function wrapState(value: unknown): unknown {
   return value
 }
 
-async function readListed(dir: string, names: string[]): Promise<ListedFile[]> {
+async function readIdentifyFiles(dir: string, names: string[], identifyAnyOf: string[]): Promise<ListedFile[]> {
+  const present = new Set(names.map((n) => n.toLowerCase()))
   const out: ListedFile[] = []
   const seen = new Set<string>()
-  for (const relativePath of names) {
-    if (!relativePath || seen.has(relativePath)) continue
-    seen.add(relativePath)
+  for (const relativePath of identifyAnyOf) {
+    if (!relativePath || seen.has(relativePath.toLowerCase())) continue
+    seen.add(relativePath.toLowerCase())
+    if (!present.has(relativePath.toLowerCase())) {
+      out.push({ relativePath, bytes: null })
+      continue
+    }
     try {
       const bytes = await sessionIo.readFileBytes(dir, relativePath)
       out.push({ relativePath, bytes })
@@ -98,8 +103,7 @@ export const useSessionStore = defineStore('session', () => {
       slots.value = []
       return
     }
-    const needed = [...names, ...mod.locate.identifyAnyOf]
-    const files = await readListed(dir, needed)
+    const files = await readIdentifyFiles(dir, names, mod.locate.identifyAnyOf)
     slots.value = mod.listSlots({ dir, files })
   }
 

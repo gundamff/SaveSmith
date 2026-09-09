@@ -72,6 +72,25 @@ afterEach(() => {
 })
 
 describe('useSessionStore', () => {
+  it('openGame only reads identifyAnyOf names that exist', async () => {
+    const io = createMemoryIo({
+      'save.txt': enc('10'),
+      'noise.bin': enc('xxxx'),
+      'huge.log': enc('yyyy')
+    })
+    const reads: string[] = []
+    const origRead = io.readFileBytes.bind(io)
+    io.readFileBytes = async (dir, relativePath) => {
+      reads.push(relativePath)
+      return origRead(dir, relativePath)
+    }
+    setSessionIo(io)
+    const store = useSessionStore()
+    await store.openGame(dummyModule, 'D:\\saves')
+    expect(reads).toEqual(['save.txt'])
+    expect(store.slots).toHaveLength(1)
+  })
+
   it('openGame lists slots from locate files (read failure keeps bytes null)', async () => {
     const io = createMemoryIo({ 'save.txt': enc('10') })
     const origRead = io.readFileBytes.bind(io)

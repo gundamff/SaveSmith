@@ -194,14 +194,49 @@ fn is_under(dir: &Path, child: &Path) -> bool {
 }
 
 fn replace_file(tmp: &Path, target: &Path) -> Result<(), String> {
-    match fs::rename(tmp, target) {
-        Ok(()) => Ok(()),
-        Err(e) if e.kind() == ErrorKind::AlreadyExists => {
-            fs::remove_file(target).map_err(|e| e.to_string())?;
-            fs::rename(tmp, target).map_err(|e| e.to_string())
-        }
-        Err(e) => Err(e.to_string()),
+    #[cfg(windows)]
+    {
+        replace_file_windows(tmp, target)
     }
+    #[cfg(not(windows))]
+    {
+        fs::rename(tmp, target).map_err(|e| e.to_string())
+    }
+}
+
+/// Replace `target` with `tmp` without deleting `target` first.
+/// On failure the live file stays untouched; only `tmp` may be removed.
+#[cfg(windows)]
+fn replace_file_windows(tmp: &Path, target: &Path) -> Result<(), String> {
+    use std::os::windows::ffi::OsStrExt;
+
+    const MOVEFILE_REPLACE_EXISTING: u32 = 0x0000_0001;
+
+    #[link(name = "kernel32")]
+    extern "system" {
+        fn MoveFileExW(
+            lp_existing_file_name: *const u16,
+            lp_new_file_name: *const u16,
+            dw_flags: u32,
+        ) -> i32;
+    }
+
+    fn wide(path: &Path) -> Vec<u16> {
+        path.as_os_str()
+            .encode_wide()
+            .chain(std::iter::once(0))
+            .collect()
+    }
+
+    let from = wide(tmp);
+    let to = wide(target);
+    let ok = unsafe { MoveFileExW(from.as_ptr(), to.as_ptr(), MOVEFILE_REPLACE_EXISTING) };
+    if ok == 0 {
+        let err = std::io::Error::last_os_error().to_string();
+        let _ = fs::remove_file(tmp);
+        return Err(err);
+    }
+    Ok(())
 }
 
 fn now_millis() -> u128 {
@@ -333,6 +368,30 @@ mod tests {
             fs::read(save_dir.join("backup").join(&bak)).unwrap(),
             b"ORIGINAL"
         );
+    }
+
+    #[test]
+    fn write_atomic_overwrite_keeps_readable_target_and_backup_of_old() {
+        let dir = tempdir().unwrap();
+        let save_dir = dir.path();
+        let target = save_dir.join("savedata0.cf");
+        fs::write(&target, b"PRE-WRITE-BYTES").unwrap();
+
+        let bak = write_atomic(save_dir, "savedata0.cf", b"POST-WRITE-BYTES").unwrap();
+
+        assert!(target.is_file(), "target must remain a readable file");
+        assert_eq!(fs::read(&target).unwrap(), b"POST-WRITE-BYTES");
+        assert!(!bak.is_empty());
+        assert_eq!(
+            fs::read(save_dir.join("backup").join(&bak)).unwrap(),
+            b"PRE-WRITE-BYTES"
+        );
+        let leftovers: Vec<_> = fs::read_dir(save_dir)
+            .unwrap()
+            .map(|e| e.unwrap().file_name().to_string_lossy().into_owned())
+            .filter(|n| n.contains(".tmp-"))
+            .collect();
+        assert!(leftovers.is_empty(), "tmp must not remain after success: {leftovers:?}");
     }
 
     #[test]
