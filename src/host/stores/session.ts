@@ -139,15 +139,15 @@ export const useSessionStore = defineStore('session', () => {
     for (const relativePath of slot.sessionFiles) {
       try {
         const bytes = await sessionIo.readFileBytes(dir, relativePath)
-        if (!bytes || bytes.length === 0) {
-          loadError.value = relativePath
-          return
-        }
+        if (!bytes || bytes.length === 0) continue
         files.push({ relativePath, bytes })
-      } catch (e) {
-        loadError.value = translateError(e)
-        return
+      } catch {
+        /* optional / unreadable session file — skip */
       }
+    }
+    if (files.length === 0) {
+      loadError.value = slot.sessionFiles[0] ?? slotId
+      return
     }
     try {
       const parsed = wrapState(mod.parse(files))

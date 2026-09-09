@@ -137,6 +137,56 @@ describe('useSessionStore', () => {
     expect(store.loadError).toBeTruthy()
   })
 
+  it('loadSlot skips missing optional session files and still parses save.txt', async () => {
+    const io = createMemoryIo({ 'save.txt': enc('42') })
+    const origRead = io.readFileBytes.bind(io)
+    io.readFileBytes = async (dir, relativePath) => {
+      if (relativePath === 'collection.cf') throw new Error('ENOENT')
+      return origRead(dir, relativePath)
+    }
+    const listing: GameModule<DummyState> = {
+      ...dummyModule,
+      listSlots() {
+        return [{ id: 'slot-0', exists: true, readable: true, sessionFiles: ['save.txt', 'collection.cf'] }]
+      }
+    }
+    setSessionIo(io)
+    const store = useSessionStore()
+    await store.openGame(listing, 'D:\\saves')
+    await store.loadSlot('slot-0')
+    expect(store.currentSlotId).toBe('slot-0')
+    expect(store.state).toEqual({ gold: 42 })
+    expect(store.loadError).toBeNull()
+    expect(store.original).toHaveLength(1)
+    expect(store.original[0].relativePath).toBe('save.txt')
+    expect(dec(store.original[0].bytes)).toBe('42')
+  })
+
+  it('loadSlot skips empty optional session files and still parses save.txt', async () => {
+    const io = createMemoryIo({ 'save.txt': enc('7') })
+    io.readFileBytes = async (_dir, relativePath) => {
+      if (relativePath === 'collection.cf') return new Uint8Array()
+      const bytes = io.files[relativePath]
+      if (!bytes) throw new Error('ENOENT')
+      return new Uint8Array(bytes)
+    }
+    const listing: GameModule<DummyState> = {
+      ...dummyModule,
+      listSlots() {
+        return [{ id: 'slot-0', exists: true, readable: true, sessionFiles: ['save.txt', 'collection.cf'] }]
+      }
+    }
+    setSessionIo(io)
+    const store = useSessionStore()
+    await store.openGame(listing, 'D:\\saves')
+    await store.loadSlot('slot-0')
+    expect(store.currentSlotId).toBe('slot-0')
+    expect(store.state).toEqual({ gold: 7 })
+    expect(store.loadError).toBeNull()
+    expect(store.original).toHaveLength(1)
+    expect(store.original[0].relativePath).toBe('save.txt')
+  })
+
   it('loadSlot records parse errors without assigning state', async () => {
     const io = createMemoryIo({ 'save.txt': enc('10') })
     const boom: GameModule<DummyState> = {
