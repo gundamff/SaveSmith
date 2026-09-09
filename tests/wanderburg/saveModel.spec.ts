@@ -63,7 +63,7 @@ describe('wanderburg saveModel', () => {
     expect(getByPath(doc, 'silver')).toBe(9999)
   })
 
-  it('displayName falls back to id', () => {
-    expect(displayName('101')).toBe('101')
+  it('displayName falls back to unlock id label', () => {
+    expect(displayName('101')).toBe('解锁 #101')
   })
 })

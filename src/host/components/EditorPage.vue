@@ -64,6 +64,15 @@ async function onRestore(relativePath: string, backupName: string): Promise<void
     window.alert(translateError(e))
   }
 }
+
+async function onRemoveBackup(relativePath: string, backupName: string): Promise<void> {
+  if (!window.confirm(t('backups.deleteConfirm', backupName))) return
+  try {
+    await store.removeBackup(relativePath, backupName)
+  } catch (e) {
+    window.alert(translateError(e))
+  }
+}
 </script>
 
 <template>
@@ -98,7 +107,7 @@ async function onRestore(relativePath: string, backupName: string): Promise<void
             <component :is="activeView.component" />
           </section>
         </div>
-        <BackupPanel v-if="store.currentSlotId" @restore="onRestore" />
+        <BackupPanel v-if="store.currentSlotId" @restore="onRestore" @remove="onRemoveBackup" />
       </div>
     </div>
   </section>

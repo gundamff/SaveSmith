@@ -6,6 +6,7 @@ const store = useSessionStore()
 
 const emit = defineEmits<{
   restore: [relativePath: string, backupName: string]
+  remove: [relativePath: string, backupName: string]
 }>()
 </script>
 
@@ -19,6 +20,9 @@ const emit = defineEmits<{
         <span class="file">{{ t('backups.file', item.relativePath) }}</span>
         <button type="button" @click="emit('restore', item.relativePath, item.name)">
           {{ t('backups.restore') }}
+        </button>
+        <button type="button" class="danger" @click="emit('remove', item.relativePath, item.name)">
+          {{ t('backups.delete') }}
         </button>
       </li>
     </ul>
@@ -75,5 +79,15 @@ button {
   padding: 0.25em 0.7em;
   font: inherit;
   cursor: pointer;
+}
+
+button.danger {
+  border-color: #5a3030;
+  background: #2a1a1a;
+  color: #f0b4b4;
+}
+
+button.danger:hover {
+  border-color: #a05050;
 }
 </style>

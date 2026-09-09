@@ -57,6 +57,16 @@ function createMemoryIo(initial: Record<string, Uint8Array>): SessionIo & {
       const hit = (storedBackups.get(relativePath) ?? []).find((b) => b.name === name)
       if (!hit) throw new Error('NO_BACKUP')
       files[relativePath] = new Uint8Array(hit.bytes)
+    },
+    async deleteBackup(_dir, name) {
+      for (const [relativePath, list] of storedBackups) {
+        const next = list.filter((b) => b.name !== name)
+        if (next.length !== list.length) {
+          storedBackups.set(relativePath, next)
+          return
+        }
+      }
+      throw new Error('NO_BACKUP')
     }
   }
   return io
@@ -373,6 +383,20 @@ describe('useSessionStore', () => {
     expect((store.state as DummyState).gold).toBe(999)
     expect(store.dirty).toBe(false)
     expect(store.currentSlotId).toBe('slot-0')
+  })
+
+  it('removeBackup deletes a backup entry and refreshes the list', async () => {
+    const io = createMemoryIo({ 'save.txt': enc('10') })
+    setSessionIo(io)
+    const store = useSessionStore()
+    await store.openGame(dummyModule, 'D:\\saves')
+    await store.loadSlot('slot-0')
+    store.runAction('fill')
+    await store.save()
+    expect(store.backups.length).toBe(1)
+    const name = store.backups[0]!.name
+    await store.removeBackup('save.txt', name)
+    expect(store.backups.find((b) => b.name === name)).toBeUndefined()
   })
 
   it('goLibrary clears the session', async () => {

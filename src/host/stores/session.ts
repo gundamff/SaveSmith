@@ -4,6 +4,7 @@ import { assertSerializeSane, changedFiles, matchSlotFilePatterns } from '@sdk/s
 import type { GameModule, ListedFile, SlotBytes, SlotInfo, ValidationIssue } from '@sdk/types'
 import { translateError } from '../i18n'
 import {
+  deleteBackup,
   listBackups,
   listDirNames,
   listRelativeFilePaths,
@@ -23,6 +24,7 @@ export interface SessionIo {
   writeAtomic(dir: string, relativePath: string, bytes: Uint8Array): Promise<string>
   listBackups(dir: string, relativePath: string): Promise<BackupInfoDto[]>
   restoreBackup(dir: string, relativePath: string, name: string): Promise<void>
+  deleteBackup(dir: string, name: string): Promise<void>
   listRelativeFilePaths?(dir: string, maxDepth?: number): Promise<string[]>
 }
 
@@ -32,6 +34,7 @@ const defaultIo: SessionIo = {
   writeAtomic,
   listBackups,
   restoreBackup,
+  deleteBackup,
   listRelativeFilePaths
 }
 
@@ -237,6 +240,14 @@ export const useSessionStore = defineStore('session', () => {
     if (slotId) await loadSlot(slotId)
   }
 
+  async function removeBackup(relativePath: string, backupName: string): Promise<void> {
+    await sessionIo.deleteBackup(saveDir.value, backupName)
+    const sessionFiles =
+      slots.value.find((s) => s.id === currentSlotId.value)?.sessionFiles ??
+      original.value.map((f) => f.relativePath)
+    await refreshBackups(sessionFiles.length ? sessionFiles : [relativePath])
+  }
+
   function goLibrary(): void {
     game.value = null
     saveDir.value = ''
@@ -260,6 +271,7 @@ export const useSessionStore = defineStore('session', () => {
     mutate,
     save,
     restore,
+    removeBackup,
     goLibrary
   }
 })

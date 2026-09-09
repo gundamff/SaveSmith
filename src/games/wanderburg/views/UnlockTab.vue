@@ -29,6 +29,7 @@ function selectAll(on: boolean): void {
 
 <template>
   <div>
+    <p class="hint">{{ locale === 'zh' ? '下列为存档里的解锁 ID（模块/载具/船长等）。名称表尚未从游戏导出，暂显示编号。' : 'These are unlock IDs from the save (modules / vehicles / captains, etc.). Names are not mapped yet, so IDs are shown.' }}</p>
     <div class="toolbar">
       <el-button type="primary" @click="selectAll(true)">{{ selectAllLabel }}</el-button>
       <el-button @click="selectAll(false)">{{ clearAllLabel }}</el-button>
@@ -47,6 +48,12 @@ function selectAll(on: boolean): void {
 </template>
 
 <style scoped>
+.hint {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  opacity: 0.75;
+  line-height: 1.45;
+}
 .toolbar {
   margin-bottom: 16px;
   display: flex;

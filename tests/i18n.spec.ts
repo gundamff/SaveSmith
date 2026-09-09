@@ -22,6 +22,8 @@ const REQUIRED_KEYS = [
   'editor.noSlot',
   'slots.savedAt',
   'about.disclaimer',
+  'backups.delete',
+  'backups.deleteConfirm',
   'error.EMPTY_SERIALIZE',
   'error.UNKNOWN_ACTION',
   'error.URL_NOT_ALLOWED',

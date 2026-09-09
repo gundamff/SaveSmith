@@ -70,6 +70,7 @@ describe('wanderburg view sources', () => {
     expect(text).toMatch(/setByPath/)
     expect(text).toMatch(/markDirty/)
     expect(text).toMatch(/el-input-number/)
+    expect(text).toMatch(/update:model-value|@update:model-value/)
     expect(text).toMatch(/labelKey/)
     expect(text).toMatch(/wb\.resources\.empty/)
   })

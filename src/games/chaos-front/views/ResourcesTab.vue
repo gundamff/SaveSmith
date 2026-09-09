@@ -11,11 +11,9 @@ const MAX_REL = 999
 function wrap(fn: () => void): void {
   editor.markDirty(fn)
 }
-function changeNum(apply: (v: number) => void): (v: number | undefined) => void {
-  return (v) => {
-    if (v === undefined) return
-    wrap(() => apply(v))
-  }
+function changeNum(apply: (v: number) => void, v: number | undefined): void {
+  if (v === undefined || Number.isNaN(v)) return
+  wrap(() => apply(v))
 }
 function maxResources(): void {
   wrap(() => {
@@ -38,14 +36,14 @@ function relLabel(i: number): string {
   <div v-if="save">
     <el-alert type="warning" show-icon :closable="false" :title="t('resources.relWarn')" class="warn" />
     <el-form label-width="220px" style="max-width: 640px">
-      <el-form-item :label="t('resources.credit')"><el-input-number :model-value="save.credit" :min="0" :max="999999999" :step="10000" @change="changeNum((v) => save!.setCredit(v))" /></el-form-item>
-      <el-form-item :label="t('resources.prestige')"><el-input-number :model-value="save.prestige" :min="0" :max="999999" :step="100" @change="changeNum((v) => save!.setPrestige(v))" /></el-form-item>
-      <el-form-item :label="t('resources.star')"><el-input-number :model-value="save.star" :min="1" :max="6" @change="changeNum((v) => save!.setStar(v))" /></el-form-item>
+      <el-form-item :label="t('resources.credit')"><el-input-number :model-value="save.credit" :min="0" :max="999999999" :step="10000" @update:model-value="(v) => changeNum((n) => save!.setCredit(n), v ?? undefined)" /></el-form-item>
+      <el-form-item :label="t('resources.prestige')"><el-input-number :model-value="save.prestige" :min="0" :max="999999" :step="100" @update:model-value="(v) => changeNum((n) => save!.setPrestige(n), v ?? undefined)" /></el-form-item>
+      <el-form-item :label="t('resources.star')"><el-input-number :model-value="save.star" :min="1" :max="6" @update:model-value="(v) => changeNum((n) => save!.setStar(n), v ?? undefined)" /></el-form-item>
       <el-form-item v-for="i in 4" :key="'medal' + i" :label="medalLabel(i - 1)">
-        <el-input-number :model-value="save.medals[i - 1]" :min="0" :max="99999" @change="changeNum((v) => save!.setMedal(i - 1, v))" />
+        <el-input-number :model-value="save.medals[i - 1]" :min="0" :max="99999" @update:model-value="(v) => changeNum((n) => save!.setMedal(i - 1, n), v ?? undefined)" />
       </el-form-item>
       <el-form-item v-for="i in 4" :key="'rel' + i" :label="relLabel(i - 1)">
-        <el-input-number :model-value="save.relationships[i - 1]" :min="0" :max="MAX_REL" @change="changeNum((v) => save!.setRelationship(i - 1, v))" />
+        <el-input-number :model-value="save.relationships[i - 1]" :min="0" :max="MAX_REL" @update:model-value="(v) => changeNum((n) => save!.setRelationship(i - 1, n), v ?? undefined)" />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="maxResources()">{{ t('resources.maxAll') }}</el-button>

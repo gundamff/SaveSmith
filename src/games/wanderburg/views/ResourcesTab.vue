@@ -7,11 +7,9 @@ import { useWbEditor } from './inject'
 const editor = useWbEditor()
 const fields = computed(() => listResourceFields(editor.save.doc))
 
-function changeNum(path: string): (v: number | undefined) => void {
-  return (v) => {
-    if (v === undefined) return
-    editor.markDirty(() => setByPath(editor.save.doc, path, v))
-  }
+function changeNum(path: string, v: number | undefined): void {
+  if (v === undefined || Number.isNaN(v)) return
+  editor.markDirty(() => setByPath(editor.save.doc, path, v))
 }
 </script>
 
@@ -19,7 +17,11 @@ function changeNum(path: string): (v: number | undefined) => void {
   <p v-if="fields.length === 0" class="wb-empty">{{ t('wb.resources.empty') }}</p>
   <el-form v-else label-width="180px" style="max-width: 480px">
     <el-form-item v-for="f in fields" :key="f.path" :label="t(f.labelKey)">
-      <el-input-number :model-value="f.value" :min="0" @change="changeNum(f.path)" />
+      <el-input-number
+        :model-value="f.value"
+        :min="0"
+        @update:model-value="(v) => changeNum(f.path, v ?? undefined)"
+      />
     </el-form-item>
   </el-form>
 </template>
