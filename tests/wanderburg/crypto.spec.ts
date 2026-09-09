@@ -1,4 +1,6 @@
+import fs from 'node:fs'
 import { describe, expect, it } from 'vitest'
+import { MM_KEY } from '../../src/games/wanderburg/crypto/keys'
 import {
   decryptSaveBytesToUtf8,
   encryptUtf8ToSaveBytes
@@ -17,5 +19,15 @@ describe('mmJsonEncrypted', () => {
   it('rejects wrong key', () => {
     const fileBytes = encryptUtf8ToSaveBytes('{"a":1}', 'right')
     expect(() => decryptSaveBytesToUtf8(fileBytes, 'wrong')).toThrow()
+  })
+})
+
+const savePath = process.env.WANDERBURG_SAVE
+describe.runIf(!!savePath)('real save', () => {
+  it('decrypts and re-encrypts', () => {
+    const bytes = new Uint8Array(fs.readFileSync(savePath as string))
+    const plain = decryptSaveBytesToUtf8(bytes, MM_KEY)
+    const again = encryptUtf8ToSaveBytes(plain, MM_KEY)
+    expect(decryptSaveBytesToUtf8(again, MM_KEY)).toBe(plain)
   })
 })

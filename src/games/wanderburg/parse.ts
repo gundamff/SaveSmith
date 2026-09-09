@@ -1,20 +1,39 @@
 import { ModuleError } from '@sdk/error'
 import type { SerializedFile, SlotBytes, ValidationIssue } from '@sdk/types'
+import { decryptSaveBytesToUtf8, encryptUtf8ToSaveBytes } from './crypto/mmJsonEncrypted'
+import { MM_KEY } from './crypto/keys'
 
 export interface WanderburgState {
-  readonly _stub: true
+  relativePath: string
+  doc: Record<string, unknown>
 }
 
-function decryptNotReady(): never {
-  throw new ModuleError('DECRYPT_FAILED', [])
+export function parse(files: SlotBytes[]): WanderburgState {
+  const f = files.find((x) => /SaveData\.json$/i.test(x.relativePath))
+  if (!f) throw new ModuleError('MISSING_FIELD', ['SaveData.json'])
+  let text: string
+  try {
+    text = decryptSaveBytesToUtf8(f.bytes, MM_KEY)
+  } catch {
+    throw new ModuleError('DECRYPT_FAILED', [])
+  }
+  let doc: Record<string, unknown>
+  try {
+    doc = JSON.parse(text) as Record<string, unknown>
+  } catch {
+    throw new ModuleError('DECRYPT_FAILED', [])
+  }
+  return { relativePath: f.relativePath, doc }
 }
 
-export function parse(_files: SlotBytes[]): WanderburgState {
-  decryptNotReady()
-}
-
-export function serialize(_state: WanderburgState): SerializedFile[] {
-  decryptNotReady()
+export function serialize(state: WanderburgState): SerializedFile[] {
+  const plain = JSON.stringify(state.doc)
+  return [
+    {
+      relativePath: state.relativePath,
+      bytes: encryptUtf8ToSaveBytes(plain, MM_KEY)
+    }
+  ]
 }
 
 export function validate(_state: WanderburgState): ValidationIssue[] {

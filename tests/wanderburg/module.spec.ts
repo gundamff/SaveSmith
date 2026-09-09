@@ -3,6 +3,8 @@ import { ModuleError } from '@sdk/error'
 import { modules } from '@host/registry'
 import { chaosFrontModule } from '../../src/games/chaos-front'
 import { wanderburgModule } from '../../src/games/wanderburg'
+import { encryptUtf8ToSaveBytes } from '../../src/games/wanderburg/crypto/mmJsonEncrypted'
+import { MM_KEY } from '../../src/games/wanderburg/crypto/keys'
 
 describe('wanderburgModule catalog / locate / registry', () => {
   it('registers as wanderburg with catalog, locate, and two placeholder views', () => {
@@ -34,44 +36,56 @@ describe('wanderburgModule catalog / locate / registry', () => {
   })
 })
 
-describe('wanderburgModule parse stub', () => {
-  it('parse throws DECRYPT_FAILED until crypto is wired', () => {
+describe('wanderburgModule parse / serialize', () => {
+  const relativePath = 'Saves/Playtest/Generation_0001/SaveData.json'
+  const doc = { saveVersion: 7, silver: 100, unlockedIDs: [1, 2] }
+  const bytes = encryptUtf8ToSaveBytes(JSON.stringify(doc), MM_KEY)
+
+  it('parse decrypts SaveData.json into state', () => {
+    const state = wanderburgModule.parse([{ relativePath, bytes }])
+    expect(state.relativePath).toBe(relativePath)
+    expect(state.doc).toEqual(doc)
+  })
+
+  it('parse throws MISSING_FIELD without SaveData.json', () => {
     expect(() =>
-      wanderburgModule.parse([
-        {
-          relativePath: 'Saves/Playtest/Generation_0001/SaveData.json',
-          bytes: new Uint8Array([1])
-        }
-      ])
+      wanderburgModule.parse([{ relativePath: 'Saves/other.txt', bytes: new Uint8Array([1]) }])
     ).toThrow(ModuleError)
     try {
-      wanderburgModule.parse([
-        {
-          relativePath: 'Saves/Playtest/Generation_0001/SaveData.json',
-          bytes: new Uint8Array([1])
-        }
-      ])
+      wanderburgModule.parse([{ relativePath: 'Saves/other.txt', bytes: new Uint8Array([1]) }])
+    } catch (e) {
+      expect(e).toMatchObject({ code: 'MISSING_FIELD', args: ['SaveData.json'] })
+    }
+  })
+
+  it('parse throws DECRYPT_FAILED on garbage bytes', () => {
+    expect(() =>
+      wanderburgModule.parse([{ relativePath, bytes: new Uint8Array([1, 2, 3]) }])
+    ).toThrow(ModuleError)
+    try {
+      wanderburgModule.parse([{ relativePath, bytes: new Uint8Array([1, 2, 3]) }])
     } catch (e) {
       expect(e).toMatchObject({ code: 'DECRYPT_FAILED', args: [] })
     }
   })
 
-  it('serialize throws DECRYPT_FAILED', () => {
-    expect(() => wanderburgModule.serialize({} as never)).toThrow(ModuleError)
-    try {
-      wanderburgModule.serialize({} as never)
-    } catch (e) {
-      expect(e).toMatchObject({ code: 'DECRYPT_FAILED', args: [] })
-    }
+  it('serialize round-trips through parse', () => {
+    const state = wanderburgModule.parse([{ relativePath, bytes }])
+    const out = wanderburgModule.serialize(state)
+    expect(out).toHaveLength(1)
+    expect(out[0]?.relativePath).toBe(relativePath)
+    const again = wanderburgModule.parse(out)
+    expect(again.doc).toEqual(doc)
   })
 
   it('actions is empty and applyAction is identity', () => {
-    const state = {} as never
+    const state = wanderburgModule.parse([{ relativePath, bytes }])
     expect(wanderburgModule.actions(state)).toEqual([])
     expect(wanderburgModule.applyAction(state, 'nope')).toBe(state)
   })
 
-  it('validate returns empty for stub', () => {
-    expect(wanderburgModule.validate({} as never)).toEqual([])
+  it('validate returns empty', () => {
+    const state = wanderburgModule.parse([{ relativePath, bytes }])
+    expect(wanderburgModule.validate(state)).toEqual([])
   })
 })

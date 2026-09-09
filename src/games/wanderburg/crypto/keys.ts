@@ -1,5 +1,5 @@
-/** Feel MM JsonEncrypted default salt; replace if real saves prove otherwise. */
+/** Per-save salt is embedded in ciphertext; kept for module docs / future variants. */
 export const DEFAULT_SALT = 'SaltTextGoesHere'
 
-/** Placeholder until Task 4 derives the real game key. */
-export const MM_KEY = 'wanderburg-placeholder-key'
+/** SaveLoad.StringCipher passphrase (IL2CPP SaveLoad.EncryptionKey). */
+export const MM_KEY = 'edugfhseufgoqwuiehrieutahl'
