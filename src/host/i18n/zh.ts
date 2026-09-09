@@ -49,6 +49,12 @@ export const zh: MessageTree = {
     disclaimer:
       '非官方工具。与 {0} 官方无任何关联、授权或合作。仅供已购买正版的玩家在本地、单机环境下学习研究。禁止用于联机或破坏多人公平。'
   },
+  wb: {
+    tabs: {
+      resources: '资源',
+      unlock: '解锁'
+    }
+  },
   cf: {
     actions: {
       fillResources: '一键拉满（信用/威望/星级）',
@@ -74,6 +80,7 @@ export const zh: MessageTree = {
     MISSING_FIELD: '存档缺少字段 {0}，格式不兼容',
     UNIT_INDEX: '机体下标无效: {0}',
     PILOT_TAKEN: '驾驶员已被占用（机体 #{0}）',
-    DEPLOYED_NO_PILOT: '已上阵机体缺少驾驶员（机体 #{0}），请先拖驾驶员上去再保存，否则游戏会崩溃'
+    DEPLOYED_NO_PILOT: '已上阵机体缺少驾驶员（机体 #{0}），请先拖驾驶员上去再保存，否则游戏会崩溃',
+    DECRYPT_FAILED: '无法解密 Wanderburg 存档（密钥未适配或文件损坏）'
   }
 }

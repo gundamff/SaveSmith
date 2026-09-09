@@ -49,6 +49,12 @@ export const en: MessageTree = {
     disclaimer:
       'Unofficial tool. Not affiliated with, authorized by, or endorsed by {0}. For personal, offline study by owners of a legitimate copy only. Online / multiplayer use is prohibited.'
   },
+  wb: {
+    tabs: {
+      resources: 'Resources',
+      unlock: 'Unlock'
+    }
+  },
   cf: {
     actions: {
       fillResources: 'Max credits / prestige / stars',
@@ -75,6 +81,8 @@ export const en: MessageTree = {
     UNIT_INDEX: 'Invalid unit index: {0}',
     PILOT_TAKEN: 'Pilot already assigned (unit #{0})',
     DEPLOYED_NO_PILOT:
-      'Deployed unit(s) missing pilot (#{0}); assign a pilot before saving or the game will crash'
+      'Deployed unit(s) missing pilot (#{0}); assign a pilot before saving or the game will crash',
+    DECRYPT_FAILED:
+      'Cannot decrypt Wanderburg save (key not adapted or file corrupted)'
   }
 }
