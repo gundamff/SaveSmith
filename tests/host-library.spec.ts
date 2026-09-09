@@ -4,10 +4,10 @@ import { confirmSaveDir, probeModuleSaveDir } from '@host/probe'
 import { modules } from '@host/registry'
 
 describe('registry', () => {
-  it('registers Chaos Front as the compiled game module', () => {
-    expect(modules).toHaveLength(1)
-    expect(modules[0].id).toBe('chaos-front')
+  it('registers compiled game modules in registry order', () => {
     expect(Array.isArray(modules)).toBe(true)
+    expect(modules).toHaveLength(2)
+    expect(modules.map((m) => m.id)).toEqual(['chaos-front', 'wanderburg'])
   })
 })
 

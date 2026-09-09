@@ -6,6 +6,7 @@ import { utf8Decode, utf8Encode } from '@sdk/session'
 import type { ListedFile, SlotBytes } from '@sdk/types'
 import { modules } from '@host/registry'
 import { chaosFrontModule } from '../../src/games/chaos-front'
+import { wanderburgModule } from '../../src/games/wanderburg'
 import { SaveData } from '../../src/games/chaos-front/model/saveModel'
 
 const fixture = (): string => readFileSync(join(__dirname, 'fixtures/minimal-save.json'), 'utf8')
@@ -67,7 +68,7 @@ describe('chaosFrontModule catalog / locate', () => {
         'collection.cf'
       ]
     })
-    expect(modules).toEqual([chaosFrontModule])
+    expect(modules).toEqual([chaosFrontModule, wanderburgModule])
   })
 })
 
