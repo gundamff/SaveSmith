@@ -17,6 +17,31 @@ describe('wanderburg saveModel', () => {
     expect(fields.some((f) => f.path === 'silverBeforeLastRun')).toBe(true)
     expect(fields.some((f) => f.path === 'unlockedIDs')).toBe(false)
     expect(fields.some((f) => f.path === 'lastLoadout')).toBe(false)
+    expect(fields.some((f) => f.path === 'saveVersion')).toBe(false)
+    expect(fields.some((f) => f.path === 'lastSavedUtcTicks')).toBe(false)
+    expect(fields.some((f) => f.path === 'progressResetGeneration')).toBe(false)
+  })
+
+  it('skips save metadata numerics', () => {
+    const doc = {
+      saveVersion: 7,
+      lastSavedUtcTicks: 638000000000000,
+      progressResetGeneration: 2,
+      silver: 100,
+      silverBeforeLastRun: 50
+    } as Record<string, unknown>
+    const paths = listResourceFields(doc).map((f) => f.path)
+    expect(paths).toEqual(['silver', 'silverBeforeLastRun'])
+  })
+
+  it('ignores unknown unlock IDs', () => {
+    const doc = structuredClone(sample) as Record<string, unknown>
+    const before = [...(doc.unlockedIDs as number[])]
+    setUnlock(doc, '99999', true)
+    expect(doc.unlockedIDs).toEqual(before)
+    expect(listUnlockEntries(doc).some((e) => e.id === '99999')).toBe(false)
+    setUnlock(doc, 'not-a-number', true)
+    expect(doc.unlockedIDs).toEqual(before)
   })
 
   it('toggles unlock membership', () => {

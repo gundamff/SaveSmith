@@ -22,6 +22,13 @@ const SKIP_INT_ARRAY_KEYS = new Set([
   'lastDeco'
 ])
 
+/** Save metadata numerics — not player-editable resources. */
+const SKIP_RESOURCE_KEYS = new Set([
+  'saveVersion',
+  'lastSavedUtcTicks',
+  'progressResetGeneration'
+])
+
 const UNLOCK_MEMBERSHIP_KEY = 'unlockedIDs'
 
 /** Session-stable unlock ids so unchecked entries remain visible in the editor. */
@@ -89,7 +96,9 @@ export function listResourceFields(doc: Record<string, unknown>): ResourceField[
     for (const [key, value] of Object.entries(obj)) {
       const path = prefix ? `${prefix}.${key}` : key
       if (typeof value === 'number' && Number.isFinite(value)) {
-        out.push({ path, value })
+        if (!SKIP_RESOURCE_KEYS.has(key)) {
+          out.push({ path, value })
+        }
         continue
       }
       if (isPureIntArray(value) && SKIP_INT_ARRAY_KEYS.has(key)) {
@@ -116,10 +125,12 @@ export function listUnlockEntries(doc: Record<string, unknown>): UnlockEntry[] {
 export function setUnlock(doc: Record<string, unknown>, id: string, unlocked: boolean): void {
   const n = Number(id)
   if (!Number.isInteger(n)) return
+  const universe = unlockUniverse(doc)
+  const idStr = String(n)
+  if (!universe.has(idStr)) return
   const arr = intArray(doc, UNLOCK_MEMBERSHIP_KEY)
   doc[UNLOCK_MEMBERSHIP_KEY] = arr
   const i = arr.indexOf(n)
-  unlockUniverse(doc).add(String(n))
   if (unlocked && i < 0) arr.push(n)
   if (!unlocked && i >= 0) arr.splice(i, 1)
 }
