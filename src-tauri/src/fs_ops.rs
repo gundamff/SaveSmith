@@ -5,7 +5,8 @@ use std::time::{SystemTime, UNIX_EPOCH};
 
 pub const BACKUP_KEEP: usize = 10;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize)]
+#[serde(rename_all = "camelCase")]
 pub struct BackupInfo {
     pub name: String,
     pub mtime_ms: u64,
@@ -351,5 +352,19 @@ mod tests {
     fn format_utc_stamp_epoch() {
         assert_eq!(format_utc_stamp(0), "19700101000000");
         assert_eq!(format_utc_stamp(1_704_067_200), "20240101000000");
+    }
+
+    #[test]
+    fn backup_info_serializes_camel_case() {
+        let json = serde_json::to_value(&BackupInfo {
+            name: "savedata0_20260101000000.cf.bak".into(),
+            mtime_ms: 1_700_000_000_000,
+            size: 42,
+        })
+        .unwrap();
+        assert_eq!(json["name"], "savedata0_20260101000000.cf.bak");
+        assert_eq!(json["mtimeMs"], 1_700_000_000_000_u64);
+        assert_eq!(json["size"], 42);
+        assert!(json.get("mtime_ms").is_none());
     }
 }

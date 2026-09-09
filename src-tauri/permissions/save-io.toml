@@ -1,0 +1,44 @@
+[[permission]]
+identifier = "allow-pick-folder"
+description = "Enables the pick_folder command."
+commands.allow = ["pick_folder"]
+
+[[permission]]
+identifier = "allow-list-dir-names"
+description = "Enables the list_dir_names command."
+commands.allow = ["list_dir_names"]
+
+[[permission]]
+identifier = "allow-read-file-bytes"
+description = "Enables the read_file_bytes command."
+commands.allow = ["read_file_bytes"]
+
+[[permission]]
+identifier = "allow-write-atomic"
+description = "Enables the write_atomic command."
+commands.allow = ["write_atomic"]
+
+[[permission]]
+identifier = "allow-list-backups"
+description = "Enables the list_backups command."
+commands.allow = ["list_backups"]
+
+[[permission]]
+identifier = "allow-restore-backup"
+description = "Enables the restore_backup command."
+commands.allow = ["restore_backup"]
+
+[[permission]]
+identifier = "allow-delete-backup"
+description = "Enables the delete_backup command."
+commands.allow = ["delete_backup"]
+
+[[permission]]
+identifier = "allow-app-version"
+description = "Enables the app_version command."
+commands.allow = ["app_version"]
+
+[[permission]]
+identifier = "allow-open-external"
+description = "Enables the open_external command."
+commands.allow = ["open_external"]

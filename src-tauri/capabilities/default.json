@@ -5,6 +5,15 @@
   "windows": ["main"],
   "permissions": [
     "core:default",
-    "opener:default"
+    "dialog:allow-open",
+    "allow-pick-folder",
+    "allow-list-dir-names",
+    "allow-read-file-bytes",
+    "allow-write-atomic",
+    "allow-list-backups",
+    "allow-restore-backup",
+    "allow-delete-backup",
+    "allow-app-version",
+    "allow-open-external"
   ]
 }
