@@ -43,3 +43,39 @@ export function assertSerializeSane(files: SerializedFile[]): void {
     throw new ModuleError('EMPTY_SERIALIZE', [])
   }
 }
+
+function segmentMatches(pattern: string, segment: string): boolean {
+  if (pattern === '*') return true
+  const star = pattern.indexOf('*')
+  if (star === -1) return pattern.toLowerCase() === segment.toLowerCase()
+  const prefix = pattern.slice(0, star).toLowerCase()
+  const suffix = pattern.slice(star + 1).toLowerCase()
+  const seg = segment.toLowerCase()
+  return seg.startsWith(prefix) && seg.endsWith(suffix) && seg.length >= prefix.length + suffix.length
+}
+
+export function matchSlotFilePatterns(paths: string[], patterns: string[]): string[] {
+  const out: string[] = []
+  const seen = new Set<string>()
+  for (const pattern of patterns) {
+    const parts = pattern.replace(/\\/g, '/').split('/')
+    for (const raw of paths) {
+      const path = raw.replace(/\\/g, '/')
+      const segs = path.split('/')
+      if (segs.length !== parts.length) continue
+      let ok = true
+      for (let i = 0; i < parts.length; i++) {
+        if (!segmentMatches(parts[i]!, segs[i]!)) {
+          ok = false
+          break
+        }
+      }
+      if (!ok) continue
+      const key = path.toLowerCase()
+      if (seen.has(key)) continue
+      seen.add(key)
+      out.push(path)
+    }
+  }
+  return out
+}

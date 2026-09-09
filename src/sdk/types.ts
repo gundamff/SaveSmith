@@ -17,6 +17,7 @@ export interface GameCatalog {
 export interface SaveLocator {
   windowsPathTemplates: string[]
   identifyAnyOf: string[]
+  slotFilePatterns?: string[]
 }
 
 export interface ListedFile {

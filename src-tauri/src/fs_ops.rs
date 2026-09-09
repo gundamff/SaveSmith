@@ -279,6 +279,40 @@ fn civil_from_days(z: i64) -> (i32, u32, u32) {
     (y as i32, m as u32, d as u32)
 }
 
+pub fn list_relative_file_paths(root: &Path, max_depth: u32) -> Result<Vec<String>, String> {
+    let mut out = Vec::new();
+    fn walk(
+        dir: &Path,
+        root: &Path,
+        depth: u32,
+        max_depth: u32,
+        out: &mut Vec<String>,
+    ) -> Result<(), String> {
+        if depth > max_depth {
+            return Ok(());
+        }
+        let rd = fs::read_dir(dir).map_err(|e| e.to_string())?;
+        for ent in rd {
+            let ent = ent.map_err(|e| e.to_string())?;
+            let path = ent.path();
+            let name = ent.file_name().to_string_lossy().to_string();
+            if name.eq_ignore_ascii_case("backup") {
+                continue;
+            }
+            if path.is_dir() {
+                walk(&path, root, depth + 1, max_depth, out)?;
+            } else if path.is_file() {
+                let rel = path.strip_prefix(root).map_err(|e| e.to_string())?;
+                out.push(rel.to_string_lossy().replace('\\', "/"));
+            }
+        }
+        Ok(())
+    }
+    walk(root, root, 0, max_depth, &mut out)?;
+    out.sort();
+    Ok(out)
+}
+
 fn mtime_ms(meta: &fs::Metadata) -> u64 {
     meta.modified()
         .ok()

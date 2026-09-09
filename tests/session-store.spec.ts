@@ -72,6 +72,37 @@ afterEach(() => {
 })
 
 describe('useSessionStore', () => {
+  it('openGame reads nested slot files via slotFilePatterns', async () => {
+    const nestedPath = 'Saves/Playtest/Generation_0001/SaveData.json'
+    const io = createMemoryIo({ [nestedPath]: enc('{"gold":99}') })
+    io.listRelativeFilePaths = async () => [nestedPath, 'Player.log']
+    const reads: string[] = []
+    const origRead = io.readFileBytes.bind(io)
+    io.readFileBytes = async (dir, relativePath) => {
+      reads.push(relativePath)
+      return origRead(dir, relativePath)
+    }
+    const nested: GameModule<DummyState> = {
+      ...dummyModule,
+      locate: {
+        windowsPathTemplates: [],
+        identifyAnyOf: ['Player.log'],
+        slotFilePatterns: ['Saves/Playtest/Generation_*/SaveData.json']
+      },
+      listSlots(files) {
+        const hit = files.files.find((f) => f.relativePath === nestedPath)
+        expect(hit?.bytes).not.toBeNull()
+        return [{ id: 'gen-1', exists: true, readable: true, sessionFiles: [nestedPath] }]
+      }
+    }
+    setSessionIo(io)
+    const store = useSessionStore()
+    await store.openGame(nested, 'D:\\saves')
+    expect(reads).toContain(nestedPath)
+    expect(store.slots).toHaveLength(1)
+    expect(store.slots[0].id).toBe('gen-1')
+  })
+
   it('openGame only reads identifyAnyOf names that exist', async () => {
     const io = createMemoryIo({
       'save.txt': enc('10'),

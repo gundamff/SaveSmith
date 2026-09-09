@@ -1,11 +1,12 @@
 import { defineStore } from 'pinia'
 import { markRaw, ref, shallowRef, triggerRef } from 'vue'
-import { assertSerializeSane, changedFiles } from '@sdk/session'
+import { assertSerializeSane, changedFiles, matchSlotFilePatterns } from '@sdk/session'
 import type { GameModule, ListedFile, SlotBytes, SlotInfo, ValidationIssue } from '@sdk/types'
 import { translateError } from '../i18n'
 import {
   listBackups,
   listDirNames,
+  listRelativeFilePaths,
   readFileBytes,
   restoreBackup,
   writeAtomic,
@@ -22,6 +23,7 @@ export interface SessionIo {
   writeAtomic(dir: string, relativePath: string, bytes: Uint8Array): Promise<string>
   listBackups(dir: string, relativePath: string): Promise<BackupInfoDto[]>
   restoreBackup(dir: string, relativePath: string, name: string): Promise<void>
+  listRelativeFilePaths?(dir: string, maxDepth?: number): Promise<string[]>
 }
 
 const defaultIo: SessionIo = {
@@ -29,7 +31,8 @@ const defaultIo: SessionIo = {
   readFileBytes,
   writeAtomic,
   listBackups,
-  restoreBackup
+  restoreBackup,
+  listRelativeFilePaths
 }
 
 let sessionIo: SessionIo = defaultIo
@@ -104,6 +107,22 @@ export const useSessionStore = defineStore('session', () => {
       return
     }
     const files = await readIdentifyFiles(dir, names, mod.locate.identifyAnyOf)
+    const patterns = mod.locate.slotFilePatterns
+    if (patterns?.length && sessionIo.listRelativeFilePaths) {
+      const all = await sessionIo.listRelativeFilePaths(dir, 6)
+      const matched = matchSlotFilePatterns(all, patterns)
+      const existing = new Set(files.map((f) => f.relativePath.toLowerCase()))
+      for (const relativePath of matched) {
+        if (existing.has(relativePath.toLowerCase())) continue
+        existing.add(relativePath.toLowerCase())
+        try {
+          const bytes = await sessionIo.readFileBytes(dir, relativePath)
+          files.push({ relativePath, bytes })
+        } catch {
+          files.push({ relativePath, bytes: null })
+        }
+      }
+    }
     slots.value = mod.listSlots({ dir, files })
   }
 

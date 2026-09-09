@@ -27,6 +27,10 @@ export function listDirNames(dir: string): Promise<string[]> {
   return invoke<string[]>('list_dir_names', { dir })
 }
 
+export function listRelativeFilePaths(dir: string, maxDepth = 6): Promise<string[]> {
+  return invoke<string[]>('list_relative_file_paths', { dir, maxDepth })
+}
+
 export async function readFileBytes(dir: string, relativePath: string): Promise<Uint8Array> {
   const data = await invoke<number[] | ArrayBuffer>('read_file_bytes', {
     dir,

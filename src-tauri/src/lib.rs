@@ -45,6 +45,11 @@ fn list_dir_names(dir: String) -> Result<Vec<String>, String> {
 }
 
 #[tauri::command]
+fn list_relative_file_paths(dir: String, max_depth: u32) -> Result<Vec<String>, String> {
+    fs_ops::list_relative_file_paths(Path::new(&dir), max_depth)
+}
+
+#[tauri::command]
 fn read_file_bytes(dir: String, relative_path: String) -> Result<Vec<u8>, String> {
     let path = fs_ops::safe_join(Path::new(&dir), &relative_path)?;
     fs::read(path).map_err(|e| e.to_string())
@@ -91,6 +96,7 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             pick_folder,
             list_dir_names,
+            list_relative_file_paths,
             read_file_bytes,
             write_atomic,
             list_backups,
