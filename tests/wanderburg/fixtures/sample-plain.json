@@ -1,0 +1,11 @@
+{
+  "saveVersion": 7,
+  "saveChannel": "Playtest",
+  "silver": 1250,
+  "silverBeforeLastRun": 980,
+  "unlockedIDs": [101, 205, 310],
+  "unlockedAndNew": [205],
+  "unlockedBiomeIDs": ["forest", "desert"],
+  "lastLoadout": [1, 0, 2],
+  "lastDeco": [0]
+}
