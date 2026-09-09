@@ -1,8 +1,13 @@
 import type { MessageTree } from './zh'
 
 export const en: MessageTree = {
+  app: {
+    brandZh: 'Cundang-chan',
+    tagline: 'Hammer your saves into shape'
+  },
   library: {
     title: 'Game Library',
+    subtitle: 'Pick a game and start editing',
     detected: 'Save folder found',
     missing: 'Not found, please choose manually',
     chooseDir: 'Choose save folder',

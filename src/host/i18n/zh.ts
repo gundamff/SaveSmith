@@ -1,8 +1,13 @@
 export type MessageTree = { [key: string]: string | MessageTree }
 
 export const zh: MessageTree = {
+  app: {
+    brandZh: '存档酱',
+    tagline: '帮你把存档敲成想要的样子'
+  },
   library: {
     title: '游戏库',
+    subtitle: '选择一款游戏，开始改档',
     detected: '已找到存档目录',
     missing: '未找到，请手动选择',
     chooseDir: '选择存档目录',

@@ -6,7 +6,7 @@ import { wanderburgViews } from './views'
 
 export type { WanderburgState }
 
-const coverUrl = new URL('./cover.svg', import.meta.url).href
+const coverUrl = new URL('./cover.jpg', import.meta.url).href
 
 export const wanderburgModule: GameModule<WanderburgState> = {
   id: 'wanderburg',

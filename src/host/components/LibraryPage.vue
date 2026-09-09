@@ -66,7 +66,10 @@ function onOpen(mod: GameModule): void {
 
 <template>
   <section class="library">
-    <h1>{{ t('library.title') }}</h1>
+    <header class="hero">
+      <h1>{{ t('library.title') }}</h1>
+      <p class="subtitle">{{ t('library.subtitle') }}</p>
+    </header>
     <div class="grid">
       <GameCard
         v-for="mod in modules"
@@ -82,18 +85,32 @@ function onOpen(mod: GameModule): void {
 
 <style scoped>
 .library {
-  padding: 1.25rem 1.5rem 2rem;
+  padding: 1.75rem 1.75rem 2.5rem;
+  flex: 1;
+}
+
+.hero {
+  margin: 0 0 1.5rem;
+  max-width: 40rem;
 }
 
 h1 {
-  margin: 0 0 1.25rem;
-  font-size: 1.4rem;
-  font-weight: 600;
+  margin: 0;
+  font-size: clamp(1.65rem, 2.4vw, 2.05rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-family: 'Segoe UI Semibold', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.subtitle {
+  margin: 0.45rem 0 0;
+  font-size: 0.98rem;
+  color: var(--ss-muted, #8fa3b0);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.15rem;
 }
 </style>

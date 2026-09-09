@@ -3,7 +3,10 @@ import { ModuleError } from '@sdk/error'
 import { locale, setLocale, t, translateError } from '@host/i18n'
 
 const REQUIRED_KEYS = [
+  'app.brandZh',
+  'app.tagline',
   'library.title',
+  'library.subtitle',
   'library.detected',
   'library.missing',
   'library.chooseDir',
