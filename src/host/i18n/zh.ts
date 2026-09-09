@@ -58,8 +58,7 @@ export const zh: MessageTree = {
   },
   wb: {
     tabs: {
-      resources: '资源',
-      unlock: '解锁'
+      resources: '资源'
     },
     resources: {
       silver: '银币',

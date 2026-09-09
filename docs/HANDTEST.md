@@ -102,22 +102,21 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 - [ ] 列表含 **`silver`**（当前银币）及 **`silverBeforeLastRun`**（若存档中存在）
 - [ ] 修改数值后工具栏出现「未保存」；宿主「保存」后 `backup/` 出现对应 `SaveData.json` 时间戳备份
 
-### W4. 解锁页
+### W4. 解锁页（已下线）
 
-- [ ] 「解锁」Tab 列出 `unlockedIDs` 中的条目（勾选 = 已解锁）
-- [ ] 勾选/取消勾选后保存；重新载入同一槽，勾选状态与修改一致
-- [ ] 无友好名时显示数字 ID（`unlock-names.json` 可后续补全）
+- [ ] Wanderburg **不再提供**「解锁」Tab：游戏内 `UnlockableData.allUnlockables` 无完整可导出名称表，半残 ID 列表会误导玩家
 
 ### W5. 宿主保存与备份
 
 - [ ] 保存前自动备份；覆盖写盘失败时不删除活档（与 Chaos Front 相同原子写策略）
 - [ ] 备份面板可还原刚生成的备份，还原后界面数值与文件一致
+- [ ] 备份面板可删除单条备份（需确认）
 
 ### W6. 游戏本体读档（Task 4 Step 5）
 
 - [ ] **完全退出 Wanderburg** 后，用 SaveSmith 修改副本中的某 `Generation_*/SaveData.json` 并保存
 - [ ] 启动游戏，加载**同一 Generation** 对应进度
-- [ ] 游戏能正常读档，修改过的 **silver** / 解锁项与 SaveSmith 中一致，无崩溃或拒档
+- [ ] 游戏能正常读档，修改过的 **silver** 与 SaveSmith 中一致，无崩溃或拒档
 - [ ] 若游戏拒档或数值未生效，记录游戏版本与 `saveVersion`，勿当作已通过
 
 ### W7. 错误密钥（可选）

@@ -7,13 +7,10 @@ import { encryptUtf8ToSaveBytes } from '../../src/games/wanderburg/crypto/mmJson
 import { MM_KEY } from '../../src/games/wanderburg/crypto/keys'
 
 describe('wanderburgModule catalog / locate / registry', () => {
-  it('registers as wanderburg with catalog, locate, and two placeholder views', () => {
+  it('registers as wanderburg with catalog, locate, and resources view', () => {
     expect(wanderburgModule.id).toBe('wanderburg')
-    expect(wanderburgModule.views.map((v) => v.id)).toEqual(['resources', 'unlock'])
-    expect(wanderburgModule.views.map((v) => v.labelKey)).toEqual([
-      'wb.tabs.resources',
-      'wb.tabs.unlock'
-    ])
+    expect(wanderburgModule.views.map((v) => v.id)).toEqual(['resources'])
+    expect(wanderburgModule.views.map((v) => v.labelKey)).toEqual(['wb.tabs.resources'])
     expect(wanderburgModule.views.every((v) => v.component != null)).toBe(true)
     expect(wanderburgModule.catalog).toMatchObject({
       name: { zh: 'Wanderburg', en: 'Wanderburg' },

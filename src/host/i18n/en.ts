@@ -58,8 +58,7 @@ export const en: MessageTree = {
   },
   wb: {
     tabs: {
-      resources: 'Resources',
-      unlock: 'Unlock'
+      resources: 'Resources'
     },
     resources: {
       silver: 'Silver',

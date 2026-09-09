@@ -1,13 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import sample from './fixtures/sample-plain.json'
-import {
-  displayName,
-  getByPath,
-  listResourceFields,
-  listUnlockEntries,
-  setByPath,
-  setUnlock
-} from '../../src/games/wanderburg/model/saveModel'
+import { getByPath, listResourceFields, setByPath } from '../../src/games/wanderburg/model/saveModel'
 
 describe('wanderburg saveModel', () => {
   it('lists only allowlisted currency fields with labels', () => {
@@ -37,33 +30,10 @@ describe('wanderburg saveModel', () => {
     expect(fields[0]!.labelKey).toBe('wb.resources.silver')
   })
 
-  it('ignores unknown unlock IDs', () => {
-    const doc = structuredClone(sample) as Record<string, unknown>
-    const before = [...(doc.unlockedIDs as number[])]
-    setUnlock(doc, '99999', true)
-    expect(doc.unlockedIDs).toEqual(before)
-    expect(listUnlockEntries(doc).some((e) => e.id === '99999')).toBe(false)
-    setUnlock(doc, 'not-a-number', true)
-    expect(doc.unlockedIDs).toEqual(before)
-  })
-
-  it('toggles unlock membership', () => {
-    const doc = structuredClone(sample) as Record<string, unknown>
-    const id = listUnlockEntries(doc)[0]!.id
-    setUnlock(doc, id, false)
-    expect(listUnlockEntries(doc).find((e) => e.id === id)?.unlocked).toBe(false)
-    setUnlock(doc, id, true)
-    expect(listUnlockEntries(doc).find((e) => e.id === id)?.unlocked).toBe(true)
-  })
-
   it('reads and writes by path', () => {
     const doc = structuredClone(sample) as Record<string, unknown>
     expect(getByPath(doc, 'silver')).toBe(1250)
     setByPath(doc, 'silver', 9999)
     expect(getByPath(doc, 'silver')).toBe(9999)
-  })
-
-  it('displayName falls back to unlock id label', () => {
-    expect(displayName('101')).toBe('解锁 #101')
   })
 })

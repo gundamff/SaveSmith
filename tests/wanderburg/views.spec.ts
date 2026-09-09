@@ -75,13 +75,9 @@ describe('wanderburg view sources', () => {
     expect(text).toMatch(/wb\.resources\.empty/)
   })
 
-  it('UnlockTab toggles unlock entries with displayName and bulk select', () => {
-    const text = readFileSync(join(SRC, 'games/wanderburg/views/UnlockTab.vue'), 'utf8')
-    expect(text.includes(electronBridge)).toBe(false)
-    expect(text).toMatch(/listUnlockEntries/)
-    expect(text).toMatch(/setUnlock/)
-    expect(text).toMatch(/displayName/)
-    expect(text).toMatch(/el-checkbox/)
-    expect(text).toMatch(/selectAll|select-all|Select all|全选/i)
+  it('does not ship an Unlock tab without a full unlock catalog', () => {
+    const indexText = readFileSync(join(SRC, 'games/wanderburg/views/index.ts'), 'utf8')
+    expect(indexText).not.toMatch(/UnlockTab/)
+    expect(indexText).toMatch(/resources/)
   })
 })
