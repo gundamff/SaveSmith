@@ -1,61 +1,64 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { invoke } from "@tauri-apps/api/core";
+import { ref } from 'vue'
+import type { GameModule } from '@sdk/types'
+import LibraryPage from './components/LibraryPage.vue'
+import { APP_NAME } from './config'
+import { locale, setLocale, t } from './i18n'
 
-const greetMsg = ref("");
-const name = ref("");
+const aboutOpen = ref(false)
+const opened = ref<{ game: GameModule; dir: string } | null>(null)
 
-async function greet() {
-  // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-  greetMsg.value = await invoke("greet", { name: name.value });
+function onOpen(game: GameModule, dir: string): void {
+  opened.value = { game, dir }
 }
 </script>
 
 <template>
-  <main class="container">
-    <h1>Welcome to Tauri + Vue</h1>
+  <div class="shell">
+    <header class="topbar">
+      <span class="brand">{{ APP_NAME }}</span>
+      <div class="nav">
+        <button
+          type="button"
+          :class="{ active: locale === 'zh' }"
+          @click="setLocale('zh')"
+        >
+          {{ t('nav.langZh') }}
+        </button>
+        <button
+          type="button"
+          :class="{ active: locale === 'en' }"
+          @click="setLocale('en')"
+        >
+          {{ t('nav.langEn') }}
+        </button>
+        <button type="button" @click="aboutOpen = true">{{ t('nav.about') }}</button>
+      </div>
+    </header>
 
-    <div class="row">
-      <a href="https://vite.dev" target="_blank">
-        <img src="/vite.svg" class="logo vite" alt="Vite logo" />
-      </a>
-      <a href="https://tauri.app" target="_blank">
-        <img src="/tauri.svg" class="logo tauri" alt="Tauri logo" />
-      </a>
-      <a href="https://vuejs.org/" target="_blank">
-        <img src="../assets/vue.svg" class="logo vue" alt="Vue logo" />
-      </a>
+    <LibraryPage @open="onOpen" />
+
+    <p v-if="opened" class="placeholder">
+      {{ opened.game.catalog.name[locale] }} · {{ opened.dir }}
+    </p>
+
+    <div v-if="aboutOpen" class="mask" @click.self="aboutOpen = false">
+      <div class="about" role="dialog">
+        <p>{{ APP_NAME }}</p>
+        <button type="button" @click="aboutOpen = false">OK</button>
+      </div>
     </div>
-    <p>Click on the Tauri, Vite, and Vue logos to learn more.</p>
-
-    <form class="row" @submit.prevent="greet">
-      <input id="greet-input" v-model="name" placeholder="Enter a name..." />
-      <button type="submit">Greet</button>
-    </form>
-    <p>{{ greetMsg }}</p>
-  </main>
+  </div>
 </template>
 
-<style scoped>
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #747bff);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #249b73);
-}
-
-</style>
 <style>
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-
-  color: #0f0f0f;
-  background-color: #f6f6f6;
-
+  color: #f3f3f5;
+  background-color: #0f0f14;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -63,98 +66,87 @@ async function greet() {
   -webkit-text-size-adjust: 100%;
 }
 
-.container {
+html,
+body,
+#app {
   margin: 0;
-  padding-top: 10vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  min-height: 100%;
+  background: #0f0f14;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: 0.75s;
-}
-
-.logo.tauri:hover {
-  filter: drop-shadow(0 0 2em #24c8db);
-}
-
-.row {
-  display: flex;
-  justify-content: center;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
-h1 {
-  text-align: center;
-}
-
-input,
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
-  color: #0f0f0f;
-  background-color: #ffffff;
-  transition: border-color 0.25s;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+</style>
+
+<style scoped>
+.shell {
+  min-height: 100vh;
 }
 
-button {
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #23232c;
+  background: #14141a;
+}
+
+.brand {
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.nav {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.nav button {
+  border-radius: 8px;
+  border: 1px solid #2c2c36;
+  background: #1c1c24;
+  color: #f3f3f5;
+  padding: 0.35em 0.75em;
   cursor: pointer;
 }
 
-button:hover {
-  border-color: #396cd8;
-}
-button:active {
-  border-color: #396cd8;
-  background-color: #e8e8e8;
+.nav button.active {
+  border-color: #3b6dff;
+  background: #243056;
 }
 
-input,
-button {
-  outline: none;
+.placeholder {
+  margin: 0 1.5rem 1.5rem;
+  color: #9a9aa8;
+  font-size: 0.9rem;
 }
 
-#greet-input {
-  margin-right: 5px;
+.mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #f6f6f6;
-    background-color: #2f2f2f;
-  }
-
-  a:hover {
-    color: #24c8db;
-  }
-
-  input,
-  button {
-    color: #ffffff;
-    background-color: #0f0f0f98;
-  }
-  button:active {
-    background-color: #0f0f0f69;
-  }
+.about {
+  background: #1a1a22;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  min-width: 200px;
+  text-align: center;
 }
 
+.about button {
+  margin-top: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #2c2c36;
+  background: #22222b;
+  color: #f3f3f5;
+  padding: 0.35em 0.9em;
+  cursor: pointer;
+}
 </style>
