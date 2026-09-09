@@ -6,7 +6,7 @@
 
 `%USERPROFILE%\AppData\LocalLow\ChaosGalaxyStudio\Chaos Front`
 
-把整个目录复制到另一路径，在 SaveSmith 里手选该副本。开发构建：`npm run tauri dev`。安装包：`npm run tauri build` 后的 NSIS。
+把整个目录复制到另一路径，在 SaveSmith 里手选该副本。开发构建：`npm run tauri dev`。免安装：`npm run dist` 后的 `src-tauri/target/release/savesmith.exe`。安装包（可选）：`npm run dist:installer` 后的 NSIS。
 
 WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md)（第 9 项）。Win10/11 通常已预装。
 
@@ -17,7 +17,7 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 ### 1. 冷启动库页
 
 - [ ] 只显示一张 Chaos Front 卡片
-- [ ] 中文界面标题为「混乱前线」，切到 English 后为「Chaos Front」
+- [ ] 中文界面标题为「混沌兵团」，切到 English 后为「Chaos Front」
 - [ ] 卡片有封面图
 - [ ] 「商店页」/ Store page 打开 `https://store.steampowered.com/app/2770330`（或同 AppID 的 Steam 商店页）
 
@@ -29,8 +29,8 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 
 ### 3. 资源拉满 + 宿主保存 + 备份
 
-- [ ] 打开副本目录，载入一个非空槽位
-- [ ] 动作条点「一键拉满（信用/威望/星级）」
+- [ ] 打开副本目录后，顶栏显示游戏名「混沌兵团」和完整存档目录；载入槽位后显示当前槽位标题
+- [ ] 在「资源」页点「一键拉满（信用/威望/星级）」
 - [ ] 点宿主「保存」
 - [ ] 副本目录下的 `backup/` 出现对应主槽备份文件（时间戳 + 原文件名，如 `savedata0_*.bak`）
 
@@ -43,7 +43,7 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 
 ### 5. 图鉴拉满 + `collection.cf` 备份
 
-- [ ] 动作条点「一键拉满（结局 + 收藏度）」（无 `collection.cf` 时该按钮禁用，换一份带图鉴的副本）
+- [ ] 在「图鉴」页点「一键拉满（结局 + 收藏度）」（无 `collection.cf` 时该页没有内容，换一份带图鉴的副本）
 - [ ] 宿主保存
 - [ ] `backup/` 中出现 `collection_*.bak`（或列表里 `relativePath` 为 `collection.cf` 的备份）
 
@@ -62,7 +62,7 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 
 - [ ] 「关于」免责声明含 **ChaosGalaxyStudio**
 - [ ] 声明为非官方、仅限正版单机
-- [ ] 当前 `DONATION_URL` 为空：没有「捐赠」按钮（`GITHUB_REPO_URL` 为空则同样无仓库按钮）
+- [ ] 当前 `DONATION_URL` 为空：没有「捐赠」按钮；`GITHUB_REPO_URL` 有值：有「GitHub 仓库」按钮
 
 ### 9. WebView2（文档）
 

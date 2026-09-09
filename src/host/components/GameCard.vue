@@ -62,14 +62,15 @@ function openStore(): void {
 }
 
 .cover {
-  height: 140px;
+  aspect-ratio: 460 / 215;
+  height: auto;
   background: #0e0e12;
 }
 
 .cover img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 

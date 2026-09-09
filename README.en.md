@@ -4,7 +4,7 @@ An open-source **single-player save editor** (Tauri 2 + Vue 3). It edits structu
 
 v1 ships **Chaos Front** only. The game’s name, trademarks, and assets belong to **ChaosGalaxyStudio** and the respective rights holders.
 
-**中文：** [README.md](README.md)
+**Download:** [Releases](https://github.com/gundamff/SaveSmith/releases) · **中文：** [README.md](README.md) · **Changes:** [CHANGELOG.md](CHANGELOG.md)
 
 ## Disclaimer
 
@@ -22,15 +22,27 @@ Reasonable takedown or block requests from rights holders will be honored for th
 
 ## Download and use
 
-1. Get the Windows x64 installer (NSIS) from this repo’s Releases, or build it with the commands below.
-2. **Fully quit** Chaos Front, then start SaveSmith.
-3. The library should show a single Chaos Front card. **Store page** opens Steam AppID `2770330`.
-4. If auto-detect fails, use **Choose save folder**. A wrong folder shows “This folder is not a save directory for this game”.
-5. Load a slot, use the action bar or deep-edit tabs, then **Save**. The host backs up each changed file (last 10 copies in `backup/`) and writes atomically.
+1. Download the **portable** `SaveSmith-0.1.0-windows-x64.exe` from [Releases](https://github.com/gundamff/SaveSmith/releases) (or build it below) and run it from any folder. No registry, no Program Files. WebView2 must already be on the machine (see above).
+2. Prefer an installer? `npm run dist:installer` builds NSIS (`SaveSmith_*_x64-setup.exe`).
+3. **Fully quit** Chaos Front, then start SaveSmith.
+4. The library should show a single Chaos Front card. **Store page** opens Steam AppID `2770330`.
+5. If auto-detect fails, use **Choose save folder**. A wrong folder shows “This folder is not a save directory for this game”.
+6. Load a slot, then edit in the **Resources / Planets / Formation / …** tabs. One-click fill buttons live inside those pages, not next to the tabs. **Save** writes to disk; the host backs up each changed file (last 10 copies in `backup/`) and writes atomically.
 
 Default Windows save folder:
 
 `%USERPROFILE%\AppData\LocalLow\ChaosGalaxyStudio\Chaos Front`
+
+## Features (0.1)
+
+- Library probes the default save folder and allows a manual pick; the top bar shows the current game, folder, and slot
+- Chaos Front: resources, planets, formation, units, pilots, unlock, collection
+- Saves are backed up under `backup/` (last 10 copies per file); a failed overwrite does not delete the live file
+- Chinese / English UI; the library cover is the Steam header (rights remain with the publisher)
+
+## Architecture
+
+Host (shell + IO) and game modules live in one repo and register at compile time. Modules never touch the disk. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Development
 
@@ -41,10 +53,10 @@ npm install
 npm test
 npm run typecheck
 npm run tauri dev
-npm run tauri build
+npm run dist
 ```
 
-`npm run tauri build` produces a Windows x64 NSIS installer under `src-tauri/target/release/bundle/`.
+Default build is a **portable** single file at `src-tauri/target/release/savesmith.exe` (copy it anywhere). For an installer, `npm run dist:installer` writes NSIS under `src-tauri/target/release/bundle/nsis/`.
 
 ## License
 

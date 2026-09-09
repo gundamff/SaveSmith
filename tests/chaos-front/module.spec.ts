@@ -42,7 +42,7 @@ describe('chaosFrontModule catalog / locate', () => {
     ])
     expect(chaosFrontModule.views.every((v) => v.component != null)).toBe(true)
     expect(chaosFrontModule.catalog).toMatchObject({
-      name: { zh: '混乱前线', en: 'Chaos Front' },
+      name: { zh: '混沌兵团', en: 'Chaos Front' },
       rightsHolder: 'ChaosGalaxyStudio',
       developer: 'Han Zhiyu',
       publisher: 'ChaosGalaxyStudio',
@@ -85,7 +85,7 @@ describe('listSlots', () => {
       exists: true,
       readable: true,
       title: '焰火团',
-      subtitle: '9774',
+      subtitle: '2026/9/7 15:52:02',
       sessionFiles: ['savedata0.cf', 'collection.cf']
     })
     expect(slots[1]).toMatchObject({ exists: false, readable: false, sessionFiles: [] })

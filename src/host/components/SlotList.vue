@@ -31,7 +31,7 @@ function canLoad(readable: boolean, exists: boolean): boolean {
           @click="emit('select', slot.id)"
         >
           <span class="title">{{ slot.title || slot.id }}</span>
-          <span v-if="slot.subtitle" class="sub">{{ slot.subtitle }}</span>
+          <span v-if="slot.subtitle" class="sub">{{ t('slots.savedAt', slot.subtitle) }}</span>
           <span v-if="!slot.exists" class="hint">{{ t('slots.empty') }}</span>
           <span v-else-if="!slot.readable" class="hint">{{ t('slots.unreadable') }}</span>
         </button>

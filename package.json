@@ -8,6 +8,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
+    "dist": "tauri build --no-bundle",
+    "dist:installer": "tauri build",
     "test": "vitest run",
     "typecheck": "vue-tsc --noEmit"
   },

@@ -85,7 +85,7 @@ function unlockAllItems(): void {
 .toolbar { margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
 .grid { display: flex; flex-wrap: wrap; gap: 8px; }
 .cell { width: 88px; padding: 6px; border: 2px solid transparent; border-radius: 6px; text-align: center; cursor: pointer; opacity: 0.45; }
-.cell:hover { background: #f5f7fa; }
+.cell:hover { background: var(--el-fill-color-light); }
 .cell.on { opacity: 1; border-color: var(--el-color-primary); background: var(--el-color-primary-light-9); }
 .cell img { width: 44px; image-rendering: pixelated; }
 .name { display: block; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

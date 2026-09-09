@@ -23,12 +23,16 @@ export const en: MessageTree = {
     unsavedConfirm: 'You have unsaved changes. Leave anyway?',
     slotUnreadable: 'This slot cannot be loaded',
     emptySlots: 'No save slots found',
-    restoreConfirm: 'Restore this backup? The current file will be backed up first.'
+    restoreConfirm: 'Restore this backup? The current file will be backed up first.',
+    saveDir: 'Save folder',
+    currentSlot: 'Current slot',
+    noSlot: 'No slot loaded'
   },
   slots: {
     load: 'Load',
     empty: 'Empty',
-    unreadable: 'Unreadable'
+    unreadable: 'Unreadable',
+    savedAt: 'Saved {0}'
   },
   backups: {
     title: 'Backups',

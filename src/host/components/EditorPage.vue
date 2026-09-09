@@ -3,7 +3,6 @@ import { computed, provide, ref, watch } from 'vue'
 import { ModuleError } from '@sdk/error'
 import { t, translateError } from '../i18n'
 import { useSessionStore } from '../stores/session'
-import ActionBar from './ActionBar.vue'
 import BackupPanel from './BackupPanel.vue'
 import SlotList from './SlotList.vue'
 
@@ -81,7 +80,6 @@ async function onRestore(relativePath: string, backupName: string): Promise<void
     <div class="body">
       <SlotList @select="onSelectSlot" />
       <div class="main">
-        <ActionBar />
         <div v-if="store.state != null && views.length" class="views">
           <nav class="tabs" role="tablist">
             <button
@@ -110,7 +108,8 @@ async function onRestore(relativePath: string, backupName: string): Promise<void
 .editor {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 53px);
+  flex: 1;
+  min-height: 0;
 }
 
 .quit {
@@ -174,7 +173,6 @@ async function onRestore(relativePath: string, backupName: string): Promise<void
 }
 
 .views {
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;

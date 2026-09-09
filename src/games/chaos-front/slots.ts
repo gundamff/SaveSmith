@@ -62,7 +62,7 @@ export function listSlots(listed: ListedFiles): SlotInfo[] {
       exists: true,
       readable: true,
       title: header.armyName,
-      subtitle: header.day !== undefined ? String(header.day) : undefined,
+      subtitle: header.saveTime,
       sessionFiles: [name, 'collection.cf']
     })
   }

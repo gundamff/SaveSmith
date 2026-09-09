@@ -8,12 +8,12 @@ import { chaosFrontViews } from './views'
 export type { ChaosFrontState }
 export { fillResources } from './actions'
 
-const coverUrl = new URL('./cover.svg', import.meta.url).href
+const coverUrl = new URL('./cover.jpg', import.meta.url).href
 
 export const chaosFrontModule: GameModule<ChaosFrontState> = {
   id: 'chaos-front',
   catalog: {
-    name: { zh: '混乱前线', en: 'Chaos Front' },
+    name: { zh: '混沌兵团', en: 'Chaos Front' },
     cover: coverUrl,
     rightsHolder: 'ChaosGalaxyStudio',
     developer: 'Han Zhiyu',

@@ -23,12 +23,16 @@ export const zh: MessageTree = {
     unsavedConfirm: '有未保存的修改，确定离开？',
     slotUnreadable: '该槽位无法载入',
     emptySlots: '未找到存档槽位',
-    restoreConfirm: '确认还原该备份？当前文件会先备份。'
+    restoreConfirm: '确认还原该备份？当前文件会先备份。',
+    saveDir: '存档目录',
+    currentSlot: '当前槽位',
+    noSlot: '未载入槽位'
   },
   slots: {
     load: '载入',
     empty: '空',
-    unreadable: '无法读取'
+    unreadable: '无法读取',
+    savedAt: '保存于 {0}'
   },
   backups: {
     title: '备份',
