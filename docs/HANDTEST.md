@@ -106,7 +106,7 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 
 - [ ] 「解锁」Tab 按 **catalog 全量**（约 63）分组显示，名称来自游戏 `InfoObject`（非裸 ID）
 - [ ] 「全部解锁 / 全部清空」后保存，重载存档勾选状态一致；未知 ID 清空后仍保留
-- [ ] 游戏更新后重导名称表：见 [wanderburg-unlock-catalog.md](wanderburg-unlock-catalog.md)
+- [ ] 游戏更新后重导名称表：见本地 `docs/wanderburg-unlock-catalog.md`（不入库）
 
 ### W5. 宿主保存与备份
 

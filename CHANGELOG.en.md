@@ -22,7 +22,7 @@ Second release. Adds **Wanderburg**, 存档酱 branding, and a full unlock catal
 
 ### Infrastructure / Docs
 
-- Nested relative-path slot discovery; unlock-catalog extraction runbook (`docs/wanderburg-unlock-catalog.md`)
+- Nested relative-path slot discovery; Wanderburg unlock-catalog extraction runbook (kept local, not in the repo)
 - GitHub Actions `CI` / `Release` (portable build on `v*` tags)
 
 ## [0.1.0] - 2026-09-09

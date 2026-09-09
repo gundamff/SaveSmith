@@ -8,6 +8,9 @@ src-tauri/target/
 .superpowers/
 .worktrees/
 .tools/
+docs/superpowers/
+docs/wanderburg-unlock-catalog.md
+docs/企划书.txt
 
 # Logs
 logs

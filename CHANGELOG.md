@@ -22,7 +22,7 @@
 
 ### 工程 / 文档
 
-- 宿主支持嵌套相对路径槽位探测；Wanderburg 解锁表导出手册（`docs/wanderburg-unlock-catalog.md`）
+- 宿主支持嵌套相对路径槽位探测；Wanderburg 解锁表导出手册（本地维护，不入库）
 - GitHub Actions `CI` / `Release`（推送 `v*` 标签自动打包）
 
 ## [0.1.0] - 2026-09-09

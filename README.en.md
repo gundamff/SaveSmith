@@ -6,6 +6,8 @@ An open-source **single-player save editor** (Tauri 2 + Vue 3). It edits structu
 
 > **Unofficial tool.** Not affiliated with, endorsed by, or associated with any game publisher. For personal, offline study by players who own a legitimate copy only. Do not use online, commercially, or to distribute modified saves.
 
+![SaveSmith game library](docs/screenshot-library.png)
+
 ## Features
 
 - **Library**: compiled games only; auto-detect save folder or pick one; header shows game, path, and slot

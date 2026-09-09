@@ -25,7 +25,7 @@ npm run tauri dev
 2. 宿主**不知道**游戏内部字段。槽位、备份、写盘全在宿主。
 3. 写盘纪律（备份、临时文件、原子替换、每文件最近 10 份）只属于 Rust 宿主。
 
-细节见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。设计原稿：`docs/superpowers/specs/`。
+细节见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
 
 ## 加一款游戏
 

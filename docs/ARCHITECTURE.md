@@ -21,6 +21,6 @@ v0.1 界面：编辑页顶级导航是模块 Tab（资源 / 星球 / 编队 / �
 
 Windows 覆盖写盘使用 `MoveFileExW(MOVEFILE_REPLACE_EXISTING)`，失败时不删除目标文件。
 
-更完整的产品规格见 [superpowers/specs/2026-09-09-savesmith-host-module-design.md](superpowers/specs/2026-09-09-savesmith-host-module-design.md)。手测清单：[HANDTEST.md](HANDTEST.md)。
+更完整的产品规格与实现计划仅保留在本地（不入库）。手测清单：[HANDTEST.md](HANDTEST.md)。维护者发版：[RELEASE.md](RELEASE.md)。
 
-Wanderburg 解锁全量表（游戏更新后重导）：[wanderburg-unlock-catalog.md](wanderburg-unlock-catalog.md)。
+Wanderburg 解锁全量表导出步骤见本地 `docs/wanderburg-unlock-catalog.md`（不入库）。
