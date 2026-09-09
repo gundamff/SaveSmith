@@ -22,7 +22,25 @@ function listed(files: ListedFile[]) {
 describe('chaosFrontModule catalog / locate', () => {
   it('registers as chaos-front with locked catalog and locate fields', () => {
     expect(chaosFrontModule.id).toBe('chaos-front')
-    expect(chaosFrontModule.views).toEqual([])
+    expect(chaosFrontModule.views.map((v) => v.id)).toEqual([
+      'resources',
+      'planets',
+      'formation',
+      'units',
+      'pilots',
+      'unlock',
+      'collection'
+    ])
+    expect(chaosFrontModule.views.map((v) => v.labelKey)).toEqual([
+      'cf.tabs.resources',
+      'cf.tabs.planets',
+      'cf.tabs.formation',
+      'cf.tabs.units',
+      'cf.tabs.pilots',
+      'cf.tabs.unlock',
+      'cf.tabs.collection'
+    ])
+    expect(chaosFrontModule.views.every((v) => v.component != null)).toBe(true)
     expect(chaosFrontModule.catalog).toMatchObject({
       name: { zh: '混乱前线', en: 'Chaos Front' },
       rightsHolder: 'ChaosGalaxyStudio',

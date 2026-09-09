@@ -52,6 +52,15 @@ export const zh: MessageTree = {
       maxPilots: '全部 Lv10',
       unlockAll: '解锁全部机型与装备',
       maxCollection: '一键拉满（结局 + 收藏度）'
+    },
+    tabs: {
+      resources: '资源',
+      planets: '星球',
+      formation: '编队',
+      units: '机体 / 飞船',
+      pilots: '驾驶员',
+      unlock: '全解锁',
+      collection: '图鉴'
     }
   },
   error: {

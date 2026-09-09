@@ -26,7 +26,14 @@ const REQUIRED_KEYS = [
   'cf.actions.maxUnits',
   'cf.actions.maxPilots',
   'cf.actions.unlockAll',
-  'cf.actions.maxCollection'
+  'cf.actions.maxCollection',
+  'cf.tabs.resources',
+  'cf.tabs.planets',
+  'cf.tabs.formation',
+  'cf.tabs.units',
+  'cf.tabs.pilots',
+  'cf.tabs.unlock',
+  'cf.tabs.collection'
 ] as const
 
 afterEach(() => {

@@ -3,6 +3,7 @@ import { actions, applyAction } from './actions'
 import { locate } from './locate'
 import { parse, serialize, validate, type ChaosFrontState } from './parse'
 import { listSlots } from './slots'
+import { chaosFrontViews } from './views'
 
 export type { ChaosFrontState }
 export { fillResources } from './actions'
@@ -30,5 +31,5 @@ export const chaosFrontModule: GameModule<ChaosFrontState> = {
   validate,
   actions,
   applyAction,
-  views: []
+  views: chaosFrontViews
 }

@@ -52,6 +52,15 @@ export const en: MessageTree = {
       maxPilots: 'All Lv10',
       unlockAll: 'Unlock all units and gear',
       maxCollection: 'Max endings + collection'
+    },
+    tabs: {
+      resources: 'Resources',
+      planets: 'Planets',
+      formation: 'Formation',
+      units: 'Units / Ships',
+      pilots: 'Pilots',
+      unlock: 'Unlock',
+      collection: 'Collection'
     }
   },
   error: {
