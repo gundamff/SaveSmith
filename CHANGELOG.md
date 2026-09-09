@@ -4,18 +4,26 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-09
+
+第二版。新增 **Wanderburg**；品牌「存档酱」；解锁全量表 + 中英名称。
+
 ### 新增
 
-- **Wanderburg** 存档模块：`Generation_*/SaveData.json` 槽位；`SaveLoad.StringCipher`（Rijndael-256-CBC）解密/写回；资源页（`silver` 等）与解锁页（`unlockedIDs` 勾选）
+- **Wanderburg** 存档模块：嵌套 `Generation_*/SaveData.json` 槽位；`StringCipher`（Rijndael-256-CBC + PKCS7）解密写回；同步 `SaveData.backup.json`
+- 资源页：银币 / 上次出征前银币
+- 解锁页：按游戏 `UnlockableData.allUnlockables` 全量勾选；名称随界面语言切换（官方 `LocaTest_zh` 简中，缺译回退英文）
+- 品牌：中文名「存档酱」、二次元 logo、游戏库页视觉；Wanderburg 封面
 
-### 工程
+### 修复
 
-- GitHub Actions：`CI`（push / PR 跑测试与 typecheck）与 `Release`（推送 `v*` 标签自动打包并发版）
+- 银币编辑失焦还原；加密填充错误导致游戏拒档并从 backup 回滚
+- 备份面板可删除；备份文件名改为 `SaveData_{stamp}.bak`
 
-### 文档
+### 工程 / 文档
 
-- README / CHANGELOG / 发版说明对齐 chaos-front-save-editor 结构（中英、免责声明、素材提取）
-- `docs/HANDTEST.md` 增补 Wanderburg 手测（含游戏内读档验收）
+- 宿主支持嵌套相对路径槽位探测；Wanderburg 解锁表导出手册（`docs/wanderburg-unlock-catalog.md`）
+- GitHub Actions `CI` / `Release`（推送 `v*` 标签自动打包）
 
 ## [0.1.0] - 2026-09-09
 

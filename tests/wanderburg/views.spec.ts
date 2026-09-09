@@ -75,9 +75,23 @@ describe('wanderburg view sources', () => {
     expect(text).toMatch(/wb\.resources\.empty/)
   })
 
-  it('does not ship an Unlock tab without a full unlock catalog', () => {
+  it('registers UnlockTab backed by the full unlock catalog', () => {
     const indexText = readFileSync(join(SRC, 'games/wanderburg/views/index.ts'), 'utf8')
-    expect(indexText).not.toMatch(/UnlockTab/)
+    expect(indexText).toMatch(/UnlockTab/)
     expect(indexText).toMatch(/resources/)
+    const unlockText = readFileSync(join(SRC, 'games/wanderburg/views/UnlockTab.vue'), 'utf8')
+    expect(unlockText).toMatch(/listUnlockCatalog/)
+    expect(unlockText).toMatch(/setUnlockId|setUnlockedIDsFromCatalog/)
+    expect(unlockText).toMatch(/markDirty/)
+    expect(unlockText).toMatch(/unlockDisplayName/)
+    expect(unlockText).toMatch(/locale/)
+    const catalog = JSON.parse(
+      readFileSync(join(SRC, 'games/wanderburg/data/unlock-catalog.json'), 'utf8')
+    ) as { count: number; catalog: Array<{ nameZh?: string; nameEn?: string }> }
+    expect(catalog.count).toBeGreaterThan(50)
+    expect(catalog.catalog.length).toBe(catalog.count)
+    expect(catalog.catalog.filter((e) => e.nameZh && e.nameZh !== e.nameEn).length).toBeGreaterThan(
+      50
+    )
   })
 })

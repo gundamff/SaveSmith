@@ -1,0 +1,638 @@
+{
+  "version": 2,
+  "source": "UnlockableData.allUnlockables + LocaTest_zh",
+  "count": 63,
+  "zhHits": 62,
+  "catalog": [
+    {
+      "id": "642385",
+      "unlockableID": 642385,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Quick Reload",
+      "nameEn": "Quick Reload",
+      "nameZh": "快速装填",
+      "price": 750
+    },
+    {
+      "id": "4797109",
+      "unlockableID": 4797109,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Side Flamethrower",
+      "nameEn": "Side Flamethrower",
+      "nameZh": "侧翼火焰喷射器",
+      "price": 5000
+    },
+    {
+      "id": "5589564",
+      "unlockableID": 5589564,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Souvenir",
+      "nameEn": "Souvenir",
+      "nameZh": "纪念品",
+      "price": 70000
+    },
+    {
+      "id": "6098801",
+      "unlockableID": 6098801,
+      "myType": 2,
+      "typeName": "module",
+      "name": "Canoneer Crew",
+      "nameEn": "Canoneer Crew",
+      "nameZh": "炮手小队",
+      "price": 2000
+    },
+    {
+      "id": "7382836",
+      "unlockableID": 7382836,
+      "myType": 1,
+      "typeName": "crew",
+      "name": "Tankbert",
+      "nameEn": "Tankbert",
+      "nameZh": "坦克伯特",
+      "price": 1500
+    },
+    {
+      "id": "12816158",
+      "unlockableID": 12816158,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Hand Crank",
+      "nameEn": "Hand Crank",
+      "nameZh": "手摇曲柄",
+      "price": 1000
+    },
+    {
+      "id": "13919984",
+      "unlockableID": 13919984,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Catapult",
+      "nameEn": "Catapult",
+      "nameZh": "投石车",
+      "price": 3000
+    },
+    {
+      "id": "14885905",
+      "unlockableID": 14885905,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Side Ballista",
+      "nameEn": "Side Ballista",
+      "nameZh": "侧翼弩炮",
+      "price": 1200
+    },
+    {
+      "id": "16139239",
+      "unlockableID": 16139239,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Running Shoes",
+      "nameEn": "Running Shoes",
+      "nameZh": "跑鞋",
+      "price": 800
+    },
+    {
+      "id": "16266188",
+      "unlockableID": 16266188,
+      "myType": 1,
+      "typeName": "crew",
+      "name": "Racer Ruth",
+      "nameEn": "Racer Ruth",
+      "nameZh": "赛车手露丝",
+      "price": 1000
+    },
+    {
+      "id": "17872604",
+      "unlockableID": 17872604,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Lightning Mage",
+      "nameEn": "Lightning Mage",
+      "nameZh": "闪电法师",
+      "price": 10000
+    },
+    {
+      "id": "21067773",
+      "unlockableID": 21067773,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Cannon",
+      "nameEn": "Cannon",
+      "nameZh": "火炮",
+      "price": 1000
+    },
+    {
+      "id": "21296554",
+      "unlockableID": 21296554,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Mine Layer",
+      "nameEn": "Mine Layer",
+      "nameZh": "布雷器",
+      "price": 1000
+    },
+    {
+      "id": "21476291",
+      "unlockableID": 21476291,
+      "myType": 1,
+      "typeName": "crew",
+      "name": "Lumberjack",
+      "nameEn": "Lumberjack",
+      "nameZh": "伐木工",
+      "price": 800
+    },
+    {
+      "id": "21995721",
+      "unlockableID": 21995721,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Reset Lever",
+      "nameEn": "Reset Lever",
+      "nameZh": "重置拉杆",
+      "price": 4500
+    },
+    {
+      "id": "22653229",
+      "unlockableID": 22653229,
+      "myType": 1,
+      "typeName": "crew",
+      "name": "Huntress",
+      "nameEn": "Huntress",
+      "nameZh": "女猎手",
+      "price": 5000
+    },
+    {
+      "id": "23582955",
+      "unlockableID": 23582955,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Stiletto",
+      "nameEn": "Stiletto",
+      "nameZh": "细剑",
+      "price": 1000
+    },
+    {
+      "id": "24319804",
+      "unlockableID": 24319804,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Four Leaf Clover",
+      "nameEn": "Four Leaf Clover",
+      "nameZh": "四叶草",
+      "price": 18000
+    },
+    {
+      "id": "27520906",
+      "unlockableID": 27520906,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Electric Arrow",
+      "nameEn": "Electric Arrow",
+      "nameZh": "闪电箭",
+      "price": 450
+    },
+    {
+      "id": "27558839",
+      "unlockableID": 27558839,
+      "myType": 1,
+      "typeName": "crew",
+      "name": "Empress",
+      "nameEn": "Empress",
+      "nameZh": "女皇",
+      "price": 3500
+    },
+    {
+      "id": "28114686",
+      "unlockableID": 28114686,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Laser Mage",
+      "nameEn": "Laser Mage",
+      "nameZh": "激光法师",
+      "price": 1000
+    },
+    {
+      "id": "28207336",
+      "unlockableID": 28207336,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Upgrade Dice",
+      "nameEn": "Upgrade Dice",
+      "nameZh": "升级骰子",
+      "price": 8000
+    },
+    {
+      "id": "29257778",
+      "unlockableID": 29257778,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Bumper",
+      "nameEn": "Bumper",
+      "nameZh": "保险杠",
+      "price": 500
+    },
+    {
+      "id": "30342361",
+      "unlockableID": 30342361,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Cannon Tower",
+      "nameEn": "Cannon Tower",
+      "nameZh": "炮塔",
+      "price": 1000
+    },
+    {
+      "id": "31199493",
+      "unlockableID": 31199493,
+      "myType": 1,
+      "typeName": "crew",
+      "name": "Kapitalistus Maximus",
+      "nameEn": "Kapitalistus Maximus",
+      "nameZh": "资本家大帝",
+      "price": 8000
+    },
+    {
+      "id": "31762878",
+      "unlockableID": 31762878,
+      "myType": 1,
+      "typeName": "crew",
+      "name": "Norbert the normal",
+      "nameEn": "Norbert the normal",
+      "nameZh": "普通人诺伯特",
+      "price": 1000
+    },
+    {
+      "id": "32568407",
+      "unlockableID": 32568407,
+      "myType": 1,
+      "typeName": "crew",
+      "name": "The Count",
+      "nameEn": "The Count",
+      "nameZh": "吸血伯爵",
+      "price": 3000
+    },
+    {
+      "id": "37998400",
+      "unlockableID": 37998400,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Teleporter",
+      "nameEn": "Teleporter",
+      "nameZh": "传送器",
+      "price": 1000
+    },
+    {
+      "id": "42121692",
+      "unlockableID": 42121692,
+      "myType": 1,
+      "typeName": "crew",
+      "name": "Dieter the Drunk",
+      "nameEn": "Dieter the Drunk",
+      "nameZh": "酒鬼迪特",
+      "price": 5000
+    },
+    {
+      "id": "42254678",
+      "unlockableID": 42254678,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Top Mortar",
+      "nameEn": "Top Mortar",
+      "nameZh": "顶部迫击炮",
+      "price": 1000
+    },
+    {
+      "id": "43125134",
+      "unlockableID": 43125134,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Shovel",
+      "nameEn": "Shovel",
+      "nameZh": "铲子",
+      "price": 22000
+    },
+    {
+      "id": "44094442",
+      "unlockableID": 44094442,
+      "myType": 1,
+      "typeName": "crew",
+      "name": "Time Witch",
+      "nameEn": "Time Witch",
+      "nameZh": "时间女巫",
+      "price": 15000
+    },
+    {
+      "id": "45100118",
+      "unlockableID": 45100118,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Magma Core",
+      "nameEn": "Magma Core",
+      "nameZh": "熔岩核心",
+      "price": 1800
+    },
+    {
+      "id": "45765847",
+      "unlockableID": 45765847,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Arms",
+      "nameEn": "Arms",
+      "nameZh": "机械臂",
+      "price": 1200
+    },
+    {
+      "id": "46192688",
+      "unlockableID": 46192688,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Work Contract",
+      "nameEn": "Work Contract",
+      "nameZh": "工作合同",
+      "price": 800
+    },
+    {
+      "id": "49102314",
+      "unlockableID": 49102314,
+      "myType": 2,
+      "typeName": "module",
+      "name": "Carpenters",
+      "nameEn": "Carpenters",
+      "nameZh": "木匠",
+      "price": 800
+    },
+    {
+      "id": "49182952",
+      "unlockableID": 49182952,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Dash",
+      "nameEn": "Dash",
+      "nameZh": "冲刺",
+      "price": 600
+    },
+    {
+      "id": "53086733",
+      "unlockableID": 53086733,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Archer Tower",
+      "nameEn": "Archer Tower",
+      "nameZh": "箭塔",
+      "price": 800
+    },
+    {
+      "id": "53231179",
+      "unlockableID": 53231179,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Turret Layer",
+      "nameEn": "Turret Layer",
+      "nameZh": "炮塔放置",
+      "price": 800
+    },
+    {
+      "id": "54127526",
+      "unlockableID": 54127526,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Cluster Core",
+      "nameEn": "Cluster Core",
+      "nameZh": "集束核心",
+      "price": 1400
+    },
+    {
+      "id": "54263655",
+      "unlockableID": 54263655,
+      "myType": 2,
+      "typeName": "module",
+      "name": "Fire Crew",
+      "nameEn": "Fire Crew",
+      "nameZh": "喷火小队",
+      "price": 2500
+    },
+    {
+      "id": "55629755",
+      "unlockableID": 55629755,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Companion",
+      "nameEn": "Companion",
+      "nameZh": "伙伴",
+      "price": 2500
+    },
+    {
+      "id": "56929155",
+      "unlockableID": 56929155,
+      "myType": 2,
+      "typeName": "module",
+      "name": "Archer Crew",
+      "nameEn": "Archer Crew",
+      "nameZh": "弓箭手小队",
+      "price": 1000
+    },
+    {
+      "id": "59042434",
+      "unlockableID": 59042434,
+      "myType": 0,
+      "typeName": "captain",
+      "name": "Wanderturm",
+      "nameEn": "Wanderturm",
+      "nameZh": "漫游塔",
+      "price": 1000
+    },
+    {
+      "id": "66004518",
+      "unlockableID": 66004518,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Campfire",
+      "nameEn": "Campfire",
+      "nameZh": "营火",
+      "price": 2500
+    },
+    {
+      "id": "66658604",
+      "unlockableID": 66658604,
+      "myType": 0,
+      "typeName": "captain",
+      "name": "Tankenburg",
+      "nameEn": "Tankenburg",
+      "nameZh": "坦克城堡",
+      "price": 5000
+    },
+    {
+      "id": "70401899",
+      "unlockableID": 70401899,
+      "myType": 1,
+      "typeName": "crew",
+      "name": "Patchy the Pirate",
+      "nameEn": "Patchy the Pirate",
+      "nameZh": "海盗帕奇",
+      "price": 2000
+    },
+    {
+      "id": "73369405",
+      "unlockableID": 73369405,
+      "myType": 0,
+      "typeName": "captain",
+      "name": "#73369405",
+      "nameEn": "#73369405",
+      "nameZh": "#73369405",
+      "price": 1000
+    },
+    {
+      "id": "75555417",
+      "unlockableID": 75555417,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "FrontCannon",
+      "nameEn": "FrontCannon",
+      "nameZh": "前方火炮",
+      "price": 800
+    },
+    {
+      "id": "76319279",
+      "unlockableID": 76319279,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Couldron",
+      "nameEn": "Couldron",
+      "nameZh": "坩埚",
+      "price": 1600
+    },
+    {
+      "id": "76842860",
+      "unlockableID": 76842860,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Side Barracks",
+      "nameEn": "Side Barracks",
+      "nameZh": "侧翼兵营",
+      "price": 800
+    },
+    {
+      "id": "76972049",
+      "unlockableID": 76972049,
+      "myType": 2,
+      "typeName": "module",
+      "name": "Wizard Crew",
+      "nameEn": "Wizard Crew",
+      "nameZh": "法师小队",
+      "price": 5000
+    },
+    {
+      "id": "78699038",
+      "unlockableID": 78699038,
+      "myType": 0,
+      "typeName": "captain",
+      "name": "Tankenburg",
+      "nameEn": "Tankenburg",
+      "nameZh": "坦克城堡",
+      "price": 10000
+    },
+    {
+      "id": "79921877",
+      "unlockableID": 79921877,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Napalm",
+      "nameEn": "Napalm",
+      "nameZh": "凝固汽油弹",
+      "price": 1000
+    },
+    {
+      "id": "82827115",
+      "unlockableID": 82827115,
+      "myType": 2,
+      "typeName": "module",
+      "name": "Merchants",
+      "nameEn": "Merchants",
+      "nameZh": "商人",
+      "price": 1200
+    },
+    {
+      "id": "87601583",
+      "unlockableID": 87601583,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Fast Quiver",
+      "nameEn": "Fast Quiver",
+      "nameZh": "快装箭袋",
+      "price": 1400
+    },
+    {
+      "id": "88462707",
+      "unlockableID": 88462707,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Fire Mage",
+      "nameEn": "Fire Mage",
+      "nameZh": "火焰法师",
+      "price": 2000
+    },
+    {
+      "id": "90231293",
+      "unlockableID": 90231293,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Extra Rations",
+      "nameEn": "Extra Rations",
+      "nameZh": "额外口粮",
+      "price": 500
+    },
+    {
+      "id": "95061836",
+      "unlockableID": 95061836,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Catalyst",
+      "nameEn": "Catalyst",
+      "nameZh": "催化剂",
+      "price": 500
+    },
+    {
+      "id": "97132128",
+      "unlockableID": 97132128,
+      "myType": 4,
+      "typeName": "decoPet",
+      "name": "Repair Wrench",
+      "nameEn": "Repair Wrench",
+      "nameZh": "修理扳手",
+      "price": 1800
+    },
+    {
+      "id": "97253743",
+      "unlockableID": 97253743,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Force Mage",
+      "nameEn": "Force Mage",
+      "nameZh": "原力法师",
+      "price": 1600
+    },
+    {
+      "id": "99595590",
+      "unlockableID": 99595590,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Ram",
+      "nameEn": "Ram",
+      "nameZh": "攻城锤",
+      "price": 1000
+    },
+    {
+      "id": "99878096",
+      "unlockableID": 99878096,
+      "myType": 3,
+      "typeName": "vehicle",
+      "name": "Front Barracks",
+      "nameEn": "Front Barracks",
+      "nameZh": "前方兵营",
+      "price": 1200
+    }
+  ]
+}

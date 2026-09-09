@@ -59,12 +59,27 @@ export const en: MessageTree = {
   },
   wb: {
     tabs: {
-      resources: 'Resources'
+      resources: 'Resources',
+      unlock: 'Unlock'
     },
     resources: {
       silver: 'Silver',
       silverBeforeLastRun: 'Silver before last run',
       empty: 'No editable resource fields in this save'
+    },
+    unlock: {
+      progress: 'Unlocked {0} / {1}',
+      unlockAll: 'Unlock all',
+      clearAll: 'Clear all',
+      unlockedAll: 'All catalog unlocks enabled',
+      cleared: 'Cleared catalog unlocks (kept unknown IDs)',
+      types: {
+        captain: 'Captains',
+        crew: 'Crew',
+        module: 'Modules',
+        vehicle: 'Vehicles / Weapons',
+        decoPet: 'Deco / Pets'
+      }
     }
   },
   cf: {

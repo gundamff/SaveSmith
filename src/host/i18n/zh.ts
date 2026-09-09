@@ -59,12 +59,27 @@ export const zh: MessageTree = {
   },
   wb: {
     tabs: {
-      resources: '资源'
+      resources: '资源',
+      unlock: '解锁'
     },
     resources: {
       silver: '银币',
       silverBeforeLastRun: '上次出征前银币',
       empty: '当前存档没有可编辑的资源字段'
+    },
+    unlock: {
+      progress: '已解锁 {0} / {1}',
+      unlockAll: '全部解锁',
+      clearAll: '全部清空',
+      unlockedAll: '已解锁全部条目',
+      cleared: '已清空可识别解锁（保留未知 ID）',
+      types: {
+        captain: '船长',
+        crew: '船员',
+        module: '舱室',
+        vehicle: '载具 / 武器',
+        decoPet: '装饰 / 宠物'
+      }
     }
   },
   cf: {

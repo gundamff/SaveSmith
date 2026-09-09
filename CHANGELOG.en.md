@@ -4,18 +4,26 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-09
+
+Second release. Adds **Wanderburg**, 存档酱 branding, and a full unlock catalog with bilingual names.
+
 ### Added
 
-- **Wanderburg** save module: `Generation_*/SaveData.json` slots; `SaveLoad.StringCipher` (Rijndael-256-CBC) decrypt/serialize; Resources tab (`silver`, etc.) and Unlock tab (`unlockedIDs` checkboxes)
+- **Wanderburg** module: nested `Generation_*/SaveData.json` slots; `StringCipher` (Rijndael-256-CBC + PKCS7) decrypt/write; keeps `SaveData.backup.json` in sync
+- Resources tab: silver / silver before last run
+- Unlock tab: full `UnlockableData.allUnlockables` checklist; names follow UI locale (official `LocaTest_zh`, English fallback)
+- Branding: Chinese name 存档酱, logo, library polish; Wanderburg cover art
 
-### Infrastructure
+### Fixed
 
-- GitHub Actions: `CI` (tests on push/PR) and `Release` (build and publish on `v*` tags)
+- Silver edits reverting on blur; wrong padding causing the game to reject saves and restore from backup
+- Backup delete in UI; backup names use `SaveData_{stamp}.bak`
 
-### Docs
+### Infrastructure / Docs
 
-- README / CHANGELOG / release notes aligned with chaos-front-save-editor (bilingual, disclaimer, data extraction)
-- `docs/HANDTEST.md` Wanderburg hand-test checklist (includes in-game load verification)
+- Nested relative-path slot discovery; unlock-catalog extraction runbook (`docs/wanderburg-unlock-catalog.md`)
+- GitHub Actions `CI` / `Release` (portable build on `v*` tags)
 
 ## [0.1.0] - 2026-09-09
 

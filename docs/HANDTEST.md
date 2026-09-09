@@ -102,9 +102,11 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 - [ ] 列表含 **`silver`**（当前银币）及 **`silverBeforeLastRun`**（若存档中存在）
 - [ ] 修改数值后工具栏出现「未保存」；宿主「保存」后 `backup/` 出现对应 `SaveData.json` 时间戳备份
 
-### W4. 解锁页（已下线）
+### W4. 解锁页
 
-- [ ] Wanderburg **不再提供**「解锁」Tab：游戏内 `UnlockableData.allUnlockables` 无完整可导出名称表，半残 ID 列表会误导玩家
+- [ ] 「解锁」Tab 按 **catalog 全量**（约 63）分组显示，名称来自游戏 `InfoObject`（非裸 ID）
+- [ ] 「全部解锁 / 全部清空」后保存，重载存档勾选状态一致；未知 ID 清空后仍保留
+- [ ] 游戏更新后重导名称表：见 [wanderburg-unlock-catalog.md](wanderburg-unlock-catalog.md)
 
 ### W5. 宿主保存与备份
 
