@@ -20,6 +20,20 @@ describe('mmJsonEncrypted', () => {
     const fileBytes = encryptUtf8ToSaveBytes('{"a":1}', 'right')
     expect(() => decryptSaveBytesToUtf8(fileBytes, 'wrong')).toThrow()
   })
+
+  it('works without Node Buffer (WebView path)', () => {
+    const saved = globalThis.Buffer
+    // @ts-expect-error intentional delete for browser simulation
+    delete globalThis.Buffer
+    try {
+      expect(typeof globalThis.Buffer).toBe('undefined')
+      const plain = '{"silver":42}'
+      const fileBytes = encryptUtf8ToSaveBytes(plain, 'k')
+      expect(decryptSaveBytesToUtf8(fileBytes, 'k')).toBe(plain)
+    } finally {
+      globalThis.Buffer = saved
+    }
+  })
 })
 
 const savePath = process.env.WANDERBURG_SAVE
