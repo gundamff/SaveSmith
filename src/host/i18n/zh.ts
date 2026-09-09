@@ -53,6 +53,11 @@ export const zh: MessageTree = {
     tabs: {
       resources: '资源',
       unlock: '解锁'
+    },
+    resources: {
+      silver: '银币',
+      silverBeforeLastRun: '上次出征前银币',
+      empty: '当前存档没有可编辑的资源字段'
     }
   },
   cf: {

@@ -39,7 +39,10 @@ const REQUIRED_KEYS = [
   'cf.tabs.unlock',
   'cf.tabs.collection',
   'wb.tabs.resources',
-  'wb.tabs.unlock'
+  'wb.tabs.unlock',
+  'wb.resources.silver',
+  'wb.resources.silverBeforeLastRun',
+  'wb.resources.empty'
 ] as const
 
 afterEach(() => {

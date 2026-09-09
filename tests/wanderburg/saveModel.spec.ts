@@ -10,28 +10,31 @@ import {
 } from '../../src/games/wanderburg/model/saveModel'
 
 describe('wanderburg saveModel', () => {
-  it('lists numeric resource fields', () => {
+  it('lists only allowlisted currency fields with labels', () => {
     const fields = listResourceFields(sample)
-    expect(fields.some((f) => typeof f.value === 'number')).toBe(true)
-    expect(fields.some((f) => f.path === 'silver' && f.value === 1250)).toBe(true)
-    expect(fields.some((f) => f.path === 'silverBeforeLastRun')).toBe(true)
+    expect(fields.map((f) => f.path)).toEqual(['silver', 'silverBeforeLastRun'])
+    expect(fields[0]).toMatchObject({
+      path: 'silver',
+      value: 1250,
+      labelKey: 'wb.resources.silver'
+    })
+    expect(fields.some((f) => f.path.includes('lifetimeStatistics'))).toBe(false)
+    expect(fields.some((f) => f.path.includes('lastCompletedRunStatistics'))).toBe(false)
     expect(fields.some((f) => f.path === 'unlockedIDs')).toBe(false)
-    expect(fields.some((f) => f.path === 'lastLoadout')).toBe(false)
     expect(fields.some((f) => f.path === 'saveVersion')).toBe(false)
-    expect(fields.some((f) => f.path === 'lastSavedUtcTicks')).toBe(false)
-    expect(fields.some((f) => f.path === 'progressResetGeneration')).toBe(false)
   })
 
-  it('skips save metadata numerics', () => {
+  it('skips missing allowlist keys and metadata', () => {
     const doc = {
       saveVersion: 7,
       lastSavedUtcTicks: 638000000000000,
       progressResetGeneration: 2,
       silver: 100,
-      silverBeforeLastRun: 50
+      lifetimeStatistics: { enemiesDestroyed: 9 }
     } as Record<string, unknown>
-    const paths = listResourceFields(doc).map((f) => f.path)
-    expect(paths).toEqual(['silver', 'silverBeforeLastRun'])
+    const fields = listResourceFields(doc)
+    expect(fields.map((f) => f.path)).toEqual(['silver'])
+    expect(fields[0]!.labelKey).toBe('wb.resources.silver')
   })
 
   it('ignores unknown unlock IDs', () => {

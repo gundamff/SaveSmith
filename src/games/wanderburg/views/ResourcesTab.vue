@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { t } from '@host/i18n'
 import { listResourceFields, setByPath } from '../model/saveModel'
 import { useWbEditor } from './inject'
 
@@ -15,9 +16,17 @@ function changeNum(path: string): (v: number | undefined) => void {
 </script>
 
 <template>
-  <el-form label-width="220px" style="max-width: 640px">
-    <el-form-item v-for="f in fields" :key="f.path" :label="f.path">
+  <p v-if="fields.length === 0" class="wb-empty">{{ t('wb.resources.empty') }}</p>
+  <el-form v-else label-width="180px" style="max-width: 480px">
+    <el-form-item v-for="f in fields" :key="f.path" :label="t(f.labelKey)">
       <el-input-number :model-value="f.value" :min="0" @change="changeNum(f.path)" />
     </el-form-item>
   </el-form>
 </template>
+
+<style scoped>
+.wb-empty {
+  opacity: 0.7;
+  margin: 0;
+}
+</style>

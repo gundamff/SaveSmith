@@ -53,6 +53,11 @@ export const en: MessageTree = {
     tabs: {
       resources: 'Resources',
       unlock: 'Unlock'
+    },
+    resources: {
+      silver: 'Silver',
+      silverBeforeLastRun: 'Silver before last run',
+      empty: 'No editable resource fields in this save'
     }
   },
   cf: {

@@ -5,6 +5,8 @@ export { displayName }
 export interface ResourceField {
   path: string
   value: number
+  /** Host i18n key, e.g. wb.resources.silver */
+  labelKey: string
 }
 
 export interface UnlockEntry {
@@ -12,22 +14,11 @@ export interface UnlockEntry {
   unlocked: boolean
 }
 
-const MAX_RESOURCE_DEPTH = 3
-
-/** Pure integer arrays used as ID / unlock lists — not editable resources. */
-const SKIP_INT_ARRAY_KEYS = new Set([
-  'unlockedIDs',
-  'unlockedAndNew',
-  'lastLoadout',
-  'lastDeco'
-])
-
-/** Save metadata numerics — not player-editable resources. */
-const SKIP_RESOURCE_KEYS = new Set([
-  'saveVersion',
-  'lastSavedUtcTicks',
-  'progressResetGeneration'
-])
+/** Player-facing currency fields only — not run/lifetime statistics dumps. */
+const RESOURCE_ALLOWLIST: { path: string; labelKey: string }[] = [
+  { path: 'silver', labelKey: 'wb.resources.silver' },
+  { path: 'silverBeforeLastRun', labelKey: 'wb.resources.silverBeforeLastRun' }
+]
 
 const UNLOCK_MEMBERSHIP_KEY = 'unlockedIDs'
 
@@ -36,10 +27,6 @@ const listedUnlockIds = new WeakMap<object, Set<string>>()
 
 function isRecord(v: unknown): v is Record<string, unknown> {
   return typeof v === 'object' && v !== null && !Array.isArray(v)
-}
-
-function isPureIntArray(v: unknown): boolean {
-  return Array.isArray(v) && v.every((x) => typeof x === 'number' && Number.isInteger(x))
 }
 
 function intArray(doc: Record<string, unknown>, key: string): number[] {
@@ -90,28 +77,13 @@ export function setByPath(doc: Record<string, unknown>, path: string, value: unk
 
 export function listResourceFields(doc: Record<string, unknown>): ResourceField[] {
   const out: ResourceField[] = []
-
-  function walk(obj: Record<string, unknown>, prefix: string, depth: number): void {
-    if (depth > MAX_RESOURCE_DEPTH) return
-    for (const [key, value] of Object.entries(obj)) {
-      const path = prefix ? `${prefix}.${key}` : key
-      if (typeof value === 'number' && Number.isFinite(value)) {
-        if (!SKIP_RESOURCE_KEYS.has(key)) {
-          out.push({ path, value })
-        }
-        continue
-      }
-      if (isPureIntArray(value) && SKIP_INT_ARRAY_KEYS.has(key)) {
-        continue
-      }
-      if (isRecord(value)) {
-        walk(value, path, depth + 1)
-      }
+  for (const { path, labelKey } of RESOURCE_ALLOWLIST) {
+    const value = getByPath(doc, path)
+    if (typeof value === 'number' && Number.isFinite(value)) {
+      out.push({ path, value, labelKey })
     }
   }
-
-  walk(doc, '', 1)
-  return out.sort((a, b) => a.path.localeCompare(b.path))
+  return out
 }
 
 export function listUnlockEntries(doc: Record<string, unknown>): UnlockEntry[] {
