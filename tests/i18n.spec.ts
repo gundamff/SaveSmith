@@ -24,6 +24,7 @@ const REQUIRED_KEYS = [
   'about.disclaimer',
   'backups.delete',
   'backups.deleteConfirm',
+  'backups.deleteFailed',
   'error.EMPTY_SERIALIZE',
   'error.UNKNOWN_ACTION',
   'error.URL_NOT_ALLOWED',

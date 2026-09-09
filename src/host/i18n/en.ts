@@ -44,6 +44,7 @@ export const en: MessageTree = {
     restore: 'Restore',
     delete: 'Delete',
     deleteConfirm: 'Delete backup {0}? This cannot be undone.',
+    deleteFailed: 'Could not delete backup {0}; the file may still be under backup/.',
     empty: 'No backups',
     file: '{0}'
   },

@@ -66,12 +66,16 @@ describe('wanderburgModule parse / serialize', () => {
     }
   })
 
-  it('serialize round-trips through parse', () => {
+  it('serialize round-trips through parse and also writes game-side backup', () => {
     const state = wanderburgModule.parse([{ relativePath, bytes }])
     const out = wanderburgModule.serialize(state)
-    expect(out).toHaveLength(1)
-    expect(out[0]?.relativePath).toBe(relativePath)
-    const again = wanderburgModule.parse(out)
+    expect(out.map((f) => f.relativePath)).toEqual([
+      relativePath,
+      'Saves/Playtest/Generation_0001/SaveData.backup.json'
+    ])
+    expect(out[0]?.bytes.length).toBeGreaterThan(0)
+    expect(out[1]?.bytes).toEqual(out[0]?.bytes)
+    const again = wanderburgModule.parse([out[0]!])
     expect(again.doc).toEqual(doc)
   })
 

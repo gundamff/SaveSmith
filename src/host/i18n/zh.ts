@@ -44,6 +44,7 @@ export const zh: MessageTree = {
     restore: '还原',
     delete: '删除',
     deleteConfirm: '确认删除备份 {0}？此操作不可恢复。',
+    deleteFailed: '未能删除备份 {0}，文件可能仍在 backup 目录中。',
     empty: '暂无备份',
     file: '{0}'
   },

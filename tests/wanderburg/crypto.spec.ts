@@ -3,7 +3,9 @@ import { describe, expect, it } from 'vitest'
 import { MM_KEY } from '../../src/games/wanderburg/crypto/keys'
 import {
   decryptSaveBytesToUtf8,
-  encryptUtf8ToSaveBytes
+  encryptUtf8ToSaveBytes,
+  pkcs7Pad,
+  pkcs7Unpad
 } from '../../src/games/wanderburg/crypto/mmJsonEncrypted'
 
 describe('mmJsonEncrypted', () => {
@@ -14,6 +16,18 @@ describe('mmJsonEncrypted', () => {
     const text = new TextDecoder().decode(fileBytes)
     expect(text).toMatch(/^[A-Za-z0-9+/=\r\n]+$/)
     expect(decryptSaveBytesToUtf8(fileBytes, key)).toBe(plain)
+  })
+
+  it('encrypt uses PKCS7 (not zero-pad) so .NET-style decrypt can succeed', () => {
+    const plain = new TextEncoder().encode('{"silver":1}')
+    const padded = pkcs7Pad(plain, 32)
+    expect(padded.length % 32).toBe(0)
+    expect(padded[padded.length - 1]).toBe(padded.length - plain.length)
+    expect(pkcs7Unpad(padded, 32)).toEqual(plain)
+
+    const fileBytes = encryptUtf8ToSaveBytes('{"silver":1}', 'k')
+    // ciphertext payload after salt+iv must be block-aligned; last plaintext block ends with PKCS7
+    expect(decryptSaveBytesToUtf8(fileBytes, 'k')).toBe('{"silver":1}')
   })
 
   it('rejects wrong key', () => {

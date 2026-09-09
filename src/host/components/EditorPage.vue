@@ -69,6 +69,9 @@ async function onRemoveBackup(relativePath: string, backupName: string): Promise
   if (!window.confirm(t('backups.deleteConfirm', backupName))) return
   try {
     await store.removeBackup(relativePath, backupName)
+    if (store.backups.some((b) => b.name === backupName)) {
+      window.alert(t('backups.deleteFailed', backupName))
+    }
   } catch (e) {
     window.alert(translateError(e))
   }

@@ -39,15 +39,10 @@ pub fn safe_join(dir: &Path, relative: &str) -> Result<PathBuf, String> {
 }
 
 pub fn backup_name(original_file_name: &str, stamp: &str) -> String {
-    let path = Path::new(original_file_name);
-    let stem = path
-        .file_stem()
-        .map(|s| s.to_string_lossy())
-        .unwrap_or_default();
-    match path.extension() {
-        Some(ext) => format!("{stem}_{stamp}.{}.bak", ext.to_string_lossy()),
-        None => format!("{stem}_{stamp}.bak"),
-    }
+    // Use stem only: "SaveData.json" → "SaveData_{stamp}.bak"
+    // (Avoid "SaveData_{stamp}.json.bak" which confused delete UX / validators.)
+    let stem = stem_of(original_file_name);
+    format!("{stem}_{stamp}.bak")
 }
 
 pub fn prune_backups(backup_dir: &Path, stem: &str, keep: usize) -> Result<(), String> {
@@ -333,7 +328,7 @@ mod tests {
     fn backup_name_matches_legacy_format() {
         assert_eq!(
             backup_name("savedata0.cf", "20260101000000"),
-            "savedata0_20260101000000.cf.bak"
+            "savedata0_20260101000000.bak"
         );
     }
 
@@ -433,6 +428,35 @@ mod tests {
         let dir = tempdir().unwrap();
         let err = delete_backup(dir.path(), "..\\x.bak").unwrap_err();
         assert!(!err.is_empty());
+    }
+
+    #[test]
+    fn delete_backup_removes_legacy_json_bak_and_stem_bak() {
+        let dir = tempdir().unwrap();
+        let backup_dir = dir.path().join("backup");
+        fs::create_dir(&backup_dir).unwrap();
+        for name in [
+            "SaveData_20260909121022.json.bak",
+            "SaveData_20260909121022.bak",
+            "savedata0_20260101000000.cf.bak",
+        ] {
+            let path = backup_dir.join(name);
+            fs::write(&path, b"old").unwrap();
+            delete_backup(dir.path(), name).unwrap();
+            assert!(!path.exists(), "should delete {name}");
+        }
+    }
+
+    #[test]
+    fn backup_name_uses_stem_only() {
+        assert_eq!(
+            backup_name("SaveData.json", "20260101000000"),
+            "SaveData_20260101000000.bak"
+        );
+        assert_eq!(
+            backup_name("savedata0.cf", "20260101000000"),
+            "savedata0_20260101000000.bak"
+        );
     }
 
     #[test]

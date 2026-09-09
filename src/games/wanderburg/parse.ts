@@ -28,12 +28,16 @@ export function parse(files: SlotBytes[]): WanderburgState {
 
 export function serialize(state: WanderburgState): SerializedFile[] {
   const plain = JSON.stringify(state.doc)
-  return [
-    {
-      relativePath: state.relativePath,
-      bytes: encryptUtf8ToSaveBytes(plain, MM_KEY)
-    }
-  ]
+  const bytes = encryptUtf8ToSaveBytes(plain, MM_KEY)
+  const files: SerializedFile[] = [{ relativePath: state.relativePath, bytes }]
+  // Game recovers from SaveData.backup.json when primary decrypt fails — keep it in sync.
+  if (/SaveData\.json$/i.test(state.relativePath)) {
+    files.push({
+      relativePath: state.relativePath.replace(/SaveData\.json$/i, 'SaveData.backup.json'),
+      bytes
+    })
+  }
+  return files
 }
 
 export function validate(_state: WanderburgState): ValidationIssue[] {
