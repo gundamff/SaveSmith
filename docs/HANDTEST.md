@@ -68,3 +68,58 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 
 - [ ] [README.md](../README.md) 与 [README.en.md](../README.en.md) 写明依赖 WebView2，Win10/11 通常已有，缺失时安装官方 Evergreen Runtime
 - [ ] 本机已装 WebView2 时可启动应用；未装时按 README 引导，不捆绑完整 Chromium
+
+---
+
+## Wanderburg 手测
+
+**警告：** 修改前**完全退出游戏**（退出时可能覆写存档）。Wanderburg 处于 Early Access，存档格式与密钥可能随更新变更；改档能力以当前密钥与往返测试通过为前提，不保证未来版本兼容。请用存档**副本**试验，不要用唯一真档。
+
+默认真档目录（仅作复制来源）：
+
+`%USERPROFILE%\AppData\LocalLow\Randwerk\Wanderburg`
+
+槽位文件：`Saves/Playtest/Generation_*/SaveData.json`（嵌套 Generation 目录，每代一个 `SaveData.json`）。**不要**编辑 `SaveData.backup.json`（不在 `sessionFiles` 内）。
+
+加密说明：游戏使用 `SaveLoad.StringCipher`（Rijndael-256-CBC + PBKDF2-SHA1），**不是** Feel MM JsonEncrypted；Task 3 的 Feel 默认假设已证伪，密钥已从 IL2CPP `SaveLoad.EncryptionKey` 实证破解（`scripts/wanderburg-try-key.mjs` 可复验）。
+
+### W1. 库页与探测
+
+- [ ] 游戏库显示 **Wanderburg** 卡片（中英名称一致为 Wanderburg）
+- [ ] 真档在默认路径时显示「已找到存档目录」
+- [ ] 选无 `Saves` 子目录的路径，弹出「此目录不是该游戏的存档」
+- [ ] 「商店页」打开 Steam AppID **3624140**
+
+### W2. 列槽与解密
+
+- [ ] 打开副本目录后，左侧列出 `Generation 0001`、`Generation 0002` …（按编号排序）
+- [ ] 载入槽位后顶栏显示当前槽位标题；不可读槽位显示「无法读取」
+- [ ] 若密钥失效或文件损坏，载入失败并提示「无法解密 Wanderburg 存档…」（`DECRYPT_FAILED`）
+
+### W3. 资源页
+
+- [ ] 「资源」Tab 标签在中/英界面正确显示（非 raw `wb.tabs.resources`）
+- [ ] 列表含 **`silver`**（当前银币）及 **`silverBeforeLastRun`**（若存档中存在）
+- [ ] 修改数值后工具栏出现「未保存」；宿主「保存」后 `backup/` 出现对应 `SaveData.json` 时间戳备份
+
+### W4. 解锁页
+
+- [ ] 「解锁」Tab 列出 `unlockedIDs` 中的条目（勾选 = 已解锁）
+- [ ] 勾选/取消勾选后保存；重新载入同一槽，勾选状态与修改一致
+- [ ] 无友好名时显示数字 ID（`unlock-names.json` 可后续补全）
+
+### W5. 宿主保存与备份
+
+- [ ] 保存前自动备份；覆盖写盘失败时不删除活档（与 Chaos Front 相同原子写策略）
+- [ ] 备份面板可还原刚生成的备份，还原后界面数值与文件一致
+
+### W6. 游戏本体读档（Task 4 Step 5）
+
+- [ ] **完全退出 Wanderburg** 后，用 SaveSmith 修改副本中的某 `Generation_*/SaveData.json` 并保存
+- [ ] 启动游戏，加载**同一 Generation** 对应进度
+- [ ] 游戏能正常读档，修改过的 **silver** / 解锁项与 SaveSmith 中一致，无崩溃或拒档
+- [ ] 若游戏拒档或数值未生效，记录游戏版本与 `saveVersion`，勿当作已通过
+
+### W7. 错误密钥（可选）
+
+- [ ] 临时将 `src/games/wanderburg/crypto/keys.ts` 中 `MM_KEY` 改为错误值，重建后载入真档应失败并显示解密错误（测完还原密钥）

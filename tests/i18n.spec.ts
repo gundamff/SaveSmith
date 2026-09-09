@@ -37,7 +37,9 @@ const REQUIRED_KEYS = [
   'cf.tabs.units',
   'cf.tabs.pilots',
   'cf.tabs.unlock',
-  'cf.tabs.collection'
+  'cf.tabs.collection',
+  'wb.tabs.resources',
+  'wb.tabs.unlock'
 ] as const
 
 afterEach(() => {

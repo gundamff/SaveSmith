@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### 新增
+
+- **Wanderburg** 存档模块：`Generation_*/SaveData.json` 槽位；`SaveLoad.StringCipher`（Rijndael-256-CBC）解密/写回；资源页（`silver` 等）与解锁页（`unlockedIDs` 勾选）
+
 ### 工程
 
 - GitHub Actions：`CI`（push / PR 跑测试与 typecheck）与 `Release`（推送 `v*` 标签自动打包并发版）
@@ -11,6 +15,7 @@
 ### 文档
 
 - README / CHANGELOG / 发版说明对齐 chaos-front-save-editor 结构（中英、免责声明、素材提取）
+- `docs/HANDTEST.md` 增补 Wanderburg 手测（含游戏内读档验收）
 
 ## [0.1.0] - 2026-09-09
 

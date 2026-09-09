@@ -2,9 +2,9 @@
 
 [**中文**](README.md) | [English](README.en.md)
 
-开源**单机游戏存档修改器**桌面应用（Tauri 2 + Vue 3）。不做内存修改或训练器，只改磁盘上的结构化存档。第一期只内置《Chaos Front》（混沌兵团）。
+开源**单机游戏存档修改器**桌面应用（Tauri 2 + Vue 3）。不做内存修改或训练器，只改磁盘上的结构化存档。当前内置 **《Chaos Front》（混沌兵团）** 与 **Wanderburg** 两款游戏。
 
-> **非官方工具。** 与 ChaosGalaxyStudio / 《Chaos Front》官方无任何关联、授权或合作。仅供已购买正版的玩家在本地、单机环境下学习研究；请勿用于联机、商业用途或传播已修改的存档。
+> **非官方工具。** 与各游戏官方无任何关联、授权或合作。仅供已购买正版的玩家在本地、单机环境下学习研究；请勿用于联机、商业用途或传播已修改的存档。
 
 ## 功能
 
@@ -18,6 +18,7 @@
 - **驾驶员**：等级、经验等
 - **全解锁**：解锁机型与装备
 - **图鉴**：点亮结局与收藏（`collection.cf`）
+- **Wanderburg · 存档**：按 `Generation_*/SaveData.json` 列出代际槽位；**资源**（如 `silver`、`silverBeforeLastRun`）；**解锁**（`unlockedIDs` 勾选）。存档为 `SaveLoad.StringCipher` 加密 JSON；改档能力以当前密钥与往返测试通过为前提（Early Access 格式可能变更）
 
 所有修改均遵循「备份 → 临时文件 → 原子替换」。Windows 上覆盖失败时不删除活档。解析失败的存档拒绝写入。
 
@@ -38,7 +39,8 @@
 5. 每次保存都会在存档目录的 `backup/` 下生成带时间戳的备份（如 `savedata0_20260907_120000.cf.bak`），自动保留最近 10 份
 6. **还原备份**：编辑页备份列表中可「还原」（会先备份当前文件）
 7. 请用存档**副本**做试验，不要拿唯一真档当第一次测试对象
-8. 更新说明见 [CHANGELOG.md](CHANGELOG.md)（[English](CHANGELOG.en.md)）；发行包见 [Releases](../../releases)
+8. **Wanderburg**：默认 `%USERPROFILE%\AppData\LocalLow\Randwerk\Wanderburg`；槽位为 `Saves/Playtest/Generation_*/SaveData.json`。修改前务必退出游戏；EA 阶段格式可能变更
+9. 更新说明见 [CHANGELOG.md](CHANGELOG.md)（[English](CHANGELOG.en.md)）；发行包见 [Releases](../../releases)
 
 ## 开发者构建
 

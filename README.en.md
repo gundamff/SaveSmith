@@ -2,9 +2,9 @@
 
 [中文](README.md) | **English**
 
-An open-source **single-player save editor** (Tauri 2 + Vue 3). It edits structured save files on disk. It is not a memory trainer. v1 ships *Chaos Front* only.
+An open-source **single-player save editor** (Tauri 2 + Vue 3). It edits structured save files on disk. It is not a memory trainer. Ships **Chaos Front** and **Wanderburg**.
 
-> **Unofficial tool.** Not affiliated with, endorsed by, or associated with ChaosGalaxyStudio or the official *Chaos Front* team. For personal, offline study by players who own a legitimate copy only. Do not use online, commercially, or to distribute modified saves.
+> **Unofficial tool.** Not affiliated with, endorsed by, or associated with any game publisher. For personal, offline study by players who own a legitimate copy only. Do not use online, commercially, or to distribute modified saves.
 
 ## Features
 
@@ -18,6 +18,7 @@ An open-source **single-player save editor** (Tauri 2 + Vue 3). It edits structu
 - **Pilots**: level, XP, and related stats
 - **Unlock all**: unit types and equipment
 - **Collection**: endings and collection fill (`collection.cf`)
+- **Wanderburg · saves**: slots under `Generation_*/SaveData.json`; **Resources** (`silver`, `silverBeforeLastRun`, etc.); **Unlock** (`unlockedIDs` checkboxes). Saves use `SaveLoad.StringCipher` encrypted JSON; editing depends on the current key and round-trip tests (Early Access formats may change)
 
 All writes follow **backup → temp file → atomic replace**. On Windows, a failed overwrite does not delete the live file. Invalid saves are rejected.
 
@@ -38,7 +39,8 @@ Requires **Windows x64** and system **WebView2** (usually already on Windows 10 
 5. Each save writes a timestamped backup under `backup/` (e.g. `savedata0_20260907_120000.cf.bak`), keeping the newest 10
 6. **Restore** from the backup list (the current file is backed up first)
 7. Test against a **copy** of the save, not your only live file
-8. See [CHANGELOG.en.md](CHANGELOG.en.md) and [Releases](../../releases)
+8. **Wanderburg**: default `%USERPROFILE%\AppData\LocalLow\Randwerk\Wanderburg`; slots are `Saves/Playtest/Generation_*/SaveData.json`. Quit the game before editing; EA formats may change
+9. See [CHANGELOG.en.md](CHANGELOG.en.md) and [Releases](../../releases)
 
 ## Build from source
 

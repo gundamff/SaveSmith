@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- **Wanderburg** save module: `Generation_*/SaveData.json` slots; `SaveLoad.StringCipher` (Rijndael-256-CBC) decrypt/serialize; Resources tab (`silver`, etc.) and Unlock tab (`unlockedIDs` checkboxes)
+
 ### Infrastructure
 
 - GitHub Actions: `CI` (tests on push/PR) and `Release` (build and publish on `v*` tags)
@@ -11,6 +15,7 @@
 ### Docs
 
 - README / CHANGELOG / release notes aligned with chaos-front-save-editor (bilingual, disclaimer, data extraction)
+- `docs/HANDTEST.md` Wanderburg hand-test checklist (includes in-game load verification)
 
 ## [0.1.0] - 2026-09-09
 
