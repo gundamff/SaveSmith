@@ -18,10 +18,11 @@ conf.version = ver
 fs.writeFileSync(confPath, JSON.stringify(conf, null, 2) + '\n')
 
 const cargoPath = 'src-tauri/Cargo.toml'
-let cargo = fs.readFileSync(cargoPath, 'utf8')
-const next = cargo.replace(/^version = "[^"]+"/m, `version = "${ver}"`)
-if (next === cargo) {
+const cargo = fs.readFileSync(cargoPath, 'utf8')
+if (!/^version\s*=\s*"[^"]+"/m.test(cargo)) {
   console.error('Cargo.toml version field not found')
   process.exit(1)
 }
+const next = cargo.replace(/^version\s*=\s*"[^"]+"/m, `version = "${ver}"`)
 fs.writeFileSync(cargoPath, next)
+console.log(`synced version ${ver}`)
