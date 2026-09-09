@@ -1,0 +1,46 @@
+{
+  "HistoryTime": { "__type": "string", "value": "委员会历28年2月24日" },
+  "RealTime": { "__type": "string", "value": "2026/9/7 15:52:02" },
+  "PlayerStar": { "__type": "int", "value": 6 },
+  "PlayArmyName": { "__type": "string", "value": "焰火团" },
+  "PlayerFlag": { "__type": "int", "value": 12 },
+  "PlayerLeaderName": { "__type": "string", "value": "红玉" },
+  "PlayerDay": { "__type": "int", "value": 9774 },
+  "PlayerArmyId": { "__type": "int", "value": 12 },
+  "PlayerCredit": { "__type": "int", "value": 9788541 },
+  "PlayerPrestige": { "__type": "int", "value": 1815 },
+  "PlayerMedals": { "__type": "System.Int32[],mscorlib", "value": [0, 0, 0, 7200] },
+  "PlayerRelationships": { "__type": "System.Int32[],mscorlib", "value": [300, 50, 300, 999] },
+  "PlayerCharacters": { "__type": "System.Collections.Generic.List`1[[System.Int32]],mscorlib", "value": [84, 87, 83] },
+  "PlayerCharacterEXPs": { "__type": "System.Collections.Generic.List`1[[System.Int32]],mscorlib", "value": [12241, 17409, 8990] },
+  "PlayerUnlockedUnitTypes": { "__type": "System.Collections.Generic.List`1[[System.Int32]],mscorlib", "value": [1, 2, 35] },
+  "PlayerUnlockedItems": { "__type": "System.Collections.Generic.List`1[[System.Int32]],mscorlib", "value": [1, 2] },
+  "PlayerItems": { "__type": "System.Int32[],mscorlib", "value": [5, 11, 0, 0, 5, 10, 5, 10, 0, 0, 0, 0, 0, 10, 0, 0] },
+  "FactionData": {
+    "__type": "Faction[],Assembly-CSharp",
+    "value": [
+      { "id": 0, "army": 1, "leader": 1, "spyMaster": 1, "isActive": false, "capital": 0, "allies": [], "planets": [], "enemyFactions": [], "commanders": [], "funds": 0, "power": 0, "shipModel": 1, "proposalAction": [0, 0], "chats": [], "checkChats": false },
+      { "id": 1, "army": 2, "leader": 17, "spyMaster": 21, "isActive": true, "capital": 10, "allies": [2], "planets": [2, 4], "enemyFactions": [3, 4], "commanders": [17], "funds": 100, "power": 100, "shipModel": 11, "proposalAction": [0, 0], "chats": [], "checkChats": false },
+      { "id": 2, "army": 3, "leader": 29, "spyMaster": 1, "isActive": true, "capital": 14, "allies": [1], "planets": [3], "enemyFactions": [3], "commanders": [29], "funds": 200, "power": 200, "shipModel": 11, "proposalAction": [0, 0], "chats": [], "checkChats": false },
+      { "id": 3, "army": 4, "leader": 1, "spyMaster": 1, "isActive": true, "capital": 1, "allies": [], "planets": [1], "enemyFactions": [1, 2], "commanders": [1], "funds": 50, "power": 50, "shipModel": 1, "proposalAction": [0, 0], "chats": [], "checkChats": false },
+      { "id": 4, "army": 5, "leader": 41, "spyMaster": 1, "isActive": true, "capital": 5, "allies": [], "planets": [5], "enemyFactions": [1], "commanders": [41], "funds": 80, "power": 80, "shipModel": 1, "proposalAction": [0, 0], "chats": [], "checkChats": false }
+    ]
+  },
+  "PlanetData": {
+    "__type": "Planet[],Assembly-CSharp",
+    "value": [
+      { "id": 1, "name": 358, "info": 1, "faction": 3, "icon": 1, "site": 9, "mapColor": 0, "economics": 100, "economicsMax": 900, "industry": 50, "industryMax": 820, "defense": 10, "defenseMax": 999, "stability": 80, "stabilityMax": 100, "buildings": [3, 7], "neighbors": [2, 3] },
+      { "id": 2, "name": 359, "info": 1, "faction": 1, "icon": 2, "site": 8, "mapColor": 0, "economics": 98, "economicsMax": 360, "industry": 128, "industryMax": 440, "defense": 437, "defenseMax": 700, "stability": 88, "stabilityMax": 100, "buildings": [9, 10], "neighbors": [1, 3] },
+      { "id": 3, "name": 360, "info": 1, "faction": 2, "icon": 3, "site": 7, "mapColor": 0, "economics": 128, "economicsMax": 380, "industry": 0, "industryMax": 460, "defense": 200, "defenseMax": 700, "stability": 97, "stabilityMax": 100, "buildings": [9, 11], "neighbors": [1, 2] },
+      { "id": 4, "name": 361, "info": 1, "faction": 1, "icon": 4, "site": 6, "mapColor": 0, "economics": 280, "economicsMax": 320, "industry": 169, "industryMax": 380, "defense": 414, "defenseMax": 700, "stability": 79, "stabilityMax": 100, "buildings": [9, 12], "neighbors": [2] },
+      { "id": 5, "name": 362, "info": 1, "faction": 4, "icon": 5, "site": 5, "mapColor": 0, "economics": 840, "economicsMax": 840, "industry": 849, "industryMax": 880, "defense": 999, "defenseMax": 999, "stability": 100, "stabilityMax": 100, "buildings": [4, 8], "neighbors": [] }
+    ]
+  },
+  "PlayerUnits": {
+    "__type": "System.Collections.Generic.List`1[[Unit, Assembly-CSharp]],mscorlib",
+    "value": [
+      { "unitType": 5, "armyId": 12, "characterId": 0, "items": [], "custom": 0, "number": [0, 0], "exp": 7498, "playerName": "" },
+      { "unitType": 78, "armyId": 12, "characterId": 85, "items": [1, 1], "custom": 85, "number": [1, 2], "exp": 17042, "playerName": "" }
+    ]
+  }
+}
