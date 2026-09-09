@@ -1,15 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { GameModule } from '@sdk/types'
+import AboutDialog from './components/AboutDialog.vue'
+import EditorPage from './components/EditorPage.vue'
 import LibraryPage from './components/LibraryPage.vue'
 import { APP_NAME } from './config'
 import { locale, setLocale, t } from './i18n'
+import { useSessionStore } from './stores/session'
 
+const store = useSessionStore()
 const aboutOpen = ref(false)
-const opened = ref<{ game: GameModule; dir: string } | null>(null)
 
-function onOpen(game: GameModule, dir: string): void {
-  opened.value = { game, dir }
+async function onOpen(game: GameModule, dir: string): Promise<void> {
+  await store.openGame(game, dir)
 }
 </script>
 
@@ -36,18 +39,14 @@ function onOpen(game: GameModule, dir: string): void {
       </div>
     </header>
 
-    <LibraryPage @open="onOpen" />
+    <EditorPage v-if="store.game" />
+    <LibraryPage v-else @open="onOpen" />
 
-    <p v-if="opened" class="placeholder">
-      {{ opened.game.catalog.name[locale] }} · {{ opened.dir }}
-    </p>
-
-    <div v-if="aboutOpen" class="mask" @click.self="aboutOpen = false">
-      <div class="about" role="dialog">
-        <p>{{ APP_NAME }}</p>
-        <button type="button" @click="aboutOpen = false">OK</button>
-      </div>
-    </div>
+    <AboutDialog
+      :open="aboutOpen"
+      :rights-holder="store.game?.catalog.rightsHolder"
+      @close="aboutOpen = false"
+    />
   </div>
 </template>
 
@@ -115,38 +114,5 @@ button {
 .nav button.active {
   border-color: #3b6dff;
   background: #243056;
-}
-
-.placeholder {
-  margin: 0 1.5rem 1.5rem;
-  color: #9a9aa8;
-  font-size: 0.9rem;
-}
-
-.mask {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about {
-  background: #1a1a22;
-  border-radius: 10px;
-  padding: 1.25rem 1.5rem;
-  min-width: 200px;
-  text-align: center;
-}
-
-.about button {
-  margin-top: 0.75rem;
-  border-radius: 8px;
-  border: 1px solid #2c2c36;
-  background: #22222b;
-  color: #f3f3f5;
-  padding: 0.35em 0.9em;
-  cursor: pointer;
 }
 </style>

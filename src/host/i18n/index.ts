@@ -45,3 +45,13 @@ export function t(key: string, ...args: Array<string | number>): string {
   const raw = lookup(catalogs[locale.value], key) ?? lookup(catalogs.zh, key) ?? key
   return raw.replace(/\{(\d+)\}/g, (_, i) => String(args[Number(i)] ?? ''))
 }
+
+export function translateError(err: unknown): string {
+  if (err && typeof err === 'object' && 'code' in err) {
+    const e = err as { code: string; args?: Array<string | number>; message?: string }
+    if (e.code && lookup(catalogs.zh, `error.${e.code}`)) {
+      return t(`error.${e.code}`, ...(e.args ?? []))
+    }
+  }
+  return err instanceof Error ? err.message : String(err)
+}

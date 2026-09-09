@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { locale, setLocale, t } from '@host/i18n'
+import { ModuleError } from '@sdk/error'
+import { locale, setLocale, t, translateError } from '@host/i18n'
 
 const REQUIRED_KEYS = [
   'library.title',
@@ -11,7 +12,12 @@ const REQUIRED_KEYS = [
   'library.unrecognized',
   'nav.about',
   'nav.langZh',
-  'nav.langEn'
+  'nav.langEn',
+  'editor.quitGame',
+  'about.disclaimer',
+  'error.EMPTY_SERIALIZE',
+  'error.UNKNOWN_ACTION',
+  'error.URL_NOT_ALLOWED'
 ] as const
 
 afterEach(() => {
@@ -77,5 +83,27 @@ describe('host i18n', () => {
 
   it('interpolates numbered placeholders on the resolved string', () => {
     expect(t('hello {0}', 'world')).toBe('hello world')
+  })
+
+  it('translateError uses error.{code} when present', () => {
+    setLocale('zh')
+    expect(translateError(new ModuleError('UNKNOWN_ACTION', ['fill']))).toBe('未知动作：fill')
+    expect(translateError(new ModuleError('EMPTY_SERIALIZE', []))).not.toBe('EMPTY_SERIALIZE')
+    expect(translateError(new Error('raw'))).toBe('raw')
+  })
+
+  it('about.disclaimer interpolates the rights holder', () => {
+    setLocale('zh')
+    const zh = t('about.disclaimer', 'ChaosGalaxyStudio')
+    expect(zh).toContain('ChaosGalaxyStudio')
+    expect(zh).toContain('非官方')
+    expect(zh).toContain('单机')
+    expect(zh).toContain('联机')
+    setLocale('en')
+    const en = t('about.disclaimer', 'ChaosGalaxyStudio')
+    expect(en).toContain('ChaosGalaxyStudio')
+    expect(en.toLowerCase()).toContain('unofficial')
+    expect(en.toLowerCase()).toContain('offline')
+    expect(en.toLowerCase()).toContain('online')
   })
 })

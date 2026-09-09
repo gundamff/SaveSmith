@@ -14,5 +14,40 @@ export const en: MessageTree = {
     about: 'About',
     langZh: '中文',
     langEn: 'English'
+  },
+  editor: {
+    quitGame: 'Please quit the game before editing saves.',
+    save: 'Save',
+    library: 'Back to library',
+    dirty: 'Unsaved',
+    unsavedConfirm: 'You have unsaved changes. Leave anyway?',
+    slotUnreadable: 'This slot cannot be loaded',
+    emptySlots: 'No save slots found',
+    restoreConfirm: 'Restore this backup? The current file will be backed up first.'
+  },
+  slots: {
+    load: 'Load',
+    empty: 'Empty',
+    unreadable: 'Unreadable'
+  },
+  backups: {
+    title: 'Backups',
+    restore: 'Restore',
+    empty: 'No backups',
+    file: '{0}'
+  },
+  about: {
+    title: 'About',
+    version: 'Version {0}',
+    github: 'GitHub repository',
+    donate: 'Donate',
+    close: 'Close',
+    disclaimer:
+      'Unofficial tool. Not affiliated with, authorized by, or endorsed by {0}. For personal, offline study by owners of a legitimate copy only. Online / multiplayer use is prohibited.'
+  },
+  error: {
+    EMPTY_SERIALIZE: 'Serialize produced an empty or invalid payload; write aborted',
+    UNKNOWN_ACTION: 'Unknown action: {0}',
+    URL_NOT_ALLOWED: 'This URL is not allowed'
   }
 }
