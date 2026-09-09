@@ -1,54 +1,50 @@
 # SaveSmith
 
-An open-source **single-player save editor** (Tauri 2 + Vue 3). It edits structured save files on disk. It is not a memory trainer.
+[中文](README.md) | **English**
 
-v1 ships **Chaos Front** only. The game’s name, trademarks, and assets belong to **ChaosGalaxyStudio** and the respective rights holders.
+An open-source **single-player save editor** (Tauri 2 + Vue 3). It edits structured save files on disk. It is not a memory trainer. v1 ships *Chaos Front* only.
 
-**Download:** [Releases](https://github.com/gundamff/SaveSmith/releases) · **中文：** [README.md](README.md) · **Changes:** [CHANGELOG.md](CHANGELOG.md)
+> **Unofficial tool.** Not affiliated with, endorsed by, or associated with ChaosGalaxyStudio or the official *Chaos Front* team. For personal, offline study by players who own a legitimate copy only. Do not use online, commercially, or to distribute modified saves.
 
-## Disclaimer
+## Features
 
-- **Unofficial.** This tool is not affiliated with, authorized by, or endorsed by ChaosGalaxyStudio or the game’s publisher.
-- **Single-player only.** For personal, offline study by owners of a legitimate copy. Online / multiplayer use and any commercial use are prohibited.
-- **Quit the game first.** The app reminds you; it does not kill the process or steal file locks. Editing while the game is running can corrupt the save or fail the write.
-- Back up first. Test against a **copy** of the save, not your only live file.
+- **Library**: compiled games only; auto-detect save folder or pick one; header shows game, path, and slot
+- **UI language**: Chinese / English; follows the system locale by default, switchable in the header; **About** shows version and GitHub URL
+- **Chaos Front · saves**: six slots (army name, save time); auto-backup before write (last 10 per file); restore from the backup panel
+- **Resources**: credits, prestige, stars, medals / relationships
+- **Planets**: economy / industry / defense / stability and owning faction
+- **Formation**: 4×6 grid deploy / undeploy / swap, and assign pilots
+- **Units / ships**: level, XP, gear; add or remove
+- **Pilots**: level, XP, and related stats
+- **Unlock all**: unit types and equipment
+- **Collection**: endings and collection fill (`collection.cf`)
 
-Reasonable takedown or block requests from rights holders will be honored for the affected game module.
+All writes follow **backup → temp file → atomic replace**. On Windows, a failed overwrite does not delete the live file. Invalid saves are rejected.
 
-## Requirements
+## Download
 
-- **Windows x64** (v1 does not promise macOS / Linux releases)
-- **WebView2**: usually already present on Windows 10 / 11. If the app fails to start because WebView2 is missing, install the [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/microsoft-edge/webview2/) (Evergreen). Do not bundle a full Chromium.
+Get the latest portable exe from [Releases](../../releases) (no installer):
 
-## Download and use
+- `SaveSmith-<version>-windows-x64.exe` — Windows x64 portable
 
-1. Download the **portable** `SaveSmith-0.1.0-windows-x64.exe` from [Releases](https://github.com/gundamff/SaveSmith/releases) (or build it below) and run it from any folder. No registry, no Program Files. WebView2 must already be on the machine (see above).
-2. Prefer an installer? `npm run dist:installer` builds NSIS (`SaveSmith_*_x64-setup.exe`).
-3. **Fully quit** Chaos Front, then start SaveSmith.
-4. The library should show a single Chaos Front card. **Store page** opens Steam AppID `2770330`.
-5. If auto-detect fails, use **Choose save folder**. A wrong folder shows “This folder is not a save directory for this game”.
-6. Load a slot, then edit in the **Resources / Planets / Formation / …** tabs. One-click fill buttons live inside those pages, not next to the tabs. **Save** writes to disk; the host backs up each changed file (last 10 copies in `backup/`) and writes atomically.
+Requires **Windows x64** and system **WebView2** (usually already on Windows 10 / 11). If the app fails to start because WebView2 is missing, install the [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/microsoft-edge/webview2/) (Evergreen). Do not bundle a full Chromium.
 
-Default Windows save folder:
+## How to use
 
-`%USERPROFILE%\AppData\LocalLow\ChaosGalaxyStudio\Chaos Front`
+1. **Quit the game** completely before editing (the game may overwrite saves on exit)
+2. Start SaveSmith and open **Chaos Front**; if the folder is not found, use **Choose save folder**
+3. Default folder: `%USERPROFILE%\AppData\LocalLow\ChaosGalaxyStudio\Chaos Front`
+4. Load a slot on the left, edit tabs, then **Save**
+5. Each save writes a timestamped backup under `backup/` (e.g. `savedata0_20260907_120000.cf.bak`), keeping the newest 10
+6. **Restore** from the backup list (the current file is backed up first)
+7. Test against a **copy** of the save, not your only live file
+8. See [CHANGELOG.en.md](CHANGELOG.en.md) and [Releases](../../releases)
 
-## Features (0.1)
+## Build from source
 
-- Library probes the default save folder and allows a manual pick; the top bar shows the current game, folder, and slot
-- Chaos Front: resources, planets, formation, units, pilots, unlock, collection
-- Saves are backed up under `backup/` (last 10 copies per file); a failed overwrite does not delete the live file
-- Chinese / English UI; the library cover is the Steam header (rights remain with the publisher)
+Requires Node.js 20+, npm, Rust (`cargo`), and MSVC build tools on Windows (win x64 target).
 
-## Architecture
-
-Host (shell + IO) and game modules live in one repo and register at compile time. Modules never touch the disk. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## Development
-
-You need Node.js, Rust (`cargo`), and MSVC build tools on Windows.
-
-```powershell
+```bash
 npm install
 npm test
 npm run typecheck
@@ -56,8 +52,34 @@ npm run tauri dev
 npm run dist
 ```
 
-Default build is a **portable** single file at `src-tauri/target/release/savesmith.exe` (copy it anywhere). For an installer, `npm run dist:installer` writes NSIS under `src-tauri/target/release/bundle/nsis/`.
+`npm run dist` writes `src-tauri/target/release/savesmith.exe`. Optional installer: `npm run dist:installer`.
+
+Architecture: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Contributing: [CONTRIBUTING.md](CONTRIBUTING.md). Maintainer release: [docs/RELEASE.en.md](docs/RELEASE.en.md).
+
+## Game data extraction
+
+Unit lists, level tables, names, and icons come from `scripts/extract-game-data.mjs` (outputs `src/games/chaos-front/data/game-data.json` and `src/games/chaos-front/assets/game/`).
+
+**You need**: the game install (with `Chaos Front_Data`) and [AssetRipper](https://github.com/AssetRipper/AssetRipper) (free GUI build is fine).
+
+```bash
+node scripts/extract-game-data.mjs --game "path\to\Chaos Front_Data" --ripper "C:\tools\AssetRipper.GUI.Free.exe" --out .
+```
+
+- `--game` (required): path to `Chaos Front_Data`
+- `--ripper`: AssetRipper executable; omit for tables only
+- `--out`: repo root (default: current directory)
+- `--export <dir>`: reuse an existing AssetRipper export
+
+## Disclaimer
+
+1. **Unofficial / no license from the publisher**: This is a third-party fan tool. It is **not** developed, sponsored, endorsed, or affiliated with ChaosGalaxyStudio or related parties.
+2. **Copyright**: *Chaos Front* and all related names, trademarks, characters, units, art, data tables, audio, and text belong to **ChaosGalaxyStudio** and other rights holders. Assets in this repo are for **local reference by legitimate owners only**, do **not** include the game itself, and must not be used commercially.
+3. **Allowed use**: Personal, local, **offline** study and research only. Do not use this tool or modified saves for multiplayer, competitive abuse, rental/sale, bundling, or any commercial or infringing purpose.
+4. **Use at your own risk**: Editing saves may corrupt progress, break loading, or require a reinstall. Always quit the game first and rely on automatic or manual backups. **By using this tool you accept all risk**; authors and contributors are not liable for any loss.
+5. **Takedown**: If a rights holder raises a reasonable request, maintainers will review and may modify, redact, or take down releases / public access.
+6. **Support the official game**: Buy and play *Chaos Front* through official channels. This tool does not replace a legal copy and does not encourage piracy.
 
 ## License
 
-Application code is [MIT](LICENSE), Copyright SaveSmith contributors. Game rights remain with their owners.
+[MIT](LICENSE)

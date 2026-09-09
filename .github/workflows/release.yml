@@ -1,0 +1,89 @@
+name: Release
+
+# 推送 v* 标签时自动打包并创建 GitHub Release
+# 维护者说明见 docs/RELEASE.md（English: docs/RELEASE.en.md）
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Rust
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+
+      - name: Install
+        run: npm ci
+
+      - name: Test
+        run: npm test
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Sync version from tag
+        shell: bash
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          VER="${TAG#v}"
+          if ! [[ "$VER" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-.+)?$ ]]; then
+            echo "Tag must look like v1.2.3, got: $TAG"
+            exit 1
+          fi
+          node scripts/sync-version.mjs "$VER"
+          npm install --package-lock-only --ignore-scripts
+          echo "VERSION=$VER" >> "$GITHUB_ENV"
+          echo "Building version $VER from tag $TAG"
+
+      - name: Build portable exe
+        run: npm run dist
+
+      - name: Rename asset
+        shell: pwsh
+        run: |
+          $ver = $env:VERSION
+          $src = "src-tauri\target\release\savesmith.exe"
+          $dst = "SaveSmith-$ver-windows-x64.exe"
+          if (-not (Test-Path -LiteralPath $src)) {
+            Get-ChildItem src-tauri\target\release -Filter *.exe | Format-Table Name, Length
+            throw "Missing build output: $src"
+          }
+          Copy-Item -LiteralPath $src -Destination $dst -Force
+          echo "ASSET=$dst" >> $env:GITHUB_ENV
+
+      - name: Extract changelog section
+        shell: bash
+        run: |
+          node scripts/changelog-for-version.mjs "$VERSION" > release-notes.md
+          echo '----- release notes -----'
+          cat release-notes.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          body_path: release-notes.md
+          files: SaveSmith-${{ env.VERSION }}-windows-x64.exe
+          fail_on_unmatched_files: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

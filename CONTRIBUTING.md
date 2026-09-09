@@ -16,7 +16,8 @@ npm run tauri dev
 ```
 
 免安装包：`npm run dist` → `src-tauri/target/release/savesmith.exe`  
-安装包（可选）：`npm run dist:installer`
+安装包（可选）：`npm run dist:installer`  
+推 `main` 跑 CI；打 `v*` 标签发版，见 [docs/RELEASE.md](docs/RELEASE.md)。
 
 ## 架构约束（不要破）
 
@@ -39,6 +40,7 @@ npm run tauri dev
 
 - 面向 `main`。说明**为什么**改，而不是复述 diff。
 - 跑过 `npm test` 和 `npm run typecheck`。
+- 推 `main` 会跑 GitHub Actions **CI**；发版打 `v*` 标签，见 [docs/RELEASE.md](docs/RELEASE.md)。
 - 不要提交 `.env`、密钥、玩家存档。
 - UI 改动请说明在 Windows 上怎么手测。
 

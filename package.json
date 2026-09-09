@@ -25,6 +25,7 @@
     "@tauri-apps/cli": "^2",
     "@types/node": "^26.5.0",
     "@vitejs/plugin-vue": "^5.2.4",
+    "pngjs": "^7.0.0",
     "typescript": "~6.0.3",
     "vite": "^6.3.5",
     "vitest": "^3.2.4",
