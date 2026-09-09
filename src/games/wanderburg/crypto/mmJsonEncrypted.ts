@@ -1,7 +1,10 @@
+/**
+ * SaveLoad.StringCipher (Rijndael-256-CBC) — NOT Feel MM JsonEncrypted.
+ * Filename `mmJsonEncrypted.ts` is historical (Task 3 assumed Feel defaults).
+ * PBKDF2-SHA1 (1000) + per-file salt/IV; on-disk UTF-8 Base64 of [salt|iv|cipher].
+ */
 import forge from 'node-forge'
 import Rijndael from 'rijndael-js'
-
-/** Wanderburg SaveLoad.StringCipher: PBKDF2-SHA1 (1000) + Rijndael-256-CBC, Base64 on disk. */
 const KEYSIZE_BYTES = 32
 const BLOCK_BITS = 256
 const PBKDF2_ITERATIONS = 1000
@@ -21,6 +24,7 @@ function randomBytes(count: number): Buffer {
   return Buffer.from(forge.random.getBytesSync(count), 'binary')
 }
 
+/** Rijndael decrypt zero-pads to block size; trailing nulls/garbage follow the JSON `}`. */
 function trimDecryptedPlaintext(text: string): string {
   const trimmed = text.trim()
   if (trimmed.startsWith('{')) {

@@ -1,4 +1,4 @@
-/** Per-save salt is embedded in ciphertext; kept for module docs / future variants. */
+/** Unused by StringCipher (per-file salt in ciphertext); kept for docs / Feel MM reference. */
 export const DEFAULT_SALT = 'SaltTextGoesHere'
 
 /** SaveLoad.StringCipher passphrase (IL2CPP SaveLoad.EncryptionKey). */
