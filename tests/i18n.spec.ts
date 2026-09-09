@@ -17,7 +17,16 @@ const REQUIRED_KEYS = [
   'about.disclaimer',
   'error.EMPTY_SERIALIZE',
   'error.UNKNOWN_ACTION',
-  'error.URL_NOT_ALLOWED'
+  'error.URL_NOT_ALLOWED',
+  'error.MISSING_FIELD',
+  'error.DEPLOYED_NO_PILOT',
+  'error.PILOT_TAKEN',
+  'error.UNIT_INDEX',
+  'cf.actions.fillResources',
+  'cf.actions.maxUnits',
+  'cf.actions.maxPilots',
+  'cf.actions.unlockAll',
+  'cf.actions.maxCollection'
 ] as const
 
 afterEach(() => {

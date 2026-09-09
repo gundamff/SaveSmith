@@ -45,9 +45,22 @@ export const zh: MessageTree = {
     disclaimer:
       '非官方工具。与 {0} 官方无任何关联、授权或合作。仅供已购买正版的玩家在本地、单机环境下学习研究。禁止用于联机或破坏多人公平。'
   },
+  cf: {
+    actions: {
+      fillResources: '一键拉满（信用/威望/星级）',
+      maxUnits: '全部 +6',
+      maxPilots: '全部 Lv10',
+      unlockAll: '解锁全部机型与装备',
+      maxCollection: '一键拉满（结局 + 收藏度）'
+    }
+  },
   error: {
     EMPTY_SERIALIZE: '序列化结果为空或字节无效，已拒绝写入',
     UNKNOWN_ACTION: '未知动作：{0}',
-    URL_NOT_ALLOWED: '不允许打开该链接'
+    URL_NOT_ALLOWED: '不允许打开该链接',
+    MISSING_FIELD: '存档缺少字段 {0}，格式不兼容',
+    UNIT_INDEX: '机体下标无效: {0}',
+    PILOT_TAKEN: '驾驶员已被占用（机体 #{0}）',
+    DEPLOYED_NO_PILOT: '已上阵机体缺少驾驶员（机体 #{0}），请先拖驾驶员上去再保存，否则游戏会崩溃'
   }
 }

@@ -4,8 +4,9 @@ import { confirmSaveDir, probeModuleSaveDir } from '@host/probe'
 import { modules } from '@host/registry'
 
 describe('registry', () => {
-  it('exports an empty GameModule list', () => {
-    expect(modules).toEqual([])
+  it('registers Chaos Front as the compiled game module', () => {
+    expect(modules).toHaveLength(1)
+    expect(modules[0].id).toBe('chaos-front')
     expect(Array.isArray(modules)).toBe(true)
   })
 })

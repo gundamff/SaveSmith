@@ -29,13 +29,13 @@ async function windowsEnv(): Promise<Record<string, string | undefined>> {
 
 async function probeAll(): Promise<void> {
   const env = await windowsEnv()
-  const next: Record<string, string> = {}
+  const next: Record<string, string> = { ...detected.value }
   for (const mod of modules) {
     try {
       const dir = await probeModuleSaveDir(mod.locate, env, listDirNames)
-      if (dir) next[mod.id] = dir
+      if (dir) next[mod.id] = next[mod.id] ?? dir
     } catch {
-      /* card stays on library.missing */
+      /* card stays on library.missing; keep any hand-picked dir */
     }
   }
   detected.value = next

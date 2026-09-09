@@ -45,9 +45,23 @@ export const en: MessageTree = {
     disclaimer:
       'Unofficial tool. Not affiliated with, authorized by, or endorsed by {0}. For personal, offline study by owners of a legitimate copy only. Online / multiplayer use is prohibited.'
   },
+  cf: {
+    actions: {
+      fillResources: 'Max credits / prestige / stars',
+      maxUnits: 'All +6',
+      maxPilots: 'All Lv10',
+      unlockAll: 'Unlock all units and gear',
+      maxCollection: 'Max endings + collection'
+    }
+  },
   error: {
     EMPTY_SERIALIZE: 'Serialize produced an empty or invalid payload; write aborted',
     UNKNOWN_ACTION: 'Unknown action: {0}',
-    URL_NOT_ALLOWED: 'This URL is not allowed'
+    URL_NOT_ALLOWED: 'This URL is not allowed',
+    MISSING_FIELD: 'Save is missing field {0}; format incompatible',
+    UNIT_INDEX: 'Invalid unit index: {0}',
+    PILOT_TAKEN: 'Pilot already assigned (unit #{0})',
+    DEPLOYED_NO_PILOT:
+      'Deployed unit(s) missing pilot (#{0}); assign a pilot before saving or the game will crash'
   }
 }
