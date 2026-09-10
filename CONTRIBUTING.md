@@ -32,7 +32,8 @@ npm run tauri dev
 1. 新建 `src/games/<id>/`：探测路径、解析/序列化、Vue 深页、封面。
 2. 在 `src/host/registry.ts` **静态 import** 一行。不要做动态加载。
 3. 补 Vitest；不要把玩家真档提交进仓库。
-4. README / 关于页写明非官方、权利人、仅限单机。
+4. 写 `docs/games/<id>.md` 与 `<id>.en.md`（路径、可编辑项、注意点、截图）；在根 `README.md` / `README.en.md` 的支持游戏**表格**加一行链接。不要把逐游戏细节堆回根 README。
+5. 关于页 / 文档写明非官方、权利人、仅限单机。
 
 第一期只发 Windows。不要在 PR 里夹带服务端、账号、内存修改或训练器。
 

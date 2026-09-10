@@ -17,8 +17,17 @@ export const en: MessageTree = {
   },
   nav: {
     about: 'About',
+    donate: 'Donate',
     langZh: '中文',
     langEn: 'English'
+  },
+  donate: {
+    title: 'Support SaveSmith',
+    hint: 'Optional tips are appreciated. Scan WeChat / Alipay in China, or use PayPal elsewhere.',
+    wechat: 'WeChat Pay',
+    alipay: 'Alipay',
+    paypal: 'Open PayPal',
+    close: 'Close'
   },
   editor: {
     quitGame: 'Please quit the game before editing saves.',

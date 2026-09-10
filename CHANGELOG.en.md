@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-09-10
+
+Branding and docs cleanup; header donate.
+
+### Added
+
+- Header **Donate**: WeChat / Alipay QR codes + [PayPal](https://paypal.me/gundamff) (same dialog from About)
+
+### Changed
+
+- Refresh 存档酱 branding: desktop icons, header/About logo, and README banner use the new chibi mascot
+- README uses a supported-games table linking to `docs/games/*`; add UI screenshots
+
 ## [0.2.0] - 2026-09-09
 
 Second release. Adds **Wanderburg**, 存档酱 branding, and a full unlock catalog with bilingual names.

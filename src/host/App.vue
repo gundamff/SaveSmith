@@ -3,6 +3,7 @@ import { computed, ref, watch } from 'vue'
 import type { GameModule } from '@sdk/types'
 import brandLogo from './assets/brand/cundang-chan.png'
 import AboutDialog from './components/AboutDialog.vue'
+import DonateDialog from './components/DonateDialog.vue'
 import EditorPage from './components/EditorPage.vue'
 import LibraryPage from './components/LibraryPage.vue'
 import { APP_NAME, brandDisplayName } from './config'
@@ -12,6 +13,12 @@ import { useSessionStore } from './stores/session'
 
 const store = useSessionStore()
 const aboutOpen = ref(false)
+const donateOpen = ref(false)
+
+function openDonateFromAbout(): void {
+  aboutOpen.value = false
+  donateOpen.value = true
+}
 
 const displayBrand = computed(() => brandDisplayName(locale.value))
 
@@ -70,6 +77,7 @@ async function onOpen(game: GameModule, dir: string): Promise<void> {
         >
           {{ t('nav.langEn') }}
         </button>
+        <button type="button" @click="donateOpen = true">{{ t('nav.donate') }}</button>
         <button type="button" @click="aboutOpen = true">{{ t('nav.about') }}</button>
       </div>
     </header>
@@ -81,7 +89,9 @@ async function onOpen(game: GameModule, dir: string): Promise<void> {
       :open="aboutOpen"
       :rights-holder="store.game?.catalog.rightsHolder"
       @close="aboutOpen = false"
+      @donate="openDonateFromAbout"
     />
+    <DonateDialog :open="donateOpen" @close="donateOpen = false" />
   </div>
 </template>
 

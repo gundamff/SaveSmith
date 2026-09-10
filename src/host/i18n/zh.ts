@@ -17,8 +17,17 @@ export const zh: MessageTree = {
   },
   nav: {
     about: '关于',
+    donate: '捐助',
     langZh: '中文',
     langEn: 'English'
+  },
+  donate: {
+    title: '捐助存档酱',
+    hint: '随意打赏即可，谢谢支持。国内可用微信 / 支付宝扫码；海外可用 PayPal。',
+    wechat: '微信支付',
+    alipay: '支付宝',
+    paypal: '打开 PayPal',
+    close: '关闭'
   },
   editor: {
     quitGame: '请先退出游戏再修改存档。',

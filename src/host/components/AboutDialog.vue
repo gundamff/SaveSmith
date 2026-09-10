@@ -12,6 +12,7 @@ defineProps<{
 
 const emit = defineEmits<{
   close: []
+  donate: []
 }>()
 
 const version = ref('')
@@ -42,7 +43,7 @@ function openUrl(url: string): void {
         <button v-if="GITHUB_REPO_URL" type="button" @click="openUrl(GITHUB_REPO_URL)">
           {{ t('about.github') }}
         </button>
-        <button v-if="DONATION_URL" type="button" @click="openUrl(DONATION_URL)">
+        <button v-if="DONATION_URL" type="button" @click="emit('donate')">
           {{ t('about.donate') }}
         </button>
         <button type="button" @click="emit('close')">{{ t('about.close') }}</button>

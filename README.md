@@ -1,28 +1,41 @@
-# SaveSmith
+# SaveSmith · 存档酱
 
 [**中文**](README.md) | [English](README.en.md)
 
-开源**单机游戏存档修改器**桌面应用（Tauri 2 + Vue 3）。不做内存修改或训练器，只改磁盘上的结构化存档。当前内置 **《Chaos Front》（混沌兵团）** 与 **Wanderburg** 两款游戏。
+<p align="center">
+  <img src="docs/brand/banner.png" alt="存档酱" width="640" />
+</p>
+
+开源**单机游戏存档修改器**桌面应用（Tauri 2 + Vue 3）。只改磁盘上的结构化存档，**不做**内存修改或训练器。游戏以编译期模块接入，列表会随版本增加。
 
 > **非官方工具。** 与各游戏官方无任何关联、授权或合作。仅供已购买正版的玩家在本地、单机环境下学习研究；请勿用于联机、商业用途或传播已修改的存档。
 
-![SaveSmith 游戏库](docs/screenshot-library.png)
+## 截图
 
-## 功能
+| 游戏库 | 混沌兵团 · 编队 |
+|:---:|:---:|
+| ![游戏库](docs/screenshot/library.png) | ![编队](docs/screenshot/chaos-front-formation.png) |
 
-- **游戏库**：列出已编译的游戏；自动探测存档目录，支持手动选择；顶栏显示当前游戏、存档路径与槽位
-- **界面语言**：中文 / English，默认跟随系统语言，可在标题栏切换；「关于」可查看版本与 GitHub 地址
-- **混沌兵团 · 存档**：列出 6 个槽位（军团名、保存时间），载入后编辑；保存前自动备份（每文件最近 10 份），备份面板可还原
-- **资源**：信用点、威望、星级、勋章与势力关系
-- **星球**：经济 / 工业 / 防御 / 稳定与所属势力
-- **编队**：4×6 网格上阵 / 下阵 / 换位，并分配驾驶员
-- **机体 / 飞船**：等级、经验、装备；支持添加 / 删除
-- **驾驶员**：等级、经验等
-- **全解锁**：解锁机型与装备
-- **图鉴**：点亮结局与收藏（`collection.cf`）
-- **Wanderburg · 存档**：按 `Generation_*/SaveData.json` 列出代际槽位；**资源**（如 `silver`、`silverBeforeLastRun`）；**解锁**（`unlockedIDs` 勾选）。存档为 `SaveLoad.StringCipher` 加密 JSON；改档能力以当前密钥与往返测试通过为前提（Early Access 格式可能变更）
+| 混沌兵团 · 机体 | Wanderburg · 解锁 |
+|:---:|:---:|
+| ![机体](docs/screenshot/chaos-front-units.png) | ![解锁](docs/screenshot/wanderburg-unlock.png) |
 
-所有修改均遵循「备份 → 临时文件 → 原子替换」。Windows 上覆盖失败时不删除活档。解析失败的存档拒绝写入。
+## 宿主能力
+
+- **游戏库**：列出已编译模块；自动探测存档目录，或手动选择；顶栏显示当前游戏、路径与槽位
+- **中英界面**：默认跟随系统语言，可在标题栏切换；「关于」可查看版本与 GitHub
+- **安全写盘**：备份 → 临时文件 → 原子替换；每文件保留最近 10 份备份，可还原；解析失败拒绝写入；Windows 上覆盖失败时不删除活档
+
+各游戏能改什么、默认路径与注意事项，见下表链接的文档（勿在本 README 展开逐游戏细节）。
+
+## 支持的游戏
+
+| 游戏 | 权利人 | 状态 | 详情 |
+|------|--------|------|------|
+| [混沌兵团 / Chaos Front](docs/games/chaos-front.md) | ChaosGalaxyStudio | 已支持 | [中文](docs/games/chaos-front.md) · [English](docs/games/chaos-front.en.md) |
+| [Wanderburg](docs/games/wanderburg.md) | Randwerk | 已支持（EA，格式可能变） | [中文](docs/games/wanderburg.md) · [English](docs/games/wanderburg.en.md) |
+
+新增游戏时：补模块 + 在本表加一行 + 在 `docs/games/` 写独立说明。
 
 ## 下载
 
@@ -34,15 +47,13 @@
 
 ## 使用方法
 
-1. **退出游戏**：修改前请务必完全退出游戏（游戏退出时可能覆写存档）
-2. 启动 SaveSmith。打开「混沌兵团」；若未找到存档目录，点「选择存档目录」
-3. 默认存档位置：`%USERPROFILE%\AppData\LocalLow\ChaosGalaxyStudio\Chaos Front`
-4. 在左侧选中槽位并载入，在对应标签页修改，点「保存」
-5. 每次保存都会在存档目录的 `backup/` 下生成带时间戳的备份（如 `savedata0_20260907_120000.cf.bak`），自动保留最近 10 份
-6. **还原备份**：编辑页备份列表中可「还原」（会先备份当前文件）
-7. 请用存档**副本**做试验，不要拿唯一真档当第一次测试对象
-8. **Wanderburg**：默认 `%USERPROFILE%\AppData\LocalLow\Randwerk\Wanderburg`；槽位为 `Saves/Playtest/Generation_*/SaveData.json`。修改前务必退出游戏；EA 阶段格式可能变更
-9. 更新说明见 [CHANGELOG.md](CHANGELOG.md)（[English](CHANGELOG.en.md)）；发行包见 [Releases](../../releases)
+1. **完全退出**要改的游戏（退出时可能覆写存档）
+2. 启动 SaveSmith → 在游戏库打开对应游戏；找不到目录时点「选择存档目录」
+3. 左侧选槽位并载入 → 在标签页修改 → 「保存」
+4. 需要时在备份列表「还原」（会先备份当前文件）
+5. 第一次请用存档**副本**试验
+
+默认存档路径、可编辑字段与游戏特定风险见各游戏文档。更新说明：[CHANGELOG.md](CHANGELOG.md)（[English](CHANGELOG.en.md)）。
 
 ## 开发者构建
 
@@ -56,33 +67,21 @@ npm run tauri dev
 npm run dist
 ```
 
-`npm run dist` 产出 `src-tauri/target/release/savesmith.exe`（复制即可用）。可选安装包：`npm run dist:installer`。
+`npm run dist` 产出 `src-tauri/target/release/savesmith.exe`。可选安装包：`npm run dist:installer`。
 
-架构见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)，贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)，维护者发版见 [docs/RELEASE.md](docs/RELEASE.md)。
-
-## 素材提取脚本
-
-机体列表、等级表、名称与图标等由提取脚本从游戏文件生成（产物在 `src/games/chaos-front/data/game-data.json` 与 `src/games/chaos-front/assets/game/`）。
-
-**需要自备**：游戏本体（含 `Chaos Front_Data`）与 [AssetRipper](https://github.com/AssetRipper/AssetRipper)（GUI 免费版即可）。
-
-```bash
-node scripts/extract-game-data.mjs --game "游戏目录\Chaos Front_Data" --ripper "C:\tools\AssetRipper.GUI.Free.exe" --out .
-```
-
-- `--game`（必填）：`Chaos Front_Data` 目录
-- `--ripper`：AssetRipper 可执行文件；省略时仅提取数据表
-- `--out`：仓库根，默认当前目录
-- `--export <dir>`：复用已有 AssetRipper 导出目录
+- 架构：[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+- 贡献：[CONTRIBUTING.md](CONTRIBUTING.md)
+- 发版：[docs/RELEASE.md](docs/RELEASE.md)
+- 某游戏的数据提取等开发细节：见该游戏文档（如 [混沌兵团](docs/games/chaos-front.md#开发者素材提取)）
 
 ## 免责声明
 
-1. **非官方、无授权**：本项目为第三方爱好者工具，**并非** ChaosGalaxyStudio 或其关联方开发、赞助、认可或附属产品；开发者与游戏官方**无任何隶属、代理或合作关系**。
-2. **版权归属**：游戏《Chaos Front》（混沌兵团）及其名称、商标、角色、机体、图标、头像、数据表、音频、文本等一切素材与知识产权，均归 **ChaosGalaxyStudio** 及相关权利人所有。本仓库中的展示性素材仅供**已购买正版游戏的用户**在本地学习参考，**不附带游戏本体**，亦不得用于商业用途。
-3. **使用范围**：仅限个人、本地、**单机**学习与技术研究。禁止将本工具或经其修改的存档用于联机对战、破坏多人公平、出租/出售、捆绑分发或其他任何商业或侵权场景。
-4. **风险自担**：修改存档可能导致进度异常、存档损坏、游戏无法加载或需重装等后果。请务必在修改前完全退出游戏，并依赖本工具自动备份或自行另行备份。**使用本工具即表示你自愿承担全部风险**；由此产生的任何直接或间接损失，开发者与贡献者不承担法律责任。
-5. **下架配合**：若权利人认为本项目存在侵权或其他不当内容并提出合理要求，维护者将在核实后配合修改、屏蔽相关内容或下架发行包/仓库公开访问。
-6. **请支持正版**：请通过官方渠道购买并游玩《Chaos Front》。本工具不能替代正版游戏，也不鼓励任何盗版行为。
+1. **非官方、无授权**：第三方爱好者工具，**并非**各游戏开发商/发行商或其关联方开发、赞助、认可或附属产品。
+2. **版权归属**：各游戏的名称、商标、角色、素材、数据与文本等知识产权归**对应权利人**所有。本仓库中的展示性素材仅供**已购买正版的用户**本地学习参考，**不附带游戏本体**，亦不得用于商业用途。
+3. **使用范围**：仅限个人、本地、**单机**学习与技术研究。禁止用于联机对战、破坏多人公平、出租/出售、捆绑分发或其他商业/侵权场景。
+4. **风险自担**：修改存档可能导致进度异常、损坏或无法加载。请先退出游戏并依赖自动备份或自行备份。**使用即表示自愿承担全部风险**；开发者与贡献者不承担法律责任。
+5. **下架配合**：权利人提出合理要求时，维护者核实后将配合修改、屏蔽或下架相关模块/发行包。
+6. **请支持正版**：通过官方渠道购买并游玩；本工具不能替代正版，也不鼓励盗版。
 
 ## 许可证
 
