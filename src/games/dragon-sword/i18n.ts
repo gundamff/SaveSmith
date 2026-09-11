@@ -39,6 +39,19 @@ export const zh: MessageTree = {
     lock: '锁定',
     mainStat: '主词条 CID',
     subStat: '副词条 CID'
+  },
+  cooking: {
+    empty: '暂无料理',
+    cid: 'CID',
+    stack: '堆叠',
+    switchKey: '配方 switchKey',
+    unlock: '解锁',
+    lock: '锁定',
+    unlockAll: '配方全开',
+    unlocked: '已解锁配方',
+    locked: '已锁定配方',
+    recipe: '配方',
+    known: '已知'
   }
 }
 
@@ -80,6 +93,19 @@ export const en: MessageTree = {
     lock: 'Lock',
     mainStat: 'Main stat CID',
     subStat: 'Sub stat CIDs'
+  },
+  cooking: {
+    empty: 'No cooked dishes',
+    cid: 'CID',
+    stack: 'Stack',
+    switchKey: 'Recipe switchKey',
+    unlock: 'Unlock',
+    lock: 'Lock',
+    unlockAll: 'Unlock all recipes',
+    unlocked: 'Recipe unlocked',
+    locked: 'Recipe locked',
+    recipe: 'Recipe',
+    known: 'Known'
   }
 }
 

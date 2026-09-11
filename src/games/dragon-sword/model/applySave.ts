@@ -4,8 +4,10 @@
  * Public format references (schema/layout only; no community editor source):
  * - https://github.com/gfriloux/dragonsword-save-editor/tree/main/docs
  *
- * Currencies/stackables upsert. Characters, teams, and equipment UPDATE in place
- * so unprojected columns (HP, GEM_DBID, stat CIDs, …) are preserved.
+ * Currencies/stackables upsert. Characters, teams, equipment, and cook stacks
+ * UPDATE in place so unprojected columns (HP, GEM_DBID, stat CIDs, buffs, …)
+ * are preserved. tb_switch UPSERTs BIT_FIELD per category (OR recipe bits in
+ * state; never DELETE unrelated categories; never blanket -1 on 0/5).
  */
 import type { SqlJsDb } from '../db/sqlite'
 import type { DragonSwordState } from './types'
@@ -104,6 +106,42 @@ export function applySave(db: SqlJsDb, state: DragonSwordState): void {
     const sql = `UPDATE ${ident('tb_equipment')} SET ${ident(enchant)} = ?, ${ident(exp)} = ?, ${ident(lock)} = ? WHERE CAST(${ident(dbid)} AS TEXT) = ?`
     for (const row of state.equipment) {
       db.run(sql, [row.enchantLevel, row.exp, row.isLock, row.itemDbid])
+    }
+  }
+
+  const cookCols = pragmaCols(db, 'tb_cook_item')
+  const cookNeeded = requireCols(cookCols, ['ITEM_DBID', 'STACK_CNT'])
+  if (cookNeeded) {
+    const [dbid, stack] = cookNeeded
+    const sql = `UPDATE ${ident('tb_cook_item')} SET ${ident(stack)} = ? WHERE CAST(${ident(dbid)} AS TEXT) = ?`
+    for (const row of state.cookItems) {
+      db.run(sql, [row.stackCnt, row.itemDbid])
+    }
+  }
+
+  const switchCols = pragmaCols(db, 'tb_switch')
+  const switchNeeded = requireCols(switchCols, ['CATEGORY', 'BIT_FIELD'])
+  if (switchNeeded) {
+    const [category, bitField] = switchNeeded
+    const userCol = switchCols.get('USER_DBID')
+    const updateSql = userCol
+      ? `UPDATE ${ident('tb_switch')} SET ${ident(bitField)} = CAST(? AS INTEGER) WHERE CAST(${ident(userCol)} AS TEXT) = ? AND ${ident(category)} = ?`
+      : `UPDATE ${ident('tb_switch')} SET ${ident(bitField)} = CAST(? AS INTEGER) WHERE ${ident(category)} = ?`
+    const insertSql = userCol
+      ? `INSERT INTO ${ident('tb_switch')} (${ident(userCol)}, ${ident(category)}, ${ident(bitField)}) VALUES (CAST(? AS INTEGER), ?, CAST(? AS INTEGER))`
+      : `INSERT INTO ${ident('tb_switch')} (${ident(category)}, ${ident(bitField)}) VALUES (?, CAST(? AS INTEGER))`
+    for (const row of state.switches) {
+      if (userCol) {
+        db.run(updateSql, [row.bitField, state.userDbid, row.category])
+        if (db.getRowsModified() === 0) {
+          db.run(insertSql, [state.userDbid, row.category, row.bitField])
+        }
+      } else {
+        db.run(updateSql, [row.bitField, row.category])
+        if (db.getRowsModified() === 0) {
+          db.run(insertSql, [row.category, row.bitField])
+        }
+      }
     }
   }
 }

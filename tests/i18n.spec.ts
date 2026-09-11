@@ -51,6 +51,7 @@ const REQUIRED_KEYS = [
   'ds.tabs.characters',
   'ds.tabs.team',
   'ds.tabs.equipment',
+  'ds.tabs.cooking',
   'ds.actions.maxCurrency',
   'wb.resources.silver',
   'wb.resources.silverBeforeLastRun',

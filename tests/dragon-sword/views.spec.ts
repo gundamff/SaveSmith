@@ -116,7 +116,13 @@ describe('module i18n', () => {
     'equipment.exp',
     'equipment.lock',
     'equipment.mainStat',
-    'equipment.subStat'
+    'equipment.subStat',
+    'cooking.empty',
+    'cooking.cid',
+    'cooking.stack',
+    'cooking.switchKey',
+    'cooking.unlock',
+    'cooking.lock'
   ] as const
 
   it('resolves deep DS strings in both locales', () => {
@@ -167,23 +173,26 @@ describe('dragon-sword view sources', () => {
     expect(text).toMatch(/markDirty/)
   })
 
-  it('registers currency, items, characters, team, and equipment tabs with ds.tabs.* labelKeys', () => {
+  it('registers currency, items, characters, team, equipment, and cooking tabs with ds.tabs.* labelKeys', () => {
     const text = readFileSync(join(VIEWS, 'index.ts'), 'utf8')
     expect(text).toMatch(/CurrencyTab/)
     expect(text).toMatch(/ItemsTab/)
     expect(text).toMatch(/CharactersTab/)
     expect(text).toMatch(/TeamTab/)
     expect(text).toMatch(/EquipmentTab/)
+    expect(text).toMatch(/CookingTab/)
     expect(text).toMatch(/ds\.tabs\.currency/)
     expect(text).toMatch(/ds\.tabs\.items/)
     expect(text).toMatch(/ds\.tabs\.characters/)
     expect(text).toMatch(/ds\.tabs\.team/)
     expect(text).toMatch(/ds\.tabs\.equipment/)
+    expect(text).toMatch(/ds\.tabs\.cooking/)
     expect(tHost('ds.tabs.currency')).not.toBe('ds.tabs.currency')
     expect(tHost('ds.tabs.items')).not.toBe('ds.tabs.items')
     expect(tHost('ds.tabs.characters')).not.toBe('ds.tabs.characters')
     expect(tHost('ds.tabs.team')).not.toBe('ds.tabs.team')
     expect(tHost('ds.tabs.equipment')).not.toBe('ds.tabs.equipment')
+    expect(tHost('ds.tabs.cooking')).not.toBe('ds.tabs.cooking')
     expect(tHost('ds.actions.maxCurrency')).not.toBe('ds.actions.maxCurrency')
   })
 
@@ -292,5 +301,29 @@ describe('dragon-sword view sources', () => {
     expect(text).toMatch(/mainStatCid/)
     expect(text).toMatch(/subStatCid1/)
     expect(text).not.toMatch(/changeMainStat|changeSubStat/)
+  })
+
+  it('CookingTab edits active cook stacks and typed switchKey unlock/lock', () => {
+    const text = readFileSync(join(VIEWS, 'CookingTab.vue'), 'utf8')
+    const body = templateBody(text).trim()
+    expect(body).toMatch(/^<div\b/)
+    expect(body).toMatch(/:data-ss-rev="editor\.rev"/)
+    expect(body).toMatch(/<\/div>\s*$/)
+    expect(text).toMatch(/useDsEditor/)
+    expect(text).toMatch(/void editor\.rev/)
+    expect(text).toMatch(/index/)
+    expect(text).toMatch(/el-table/)
+    expect(text).not.toMatch(/:data="editor\.save\.cookItems"/)
+    expect(text).toMatch(/isActiveCookRow/)
+    expect(text).toMatch(/setRecipeKnown/)
+    expect(text).toMatch(/switchKey/)
+    const blocks = inputNumberBlocks(text)
+    expect(blocks.length).toBeGreaterThan(0)
+    for (const block of blocks) {
+      expect(block).toMatch(/@update:model-value/)
+      expect(block).not.toMatch(/@change=/)
+    }
+    expect(text).toMatch(/markDirty/)
+    expect(text).toMatch(/cookItems/)
   })
 })

@@ -286,11 +286,26 @@ function loadUser(db: SqlJsDb): { userDbid: string | null; user: UserRow } {
   }
 }
 
+function firstUserDbid(db: SqlJsDb, table: string): string | null {
+  const cols = pragmaCols(db, table)
+  const userCol = cols.get('USER_DBID')
+  if (!userCol) return null
+  const row = query(db, `SELECT ${textExpr(userCol)} FROM ${ident(table)} LIMIT 1`)[0]
+  return row ? asString(row[0]) : null
+}
+
 export function loadSave(db: SqlJsDb, meta: LoadMeta): DragonSwordState {
   const currencies = loadCurrencies(db)
   const stackables = loadStackables(db)
   const user = loadUser(db)
-  const userDbid = user.userDbid ?? currencies.userDbid ?? stackables.userDbid ?? '0'
+  const userDbid =
+    user.userDbid ??
+    currencies.userDbid ??
+    stackables.userDbid ??
+    firstUserDbid(db, 'tb_character') ??
+    firstUserDbid(db, 'tb_cook_item') ??
+    firstUserDbid(db, 'tb_switch') ??
+    '0'
   return {
     relativePath: meta.relativePath,
     salt: meta.salt.slice(),
