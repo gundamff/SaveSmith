@@ -322,6 +322,30 @@ describe('useSessionStore', () => {
     expect(store.dirty).toBe(true)
   })
 
+  it('awaits async parse and serialize', async () => {
+    const extra: GameModule<DummyState> = {
+      ...dummyModule,
+      async parse(files) {
+        await Promise.resolve()
+        return dummyModule.parse(files)
+      },
+      async serialize(state) {
+        await Promise.resolve()
+        return dummyModule.serialize(state)
+      }
+    }
+    const io = createMemoryIo({ 'save.txt': enc('10') })
+    setSessionIo(io)
+    const store = useSessionStore()
+    await store.openGame(extra, 'D:\\saves')
+    await store.loadSlot('slot-0')
+    expect((store.state as DummyState).gold).toBe(10)
+    store.mutate((s) => ({ gold: (s as DummyState).gold + 1 }))
+    const issues = await store.save()
+    expect(issues).toEqual([])
+    expect(dec(io.writes[0]!.bytes)).toBe('11')
+  })
+
   it('save returns validate issues and does not write', async () => {
     const io = createMemoryIo({ 'save.txt': enc('0') })
     setSessionIo(io)

@@ -4,6 +4,17 @@
 
 ## [Unreleased]
 
+Adds **DragonSword: Awakening**; save-time checks for amounts, stacks, positions, and team CIDs.
+
+### Added
+
+- **DragonSword: Awakening** (HOUND13, Steam AppID 4570720): SQLCipher v4 slot `*_SlotN.db`; currency, stackables, cooking/recipes, characters, team, equipment, unlock (characters/titles/karma), owned cosmetics/mounts, world position
+- Validation: amounts and stacks must be non-negative and finite; positions must be finite; team CIDs must be owned or empty (`0`)
+
+### Infrastructure / Docs
+
+- Game notes in `docs/games/dragon-sword.en.md`; codec follows the [gfriloux public format docs](https://github.com/gfriloux/dragonsword-save-editor/tree/main/docs) (clean-room; no community editor source)
+
 ## [0.4.1] - 2026-09-11
 
 Fixes editor number inputs that would not stick; unit table shows level.

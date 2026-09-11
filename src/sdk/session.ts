@@ -11,7 +11,13 @@ export function expandWindowsTemplate(
 
 export function identifySaveDir(locator: SaveLocator, fileNames: string[]): boolean {
   const present = new Set(fileNames.map((n) => n.toLowerCase()))
-  return locator.identifyAnyOf.some((name) => present.has(name.toLowerCase()))
+  if (locator.identifyAnyOf.some((name) => present.has(name.toLowerCase()))) {
+    return true
+  }
+  const pattern = locator.identifyNameRegex
+  if (!pattern) return false
+  const re = new RegExp(pattern)
+  return fileNames.some((name) => re.test(name))
 }
 
 export function utf8Encode(s: string): Uint8Array {

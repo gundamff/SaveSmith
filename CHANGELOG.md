@@ -4,6 +4,17 @@
 
 ## [Unreleased]
 
+新增 **龙之剑：觉醒**；保存前校验货币 / 堆叠 / 坐标 / 编队 CID。
+
+### 新增
+
+- **龙之剑：觉醒 / DragonSword: Awakening**（HOUND13，Steam AppID 4570720）：SQLCipher v4 槽位 `*_SlotN.db`；货币、堆叠物品、料理/配方、角色、编队、装备、解锁（角色/称号/业力）、已拥有外观/坐骑、世界坐标
+- 保存校验：金额与堆叠须非负有限、坐标须有限、编队 CID 须为已有角色或空槽
+
+### 工程 / 文档
+
+- 游戏说明见 `docs/games/dragon-sword.md`；编解码按 [gfriloux 公开格式文档](https://github.com/gfriloux/dragonsword-save-editor/tree/main/docs) 独立实现，未移植社区编辑器源码
+
 ## [0.4.1] - 2026-09-11
 
 修复存档编辑页数值框「改不动 / 弹回」；机体表增加等级列。

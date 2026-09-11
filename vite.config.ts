@@ -14,6 +14,7 @@ export default defineConfig({
       "@games": path.resolve(__dirname, "src/games"),
     },
   },
+  assetsInclude: ["**/*.wasm"],
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   //

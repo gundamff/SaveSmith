@@ -1,0 +1,5 @@
+[
+  { "itemCid": 1000001, "name": { "zh": "金币", "en": "Gold" } },
+  { "itemCid": 1000002, "name": { "zh": "钻石", "en": "Diamond" } },
+  { "itemCid": 1000003, "name": { "zh": "体力", "en": "Stamina" } }
+]
