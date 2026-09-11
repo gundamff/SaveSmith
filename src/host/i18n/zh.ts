@@ -151,7 +151,10 @@ export const zh: MessageTree = {
   ds: {
     tabs: {
       currency: '货币',
-      items: '物品'
+      items: '物品',
+      characters: '角色',
+      team: '编队',
+      equipment: '装备'
     },
     actions: {
       maxCurrency: '货币拉满'

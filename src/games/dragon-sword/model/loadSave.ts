@@ -159,14 +159,25 @@ function loadEquipment(db: SqlJsDb): EquipmentRow[] {
   const needed = requireCols(cols, ['ITEM_DBID', 'ITEM_CID', 'ENCHANT_LEVEL', 'EXP', 'IS_LOCK', 'DELETED_DATE'])
   if (!needed) return []
   const [dbid, cid, enchant, exp, lock, deleted] = needed
-  const sql = `SELECT ${textExpr(dbid)}, ${ident(cid)}, ${ident(enchant)}, ${ident(exp)}, ${ident(lock)}, ${textExpr(deleted)} FROM ${ident('tb_equipment')}`
+  const statNames = ['MAIN_STAT_CID', 'SUB_STAT_CID1', 'SUB_STAT_CID2', 'SUB_STAT_CID3', 'SUB_STAT_CID4', 'SUB_STAT_CID5']
+  const statSelect = statNames.map((name) => {
+    const hit = cols.get(name)
+    return hit ? ident(hit) : '0'
+  })
+  const sql = `SELECT ${textExpr(dbid)}, ${ident(cid)}, ${ident(enchant)}, ${ident(exp)}, ${ident(lock)}, ${textExpr(deleted)}, ${statSelect.join(', ')} FROM ${ident('tb_equipment')}`
   return query(db, sql).map((row) => ({
     itemDbid: asString(row[0]),
     itemCid: asNumber(row[1]),
     enchantLevel: asNumber(row[2]),
     exp: asNumber(row[3]),
     isLock: asNumber(row[4]),
-    deletedDate: asString(row[5])
+    deletedDate: asString(row[5]),
+    mainStatCid: asNumber(row[6]),
+    subStatCid1: asNumber(row[7]),
+    subStatCid2: asNumber(row[8]),
+    subStatCid3: asNumber(row[9]),
+    subStatCid4: asNumber(row[10]),
+    subStatCid5: asNumber(row[11])
   }))
 }
 

@@ -87,7 +87,10 @@ describe('markRaw in-place edit reactivity', () => {
       'src/games/terraria/views/CharacterTab.vue',
       'src/games/terraria/views/InventoryTab.vue',
       'src/games/dragon-sword/views/CurrencyTab.vue',
-      'src/games/dragon-sword/views/ItemsTab.vue'
+      'src/games/dragon-sword/views/ItemsTab.vue',
+      'src/games/dragon-sword/views/CharactersTab.vue',
+      'src/games/dragon-sword/views/TeamTab.vue',
+      'src/games/dragon-sword/views/EquipmentTab.vue'
     ]
     for (const rel of files) {
       const text = readFileSync(join(ROOT, rel), 'utf8')
@@ -105,7 +108,9 @@ describe('markRaw in-place edit reactivity', () => {
       'src/games/terraria/views/CharacterTab.vue',
       'src/games/terraria/views/InventoryTab.vue',
       'src/games/dragon-sword/views/CurrencyTab.vue',
-      'src/games/dragon-sword/views/ItemsTab.vue'
+      'src/games/dragon-sword/views/ItemsTab.vue',
+      'src/games/dragon-sword/views/CharactersTab.vue',
+      'src/games/dragon-sword/views/EquipmentTab.vue'
     ]
     for (const rel of files) {
       const text = readFileSync(join(ROOT, rel), 'utf8')

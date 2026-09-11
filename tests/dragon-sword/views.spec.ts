@@ -100,7 +100,23 @@ describe('module i18n', () => {
     'items.cid',
     'items.stack',
     'items.add',
-    'items.addCid'
+    'items.addCid',
+    'characters.empty',
+    'characters.cid',
+    'characters.level',
+    'characters.exp',
+    'characters.ascend',
+    'team.empty',
+    'team.page',
+    'team.slot',
+    'team.emptySlot',
+    'equipment.empty',
+    'equipment.cid',
+    'equipment.enchant',
+    'equipment.exp',
+    'equipment.lock',
+    'equipment.mainStat',
+    'equipment.subStat'
   ] as const
 
   it('resolves deep DS strings in both locales', () => {
@@ -151,14 +167,23 @@ describe('dragon-sword view sources', () => {
     expect(text).toMatch(/markDirty/)
   })
 
-  it('registers currency and items tabs with ds.tabs.* labelKeys', () => {
+  it('registers currency, items, characters, team, and equipment tabs with ds.tabs.* labelKeys', () => {
     const text = readFileSync(join(VIEWS, 'index.ts'), 'utf8')
     expect(text).toMatch(/CurrencyTab/)
     expect(text).toMatch(/ItemsTab/)
+    expect(text).toMatch(/CharactersTab/)
+    expect(text).toMatch(/TeamTab/)
+    expect(text).toMatch(/EquipmentTab/)
     expect(text).toMatch(/ds\.tabs\.currency/)
     expect(text).toMatch(/ds\.tabs\.items/)
+    expect(text).toMatch(/ds\.tabs\.characters/)
+    expect(text).toMatch(/ds\.tabs\.team/)
+    expect(text).toMatch(/ds\.tabs\.equipment/)
     expect(tHost('ds.tabs.currency')).not.toBe('ds.tabs.currency')
     expect(tHost('ds.tabs.items')).not.toBe('ds.tabs.items')
+    expect(tHost('ds.tabs.characters')).not.toBe('ds.tabs.characters')
+    expect(tHost('ds.tabs.team')).not.toBe('ds.tabs.team')
+    expect(tHost('ds.tabs.equipment')).not.toBe('ds.tabs.equipment')
     expect(tHost('ds.actions.maxCurrency')).not.toBe('ds.actions.maxCurrency')
   })
 
@@ -201,5 +226,71 @@ describe('dragon-sword view sources', () => {
     }
     expect(text).toMatch(/markDirty/)
     expect(text).toMatch(/stackables/)
+  })
+
+  it('CharactersTab is a single root with snapshot rows and InputNumber @update:model-value', () => {
+    const text = readFileSync(join(VIEWS, 'CharactersTab.vue'), 'utf8')
+    const body = templateBody(text).trim()
+    expect(body).toMatch(/^<div\b/)
+    expect(body).toMatch(/:data-ss-rev="editor\.rev"/)
+    expect(body).toMatch(/<\/div>\s*$/)
+    expect(text).toMatch(/useDsEditor/)
+    expect(text).toMatch(/void editor\.rev/)
+    expect(text).toMatch(/index/)
+    expect(text).toMatch(/el-table/)
+    expect(text).not.toMatch(/:data="editor\.save\.characters"/)
+    const blocks = inputNumberBlocks(text)
+    expect(blocks.length).toBeGreaterThan(0)
+    for (const block of blocks) {
+      expect(block).toMatch(/@update:model-value/)
+      expect(block).not.toMatch(/@change=/)
+    }
+    expect(text).toMatch(/markDirty/)
+    expect(text).toMatch(/characters/)
+  })
+
+  it('TeamTab only offers character CIDs present in characters or 0', () => {
+    const text = readFileSync(join(VIEWS, 'TeamTab.vue'), 'utf8')
+    const body = templateBody(text).trim()
+    expect(body).toMatch(/^<div\b/)
+    expect(body).toMatch(/:data-ss-rev="editor\.rev"/)
+    expect(body).toMatch(/<\/div>\s*$/)
+    expect(text).toMatch(/useDsEditor/)
+    expect(text).toMatch(/void editor\.rev/)
+    expect(text).toMatch(/index/)
+    expect(text).not.toMatch(/:data="editor\.save\.teams"/)
+    expect(text).toMatch(/el-select/)
+    expect(text).toMatch(/@update:model-value/)
+    expect(text).not.toMatch(/@change=/)
+    expect(text).toMatch(/characterCid/)
+    expect(text).toMatch(/=== 0/)
+    expect(text).toMatch(/markDirty/)
+    expect(text).toMatch(/teams/)
+  })
+
+  it('EquipmentTab edits enchant/exp/lock and keeps stat CIDs read-only', () => {
+    const text = readFileSync(join(VIEWS, 'EquipmentTab.vue'), 'utf8')
+    const body = templateBody(text).trim()
+    expect(body).toMatch(/^<div\b/)
+    expect(body).toMatch(/:data-ss-rev="editor\.rev"/)
+    expect(body).toMatch(/<\/div>\s*$/)
+    expect(text).toMatch(/useDsEditor/)
+    expect(text).toMatch(/void editor\.rev/)
+    expect(text).toMatch(/index/)
+    expect(text).toMatch(/el-table/)
+    expect(text).not.toMatch(/:data="editor\.save\.equipment"/)
+    const blocks = inputNumberBlocks(text)
+    expect(blocks.length).toBeGreaterThan(0)
+    for (const block of blocks) {
+      expect(block).toMatch(/@update:model-value/)
+      expect(block).not.toMatch(/@change=/)
+      expect(block).not.toMatch(/mainStatCid|subStatCid/)
+    }
+    expect(text).toMatch(/markDirty/)
+    expect(text).toMatch(/enchantLevel/)
+    expect(text).toMatch(/isLock/)
+    expect(text).toMatch(/mainStatCid/)
+    expect(text).toMatch(/subStatCid1/)
+    expect(text).not.toMatch(/changeMainStat|changeSubStat/)
   })
 })

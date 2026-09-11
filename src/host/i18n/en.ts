@@ -151,7 +151,10 @@ export const en: MessageTree = {
   ds: {
     tabs: {
       currency: 'Currency',
-      items: 'Items'
+      items: 'Items',
+      characters: 'Characters',
+      team: 'Team',
+      equipment: 'Equipment'
     },
     actions: {
       maxCurrency: 'Max currency'

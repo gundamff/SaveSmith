@@ -38,6 +38,13 @@ export interface EquipmentRow {
   exp: number
   isLock: number
   deletedDate: string
+  /** Stat CIDs are projected for display; applySave never writes them. */
+  mainStatCid: number
+  subStatCid1: number
+  subStatCid2: number
+  subStatCid3: number
+  subStatCid4: number
+  subStatCid5: number
 }
 
 export interface CookItemRow {

@@ -17,6 +17,28 @@ export const zh: MessageTree = {
     addCid: '物品 CID',
     addStack: '数量',
     added: '已添加'
+  },
+  characters: {
+    empty: '暂无角色',
+    cid: '角色 CID',
+    level: '等级',
+    exp: '经验',
+    ascend: '突破'
+  },
+  team: {
+    empty: '暂无编队',
+    page: '页',
+    slot: '槽位',
+    emptySlot: '空'
+  },
+  equipment: {
+    empty: '暂无装备',
+    cid: '装备 CID',
+    enchant: '强化',
+    exp: '经验',
+    lock: '锁定',
+    mainStat: '主词条 CID',
+    subStat: '副词条 CID'
   }
 }
 
@@ -36,6 +58,28 @@ export const en: MessageTree = {
     addCid: 'Item CID',
     addStack: 'Stack',
     added: 'Added'
+  },
+  characters: {
+    empty: 'No characters',
+    cid: 'Character CID',
+    level: 'Level',
+    exp: 'Exp',
+    ascend: 'Ascend'
+  },
+  team: {
+    empty: 'No team pages',
+    page: 'Page',
+    slot: 'Slot',
+    emptySlot: 'Empty'
+  },
+  equipment: {
+    empty: 'No equipment',
+    cid: 'Gear CID',
+    enchant: 'Enchant',
+    exp: 'Exp',
+    lock: 'Lock',
+    mainStat: 'Main stat CID',
+    subStat: 'Sub stat CIDs'
   }
 }
 
