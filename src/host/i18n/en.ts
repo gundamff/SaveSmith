@@ -148,6 +148,11 @@ export const en: MessageTree = {
       collection: 'Collection'
     }
   },
+  ds: {
+    tabs: {
+      currency: 'Currency'
+    }
+  },
   error: {
     EMPTY_SERIALIZE: 'Serialize produced an empty or invalid payload; write aborted',
     UNKNOWN_ACTION: 'Unknown action: {0}',

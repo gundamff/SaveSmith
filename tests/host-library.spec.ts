@@ -6,8 +6,8 @@ import { modules } from '@host/registry'
 describe('registry', () => {
   it('registers compiled game modules in registry order', () => {
     expect(Array.isArray(modules)).toBe(true)
-    expect(modules).toHaveLength(3)
-    expect(modules.map((m) => m.id)).toEqual(['chaos-front', 'wanderburg', 'terraria'])
+    expect(modules).toHaveLength(4)
+    expect(modules.map((m) => m.id)).toEqual(['chaos-front', 'wanderburg', 'terraria', 'dragon-sword'])
   })
 })
 

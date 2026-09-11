@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { ModuleError } from '@sdk/error'
 import { modules } from '@host/registry'
 import { chaosFrontModule } from '../../src/games/chaos-front'
+import { dragonSwordModule } from '../../src/games/dragon-sword'
 import { terrariaModule } from '../../src/games/terraria'
 import { wanderburgModule } from '../../src/games/wanderburg'
 
@@ -31,7 +32,7 @@ describe('terrariaModule catalog / locate / registry', () => {
       identifyAnyOf: ['Players'],
       slotFilePatterns: ['Players/*.plr']
     })
-    expect(modules).toEqual([chaosFrontModule, wanderburgModule, terrariaModule])
+    expect(modules).toEqual([chaosFrontModule, wanderburgModule, terrariaModule, dragonSwordModule])
   })
 })
 

@@ -148,6 +148,11 @@ export const zh: MessageTree = {
       collection: '图鉴'
     }
   },
+  ds: {
+    tabs: {
+      currency: '货币'
+    }
+  },
   error: {
     EMPTY_SERIALIZE: '序列化结果为空或字节无效，已拒绝写入',
     UNKNOWN_ACTION: '未知动作：{0}',

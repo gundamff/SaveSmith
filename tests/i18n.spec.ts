@@ -46,6 +46,7 @@ const REQUIRED_KEYS = [
   'cf.tabs.unlock',
   'cf.tabs.collection',
   'wb.tabs.resources',
+  'ds.tabs.currency',
   'wb.resources.silver',
   'wb.resources.silverBeforeLastRun',
   'wb.resources.empty',

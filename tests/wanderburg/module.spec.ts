@@ -32,7 +32,7 @@ describe('wanderburgModule catalog / locate / registry', () => {
       identifyAnyOf: ['Saves'],
       slotFilePatterns: ['Saves/Playtest/Generation_*/SaveData.json']
     })
-    expect(modules.map((m) => m.id)).toEqual(['chaos-front', 'wanderburg', 'terraria'])
+    expect(modules.map((m) => m.id)).toEqual(['chaos-front', 'wanderburg', 'terraria', 'dragon-sword'])
     expect(modules[0]).toBe(chaosFrontModule)
     expect(modules[1]).toBe(wanderburgModule)
   })

@@ -185,7 +185,7 @@ export const useSessionStore = defineStore('session', () => {
       return
     }
     try {
-      const parsed = wrapState(mod.parse(files))
+      const parsed = wrapState(await mod.parse(files))
       currentSlotId.value = slotId
       state.value = parsed
       original.value = files
@@ -221,7 +221,7 @@ export const useSessionStore = defineStore('session', () => {
     if (!mod || state.value == null) return []
     const issues = mod.validate(state.value)
     if (issues.length) return issues
-    const next = mod.serialize(state.value)
+    const next = await mod.serialize(state.value)
     assertSerializeSane(next)
     const changed = changedFiles(original.value, next)
     for (const file of changed) {

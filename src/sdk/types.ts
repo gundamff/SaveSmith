@@ -81,8 +81,8 @@ export interface GameModule<S = unknown> {
   catalog: GameCatalog
   locate: SaveLocator
   listSlots(files: ListedFiles): SlotInfo[]
-  parse(files: SlotBytes[]): S
-  serialize(state: S): SerializedFile[]
+  parse(files: SlotBytes[]): S | Promise<S>
+  serialize(state: S): SerializedFile[] | Promise<SerializedFile[]>
   validate(state: S): ValidationIssue[]
   actions(state: S): ActionSpec[]
   applyAction(state: S, id: string, payload?: unknown): S
