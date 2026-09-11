@@ -17,6 +17,8 @@ export interface GameCatalog {
 export interface SaveLocator {
   windowsPathTemplates: string[]
   identifyAnyOf: string[]
+  /** If set, a directory matches when any listed name matches this regex (OR with identifyAnyOf). */
+  identifyNameRegex?: string
   slotFilePatterns?: string[]
 }
 

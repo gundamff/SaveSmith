@@ -29,6 +29,12 @@ describe('identifySaveDir', () => {
     expect(identifySaveDir(loc, ['savedata0.cf', 'config.cf'])).toBe(true)
     expect(identifySaveDir(loc, ['config.cf'])).toBe(false)
   })
+
+  it('accepts numeric account folder via identifyNameRegex', () => {
+    const locator = { windowsPathTemplates: [], identifyAnyOf: [], identifyNameRegex: '^[0-9]+$' }
+    expect(identifySaveDir(locator, ['136330193'])).toBe(true)
+    expect(identifySaveDir(locator, ['SaveGames'])).toBe(false)
+  })
 })
 
 describe('changedFiles', () => {
