@@ -92,7 +92,9 @@ describe('markRaw in-place edit reactivity', () => {
       'src/games/dragon-sword/views/TeamTab.vue',
       'src/games/dragon-sword/views/EquipmentTab.vue',
       'src/games/dragon-sword/views/CookingTab.vue',
-      'src/games/dragon-sword/views/UnlockTab.vue'
+      'src/games/dragon-sword/views/UnlockTab.vue',
+      'src/games/dragon-sword/views/CosmeticsTab.vue',
+      'src/games/dragon-sword/views/WorldTab.vue'
     ]
     for (const rel of files) {
       const text = readFileSync(join(ROOT, rel), 'utf8')
@@ -114,7 +116,8 @@ describe('markRaw in-place edit reactivity', () => {
       'src/games/dragon-sword/views/CharactersTab.vue',
       'src/games/dragon-sword/views/EquipmentTab.vue',
       'src/games/dragon-sword/views/CookingTab.vue',
-      'src/games/dragon-sword/views/UnlockTab.vue'
+      'src/games/dragon-sword/views/UnlockTab.vue',
+      'src/games/dragon-sword/views/WorldTab.vue'
     ]
     for (const rel of files) {
       const text = readFileSync(join(ROOT, rel), 'utf8')

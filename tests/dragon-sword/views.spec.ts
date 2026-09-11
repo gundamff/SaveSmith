@@ -129,7 +129,14 @@ describe('module i18n', () => {
     'unlock.lock',
     'unlock.karma',
     'unlock.catalogHint',
-    'unlock.emptyKarma'
+    'unlock.emptyKarma',
+    'cosmetics.empty',
+    'cosmetics.ownedHint',
+    'cosmetics.equip',
+    'cosmetics.mounts',
+    'world.region',
+    'world.posX',
+    'world.section'
   ] as const
 
   it('resolves deep DS strings in both locales', () => {
@@ -180,7 +187,7 @@ describe('dragon-sword view sources', () => {
     expect(text).toMatch(/markDirty/)
   })
 
-  it('registers currency, items, characters, team, equipment, cooking, and unlock tabs with ds.tabs.* labelKeys', () => {
+  it('registers currency, items, characters, team, equipment, cooking, unlock, cosmetics, and world tabs with ds.tabs.* labelKeys', () => {
     const text = readFileSync(join(VIEWS, 'index.ts'), 'utf8')
     expect(text).toMatch(/CurrencyTab/)
     expect(text).toMatch(/ItemsTab/)
@@ -189,6 +196,8 @@ describe('dragon-sword view sources', () => {
     expect(text).toMatch(/EquipmentTab/)
     expect(text).toMatch(/CookingTab/)
     expect(text).toMatch(/UnlockTab/)
+    expect(text).toMatch(/CosmeticsTab/)
+    expect(text).toMatch(/WorldTab/)
     expect(text).toMatch(/ds\.tabs\.currency/)
     expect(text).toMatch(/ds\.tabs\.items/)
     expect(text).toMatch(/ds\.tabs\.characters/)
@@ -196,6 +205,8 @@ describe('dragon-sword view sources', () => {
     expect(text).toMatch(/ds\.tabs\.equipment/)
     expect(text).toMatch(/ds\.tabs\.cooking/)
     expect(text).toMatch(/ds\.tabs\.unlock/)
+    expect(text).toMatch(/ds\.tabs\.cosmetics/)
+    expect(text).toMatch(/ds\.tabs\.world/)
     expect(tHost('ds.tabs.currency')).not.toBe('ds.tabs.currency')
     expect(tHost('ds.tabs.items')).not.toBe('ds.tabs.items')
     expect(tHost('ds.tabs.characters')).not.toBe('ds.tabs.characters')
@@ -203,6 +214,8 @@ describe('dragon-sword view sources', () => {
     expect(tHost('ds.tabs.equipment')).not.toBe('ds.tabs.equipment')
     expect(tHost('ds.tabs.cooking')).not.toBe('ds.tabs.cooking')
     expect(tHost('ds.tabs.unlock')).not.toBe('ds.tabs.unlock')
+    expect(tHost('ds.tabs.cosmetics')).not.toBe('ds.tabs.cosmetics')
+    expect(tHost('ds.tabs.world')).not.toBe('ds.tabs.world')
     expect(tHost('ds.actions.maxCurrency')).not.toBe('ds.actions.maxCurrency')
   })
 
@@ -364,5 +377,56 @@ describe('dragon-sword view sources', () => {
     expect(text).toMatch(/markDirty/)
     expect(text).toMatch(/titles/)
     expect(text).toMatch(/karma/)
+  })
+
+  it('CosmeticsTab equips owned costumes/vehicles only and never inserts CIDs', () => {
+    const text = readFileSync(join(VIEWS, 'CosmeticsTab.vue'), 'utf8')
+    const body = templateBody(text).trim()
+    expect(body).toMatch(/^<div\b/)
+    expect(body).toMatch(/:data-ss-rev="editor\.rev"/)
+    expect(body).toMatch(/<\/div>\s*$/)
+    expect(text).toMatch(/useDsEditor/)
+    expect(text).toMatch(/void editor\.rev/)
+    expect(text).toMatch(/index/)
+    expect(text).toMatch(/el-table/)
+    expect(text).not.toMatch(/:data="editor\.save\.costumes"/)
+    expect(text).not.toMatch(/:data="editor\.save\.vehicles"/)
+    expect(text).not.toMatch(/:data="editor\.save\.equipMounts"/)
+    expect(text).toMatch(/equipCharacterCid/)
+    expect(text).toMatch(/vehicleDbid/)
+    expect(text).toMatch(/characterCid/)
+    expect(text).toMatch(/=== 0/)
+    expect(text).not.toMatch(/costumes\.push|vehicles\.push|equipMounts\.push/)
+    expect(text).not.toMatch(/INSERT/)
+    expect(text).toMatch(/el-select/)
+    expect(text).toMatch(/@update:model-value/)
+    expect(text).not.toMatch(/@change=/)
+    expect(text).toMatch(/markDirty/)
+    expect(text).toMatch(/costumes/)
+    expect(text).toMatch(/vehicles/)
+    expect(text).toMatch(/equipMounts/)
+  })
+
+  it('WorldTab edits tb_user pos and region from a snapshot', () => {
+    const text = readFileSync(join(VIEWS, 'WorldTab.vue'), 'utf8')
+    const body = templateBody(text).trim()
+    expect(body).toMatch(/^<div\b/)
+    expect(body).toMatch(/:data-ss-rev="editor\.rev"/)
+    expect(body).toMatch(/<\/div>\s*$/)
+    expect(text).toMatch(/useDsEditor/)
+    expect(text).toMatch(/void editor\.rev/)
+    expect(text).not.toMatch(/:data="editor\.save\.user"/)
+    expect(text).toMatch(/regionCid/)
+    expect(text).toMatch(/sectionUid/)
+    expect(text).toMatch(/posX/)
+    expect(text).toMatch(/posY/)
+    expect(text).toMatch(/posZ/)
+    const blocks = inputNumberBlocks(text)
+    expect(blocks.length).toBeGreaterThan(0)
+    for (const block of blocks) {
+      expect(block).toMatch(/@update:model-value/)
+      expect(block).not.toMatch(/@change=/)
+    }
+    expect(text).toMatch(/markDirty/)
   })
 })

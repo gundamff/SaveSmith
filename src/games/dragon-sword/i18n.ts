@@ -72,6 +72,26 @@ export const zh: MessageTree = {
     ascend: '突破',
     transcend: '超限',
     isLock: '锁定'
+  },
+  cosmetics: {
+    empty: '暂无已拥有外观',
+    emptyVehicles: '暂无已拥有载具',
+    emptyMounts: '暂无坐骑装备',
+    costume: '外观',
+    vehicle: '载具',
+    cid: 'CID',
+    equip: '装备角色',
+    unequip: '未装备',
+    mounts: '坐骑装备',
+    character: '角色',
+    ownedHint: '仅能装备已拥有的外观与载具，不会插入未购买项'
+  },
+  world: {
+    region: '区域 CID',
+    section: '区块 UID',
+    posX: 'X',
+    posY: 'Y',
+    posZ: 'Z'
   }
 }
 
@@ -146,6 +166,26 @@ export const en: MessageTree = {
     ascend: 'Ascend',
     transcend: 'Transcend',
     isLock: 'Lock'
+  },
+  cosmetics: {
+    empty: 'No owned costumes',
+    emptyVehicles: 'No owned vehicles',
+    emptyMounts: 'No mount equipment rows',
+    costume: 'Costume',
+    vehicle: 'Vehicle',
+    cid: 'CID',
+    equip: 'Equip on character',
+    unequip: 'Unequipped',
+    mounts: 'Mount equipment',
+    character: 'Character',
+    ownedHint: 'Equip owned costumes and vehicles only; unpurchased CIDs are not inserted'
+  },
+  world: {
+    region: 'Region CID',
+    section: 'Section UID',
+    posX: 'X',
+    posY: 'Y',
+    posZ: 'Z'
   }
 }
 

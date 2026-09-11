@@ -53,6 +53,8 @@ const REQUIRED_KEYS = [
   'ds.tabs.equipment',
   'ds.tabs.cooking',
   'ds.tabs.unlock',
+  'ds.tabs.cosmetics',
+  'ds.tabs.world',
   'ds.actions.maxCurrency',
   'wb.resources.silver',
   'wb.resources.silverBeforeLastRun',

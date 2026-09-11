@@ -4,11 +4,12 @@
  * Public format references (schema/layout only; no community editor source):
  * - https://github.com/gfriloux/dragonsword-save-editor/tree/main/docs
  *
- * Currencies/stackables upsert. Characters, teams, equipment, cook stacks, and
- * karma UPDATE in place so unprojected columns (HP, GEM_DBID, dates, …) stay.
- * tb_switch UPSERTs BIT_FIELD per category. tb_title UPSERTs BIT_FIELD only
- * (never INSERT OR REPLACE — that would wipe FAV_BIT_FIELD). New characters
- * INSERT only when the catalog marks the CID earnable.
+ * Currencies/stackables upsert. Characters, teams, equipment, cook stacks,
+ * karma, costumes, mounts, and user pos UPDATE in place so unprojected columns
+ * (HP, GEM_DBID, dates, PLAY_TIME, …) stay. tb_switch UPSERTs BIT_FIELD per
+ * category. tb_title UPSERTs BIT_FIELD only (never INSERT OR REPLACE — that
+ * would wipe FAV_BIT_FIELD). New characters INSERT only when the catalog marks
+ * the CID earnable. Costumes/vehicles never INSERT in phase 1.
  */
 import type { SqlJsDb } from '../db/sqlite'
 import { isEarnableCharacter } from './characters'
@@ -184,6 +185,51 @@ export function applySave(db: SqlJsDb, state: DragonSwordState): void {
     const sql = `UPDATE ${ident('tb_karma')} SET ${ident(lock)} = ?, ${ident(exp)} = ?, ${ident(ascend)} = ?, ${ident(transcend)} = ? WHERE CAST(${ident(dbid)} AS TEXT) = ?`
     for (const row of state.karma) {
       db.run(sql, [row.isLock, row.exp, row.ascend, row.transcend, row.itemDbid])
+    }
+  }
+
+  const costumeCols = pragmaCols(db, 'tb_costume')
+  const costumeNeeded = requireCols(costumeCols, ['COSTUME_DBID', 'EQUIP_CHARACTER_CID'])
+  if (costumeNeeded) {
+    const [dbid, equip] = costumeNeeded
+    const sql = `UPDATE ${ident('tb_costume')} SET ${ident(equip)} = ? WHERE CAST(${ident(dbid)} AS TEXT) = ?`
+    for (const row of state.costumes) {
+      const cid = row.equipCharacterCid !== 0 && owned.has(row.equipCharacterCid) ? row.equipCharacterCid : 0
+      db.run(sql, [cid, row.costumeDbid])
+    }
+  }
+
+  const ownedVehicles = new Set(state.vehicles.map((row) => row.vehicleDbid))
+  const mountCols = pragmaCols(db, 'tb_equip_mount')
+  const mountNeeded = requireCols(mountCols, ['CHARACTER_CID', 'VEHICLE'])
+  if (mountNeeded) {
+    const [cid, vehicle] = mountNeeded
+    const userCol = mountCols.get('USER_DBID')
+    const sql = userCol
+      ? `UPDATE ${ident('tb_equip_mount')} SET ${ident(vehicle)} = ? WHERE ${ident(cid)} = ? AND CAST(${ident(userCol)} AS TEXT) = ?`
+      : `UPDATE ${ident('tb_equip_mount')} SET ${ident(vehicle)} = ? WHERE ${ident(cid)} = ?`
+    for (const row of state.equipMounts) {
+      const dbid = row.vehicleDbid !== '0' && ownedVehicles.has(row.vehicleDbid) ? row.vehicleDbid : '0'
+      if (userCol) db.run(sql, [dbid, row.characterCid, state.userDbid])
+      else db.run(sql, [dbid, row.characterCid])
+    }
+  }
+
+  const userCols = pragmaCols(db, 'tb_user')
+  const userNeeded = requireCols(userCols, ['REGION_CID', 'SECTION_UID', 'POS_X', 'POS_Y', 'POS_Z'])
+  if (userNeeded) {
+    const [region, section, x, y, z] = userNeeded
+    const userCol = userCols.get('USER_DBID')
+    if (userCol) {
+      db.run(
+        `UPDATE ${ident('tb_user')} SET ${ident(region)} = ?, ${ident(section)} = ?, ${ident(x)} = ?, ${ident(y)} = ?, ${ident(z)} = ? WHERE CAST(${ident(userCol)} AS TEXT) = ?`,
+        [state.user.regionCid, state.user.sectionUid, state.user.posX, state.user.posY, state.user.posZ, state.userDbid]
+      )
+    } else {
+      db.run(
+        `UPDATE ${ident('tb_user')} SET ${ident(region)} = ?, ${ident(section)} = ?, ${ident(x)} = ?, ${ident(y)} = ?, ${ident(z)} = ?`,
+        [state.user.regionCid, state.user.sectionUid, state.user.posX, state.user.posY, state.user.posZ]
+      )
     }
   }
 }

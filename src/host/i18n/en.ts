@@ -156,7 +156,9 @@ export const en: MessageTree = {
       team: 'Team',
       equipment: 'Equipment',
       cooking: 'Cooking',
-      unlock: 'Unlock'
+      unlock: 'Unlock',
+      cosmetics: 'Cosmetics',
+      world: 'World'
     },
     actions: {
       maxCurrency: 'Max currency'
