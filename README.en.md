@@ -35,6 +35,7 @@ Per-game editable fields, default paths, and caveats live in the docs linked bel
 | [Chaos Front](docs/games/chaos-front.en.md) | ChaosGalaxyStudio | Supported | [English](docs/games/chaos-front.en.md) · [中文](docs/games/chaos-front.md) |
 | [Wanderburg](docs/games/wanderburg.en.md) | Randwerk | Supported (EA; format may change) | [English](docs/games/wanderburg.en.md) · [中文](docs/games/wanderburg.md) |
 | [Terraria](docs/games/terraria.en.md) | Re-Logic | Supported (vanilla .plr) | [English](docs/games/terraria.en.md) · [中文](docs/games/terraria.md) |
+| [DragonSword: Awakening](docs/games/dragon-sword.en.md) | HOUND13 | Supported (offline; disable Steam Cloud) | [English](docs/games/dragon-sword.en.md) · [中文](docs/games/dragon-sword.md) |
 
 When adding a game: ship the module, add a row here, and write `docs/games/<id>.md` (+ `.en.md`).
 

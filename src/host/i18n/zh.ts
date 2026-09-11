@@ -178,6 +178,10 @@ export const zh: MessageTree = {
     SERIALIZE_FAILED: '存档序列化失败：{0}',
     INVALID_NAME: '角色名无效（长度 {0}）',
     INVALID_SILVER: '银币字段无效',
+    INVALID_AMOUNT: '货币数量无效（CID {0}）',
+    INVALID_STACK: '堆叠数量无效（CID {0}）',
+    INVALID_POSITION: '坐标 {0} 不是有限数值',
+    UNKNOWN_TEAM_CID: '编队页 {0} 的角色 CID {1} 不存在',
     LIFE_OVER_MAX: '当前生命 {0} 超过上限 {1}',
     MANA_OVER_MAX: '当前魔力 {0} 超过上限 {1}',
     ENCRYPT_FAILED: '存档加密失败：{0}'

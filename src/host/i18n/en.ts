@@ -179,6 +179,10 @@ export const en: MessageTree = {
     SERIALIZE_FAILED: 'Failed to serialize save: {0}',
     INVALID_NAME: 'Invalid character name (length {0})',
     INVALID_SILVER: 'Invalid silver field',
+    INVALID_AMOUNT: 'Invalid currency amount (CID {0})',
+    INVALID_STACK: 'Invalid stack count (CID {0})',
+    INVALID_POSITION: 'Position {0} is not a finite number',
+    UNKNOWN_TEAM_CID: 'Team page {0} uses unknown character CID {1}',
     LIFE_OVER_MAX: 'Current life {0} exceeds max {1}',
     MANA_OVER_MAX: 'Current mana {0} exceeds max {1}',
     ENCRYPT_FAILED: 'Failed to encrypt save: {0}'

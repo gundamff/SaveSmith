@@ -67,6 +67,10 @@ const REQUIRED_KEYS = [
   'error.UNSUPPORTED_VERSION',
   'error.INVALID_NAME',
   'error.INVALID_SILVER',
+  'error.INVALID_AMOUNT',
+  'error.INVALID_STACK',
+  'error.INVALID_POSITION',
+  'error.UNKNOWN_TEAM_CID',
   'error.LIFE_OVER_MAX',
   'error.MANA_OVER_MAX'
 ] as const

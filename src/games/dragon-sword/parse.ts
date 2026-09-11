@@ -72,6 +72,39 @@ export async function serialize(state: DragonSwordState): Promise<SerializedFile
   }
 }
 
-export function validate(_state: DragonSwordState): ValidationIssue[] {
-  return []
+function nonNegativeFinite(n: number): boolean {
+  return Number.isFinite(n) && n >= 0
+}
+
+export function validate(state: DragonSwordState): ValidationIssue[] {
+  const issues: ValidationIssue[] = []
+  for (const row of state.currencies) {
+    if (!nonNegativeFinite(row.amount)) {
+      issues.push({ code: 'INVALID_AMOUNT', args: [row.itemCid] })
+    }
+  }
+  for (const row of state.stackables) {
+    if (!nonNegativeFinite(row.stackCnt)) {
+      issues.push({ code: 'INVALID_STACK', args: [row.itemCid] })
+    }
+  }
+  for (const row of state.cookItems) {
+    if (!nonNegativeFinite(row.stackCnt)) {
+      issues.push({ code: 'INVALID_STACK', args: [row.itemCid] })
+    }
+  }
+  for (const axis of ['posX', 'posY', 'posZ'] as const) {
+    if (!Number.isFinite(state.user[axis])) {
+      issues.push({ code: 'INVALID_POSITION', args: [axis] })
+    }
+  }
+  const owned = new Set(state.characters.map((c) => c.characterCid))
+  for (const team of state.teams) {
+    for (const cid of [team.slot1, team.slot2, team.slot3]) {
+      if (cid !== 0 && !owned.has(cid)) {
+        issues.push({ code: 'UNKNOWN_TEAM_CID', args: [team.pageId, cid] })
+      }
+    }
+  }
+  return issues
 }
