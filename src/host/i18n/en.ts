@@ -150,7 +150,11 @@ export const en: MessageTree = {
   },
   ds: {
     tabs: {
-      currency: 'Currency'
+      currency: 'Currency',
+      items: 'Items'
+    },
+    actions: {
+      maxCurrency: 'Max currency'
     }
   },
   error: {

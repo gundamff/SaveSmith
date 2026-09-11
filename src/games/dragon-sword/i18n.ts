@@ -1,0 +1,59 @@
+import { locale } from '@host/i18n'
+import type { MessageTree } from '@host/i18n/zh'
+
+export const zh: MessageTree = {
+  currency: {
+    empty: '暂无货币记录',
+    cid: 'CID',
+    amount: '数量',
+    maxAll: '货币拉满',
+    maxed: '已将货币拉满'
+  },
+  items: {
+    empty: '暂无堆叠物品',
+    cid: 'CID',
+    stack: '堆叠',
+    add: '添加',
+    addCid: '物品 CID',
+    addStack: '数量',
+    added: '已添加'
+  }
+}
+
+export const en: MessageTree = {
+  currency: {
+    empty: 'No currency rows',
+    cid: 'CID',
+    amount: 'Amount',
+    maxAll: 'Max currency',
+    maxed: 'Currency amounts maxed'
+  },
+  items: {
+    empty: 'No stackable items',
+    cid: 'CID',
+    stack: 'Stack',
+    add: 'Add',
+    addCid: 'Item CID',
+    addStack: 'Stack',
+    added: 'Added'
+  }
+}
+
+const catalogs: Record<'zh' | 'en', MessageTree> = { zh, en }
+
+function lookup(tree: MessageTree, path: string): string | undefined {
+  const parts = path.split('.')
+  let cur: string | MessageTree | undefined = tree
+  for (const p of parts) {
+    if (!cur || typeof cur === 'string') return undefined
+    cur = cur[p]
+  }
+  return typeof cur === 'string' ? cur : undefined
+}
+
+/** Game-deep copy; follows host locale, not host t(). */
+export function t(key: string, ...args: Array<string | number>): string {
+  void locale.value
+  const raw = lookup(catalogs[locale.value], key) ?? lookup(catalogs.zh, key) ?? key
+  return raw.replace(/\{(\d+)\}/g, (_, i) => String(args[Number(i)] ?? ''))
+}

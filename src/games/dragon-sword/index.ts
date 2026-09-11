@@ -7,6 +7,7 @@
  * Cover is a solid-color JPEG placeholder (not game art).
  */
 import type { GameModule } from '@sdk/types'
+import { actions, applyAction } from './actions'
 import { locate } from './locate'
 import { parse, serialize, validate, type DragonSwordState } from './parse'
 import { listSlots } from './slots'
@@ -35,7 +36,7 @@ export const dragonSwordModule: GameModule<DragonSwordState> = {
   parse,
   serialize,
   validate,
-  actions: () => [],
-  applyAction: (state) => state,
+  actions,
+  applyAction,
   views: dragonSwordViews
 }

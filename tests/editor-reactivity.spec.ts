@@ -63,7 +63,8 @@ describe('markRaw in-place edit reactivity', () => {
     for (const rel of [
       'src/games/chaos-front/views/inject.ts',
       'src/games/wanderburg/views/inject.ts',
-      'src/games/terraria/views/inject.ts'
+      'src/games/terraria/views/inject.ts',
+      'src/games/dragon-sword/views/inject.ts'
     ]) {
       const text = readFileSync(join(ROOT, rel), 'utf8')
       expect(text, rel).toMatch(/useSessionBindings/)
@@ -84,7 +85,9 @@ describe('markRaw in-place edit reactivity', () => {
       'src/games/wanderburg/views/ResourcesTab.vue',
       'src/games/wanderburg/views/UnlockTab.vue',
       'src/games/terraria/views/CharacterTab.vue',
-      'src/games/terraria/views/InventoryTab.vue'
+      'src/games/terraria/views/InventoryTab.vue',
+      'src/games/dragon-sword/views/CurrencyTab.vue',
+      'src/games/dragon-sword/views/ItemsTab.vue'
     ]
     for (const rel of files) {
       const text = readFileSync(join(ROOT, rel), 'utf8')
@@ -100,7 +103,9 @@ describe('markRaw in-place edit reactivity', () => {
       'src/games/chaos-front/views/PilotsTab.vue',
       'src/games/wanderburg/views/ResourcesTab.vue',
       'src/games/terraria/views/CharacterTab.vue',
-      'src/games/terraria/views/InventoryTab.vue'
+      'src/games/terraria/views/InventoryTab.vue',
+      'src/games/dragon-sword/views/CurrencyTab.vue',
+      'src/games/dragon-sword/views/ItemsTab.vue'
     ]
     for (const rel of files) {
       const text = readFileSync(join(ROOT, rel), 'utf8')
