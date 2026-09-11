@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { ElMessage } from 'element-plus'
 import { MAX_CURRENCY_AMOUNT, maxCurrency } from '../actions'
+import { catalogLabel } from '../catalog'
 import { t } from '../i18n'
 import { useDsEditor } from './inject'
 
@@ -44,7 +45,7 @@ function maxAll(): void {
     <p v-if="rows.length === 0" class="ds-empty">{{ t('currency.empty') }}</p>
     <el-table v-else :data="rows" size="small" max-height="560" row-key="index">
       <el-table-column :label="t('currency.cid')" min-width="140">
-        <template #default="{ row }">{{ row.itemCid }}</template>
+        <template #default="{ row }">{{ catalogLabel(row.itemCid) }}</template>
       </el-table-column>
       <el-table-column :label="t('currency.amount')" width="220">
         <template #default="{ row }">

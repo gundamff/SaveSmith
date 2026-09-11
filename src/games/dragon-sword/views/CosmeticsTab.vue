@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { catalogLabel } from '../catalog'
 import { t } from '../i18n'
 import { useDsEditor } from './inject'
 
@@ -95,7 +96,7 @@ function changeMountVehicle(index: number, v: string | number | undefined): void
     <p v-if="costumeRows.length === 0" class="ds-empty">{{ t('cosmetics.empty') }}</p>
     <el-table v-else :data="costumeRows" size="small" max-height="280" row-key="index" class="gap">
       <el-table-column :label="t('cosmetics.cid')" min-width="120">
-        <template #default="{ row }">{{ row.costumeCid }}</template>
+        <template #default="{ row }">{{ catalogLabel(row.costumeCid) }}</template>
       </el-table-column>
       <el-table-column :label="t('cosmetics.equip')" min-width="180">
         <template #default="{ row }">
@@ -105,7 +106,7 @@ function changeMountVehicle(index: number, v: string | number | undefined): void
             @update:model-value="(v) => changeCostumeEquip(row.index, v as number | undefined)"
           >
             <el-option :value="0" :label="t('cosmetics.unequip')" />
-            <el-option v-for="cid in characterCids" :key="cid" :value="cid" :label="String(cid)" />
+            <el-option v-for="cid in characterCids" :key="cid" :value="cid" :label="catalogLabel(cid)" />
           </el-select>
         </template>
       </el-table-column>
@@ -115,7 +116,7 @@ function changeMountVehicle(index: number, v: string | number | undefined): void
     <p v-if="vehicleRows.length === 0" class="ds-empty">{{ t('cosmetics.emptyVehicles') }}</p>
     <el-table v-else :data="vehicleRows" size="small" max-height="240" row-key="vehicleDbid" class="gap">
       <el-table-column :label="t('cosmetics.cid')" min-width="120">
-        <template #default="{ row }">{{ row.vehicleCid }}</template>
+        <template #default="{ row }">{{ catalogLabel(row.vehicleCid) }}</template>
       </el-table-column>
     </el-table>
 
@@ -123,7 +124,7 @@ function changeMountVehicle(index: number, v: string | number | undefined): void
     <p v-if="mountRows.length === 0" class="ds-empty">{{ t('cosmetics.emptyMounts') }}</p>
     <el-table v-else :data="mountRows" size="small" max-height="280" row-key="index">
       <el-table-column :label="t('cosmetics.character')" min-width="120">
-        <template #default="{ row }">{{ row.characterCid }}</template>
+        <template #default="{ row }">{{ catalogLabel(row.characterCid) }}</template>
       </el-table-column>
       <el-table-column :label="t('cosmetics.vehicle')" min-width="180">
         <template #default="{ row }">
@@ -137,7 +138,7 @@ function changeMountVehicle(index: number, v: string | number | undefined): void
               v-for="veh in vehicleRows"
               :key="veh.vehicleDbid"
               :value="veh.vehicleDbid"
-              :label="String(veh.vehicleCid)"
+              :label="catalogLabel(veh.vehicleCid)"
             />
           </el-select>
         </template>

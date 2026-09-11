@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { ElMessage } from 'element-plus'
+import { catalogLabel } from '../catalog'
 import { t } from '../i18n'
 import { useDsEditor } from './inject'
 
@@ -84,7 +85,7 @@ function addItem(): void {
     <p v-if="rows.length === 0" class="ds-empty">{{ t('items.empty') }}</p>
     <el-table v-else :data="rows" size="small" max-height="560" row-key="index">
       <el-table-column :label="t('items.cid')" min-width="140">
-        <template #default="{ row }">{{ row.itemCid }}</template>
+        <template #default="{ row }">{{ catalogLabel(row.itemCid) }}</template>
       </el-table-column>
       <el-table-column :label="t('items.stack')" width="220">
         <template #default="{ row }">

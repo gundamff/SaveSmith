@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { catalogLabel } from '../catalog'
 import { t } from '../i18n'
 import { useDsEditor } from './inject'
 
@@ -44,7 +45,7 @@ function changeNum(
     <p v-if="rows.length === 0" class="ds-empty">{{ t('characters.empty') }}</p>
     <el-table v-else :data="rows" size="small" max-height="560" row-key="index">
       <el-table-column :label="t('characters.cid')" min-width="120">
-        <template #default="{ row }">{{ row.characterCid }}</template>
+        <template #default="{ row }">{{ catalogLabel(row.characterCid) }}</template>
       </el-table-column>
       <el-table-column :label="t('characters.level')" width="180">
         <template #default="{ row }">

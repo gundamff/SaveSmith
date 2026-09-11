@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { catalogLabel } from '../catalog'
 import { t } from '../i18n'
 import { useDsEditor } from './inject'
 
@@ -62,7 +63,7 @@ function changeSlot(index: number, slot: SlotKey, v: number | undefined): void {
             @update:model-value="(v) => changeSlot(row.index, slot, v as number | undefined)"
           >
             <el-option :value="0" :label="t('team.emptySlot')" />
-            <el-option v-for="cid in characterCids" :key="cid" :value="cid" :label="String(cid)" />
+            <el-option v-for="cid in characterCids" :key="cid" :value="cid" :label="catalogLabel(cid)" />
           </el-select>
         </template>
       </el-table-column>

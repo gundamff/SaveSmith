@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { locale } from '@host/i18n'
 import { t } from '../i18n'
+import { catalogLabel } from '../catalog'
 import { characterCatalog, isEarnableCharacter } from '../model/characters'
 import { setTitleKnown, titleCatalog, titleKnown } from '../model/titles'
 import { useDsEditor } from './inject'
@@ -173,7 +174,7 @@ function changeKarma(
         <template #default="{ row }">{{ row.label }}</template>
       </el-table-column>
       <el-table-column :label="t('unlock.cid')" width="120">
-        <template #default="{ row }">{{ row.characterCid }}</template>
+        <template #default="{ row }">{{ catalogLabel(row.characterCid) }}</template>
       </el-table-column>
       <el-table-column :label="t('unlock.known')" width="120">
         <template #default="{ row }">
@@ -184,7 +185,7 @@ function changeKarma(
     <p v-if="characterRows.length === 0" class="ds-empty">{{ t('unlock.emptyCharacters') }}</p>
     <el-table v-else :data="characterRows" size="small" max-height="320" row-key="index" class="gap">
       <el-table-column :label="t('unlock.cid')" min-width="120">
-        <template #default="{ row }">{{ row.characterCid }}</template>
+        <template #default="{ row }">{{ catalogLabel(row.characterCid) }}</template>
       </el-table-column>
       <el-table-column :label="t('characters.level')" width="180">
         <template #default="{ row }">
@@ -228,7 +229,7 @@ function changeKarma(
     <p v-if="karmaRows.length === 0" class="ds-empty">{{ t('unlock.emptyKarma') }}</p>
     <el-table v-else :data="karmaRows" size="small" max-height="360" row-key="index">
       <el-table-column :label="t('unlock.cid')" min-width="120">
-        <template #default="{ row }">{{ row.itemCid }}</template>
+        <template #default="{ row }">{{ catalogLabel(row.itemCid) }}</template>
       </el-table-column>
       <el-table-column :label="t('unlock.exp')" width="180">
         <template #default="{ row }">

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { catalogLabel } from '../catalog'
 import { t } from '../i18n'
 import { useDsEditor } from './inject'
 
@@ -71,7 +72,7 @@ function changeLock(index: number, locked: boolean): void {
     <p v-if="rows.length === 0" class="ds-empty">{{ t('equipment.empty') }}</p>
     <el-table v-else :data="rows" size="small" max-height="560" row-key="itemDbid">
       <el-table-column :label="t('equipment.cid')" min-width="110">
-        <template #default="{ row }">{{ row.itemCid }}</template>
+        <template #default="{ row }">{{ catalogLabel(row.itemCid) }}</template>
       </el-table-column>
       <el-table-column :label="t('equipment.enchant')" width="170">
         <template #default="{ row }">
@@ -103,10 +104,10 @@ function changeLock(index: number, locked: boolean): void {
         </template>
       </el-table-column>
       <el-table-column :label="t('equipment.mainStat')" min-width="110">
-        <template #default="{ row }">{{ row.mainStatCid }}</template>
+        <template #default="{ row }">{{ catalogLabel(row.mainStatCid) }}</template>
       </el-table-column>
       <el-table-column :label="t('equipment.subStat')" min-width="180">
-        <template #default="{ row }">{{ [row.subStatCid1, row.subStatCid2, row.subStatCid3, row.subStatCid4, row.subStatCid5].join(', ') }}</template>
+        <template #default="{ row }">{{ [row.subStatCid1, row.subStatCid2, row.subStatCid3, row.subStatCid4, row.subStatCid5].map((cid) => catalogLabel(cid)).join(', ') }}</template>
       </el-table-column>
     </el-table>
   </div>

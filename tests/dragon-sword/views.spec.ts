@@ -219,6 +219,13 @@ describe('dragon-sword view sources', () => {
     expect(tHost('ds.actions.maxCurrency')).not.toBe('ds.actions.maxCurrency')
   })
 
+  it('CID tabs import catalogLabel for display', () => {
+    for (const tab of ['CurrencyTab.vue', 'ItemsTab.vue', 'CharactersTab.vue']) {
+      const text = readFileSync(join(VIEWS, tab), 'utf8')
+      expect(text, tab).toMatch(/catalogLabel/)
+    }
+  })
+
   it('CurrencyTab is a single root with snapshot rows and InputNumber @update:model-value', () => {
     const text = readFileSync(join(VIEWS, 'CurrencyTab.vue'), 'utf8')
     const body = templateBody(text).trim()

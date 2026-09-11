@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { locale } from '@host/i18n'
+import { catalogLabel } from '../catalog'
 import { t } from '../i18n'
 import { isActiveCookRow, recipeCatalog, recipeKnown, setRecipeKnown } from '../model/recipes'
 import { useDsEditor } from './inject'
@@ -96,7 +97,7 @@ function unlockAllCatalog(): void {
     <p v-if="rows.length === 0" class="ds-empty">{{ t('cooking.empty') }}</p>
     <el-table v-else :data="rows" size="small" max-height="360" row-key="index">
       <el-table-column :label="t('cooking.cid')" min-width="140">
-        <template #default="{ row }">{{ row.itemCid }}</template>
+        <template #default="{ row }">{{ catalogLabel(row.itemCid) }}</template>
       </el-table-column>
       <el-table-column :label="t('cooking.stack')" width="220">
         <template #default="{ row }">
@@ -117,7 +118,7 @@ function unlockAllCatalog(): void {
         <template #default="{ row }">{{ row.label }}</template>
       </el-table-column>
       <el-table-column :label="t('cooking.cid')" min-width="110">
-        <template #default="{ row }">{{ row.dishCid ?? '—' }}</template>
+        <template #default="{ row }">{{ row.dishCid != null ? catalogLabel(row.dishCid) : '—' }}</template>
       </el-table-column>
       <el-table-column :label="t('cooking.switchKey')" width="120">
         <template #default="{ row }">{{ row.switchKey }}</template>
