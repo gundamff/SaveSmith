@@ -7,7 +7,7 @@ export const zh: MessageTree = {
   },
   library: {
     title: '游戏库',
-    subtitle: '选择一款游戏，开始改档',
+    subtitle: '从下方选一个游戏，打开本地存档就能改',
     detected: '已找到存档目录',
     missing: '未找到，请手动选择',
     chooseDir: '选择存档目录',
@@ -55,7 +55,8 @@ export const zh: MessageTree = {
     deleteConfirm: '确认删除备份 {0}？此操作不可恢复。',
     deleteFailed: '未能删除备份 {0}，文件可能仍在 backup 目录中。',
     empty: '暂无备份',
-    file: '{0}'
+    file: '{0}',
+    target: '目标 {0}'
   },
   about: {
     title: '关于',
@@ -65,6 +66,44 @@ export const zh: MessageTree = {
     close: '关闭',
     disclaimer:
       '非官方工具。与 {0} 官方无任何关联、授权或合作。仅供已购买正版的玩家在本地、单机环境下学习研究。禁止用于联机或破坏多人公平。'
+  },
+  te: {
+    tabs: {
+      character: '角色',
+      inventory: '物品'
+    },
+    character: {
+      name: '名字',
+      difficulty: '难度',
+      life: '生命',
+      mana: '魔力',
+      platinum: '铂金币',
+      gold: '金币',
+      silver: '银币',
+      copper: '铜币',
+      fillMax: '生命/魔力拉满到上限',
+      renameHint: '只改档内名字，不会重命名 .plr 文件（避免断开地图目录关联）。'
+    },
+    difficulty: {
+      classic: '经典',
+      mediumcore: '中核',
+      hardcore: '硬核',
+      journey: '旅行'
+    },
+    inventory: {
+      hotbar: '热键栏',
+      main: '主物品栏',
+      armor: '装备 / 时装 / 饰品',
+      picker: '选择物品',
+      search: '搜索名称或 ID',
+      pickerHint: '物品表共六千余种；此处最多列出 100 条，请输入关键字缩小范围。',
+      colItem: '物品',
+      colStack: '数量',
+      hint: '点左侧名称搜索换物或清空；右侧改堆叠数量。装备栏无数量。'
+    },
+    item: {
+      empty: '（空）'
+    }
   },
   wb: {
     tabs: {
@@ -117,6 +156,13 @@ export const zh: MessageTree = {
     UNIT_INDEX: '机体下标无效: {0}',
     PILOT_TAKEN: '驾驶员已被占用（机体 #{0}）',
     DEPLOYED_NO_PILOT: '已上阵机体缺少驾驶员（机体 #{0}），请先拖驾驶员上去再保存，否则游戏会崩溃',
-    DECRYPT_FAILED: '无法解密 Wanderburg 存档（密钥未适配或文件损坏）'
+    DECRYPT_FAILED: '无法解密存档（密钥未适配或文件损坏）',
+    UNSUPPORTED_VERSION: '暂不支持该存档版本：{0}',
+    PARSE_FAILED: '存档解析失败：{0}',
+    SERIALIZE_FAILED: '存档序列化失败：{0}',
+    INVALID_NAME: '角色名无效（长度 {0}）',
+    LIFE_OVER_MAX: '当前生命 {0} 超过上限 {1}',
+    MANA_OVER_MAX: '当前魔力 {0} 超过上限 {1}',
+    ENCRYPT_FAILED: '存档加密失败：{0}'
   }
 }

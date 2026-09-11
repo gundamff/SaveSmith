@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { t } from '../i18n'
+import { locale, t } from '../i18n'
+import { formatBackupSize, formatBackupTime } from '../backupFormat'
 import { useSessionStore } from '../stores/session'
 
 const store = useSessionStore()
@@ -16,14 +17,24 @@ const emit = defineEmits<{
     <p v-if="!store.backups.length" class="empty">{{ t('backups.empty') }}</p>
     <ul v-else>
       <li v-for="item in store.backups" :key="`${item.relativePath}:${item.name}`">
-        <span class="name">{{ item.name }}</span>
-        <span class="file">{{ t('backups.file', item.relativePath) }}</span>
-        <button type="button" @click="emit('restore', item.relativePath, item.name)">
-          {{ t('backups.restore') }}
-        </button>
-        <button type="button" class="danger" @click="emit('remove', item.relativePath, item.name)">
-          {{ t('backups.delete') }}
-        </button>
+        <div class="meta">
+          <div class="primary">
+            <span class="when">{{ formatBackupTime(item.mtimeMs, locale) }}</span>
+            <span class="size">{{ formatBackupSize(item.size, locale) }}</span>
+          </div>
+          <div class="secondary">
+            <span class="file">{{ t('backups.target', item.relativePath) }}</span>
+            <span class="name" :title="item.name">{{ item.name }}</span>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="button" @click="emit('restore', item.relativePath, item.name)">
+            {{ t('backups.restore') }}
+          </button>
+          <button type="button" class="danger" @click="emit('remove', item.relativePath, item.name)">
+            {{ t('backups.delete') }}
+          </button>
+        </div>
       </li>
     </ul>
   </section>
@@ -46,29 +57,66 @@ ul {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.55rem;
 }
 
 li {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  gap: 0.6rem 0.75rem;
   font-size: 0.85rem;
 }
 
-.name {
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.primary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.65rem;
+}
+
+.when {
   font-weight: 600;
 }
 
-.file,
-.empty {
+.size {
+  color: #b8b8c4;
+}
+
+.secondary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
   color: #9a9aa8;
+  font-size: 0.8rem;
+}
+
+.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.actions {
+  display: flex;
+  gap: 0.45rem;
+  flex-shrink: 0;
 }
 
 .empty {
   margin: 0;
   font-size: 0.85rem;
+  color: #9a9aa8;
 }
 
 button {

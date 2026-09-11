@@ -4,6 +4,24 @@
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-09-11
+
+Adds **Terraria**; Chaos Front unlock skips unused placeholders; clearer backups.
+
+### Added
+
+- **Terraria**: vanilla player `.plr` (character stats, coins, hotbar / inventory / equipment); searchable item catalog
+- Backup panel shows local timestamps and file sizes
+
+### Fixed
+
+- Chaos Front: unlock-all / checklist skips unit types named 未使用 (unlocking them crashes the game)
+
+### Infrastructure / Docs
+
+- `npm run dist` emits `SaveSmith-<version>-windows-x64.exe`; Release workflow matches
+- README / hand-test notes for Terraria; details in `docs/games/terraria.en.md`
+
 ## [0.3.0] - 2026-09-10
 
 Branding and docs cleanup; header donate.

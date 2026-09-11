@@ -25,6 +25,7 @@ const REQUIRED_KEYS = [
   'backups.delete',
   'backups.deleteConfirm',
   'backups.deleteFailed',
+  'backups.target',
   'error.EMPTY_SERIALIZE',
   'error.UNKNOWN_ACTION',
   'error.URL_NOT_ALLOWED',
@@ -47,7 +48,16 @@ const REQUIRED_KEYS = [
   'wb.tabs.resources',
   'wb.resources.silver',
   'wb.resources.silverBeforeLastRun',
-  'wb.resources.empty'
+  'wb.resources.empty',
+  'te.tabs.character',
+  'te.tabs.inventory',
+  'te.character.name',
+  'te.character.fillMax',
+  'te.inventory.hotbar',
+  'error.UNSUPPORTED_VERSION',
+  'error.INVALID_NAME',
+  'error.LIFE_OVER_MAX',
+  'error.MANA_OVER_MAX'
 ] as const
 
 afterEach(() => {

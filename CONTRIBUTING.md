@@ -15,7 +15,7 @@ npm run typecheck
 npm run tauri dev
 ```
 
-免安装包：`npm run dist` → `src-tauri/target/release/savesmith.exe`  
+免安装包：`npm run dist` → `src-tauri/target/release/SaveSmith-<版本>-windows-x64.exe`  
 安装包（可选）：`npm run dist:installer`  
 推 `main` 跑 CI；打 `v*` 标签发版，见 [docs/RELEASE.md](docs/RELEASE.md)。
 

@@ -1,6 +1,7 @@
 import { ModuleError as SaveError } from '@sdk/error'
 import {
-  ALL_UNIT_TYPE_IDS,
+  UNLOCKABLE_UNIT_TYPE_IDS,
+  unlockableItems,
   armyById,
   levelTableOf,
   unitMaxExpOf,
@@ -414,7 +415,7 @@ export class SaveData {
   }
 
   unlockAllUnitTypes(): void {
-    this.setUnlockedUnitTypes([...ALL_UNIT_TYPE_IDS])
+    this.setUnlockedUnitTypes([...UNLOCKABLE_UNIT_TYPE_IDS])
   }
 
   get unlockedItems(): number[] {
@@ -426,7 +427,7 @@ export class SaveData {
   }
 
   unlockAllItems(gd: GameData): void {
-    this.setUnlockedItems(gd.items.map((i) => i.id))
+    this.setUnlockedItems(unlockableItems(gd).map((i) => i.id))
   }
 }
 

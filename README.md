@@ -34,6 +34,7 @@
 |------|--------|------|------|
 | [混沌兵团 / Chaos Front](docs/games/chaos-front.md) | ChaosGalaxyStudio | 已支持 | [中文](docs/games/chaos-front.md) · [English](docs/games/chaos-front.en.md) |
 | [Wanderburg](docs/games/wanderburg.md) | Randwerk | 已支持（EA，格式可能变） | [中文](docs/games/wanderburg.md) · [English](docs/games/wanderburg.en.md) |
+| [泰拉瑞亚 / Terraria](docs/games/terraria.md) | Re-Logic | 已支持（原版 .plr） | [中文](docs/games/terraria.md) · [English](docs/games/terraria.en.md) |
 
 新增游戏时：补模块 + 在本表加一行 + 在 `docs/games/` 写独立说明。
 
@@ -67,7 +68,7 @@ npm run tauri dev
 npm run dist
 ```
 
-`npm run dist` 产出 `src-tauri/target/release/savesmith.exe`。可选安装包：`npm run dist:installer`。
+`npm run dist` 产出 `src-tauri/target/release/SaveSmith-<版本>-windows-x64.exe`。可选安装包：`npm run dist:installer`。
 
 - 架构：[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 - 贡献：[CONTRIBUTING.md](CONTRIBUTING.md)

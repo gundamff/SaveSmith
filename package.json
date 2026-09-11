@@ -1,15 +1,15 @@
 {
   "name": "savesmith",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
-    "dist": "tauri build --no-bundle",
-    "dist:installer": "tauri build",
+    "dist": "tauri build --no-bundle && node scripts/rename-dist.mjs",
+    "dist:installer": "tauri build && node scripts/rename-dist.mjs",
     "test": "vitest run",
     "typecheck": "vue-tsc --noEmit"
   },

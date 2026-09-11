@@ -1,7 +1,12 @@
 import { existsSync, readFileSync, statSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { parseEs3 } from '../../src/games/chaos-front/model/es3'
-import { ALL_UNIT_TYPE_IDS, gameData, unitMaxExpOf, type GameData } from '../../src/games/chaos-front/model/gameData'
+import {
+  UNLOCKABLE_UNIT_TYPE_IDS,
+  gameData,
+  unitMaxExpOf,
+  type GameData
+} from '../../src/games/chaos-front/model/gameData'
 import { CHARACTER_MAX_EXP } from '../../src/games/chaos-front/model/level'
 import {
   SaveData,
@@ -100,7 +105,7 @@ describe.skipIf(!haveSave)('E2E 真实存档 savedata0.cf（CFSE_E2E_SAVE）', (
     console.log(
       `[e2e] 修改计数: unitsMaxed=${unitsMaxed}/${save.units.length} ` +
         `pilotsMaxed=${pilotsMaxed}/${save.characterExps.length} ` +
-        `unlockedUnitTypes ${save.unlockedUnitTypes.length} (->${ALL_UNIT_TYPE_IDS.length}) ` +
+        `unlockedUnitTypes ${save.unlockedUnitTypes.length} (->${UNLOCKABLE_UNIT_TYPE_IDS.length}) ` +
         `unlockedItems ->${gd.items.length} credit->123456789`
     )
 
@@ -124,13 +129,12 @@ describe.skipIf(!haveSave)('E2E 真实存档 savedata0.cf（CFSE_E2E_SAVE）', (
     expect(after.characterExps).toHaveLength(origExps.length)
     expect(after.characterExps.every((e) => e === CHARACTER_MAX_EXP)).toBe(true)
 
-    // 全机型解锁：1..92 排序去重，与 ALL_UNIT_TYPE_IDS 一致
+    // 全机型解锁：仅非「未使用」机型，与 UNLOCKABLE_UNIT_TYPE_IDS 一致
     const sortedUnique = [...new Set(after.unlockedUnitTypes)].sort((a, b) => a - b)
     expect(sortedUnique).toEqual(after.unlockedUnitTypes)
-    expect(sortedUnique).toHaveLength(92)
-    expect(sortedUnique[0]).toBe(1)
-    expect(sortedUnique[sortedUnique.length - 1]).toBe(92)
-    expect(after.unlockedUnitTypes).toEqual(ALL_UNIT_TYPE_IDS)
+    expect(sortedUnique).toHaveLength(68)
+    expect(after.unlockedUnitTypes).toEqual(UNLOCKABLE_UNIT_TYPE_IDS)
+    expect(after.unlockedUnitTypes).not.toContain(13)
 
     // 全道具解锁：覆盖全部 16 种
     expect(after.unlockedItems).toEqual(gd.items.map((it) => it.id))

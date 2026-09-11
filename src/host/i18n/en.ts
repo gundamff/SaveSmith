@@ -7,7 +7,7 @@ export const en: MessageTree = {
   },
   library: {
     title: 'Game Library',
-    subtitle: 'Pick a game and start editing',
+    subtitle: 'Choose a game below to open and edit your local saves',
     detected: 'Save folder found',
     missing: 'Not found, please choose manually',
     chooseDir: 'Choose save folder',
@@ -55,7 +55,8 @@ export const en: MessageTree = {
     deleteConfirm: 'Delete backup {0}? This cannot be undone.',
     deleteFailed: 'Could not delete backup {0}; the file may still be under backup/.',
     empty: 'No backups',
-    file: '{0}'
+    file: '{0}',
+    target: 'Target {0}'
   },
   about: {
     title: 'About',
@@ -65,6 +66,44 @@ export const en: MessageTree = {
     close: 'Close',
     disclaimer:
       'Unofficial tool. Not affiliated with, authorized by, or endorsed by {0}. For personal, offline study by owners of a legitimate copy only. Online / multiplayer use is prohibited.'
+  },
+  te: {
+    tabs: {
+      character: 'Character',
+      inventory: 'Inventory'
+    },
+    character: {
+      name: 'Name',
+      difficulty: 'Difficulty',
+      life: 'Life',
+      mana: 'Mana',
+      platinum: 'Platinum',
+      gold: 'Gold',
+      silver: 'Silver',
+      copper: 'Copper',
+      fillMax: 'Fill life/mana to max',
+      renameHint: 'Edits the in-file name only; the .plr filename is not renamed (keeps map folder links).'
+    },
+    difficulty: {
+      classic: 'Classic',
+      mediumcore: 'Mediumcore',
+      hardcore: 'Hardcore',
+      journey: 'Journey'
+    },
+    inventory: {
+      hotbar: 'Hotbar',
+      main: 'Main inventory',
+      armor: 'Armor / vanity / accessories',
+      picker: 'Pick item',
+      search: 'Search name or ID',
+      pickerHint: 'The catalog has 6000+ items; at most 100 are listed here—type to narrow results.',
+      colItem: 'Item',
+      colStack: 'Stack',
+      hint: 'Click the name to search or clear; edit stack on the right. Armor has no stack.'
+    },
+    item: {
+      empty: '(empty)'
+    }
   },
   wb: {
     tabs: {
@@ -118,7 +157,13 @@ export const en: MessageTree = {
     PILOT_TAKEN: 'Pilot already assigned (unit #{0})',
     DEPLOYED_NO_PILOT:
       'Deployed unit(s) missing pilot (#{0}); assign a pilot before saving or the game will crash',
-    DECRYPT_FAILED:
-      'Cannot decrypt Wanderburg save (key not adapted or file corrupted)'
+    DECRYPT_FAILED: 'Cannot decrypt save (key not adapted or file corrupted)',
+    UNSUPPORTED_VERSION: 'Unsupported save version: {0}',
+    PARSE_FAILED: 'Failed to parse save: {0}',
+    SERIALIZE_FAILED: 'Failed to serialize save: {0}',
+    INVALID_NAME: 'Invalid character name (length {0})',
+    LIFE_OVER_MAX: 'Current life {0} exceeds max {1}',
+    MANA_OVER_MAX: 'Current mana {0} exceeds max {1}',
+    ENCRYPT_FAILED: 'Failed to encrypt save: {0}'
   }
 }

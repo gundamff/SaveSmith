@@ -34,6 +34,7 @@ Per-game editable fields, default paths, and caveats live in the docs linked bel
 |------|---------------|--------|------|
 | [Chaos Front](docs/games/chaos-front.en.md) | ChaosGalaxyStudio | Supported | [English](docs/games/chaos-front.en.md) · [中文](docs/games/chaos-front.md) |
 | [Wanderburg](docs/games/wanderburg.en.md) | Randwerk | Supported (EA; format may change) | [English](docs/games/wanderburg.en.md) · [中文](docs/games/wanderburg.md) |
+| [Terraria](docs/games/terraria.en.md) | Re-Logic | Supported (vanilla .plr) | [English](docs/games/terraria.en.md) · [中文](docs/games/terraria.md) |
 
 When adding a game: ship the module, add a row here, and write `docs/games/<id>.md` (+ `.en.md`).
 
@@ -67,7 +68,7 @@ npm run tauri dev
 npm run dist
 ```
 
-`npm run dist` writes `src-tauri/target/release/savesmith.exe`. Optional installer: `npm run dist:installer`.
+`npm run dist` writes `src-tauri/target/release/SaveSmith-<version>-windows-x64.exe`. Optional installer: `npm run dist:installer`.
 
 - Architecture: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 - Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)

@@ -6,8 +6,8 @@ import { modules } from '@host/registry'
 describe('registry', () => {
   it('registers compiled game modules in registry order', () => {
     expect(Array.isArray(modules)).toBe(true)
-    expect(modules).toHaveLength(2)
-    expect(modules.map((m) => m.id)).toEqual(['chaos-front', 'wanderburg'])
+    expect(modules).toHaveLength(3)
+    expect(modules.map((m) => m.id)).toEqual(['chaos-front', 'wanderburg', 'terraria'])
   })
 })
 
@@ -19,6 +19,27 @@ describe('probeModuleSaveDir', () => {
     ],
     identifyAnyOf: ['save.txt']
   }
+
+  it('probe prefers DOCUMENTS template when provided', async () => {
+    const terrariaLocator = {
+      windowsPathTemplates: [
+        '%DOCUMENTS%\\My Games\\Terraria',
+        '%USERPROFILE%\\Documents\\My Games\\Terraria'
+      ],
+      identifyAnyOf: ['Players']
+    }
+    const listDirNames = vi.fn(async (dir: string) => {
+      if (dir === 'D:\\user\\Documents\\My Games\\Terraria') return ['Players', 'Worlds']
+      return []
+    })
+    await expect(
+      probeModuleSaveDir(
+        terrariaLocator,
+        { DOCUMENTS: 'D:\\user\\Documents', USERPROFILE: 'C:\\Users\\zhang' },
+        listDirNames
+      )
+    ).resolves.toBe('D:\\user\\Documents\\My Games\\Terraria')
+  })
 
   it('returns the first expanded path that identifies as a save dir', async () => {
     const listDirNames = vi.fn(async (dir: string) => {

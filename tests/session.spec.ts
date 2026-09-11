@@ -13,6 +13,14 @@ describe('expandWindowsTemplate', () => {
       expandWindowsTemplate('%USERPROFILE%\\AppData\\LocalLow\\X', { USERPROFILE: 'C:\\Users\\a' })
     ).toBe('C:\\Users\\a\\AppData\\LocalLow\\X')
   })
+
+  it('replaces DOCUMENTS for redirected folders', () => {
+    expect(
+      expandWindowsTemplate('%DOCUMENTS%\\My Games\\Terraria', {
+        DOCUMENTS: 'D:\\user\\Documents'
+      })
+    ).toBe('D:\\user\\Documents\\My Games\\Terraria')
+  })
 })
 
 describe('identifySaveDir', () => {

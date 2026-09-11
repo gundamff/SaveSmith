@@ -1,10 +1,28 @@
 import { describe, expect, it } from 'vitest'
-import { gameData } from '../../src/games/chaos-front/model/gameData'
+import {
+  ALL_UNIT_TYPE_IDS,
+  UNLOCKABLE_UNIT_TYPE_IDS,
+  gameData,
+  isUnusedEntry,
+  unlockableItems,
+  unlockableUnitTypes
+} from '../../src/games/chaos-front/model/gameData'
 
 describe('game-data.json（提取产物）', () => {
   it('has 92 unit types', () => {
     expect(gameData.unitTypes).toHaveLength(92)
     expect(gameData.unitTypes[0]).toMatchObject({ id: 1, kind: 1, levelType: 3 })
+  })
+
+  it('excludes 未使用 placeholders from unlockable unit types', () => {
+    const unused = gameData.unitTypes.filter((u) => isUnusedEntry(u))
+    expect(unused.length).toBe(24)
+    expect(unused.every((u) => u.name === '未使用')).toBe(true)
+    expect(unlockableUnitTypes(gameData)).toHaveLength(92 - 24)
+    expect(UNLOCKABLE_UNIT_TYPE_IDS).toHaveLength(68)
+    expect(UNLOCKABLE_UNIT_TYPE_IDS).not.toContain(13)
+    expect(ALL_UNIT_TYPE_IDS).toContain(13)
+    expect(unlockableItems(gameData)).toEqual(gameData.items)
   })
   it('has 12 level tables with valid EXP6', () => {
     expect(Object.keys(gameData.levelTables)).toHaveLength(12)

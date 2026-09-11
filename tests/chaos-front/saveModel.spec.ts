@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { ModuleError } from '@sdk/error'
-import { ALL_UNIT_TYPE_IDS, type GameData } from '../../src/games/chaos-front/model/gameData'
+import { UNLOCKABLE_UNIT_TYPE_IDS, type GameData } from '../../src/games/chaos-front/model/gameData'
 import {
   SaveData,
   loadCollectionText,
@@ -134,18 +134,34 @@ describe('SaveData', () => {
     expect(s2.characterExps).toEqual([20000, 20000, 20000])
   })
 
-  it('unlockAllUnitTypes unlocks 1..92 and keeps ids sorted unique', () => {
+  it('unlockAllUnitTypes unlocks only non-未使用 unit types', () => {
     const s = SaveData.load(fixture())
     s.unlockAllUnitTypes()
     const s2 = SaveData.load(s.serialize())
-    expect(s2.unlockedUnitTypes).toEqual(ALL_UNIT_TYPE_IDS)
+    expect(s2.unlockedUnitTypes).toEqual(UNLOCKABLE_UNIT_TYPE_IDS)
+    expect(s2.unlockedUnitTypes).not.toContain(13)
+    expect(s2.unlockedUnitTypes).toHaveLength(68)
   })
 
-  it('unlockAllItems unlocks every item', () => {
+  it('unlockAllItems unlocks every non-未使用 item', () => {
     const s = SaveData.load(fixture())
     s.unlockAllItems(gd)
     const s2 = SaveData.load(s.serialize())
     expect(s2.unlockedItems).toEqual([1, 2, 3])
+  })
+
+  it('unlockAllItems skips 未使用 placeholders', () => {
+    const withUnused: GameData = {
+      ...gd,
+      items: [
+        ...gd.items,
+        { id: 99, name: '未使用', icon: 0 }
+      ]
+    }
+    const s = SaveData.load(fixture())
+    s.unlockAllItems(withUnused)
+    expect(s.unlockedItems).toEqual([1, 2, 3])
+    expect(s.unlockedItems).not.toContain(99)
   })
 
   it('rejects structurally broken saves with MISSING_FIELD', () => {

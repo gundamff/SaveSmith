@@ -37,3 +37,8 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Promo render outputs (large)
+docs/promo/*.mp4
+docs/promo/*.avi
+docs/promo-preview/

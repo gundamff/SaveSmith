@@ -6,7 +6,7 @@
 
 `%USERPROFILE%\AppData\LocalLow\ChaosGalaxyStudio\Chaos Front`
 
-把整个目录复制到另一路径，在 SaveSmith 里手选该副本。开发构建：`npm run tauri dev`。免安装：`npm run dist` 后的 `src-tauri/target/release/savesmith.exe`。安装包（可选）：`npm run dist:installer` 后的 NSIS。
+把整个目录复制到另一路径，在 SaveSmith 里手选该副本。开发构建：`npm run tauri dev`。免安装：`npm run dist` 后的 `src-tauri/target/release/SaveSmith-<版本>-windows-x64.exe`。安装包（可选）：`npm run dist:installer` 后的 NSIS。
 
 WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md)（第 9 项）。Win10/11 通常已预装。
 
@@ -94,7 +94,7 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 
 - [ ] 打开副本目录后，左侧列出 `Generation 0001`、`Generation 0002` …（按编号排序）
 - [ ] 载入槽位后顶栏显示当前槽位标题；不可读槽位显示「无法读取」
-- [ ] 若密钥失效或文件损坏，载入失败并提示「无法解密 Wanderburg 存档…」（`DECRYPT_FAILED`）
+- [ ] 若密钥失效或文件损坏，载入失败并提示解密失败（`DECRYPT_FAILED`）
 
 ### W3. 资源页
 
@@ -120,6 +120,46 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 - [ ] 启动游戏，加载**同一 Generation** 对应进度
 - [ ] 游戏能正常读档，修改过的 **silver** 与 SaveSmith 中一致，无崩溃或拒档
 - [ ] 若游戏拒档或数值未生效，记录游戏版本与 `saveVersion`，勿当作已通过
+
+---
+
+## 泰拉瑞亚手测（原版 .plr）
+
+**警告：** 修改前**完全退出游戏**。仅测原版 `Players/*.plr`；不要用唯一真档，先复制整个 `Terraria` 存档目录。
+
+默认真档目录（仅作复制来源）：
+
+`%USERPROFILE%\Documents\My Games\Terraria`
+
+（若 Documents 重定向，用手选目录指向副本。）
+
+### T1. 库页与探测
+
+- [ ] 游戏库显示「泰拉瑞亚 / Terraria」卡片
+- [ ] 选中含 `Players` 的目录可进入；无 `Players` 时提示非该游戏存档
+- [ ] 「商店页」打开 Steam AppID **105600**
+
+### T2. 列槽与解密
+
+- [ ] 左侧列出各 `.plr`（标题优先为角色名）
+- [ ] 载入后「角色」页显示名字、难度、生命/魔力
+- [ ] 损坏/非原版加密档显示无法读取或解密失败
+
+### T3. 角色与金币
+
+- [ ] 改生命/魔力并「拉满到上限」后保存，`backup/` 出现对应 `.plr` 备份
+- [ ] 改四段金币后重载，币槽数值一致
+- [ ] 改档内名字后磁盘文件名不变
+
+### T4. 物品栏
+
+- [ ] 「物品」页可改热键栏/主栏/装备；选择器可搜名称或 ID
+- [ ] 保存后重载格子内容一致
+
+### T5. 游戏本体读档
+
+- [ ] 完全退出泰拉瑞亚后，用 SaveSmith 改副本并保存
+- [ ] 游戏能加载该角色，数值/物品与修改一致，无崩溃
 
 ### W7. 错误密钥（可选）
 

@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { ElMessage } from 'element-plus'
-import { gameData } from '../model/gameData'
+import {
+  gameData,
+  isUnusedEntry,
+  unlockableItems,
+  unlockableUnitTypes,
+  unitTypeById
+} from '../model/gameData'
 import { gameImage } from '../lib/images'
 import { t } from '../i18n'
 import { useCfEditor } from './inject'
@@ -9,14 +15,20 @@ import { useCfEditor } from './inject'
 const editor = useCfEditor()
 const unlocked = computed(() => new Set(editor.save?.unlockedUnitTypes ?? []))
 const unlockedItems = computed(() => new Set(editor.save?.unlockedItems ?? []))
+const unitList = computed(() => unlockableUnitTypes(gameData))
+const itemList = computed(() => unlockableItems(gameData))
 
 const groups = computed(() => [
-  { title: t('unlock.warships'), list: gameData.unitTypes.filter((u) => u.kind === 1) },
-  { title: t('unlock.large'), list: gameData.unitTypes.filter((u) => u.kind === 2 && u.size === 1) },
-  { title: t('unlock.small'), list: gameData.unitTypes.filter((u) => u.kind === 2 && u.size === 0) }
+  { title: t('unlock.warships'), list: unitList.value.filter((u) => u.kind === 1) },
+  { title: t('unlock.large'), list: unitList.value.filter((u) => u.kind === 2 && u.size === 1) },
+  { title: t('unlock.small'), list: unitList.value.filter((u) => u.kind === 2 && u.size === 0) }
 ])
 
 function toggleType(id: number, on: boolean): void {
+  if (on) {
+    const u = unitTypeById(gameData, id)
+    if (!u || isUnusedEntry(u)) return
+  }
   editor.markDirty(() => {
     const arr = editor.save.unlockedUnitTypes
     const i = arr.indexOf(id)
@@ -26,12 +38,16 @@ function toggleType(id: number, on: boolean): void {
 }
 function selectAll(on: boolean): void {
   editor.markDirty(() => {
-    editor.save.setUnlockedUnitTypes(on ? gameData.unitTypes.map((u) => u.id) : [])
+    editor.save.setUnlockedUnitTypes(on ? unitList.value.map((u) => u.id) : [])
   })
   ElMessage.success(on ? t('unlock.unlockedAll') : t('unlock.cleared'))
 }
 function toggleItem(id: number, on: string | number | boolean): void {
   const enabled = on === true || on === id
+  if (enabled) {
+    const it = gameData.items.find((x) => x.id === id)
+    if (!it || isUnusedEntry(it)) return
+  }
   editor.markDirty(() => {
     const arr = editor.save.unlockedItems
     const i = arr.indexOf(id)
@@ -71,9 +87,9 @@ function unlockAllItems(): void {
     </div>
 
     <div class="group">
-      <h4>{{ t('unlock.items', unlockedItems.size, gameData.items.length) }}</h4>
+      <h4>{{ t('unlock.items', unlockedItems.size, itemList.length) }}</h4>
       <el-checkbox-group class="item-row" :model-value="[...unlockedItems]">
-        <el-checkbox v-for="it in gameData.items" :key="it.id" :value="it.id" @change="(on) => toggleItem(it.id, on)">
+        <el-checkbox v-for="it in itemList" :key="it.id" :value="it.id" @change="(on) => toggleItem(it.id, on)">
           {{ it.name }}
         </el-checkbox>
       </el-checkbox-group>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { homeDir } from '@tauri-apps/api/path'
+import { documentDir, homeDir } from '@tauri-apps/api/path'
 import type { GameModule } from '@sdk/types'
 import { t } from '../i18n'
 import { confirmSaveDir, probeModuleSaveDir } from '../probe'
@@ -19,12 +19,20 @@ onMounted(() => {
 })
 
 async function windowsEnv(): Promise<Record<string, string | undefined>> {
+  let userProfile = ''
+  let documents = ''
   try {
-    const home = await homeDir()
-    return { USERPROFILE: home.replace(/[/\\]+$/, '') }
+    userProfile = (await homeDir()).replace(/[/\\]+$/, '')
   } catch {
-    return { USERPROFILE: '' }
+    /* ignore */
   }
+  try {
+    // FOLDERID_Documents — respects Windows folder redirection (e.g. D:\user\Documents)
+    documents = (await documentDir()).replace(/[/\\]+$/, '')
+  } catch {
+    /* ignore */
+  }
+  return { USERPROFILE: userProfile, DOCUMENTS: documents }
 }
 
 async function probeAll(): Promise<void> {

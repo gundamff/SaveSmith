@@ -110,7 +110,23 @@ export interface GameData {
 /** 提取脚本产物（见 scripts/extract-game-data.mjs） */
 export const gameData = data as GameData
 
+/** 游戏数据中的占位条目；写入解锁表会导致进游戏崩溃 */
+export function isUnusedEntry(entry: { name: string }): boolean {
+  return entry.name === '未使用'
+}
+
+export function unlockableUnitTypes(gd: GameData): UnitTypeEntry[] {
+  return gd.unitTypes.filter((u) => !isUnusedEntry(u))
+}
+
+export function unlockableItems(gd: GameData): ItemEntry[] {
+  return gd.items.filter((i) => !isUnusedEntry(i))
+}
+
 export const ALL_UNIT_TYPE_IDS: number[] = gameData.unitTypes.map((u) => u.id)
+
+/** 可安全写入 PlayerUnlockedUnitTypes 的机型 id（排除「未使用」） */
+export const UNLOCKABLE_UNIT_TYPE_IDS: number[] = unlockableUnitTypes(gameData).map((u) => u.id)
 
 export function unitTypeById(gd: GameData, id: number): UnitTypeEntry | undefined {
   return gd.unitTypes.find((u) => u.id === id)

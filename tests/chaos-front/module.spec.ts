@@ -68,7 +68,9 @@ describe('chaosFrontModule catalog / locate', () => {
         'collection.cf'
       ]
     })
-    expect(modules).toEqual([chaosFrontModule, wanderburgModule])
+    expect(modules.map((m) => m.id)).toEqual(['chaos-front', 'wanderburg', 'terraria'])
+    expect(modules[0]).toBe(chaosFrontModule)
+    expect(modules[1]).toBe(wanderburgModule)
   })
 })
 
