@@ -155,7 +155,8 @@ export const zh: MessageTree = {
       characters: '角色',
       team: '编队',
       equipment: '装备',
-      cooking: '料理'
+      cooking: '料理',
+      unlock: '解锁'
     },
     actions: {
       maxCurrency: '货币拉满'

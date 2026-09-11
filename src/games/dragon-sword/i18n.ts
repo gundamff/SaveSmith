@@ -52,6 +52,26 @@ export const zh: MessageTree = {
     locked: '已锁定配方',
     recipe: '配方',
     known: '已知'
+  },
+  unlock: {
+    titles: '称号',
+    titleId: '称号 ID',
+    unlock: '解锁',
+    lock: '锁定',
+    unlocked: '已解锁称号',
+    locked: '已锁定称号',
+    known: '已获得',
+    emptyTitles: '暂无称号目录',
+    characters: '角色',
+    emptyCharacters: '暂无角色',
+    catalogHint: '目录为空，仅能编辑已拥有角色，不会插入新角色',
+    karma: '业力',
+    emptyKarma: '暂无业力',
+    cid: 'CID',
+    exp: '经验',
+    ascend: '突破',
+    transcend: '超限',
+    isLock: '锁定'
   }
 }
 
@@ -106,6 +126,26 @@ export const en: MessageTree = {
     locked: 'Recipe locked',
     recipe: 'Recipe',
     known: 'Known'
+  },
+  unlock: {
+    titles: 'Titles',
+    titleId: 'Title ID',
+    unlock: 'Unlock',
+    lock: 'Lock',
+    unlocked: 'Title unlocked',
+    locked: 'Title locked',
+    known: 'Owned',
+    emptyTitles: 'No title catalog',
+    characters: 'Characters',
+    emptyCharacters: 'No characters',
+    catalogHint: 'Catalog is empty; only owned characters can be edited, no new rows inserted',
+    karma: 'Karma',
+    emptyKarma: 'No karma rows',
+    cid: 'CID',
+    exp: 'Exp',
+    ascend: 'Ascend',
+    transcend: 'Transcend',
+    isLock: 'Lock'
   }
 }
 

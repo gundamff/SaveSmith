@@ -4,12 +4,14 @@
  * Public format references (schema/layout only; no community editor source):
  * - https://github.com/gfriloux/dragonsword-save-editor/tree/main/docs
  *
- * Currencies/stackables upsert. Characters, teams, equipment, and cook stacks
- * UPDATE in place so unprojected columns (HP, GEM_DBID, stat CIDs, buffs, …)
- * are preserved. tb_switch UPSERTs BIT_FIELD per category (OR recipe bits in
- * state; never DELETE unrelated categories; never blanket -1 on 0/5).
+ * Currencies/stackables upsert. Characters, teams, equipment, cook stacks, and
+ * karma UPDATE in place so unprojected columns (HP, GEM_DBID, dates, …) stay.
+ * tb_switch UPSERTs BIT_FIELD per category. tb_title UPSERTs BIT_FIELD only
+ * (never INSERT OR REPLACE — that would wipe FAV_BIT_FIELD). New characters
+ * INSERT only when the catalog marks the CID earnable.
  */
 import type { SqlJsDb } from '../db/sqlite'
+import { isEarnableCharacter } from './characters'
 import type { DragonSwordState } from './types'
 
 function ident(name: string): string {
@@ -70,9 +72,13 @@ export function applySave(db: SqlJsDb, state: DragonSwordState): void {
   const charNeeded = requireCols(charCols, ['USER_DBID', 'CHARACTER_CID', 'LEVEL', 'EXP', 'ASCEND'])
   if (charNeeded) {
     const [user, cid, level, exp, ascend] = charNeeded
-    const sql = `UPDATE ${ident('tb_character')} SET ${ident(level)} = ?, ${ident(exp)} = ?, ${ident(ascend)} = ? WHERE ${ident(user)} = ? AND ${ident(cid)} = ?`
+    const updateSql = `UPDATE ${ident('tb_character')} SET ${ident(level)} = ?, ${ident(exp)} = ?, ${ident(ascend)} = ? WHERE ${ident(user)} = ? AND ${ident(cid)} = ?`
+    const insertSql = `INSERT INTO ${ident('tb_character')} (${ident(user)}, ${ident(cid)}, ${ident(level)}, ${ident(exp)}, ${ident(ascend)}) VALUES (?, ?, ?, ?, ?)`
     for (const row of state.characters) {
-      db.run(sql, [row.level, row.exp, row.ascend, state.userDbid, row.characterCid])
+      db.run(updateSql, [row.level, row.exp, row.ascend, state.userDbid, row.characterCid])
+      if (db.getRowsModified() === 0 && isEarnableCharacter(row.characterCid)) {
+        db.run(insertSql, [state.userDbid, row.characterCid, row.level, row.exp, row.ascend])
+      }
     }
   }
 
@@ -142,6 +148,42 @@ export function applySave(db: SqlJsDb, state: DragonSwordState): void {
           db.run(insertSql, [row.category, row.bitField])
         }
       }
+    }
+  }
+
+  const titleCols = pragmaCols(db, 'tb_title')
+  const titleNeeded = requireCols(titleCols, ['CATEGORY', 'BIT_FIELD'])
+  if (titleNeeded) {
+    const [category, bitField] = titleNeeded
+    const userCol = titleCols.get('USER_DBID')
+    const updateSql = userCol
+      ? `UPDATE ${ident('tb_title')} SET ${ident(bitField)} = CAST(? AS INTEGER) WHERE CAST(${ident(userCol)} AS TEXT) = ? AND ${ident(category)} = ?`
+      : `UPDATE ${ident('tb_title')} SET ${ident(bitField)} = CAST(? AS INTEGER) WHERE ${ident(category)} = ?`
+    const insertSql = userCol
+      ? `INSERT INTO ${ident('tb_title')} (${ident(userCol)}, ${ident(category)}, ${ident(bitField)}) VALUES (CAST(? AS INTEGER), ?, CAST(? AS INTEGER))`
+      : `INSERT INTO ${ident('tb_title')} (${ident(category)}, ${ident(bitField)}) VALUES (?, CAST(? AS INTEGER))`
+    for (const row of state.titles) {
+      if (userCol) {
+        db.run(updateSql, [row.bitField, state.userDbid, row.category])
+        if (db.getRowsModified() === 0) {
+          db.run(insertSql, [state.userDbid, row.category, row.bitField])
+        }
+      } else {
+        db.run(updateSql, [row.bitField, row.category])
+        if (db.getRowsModified() === 0) {
+          db.run(insertSql, [row.category, row.bitField])
+        }
+      }
+    }
+  }
+
+  const karmaCols = pragmaCols(db, 'tb_karma')
+  const karmaNeeded = requireCols(karmaCols, ['ITEM_DBID', 'IS_LOCK', 'EXP', 'ASCEND', 'TRANSCEND'])
+  if (karmaNeeded) {
+    const [dbid, lock, exp, ascend, transcend] = karmaNeeded
+    const sql = `UPDATE ${ident('tb_karma')} SET ${ident(lock)} = ?, ${ident(exp)} = ?, ${ident(ascend)} = ?, ${ident(transcend)} = ? WHERE CAST(${ident(dbid)} AS TEXT) = ?`
+    for (const row of state.karma) {
+      db.run(sql, [row.isLock, row.exp, row.ascend, row.transcend, row.itemDbid])
     }
   }
 }

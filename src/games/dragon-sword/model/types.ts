@@ -65,8 +65,16 @@ export interface TitleRow {
   favBitField: string
 }
 
-/** Columns not pinned from a real PRAGMA yet; stay empty rather than guessing. */
-export type KarmaRow = Record<string, never>
+/** Pinned from PRAGMA table_info(tb_karma) on a local temp copy. ITEM_DBID is int64. */
+export interface KarmaRow {
+  itemDbid: string
+  itemCid: number
+  isLock: number
+  exp: number
+  ascend: number
+  transcend: number
+  deletedDate: number
+}
 
 export interface CostumeRow {
   costumeDbid: string

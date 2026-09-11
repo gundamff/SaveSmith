@@ -122,7 +122,14 @@ describe('module i18n', () => {
     'cooking.stack',
     'cooking.switchKey',
     'cooking.unlock',
-    'cooking.lock'
+    'cooking.lock',
+    'unlock.titles',
+    'unlock.titleId',
+    'unlock.unlock',
+    'unlock.lock',
+    'unlock.karma',
+    'unlock.catalogHint',
+    'unlock.emptyKarma'
   ] as const
 
   it('resolves deep DS strings in both locales', () => {
@@ -173,7 +180,7 @@ describe('dragon-sword view sources', () => {
     expect(text).toMatch(/markDirty/)
   })
 
-  it('registers currency, items, characters, team, equipment, and cooking tabs with ds.tabs.* labelKeys', () => {
+  it('registers currency, items, characters, team, equipment, cooking, and unlock tabs with ds.tabs.* labelKeys', () => {
     const text = readFileSync(join(VIEWS, 'index.ts'), 'utf8')
     expect(text).toMatch(/CurrencyTab/)
     expect(text).toMatch(/ItemsTab/)
@@ -181,18 +188,21 @@ describe('dragon-sword view sources', () => {
     expect(text).toMatch(/TeamTab/)
     expect(text).toMatch(/EquipmentTab/)
     expect(text).toMatch(/CookingTab/)
+    expect(text).toMatch(/UnlockTab/)
     expect(text).toMatch(/ds\.tabs\.currency/)
     expect(text).toMatch(/ds\.tabs\.items/)
     expect(text).toMatch(/ds\.tabs\.characters/)
     expect(text).toMatch(/ds\.tabs\.team/)
     expect(text).toMatch(/ds\.tabs\.equipment/)
     expect(text).toMatch(/ds\.tabs\.cooking/)
+    expect(text).toMatch(/ds\.tabs\.unlock/)
     expect(tHost('ds.tabs.currency')).not.toBe('ds.tabs.currency')
     expect(tHost('ds.tabs.items')).not.toBe('ds.tabs.items')
     expect(tHost('ds.tabs.characters')).not.toBe('ds.tabs.characters')
     expect(tHost('ds.tabs.team')).not.toBe('ds.tabs.team')
     expect(tHost('ds.tabs.equipment')).not.toBe('ds.tabs.equipment')
     expect(tHost('ds.tabs.cooking')).not.toBe('ds.tabs.cooking')
+    expect(tHost('ds.tabs.unlock')).not.toBe('ds.tabs.unlock')
     expect(tHost('ds.actions.maxCurrency')).not.toBe('ds.actions.maxCurrency')
   })
 
@@ -325,5 +335,34 @@ describe('dragon-sword view sources', () => {
     }
     expect(text).toMatch(/markDirty/)
     expect(text).toMatch(/cookItems/)
+  })
+
+  it('UnlockTab edits titles without touching fav, lists owned characters, and edits active karma', () => {
+    const text = readFileSync(join(VIEWS, 'UnlockTab.vue'), 'utf8')
+    const body = templateBody(text).trim()
+    expect(body).toMatch(/^<div\b/)
+    expect(body).toMatch(/:data-ss-rev="editor\.rev"/)
+    expect(body).toMatch(/<\/div>\s*$/)
+    expect(text).toMatch(/useDsEditor/)
+    expect(text).toMatch(/void editor\.rev/)
+    expect(text).toMatch(/index/)
+    expect(text).toMatch(/el-table/)
+    expect(text).not.toMatch(/:data="editor\.save\.titles"/)
+    expect(text).not.toMatch(/:data="editor\.save\.karma"/)
+    expect(text).not.toMatch(/:data="editor\.save\.characters"/)
+    expect(text).toMatch(/setTitleKnown/)
+    expect(text).toMatch(/isEarnableCharacter/)
+    expect(text).toMatch(/deletedDate/)
+    expect(text).not.toMatch(/INSERT OR REPLACE/)
+    expect(text).not.toMatch(/favBitField\s*=/)
+    const blocks = inputNumberBlocks(text)
+    expect(blocks.length).toBeGreaterThan(0)
+    for (const block of blocks) {
+      expect(block).toMatch(/@update:model-value/)
+      expect(block).not.toMatch(/@change=/)
+    }
+    expect(text).toMatch(/markDirty/)
+    expect(text).toMatch(/titles/)
+    expect(text).toMatch(/karma/)
   })
 })

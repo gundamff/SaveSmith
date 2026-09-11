@@ -18,6 +18,7 @@ import type {
   StackableRow,
   SwitchRow,
   TeamRow,
+  KarmaRow,
   TitleRow,
   UserRow,
   VehicleRow
@@ -207,6 +208,23 @@ function loadSwitches(db: SqlJsDb): SwitchRow[] {
   }))
 }
 
+function loadKarma(db: SqlJsDb): KarmaRow[] {
+  const cols = pragmaCols(db, 'tb_karma')
+  const needed = requireCols(cols, ['ITEM_DBID', 'ITEM_CID', 'IS_LOCK', 'EXP', 'ASCEND', 'TRANSCEND', 'DELETED_DATE'])
+  if (!needed) return []
+  const [dbid, cid, lock, exp, ascend, transcend, deleted] = needed
+  const sql = `SELECT ${textExpr(dbid)}, ${ident(cid)}, ${ident(lock)}, ${ident(exp)}, ${ident(ascend)}, ${ident(transcend)}, ${ident(deleted)} FROM ${ident('tb_karma')}`
+  return query(db, sql).map((row) => ({
+    itemDbid: asString(row[0]),
+    itemCid: asNumber(row[1]),
+    isLock: asNumber(row[2]),
+    exp: asNumber(row[3]),
+    ascend: asNumber(row[4]),
+    transcend: asNumber(row[5]),
+    deletedDate: asNumber(row[6])
+  }))
+}
+
 function loadTitles(db: SqlJsDb): TitleRow[] {
   const cols = pragmaCols(db, 'tb_title')
   const needed = requireCols(cols, ['CATEGORY', 'BIT_FIELD', 'FAV_BIT_FIELD'])
@@ -305,6 +323,8 @@ export function loadSave(db: SqlJsDb, meta: LoadMeta): DragonSwordState {
     firstUserDbid(db, 'tb_character') ??
     firstUserDbid(db, 'tb_cook_item') ??
     firstUserDbid(db, 'tb_switch') ??
+    firstUserDbid(db, 'tb_title') ??
+    firstUserDbid(db, 'tb_karma') ??
     '0'
   return {
     relativePath: meta.relativePath,
@@ -319,7 +339,7 @@ export function loadSave(db: SqlJsDb, meta: LoadMeta): DragonSwordState {
     cookItems: loadCookItems(db),
     switches: loadSwitches(db),
     titles: loadTitles(db),
-    karma: [],
+    karma: loadKarma(db),
     costumes: loadCostumes(db),
     vehicles: loadVehicles(db),
     equipMounts: loadEquipMounts(db),
