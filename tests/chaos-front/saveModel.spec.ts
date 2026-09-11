@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { ModuleError } from '@sdk/error'
-import { UNLOCKABLE_UNIT_TYPE_IDS, type GameData } from '../../src/games/chaos-front/model/gameData'
+import { UNLOCKABLE_UNIT_TYPE_IDS, gameData, type GameData } from '../../src/games/chaos-front/model/gameData'
 import {
   SaveData,
   loadCollectionText,
@@ -132,6 +132,13 @@ describe('SaveData', () => {
     expect(s.maxAllPilots()).toBe(3)
     const s2 = SaveData.load(s.serialize())
     expect(s2.characterExps).toEqual([20000, 20000, 20000])
+  })
+
+  it('sanitizeUnlockedUnitTypes drops 未使用 placeholders', () => {
+    const s = SaveData.load(fixture())
+    s.setUnlockedUnitTypes([1, 13, 35])
+    expect(s.sanitizeUnlockedUnitTypes(gameData)).toBe(1)
+    expect(s.unlockedUnitTypes).toEqual([1, 35])
   })
 
   it('unlockAllUnitTypes unlocks only non-未使用 unit types', () => {

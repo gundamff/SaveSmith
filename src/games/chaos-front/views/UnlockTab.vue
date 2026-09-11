@@ -13,8 +13,14 @@ import { t } from '../i18n'
 import { useCfEditor } from './inject'
 
 const editor = useCfEditor()
-const unlocked = computed(() => new Set(editor.save?.unlockedUnitTypes ?? []))
-const unlockedItems = computed(() => new Set(editor.save?.unlockedItems ?? []))
+const unlocked = computed(() => {
+  void editor.rev
+  return new Set(editor.save?.unlockedUnitTypes ?? [])
+})
+const unlockedItems = computed(() => {
+  void editor.rev
+  return new Set(editor.save?.unlockedItems ?? [])
+})
 const unitList = computed(() => unlockableUnitTypes(gameData))
 const itemList = computed(() => unlockableItems(gameData))
 
@@ -62,7 +68,7 @@ function unlockAllItems(): void {
 </script>
 
 <template>
-  <div>
+  <div :data-ss-rev="editor.rev">
     <div class="toolbar">
       <el-button type="primary" @click="selectAll(true)">{{ t('unlock.unlockAllTypes') }}</el-button>
       <el-button @click="selectAll(false)">{{ t('unlock.clearAll') }}</el-button>

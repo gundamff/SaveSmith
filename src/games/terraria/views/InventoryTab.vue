@@ -77,12 +77,33 @@ function setStack(index: number, v: number | undefined) {
   })
 }
 
-const hotbar = computed(() => editor.save.inventory.slice(0, 10))
-const mainInv = computed(() => editor.save.inventory.slice(10, 50))
+const hotbar = computed(() => {
+  void editor.rev
+  return editor.save.inventory.slice(0, 10).map((slot, i) => ({
+    index: i,
+    id: slot.id,
+    stack: slot.stack
+  }))
+})
+const mainInv = computed(() => {
+  void editor.rev
+  return editor.save.inventory.slice(10, 50).map((slot, i) => ({
+    index: i + 10,
+    id: slot.id,
+    stack: slot.stack
+  }))
+})
+const armor = computed(() => {
+  void editor.rev
+  return editor.save.armor.map((slot, i) => ({
+    index: i,
+    id: slot.id
+  }))
+})
 </script>
 
 <template>
-  <div class="te-inv">
+  <div class="te-inv" :data-ss-rev="editor.rev">
     <p class="te-hint">{{ t('te.inventory.hint') }}</p>
     <div class="te-row te-head" aria-hidden="true">
       <span>{{ t('te.inventory.colItem') }}</span>
@@ -91,65 +112,65 @@ const mainInv = computed(() => editor.save.inventory.slice(10, 50))
 
     <section>
       <h3>{{ t('te.inventory.hotbar') }}</h3>
-      <div v-for="(slot, i) in hotbar" :key="'h' + i" class="te-row">
-        <button type="button" class="te-name" @click="openPicker('inv', i)">
+      <div v-for="slot in hotbar" :key="'h' + slot.index" class="te-row">
+        <button type="button" class="te-name" @click="openPicker('inv', slot.index)">
           {{ itemLabel(slot.id) }}
         </button>
         <el-input-number
           :model-value="slot.stack"
-          :min="0"
+          :min="1"
           size="small"
           :disabled="slot.id === 0"
           :title="t('te.inventory.colStack')"
-          @update:model-value="(v) => setStack(i, v ?? undefined)"
+          @update:model-value="(v) => setStack(slot.index, v ?? undefined)"
         />
       </div>
     </section>
 
     <section>
       <h3>{{ t('te.inventory.main') }}</h3>
-      <div v-for="(slot, i) in mainInv" :key="'m' + i" class="te-row">
-        <button type="button" class="te-name" @click="openPicker('inv', i + 10)">
+      <div v-for="slot in mainInv" :key="'m' + slot.index" class="te-row">
+        <button type="button" class="te-name" @click="openPicker('inv', slot.index)">
           {{ itemLabel(slot.id) }}
         </button>
         <el-input-number
           :model-value="slot.stack"
-          :min="0"
+          :min="1"
           size="small"
           :disabled="slot.id === 0"
           :title="t('te.inventory.colStack')"
-          @update:model-value="(v) => setStack(i + 10, v ?? undefined)"
+          @update:model-value="(v) => setStack(slot.index, v ?? undefined)"
         />
       </div>
     </section>
 
     <section>
       <h3>{{ t('te.inventory.armor') }}</h3>
-      <div v-for="(slot, i) in editor.save.armor" :key="'a' + i" class="te-row te-armor">
-        <button type="button" class="te-name" @click="openPicker('armor', i)">
+      <div v-for="slot in armor" :key="'a' + slot.index" class="te-row te-armor">
+        <button type="button" class="te-name" @click="openPicker('armor', slot.index)">
           {{ itemLabel(slot.id) }}
         </button>
       </div>
     </section>
-  </div>
 
-  <el-dialog v-model="pickerOpen" :title="t('te.inventory.picker')" width="420px">
-    <p class="te-picker-hint">{{ t('te.inventory.pickerHint') }}</p>
-    <el-input v-model="pickerQuery" :placeholder="t('te.inventory.search')" clearable />
-    <div class="te-picker-list">
-      <button type="button" class="te-picker-item" @click="clearSlot">{{ t('te.item.empty') }}</button>
-      <button
-        v-for="row in filteredItems"
-        :key="row.id"
-        type="button"
-        class="te-picker-item"
-        @click="pickCatalog(row.id)"
-      >
-        <span>{{ locale === 'en' ? row.name.en : row.name.zh }}</span>
-        <span class="te-muted">#{{ row.id }}</span>
-      </button>
-    </div>
-  </el-dialog>
+    <el-dialog v-model="pickerOpen" :title="t('te.inventory.picker')" width="420px">
+      <p class="te-picker-hint">{{ t('te.inventory.pickerHint') }}</p>
+      <el-input v-model="pickerQuery" :placeholder="t('te.inventory.search')" clearable />
+      <div class="te-picker-list">
+        <button type="button" class="te-picker-item" @click="clearSlot">{{ t('te.item.empty') }}</button>
+        <button
+          v-for="row in filteredItems"
+          :key="row.id"
+          type="button"
+          class="te-picker-item"
+          @click="pickCatalog(row.id)"
+        >
+          <span>{{ locale === 'en' ? row.name.en : row.name.zh }}</span>
+          <span class="te-muted">#{{ row.id }}</span>
+        </button>
+      </div>
+    </el-dialog>
+  </div>
 </template>
 
 <style scoped>

@@ -6,8 +6,14 @@ import { t } from '../i18n'
 import { useCfEditor } from './inject'
 
 const editor = useCfEditor()
-const col = computed(() => editor.collection)
-const endingsCount = computed(() => col.value?.endings.filter(Boolean).length ?? 0)
+const col = computed(() => {
+  void editor.rev
+  return editor.collection
+})
+const endingsCount = computed(() => {
+  void editor.rev
+  return col.value?.endings.filter(Boolean).length ?? 0
+})
 
 function maxAll(): void {
   editor.markDirty(() => {
@@ -24,7 +30,7 @@ function setEnding(i: number, on: string | number | boolean): void {
 </script>
 
 <template>
-  <div v-if="col">
+  <div v-if="col" :data-ss-rev="editor.rev">
     <div class="toolbar">
       <el-button type="primary" @click="maxAll()">{{ t('collection.maxAll') }}</el-button>
       <span class="count">{{ t('collection.endingsCount', endingsCount, col.endings.length) }}</span>

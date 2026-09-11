@@ -1,6 +1,7 @@
 import { ModuleError } from '@sdk/error'
 import { utf8Decode, utf8Encode } from '@sdk/session'
 import type { SerializedFile, SlotBytes, ValidationIssue } from '@sdk/types'
+import { gameData } from './model/gameData'
 import {
   loadCollectionText,
   serializeCollectionText,
@@ -54,11 +55,13 @@ export function serialize(state: ChaosFrontState): SerializedFile[] {
 export function validate(state: ChaosFrontState): ValidationIssue[] {
   try {
     state.campaign.assertDeployedHavePilots()
-    return []
   } catch (e) {
     if (e instanceof ModuleError) return [{ code: e.code, args: e.args }]
     throw e
   }
+  // Strip crashy placeholder unlocks silently so polluted saves remain writable.
+  state.campaign.sanitizeUnlockedUnitTypes(gameData)
+  return []
 }
 
 function basename(relativePath: string): string {

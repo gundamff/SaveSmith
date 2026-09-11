@@ -37,6 +37,7 @@ describe('useWbEditor', () => {
       mutateCount++
       current = fn(current) as WanderburgState
     })
+    app.provide('savesmithRev', { value: 0 })
     app.runWithContext(() => {
       const ed = useWbEditor()
       expect(ed.save.doc).toBe(docA)

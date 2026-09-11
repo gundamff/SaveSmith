@@ -5,9 +5,41 @@ import type { PlanetStatKey } from '../model/saveModel'
 import { t } from '../i18n'
 import { useCfEditor } from './inject'
 
+interface PlanetRow {
+  index: number
+  id: number
+  faction: number
+  economics: number
+  economicsMax: number
+  industry: number
+  industryMax: number
+  defense: number
+  defenseMax: number
+  stability: number
+  stabilityMax: number
+}
+
 const editor = useCfEditor()
-const planets = computed(() => editor.save?.planets ?? [])
-const factions = computed(() => editor.save?.factions ?? [])
+const planets = computed((): PlanetRow[] => {
+  void editor.rev
+  return (editor.save?.planets ?? []).map((p, index) => ({
+    index,
+    id: p.id,
+    faction: p.faction,
+    economics: p.economics,
+    economicsMax: p.economicsMax,
+    industry: p.industry,
+    industryMax: p.industryMax,
+    defense: p.defense,
+    defenseMax: p.defenseMax,
+    stability: p.stability,
+    stabilityMax: p.stabilityMax
+  }))
+})
+const factions = computed(() => {
+  void editor.rev
+  return editor.save?.factions.slice() ?? []
+})
 
 const factionOptions = computed(() =>
   factions.value
@@ -43,9 +75,10 @@ function onFaction(index: number, v: number | undefined | null): void {
 
 function maxAllStats(): void {
   wrap(() => {
-    planets.value.forEach((_, i) => {
+    const list = editor.save.planets
+    list.forEach((_, i) => {
       for (const key of ['economics', 'industry', 'defense', 'stability'] as PlanetStatKey[]) {
-        const p = editor.save.planets[i]
+        const p = list[i]
         editor.save.setPlanetStat(i, key, p[`${key}Max`])
       }
     })
@@ -54,54 +87,101 @@ function maxAllStats(): void {
 </script>
 
 <template>
-  <div v-if="editor.save">
+  <div v-if="editor.save" :data-ss-rev="editor.rev">
     <el-alert type="warning" show-icon :closable="false" :title="t('planets.warn')" class="warn" />
     <div class="toolbar">
       <el-button type="primary" @click="maxAllStats()">{{ t('planets.maxAll') }}</el-button>
       <span class="count">{{ t('planets.count', planets.length) }}</span>
     </div>
-    <el-table :data="planets" size="small" max-height="560">
+    <el-table :data="planets" size="small" max-height="560" row-key="index">
       <el-table-column :label="t('planets.planet')" min-width="120">
         <template #default="{ row }">{{ planetName(row.id) }}</template>
       </el-table-column>
       <el-table-column :label="t('planets.faction')" min-width="180">
-        <template #default="{ $index, row }">
-          <el-select size="small" :model-value="row.faction" style="width: 100%" @change="(v) => onFaction($index, v)">
+        <template #default="{ row }">
+          <el-select
+            size="small"
+            :model-value="row.faction"
+            style="width: 100%"
+            @update:model-value="(v) => onFaction(row.index, v)"
+          >
             <el-option v-for="o in factionOptions" :key="o.value" :label="o.label" :value="o.value" />
           </el-select>
         </template>
       </el-table-column>
       <el-table-column :label="t('planets.economics')" width="200">
-        <template #default="{ $index, row }">
-          <el-input-number size="small" :model-value="row.economics" :min="0" :max="row.economicsMax" controls-position="right" @change="(v) => onStat($index, 'economics', v)" />
+        <template #default="{ row }">
+          <el-input-number
+            size="small"
+            :model-value="row.economics"
+            :min="0"
+            :max="row.economicsMax"
+            controls-position="right"
+            @update:model-value="(v) => onStat(row.index, 'economics', v ?? undefined)"
+          />
           <span class="max">/ {{ row.economicsMax }}</span>
         </template>
       </el-table-column>
       <el-table-column :label="t('planets.industry')" width="200">
-        <template #default="{ $index, row }">
-          <el-input-number size="small" :model-value="row.industry" :min="0" :max="row.industryMax" controls-position="right" @change="(v) => onStat($index, 'industry', v)" />
+        <template #default="{ row }">
+          <el-input-number
+            size="small"
+            :model-value="row.industry"
+            :min="0"
+            :max="row.industryMax"
+            controls-position="right"
+            @update:model-value="(v) => onStat(row.index, 'industry', v ?? undefined)"
+          />
           <span class="max">/ {{ row.industryMax }}</span>
         </template>
       </el-table-column>
       <el-table-column :label="t('planets.defense')" width="200">
-        <template #default="{ $index, row }">
-          <el-input-number size="small" :model-value="row.defense" :min="0" :max="row.defenseMax" controls-position="right" @change="(v) => onStat($index, 'defense', v)" />
+        <template #default="{ row }">
+          <el-input-number
+            size="small"
+            :model-value="row.defense"
+            :min="0"
+            :max="row.defenseMax"
+            controls-position="right"
+            @update:model-value="(v) => onStat(row.index, 'defense', v ?? undefined)"
+          />
           <span class="max">/ {{ row.defenseMax }}</span>
         </template>
       </el-table-column>
       <el-table-column :label="t('planets.stability')" width="200">
-        <template #default="{ $index, row }">
-          <el-input-number size="small" :model-value="row.stability" :min="0" :max="row.stabilityMax" controls-position="right" @change="(v) => onStat($index, 'stability', v)" />
+        <template #default="{ row }">
+          <el-input-number
+            size="small"
+            :model-value="row.stability"
+            :min="0"
+            :max="row.stabilityMax"
+            controls-position="right"
+            @update:model-value="(v) => onStat(row.index, 'stability', v ?? undefined)"
+          />
           <span class="max">/ {{ row.stabilityMax }}</span>
         </template>
       </el-table-column>
       <el-table-column :label="t('planets.maxTune')" min-width="220">
-        <template #default="{ $index, row }">
+        <template #default="{ row }">
           <div class="max-edit">
             <span>{{ t('planets.econShort') }}</span>
-            <el-input-number size="small" :model-value="row.economicsMax" :min="0" :max="9999" controls-position="right" @change="(v) => onMax($index, 'economics', v)" />
+            <el-input-number
+              size="small"
+              :model-value="row.economicsMax"
+              :min="0"
+              :max="9999"
+              controls-position="right"
+              @update:model-value="(v) => onMax(row.index, 'economics', v ?? undefined)"
+            />
             <span>{{ t('planets.indShort') }}</span>
-            <el-input-number size="small" :model-value="row.industryMax" :min="0" :max="9999" controls-position="right" @change="(v) => onMax($index, 'industry', v)" />
+            <el-input-number
+              size="small"
+              :model-value="row.industryMax"
+              :min="0"
+              :max="9999"
+              controls-position="right"
+              @update:model-value="(v) => onMax(row.index, 'industry', v ?? undefined)"
+            />
           </div>
         </template>
       </el-table-column>
@@ -110,9 +190,28 @@ function maxAllStats(): void {
 </template>
 
 <style scoped>
-.warn { margin-bottom: 12px; }
-.toolbar { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
-.count { color: #909399; font-size: 13px; }
-.max { margin-left: 4px; color: #909399; font-size: 12px; }
-.max-edit { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+.warn {
+  margin-bottom: 12px;
+}
+.toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.count {
+  color: #909399;
+  font-size: 13px;
+}
+.max {
+  margin-left: 4px;
+  color: #909399;
+  font-size: 12px;
+}
+.max-edit {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex-wrap: wrap;
+}
 </style>

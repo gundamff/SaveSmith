@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, provide, ref, watch } from 'vue'
+import { computed, provide, ref, toRef, watch } from 'vue'
 import { ModuleError } from '@sdk/error'
 import { t, translateError } from '../i18n'
 import { useSessionStore } from '../stores/session'
@@ -10,6 +10,7 @@ const store = useSessionStore()
 
 provide('savesmithState', () => store.state)
 provide('savesmithMutate', store.mutate)
+provide('savesmithRev', toRef(store, 'revision'))
 
 const views = computed(() => store.game?.views ?? [])
 const activeViewId = ref<string | null>(null)
@@ -106,8 +107,8 @@ async function onRemoveBackup(relativePath: string, backupName: string): Promise
               {{ t(view.labelKey) }}
             </button>
           </nav>
-          <section v-if="activeView" :data-view="activeView.id">
-            <component :is="activeView.component" />
+          <section v-if="activeView" :data-view="activeView.id" :data-ss-rev="store.revision">
+            <component :is="activeView.component" :data-ss-rev="store.revision" />
           </section>
         </div>
         <BackupPanel v-if="store.currentSlotId" @restore="onRestore" @remove="onRemoveBackup" />

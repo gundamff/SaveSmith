@@ -4,6 +4,26 @@
 
 ## [Unreleased]
 
+## [0.4.1] - 2026-09-11
+
+Fixes editor number inputs that would not stick; unit table shows level.
+
+### Fixed
+
+- Host `session.revision` + table-row snapshots so Chaos Front unit XP / planet stats / resources InputNumbers refresh after in-place `markRaw` edits
+- Formation tab drops fragile `invTick`; all tabs subscribe to `editor.rev`
+- Same hardening for Terraria character / inventory and Wanderburg resources
+- Chaos Front: sanitize 未使用 unit unlocks on load; filter placeholders from Add Unit
+- Wanderburg: validate silver field (`INVALID_SILVER`)
+
+### Changed
+
+- Chaos Front units table: dedicated Level column (`+N`), aligned with pilots layout
+
+### Infrastructure
+
+- `useSessionBindings` / `editorBindings`; reactivity contract tests
+
 ## [0.4.0] - 2026-09-11
 
 Adds **Terraria**; Chaos Front unlock skips unused placeholders; clearer backups.

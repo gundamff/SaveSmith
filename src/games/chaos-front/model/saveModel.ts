@@ -3,6 +3,7 @@ import {
   UNLOCKABLE_UNIT_TYPE_IDS,
   unlockableItems,
   armyById,
+  isUnusedEntry,
   levelTableOf,
   unitMaxExpOf,
   unitTypeById,
@@ -75,7 +76,22 @@ export function itemSlotsForUnitType(gd: GameData, unitTypeId: number): number {
   return unitTypeById(gd, unitTypeId)?.kind === 1 ? SHIP_ITEM_SLOTS : MECH_ITEM_SLOTS
 }
 
-const REQUIRED_KEYS = ['PlayerUnits', 'PlayerCharacters', 'PlayerArmyId', 'PlayerCredit'] as const
+const REQUIRED_KEYS = [
+  'PlayerUnits',
+  'PlayerCharacters',
+  'PlayerArmyId',
+  'PlayerCredit',
+  'PlayerPrestige',
+  'PlayerStar',
+  'PlayerMedals',
+  'PlayerRelationships',
+  'PlanetData',
+  'FactionData',
+  'PlayerItems',
+  'PlayerCharacterEXPs',
+  'PlayerUnlockedUnitTypes',
+  'PlayerUnlockedItems'
+] as const
 
 export class SaveData {
   readonly doc: Es3Doc
@@ -416,6 +432,17 @@ export class SaveData {
 
   unlockAllUnitTypes(): void {
     this.setUnlockedUnitTypes([...UNLOCKABLE_UNIT_TYPE_IDS])
+  }
+
+  /** Drop placeholder unit types that crash the game if left unlocked. */
+  sanitizeUnlockedUnitTypes(gd: GameData): number {
+    const next = this.unlockedUnitTypes.filter((id) => {
+      const u = unitTypeById(gd, id)
+      return u != null && !isUnusedEntry(u)
+    })
+    const removed = this.unlockedUnitTypes.length - next.length
+    if (removed > 0) this.setUnlockedUnitTypes(next)
+    return removed
   }
 
   get unlockedItems(): number[] {

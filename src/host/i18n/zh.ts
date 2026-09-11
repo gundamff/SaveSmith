@@ -161,6 +161,7 @@ export const zh: MessageTree = {
     PARSE_FAILED: '存档解析失败：{0}',
     SERIALIZE_FAILED: '存档序列化失败：{0}',
     INVALID_NAME: '角色名无效（长度 {0}）',
+    INVALID_SILVER: '银币字段无效',
     LIFE_OVER_MAX: '当前生命 {0} 超过上限 {1}',
     MANA_OVER_MAX: '当前魔力 {0} 超过上限 {1}',
     ENCRYPT_FAILED: '存档加密失败：{0}'

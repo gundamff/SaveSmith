@@ -295,6 +295,22 @@ describe('useSessionStore', () => {
     expect(store.dirty).toBe(true)
   })
 
+  it('mutate and runAction bump revision so markRaw in-place edits can re-render', async () => {
+    const io = createMemoryIo({ 'save.txt': enc('5') })
+    setSessionIo(io)
+    const store = useSessionStore()
+    await store.openGame(dummyModule, 'D:\\saves')
+    await store.loadSlot('slot-0')
+    const afterLoad = store.revision
+    store.mutate((s) => {
+      ;(s as DummyState).gold += 1
+      return s
+    })
+    expect(store.revision).toBe(afterLoad + 1)
+    store.runAction('fill')
+    expect(store.revision).toBe(afterLoad + 2)
+  })
+
   it('mutate updates state and marks dirty', async () => {
     const io = createMemoryIo({ 'save.txt': enc('5') })
     setSessionIo(io)

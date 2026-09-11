@@ -40,6 +40,14 @@ export function serialize(state: WanderburgState): SerializedFile[] {
   return files
 }
 
-export function validate(_state: WanderburgState): ValidationIssue[] {
+export function validate(state: WanderburgState): ValidationIssue[] {
+  const silver = state.doc.silver
+  if (silver !== undefined && (typeof silver !== 'number' || !Number.isFinite(silver))) {
+    return [{ code: 'INVALID_SILVER', args: [] }]
+  }
+  const before = state.doc.silverBeforeLastRun
+  if (before !== undefined && (typeof before !== 'number' || !Number.isFinite(before))) {
+    return [{ code: 'INVALID_SILVER', args: [] }]
+  }
   return []
 }

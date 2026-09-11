@@ -1,13 +1,15 @@
-import { inject } from 'vue'
 import type { WanderburgState } from '../parse'
+import { useSessionBindings } from '@host/editorBindings'
 
 export function useWbEditor() {
-  const state = inject<() => WanderburgState>('savesmithState')
-  const mutate = inject<(fn: (s: unknown) => unknown) => void>('savesmithMutate')
-  if (!state || !mutate) throw new Error('WB_EDITOR_INJECT')
+  const { state, mutate, rev, trackRev } = useSessionBindings('WB_EDITOR_INJECT')
   return {
     get save() {
-      return state()
+      trackRev()
+      return state() as WanderburgState
+    },
+    get rev(): number {
+      return rev.value
     },
     markDirty(fn?: () => void) {
       mutate((s) => {

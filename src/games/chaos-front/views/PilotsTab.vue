@@ -8,14 +8,15 @@ import { t } from '../i18n'
 import { useCfEditor } from './inject'
 
 const editor = useCfEditor()
-const pilots = computed(() =>
-  (editor.save?.characters ?? []).map((id, index) => ({
+const pilots = computed(() => {
+  void editor.rev
+  return (editor.save?.characters ?? []).map((id, index) => ({
     id,
     index,
     name: characterById(gameData, id)?.name ?? `#${id}`,
     exp: editor.save.characterExps[index] ?? 0
   }))
-)
+})
 
 function levelOf(exp: number): number {
   return characterLevelForExp(exp)
@@ -34,7 +35,7 @@ function maxAll(): void {
 </script>
 
 <template>
-  <div>
+  <div :data-ss-rev="editor.rev">
     <div class="toolbar">
       <el-button type="primary" @click="maxAll()">{{ t('pilots.maxAll') }}</el-button>
       <span class="count">{{ t('pilots.count', pilots.length) }}</span>
@@ -51,7 +52,7 @@ function maxAll(): void {
       </el-table-column>
       <el-table-column :label="t('pilots.exp')" width="220">
         <template #default="{ row }">
-          <el-input-number size="small" :model-value="row.exp" :min="0" :max="CHARACTER_MAX_EXP" :step="100" controls-position="right" @change="(v) => setExp(row.index, v)" />
+          <el-input-number size="small" :model-value="row.exp" :min="0" :max="CHARACTER_MAX_EXP" :step="100" controls-position="right" @update:model-value="(v) => setExp(row.index, v ?? undefined)" />
         </template>
       </el-table-column>
       <el-table-column :label="t('pilots.progress')">

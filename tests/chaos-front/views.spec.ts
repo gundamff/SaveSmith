@@ -42,6 +42,7 @@ describe('useCfEditor', () => {
       mutateCount++
       current = fn(current) as ChaosFrontState
     })
+    app.provide('savesmithRev', { value: 0 })
     app.runWithContext(() => {
       const ed = useCfEditor()
       expect(ed.save).toBe(campaignA)

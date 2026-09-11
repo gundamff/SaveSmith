@@ -56,6 +56,7 @@ const REQUIRED_KEYS = [
   'te.inventory.hotbar',
   'error.UNSUPPORTED_VERSION',
   'error.INVALID_NAME',
+  'error.INVALID_SILVER',
   'error.LIFE_OVER_MAX',
   'error.MANA_OVER_MAX'
 ] as const

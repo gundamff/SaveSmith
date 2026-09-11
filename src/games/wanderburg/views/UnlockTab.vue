@@ -22,7 +22,10 @@ const TYPE_LABEL_KEY: Record<string, string> = {
 }
 
 const editor = useWbEditor()
-const unlocked = computed(() => new Set(getUnlockedIDs(editor.save.doc)))
+const unlocked = computed(() => {
+  void editor.rev
+  return new Set(getUnlockedIDs(editor.save.doc))
+})
 const catalog = listUnlockCatalog()
 
 const groups = computed(() => {
@@ -65,7 +68,7 @@ function selectAll(on: boolean): void {
 </script>
 
 <template>
-  <div class="wb-unlock">
+  <div class="wb-unlock" :data-ss-rev="editor.rev">
     <div class="toolbar">
       <span class="count">{{ t('wb.unlock.progress', unlockedInCatalog, catalog.length) }}</span>
       <el-button type="primary" @click="selectAll(true)">{{ t('wb.unlock.unlockAll') }}</el-button>

@@ -1,13 +1,15 @@
-import { inject } from 'vue'
 import type { TerrariaPlayerState } from '../parse'
+import { useSessionBindings } from '@host/editorBindings'
 
 export function useTeEditor() {
-  const state = inject<() => TerrariaPlayerState>('savesmithState')
-  const mutate = inject<(fn: (s: unknown) => unknown) => void>('savesmithMutate')
-  if (!state || !mutate) throw new Error('TE_EDITOR_INJECT')
+  const { state, mutate, rev, trackRev } = useSessionBindings('TE_EDITOR_INJECT')
   return {
     get save() {
-      return state()
+      trackRev()
+      return state() as TerrariaPlayerState
+    },
+    get rev(): number {
+      return rev.value
     },
     markDirty(fn?: () => void) {
       mutate((s) => {

@@ -84,6 +84,8 @@ export const useSessionStore = defineStore('session', () => {
   const dirty = ref(false)
   const backups = ref<SessionBackup[]>([])
   const loadError = ref<string | null>(null)
+  /** Bumps on each in-place edit so markRaw save trees still force view re-render. */
+  const revision = ref(0)
 
   function clearDraft(): void {
     currentSlotId.value = null
@@ -92,6 +94,7 @@ export const useSessionStore = defineStore('session', () => {
     dirty.value = false
     backups.value = []
     loadError.value = null
+    revision.value = 0
   }
 
   async function refreshSlots(): Promise<void> {
@@ -188,6 +191,7 @@ export const useSessionStore = defineStore('session', () => {
       original.value = files
       dirty.value = false
       loadError.value = null
+      revision.value = 0
       triggerRef(state)
       await refreshBackups(slot.sessionFiles)
     } catch (e) {
@@ -200,6 +204,7 @@ export const useSessionStore = defineStore('session', () => {
     if (!mod || state.value == null) return
     state.value = wrapState(mod.applyAction(state.value, id, payload))
     dirty.value = true
+    revision.value++
     triggerRef(state)
   }
 
@@ -207,6 +212,7 @@ export const useSessionStore = defineStore('session', () => {
     if (state.value == null) return
     state.value = wrapState(mutator(state.value))
     dirty.value = true
+    revision.value++
     triggerRef(state)
   }
 
@@ -265,6 +271,7 @@ export const useSessionStore = defineStore('session', () => {
     dirty,
     backups,
     loadError,
+    revision,
     openGame,
     loadSlot,
     runAction,

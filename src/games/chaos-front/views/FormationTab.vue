@@ -31,10 +31,15 @@ const detailFocus = ref<'unit' | 'pilot'>('unit')
 const dragOverCell = ref<string | null>(null)
 const dragOverBench = ref(false)
 const dragOverUnitIdx = ref<number | null>(null)
-const invTick = ref(0)
 
-const units = computed(() => editor.save?.units ?? [])
-const characters = computed(() => editor.save?.characters ?? [])
+const units = computed(() => {
+  void editor.rev
+  return editor.save?.units.slice() ?? []
+})
+const characters = computed(() => {
+  void editor.rev
+  return editor.save?.characters.slice() ?? []
+})
 
 const rows = Array.from({ length: FORMATION_ROWS }, (_, i) => i + 1)
 const cols = Array.from({ length: FORMATION_COLS }, (_, i) => i)
@@ -143,7 +148,7 @@ const selectedAbilities = computed(() => {
 
 const selectedItems = computed(() => {
   if (!selected.value) return []
-  void invTick.value
+  void editor.rev
   return selected.value.items
     .map((id, slot) => ({ id, slot, entry: itemById(gameData, id) }))
     .filter((x) => x.id > 0)
@@ -151,7 +156,7 @@ const selectedItems = computed(() => {
 
 const inventoryItems = computed(() => {
   if (!editor.save) return []
-  void invTick.value
+  void editor.rev
   const stock = editor.save.docPlayerItems()
   return gameData.items.map((it) => ({
     ...it,
@@ -165,12 +170,12 @@ const selectedItemSlots = computed(() =>
 
 const canEquipMore = computed(() => {
   if (!selected.value) return false
-  void invTick.value
+  void editor.rev
   return selected.value.items.filter((x) => x > 0).length < selectedItemSlots.value
 })
 
 const emptyItemSlots = computed(() => {
-  void invTick.value
+  void editor.rev
   const used = selectedItems.value.length
   return Math.max(0, selectedItemSlots.value - used)
 })
@@ -179,7 +184,6 @@ function equip(itemId: number): void {
   if (selectedUnit.value === null) return
   try {
     editor.markDirty(() => editor.save.equipItem(selectedUnit.value!, itemId, gameData))
-    invTick.value++
   } catch (e) {
     ElMessage.error(translateError(e))
   }
@@ -189,7 +193,6 @@ function unequip(slot: number): void {
   if (selectedUnit.value === null) return
   try {
     editor.markDirty(() => editor.save.unequipItem(selectedUnit.value!, slot))
-    invTick.value++
   } catch (e) {
     ElMessage.error(translateError(e))
   }
@@ -344,7 +347,7 @@ function typeName(typeId: number): string {
 </script>
 
 <template>
-  <div v-if="editor.save" class="formation">
+  <div v-if="editor.save" class="formation" :data-ss-rev="editor.rev">
     <header class="top">
       <div class="brand">
         <span class="brand-cn">{{ t('tabs.formation') }}</span>
@@ -366,7 +369,7 @@ function typeName(typeId: number): string {
           size="small"
           :model-value="selected!.characterId"
           :placeholder="t('formation.pilot')"
-          @change="setPilot"
+          @update:model-value="setPilot"
         >
           <el-option v-for="o in pilotOptions" :key="o.value" :label="o.label" :value="o.value" />
         </el-select>

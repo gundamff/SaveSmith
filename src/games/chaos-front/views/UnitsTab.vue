@@ -1,33 +1,47 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { ElMessage } from 'element-plus'
-import { characterById, gameData, unitTypeById } from '../model/gameData'
+import { characterById, gameData, isUnusedEntry, unitTypeById } from '../model/gameData'
 import { unitLevelForExp } from '../model/level'
-import type { UnitEntry } from '../model/saveModel'
 import { gameImage } from '../lib/images'
 import { t } from '../i18n'
 import { useCfEditor } from './inject'
 
-const editor = useCfEditor()
-const units = computed(() => editor.save?.units ?? [])
-
-function asUnit(row: unknown): UnitEntry {
-  return row as UnitEntry
+interface UnitRow {
+  index: number
+  unitType: number
+  characterId: number
+  custom: number
+  exp: number
+  itemCount: number
 }
+
+const editor = useCfEditor()
+const units = computed((): UnitRow[] => {
+  void editor.rev
+  return (editor.save?.units ?? []).map((u, index) => ({
+    index,
+    unitType: u.unitType,
+    characterId: u.characterId,
+    custom: u.custom,
+    exp: u.exp,
+    itemCount: (u.items ?? []).filter((id) => id > 0).length
+  }))
+})
 
 function typeName(typeId: number): string {
   return unitTypeById(gameData, typeId)?.name ?? t('units.unknownType', typeId)
 }
-function levelOf(u: { unitType: number; exp: number }): number {
-  const lt = unitTypeById(gameData, u.unitType)?.levelType ?? 12
-  return unitLevelForExp(u.exp, gameData.levelTables[String(lt)] ?? [])
+function levelOf(exp: number, unitType: number): number {
+  const lt = unitTypeById(gameData, unitType)?.levelType ?? 12
+  return unitLevelForExp(exp, gameData.levelTables[String(lt)] ?? [])
 }
 function pilotName(id: number): string {
   return characterById(gameData, id)?.name ?? ''
 }
-function changed(u: UnitEntry, v: number | undefined): void {
+function changed(index: number, v: number | undefined): void {
   if (v === undefined || v === null) return
-  editor.markDirty(() => editor.save.setUnitExp(units.value.indexOf(u), v))
+  editor.markDirty(() => editor.save.setUnitExp(index, v))
 }
 function maxAll(): void {
   let n = 0
@@ -43,13 +57,24 @@ function remove(index: number): void {
 const addVisible = ref(false)
 const addType = ref<number | null>(null)
 const addLevel = ref(6)
-const groups = computed(() => [
-  { title: t('units.warships'), ids: gameData.unitTypes.filter((x) => x.kind === 1).map((x) => x.id) },
-  { title: t('units.large'), ids: gameData.unitTypes.filter((x) => x.kind === 2 && x.size === 1).map((x) => x.id) },
-  { title: t('units.small'), ids: gameData.unitTypes.filter((x) => x.kind === 2 && x.size === 0).map((x) => x.id) }
-])
+const groups = computed(() => {
+  const unlockable = gameData.unitTypes.filter((x) => !isUnusedEntry(x))
+  return [
+    { title: t('units.warships'), ids: unlockable.filter((x) => x.kind === 1).map((x) => x.id) },
+    {
+      title: t('units.large'),
+      ids: unlockable.filter((x) => x.kind === 2 && x.size === 1).map((x) => x.id)
+    },
+    {
+      title: t('units.small'),
+      ids: unlockable.filter((x) => x.kind === 2 && x.size === 0).map((x) => x.id)
+    }
+  ]
+})
 function confirmAdd(): void {
   if (!addType.value) return
+  const entry = unitTypeById(gameData, addType.value)
+  if (!entry || isUnusedEntry(entry)) return
   editor.markDirty(() => editor.save.addUnit(gameData, addType.value!, addLevel.value))
   addVisible.value = false
   ElMessage.success(t('units.added'))
@@ -57,42 +82,59 @@ function confirmAdd(): void {
 </script>
 
 <template>
-  <div>
+  <div :data-ss-rev="editor.rev">
     <div class="toolbar">
       <el-button type="primary" @click="maxAll()">{{ t('units.maxAll') }}</el-button>
       <el-button @click="addVisible = true">{{ t('units.add') }}</el-button>
       <span class="count">{{ t('units.count', units.length) }}</span>
     </div>
-    <el-table :data="units" size="small" max-height="560">
+    <el-table :data="units" size="small" max-height="560" row-key="index">
       <el-table-column label="" width="56">
         <template #default="{ row }">
-          <img :src="gameImage(`unit-${asUnit(row).unitType}`)" class="unit-img" />
+          <img :src="gameImage(`unit-${row.unitType}`)" class="unit-img" />
         </template>
       </el-table-column>
       <el-table-column :label="t('units.name')" min-width="170">
         <template #default="{ row }">
-          {{ typeName(asUnit(row).unitType) }}<el-tag v-if="asUnit(row).custom > 0" size="small" type="warning" style="margin-left: 6px">{{ t('units.custom') }}</el-tag>
-          <el-tag size="small" style="margin-left: 6px">+{{ levelOf(asUnit(row)) }}</el-tag>
+          {{ typeName(row.unitType)
+          }}<el-tag v-if="row.custom > 0" size="small" type="warning" style="margin-left: 6px">{{
+            t('units.custom')
+          }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column :label="t('units.pilot')" width="120">
         <template #default="{ row }">
-          <span v-if="asUnit(row).characterId > 0">{{ pilotName(asUnit(row).characterId) }}</span>
+          <span v-if="row.characterId > 0">{{ pilotName(row.characterId) }}</span>
           <span v-else class="dim">—</span>
+        </template>
+      </el-table-column>
+      <el-table-column :label="t('units.level')" width="90">
+        <template #default="{ row }">
+          <el-tag>+{{ levelOf(row.exp, row.unitType) }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column :label="t('units.exp')" width="180">
         <template #default="{ row }">
-          <el-input-number size="small" :model-value="asUnit(row).exp" :min="0" :max="999999" :step="100" controls-position="right" @change="(v) => changed(asUnit(row), v)" />
+          <el-input-number
+            size="small"
+            :model-value="row.exp"
+            :min="0"
+            :max="999999"
+            :step="100"
+            controls-position="right"
+            @update:model-value="(v) => changed(row.index, v ?? undefined)"
+          />
         </template>
       </el-table-column>
       <el-table-column :label="t('units.items')" width="80">
-        <template #default="{ row }">{{ asUnit(row).items.filter((id) => id > 0).length }}</template>
+        <template #default="{ row }">{{ row.itemCount }}</template>
       </el-table-column>
       <el-table-column :label="t('units.actions')" width="90">
         <template #default="{ row }">
-          <el-popconfirm :title="t('units.removeConfirm')" @confirm="remove(units.indexOf(asUnit(row)))">
-            <template #reference><el-button size="small" type="danger">{{ t('units.remove') }}</el-button></template>
+          <el-popconfirm :title="t('units.removeConfirm')" @confirm="remove(row.index)">
+            <template #reference
+              ><el-button size="small" type="danger">{{ t('units.remove') }}</el-button></template
+            >
           </el-popconfirm>
         </template>
       </el-table-column>
@@ -120,8 +162,20 @@ function confirmAdd(): void {
 </template>
 
 <style scoped>
-.toolbar { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
-.count { color: #909399; }
-.unit-img { width: 40px; image-rendering: pixelated; }
-.dim { color: #c0c4cc; }
+.toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.count {
+  color: #909399;
+}
+.unit-img {
+  width: 40px;
+  image-rendering: pixelated;
+}
+.dim {
+  color: #c0c4cc;
+}
 </style>

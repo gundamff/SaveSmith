@@ -162,6 +162,7 @@ export const en: MessageTree = {
     PARSE_FAILED: 'Failed to parse save: {0}',
     SERIALIZE_FAILED: 'Failed to serialize save: {0}',
     INVALID_NAME: 'Invalid character name (length {0})',
+    INVALID_SILVER: 'Invalid silver field',
     LIFE_OVER_MAX: 'Current life {0} exceeds max {1}',
     MANA_OVER_MAX: 'Current mana {0} exceeds max {1}',
     ENCRYPT_FAILED: 'Failed to encrypt save: {0}'
