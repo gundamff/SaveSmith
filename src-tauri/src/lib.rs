@@ -13,6 +13,7 @@ const ALLOWED_URL_PREFIXES: &[&str] = &[
     "https://afdian.com/",
     "https://ko-fi.com/",
     "https://buymeacoffee.com/",
+    "https://dragonswordawakening.th.gl/",
 ];
 
 fn assert_url_allowed(url: &str) -> Result<(), String> {
@@ -123,6 +124,8 @@ mod tests {
             "https://afdian.com/a/x",
             "https://ko-fi.com/x",
             "https://buymeacoffee.com/x",
+            "https://dragonswordawakening.th.gl/",
+            "https://dragonswordawakening.th.gl/db/characters",
         ] {
             assert_eq!(assert_url_allowed(url), Ok(()), "{url}");
         }

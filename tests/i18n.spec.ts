@@ -59,6 +59,8 @@ const REQUIRED_KEYS = [
   'ds.tabs.unlock',
   'ds.tabs.cosmetics',
   'ds.tabs.world',
+  'ds.cidHint',
+  'ds.cidHintLink',
   'ds.actions.maxCurrency',
   'wb.resources.silver',
   'wb.resources.silverBeforeLastRun',

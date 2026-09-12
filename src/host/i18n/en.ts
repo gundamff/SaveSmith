@@ -167,7 +167,10 @@ export const en: MessageTree = {
     },
     actions: {
       maxCurrency: 'Max currency'
-    }
+    },
+    cidHint:
+      'Adding items/characters needs game CIDs. Look up names and CIDs in the th.gl DragonSword database (characters, items, cooking, etc.).',
+    cidHintLink: 'Open th.gl database'
   },
   error: {
     EMPTY_SERIALIZE: 'Serialize produced an empty or invalid payload; write aborted',

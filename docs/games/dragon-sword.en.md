@@ -20,6 +20,14 @@ Slots look like: `<accountId>/<accountId>_SlotN.db` (SQLCipher v4 encrypted SQLi
 
 If detection fails, use **Choose save folder** and point at `SaveGames` (numeric account folders underneath).
 
+## Looking up CIDs
+
+Saves identify items/characters by numeric **CIDs**. The editor ships a bilingual label catalog; to cross-check or find IDs yourself, use the community database:
+
+- [th.gl · DragonSword: Awakening](https://dragonswordawakening.th.gl/) (characters, gear, cooking, materials, …)
+
+The DragonSword editor also shows this link at the top of the edit pane.
+
 ## Format notes
 
 Slot codec and schema are a clean-room implementation from public format notes — **no community editor source was copied**. Format reference:

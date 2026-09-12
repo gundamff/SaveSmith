@@ -167,7 +167,10 @@ export const zh: MessageTree = {
     },
     actions: {
       maxCurrency: '货币拉满'
-    }
+    },
+    cidHint:
+      '添加物品/角色等需要填写游戏 CID。可在 th.gl 龙之剑数据库查询名称与 CID（角色、物品、料理等）。',
+    cidHintLink: '打开 th.gl 数据库'
   },
   error: {
     EMPTY_SERIALIZE: '序列化结果为空或字节无效，已拒绝写入',

@@ -2,9 +2,12 @@
 import { computed, nextTick, provide, ref, toRef, watch } from 'vue'
 import { ModuleError } from '@sdk/error'
 import { t, translateError } from '../i18n'
+import { openExternal } from '../tauri'
 import { useSessionStore } from '../stores/session'
 import BackupPanel from './BackupPanel.vue'
 import SlotList from './SlotList.vue'
+
+const DS_CID_DB_URL = 'https://dragonswordawakening.th.gl/'
 
 const store = useSessionStore()
 
@@ -13,6 +16,7 @@ provide('savesmithMutate', store.mutate)
 provide('savesmithRev', toRef(store, 'revision'))
 
 const views = computed(() => store.game?.views ?? [])
+const showDsCidHint = computed(() => store.game?.id === 'dragon-sword')
 const activeViewId = ref<string | null>(null)
 const viewBusy = ref(false)
 const mountedViewId = ref<string | null>(null)
@@ -103,6 +107,10 @@ async function onRemoveBackup(relativePath: string, backupName: string): Promise
     window.alert(translateError(e))
   }
 }
+
+function openCidDb(): void {
+  void openExternal(DS_CID_DB_URL)
+}
 </script>
 
 <template>
@@ -124,6 +132,12 @@ async function onRemoveBackup(relativePath: string, backupName: string): Promise
     <div class="body">
       <SlotList @select="onSelectSlot" />
       <div class="main">
+        <p v-if="showDsCidHint" class="cid-hint">
+          <span>{{ t('ds.cidHint') }}</span>
+          <button type="button" class="linkish" :disabled="store.busy" @click="openCidDb">
+            {{ t('ds.cidHintLink') }}
+          </button>
+        </p>
         <div v-if="store.state != null && views.length" class="views">
           <nav class="tabs" role="tablist">
             <button
@@ -228,6 +242,36 @@ async function onRemoveBackup(relativePath: string, backupName: string): Promise
   flex: 1;
   min-width: 0;
   padding: 1rem 1.25rem 0;
+}
+
+.cid-hint {
+  margin: 0 0 0.85rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #2c2c36;
+  background: #1a1a22;
+  color: #b8c0cc;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+  align-items: baseline;
+}
+
+.cid-hint .linkish {
+  border: none;
+  background: none;
+  padding: 0;
+  color: #7aa2ff;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.cid-hint .linkish:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .views {

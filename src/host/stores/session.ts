@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { markRaw, ref, shallowRef, triggerRef } from 'vue'
+import { markRaw, nextTick, ref, shallowRef, triggerRef } from 'vue'
 import { assertSerializeSane, changedFiles, matchSlotFilePatterns } from '@sdk/session'
 import type { GameModule, ListedFile, SlotBytes, SlotInfo, ValidationIssue } from '@sdk/types'
 import { translateError } from '../i18n'
@@ -97,6 +97,15 @@ export const useSessionStore = defineStore('session', () => {
     busy.value = true
     busyMessageKey.value = messageKey
     try {
+      // Let the editor overlay paint before CPU-heavy parse/serialize blocks the main thread.
+      await nextTick()
+      await new Promise<void>((resolve) => {
+        if (typeof requestAnimationFrame === 'function') {
+          requestAnimationFrame(() => resolve())
+        } else {
+          setTimeout(resolve, 0)
+        }
+      })
       return await fn()
     } finally {
       busy.value = false
