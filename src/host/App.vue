@@ -87,8 +87,6 @@ async function onOpen(game: GameModule, dir: string): Promise<void> {
 
     <AboutDialog
       :open="aboutOpen"
-      :rights-holder="store.game?.catalog.rightsHolder"
-      :game-name="gameName"
       @close="aboutOpen = false"
       @donate="openDonateFromAbout"
     />

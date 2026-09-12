@@ -20,6 +20,9 @@ const REQUIRED_KEYS = [
   'editor.saveDir',
   'editor.currentSlot',
   'editor.noSlot',
+  'editor.busyParse',
+  'editor.busySave',
+  'editor.busyView',
   'slots.savedAt',
   'about.disclaimer',
   'about.disclaimerGeneric',
@@ -167,7 +170,7 @@ describe('host i18n', () => {
     expect(en).not.toContain('SaveSmith')
   })
 
-  it('about.disclaimerGeneric never names SaveSmith as rights holder', () => {
+  it('about.disclaimerGeneric is the About dialog copy for all games', () => {
     setLocale('zh')
     const zh = t('about.disclaimerGeneric')
     expect(zh).toContain('各游戏官方')
@@ -176,6 +179,8 @@ describe('host i18n', () => {
     expect(zh).toContain('联机')
     expect(zh).not.toContain('SaveSmith')
     expect(zh).not.toContain('存档酱')
+    expect(zh).not.toContain('HOUND13')
+    expect(zh).not.toContain('龙之剑')
     setLocale('en')
     const en = t('about.disclaimerGeneric')
     expect(en.toLowerCase()).toContain('unofficial')
@@ -183,5 +188,6 @@ describe('host i18n', () => {
     expect(en.toLowerCase()).toContain('offline')
     expect(en.toLowerCase()).toContain('online')
     expect(en).not.toContain('SaveSmith')
+    expect(en).not.toContain('HOUND13')
   })
 })

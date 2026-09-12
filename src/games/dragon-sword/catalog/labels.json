@@ -1,0 +1,4986 @@
+{
+  "10001": {
+    "zh": "Eileen",
+    "en": "Eileen"
+  },
+  "10002": {
+    "zh": "Lute",
+    "en": "Lute"
+  },
+  "10003": {
+    "zh": "Castella",
+    "en": "Castella"
+  },
+  "10004": {
+    "zh": "Reina",
+    "en": "Reina"
+  },
+  "10005": {
+    "zh": "Roxy",
+    "en": "Roxy"
+  },
+  "10006": {
+    "zh": "Aria",
+    "en": "Aria"
+  },
+  "10007": {
+    "zh": "Johnny",
+    "en": "Johnny"
+  },
+  "10008": {
+    "zh": "Ornette",
+    "en": "Ornette"
+  },
+  "10009": {
+    "zh": "Ropie",
+    "en": "Ropie"
+  },
+  "10010": {
+    "zh": "Ysera",
+    "en": "Ysera"
+  },
+  "10011": {
+    "zh": "Kalsion",
+    "en": "Kalsion"
+  },
+  "10013": {
+    "zh": "Ewald",
+    "en": "Ewald"
+  },
+  "10014": {
+    "zh": "Othello",
+    "en": "Othello"
+  },
+  "10015": {
+    "zh": "Jerome",
+    "en": "Jerome"
+  },
+  "10016": {
+    "zh": "Charlotte",
+    "en": "Charlotte"
+  },
+  "10017": {
+    "zh": "Ryza",
+    "en": "Ryza"
+  },
+  "10019": {
+    "zh": "Veronica",
+    "en": "Veronica"
+  },
+  "10020": {
+    "zh": "Alex",
+    "en": "Alex"
+  },
+  "10021": {
+    "zh": "Lyn (Legend) (#1)",
+    "en": "Lyn (Legend) (#1)"
+  },
+  "10022": {
+    "zh": "Theresia",
+    "en": "Theresia"
+  },
+  "10023": {
+    "zh": "Lyn (Legend) (#2)",
+    "en": "Lyn (Legend) (#2)"
+  },
+  "10025": {
+    "zh": "Lyn (Legend) (#3)",
+    "en": "Lyn (Legend) (#3)"
+  },
+  "10026": {
+    "zh": "Awakening Lute",
+    "en": "Awakening Lute"
+  },
+  "10027": {
+    "zh": "Lyn (Legend) (#4)",
+    "en": "Lyn (Legend) (#4)"
+  },
+  "10028": {
+    "zh": "Tarte",
+    "en": "Tarte"
+  },
+  "10029": {
+    "zh": "Cerese",
+    "en": "Cerese"
+  },
+  "10030": {
+    "zh": "Sion",
+    "en": "Sion"
+  },
+  "10031": {
+    "zh": "Bartz",
+    "en": "Bartz"
+  },
+  "10032": {
+    "zh": "Astria",
+    "en": "Astria"
+  },
+  "10033": {
+    "zh": "Logan",
+    "en": "Logan"
+  },
+  "10034": {
+    "zh": "Karina",
+    "en": "Karina"
+  },
+  "10035": {
+    "zh": "Viola",
+    "en": "Viola"
+  },
+  "10036": {
+    "zh": "Dana",
+    "en": "Dana"
+  },
+  "10037": {
+    "zh": "Kalien (Legend) (#1)",
+    "en": "Kalien (Legend) (#1)"
+  },
+  "10038": {
+    "zh": "Kalien (Legend) (#2)",
+    "en": "Kalien (Legend) (#2)"
+  },
+  "10039": {
+    "zh": "Lampi",
+    "en": "Lampi"
+  },
+  "10040": {
+    "zh": "Sabrina",
+    "en": "Sabrina"
+  },
+  "1000001": {
+    "zh": "Gold",
+    "en": "Gold"
+  },
+  "1000002": {
+    "zh": "Aether Crystals",
+    "en": "Aether Crystals"
+  },
+  "1000003": {
+    "zh": "Emeralds",
+    "en": "Emeralds"
+  },
+  "1000004": {
+    "zh": "Emeralds",
+    "en": "Emeralds"
+  },
+  "1000005": {
+    "zh": "Aether Crystals",
+    "en": "Aether Crystals"
+  },
+  "1000101": {
+    "zh": "Key of Light",
+    "en": "Key of Light"
+  },
+  "1000102": {
+    "zh": "Ring of Light",
+    "en": "Ring of Light"
+  },
+  "1000103": {
+    "zh": "Relic of Light",
+    "en": "Relic of Light"
+  },
+  "1000104": {
+    "zh": "Key of Light Vault",
+    "en": "Key of Light Vault"
+  },
+  "1000201": {
+    "zh": "Mercenary Corps Rank EXP",
+    "en": "Mercenary Corps Rank EXP"
+  },
+  "1000202": {
+    "zh": "Hero EXP",
+    "en": "Hero EXP"
+  },
+  "1000500": {
+    "zh": "Fate's Invitation",
+    "en": "Fate's Invitation"
+  },
+  "1000501": {
+    "zh": "Fragment of Sacred Light",
+    "en": "Fragment of Sacred Light"
+  },
+  "1000600": {
+    "zh": "Quest Points",
+    "en": "Quest Points"
+  },
+  "1000700": {
+    "zh": "The Quill of Memories",
+    "en": "The Quill of Memories"
+  },
+  "1000800": {
+    "zh": "Pioneer's Title",
+    "en": "Pioneer's Title"
+  },
+  "1000801": {
+    "zh": "Name of Prowess",
+    "en": "Name of Prowess"
+  },
+  "1000802": {
+    "zh": "Title of Wisdom",
+    "en": "Title of Wisdom"
+  },
+  "1000803": {
+    "zh": "Name of the Strong",
+    "en": "Name of the Strong"
+  },
+  "1000804": {
+    "zh": "The Fame of the Challenger",
+    "en": "The Fame of the Challenger"
+  },
+  "1010101": {
+    "zh": "Radiant Goddess Stone",
+    "en": "Radiant Goddess Stone"
+  },
+  "1010102": {
+    "zh": "Lustrous Goddess Stone",
+    "en": "Lustrous Goddess Stone"
+  },
+  "1010103": {
+    "zh": "Radiant Goddess Stone",
+    "en": "Radiant Goddess Stone"
+  },
+  "1010104": {
+    "zh": "Lustrous Goddess Stone",
+    "en": "Lustrous Goddess Stone"
+  },
+  "1110001": {
+    "zh": "Eileen",
+    "en": "Eileen"
+  },
+  "1110101": {
+    "zh": "Lute",
+    "en": "Lute"
+  },
+  "1110102": {
+    "zh": "Speed Lute",
+    "en": "Speed Lute"
+  },
+  "1110103": {
+    "zh": "Awakening Lute",
+    "en": "Awakening Lute"
+  },
+  "1110201": {
+    "zh": "Castella",
+    "en": "Castella"
+  },
+  "1110301": {
+    "zh": "Reina",
+    "en": "Reina"
+  },
+  "1110401": {
+    "zh": "Roxy",
+    "en": "Roxy"
+  },
+  "1110501": {
+    "zh": "Aria",
+    "en": "Aria"
+  },
+  "1110601": {
+    "zh": "Johnny",
+    "en": "Johnny"
+  },
+  "1110701": {
+    "zh": "Ornette",
+    "en": "Ornette"
+  },
+  "1110801": {
+    "zh": "Ropie",
+    "en": "Ropie"
+  },
+  "1110901": {
+    "zh": "Ysera",
+    "en": "Ysera"
+  },
+  "1111001": {
+    "zh": "Kalsion",
+    "en": "Kalsion"
+  },
+  "1111101": {
+    "zh": "Ewald",
+    "en": "Ewald"
+  },
+  "1111201": {
+    "zh": "Othello",
+    "en": "Othello"
+  },
+  "1111301": {
+    "zh": "Jerome",
+    "en": "Jerome"
+  },
+  "1111401": {
+    "zh": "Charlotte",
+    "en": "Charlotte"
+  },
+  "1111501": {
+    "zh": "Ryza",
+    "en": "Ryza"
+  },
+  "1111702": {
+    "zh": "Veronica",
+    "en": "Veronica"
+  },
+  "1111801": {
+    "zh": "Alex",
+    "en": "Alex"
+  },
+  "1111901": {
+    "zh": "Lyn",
+    "en": "Lyn"
+  },
+  "1112001": {
+    "zh": "Theresia",
+    "en": "Theresia"
+  },
+  "1112101": {
+    "zh": "Gilford",
+    "en": "Gilford"
+  },
+  "1112201": {
+    "zh": "Lana",
+    "en": "Lana"
+  },
+  "1112301": {
+    "zh": "Rubens",
+    "en": "Rubens"
+  },
+  "1112501": {
+    "zh": "Elise",
+    "en": "Elise"
+  },
+  "1112601": {
+    "zh": "Tarte",
+    "en": "Tarte"
+  },
+  "1112701": {
+    "zh": "Cerese",
+    "en": "Cerese"
+  },
+  "1112801": {
+    "zh": "Sion",
+    "en": "Sion"
+  },
+  "1112901": {
+    "zh": "Bartz",
+    "en": "Bartz"
+  },
+  "1113001": {
+    "zh": "Astria",
+    "en": "Astria"
+  },
+  "1113101": {
+    "zh": "Logan",
+    "en": "Logan"
+  },
+  "1113201": {
+    "zh": "Karina",
+    "en": "Karina"
+  },
+  "1113301": {
+    "zh": "Viola",
+    "en": "Viola"
+  },
+  "1113401": {
+    "zh": "Dana",
+    "en": "Dana"
+  },
+  "1113501": {
+    "zh": "Kalien",
+    "en": "Kalien"
+  },
+  "1113601": {
+    "zh": "Lampi",
+    "en": "Lampi"
+  },
+  "1113701": {
+    "zh": "Sabrina",
+    "en": "Sabrina"
+  },
+  "1120001": {
+    "zh": "Eileen Soul",
+    "en": "Eileen Soul"
+  },
+  "1120101": {
+    "zh": "Lute Soul",
+    "en": "Lute Soul"
+  },
+  "1120201": {
+    "zh": "Castella Soul",
+    "en": "Castella Soul"
+  },
+  "1120301": {
+    "zh": "Reina Soul",
+    "en": "Reina Soul"
+  },
+  "1120401": {
+    "zh": "Roxy Soul",
+    "en": "Roxy Soul"
+  },
+  "1120501": {
+    "zh": "Aria Soul",
+    "en": "Aria Soul"
+  },
+  "1120601": {
+    "zh": "Johnny Soul",
+    "en": "Johnny Soul"
+  },
+  "1120701": {
+    "zh": "Ornette Soul",
+    "en": "Ornette Soul"
+  },
+  "1120801": {
+    "zh": "Ropie(Unfinished) Soul",
+    "en": "Ropie(Unfinished) Soul"
+  },
+  "1120901": {
+    "zh": "Ysera(Unfinished) Soul",
+    "en": "Ysera(Unfinished) Soul"
+  },
+  "1121001": {
+    "zh": "Kalsion Soul",
+    "en": "Kalsion Soul"
+  },
+  "1121101": {
+    "zh": "Ewald(Unfinished) Soul",
+    "en": "Ewald(Unfinished) Soul"
+  },
+  "1121201": {
+    "zh": "Othello(Unfinished) Soul",
+    "en": "Othello(Unfinished) Soul"
+  },
+  "1121301": {
+    "zh": "Jerome(Unfinished) Soul",
+    "en": "Jerome(Unfinished) Soul"
+  },
+  "1121401": {
+    "zh": "Charlotte(Unfinished) Soul",
+    "en": "Charlotte(Unfinished) Soul"
+  },
+  "1121501": {
+    "zh": "Ryza(Unfinished) Soul",
+    "en": "Ryza(Unfinished) Soul"
+  },
+  "1121701": {
+    "zh": "Veronica Soul",
+    "en": "Veronica Soul"
+  },
+  "1121801": {
+    "zh": "Alex Soul",
+    "en": "Alex Soul"
+  },
+  "1121901": {
+    "zh": "Lyn(Unfinished) Soul",
+    "en": "Lyn(Unfinished) Soul"
+  },
+  "1122001": {
+    "zh": "Theresia Soul",
+    "en": "Theresia Soul"
+  },
+  "1122101": {
+    "zh": "Gilford(Unfinished) Soul",
+    "en": "Gilford(Unfinished) Soul"
+  },
+  "1122201": {
+    "zh": "Lana(Unfinished) Soul",
+    "en": "Lana(Unfinished) Soul"
+  },
+  "1122301": {
+    "zh": "Rubens(Unfinished) Soul",
+    "en": "Rubens(Unfinished) Soul"
+  },
+  "1122401": {
+    "zh": "Awakened Lute(Unfinished) Soul",
+    "en": "Awakened Lute(Unfinished) Soul"
+  },
+  "1122501": {
+    "zh": "Elise(Unfinished) Soul",
+    "en": "Elise(Unfinished) Soul"
+  },
+  "1122601": {
+    "zh": "Tarte Soul",
+    "en": "Tarte Soul"
+  },
+  "1122701": {
+    "zh": "Cerese Soul",
+    "en": "Cerese Soul"
+  },
+  "1122801": {
+    "zh": "Sion Soul",
+    "en": "Sion Soul"
+  },
+  "1122901": {
+    "zh": "Bartz(Unfinished) Soul",
+    "en": "Bartz(Unfinished) Soul"
+  },
+  "1123001": {
+    "zh": "Astria Soul",
+    "en": "Astria Soul"
+  },
+  "1123101": {
+    "zh": "Logan(Unfinished) Soul",
+    "en": "Logan(Unfinished) Soul"
+  },
+  "1123201": {
+    "zh": "Cartoon Lute Soul",
+    "en": "Cartoon Lute Soul"
+  },
+  "1123301": {
+    "zh": "Cartoon Castella Soul",
+    "en": "Cartoon Castella Soul"
+  },
+  "1123401": {
+    "zh": "Cartoon Aria Soul",
+    "en": "Cartoon Aria Soul"
+  },
+  "1123501": {
+    "zh": "Cartoon Johnny Soul",
+    "en": "Cartoon Johnny Soul"
+  },
+  "1123601": {
+    "zh": "Karina(Unfinished) Soul",
+    "en": "Karina(Unfinished) Soul"
+  },
+  "1123701": {
+    "zh": "Viola(Unfinished) Soul",
+    "en": "Viola(Unfinished) Soul"
+  },
+  "1123801": {
+    "zh": "Dana Soul",
+    "en": "Dana Soul"
+  },
+  "1123901": {
+    "zh": "Kalien Soul",
+    "en": "Kalien Soul"
+  },
+  "1124001": {
+    "zh": "Lampi Soul",
+    "en": "Lampi Soul"
+  },
+  "1124101": {
+    "zh": "Sabrina Soul",
+    "en": "Sabrina Soul"
+  },
+  "1310001": {
+    "zh": "Rune of Damaged Determination",
+    "en": "Rune of Damaged Determination"
+  },
+  "1310002": {
+    "zh": "Damaged Rune of Protection",
+    "en": "Damaged Rune of Protection"
+  },
+  "1310003": {
+    "zh": "Rune of Damaged Vitality",
+    "en": "Rune of Damaged Vitality"
+  },
+  "1310004": {
+    "zh": "Rune of Damaged Concentration",
+    "en": "Rune of Damaged Concentration"
+  },
+  "1310005": {
+    "zh": "Rune of Damaged Amplification",
+    "en": "Rune of Damaged Amplification"
+  },
+  "1310101": {
+    "zh": "Intact Rune of Determination",
+    "en": "Intact Rune of Determination"
+  },
+  "1310102": {
+    "zh": "Intact Rune of Protection",
+    "en": "Intact Rune of Protection"
+  },
+  "1310103": {
+    "zh": "Rune of Full Vitality",
+    "en": "Rune of Full Vitality"
+  },
+  "1310104": {
+    "zh": "Unbroken Rune of Focus",
+    "en": "Unbroken Rune of Focus"
+  },
+  "1310105": {
+    "zh": "Rune of Unbroken Amplification",
+    "en": "Rune of Unbroken Amplification"
+  },
+  "1310201": {
+    "zh": "Refined Rune of Determination",
+    "en": "Refined Rune of Determination"
+  },
+  "1310202": {
+    "zh": "Refined Rune of Protection",
+    "en": "Refined Rune of Protection"
+  },
+  "1310203": {
+    "zh": "Rune of Refined Vitality",
+    "en": "Rune of Refined Vitality"
+  },
+  "1310204": {
+    "zh": "Refined Rune of Focus",
+    "en": "Refined Rune of Focus"
+  },
+  "1310205": {
+    "zh": "Rune of Refined Amplification",
+    "en": "Rune of Refined Amplification"
+  },
+  "1310301": {
+    "zh": "Radiant Rune of Determination",
+    "en": "Radiant Rune of Determination"
+  },
+  "1310302": {
+    "zh": "Radiant Rune of Protection",
+    "en": "Radiant Rune of Protection"
+  },
+  "1310303": {
+    "zh": "Rune of Radiant Vitality",
+    "en": "Rune of Radiant Vitality"
+  },
+  "1310304": {
+    "zh": "Rune of Radiant Focus",
+    "en": "Rune of Radiant Focus"
+  },
+  "1310305": {
+    "zh": "Rune of Radiant Amplification",
+    "en": "Rune of Radiant Amplification"
+  },
+  "1310401": {
+    "zh": "Rune of Perfect Determination",
+    "en": "Rune of Perfect Determination"
+  },
+  "1310402": {
+    "zh": "Rune of Perfect Protection",
+    "en": "Rune of Perfect Protection"
+  },
+  "1310403": {
+    "zh": "Rune of Perfect Vitality",
+    "en": "Rune of Perfect Vitality"
+  },
+  "1310404": {
+    "zh": "Rune of Perfect Concentration",
+    "en": "Rune of Perfect Concentration"
+  },
+  "1310405": {
+    "zh": "Rune of Perfect Amplification",
+    "en": "Rune of Perfect Amplification"
+  },
+  "1319002": {
+    "zh": "Source of an Intact Rune",
+    "en": "Source of an Intact Rune"
+  },
+  "1319003": {
+    "zh": "Source of Refined Runes",
+    "en": "Source of Refined Runes"
+  },
+  "1319004": {
+    "zh": "Source of a Radiant Rune",
+    "en": "Source of a Radiant Rune"
+  },
+  "1319005": {
+    "zh": "Source of a Perfect Rune",
+    "en": "Source of a Perfect Rune"
+  },
+  "1320000": {
+    "zh": "Robust Stag Beetle",
+    "en": "Robust Stag Beetle"
+  },
+  "1320001": {
+    "zh": "Red Ladybug",
+    "en": "Red Ladybug"
+  },
+  "1320002": {
+    "zh": "Cowardly Firefly",
+    "en": "Cowardly Firefly"
+  },
+  "1320003": {
+    "zh": "Fierce Rhinoceros Beetle",
+    "en": "Fierce Rhinoceros Beetle"
+  },
+  "1320004": {
+    "zh": "Maple Flying Squirrel",
+    "en": "Maple Flying Squirrel"
+  },
+  "1320005": {
+    "zh": "Viola Flying Squirrel",
+    "en": "Viola Flying Squirrel"
+  },
+  "1320006": {
+    "zh": "Acorn Flying Squirrel",
+    "en": "Acorn Flying Squirrel"
+  },
+  "1320007": {
+    "zh": "Cotton Flying Squirrel",
+    "en": "Cotton Flying Squirrel"
+  },
+  "1320008": {
+    "zh": "Dawn Wing Cat",
+    "en": "Dawn Wing Cat"
+  },
+  "1320009": {
+    "zh": "Shadow Wing Cat",
+    "en": "Shadow Wing Cat"
+  },
+  "1320010": {
+    "zh": "Mist Wing Cat",
+    "en": "Mist Wing Cat"
+  },
+  "1320011": {
+    "zh": "Orchid Wing Cat",
+    "en": "Orchid Wing Cat"
+  },
+  "1320012": {
+    "zh": "Bright Crowtit",
+    "en": "Bright Crowtit"
+  },
+  "1320013": {
+    "zh": "Diligent Sparrow",
+    "en": "Diligent Sparrow"
+  },
+  "1320014": {
+    "zh": "Timid Hummingbird",
+    "en": "Timid Hummingbird"
+  },
+  "1320015": {
+    "zh": "Refreshing Canary",
+    "en": "Refreshing Canary"
+  },
+  "1320016": {
+    "zh": "Snowstorm Sky Wolf",
+    "en": "Snowstorm Sky Wolf"
+  },
+  "1320017": {
+    "zh": "Gale Sky Wolf",
+    "en": "Gale Sky Wolf"
+  },
+  "1320018": {
+    "zh": "Sandstorm Sky Wolf",
+    "en": "Sandstorm Sky Wolf"
+  },
+  "1320019": {
+    "zh": "Frost Sky Wolf",
+    "en": "Frost Sky Wolf"
+  },
+  "1320020": {
+    "zh": "War Direwolf",
+    "en": "War Direwolf"
+  },
+  "1320021": {
+    "zh": "Flame Spirit Fox",
+    "en": "Flame Spirit Fox"
+  },
+  "1320022": {
+    "zh": "Abyssal Direwolf",
+    "en": "Abyssal Direwolf"
+  },
+  "1320023": {
+    "zh": "Stormy Direwolf",
+    "en": "Stormy Direwolf"
+  },
+  "1320028": {
+    "zh": "Knightage Griffon",
+    "en": "Knightage Griffon"
+  },
+  "1320029": {
+    "zh": "Exploration Squad Griffon",
+    "en": "Exploration Squad Griffon"
+  },
+  "1320030": {
+    "zh": "Holy Knightage Griffon",
+    "en": "Holy Knightage Griffon"
+  },
+  "1320031": {
+    "zh": "Guardian Gryphon",
+    "en": "Guardian Gryphon"
+  },
+  "1320032": {
+    "zh": "Brave Baby Dragon",
+    "en": "Brave Baby Dragon"
+  },
+  "1320033": {
+    "zh": "흉악한 새끼 용",
+    "en": "흉악한 새끼 용"
+  },
+  "1360001": {
+    "zh": "Magic Academy Student Helmet",
+    "en": "Magic Academy Student Helmet"
+  },
+  "1360002": {
+    "zh": "Magic Academy Student Top",
+    "en": "Magic Academy Student Top"
+  },
+  "1360003": {
+    "zh": "Magic Academy Student Pants",
+    "en": "Magic Academy Student Pants"
+  },
+  "1360004": {
+    "zh": "Magic Academy Student Gloves",
+    "en": "Magic Academy Student Gloves"
+  },
+  "1360005": {
+    "zh": "Magic Academy Student Boots",
+    "en": "Magic Academy Student Boots"
+  },
+  "1360011": {
+    "zh": "Apprentice Mercenary Helmet",
+    "en": "Apprentice Mercenary Helmet"
+  },
+  "1360012": {
+    "zh": "Apprentice Mercenary Top",
+    "en": "Apprentice Mercenary Top"
+  },
+  "1360013": {
+    "zh": "Apprentice Mercenary Pants",
+    "en": "Apprentice Mercenary Pants"
+  },
+  "1360014": {
+    "zh": "Apprentice Mercenary Gloves",
+    "en": "Apprentice Mercenary Gloves"
+  },
+  "1360015": {
+    "zh": "Apprentice Mercenary Boots",
+    "en": "Apprentice Mercenary Boots"
+  },
+  "1360021": {
+    "zh": "Apprentice Knight Helmet",
+    "en": "Apprentice Knight Helmet"
+  },
+  "1360022": {
+    "zh": "Apprentice Knight Top",
+    "en": "Apprentice Knight Top"
+  },
+  "1360023": {
+    "zh": "Apprentice Knight Pants",
+    "en": "Apprentice Knight Pants"
+  },
+  "1360024": {
+    "zh": "Apprentice Knight Gloves",
+    "en": "Apprentice Knight Gloves"
+  },
+  "1360025": {
+    "zh": "Apprentice Knight Boots",
+    "en": "Apprentice Knight Boots"
+  },
+  "1370001": {
+    "zh": "Ruinsbreaker Helmet",
+    "en": "Ruinsbreaker Helmet"
+  },
+  "1370002": {
+    "zh": "Ruinsbreaker Top",
+    "en": "Ruinsbreaker Top"
+  },
+  "1370003": {
+    "zh": "Ruinsbreaker Pants",
+    "en": "Ruinsbreaker Pants"
+  },
+  "1370004": {
+    "zh": "Ruinsbreaker Gloves",
+    "en": "Ruinsbreaker Gloves"
+  },
+  "1370005": {
+    "zh": "Ruinsbreaker Boots",
+    "en": "Ruinsbreaker Boots"
+  },
+  "1370011": {
+    "zh": "Holy Arbiter Helmet",
+    "en": "Holy Arbiter Helmet"
+  },
+  "1370012": {
+    "zh": "Holy Arbiter Top",
+    "en": "Holy Arbiter Top"
+  },
+  "1370013": {
+    "zh": "Holy Arbiter's Pants",
+    "en": "Holy Arbiter's Pants"
+  },
+  "1370014": {
+    "zh": "Holy Arbiter Gloves",
+    "en": "Holy Arbiter Gloves"
+  },
+  "1370015": {
+    "zh": "Boots of the Holy Arbiter",
+    "en": "Boots of the Holy Arbiter"
+  },
+  "1370021": {
+    "zh": "Earthshatterer Helmet",
+    "en": "Earthshatterer Helmet"
+  },
+  "1370022": {
+    "zh": "Earthshatterer Top",
+    "en": "Earthshatterer Top"
+  },
+  "1370023": {
+    "zh": "Earthshatterer Pants",
+    "en": "Earthshatterer Pants"
+  },
+  "1370024": {
+    "zh": "Earthshatterer Gloves",
+    "en": "Earthshatterer Gloves"
+  },
+  "1370025": {
+    "zh": "Earthshatterer Boots",
+    "en": "Earthshatterer Boots"
+  },
+  "1370031": {
+    "zh": "Azure Gale Helmet",
+    "en": "Azure Gale Helmet"
+  },
+  "1370032": {
+    "zh": "Azure Gale Top",
+    "en": "Azure Gale Top"
+  },
+  "1370033": {
+    "zh": "Azure Gale Pants",
+    "en": "Azure Gale Pants"
+  },
+  "1370034": {
+    "zh": "Azure Gale Gloves",
+    "en": "Azure Gale Gloves"
+  },
+  "1370035": {
+    "zh": "Azure Gale Boots",
+    "en": "Azure Gale Boots"
+  },
+  "1370041": {
+    "zh": "Blazing Flame Helmet",
+    "en": "Blazing Flame Helmet"
+  },
+  "1370042": {
+    "zh": "Blazing Flame Top",
+    "en": "Blazing Flame Top"
+  },
+  "1370043": {
+    "zh": "Blazing Flame Pants",
+    "en": "Blazing Flame Pants"
+  },
+  "1370044": {
+    "zh": "Blazing Flame Gloves",
+    "en": "Blazing Flame Gloves"
+  },
+  "1370045": {
+    "zh": "Blazing Flame Boots",
+    "en": "Blazing Flame Boots"
+  },
+  "1370051": {
+    "zh": "Froststorm Helmet",
+    "en": "Froststorm Helmet"
+  },
+  "1370052": {
+    "zh": "Froststorm Top",
+    "en": "Froststorm Top"
+  },
+  "1370053": {
+    "zh": "Froststorm Leggings",
+    "en": "Froststorm Leggings"
+  },
+  "1370054": {
+    "zh": "Froststorm Gloves",
+    "en": "Froststorm Gloves"
+  },
+  "1370055": {
+    "zh": "Froststorm Boots",
+    "en": "Froststorm Boots"
+  },
+  "1370061": {
+    "zh": "Thunderrush Helmet",
+    "en": "Thunderrush Helmet"
+  },
+  "1370062": {
+    "zh": "Thunderrush Top",
+    "en": "Thunderrush Top"
+  },
+  "1370063": {
+    "zh": "Thunderrush Pants",
+    "en": "Thunderrush Pants"
+  },
+  "1370064": {
+    "zh": "Thunderrush Gloves",
+    "en": "Thunderrush Gloves"
+  },
+  "1370065": {
+    "zh": "Thunderrush Boots",
+    "en": "Thunderrush Boots"
+  },
+  "1370071": {
+    "zh": "Venomfog Shade Helmet",
+    "en": "Venomfog Shade Helmet"
+  },
+  "1370072": {
+    "zh": "Venomfog Shade Top",
+    "en": "Venomfog Shade Top"
+  },
+  "1370073": {
+    "zh": "Venomfog Shade Pants",
+    "en": "Venomfog Shade Pants"
+  },
+  "1370074": {
+    "zh": "Venomfog Shade Gloves",
+    "en": "Venomfog Shade Gloves"
+  },
+  "1370075": {
+    "zh": "Venomfog Shade Boots",
+    "en": "Venomfog Shade Boots"
+  },
+  "1370081": {
+    "zh": "Bloodstained Chaser Helmet",
+    "en": "Bloodstained Chaser Helmet"
+  },
+  "1370082": {
+    "zh": "Bloodstained Chaser Top",
+    "en": "Bloodstained Chaser Top"
+  },
+  "1370083": {
+    "zh": "Bloodstained Chaser Pants",
+    "en": "Bloodstained Chaser Pants"
+  },
+  "1370084": {
+    "zh": "Bloodstained Chaser Gloves",
+    "en": "Bloodstained Chaser Gloves"
+  },
+  "1370085": {
+    "zh": "Bloodstained Chaser Boots",
+    "en": "Bloodstained Chaser Boots"
+  },
+  "1370101": {
+    "zh": "Battle Will Helmet",
+    "en": "Battle Will Helmet"
+  },
+  "1370102": {
+    "zh": "Battle Will Top",
+    "en": "Battle Will Top"
+  },
+  "1370103": {
+    "zh": "Battle Will Pants",
+    "en": "Battle Will Pants"
+  },
+  "1370104": {
+    "zh": "Battle Will Gloves",
+    "en": "Battle Will Gloves"
+  },
+  "1370105": {
+    "zh": "Battle Will Boots",
+    "en": "Battle Will Boots"
+  },
+  "1370111": {
+    "zh": "Oath of Steel Helmet",
+    "en": "Oath of Steel Helmet"
+  },
+  "1370112": {
+    "zh": "Oath of Steel Top",
+    "en": "Oath of Steel Top"
+  },
+  "1370113": {
+    "zh": "Oath of Steel Pants",
+    "en": "Oath of Steel Pants"
+  },
+  "1370114": {
+    "zh": "Oath of Steel Gloves",
+    "en": "Oath of Steel Gloves"
+  },
+  "1370115": {
+    "zh": "Oath of Steel Boots",
+    "en": "Oath of Steel Boots"
+  },
+  "1370121": {
+    "zh": "Ballad of Life Helmet",
+    "en": "Ballad of Life Helmet"
+  },
+  "1370122": {
+    "zh": "Ballad of Life Top",
+    "en": "Ballad of Life Top"
+  },
+  "1370123": {
+    "zh": "Ballad of Life Pants",
+    "en": "Ballad of Life Pants"
+  },
+  "1370124": {
+    "zh": "Ballad of Life Gloves",
+    "en": "Ballad of Life Gloves"
+  },
+  "1370125": {
+    "zh": "Ballad of Life Boots",
+    "en": "Ballad of Life Boots"
+  },
+  "1370131": {
+    "zh": "Fierce Presence Helmet",
+    "en": "Fierce Presence Helmet"
+  },
+  "1370132": {
+    "zh": "Fierce Presence Top",
+    "en": "Fierce Presence Top"
+  },
+  "1370133": {
+    "zh": "Fierce Presence Pants",
+    "en": "Fierce Presence Pants"
+  },
+  "1370134": {
+    "zh": "Fierce Presence Gloves",
+    "en": "Fierce Presence Gloves"
+  },
+  "1370135": {
+    "zh": "Fierce Presence Boots",
+    "en": "Fierce Presence Boots"
+  },
+  "1370141": {
+    "zh": "Intruder Helmet",
+    "en": "Intruder Helmet"
+  },
+  "1370142": {
+    "zh": "Infiltrator Top",
+    "en": "Infiltrator Top"
+  },
+  "1370143": {
+    "zh": "Intruder's Pants",
+    "en": "Intruder's Pants"
+  },
+  "1370144": {
+    "zh": "Intruder Gloves",
+    "en": "Intruder Gloves"
+  },
+  "1370145": {
+    "zh": "Intruder Boots",
+    "en": "Intruder Boots"
+  },
+  "1370151": {
+    "zh": "Strike of Wrath Helmet",
+    "en": "Strike of Wrath Helmet"
+  },
+  "1370152": {
+    "zh": "Strike of Wrath Top",
+    "en": "Strike of Wrath Top"
+  },
+  "1370153": {
+    "zh": "Strike of Wrath Pants",
+    "en": "Strike of Wrath Pants"
+  },
+  "1370154": {
+    "zh": "Strike of Wrath Gloves",
+    "en": "Strike of Wrath Gloves"
+  },
+  "1370155": {
+    "zh": "Strike of Wrath Boots",
+    "en": "Strike of Wrath Boots"
+  },
+  "1380001": {
+    "zh": "Ruinsbreaker Helmet",
+    "en": "Ruinsbreaker Helmet"
+  },
+  "1380002": {
+    "zh": "Ruinsbreaker Top",
+    "en": "Ruinsbreaker Top"
+  },
+  "1380003": {
+    "zh": "Ruinsbreaker Pants",
+    "en": "Ruinsbreaker Pants"
+  },
+  "1380004": {
+    "zh": "Ruinsbreaker Gloves",
+    "en": "Ruinsbreaker Gloves"
+  },
+  "1380005": {
+    "zh": "Ruinsbreaker Boots",
+    "en": "Ruinsbreaker Boots"
+  },
+  "1380011": {
+    "zh": "Holy Arbiter Helmet",
+    "en": "Holy Arbiter Helmet"
+  },
+  "1380012": {
+    "zh": "Holy Arbiter Top",
+    "en": "Holy Arbiter Top"
+  },
+  "1380013": {
+    "zh": "Holy Arbiter's Pants",
+    "en": "Holy Arbiter's Pants"
+  },
+  "1380014": {
+    "zh": "Holy Arbiter Gloves",
+    "en": "Holy Arbiter Gloves"
+  },
+  "1380015": {
+    "zh": "Boots of the Holy Arbiter",
+    "en": "Boots of the Holy Arbiter"
+  },
+  "1380021": {
+    "zh": "Earthshatterer Helmet",
+    "en": "Earthshatterer Helmet"
+  },
+  "1380022": {
+    "zh": "Earthshatterer Top",
+    "en": "Earthshatterer Top"
+  },
+  "1380023": {
+    "zh": "Earthshatterer Pants",
+    "en": "Earthshatterer Pants"
+  },
+  "1380024": {
+    "zh": "Earthshatterer Gloves",
+    "en": "Earthshatterer Gloves"
+  },
+  "1380025": {
+    "zh": "Earthshatterer Boots",
+    "en": "Earthshatterer Boots"
+  },
+  "1380031": {
+    "zh": "Azure Gale Helmet",
+    "en": "Azure Gale Helmet"
+  },
+  "1380032": {
+    "zh": "Azure Gale Top",
+    "en": "Azure Gale Top"
+  },
+  "1380033": {
+    "zh": "Azure Gale Pants",
+    "en": "Azure Gale Pants"
+  },
+  "1380034": {
+    "zh": "Azure Gale Gloves",
+    "en": "Azure Gale Gloves"
+  },
+  "1380035": {
+    "zh": "Azure Gale Boots",
+    "en": "Azure Gale Boots"
+  },
+  "1380041": {
+    "zh": "Blazing Flame Helmet",
+    "en": "Blazing Flame Helmet"
+  },
+  "1380042": {
+    "zh": "Blazing Flame Top",
+    "en": "Blazing Flame Top"
+  },
+  "1380043": {
+    "zh": "Blazing Flame Pants",
+    "en": "Blazing Flame Pants"
+  },
+  "1380044": {
+    "zh": "Blazing Flame Gloves",
+    "en": "Blazing Flame Gloves"
+  },
+  "1380045": {
+    "zh": "Blazing Flame Boots",
+    "en": "Blazing Flame Boots"
+  },
+  "1380051": {
+    "zh": "Froststorm Helmet",
+    "en": "Froststorm Helmet"
+  },
+  "1380052": {
+    "zh": "Froststorm Top",
+    "en": "Froststorm Top"
+  },
+  "1380053": {
+    "zh": "Froststorm Leggings",
+    "en": "Froststorm Leggings"
+  },
+  "1380054": {
+    "zh": "Froststorm Gloves",
+    "en": "Froststorm Gloves"
+  },
+  "1380055": {
+    "zh": "Froststorm Boots",
+    "en": "Froststorm Boots"
+  },
+  "1380061": {
+    "zh": "Thunderrush Helmet",
+    "en": "Thunderrush Helmet"
+  },
+  "1380062": {
+    "zh": "Thunderrush Top",
+    "en": "Thunderrush Top"
+  },
+  "1380063": {
+    "zh": "Thunderrush Pants",
+    "en": "Thunderrush Pants"
+  },
+  "1380064": {
+    "zh": "Thunderrush Gloves",
+    "en": "Thunderrush Gloves"
+  },
+  "1380065": {
+    "zh": "Thunderrush Boots",
+    "en": "Thunderrush Boots"
+  },
+  "1380071": {
+    "zh": "Venomfog Shade Helmet",
+    "en": "Venomfog Shade Helmet"
+  },
+  "1380072": {
+    "zh": "Venomfog Shade Top",
+    "en": "Venomfog Shade Top"
+  },
+  "1380073": {
+    "zh": "Venomfog Shade Pants",
+    "en": "Venomfog Shade Pants"
+  },
+  "1380074": {
+    "zh": "Venomfog Shade Gloves",
+    "en": "Venomfog Shade Gloves"
+  },
+  "1380075": {
+    "zh": "Venomfog Shade Boots",
+    "en": "Venomfog Shade Boots"
+  },
+  "1380081": {
+    "zh": "Bloodstained Chaser Helmet",
+    "en": "Bloodstained Chaser Helmet"
+  },
+  "1380082": {
+    "zh": "Bloodstained Chaser Top",
+    "en": "Bloodstained Chaser Top"
+  },
+  "1380083": {
+    "zh": "Bloodstained Chaser Pants",
+    "en": "Bloodstained Chaser Pants"
+  },
+  "1380084": {
+    "zh": "Bloodstained Chaser Gloves",
+    "en": "Bloodstained Chaser Gloves"
+  },
+  "1380085": {
+    "zh": "Bloodstained Chaser Boots",
+    "en": "Bloodstained Chaser Boots"
+  },
+  "1380101": {
+    "zh": "Battle Will Helmet",
+    "en": "Battle Will Helmet"
+  },
+  "1380102": {
+    "zh": "Battle Will Top",
+    "en": "Battle Will Top"
+  },
+  "1380103": {
+    "zh": "Battle Will Pants",
+    "en": "Battle Will Pants"
+  },
+  "1380104": {
+    "zh": "Battle Will Gloves",
+    "en": "Battle Will Gloves"
+  },
+  "1380105": {
+    "zh": "Battle Will Boots",
+    "en": "Battle Will Boots"
+  },
+  "1380111": {
+    "zh": "Oath of Steel Helmet",
+    "en": "Oath of Steel Helmet"
+  },
+  "1380112": {
+    "zh": "Oath of Steel Top",
+    "en": "Oath of Steel Top"
+  },
+  "1380113": {
+    "zh": "Oath of Steel Pants",
+    "en": "Oath of Steel Pants"
+  },
+  "1380114": {
+    "zh": "Oath of Steel Gloves",
+    "en": "Oath of Steel Gloves"
+  },
+  "1380115": {
+    "zh": "Oath of Steel Boots",
+    "en": "Oath of Steel Boots"
+  },
+  "1380121": {
+    "zh": "Ballad of Life Helmet",
+    "en": "Ballad of Life Helmet"
+  },
+  "1380122": {
+    "zh": "Ballad of Life Top",
+    "en": "Ballad of Life Top"
+  },
+  "1380123": {
+    "zh": "Ballad of Life Pants",
+    "en": "Ballad of Life Pants"
+  },
+  "1380124": {
+    "zh": "Ballad of Life Gloves",
+    "en": "Ballad of Life Gloves"
+  },
+  "1380125": {
+    "zh": "Ballad of Life Boots",
+    "en": "Ballad of Life Boots"
+  },
+  "1380131": {
+    "zh": "Fierce Presence Helmet",
+    "en": "Fierce Presence Helmet"
+  },
+  "1380132": {
+    "zh": "Fierce Presence Top",
+    "en": "Fierce Presence Top"
+  },
+  "1380133": {
+    "zh": "Fierce Presence Pants",
+    "en": "Fierce Presence Pants"
+  },
+  "1380134": {
+    "zh": "Fierce Presence Gloves",
+    "en": "Fierce Presence Gloves"
+  },
+  "1380135": {
+    "zh": "Fierce Presence Boots",
+    "en": "Fierce Presence Boots"
+  },
+  "1380141": {
+    "zh": "Intruder Helmet",
+    "en": "Intruder Helmet"
+  },
+  "1380142": {
+    "zh": "Infiltrator Top",
+    "en": "Infiltrator Top"
+  },
+  "1380143": {
+    "zh": "Intruder's Pants",
+    "en": "Intruder's Pants"
+  },
+  "1380144": {
+    "zh": "Intruder Gloves",
+    "en": "Intruder Gloves"
+  },
+  "1380145": {
+    "zh": "Intruder Boots",
+    "en": "Intruder Boots"
+  },
+  "1380151": {
+    "zh": "Strike of Wrath Helmet",
+    "en": "Strike of Wrath Helmet"
+  },
+  "1380152": {
+    "zh": "Strike of Wrath Top",
+    "en": "Strike of Wrath Top"
+  },
+  "1380153": {
+    "zh": "Strike of Wrath Pants",
+    "en": "Strike of Wrath Pants"
+  },
+  "1380154": {
+    "zh": "Strike of Wrath Gloves",
+    "en": "Strike of Wrath Gloves"
+  },
+  "1380155": {
+    "zh": "Strike of Wrath Boots",
+    "en": "Strike of Wrath Boots"
+  },
+  "1390001": {
+    "zh": "Ruinsbreaker Helmet",
+    "en": "Ruinsbreaker Helmet"
+  },
+  "1390002": {
+    "zh": "Ruinsbreaker Top",
+    "en": "Ruinsbreaker Top"
+  },
+  "1390003": {
+    "zh": "Ruinsbreaker Pants",
+    "en": "Ruinsbreaker Pants"
+  },
+  "1390004": {
+    "zh": "Ruinsbreaker Gloves",
+    "en": "Ruinsbreaker Gloves"
+  },
+  "1390005": {
+    "zh": "Ruinsbreaker Boots",
+    "en": "Ruinsbreaker Boots"
+  },
+  "1390011": {
+    "zh": "Holy Arbiter Helmet",
+    "en": "Holy Arbiter Helmet"
+  },
+  "1390012": {
+    "zh": "Holy Arbiter Top",
+    "en": "Holy Arbiter Top"
+  },
+  "1390013": {
+    "zh": "Holy Arbiter's Pants",
+    "en": "Holy Arbiter's Pants"
+  },
+  "1390014": {
+    "zh": "Holy Arbiter Gloves",
+    "en": "Holy Arbiter Gloves"
+  },
+  "1390015": {
+    "zh": "Boots of the Holy Arbiter",
+    "en": "Boots of the Holy Arbiter"
+  },
+  "1390021": {
+    "zh": "Earthshatterer Helmet",
+    "en": "Earthshatterer Helmet"
+  },
+  "1390022": {
+    "zh": "Earthshatterer Top",
+    "en": "Earthshatterer Top"
+  },
+  "1390023": {
+    "zh": "Earthshatterer Pants",
+    "en": "Earthshatterer Pants"
+  },
+  "1390024": {
+    "zh": "Earthshatterer Gloves",
+    "en": "Earthshatterer Gloves"
+  },
+  "1390025": {
+    "zh": "Earthshatterer Boots",
+    "en": "Earthshatterer Boots"
+  },
+  "1390031": {
+    "zh": "Azure Gale Helmet",
+    "en": "Azure Gale Helmet"
+  },
+  "1390032": {
+    "zh": "Azure Gale Top",
+    "en": "Azure Gale Top"
+  },
+  "1390033": {
+    "zh": "Azure Gale Pants",
+    "en": "Azure Gale Pants"
+  },
+  "1390034": {
+    "zh": "Azure Gale Gloves",
+    "en": "Azure Gale Gloves"
+  },
+  "1390035": {
+    "zh": "Azure Gale Boots",
+    "en": "Azure Gale Boots"
+  },
+  "1390041": {
+    "zh": "Blazing Flame Helmet",
+    "en": "Blazing Flame Helmet"
+  },
+  "1390042": {
+    "zh": "Blazing Flame Top",
+    "en": "Blazing Flame Top"
+  },
+  "1390043": {
+    "zh": "Blazing Flame Pants",
+    "en": "Blazing Flame Pants"
+  },
+  "1390044": {
+    "zh": "Blazing Flame Gloves",
+    "en": "Blazing Flame Gloves"
+  },
+  "1390045": {
+    "zh": "Blazing Flame Boots",
+    "en": "Blazing Flame Boots"
+  },
+  "1390051": {
+    "zh": "Froststorm Helmet",
+    "en": "Froststorm Helmet"
+  },
+  "1390052": {
+    "zh": "Froststorm Top",
+    "en": "Froststorm Top"
+  },
+  "1390053": {
+    "zh": "Froststorm Leggings",
+    "en": "Froststorm Leggings"
+  },
+  "1390054": {
+    "zh": "Froststorm Gloves",
+    "en": "Froststorm Gloves"
+  },
+  "1390055": {
+    "zh": "Froststorm Boots",
+    "en": "Froststorm Boots"
+  },
+  "1390061": {
+    "zh": "Thunderrush Helmet",
+    "en": "Thunderrush Helmet"
+  },
+  "1390062": {
+    "zh": "Thunderrush Top",
+    "en": "Thunderrush Top"
+  },
+  "1390063": {
+    "zh": "Thunderrush Pants",
+    "en": "Thunderrush Pants"
+  },
+  "1390064": {
+    "zh": "Thunderrush Gloves",
+    "en": "Thunderrush Gloves"
+  },
+  "1390065": {
+    "zh": "Thunderrush Boots",
+    "en": "Thunderrush Boots"
+  },
+  "1390071": {
+    "zh": "Venomfog Shade Helmet",
+    "en": "Venomfog Shade Helmet"
+  },
+  "1390072": {
+    "zh": "Venomfog Shade Top",
+    "en": "Venomfog Shade Top"
+  },
+  "1390073": {
+    "zh": "Venomfog Shade Pants",
+    "en": "Venomfog Shade Pants"
+  },
+  "1390074": {
+    "zh": "Venomfog Shade Gloves",
+    "en": "Venomfog Shade Gloves"
+  },
+  "1390075": {
+    "zh": "Venomfog Shade Boots",
+    "en": "Venomfog Shade Boots"
+  },
+  "1390081": {
+    "zh": "Bloodstained Chaser Helmet",
+    "en": "Bloodstained Chaser Helmet"
+  },
+  "1390082": {
+    "zh": "Bloodstained Chaser Top",
+    "en": "Bloodstained Chaser Top"
+  },
+  "1390083": {
+    "zh": "Bloodstained Chaser Pants",
+    "en": "Bloodstained Chaser Pants"
+  },
+  "1390084": {
+    "zh": "Bloodstained Chaser Gloves",
+    "en": "Bloodstained Chaser Gloves"
+  },
+  "1390085": {
+    "zh": "Bloodstained Chaser Boots",
+    "en": "Bloodstained Chaser Boots"
+  },
+  "1390101": {
+    "zh": "Battle Will Helmet",
+    "en": "Battle Will Helmet"
+  },
+  "1390102": {
+    "zh": "Battle Will Top",
+    "en": "Battle Will Top"
+  },
+  "1390103": {
+    "zh": "Battle Will Pants",
+    "en": "Battle Will Pants"
+  },
+  "1390104": {
+    "zh": "Battle Will Gloves",
+    "en": "Battle Will Gloves"
+  },
+  "1390105": {
+    "zh": "Battle Will Boots",
+    "en": "Battle Will Boots"
+  },
+  "1390111": {
+    "zh": "Oath of Steel Helmet",
+    "en": "Oath of Steel Helmet"
+  },
+  "1390112": {
+    "zh": "Oath of Steel Top",
+    "en": "Oath of Steel Top"
+  },
+  "1390113": {
+    "zh": "Oath of Steel Pants",
+    "en": "Oath of Steel Pants"
+  },
+  "1390114": {
+    "zh": "Oath of Steel Gloves",
+    "en": "Oath of Steel Gloves"
+  },
+  "1390115": {
+    "zh": "Oath of Steel Boots",
+    "en": "Oath of Steel Boots"
+  },
+  "1390121": {
+    "zh": "Ballad of Life Helmet",
+    "en": "Ballad of Life Helmet"
+  },
+  "1390122": {
+    "zh": "Ballad of Life Top",
+    "en": "Ballad of Life Top"
+  },
+  "1390123": {
+    "zh": "Ballad of Life Pants",
+    "en": "Ballad of Life Pants"
+  },
+  "1390124": {
+    "zh": "Ballad of Life Gloves",
+    "en": "Ballad of Life Gloves"
+  },
+  "1390125": {
+    "zh": "Ballad of Life Boots",
+    "en": "Ballad of Life Boots"
+  },
+  "1390131": {
+    "zh": "Fierce Presence Helmet",
+    "en": "Fierce Presence Helmet"
+  },
+  "1390132": {
+    "zh": "Fierce Presence Top",
+    "en": "Fierce Presence Top"
+  },
+  "1390133": {
+    "zh": "Fierce Presence Pants",
+    "en": "Fierce Presence Pants"
+  },
+  "1390134": {
+    "zh": "Fierce Presence Gloves",
+    "en": "Fierce Presence Gloves"
+  },
+  "1390135": {
+    "zh": "Fierce Presence Boots",
+    "en": "Fierce Presence Boots"
+  },
+  "1390141": {
+    "zh": "Intruder Helmet",
+    "en": "Intruder Helmet"
+  },
+  "1390142": {
+    "zh": "Intruder Top",
+    "en": "Intruder Top"
+  },
+  "1390143": {
+    "zh": "Intruder's Pants",
+    "en": "Intruder's Pants"
+  },
+  "1390144": {
+    "zh": "Intruder Gloves",
+    "en": "Intruder Gloves"
+  },
+  "1390145": {
+    "zh": "Intruder Boots",
+    "en": "Intruder Boots"
+  },
+  "1390151": {
+    "zh": "Strike of Wrath Helmet",
+    "en": "Strike of Wrath Helmet"
+  },
+  "1390152": {
+    "zh": "Strike of Wrath Top",
+    "en": "Strike of Wrath Top"
+  },
+  "1390153": {
+    "zh": "Strike of Wrath Pants",
+    "en": "Strike of Wrath Pants"
+  },
+  "1390154": {
+    "zh": "Strike of Wrath Gloves",
+    "en": "Strike of Wrath Gloves"
+  },
+  "1390155": {
+    "zh": "Strike of Wrath Boots",
+    "en": "Strike of Wrath Boots"
+  },
+  "1410002": {
+    "zh": "Basic Combat Text",
+    "en": "Basic Combat Text"
+  },
+  "1410003": {
+    "zh": "Advanced Combat Text",
+    "en": "Advanced Combat Text"
+  },
+  "1410004": {
+    "zh": "Core Combat Text",
+    "en": "Core Combat Text"
+  },
+  "1410005": {
+    "zh": "Tome of Heroes",
+    "en": "Tome of Heroes"
+  },
+  "1410102": {
+    "zh": "Arcana of War",
+    "en": "Arcana of War"
+  },
+  "1410103": {
+    "zh": "Arcana of Beginnings",
+    "en": "Arcana of Beginnings"
+  },
+  "1410104": {
+    "zh": "Arcana of Peace",
+    "en": "Arcana of Peace"
+  },
+  "1410105": {
+    "zh": "Arcana of the Future",
+    "en": "Arcana of the Future"
+  },
+  "1410202": {
+    "zh": "Mana Shard",
+    "en": "Mana Shard"
+  },
+  "1410203": {
+    "zh": "Mana Crystal",
+    "en": "Mana Crystal"
+  },
+  "1410204": {
+    "zh": "Mana Ore",
+    "en": "Mana Ore"
+  },
+  "1410205": {
+    "zh": "Raw Mana Stone",
+    "en": "Raw Mana Stone"
+  },
+  "1420101": {
+    "zh": "Grilled Meat",
+    "en": "Grilled Meat"
+  },
+  "1420102": {
+    "zh": "Grilled Fish",
+    "en": "Grilled Fish"
+  },
+  "1420103": {
+    "zh": "Grilled seafood",
+    "en": "Grilled seafood"
+  },
+  "1420104": {
+    "zh": "Roasted Vegetables",
+    "en": "Roasted Vegetables"
+  },
+  "1420105": {
+    "zh": "Grilled Mushrooms",
+    "en": "Grilled Mushrooms"
+  },
+  "1420106": {
+    "zh": "Fried Rice",
+    "en": "Fried Rice"
+  },
+  "1420107": {
+    "zh": "Fried Egg",
+    "en": "Fried Egg"
+  },
+  "1420108": {
+    "zh": "Double Steak",
+    "en": "Double Steak"
+  },
+  "1420109": {
+    "zh": "Assorted Grilled Meats",
+    "en": "Assorted Grilled Meats"
+  },
+  "1420110": {
+    "zh": "Meat Bowl",
+    "en": "Meat Bowl"
+  },
+  "1420111": {
+    "zh": "Assorted Grilled Fish",
+    "en": "Assorted Grilled Fish"
+  },
+  "1420112": {
+    "zh": "Seafood Platter",
+    "en": "Seafood Platter"
+  },
+  "1420113": {
+    "zh": "Grilled Fish Bowl",
+    "en": "Grilled Fish Bowl"
+  },
+  "1420114": {
+    "zh": "Seafood Pasta",
+    "en": "Seafood Pasta"
+  },
+  "1420115": {
+    "zh": "Stir-fried Mushrooms and Vegetables",
+    "en": "Stir-fried Mushrooms and Vegetables"
+  },
+  "1420116": {
+    "zh": "Rolled Omelet",
+    "en": "Rolled Omelet"
+  },
+  "1420117": {
+    "zh": "Steak Set Meal",
+    "en": "Steak Set Meal"
+  },
+  "1420118": {
+    "zh": "Hamburger Steak",
+    "en": "Hamburger Steak"
+  },
+  "1420119": {
+    "zh": "Fish Steak",
+    "en": "Fish Steak"
+  },
+  "1420120": {
+    "zh": "Seafood Teppanyaki",
+    "en": "Seafood Teppanyaki"
+  },
+  "1420121": {
+    "zh": "Omelet",
+    "en": "Omelet"
+  },
+  "1420122": {
+    "zh": "Herb Grill",
+    "en": "Herb Grill"
+  },
+  "1420123": {
+    "zh": "Pan-fried Dumplings",
+    "en": "Pan-fried Dumplings"
+  },
+  "1420124": {
+    "zh": "Tomato Spaghetti",
+    "en": "Tomato Spaghetti"
+  },
+  "1420125": {
+    "zh": "Fish and Chips",
+    "en": "Fish and Chips"
+  },
+  "1420126": {
+    "zh": "Classic Pizza",
+    "en": "Classic Pizza"
+  },
+  "1420127": {
+    "zh": "Potato Pizza",
+    "en": "Potato Pizza"
+  },
+  "1420128": {
+    "zh": "Nougat",
+    "en": "Nougat"
+  },
+  "1420129": {
+    "zh": "Grilled Clams",
+    "en": "Grilled Clams"
+  },
+  "1420201": {
+    "zh": "Grilled Meat",
+    "en": "Grilled Meat"
+  },
+  "1420202": {
+    "zh": "Grilled Fish",
+    "en": "Grilled Fish"
+  },
+  "1420203": {
+    "zh": "Grilled seafood",
+    "en": "Grilled seafood"
+  },
+  "1420204": {
+    "zh": "Roasted Vegetables",
+    "en": "Roasted Vegetables"
+  },
+  "1420205": {
+    "zh": "Grilled Mushrooms",
+    "en": "Grilled Mushrooms"
+  },
+  "1420206": {
+    "zh": "Fried Rice",
+    "en": "Fried Rice"
+  },
+  "1420207": {
+    "zh": "Fried Egg",
+    "en": "Fried Egg"
+  },
+  "1420208": {
+    "zh": "Double Steak",
+    "en": "Double Steak"
+  },
+  "1420209": {
+    "zh": "Assorted Grilled Meats",
+    "en": "Assorted Grilled Meats"
+  },
+  "1420210": {
+    "zh": "Meat Bowl",
+    "en": "Meat Bowl"
+  },
+  "1420211": {
+    "zh": "Assorted Grilled Fish",
+    "en": "Assorted Grilled Fish"
+  },
+  "1420212": {
+    "zh": "Seafood Platter",
+    "en": "Seafood Platter"
+  },
+  "1420213": {
+    "zh": "Grilled Fish Bowl",
+    "en": "Grilled Fish Bowl"
+  },
+  "1420214": {
+    "zh": "Seafood Pasta",
+    "en": "Seafood Pasta"
+  },
+  "1420215": {
+    "zh": "Stir-fried Mushrooms and Vegetables",
+    "en": "Stir-fried Mushrooms and Vegetables"
+  },
+  "1420216": {
+    "zh": "Rolled Omelet",
+    "en": "Rolled Omelet"
+  },
+  "1420217": {
+    "zh": "Steak Set Meal",
+    "en": "Steak Set Meal"
+  },
+  "1420218": {
+    "zh": "Hamburger Steak",
+    "en": "Hamburger Steak"
+  },
+  "1420219": {
+    "zh": "Fish Steak",
+    "en": "Fish Steak"
+  },
+  "1420220": {
+    "zh": "Seafood Teppanyaki",
+    "en": "Seafood Teppanyaki"
+  },
+  "1420221": {
+    "zh": "Omelet",
+    "en": "Omelet"
+  },
+  "1420222": {
+    "zh": "Herb Grill",
+    "en": "Herb Grill"
+  },
+  "1420223": {
+    "zh": "Pan-fried Dumplings",
+    "en": "Pan-fried Dumplings"
+  },
+  "1420224": {
+    "zh": "Tomato Spaghetti",
+    "en": "Tomato Spaghetti"
+  },
+  "1420225": {
+    "zh": "Fish and Chips",
+    "en": "Fish and Chips"
+  },
+  "1420226": {
+    "zh": "Classic Pizza",
+    "en": "Classic Pizza"
+  },
+  "1420227": {
+    "zh": "Potato Pizza",
+    "en": "Potato Pizza"
+  },
+  "1420228": {
+    "zh": "Nougat",
+    "en": "Nougat"
+  },
+  "1420229": {
+    "zh": "Grilled Clams",
+    "en": "Grilled Clams"
+  },
+  "1420301": {
+    "zh": "Grilled Meat",
+    "en": "Grilled Meat"
+  },
+  "1420302": {
+    "zh": "Grilled Fish",
+    "en": "Grilled Fish"
+  },
+  "1420303": {
+    "zh": "Grilled seafood",
+    "en": "Grilled seafood"
+  },
+  "1420304": {
+    "zh": "Roasted Vegetables",
+    "en": "Roasted Vegetables"
+  },
+  "1420305": {
+    "zh": "Grilled Mushrooms",
+    "en": "Grilled Mushrooms"
+  },
+  "1420306": {
+    "zh": "Fried Rice",
+    "en": "Fried Rice"
+  },
+  "1420307": {
+    "zh": "Fried Egg",
+    "en": "Fried Egg"
+  },
+  "1420308": {
+    "zh": "Double Steak",
+    "en": "Double Steak"
+  },
+  "1420309": {
+    "zh": "Assorted Grilled Meats",
+    "en": "Assorted Grilled Meats"
+  },
+  "1420310": {
+    "zh": "Meat Bowl",
+    "en": "Meat Bowl"
+  },
+  "1420311": {
+    "zh": "Assorted Grilled Fish",
+    "en": "Assorted Grilled Fish"
+  },
+  "1420312": {
+    "zh": "Seafood Platter",
+    "en": "Seafood Platter"
+  },
+  "1420313": {
+    "zh": "Grilled Fish Bowl",
+    "en": "Grilled Fish Bowl"
+  },
+  "1420314": {
+    "zh": "Seafood Pasta",
+    "en": "Seafood Pasta"
+  },
+  "1420315": {
+    "zh": "Stir-fried Mushrooms and Vegetables",
+    "en": "Stir-fried Mushrooms and Vegetables"
+  },
+  "1420316": {
+    "zh": "Rolled Omelet",
+    "en": "Rolled Omelet"
+  },
+  "1420317": {
+    "zh": "Steak Set Meal",
+    "en": "Steak Set Meal"
+  },
+  "1420318": {
+    "zh": "Hamburger Steak",
+    "en": "Hamburger Steak"
+  },
+  "1420319": {
+    "zh": "Fish Steak",
+    "en": "Fish Steak"
+  },
+  "1420320": {
+    "zh": "Seafood Teppanyaki",
+    "en": "Seafood Teppanyaki"
+  },
+  "1420321": {
+    "zh": "Omelet",
+    "en": "Omelet"
+  },
+  "1420322": {
+    "zh": "Herb Grill",
+    "en": "Herb Grill"
+  },
+  "1420323": {
+    "zh": "Pan-fried Dumplings",
+    "en": "Pan-fried Dumplings"
+  },
+  "1420324": {
+    "zh": "Tomato Spaghetti",
+    "en": "Tomato Spaghetti"
+  },
+  "1420325": {
+    "zh": "Fish and Chips",
+    "en": "Fish and Chips"
+  },
+  "1420326": {
+    "zh": "Classic Pizza",
+    "en": "Classic Pizza"
+  },
+  "1420327": {
+    "zh": "Potato Pizza",
+    "en": "Potato Pizza"
+  },
+  "1420328": {
+    "zh": "Nougat",
+    "en": "Nougat"
+  },
+  "1420329": {
+    "zh": "Grilled Clams",
+    "en": "Grilled Clams"
+  },
+  "1420401": {
+    "zh": "Grilled Meat",
+    "en": "Grilled Meat"
+  },
+  "1420402": {
+    "zh": "Grilled Fish",
+    "en": "Grilled Fish"
+  },
+  "1420403": {
+    "zh": "Grilled seafood",
+    "en": "Grilled seafood"
+  },
+  "1420404": {
+    "zh": "Roasted Vegetables",
+    "en": "Roasted Vegetables"
+  },
+  "1420405": {
+    "zh": "Grilled Mushrooms",
+    "en": "Grilled Mushrooms"
+  },
+  "1420406": {
+    "zh": "Fried Rice",
+    "en": "Fried Rice"
+  },
+  "1420407": {
+    "zh": "Fried Egg",
+    "en": "Fried Egg"
+  },
+  "1420408": {
+    "zh": "Double Steak",
+    "en": "Double Steak"
+  },
+  "1420409": {
+    "zh": "Assorted Grilled Meats",
+    "en": "Assorted Grilled Meats"
+  },
+  "1420410": {
+    "zh": "Meat Bowl",
+    "en": "Meat Bowl"
+  },
+  "1420411": {
+    "zh": "Assorted Grilled Fish",
+    "en": "Assorted Grilled Fish"
+  },
+  "1420412": {
+    "zh": "Seafood Platter",
+    "en": "Seafood Platter"
+  },
+  "1420413": {
+    "zh": "Grilled Fish Bowl",
+    "en": "Grilled Fish Bowl"
+  },
+  "1420414": {
+    "zh": "Seafood Pasta",
+    "en": "Seafood Pasta"
+  },
+  "1420415": {
+    "zh": "Stir-fried Mushrooms and Vegetables",
+    "en": "Stir-fried Mushrooms and Vegetables"
+  },
+  "1420416": {
+    "zh": "Rolled Omelet",
+    "en": "Rolled Omelet"
+  },
+  "1420417": {
+    "zh": "Steak Set Meal",
+    "en": "Steak Set Meal"
+  },
+  "1420418": {
+    "zh": "Hamburger Steak",
+    "en": "Hamburger Steak"
+  },
+  "1420419": {
+    "zh": "Fish Steak",
+    "en": "Fish Steak"
+  },
+  "1420420": {
+    "zh": "Seafood Teppanyaki",
+    "en": "Seafood Teppanyaki"
+  },
+  "1420421": {
+    "zh": "Omelet",
+    "en": "Omelet"
+  },
+  "1420422": {
+    "zh": "Herb Grill",
+    "en": "Herb Grill"
+  },
+  "1420423": {
+    "zh": "Pan-fried Dumplings",
+    "en": "Pan-fried Dumplings"
+  },
+  "1420424": {
+    "zh": "Tomato Spaghetti",
+    "en": "Tomato Spaghetti"
+  },
+  "1420425": {
+    "zh": "Fish and Chips",
+    "en": "Fish and Chips"
+  },
+  "1420426": {
+    "zh": "Classic Pizza",
+    "en": "Classic Pizza"
+  },
+  "1420427": {
+    "zh": "Potato Pizza",
+    "en": "Potato Pizza"
+  },
+  "1420428": {
+    "zh": "Nougat",
+    "en": "Nougat"
+  },
+  "1420429": {
+    "zh": "Grilled Clams",
+    "en": "Grilled Clams"
+  },
+  "1420501": {
+    "zh": "Grilled Meat",
+    "en": "Grilled Meat"
+  },
+  "1420502": {
+    "zh": "Grilled Fish",
+    "en": "Grilled Fish"
+  },
+  "1420503": {
+    "zh": "Grilled seafood",
+    "en": "Grilled seafood"
+  },
+  "1420504": {
+    "zh": "Roasted Vegetables",
+    "en": "Roasted Vegetables"
+  },
+  "1420505": {
+    "zh": "Grilled Mushrooms",
+    "en": "Grilled Mushrooms"
+  },
+  "1420506": {
+    "zh": "Fried Rice",
+    "en": "Fried Rice"
+  },
+  "1420507": {
+    "zh": "Fried Egg",
+    "en": "Fried Egg"
+  },
+  "1420508": {
+    "zh": "Double Steak",
+    "en": "Double Steak"
+  },
+  "1420509": {
+    "zh": "Assorted Grilled Meats",
+    "en": "Assorted Grilled Meats"
+  },
+  "1420510": {
+    "zh": "Meat Bowl",
+    "en": "Meat Bowl"
+  },
+  "1420511": {
+    "zh": "Assorted Grilled Fish",
+    "en": "Assorted Grilled Fish"
+  },
+  "1420512": {
+    "zh": "Seafood Platter",
+    "en": "Seafood Platter"
+  },
+  "1420513": {
+    "zh": "Grilled Fish Bowl",
+    "en": "Grilled Fish Bowl"
+  },
+  "1420514": {
+    "zh": "Seafood Pasta",
+    "en": "Seafood Pasta"
+  },
+  "1420515": {
+    "zh": "Stir-fried Mushrooms and Vegetables",
+    "en": "Stir-fried Mushrooms and Vegetables"
+  },
+  "1420516": {
+    "zh": "Rolled Omelet",
+    "en": "Rolled Omelet"
+  },
+  "1420517": {
+    "zh": "Steak Set Meal",
+    "en": "Steak Set Meal"
+  },
+  "1420518": {
+    "zh": "Hamburger Steak",
+    "en": "Hamburger Steak"
+  },
+  "1420519": {
+    "zh": "Fish Steak",
+    "en": "Fish Steak"
+  },
+  "1420520": {
+    "zh": "Seafood Teppanyaki",
+    "en": "Seafood Teppanyaki"
+  },
+  "1420521": {
+    "zh": "Omelet",
+    "en": "Omelet"
+  },
+  "1420522": {
+    "zh": "Herb Grill",
+    "en": "Herb Grill"
+  },
+  "1420523": {
+    "zh": "Pan-fried Dumplings",
+    "en": "Pan-fried Dumplings"
+  },
+  "1420524": {
+    "zh": "Tomato Spaghetti",
+    "en": "Tomato Spaghetti"
+  },
+  "1420525": {
+    "zh": "Fish and Chips",
+    "en": "Fish and Chips"
+  },
+  "1420526": {
+    "zh": "Classic Pizza",
+    "en": "Classic Pizza"
+  },
+  "1420527": {
+    "zh": "Potato Pizza",
+    "en": "Potato Pizza"
+  },
+  "1420528": {
+    "zh": "Nougat",
+    "en": "Nougat"
+  },
+  "1420529": {
+    "zh": "Grilled Clams",
+    "en": "Grilled Clams"
+  },
+  "1421101": {
+    "zh": "Meat Stew",
+    "en": "Meat Stew"
+  },
+  "1421102": {
+    "zh": "Fish Porridge",
+    "en": "Fish Porridge"
+  },
+  "1421103": {
+    "zh": "Seafood Stew",
+    "en": "Seafood Stew"
+  },
+  "1421104": {
+    "zh": "Vegetable Soup",
+    "en": "Vegetable Soup"
+  },
+  "1421105": {
+    "zh": "Honey Tea",
+    "en": "Honey Tea"
+  },
+  "1421106": {
+    "zh": "Mushroom Tea",
+    "en": "Mushroom Tea"
+  },
+  "1421107": {
+    "zh": "Grain Tea",
+    "en": "Grain Tea"
+  },
+  "1421108": {
+    "zh": "Hard-boiled Egg",
+    "en": "Hard-boiled Egg"
+  },
+  "1421109": {
+    "zh": "Orbis-style Double Stew",
+    "en": "Orbis-style Double Stew"
+  },
+  "1421110": {
+    "zh": "Orbis-Style Stew",
+    "en": "Orbis-Style Stew"
+  },
+  "1421111": {
+    "zh": "Consommé",
+    "en": "Consommé"
+  },
+  "1421112": {
+    "zh": "Seafood Hodgepodge",
+    "en": "Seafood Hodgepodge"
+  },
+  "1421113": {
+    "zh": "Fish Soup",
+    "en": "Fish Soup"
+  },
+  "1421114": {
+    "zh": "Shipboard Tea",
+    "en": "Shipboard Tea"
+  },
+  "1421115": {
+    "zh": "Seafood Porridge",
+    "en": "Seafood Porridge"
+  },
+  "1421116": {
+    "zh": "Herbal Tea",
+    "en": "Herbal Tea"
+  },
+  "1421117": {
+    "zh": "Mushroom Soup",
+    "en": "Mushroom Soup"
+  },
+  "1421118": {
+    "zh": "Mushroom Porridge",
+    "en": "Mushroom Porridge"
+  },
+  "1421119": {
+    "zh": "Orbis-style Special Stew",
+    "en": "Orbis-style Special Stew"
+  },
+  "1421120": {
+    "zh": "Nutritious Soup",
+    "en": "Nutritious Soup"
+  },
+  "1421121": {
+    "zh": "Fishball Soup",
+    "en": "Fishball Soup"
+  },
+  "1421122": {
+    "zh": "Seafood Paella",
+    "en": "Seafood Paella"
+  },
+  "1421123": {
+    "zh": "Restorative Porridge",
+    "en": "Restorative Porridge"
+  },
+  "1421124": {
+    "zh": "Tomato Stew",
+    "en": "Tomato Stew"
+  },
+  "1421125": {
+    "zh": "Risotto",
+    "en": "Risotto"
+  },
+  "1421126": {
+    "zh": "Radish Soup",
+    "en": "Radish Soup"
+  },
+  "1421127": {
+    "zh": "Clam Soup",
+    "en": "Clam Soup"
+  },
+  "1421201": {
+    "zh": "Meat Stew",
+    "en": "Meat Stew"
+  },
+  "1421202": {
+    "zh": "Fish Porridge",
+    "en": "Fish Porridge"
+  },
+  "1421203": {
+    "zh": "Seafood Stew",
+    "en": "Seafood Stew"
+  },
+  "1421204": {
+    "zh": "Vegetable Soup",
+    "en": "Vegetable Soup"
+  },
+  "1421205": {
+    "zh": "Honey Tea",
+    "en": "Honey Tea"
+  },
+  "1421206": {
+    "zh": "Mushroom Tea",
+    "en": "Mushroom Tea"
+  },
+  "1421207": {
+    "zh": "Grain Tea",
+    "en": "Grain Tea"
+  },
+  "1421208": {
+    "zh": "Hard-boiled Egg",
+    "en": "Hard-boiled Egg"
+  },
+  "1421209": {
+    "zh": "Orbis-style Double Stew",
+    "en": "Orbis-style Double Stew"
+  },
+  "1421210": {
+    "zh": "Orbis-Style Stew",
+    "en": "Orbis-Style Stew"
+  },
+  "1421211": {
+    "zh": "Consommé",
+    "en": "Consommé"
+  },
+  "1421212": {
+    "zh": "Seafood Hodgepodge",
+    "en": "Seafood Hodgepodge"
+  },
+  "1421213": {
+    "zh": "Fish Soup",
+    "en": "Fish Soup"
+  },
+  "1421214": {
+    "zh": "Shipboard Tea",
+    "en": "Shipboard Tea"
+  },
+  "1421215": {
+    "zh": "Seafood Porridge",
+    "en": "Seafood Porridge"
+  },
+  "1421216": {
+    "zh": "Herbal Tea",
+    "en": "Herbal Tea"
+  },
+  "1421217": {
+    "zh": "Mushroom Soup",
+    "en": "Mushroom Soup"
+  },
+  "1421218": {
+    "zh": "Mushroom Porridge",
+    "en": "Mushroom Porridge"
+  },
+  "1421219": {
+    "zh": "Orbis-style Special Stew",
+    "en": "Orbis-style Special Stew"
+  },
+  "1421220": {
+    "zh": "Nutritious Soup",
+    "en": "Nutritious Soup"
+  },
+  "1421221": {
+    "zh": "Fishball Soup",
+    "en": "Fishball Soup"
+  },
+  "1421222": {
+    "zh": "Seafood Paella",
+    "en": "Seafood Paella"
+  },
+  "1421223": {
+    "zh": "Restorative Porridge",
+    "en": "Restorative Porridge"
+  },
+  "1421224": {
+    "zh": "Tomato Stew",
+    "en": "Tomato Stew"
+  },
+  "1421225": {
+    "zh": "Risotto",
+    "en": "Risotto"
+  },
+  "1421226": {
+    "zh": "Radish Soup",
+    "en": "Radish Soup"
+  },
+  "1421227": {
+    "zh": "Clam Soup",
+    "en": "Clam Soup"
+  },
+  "1421301": {
+    "zh": "Meat Stew",
+    "en": "Meat Stew"
+  },
+  "1421302": {
+    "zh": "Fish Porridge",
+    "en": "Fish Porridge"
+  },
+  "1421303": {
+    "zh": "Seafood Stew",
+    "en": "Seafood Stew"
+  },
+  "1421304": {
+    "zh": "Vegetable Soup",
+    "en": "Vegetable Soup"
+  },
+  "1421305": {
+    "zh": "Honey Tea",
+    "en": "Honey Tea"
+  },
+  "1421306": {
+    "zh": "Mushroom Tea",
+    "en": "Mushroom Tea"
+  },
+  "1421307": {
+    "zh": "Grain Tea",
+    "en": "Grain Tea"
+  },
+  "1421308": {
+    "zh": "Hard-boiled Egg",
+    "en": "Hard-boiled Egg"
+  },
+  "1421309": {
+    "zh": "Orbis-style Double Stew",
+    "en": "Orbis-style Double Stew"
+  },
+  "1421310": {
+    "zh": "Orbis-Style Stew",
+    "en": "Orbis-Style Stew"
+  },
+  "1421311": {
+    "zh": "Consommé",
+    "en": "Consommé"
+  },
+  "1421312": {
+    "zh": "Seafood Hodgepodge",
+    "en": "Seafood Hodgepodge"
+  },
+  "1421313": {
+    "zh": "Fish Soup",
+    "en": "Fish Soup"
+  },
+  "1421314": {
+    "zh": "Shipboard Tea",
+    "en": "Shipboard Tea"
+  },
+  "1421315": {
+    "zh": "Seafood Porridge",
+    "en": "Seafood Porridge"
+  },
+  "1421316": {
+    "zh": "Herbal Tea",
+    "en": "Herbal Tea"
+  },
+  "1421317": {
+    "zh": "Mushroom Soup",
+    "en": "Mushroom Soup"
+  },
+  "1421318": {
+    "zh": "Mushroom Porridge",
+    "en": "Mushroom Porridge"
+  },
+  "1421319": {
+    "zh": "Orbis-style Special Stew",
+    "en": "Orbis-style Special Stew"
+  },
+  "1421320": {
+    "zh": "Nutritious Soup",
+    "en": "Nutritious Soup"
+  },
+  "1421321": {
+    "zh": "Fishball Soup",
+    "en": "Fishball Soup"
+  },
+  "1421322": {
+    "zh": "Seafood Paella",
+    "en": "Seafood Paella"
+  },
+  "1421323": {
+    "zh": "Restorative Porridge",
+    "en": "Restorative Porridge"
+  },
+  "1421324": {
+    "zh": "Tomato Stew",
+    "en": "Tomato Stew"
+  },
+  "1421325": {
+    "zh": "Risotto",
+    "en": "Risotto"
+  },
+  "1421326": {
+    "zh": "Radish Soup",
+    "en": "Radish Soup"
+  },
+  "1421327": {
+    "zh": "Clam Soup",
+    "en": "Clam Soup"
+  },
+  "1421401": {
+    "zh": "Meat Stew",
+    "en": "Meat Stew"
+  },
+  "1421402": {
+    "zh": "Fish Porridge",
+    "en": "Fish Porridge"
+  },
+  "1421403": {
+    "zh": "Seafood Stew",
+    "en": "Seafood Stew"
+  },
+  "1421404": {
+    "zh": "Vegetable Soup",
+    "en": "Vegetable Soup"
+  },
+  "1421405": {
+    "zh": "Honey Tea",
+    "en": "Honey Tea"
+  },
+  "1421406": {
+    "zh": "Mushroom Tea",
+    "en": "Mushroom Tea"
+  },
+  "1421407": {
+    "zh": "Grain Tea",
+    "en": "Grain Tea"
+  },
+  "1421408": {
+    "zh": "Hard-boiled Egg",
+    "en": "Hard-boiled Egg"
+  },
+  "1421409": {
+    "zh": "Orbis-style Double Stew",
+    "en": "Orbis-style Double Stew"
+  },
+  "1421410": {
+    "zh": "Orbis-Style Stew",
+    "en": "Orbis-Style Stew"
+  },
+  "1421411": {
+    "zh": "Consommé",
+    "en": "Consommé"
+  },
+  "1421412": {
+    "zh": "Seafood Hodgepodge",
+    "en": "Seafood Hodgepodge"
+  },
+  "1421413": {
+    "zh": "Fish Soup",
+    "en": "Fish Soup"
+  },
+  "1421414": {
+    "zh": "Shipboard Tea",
+    "en": "Shipboard Tea"
+  },
+  "1421415": {
+    "zh": "Seafood Porridge",
+    "en": "Seafood Porridge"
+  },
+  "1421416": {
+    "zh": "Herbal Tea",
+    "en": "Herbal Tea"
+  },
+  "1421417": {
+    "zh": "Mushroom Soup",
+    "en": "Mushroom Soup"
+  },
+  "1421418": {
+    "zh": "Mushroom Porridge",
+    "en": "Mushroom Porridge"
+  },
+  "1421419": {
+    "zh": "Orbis-style Special Stew",
+    "en": "Orbis-style Special Stew"
+  },
+  "1421420": {
+    "zh": "Nutritious Soup",
+    "en": "Nutritious Soup"
+  },
+  "1421421": {
+    "zh": "Fishball Soup",
+    "en": "Fishball Soup"
+  },
+  "1421422": {
+    "zh": "Seafood Paella",
+    "en": "Seafood Paella"
+  },
+  "1421423": {
+    "zh": "Restorative Porridge",
+    "en": "Restorative Porridge"
+  },
+  "1421424": {
+    "zh": "Tomato Stew",
+    "en": "Tomato Stew"
+  },
+  "1421425": {
+    "zh": "Risotto",
+    "en": "Risotto"
+  },
+  "1421426": {
+    "zh": "Radish Soup",
+    "en": "Radish Soup"
+  },
+  "1421427": {
+    "zh": "Clam Soup",
+    "en": "Clam Soup"
+  },
+  "1421501": {
+    "zh": "Meat Stew",
+    "en": "Meat Stew"
+  },
+  "1421502": {
+    "zh": "Fish Porridge",
+    "en": "Fish Porridge"
+  },
+  "1421503": {
+    "zh": "Seafood Stew",
+    "en": "Seafood Stew"
+  },
+  "1421504": {
+    "zh": "Vegetable Soup",
+    "en": "Vegetable Soup"
+  },
+  "1421505": {
+    "zh": "Honey Tea",
+    "en": "Honey Tea"
+  },
+  "1421506": {
+    "zh": "Mushroom Tea",
+    "en": "Mushroom Tea"
+  },
+  "1421507": {
+    "zh": "Grain Tea",
+    "en": "Grain Tea"
+  },
+  "1421508": {
+    "zh": "Hard-boiled Egg",
+    "en": "Hard-boiled Egg"
+  },
+  "1421509": {
+    "zh": "Orbis-style Double Stew",
+    "en": "Orbis-style Double Stew"
+  },
+  "1421510": {
+    "zh": "Orbis-Style Stew",
+    "en": "Orbis-Style Stew"
+  },
+  "1421511": {
+    "zh": "Consommé",
+    "en": "Consommé"
+  },
+  "1421512": {
+    "zh": "Seafood Hodgepodge",
+    "en": "Seafood Hodgepodge"
+  },
+  "1421513": {
+    "zh": "Fish Soup",
+    "en": "Fish Soup"
+  },
+  "1421514": {
+    "zh": "Shipboard Tea",
+    "en": "Shipboard Tea"
+  },
+  "1421515": {
+    "zh": "Seafood Porridge",
+    "en": "Seafood Porridge"
+  },
+  "1421516": {
+    "zh": "Herbal Tea",
+    "en": "Herbal Tea"
+  },
+  "1421517": {
+    "zh": "Mushroom Soup",
+    "en": "Mushroom Soup"
+  },
+  "1421518": {
+    "zh": "Mushroom Porridge",
+    "en": "Mushroom Porridge"
+  },
+  "1421519": {
+    "zh": "Orbis-style Special Stew",
+    "en": "Orbis-style Special Stew"
+  },
+  "1421520": {
+    "zh": "Nutritious Soup",
+    "en": "Nutritious Soup"
+  },
+  "1421521": {
+    "zh": "Fishball Soup",
+    "en": "Fishball Soup"
+  },
+  "1421522": {
+    "zh": "Seafood Paella",
+    "en": "Seafood Paella"
+  },
+  "1421523": {
+    "zh": "Restorative Porridge",
+    "en": "Restorative Porridge"
+  },
+  "1421524": {
+    "zh": "Tomato Stew",
+    "en": "Tomato Stew"
+  },
+  "1421525": {
+    "zh": "Risotto",
+    "en": "Risotto"
+  },
+  "1421526": {
+    "zh": "Radish Soup",
+    "en": "Radish Soup"
+  },
+  "1421527": {
+    "zh": "Clam Soup",
+    "en": "Clam Soup"
+  },
+  "1421980": {
+    "zh": "버프 제거용 요리",
+    "en": "버프 제거용 요리"
+  },
+  "1421981": {
+    "zh": "20 레벨 기준 버프 요리",
+    "en": "20 레벨 기준 버프 요리"
+  },
+  "1421982": {
+    "zh": "25 레벨 기준 버프 요리",
+    "en": "25 레벨 기준 버프 요리"
+  },
+  "1421983": {
+    "zh": "30 레벨 기준 버프 요리",
+    "en": "30 레벨 기준 버프 요리"
+  },
+  "1421984": {
+    "zh": "35 레벨 기준 버프 요리",
+    "en": "35 레벨 기준 버프 요리"
+  },
+  "1421985": {
+    "zh": "40 레벨 기준 버프 요리",
+    "en": "40 레벨 기준 버프 요리"
+  },
+  "1421986": {
+    "zh": "45 레벨 기준 버프 요리",
+    "en": "45 레벨 기준 버프 요리"
+  },
+  "1421987": {
+    "zh": "50 레벨 기준 버프 요리",
+    "en": "50 레벨 기준 버프 요리"
+  },
+  "1421988": {
+    "zh": "55 레벨 기준 버프 요리",
+    "en": "55 레벨 기준 버프 요리"
+  },
+  "1421989": {
+    "zh": "60 레벨 기준 버프 요리",
+    "en": "60 레벨 기준 버프 요리"
+  },
+  "1421999": {
+    "zh": "마스터 버프 요리",
+    "en": "마스터 버프 요리"
+  },
+  "1422101": {
+    "zh": "Beef Tartare",
+    "en": "Beef Tartare"
+  },
+  "1422102": {
+    "zh": "Sashimi",
+    "en": "Sashimi"
+  },
+  "1422103": {
+    "zh": "Scallop sashimi",
+    "en": "Scallop sashimi"
+  },
+  "1422104": {
+    "zh": "Salad",
+    "en": "Salad"
+  },
+  "1422105": {
+    "zh": "Nutritious Salad",
+    "en": "Nutritious Salad"
+  },
+  "1422106": {
+    "zh": "Morning Meal",
+    "en": "Morning Meal"
+  },
+  "1422107": {
+    "zh": "Egg Renew",
+    "en": "Egg Renew"
+  },
+  "1422108": {
+    "zh": "Assorted Sashimi",
+    "en": "Assorted Sashimi"
+  },
+  "1422109": {
+    "zh": "Carpaccio",
+    "en": "Carpaccio"
+  },
+  "1422110": {
+    "zh": "Beef Tartare Bibimbap",
+    "en": "Beef Tartare Bibimbap"
+  },
+  "1422111": {
+    "zh": "Seafood Sauce",
+    "en": "Seafood Sauce"
+  },
+  "1422112": {
+    "zh": "Assorted Sushi",
+    "en": "Assorted Sushi"
+  },
+  "1422113": {
+    "zh": "Seafood Ceviche",
+    "en": "Seafood Ceviche"
+  },
+  "1422114": {
+    "zh": "Spring Rolls",
+    "en": "Spring Rolls"
+  },
+  "1422115": {
+    "zh": "Assorted Rice Bowls",
+    "en": "Assorted Rice Bowls"
+  },
+  "1422116": {
+    "zh": "Assorted Salad",
+    "en": "Assorted Salad"
+  },
+  "1422117": {
+    "zh": "Mushroom Carving",
+    "en": "Mushroom Carving"
+  },
+  "1422118": {
+    "zh": "Cereal",
+    "en": "Cereal"
+  },
+  "1422201": {
+    "zh": "Beef Tartare",
+    "en": "Beef Tartare"
+  },
+  "1422202": {
+    "zh": "Sashimi",
+    "en": "Sashimi"
+  },
+  "1422203": {
+    "zh": "Scallop sashimi",
+    "en": "Scallop sashimi"
+  },
+  "1422204": {
+    "zh": "Salad",
+    "en": "Salad"
+  },
+  "1422205": {
+    "zh": "Nutritious Salad",
+    "en": "Nutritious Salad"
+  },
+  "1422206": {
+    "zh": "Morning Meal",
+    "en": "Morning Meal"
+  },
+  "1422207": {
+    "zh": "Egg Renew",
+    "en": "Egg Renew"
+  },
+  "1422208": {
+    "zh": "Assorted Sashimi",
+    "en": "Assorted Sashimi"
+  },
+  "1422209": {
+    "zh": "Carpaccio",
+    "en": "Carpaccio"
+  },
+  "1422210": {
+    "zh": "Beef Tartare Bibimbap",
+    "en": "Beef Tartare Bibimbap"
+  },
+  "1422211": {
+    "zh": "Seafood Sauce",
+    "en": "Seafood Sauce"
+  },
+  "1422212": {
+    "zh": "Assorted Sushi",
+    "en": "Assorted Sushi"
+  },
+  "1422213": {
+    "zh": "Seafood Ceviche",
+    "en": "Seafood Ceviche"
+  },
+  "1422214": {
+    "zh": "Spring Rolls",
+    "en": "Spring Rolls"
+  },
+  "1422215": {
+    "zh": "Assorted Rice Bowls",
+    "en": "Assorted Rice Bowls"
+  },
+  "1422216": {
+    "zh": "Assorted Salad",
+    "en": "Assorted Salad"
+  },
+  "1422217": {
+    "zh": "Mushroom Carving",
+    "en": "Mushroom Carving"
+  },
+  "1422218": {
+    "zh": "Cereal",
+    "en": "Cereal"
+  },
+  "1422301": {
+    "zh": "Beef Tartare",
+    "en": "Beef Tartare"
+  },
+  "1422302": {
+    "zh": "Sashimi",
+    "en": "Sashimi"
+  },
+  "1422303": {
+    "zh": "Scallop sashimi",
+    "en": "Scallop sashimi"
+  },
+  "1422304": {
+    "zh": "Salad",
+    "en": "Salad"
+  },
+  "1422305": {
+    "zh": "Nutritious Salad",
+    "en": "Nutritious Salad"
+  },
+  "1422306": {
+    "zh": "Morning Meal",
+    "en": "Morning Meal"
+  },
+  "1422307": {
+    "zh": "Egg Renew",
+    "en": "Egg Renew"
+  },
+  "1422308": {
+    "zh": "Assorted Sashimi",
+    "en": "Assorted Sashimi"
+  },
+  "1422309": {
+    "zh": "Carpaccio",
+    "en": "Carpaccio"
+  },
+  "1422310": {
+    "zh": "Beef Tartare Bibimbap",
+    "en": "Beef Tartare Bibimbap"
+  },
+  "1422311": {
+    "zh": "Seafood Sauce",
+    "en": "Seafood Sauce"
+  },
+  "1422312": {
+    "zh": "Assorted Sushi",
+    "en": "Assorted Sushi"
+  },
+  "1422313": {
+    "zh": "Seafood Ceviche",
+    "en": "Seafood Ceviche"
+  },
+  "1422314": {
+    "zh": "Spring Rolls",
+    "en": "Spring Rolls"
+  },
+  "1422315": {
+    "zh": "Assorted Rice Bowls",
+    "en": "Assorted Rice Bowls"
+  },
+  "1422316": {
+    "zh": "Assorted Salad",
+    "en": "Assorted Salad"
+  },
+  "1422317": {
+    "zh": "Mushroom Carving",
+    "en": "Mushroom Carving"
+  },
+  "1422318": {
+    "zh": "Cereal",
+    "en": "Cereal"
+  },
+  "1422401": {
+    "zh": "Beef Tartare",
+    "en": "Beef Tartare"
+  },
+  "1422402": {
+    "zh": "Sashimi",
+    "en": "Sashimi"
+  },
+  "1422403": {
+    "zh": "Scallop sashimi",
+    "en": "Scallop sashimi"
+  },
+  "1422404": {
+    "zh": "Salad",
+    "en": "Salad"
+  },
+  "1422405": {
+    "zh": "Nutritious Salad",
+    "en": "Nutritious Salad"
+  },
+  "1422406": {
+    "zh": "Morning Meal",
+    "en": "Morning Meal"
+  },
+  "1422407": {
+    "zh": "Egg Renew",
+    "en": "Egg Renew"
+  },
+  "1422408": {
+    "zh": "Assorted Sashimi",
+    "en": "Assorted Sashimi"
+  },
+  "1422409": {
+    "zh": "Carpaccio",
+    "en": "Carpaccio"
+  },
+  "1422410": {
+    "zh": "Beef Tartare Bibimbap",
+    "en": "Beef Tartare Bibimbap"
+  },
+  "1422411": {
+    "zh": "Seafood Sauce",
+    "en": "Seafood Sauce"
+  },
+  "1422412": {
+    "zh": "Assorted Sushi",
+    "en": "Assorted Sushi"
+  },
+  "1422413": {
+    "zh": "Seafood Ceviche",
+    "en": "Seafood Ceviche"
+  },
+  "1422414": {
+    "zh": "Spring Rolls",
+    "en": "Spring Rolls"
+  },
+  "1422415": {
+    "zh": "Assorted Rice Bowls",
+    "en": "Assorted Rice Bowls"
+  },
+  "1422416": {
+    "zh": "Assorted Salad",
+    "en": "Assorted Salad"
+  },
+  "1422417": {
+    "zh": "Mushroom Carving",
+    "en": "Mushroom Carving"
+  },
+  "1422418": {
+    "zh": "Cereal",
+    "en": "Cereal"
+  },
+  "1422501": {
+    "zh": "Beef Tartare",
+    "en": "Beef Tartare"
+  },
+  "1422502": {
+    "zh": "Sashimi",
+    "en": "Sashimi"
+  },
+  "1422503": {
+    "zh": "Scallop sashimi",
+    "en": "Scallop sashimi"
+  },
+  "1422504": {
+    "zh": "Salad",
+    "en": "Salad"
+  },
+  "1422505": {
+    "zh": "Nutritious Salad",
+    "en": "Nutritious Salad"
+  },
+  "1422506": {
+    "zh": "Morning Meal",
+    "en": "Morning Meal"
+  },
+  "1422507": {
+    "zh": "Egg Renew",
+    "en": "Egg Renew"
+  },
+  "1422508": {
+    "zh": "Assorted Sashimi",
+    "en": "Assorted Sashimi"
+  },
+  "1422509": {
+    "zh": "Carpaccio",
+    "en": "Carpaccio"
+  },
+  "1422510": {
+    "zh": "Beef Tartare Bibimbap",
+    "en": "Beef Tartare Bibimbap"
+  },
+  "1422511": {
+    "zh": "Seafood Sauce",
+    "en": "Seafood Sauce"
+  },
+  "1422512": {
+    "zh": "Assorted Sushi",
+    "en": "Assorted Sushi"
+  },
+  "1422513": {
+    "zh": "Seafood Ceviche",
+    "en": "Seafood Ceviche"
+  },
+  "1422514": {
+    "zh": "Spring Rolls",
+    "en": "Spring Rolls"
+  },
+  "1422515": {
+    "zh": "Assorted Rice Bowls",
+    "en": "Assorted Rice Bowls"
+  },
+  "1422516": {
+    "zh": "Assorted Salad",
+    "en": "Assorted Salad"
+  },
+  "1422517": {
+    "zh": "Mushroom Carving",
+    "en": "Mushroom Carving"
+  },
+  "1422518": {
+    "zh": "Cereal",
+    "en": "Cereal"
+  },
+  "1423001": {
+    "zh": "Mysterious Dish",
+    "en": "Mysterious Dish"
+  },
+  "1430003": {
+    "zh": "Beast Meat",
+    "en": "Beast Meat"
+  },
+  "1430004": {
+    "zh": "Poultry",
+    "en": "Poultry"
+  },
+  "1430005": {
+    "zh": "Boar Meat",
+    "en": "Boar Meat"
+  },
+  "1430006": {
+    "zh": "Fox Meat",
+    "en": "Fox Meat"
+  },
+  "1430007": {
+    "zh": "Sausage",
+    "en": "Sausage"
+  },
+  "1430103": {
+    "zh": "Fish Fillet",
+    "en": "Fish Fillet"
+  },
+  "1430104": {
+    "zh": "Trout Fillet",
+    "en": "Trout Fillet"
+  },
+  "1430105": {
+    "zh": "Silverwing Fillet",
+    "en": "Silverwing Fillet"
+  },
+  "1430106": {
+    "zh": "Salmon Fillet",
+    "en": "Salmon Fillet"
+  },
+  "1430203": {
+    "zh": "Sand Crab",
+    "en": "Sand Crab"
+  },
+  "1430204": {
+    "zh": "Shrimp Meat",
+    "en": "Shrimp Meat"
+  },
+  "1430303": {
+    "zh": "Shellfish",
+    "en": "Shellfish"
+  },
+  "1430304": {
+    "zh": "Conch",
+    "en": "Conch"
+  },
+  "1430403": {
+    "zh": "Radish",
+    "en": "Radish"
+  },
+  "1430404": {
+    "zh": "Aqualily",
+    "en": "Aqualily"
+  },
+  "1430405": {
+    "zh": "Leaflet Tomato",
+    "en": "Leaflet Tomato"
+  },
+  "1430406": {
+    "zh": "Wild Onion",
+    "en": "Wild Onion"
+  },
+  "1430407": {
+    "zh": "Waveleaf Cabbage",
+    "en": "Waveleaf Cabbage"
+  },
+  "1430408": {
+    "zh": "Dwarf Potato",
+    "en": "Dwarf Potato"
+  },
+  "1430409": {
+    "zh": "Whitebloom Carrot",
+    "en": "Whitebloom Carrot"
+  },
+  "1430410": {
+    "zh": "Cliff Pepper",
+    "en": "Cliff Pepper"
+  },
+  "1430411": {
+    "zh": "Lantern Gourd",
+    "en": "Lantern Gourd"
+  },
+  "1430412": {
+    "zh": "Roundtwig",
+    "en": "Roundtwig"
+  },
+  "1430503": {
+    "zh": "Rock Mushroom",
+    "en": "Rock Mushroom"
+  },
+  "1430504": {
+    "zh": "Tree Sap Mushroom",
+    "en": "Tree Sap Mushroom"
+  },
+  "1430505": {
+    "zh": "Cave Mushroom",
+    "en": "Cave Mushroom"
+  },
+  "1430506": {
+    "zh": "Blue Lotus Mushroom",
+    "en": "Blue Lotus Mushroom"
+  },
+  "1430602": {
+    "zh": "Rice",
+    "en": "Rice"
+  },
+  "1430603": {
+    "zh": "Wheat",
+    "en": "Wheat"
+  },
+  "1430604": {
+    "zh": "Polished Rice",
+    "en": "Polished Rice"
+  },
+  "1430605": {
+    "zh": "Peanuts",
+    "en": "Peanuts"
+  },
+  "1430606": {
+    "zh": "Walnuts",
+    "en": "Walnuts"
+  },
+  "1430607": {
+    "zh": "Almonds",
+    "en": "Almonds"
+  },
+  "1430608": {
+    "zh": "Pistachios",
+    "en": "Pistachios"
+  },
+  "1430703": {
+    "zh": "Dawn Lanternleaf",
+    "en": "Dawn Lanternleaf"
+  },
+  "1430704": {
+    "zh": "Grave Bellherb",
+    "en": "Grave Bellherb"
+  },
+  "1430705": {
+    "zh": "Dried Maneflower",
+    "en": "Dried Maneflower"
+  },
+  "1430706": {
+    "zh": "White Dewblossom",
+    "en": "White Dewblossom"
+  },
+  "1430707": {
+    "zh": "Bouncyweed",
+    "en": "Bouncyweed"
+  },
+  "1430803": {
+    "zh": "Butter",
+    "en": "Butter"
+  },
+  "1430804": {
+    "zh": "Cheese",
+    "en": "Cheese"
+  },
+  "1430805": {
+    "zh": "Milk",
+    "en": "Milk"
+  },
+  "1430806": {
+    "zh": "Pepper",
+    "en": "Pepper"
+  },
+  "1430807": {
+    "zh": "Salt",
+    "en": "Salt"
+  },
+  "1430808": {
+    "zh": "Sugar",
+    "en": "Sugar"
+  },
+  "1430809": {
+    "zh": "Tofu",
+    "en": "Tofu"
+  },
+  "1430810": {
+    "zh": "Honey",
+    "en": "Honey"
+  },
+  "1430901": {
+    "zh": "Bird Eggs",
+    "en": "Bird Eggs"
+  },
+  "1430902": {
+    "zh": "Goose Eggs",
+    "en": "Goose Eggs"
+  },
+  "1430920": {
+    "zh": "Grilled Ascension Mushrooms",
+    "en": "Grilled Ascension Mushrooms"
+  },
+  "1440802": {
+    "zh": "Aged Game Meat",
+    "en": "Aged Game Meat"
+  },
+  "1450001": {
+    "zh": "Lowest-Grade Monster Essence",
+    "en": "Lowest-Grade Monster Essence"
+  },
+  "1450002": {
+    "zh": "Low-Grade Monster Essence",
+    "en": "Low-Grade Monster Essence"
+  },
+  "1450003": {
+    "zh": "Intermediate Monster Essence",
+    "en": "Intermediate Monster Essence"
+  },
+  "1450004": {
+    "zh": "Lowest-Grade Monster Hide",
+    "en": "Lowest-Grade Monster Hide"
+  },
+  "1450005": {
+    "zh": "Low-grade Monster Hide",
+    "en": "Low-grade Monster Hide"
+  },
+  "1450006": {
+    "zh": "Intermediate Monster Hide",
+    "en": "Intermediate Monster Hide"
+  },
+  "1450007": {
+    "zh": "Lowest-Grade Monster Bone Fragment",
+    "en": "Lowest-Grade Monster Bone Fragment"
+  },
+  "1450008": {
+    "zh": "Low-grade Monster Bone Fragment",
+    "en": "Low-grade Monster Bone Fragment"
+  },
+  "1450009": {
+    "zh": "Intermediate Monster Bone Fragment",
+    "en": "Intermediate Monster Bone Fragment"
+  },
+  "1450010": {
+    "zh": "Lowest-Grade Monster Carapace",
+    "en": "Lowest-Grade Monster Carapace"
+  },
+  "1450011": {
+    "zh": "Low-Grade Monster Carapace",
+    "en": "Low-Grade Monster Carapace"
+  },
+  "1450012": {
+    "zh": "Intermediate Monster Carapace",
+    "en": "Intermediate Monster Carapace"
+  },
+  "1450013": {
+    "zh": "Lowest-Tier Monster Molar",
+    "en": "Lowest-Tier Monster Molar"
+  },
+  "1450014": {
+    "zh": "Low-Grade Monster Molar",
+    "en": "Low-Grade Monster Molar"
+  },
+  "1450015": {
+    "zh": "Intermediate Monster Molar",
+    "en": "Intermediate Monster Molar"
+  },
+  "1450016": {
+    "zh": "Lowest-Grade Monster Claw",
+    "en": "Lowest-Grade Monster Claw"
+  },
+  "1450017": {
+    "zh": "Low-Grade Monster Claw",
+    "en": "Low-Grade Monster Claw"
+  },
+  "1450018": {
+    "zh": "Intermediate Monster Claw",
+    "en": "Intermediate Monster Claw"
+  },
+  "1450019": {
+    "zh": "Lowest-Grade Monster Blood",
+    "en": "Lowest-Grade Monster Blood"
+  },
+  "1450020": {
+    "zh": "Low-Grade Monster Blood",
+    "en": "Low-Grade Monster Blood"
+  },
+  "1450021": {
+    "zh": "Intermediate Monster Blood",
+    "en": "Intermediate Monster Blood"
+  },
+  "1450022": {
+    "zh": "Lowest-Grade Monster Feather",
+    "en": "Lowest-Grade Monster Feather"
+  },
+  "1450023": {
+    "zh": "Low-Grade Monster Feather",
+    "en": "Low-Grade Monster Feather"
+  },
+  "1450024": {
+    "zh": "Intermediate Monster Feather",
+    "en": "Intermediate Monster Feather"
+  },
+  "1450101": {
+    "zh": "Low-Grade Amplitude Stone",
+    "en": "Low-Grade Amplitude Stone"
+  },
+  "1450102": {
+    "zh": "Intermediate Amplitude Stone",
+    "en": "Intermediate Amplitude Stone"
+  },
+  "1450103": {
+    "zh": "High-Grade Amplitude Stone",
+    "en": "High-Grade Amplitude Stone"
+  },
+  "1450104": {
+    "zh": "Low-Grade Crushing Stone",
+    "en": "Low-Grade Crushing Stone"
+  },
+  "1450105": {
+    "zh": "Intermediate Crushing Stone",
+    "en": "Intermediate Crushing Stone"
+  },
+  "1450106": {
+    "zh": "High-Grade Crushing Stone",
+    "en": "High-Grade Crushing Stone"
+  },
+  "1450107": {
+    "zh": "Low-Grade Gale Stone",
+    "en": "Low-Grade Gale Stone"
+  },
+  "1450108": {
+    "zh": "Intermediate Gale Stone",
+    "en": "Intermediate Gale Stone"
+  },
+  "1450109": {
+    "zh": "High-Grade Gale Stone",
+    "en": "High-Grade Gale Stone"
+  },
+  "1450110": {
+    "zh": "Low-Grade Breaker Stone",
+    "en": "Low-Grade Breaker Stone"
+  },
+  "1450111": {
+    "zh": "Intermediate Breaker Stone",
+    "en": "Intermediate Breaker Stone"
+  },
+  "1450112": {
+    "zh": "High-Grade Breaker Stone",
+    "en": "High-Grade Breaker Stone"
+  },
+  "1450113": {
+    "zh": "Low-Grade Bloodburst Stone",
+    "en": "Low-Grade Bloodburst Stone"
+  },
+  "1450114": {
+    "zh": "Intermediate Bloodburst Stone",
+    "en": "Intermediate Bloodburst Stone"
+  },
+  "1450115": {
+    "zh": "High-Grade Bloodburst Stone",
+    "en": "High-Grade Bloodburst Stone"
+  },
+  "1450116": {
+    "zh": "Low-Grade Blazeflame Stone",
+    "en": "Low-Grade Blazeflame Stone"
+  },
+  "1450117": {
+    "zh": "Intermediate Blazeflame Stone",
+    "en": "Intermediate Blazeflame Stone"
+  },
+  "1450118": {
+    "zh": "High-Grade Blazeflame Stone",
+    "en": "High-Grade Blazeflame Stone"
+  },
+  "1450119": {
+    "zh": "Low-Grade Frostbite Stone",
+    "en": "Low-Grade Frostbite Stone"
+  },
+  "1450120": {
+    "zh": "Intermediate Frostbite Stone",
+    "en": "Intermediate Frostbite Stone"
+  },
+  "1450121": {
+    "zh": "High-Grade Frostbite Stone",
+    "en": "High-Grade Frostbite Stone"
+  },
+  "1450122": {
+    "zh": "Low-Grade Thunderbolt Stone",
+    "en": "Low-Grade Thunderbolt Stone"
+  },
+  "1450123": {
+    "zh": "Intermediate Thunderbolt Stone",
+    "en": "Intermediate Thunderbolt Stone"
+  },
+  "1450124": {
+    "zh": "High-Grade Thunderbolt Stone",
+    "en": "High-Grade Thunderbolt Stone"
+  },
+  "1450125": {
+    "zh": "Low-Grade Venom Stone",
+    "en": "Low-Grade Venom Stone"
+  },
+  "1450126": {
+    "zh": "Intermediate Venom Stone",
+    "en": "Intermediate Venom Stone"
+  },
+  "1450127": {
+    "zh": "High-Grade Venom Stone",
+    "en": "High-Grade Venom Stone"
+  },
+  "1450201": {
+    "zh": "Orbis Coin",
+    "en": "Orbis Coin"
+  },
+  "1450202": {
+    "zh": "Insignia of the Orbis Kingdom",
+    "en": "Insignia of the Orbis Kingdom"
+  },
+  "1450203": {
+    "zh": "Insignia of the Organa Order",
+    "en": "Insignia of the Organa Order"
+  },
+  "1450204": {
+    "zh": "Insignia of Johnny Mercenaries",
+    "en": "Insignia of Johnny Mercenaries"
+  },
+  "1450205": {
+    "zh": "Insignia of the Red Fox Mercenaries",
+    "en": "Insignia of the Red Fox Mercenaries"
+  },
+  "1450206": {
+    "zh": "Insignia of the Amber Trading Company",
+    "en": "Insignia of the Amber Trading Company"
+  },
+  "1450207": {
+    "zh": "Insignia of the Lentus Rebellion Army",
+    "en": "Insignia of the Lentus Rebellion Army"
+  },
+  "1450208": {
+    "zh": "Insignia of the Kalagon Order",
+    "en": "Insignia of the Kalagon Order"
+  },
+  "1450209": {
+    "zh": "Insignia of the Liberta Liberation Army",
+    "en": "Insignia of the Liberta Liberation Army"
+  },
+  "1450210": {
+    "zh": "Velos Coin",
+    "en": "Velos Coin"
+  },
+  "1450211": {
+    "zh": "3월드 주화 (임시)",
+    "en": "3월드 주화 (임시)"
+  },
+  "1450301": {
+    "zh": "Forbidden Grimoire",
+    "en": "Forbidden Grimoire"
+  },
+  "1450302": {
+    "zh": "Essence of the Demon Dragon",
+    "en": "Essence of the Demon Dragon"
+  },
+  "1450401": {
+    "zh": "Tome of Insight",
+    "en": "Tome of Insight"
+  },
+  "1450402": {
+    "zh": "Secret Text of Victory",
+    "en": "Secret Text of Victory"
+  },
+  "1450403": {
+    "zh": "Fragment of Memory",
+    "en": "Fragment of Memory"
+  },
+  "1450408": {
+    "zh": "Anonymous Artisan's Crafting Tool",
+    "en": "Anonymous Artisan's Crafting Tool"
+  },
+  "1450409": {
+    "zh": "Shape Grinder",
+    "en": "Shape Grinder"
+  },
+  "1450410": {
+    "zh": "Stigma Awaken Stone",
+    "en": "Stigma Awaken Stone"
+  },
+  "1450411": {
+    "zh": "Fragment of Afterimage",
+    "en": "Fragment of Afterimage"
+  },
+  "1450501": {
+    "zh": "Fruit of Vitality",
+    "en": "Fruit of Vitality"
+  },
+  "1450502": {
+    "zh": "Primordial Seed",
+    "en": "Primordial Seed"
+  },
+  "1450503": {
+    "zh": "Drop of Purity",
+    "en": "Drop of Purity"
+  },
+  "1450504": {
+    "zh": "Leaf of Vigor",
+    "en": "Leaf of Vigor"
+  },
+  "1450601": {
+    "zh": "Crystal of Remembrance",
+    "en": "Crystal of Remembrance"
+  },
+  "1450602": {
+    "zh": "Crystal of Recollection",
+    "en": "Crystal of Recollection"
+  },
+  "1450603": {
+    "zh": "Crystal of Reverie",
+    "en": "Crystal of Reverie"
+  },
+  "1450604": {
+    "zh": "Crystal of Oblivion",
+    "en": "Crystal of Oblivion"
+  },
+  "1450701": {
+    "zh": "Adventurer's Emblem",
+    "en": "Adventurer's Emblem"
+  },
+  "1450801": {
+    "zh": "Chronograph of Ages",
+    "en": "Chronograph of Ages"
+  },
+  "1450811": {
+    "zh": "Record of Battle",
+    "en": "Record of Battle"
+  },
+  "1450812": {
+    "zh": "Secret Text of the Warrior",
+    "en": "Secret Text of the Warrior"
+  },
+  "1450814": {
+    "zh": "Red Pyroxene",
+    "en": "Red Pyroxene"
+  },
+  "1450815": {
+    "zh": "Spiny Fin",
+    "en": "Spiny Fin"
+  },
+  "1450816": {
+    "zh": "Blood-stained Hook",
+    "en": "Blood-stained Hook"
+  },
+  "1450817": {
+    "zh": "Stilled Core of Collapse",
+    "en": "Stilled Core of Collapse"
+  },
+  "1450818": {
+    "zh": "Necklace Soaked in Greed",
+    "en": "Necklace Soaked in Greed"
+  },
+  "1450819": {
+    "zh": "Gigantic Tooth",
+    "en": "Gigantic Tooth"
+  },
+  "1450820": {
+    "zh": "Tangled Memories and Reminiscences",
+    "en": "Tangled Memories and Reminiscences"
+  },
+  "1450821": {
+    "zh": "Tangled Forgetfulness and Remembrance",
+    "en": "Tangled Forgetfulness and Remembrance"
+  },
+  "1450822": {
+    "zh": "Whirling Thoughts",
+    "en": "Whirling Thoughts"
+  },
+  "1450823": {
+    "zh": "Sage's Blood",
+    "en": "Sage's Blood"
+  },
+  "1460101": {
+    "zh": "Binding Crystal",
+    "en": "Binding Crystal"
+  },
+  "1460102": {
+    "zh": "Piercing Crystal",
+    "en": "Piercing Crystal"
+  },
+  "1460103": {
+    "zh": "Vein Crystal",
+    "en": "Vein Crystal"
+  },
+  "1460201": {
+    "zh": "룬 조각",
+    "en": "룬 조각"
+  },
+  "1470001": {
+    "zh": "Moon Key",
+    "en": "Moon Key"
+  },
+  "1470101": {
+    "zh": "Treasure Map of the Perilous Place",
+    "en": "Treasure Map of the Perilous Place"
+  },
+  "1470102": {
+    "zh": "Treasure Map of the Lush Forest",
+    "en": "Treasure Map of the Lush Forest"
+  },
+  "1470103": {
+    "zh": "Predator's Treasure Map",
+    "en": "Predator's Treasure Map"
+  },
+  "1470104": {
+    "zh": "Treasure Map of the Blocked Path",
+    "en": "Treasure Map of the Blocked Path"
+  },
+  "1470105": {
+    "zh": "Treasure Map of the Strong Horde",
+    "en": "Treasure Map of the Strong Horde"
+  },
+  "1470106": {
+    "zh": "The Treasure Map of Secrets",
+    "en": "The Treasure Map of Secrets"
+  },
+  "1470107": {
+    "zh": "Treasure Map of the Remote Sea",
+    "en": "Treasure Map of the Remote Sea"
+  },
+  "1470108": {
+    "zh": "Treasure Map of the Stone Spine",
+    "en": "Treasure Map of the Stone Spine"
+  },
+  "1470109": {
+    "zh": "Treasure Map of the Cliffside",
+    "en": "Treasure Map of the Cliffside"
+  },
+  "1470110": {
+    "zh": "Treasure Map of the Small Flowerbed",
+    "en": "Treasure Map of the Small Flowerbed"
+  },
+  "1470111": {
+    "zh": "Treasure Map of the Heights",
+    "en": "Treasure Map of the Heights"
+  },
+  "1470112": {
+    "zh": "The Guardian's Treasure Map",
+    "en": "The Guardian's Treasure Map"
+  },
+  "1470113": {
+    "zh": "The Thieves' Treasure Map",
+    "en": "The Thieves' Treasure Map"
+  },
+  "1470114": {
+    "zh": "The Watcher's Treasure Map",
+    "en": "The Watcher's Treasure Map"
+  },
+  "1470115": {
+    "zh": "Treasure Map of the Highlands",
+    "en": "Treasure Map of the Highlands"
+  },
+  "1470116": {
+    "zh": "Treasure Map in the Mist",
+    "en": "Treasure Map in the Mist"
+  },
+  "1470117": {
+    "zh": "The Guide's Treasure Map",
+    "en": "The Guide's Treasure Map"
+  },
+  "1470118": {
+    "zh": "Sunlit Treasure Map",
+    "en": "Sunlit Treasure Map"
+  },
+  "1470119": {
+    "zh": "Treasure Map of the Deep Bridge",
+    "en": "Treasure Map of the Deep Bridge"
+  },
+  "1470120": {
+    "zh": "Treasure Map of the Moss-Covered Tree",
+    "en": "Treasure Map of the Moss-Covered Tree"
+  },
+  "1470121": {
+    "zh": "Treasure Map of the Water Spray",
+    "en": "Treasure Map of the Water Spray"
+  },
+  "1470122": {
+    "zh": "Treasure Map of the Destroyed Altar",
+    "en": "Treasure Map of the Destroyed Altar"
+  },
+  "1470123": {
+    "zh": "Treasure Map of the Campground",
+    "en": "Treasure Map of the Campground"
+  },
+  "1470124": {
+    "zh": "Treasure Map of the Cliff's Edge",
+    "en": "Treasure Map of the Cliff's Edge"
+  },
+  "1470125": {
+    "zh": "Treasure Map of the Underground Altar",
+    "en": "Treasure Map of the Underground Altar"
+  },
+  "1470126": {
+    "zh": "Treasure Map of the Coastal Cliffs",
+    "en": "Treasure Map of the Coastal Cliffs"
+  },
+  "1470127": {
+    "zh": "Treasure Map of the Fortress Outskirts",
+    "en": "Treasure Map of the Fortress Outskirts"
+  },
+  "1470128": {
+    "zh": "Treasure Map Behind the Rock",
+    "en": "Treasure Map Behind the Rock"
+  },
+  "1470129": {
+    "zh": "Treasure Map of the Western Checkpoint",
+    "en": "Treasure Map of the Western Checkpoint"
+  },
+  "1470201": {
+    "zh": "Forging Mold",
+    "en": "Forging Mold"
+  },
+  "1500001": {
+    "zh": "True Pine Mushroom",
+    "en": "True Pine Mushroom"
+  },
+  "1500002": {
+    "zh": "World 2 Reputation EXP",
+    "en": "World 2 Reputation EXP"
+  },
+  "1510001": {
+    "zh": "Rift Crystal",
+    "en": "Rift Crystal"
+  },
+  "1510002": {
+    "zh": "Rift Crystal [Test]",
+    "en": "Rift Crystal [Test]"
+  },
+  "1510003": {
+    "zh": "Bouncyweed",
+    "en": "Bouncyweed"
+  },
+  "1510004": {
+    "zh": "Rock White Dewblossom",
+    "en": "Rock White Dewblossom"
+  },
+  "1510005": {
+    "zh": "Dirty Official Document",
+    "en": "Dirty Official Document"
+  },
+  "1510006": {
+    "zh": "Useful Iron Ore",
+    "en": "Useful Iron Ore"
+  },
+  "1510007": {
+    "zh": "Well-Grown Waveleaf Cabbage",
+    "en": "Well-Grown Waveleaf Cabbage"
+  },
+  "1510008": {
+    "zh": "Shining Blue Lotus Mushroom",
+    "en": "Shining Blue Lotus Mushroom"
+  },
+  "1510009": {
+    "zh": "Shining Dawn Lanternleaf",
+    "en": "Shining Dawn Lanternleaf"
+  },
+  "1510010": {
+    "zh": "Well-grown Mildwild Onion",
+    "en": "Well-grown Mildwild Onion"
+  },
+  "1510011": {
+    "zh": "Someone's Bag",
+    "en": "Someone's Bag"
+  },
+  "1510012": {
+    "zh": "A Spear Lost by a Soldier",
+    "en": "A Spear Lost by a Soldier"
+  },
+  "1510013": {
+    "zh": "A Shabby, Rusty Key",
+    "en": "A Shabby, Rusty Key"
+  },
+  "1510014": {
+    "zh": "Bellonea",
+    "en": "Bellonea"
+  },
+  "1510015": {
+    "zh": "Someone's Bag",
+    "en": "Someone's Bag"
+  },
+  "1510016": {
+    "zh": "Someone's Bag",
+    "en": "Someone's Bag"
+  },
+  "1510017": {
+    "zh": "Someone's Bag",
+    "en": "Someone's Bag"
+  },
+  "1510018": {
+    "zh": "Someone's Bag",
+    "en": "Someone's Bag"
+  },
+  "1510019": {
+    "zh": "Fermented Gnoll Berry",
+    "en": "Fermented Gnoll Berry"
+  },
+  "1510020": {
+    "zh": "Koomkoom Mushroom",
+    "en": "Koomkoom Mushroom"
+  },
+  "1510021": {
+    "zh": "Spider Leg",
+    "en": "Spider Leg"
+  },
+  "1510022": {
+    "zh": "Mimic Mushroom",
+    "en": "Mimic Mushroom"
+  },
+  "1510023": {
+    "zh": "Woody material",
+    "en": "Woody material"
+  },
+  "1510024": {
+    "zh": "Fragrant Herbs",
+    "en": "Fragrant Herbs"
+  },
+  "1510025": {
+    "zh": "Crude Bru's Sickle",
+    "en": "Crude Bru's Sickle"
+  },
+  "1510026": {
+    "zh": "Crude Bru Throwing Sickle",
+    "en": "Crude Bru Throwing Sickle"
+  },
+  "1510027": {
+    "zh": "Herb Flower",
+    "en": "Herb Flower"
+  },
+  "1510028": {
+    "zh": "Herb Flower",
+    "en": "Herb Flower"
+  },
+  "1510029": {
+    "zh": "Herb Flower",
+    "en": "Herb Flower"
+  },
+  "1510030": {
+    "zh": "Special Ink",
+    "en": "Special Ink"
+  },
+  "1510031": {
+    "zh": "Special Catalyst",
+    "en": "Special Catalyst"
+  },
+  "1510032": {
+    "zh": "Antique",
+    "en": "Antique"
+  },
+  "1510033": {
+    "zh": "Mardon's Steak Special",
+    "en": "Mardon's Steak Special"
+  },
+  "1510034": {
+    "zh": "Well-Grown Wheat",
+    "en": "Well-Grown Wheat"
+  },
+  "1510035": {
+    "zh": "A Bag Without an Owner",
+    "en": "A Bag Without an Owner"
+  },
+  "1510036": {
+    "zh": "Suspicious Book",
+    "en": "Suspicious Book"
+  },
+  "1510037": {
+    "zh": "New Rice",
+    "en": "New Rice"
+  },
+  "1510038": {
+    "zh": "Sea Spirit Dust",
+    "en": "Sea Spirit Dust"
+  },
+  "1510039": {
+    "zh": "Platinum Bone Dust",
+    "en": "Platinum Bone Dust"
+  },
+  "1510040": {
+    "zh": "Whispering Cloudflower",
+    "en": "Whispering Cloudflower"
+  },
+  "1510041": {
+    "zh": "Nutrient-Deficient Wheat Sprouts",
+    "en": "Nutrient-Deficient Wheat Sprouts"
+  },
+  "1510042": {
+    "zh": "Dried Maneflower",
+    "en": "Dried Maneflower"
+  },
+  "1510043": {
+    "zh": "Undergrown Dawn Lanternleaf",
+    "en": "Undergrown Dawn Lanternleaf"
+  },
+  "1519000": {
+    "zh": "A Thank-You Note from the Phantom Thief of Dawn",
+    "en": "A Thank-You Note from the Phantom Thief of Dawn"
+  },
+  "1701301": {
+    "zh": "Cliffside",
+    "en": "Cliffside"
+  },
+  "1701401": {
+    "zh": "A Reckless Charge",
+    "en": "A Reckless Charge"
+  },
+  "1701402": {
+    "zh": "The Way of the Wild",
+    "en": "The Way of the Wild"
+  },
+  "1701501": {
+    "zh": "Destruction Is the Mother of Creation",
+    "en": "Destruction Is the Mother of Creation"
+  },
+  "1702301": {
+    "zh": "Pounding Heart",
+    "en": "Pounding Heart"
+  },
+  "1702401": {
+    "zh": "A Coincidental Yet Perfect Plan",
+    "en": "A Coincidental Yet Perfect Plan"
+  },
+  "1702402": {
+    "zh": "Every rose has its thorn",
+    "en": "Every rose has its thorn"
+  },
+  "1702501": {
+    "zh": "I'll knock you out myself",
+    "en": "I'll knock you out myself"
+  },
+  "1703301": {
+    "zh": "Scattered Pulse",
+    "en": "Scattered Pulse"
+  },
+  "1703401": {
+    "zh": "Stay sharp. Always.",
+    "en": "Stay sharp. Always."
+  },
+  "1703402": {
+    "zh": "Merciless Kick",
+    "en": "Merciless Kick"
+  },
+  "1703501": {
+    "zh": "Legends Left Behind by the Master",
+    "en": "Legends Left Behind by the Master"
+  },
+  "1704301": {
+    "zh": "Wings of the Sky",
+    "en": "Wings of the Sky"
+  },
+  "1704401": {
+    "zh": "A path that leads to the wind",
+    "en": "A path that leads to the wind"
+  },
+  "1704402": {
+    "zh": "Become a star in that sky",
+    "en": "Become a star in that sky"
+  },
+  "1704501": {
+    "zh": "The Wind Blows Again",
+    "en": "The Wind Blows Again"
+  },
+  "1705301": {
+    "zh": "Blooming Blood",
+    "en": "Blooming Blood"
+  },
+  "1705401": {
+    "zh": "A Soldier's Basic Qualities",
+    "en": "A Soldier's Basic Qualities"
+  },
+  "1705402": {
+    "zh": "Fangs lurking in the thicket",
+    "en": "Fangs lurking in the thicket"
+  },
+  "1706301": {
+    "zh": "Leg Scale of Blazing Flames",
+    "en": "Leg Scale of Blazing Flames"
+  },
+  "1706401": {
+    "zh": "A flame that cuts through the moment",
+    "en": "A flame that cuts through the moment"
+  },
+  "1706402": {
+    "zh": "The burning taste of fire",
+    "en": "The burning taste of fire"
+  },
+  "1707301": {
+    "zh": "Season of Bitterness",
+    "en": "Season of Bitterness"
+  },
+  "1707401": {
+    "zh": "Rock-Splitting Ice",
+    "en": "Rock-Splitting Ice"
+  },
+  "1707402": {
+    "zh": "Frozen Fortress",
+    "en": "Frozen Fortress"
+  },
+  "1708301": {
+    "zh": "Flash Claws",
+    "en": "Flash Claws"
+  },
+  "1708401": {
+    "zh": "The Agent of Divine Punishment",
+    "en": "The Agent of Divine Punishment"
+  },
+  "1708402": {
+    "zh": "The One Chosen by Lightning",
+    "en": "The One Chosen by Lightning"
+  },
+  "1708501": {
+    "zh": "A Flash of Invention",
+    "en": "A Flash of Invention"
+  },
+  "1709301": {
+    "zh": "Dominating Head",
+    "en": "Dominating Head"
+  },
+  "1709401": {
+    "zh": "So good it's to die for.",
+    "en": "So good it's to die for."
+  },
+  "1709402": {
+    "zh": "A Spectacular Poison",
+    "en": "A Spectacular Poison"
+  },
+  "1709501": {
+    "zh": "Defeating poison with poison",
+    "en": "Defeating poison with poison"
+  },
+  "1710501": {
+    "zh": "Wildflowers Bloom Through the Wind",
+    "en": "Wildflowers Bloom Through the Wind"
+  },
+  "1710502": {
+    "zh": "Merciful Death Sentence",
+    "en": "Merciful Death Sentence"
+  },
+  "1710504": {
+    "zh": "The Wind That Protects the Kingdom",
+    "en": "The Wind That Protects the Kingdom"
+  },
+  "1710505": {
+    "zh": "The Noble Lady's Wild Hobby",
+    "en": "The Noble Lady's Wild Hobby"
+  },
+  "1710506": {
+    "zh": "The Sun Rises Again",
+    "en": "The Sun Rises Again"
+  },
+  "1710507": {
+    "zh": "A Sparkling Tea Time",
+    "en": "A Sparkling Tea Time"
+  },
+  "1710508": {
+    "zh": "Fate Spoke to the Boy",
+    "en": "Fate Spoke to the Boy"
+  },
+  "1710509": {
+    "zh": "Wandering Blade",
+    "en": "Wandering Blade"
+  },
+  "1710515": {
+    "zh": "The Chosen One of the Crimson Flame",
+    "en": "The Chosen One of the Crimson Flame"
+  },
+  "1710516": {
+    "zh": "Eternal Blizzard",
+    "en": "Eternal Blizzard"
+  },
+  "1710517": {
+    "zh": "Sacred Lightning Baptism",
+    "en": "Sacred Lightning Baptism"
+  },
+  "1710521": {
+    "zh": "Longing for Freedom",
+    "en": "Longing for Freedom"
+  },
+  "1710525": {
+    "zh": "The Spear That Fells the Sun",
+    "en": "The Spear That Fells the Sun"
+  },
+  "1710526": {
+    "zh": "Exclusive Karma - Ryza",
+    "en": "Exclusive Karma - Ryza"
+  },
+  "1710527": {
+    "zh": "The Conviction Left in Darkness",
+    "en": "The Conviction Left in Darkness"
+  },
+  "1710537": {
+    "zh": "Noisy Duet",
+    "en": "Noisy Duet"
+  },
+  "1710538": {
+    "zh": "A Sword Summoned for a Friend",
+    "en": "A Sword Summoned for a Friend"
+  },
+  "1710539": {
+    "zh": "Loyalty Amidst Lethargy",
+    "en": "Loyalty Amidst Lethargy"
+  },
+  "1710540": {
+    "zh": "Between Chivalry and Bookmarks",
+    "en": "Between Chivalry and Bookmarks"
+  },
+  "1710542": {
+    "zh": "Explosion is Art",
+    "en": "Explosion is Art"
+  },
+  "1710544": {
+    "zh": "A Helping Hand for Good Kids",
+    "en": "A Helping Hand for Good Kids"
+  },
+  "1900000": {
+    "zh": "Good Luck Basket",
+    "en": "Good Luck Basket"
+  },
+  "1901000": {
+    "zh": "Spring Flower Branch",
+    "en": "Spring Flower Branch"
+  },
+  "1999000": {
+    "zh": "Dragon Chewy Cookie",
+    "en": "Dragon Chewy Cookie"
+  },
+  "1999001": {
+    "zh": "Ice Orbicano",
+    "en": "Ice Orbicano"
+  },
+  "1999002": {
+    "zh": "Decaf Iced Americano",
+    "en": "Decaf Iced Americano"
+  },
+  "2000000": {
+    "zh": "Exclusive Karma Exchange Shard",
+    "en": "Exclusive Karma Exchange Shard"
+  },
+  "2100000": {
+    "zh": "Restorer of Grace",
+    "en": "Restorer of Grace"
+  },
+  "2100001": {
+    "zh": "Pioneer of the Wind Path",
+    "en": "Pioneer of the Wind Path"
+  },
+  "2100002": {
+    "zh": "Dungeon Conqueror",
+    "en": "Dungeon Conqueror"
+  },
+  "2100003": {
+    "zh": "Guide of the World",
+    "en": "Guide of the World"
+  },
+  "2100004": {
+    "zh": "Curious Hands",
+    "en": "Curious Hands"
+  },
+  "2100005": {
+    "zh": "Chest Addict",
+    "en": "Chest Addict"
+  },
+  "2100006": {
+    "zh": "Legendary Explorer",
+    "en": "Legendary Explorer"
+  },
+  "2100007": {
+    "zh": "Loot Sweeper",
+    "en": "Loot Sweeper"
+  },
+  "2100008": {
+    "zh": "Marmot Challenger",
+    "en": "Marmot Challenger"
+  },
+  "2100009": {
+    "zh": "Master of Pressing",
+    "en": "Master of Pressing"
+  },
+  "2100010": {
+    "zh": "Puzzle Solved by Pushing",
+    "en": "Puzzle Solved by Pushing"
+  },
+  "2100011": {
+    "zh": "Nut Patrol",
+    "en": "Nut Patrol"
+  },
+  "2100012": {
+    "zh": "Tail Tracker",
+    "en": "Tail Tracker"
+  },
+  "2100013": {
+    "zh": "Victim and Perpetrator",
+    "en": "Victim and Perpetrator"
+  },
+  "2100014": {
+    "zh": "A Small White Pang of Conscience",
+    "en": "A Small White Pang of Conscience"
+  },
+  "2100015": {
+    "zh": "Uninvited Guest of the Nest",
+    "en": "Uninvited Guest of the Nest"
+  },
+  "2100016": {
+    "zh": "World Traveling Chef",
+    "en": "World Traveling Chef"
+  },
+  "2100017": {
+    "zh": "One Who Walks the Vein",
+    "en": "One Who Walks the Vein"
+  },
+  "2100018": {
+    "zh": "Abundance Upon the Land",
+    "en": "Abundance Upon the Land"
+  },
+  "2100019": {
+    "zh": "Patron of the Workshop",
+    "en": "Patron of the Workshop"
+  },
+  "2101000": {
+    "zh": "Black Wings",
+    "en": "Black Wings"
+  },
+  "2101001": {
+    "zh": "Impregnable",
+    "en": "Impregnable"
+  },
+  "2101002": {
+    "zh": "One Who Connects The Six Heroes",
+    "en": "One Who Connects The Six Heroes"
+  },
+  "2101003": {
+    "zh": "I Want to Do Missions",
+    "en": "I Want to Do Missions"
+  },
+  "2101004": {
+    "zh": "Master of Mushroom Cuisine",
+    "en": "Master of Mushroom Cuisine"
+  },
+  "2101005": {
+    "zh": "Doting Parent",
+    "en": "Doting Parent"
+  },
+  "2101006": {
+    "zh": "Awaken, Hero",
+    "en": "Awaken, Hero"
+  },
+  "2101007": {
+    "zh": "Synthesizer of Snow",
+    "en": "Synthesizer of Snow"
+  },
+  "2101008": {
+    "zh": "Sage of the Blue Moon",
+    "en": "Sage of the Blue Moon"
+  },
+  "2101009": {
+    "zh": "Saintess of Dawn",
+    "en": "Saintess of Dawn"
+  },
+  "2101010": {
+    "zh": "Inquisitor",
+    "en": "Inquisitor"
+  },
+  "2101011": {
+    "zh": "Red Fox",
+    "en": "Red Fox"
+  },
+  "2101012": {
+    "zh": "Kind",
+    "en": "Kind"
+  },
+  "2101013": {
+    "zh": "Fixer",
+    "en": "Fixer"
+  },
+  "2102000": {
+    "zh": "Rabbit Hunter",
+    "en": "Rabbit Hunter"
+  },
+  "2102001": {
+    "zh": "Goose Hunter",
+    "en": "Goose Hunter"
+  },
+  "2102002": {
+    "zh": "Boar Hunter",
+    "en": "Boar Hunter"
+  },
+  "2102003": {
+    "zh": "Fox Hunter",
+    "en": "Fox Hunter"
+  },
+  "2102004": {
+    "zh": "Riverside Angler",
+    "en": "Riverside Angler"
+  },
+  "2102005": {
+    "zh": "Silver Angler",
+    "en": "Silver Angler"
+  },
+  "2102006": {
+    "zh": "Upstream Angler",
+    "en": "Upstream Angler"
+  },
+  "2102007": {
+    "zh": "Sand Gatherer",
+    "en": "Sand Gatherer"
+  },
+  "2102008": {
+    "zh": "Waterside Gatherer",
+    "en": "Waterside Gatherer"
+  },
+  "2102009": {
+    "zh": "Beach Gatherer",
+    "en": "Beach Gatherer"
+  },
+  "2102010": {
+    "zh": "Wave Gatherer",
+    "en": "Wave Gatherer"
+  },
+  "2102011": {
+    "zh": "Root Gatherer",
+    "en": "Root Gatherer"
+  },
+  "2102012": {
+    "zh": "Water Gatherer",
+    "en": "Water Gatherer"
+  },
+  "2102013": {
+    "zh": "Crimson Gatherer",
+    "en": "Crimson Gatherer"
+  },
+  "2102014": {
+    "zh": "Fragrant Gatherer",
+    "en": "Fragrant Gatherer"
+  },
+  "2102015": {
+    "zh": "Blue Gatherer",
+    "en": "Blue Gatherer"
+  },
+  "2102016": {
+    "zh": "Small Gatherer",
+    "en": "Small Gatherer"
+  },
+  "2102017": {
+    "zh": "Pure White Gatherer",
+    "en": "Pure White Gatherer"
+  },
+  "2102018": {
+    "zh": "Verdant Gatherer",
+    "en": "Verdant Gatherer"
+  },
+  "2102019": {
+    "zh": "Violet Gatherer",
+    "en": "Violet Gatherer"
+  },
+  "2102020": {
+    "zh": "Hardy Gatherer",
+    "en": "Hardy Gatherer"
+  },
+  "2102021": {
+    "zh": "Nature Gatherer",
+    "en": "Nature Gatherer"
+  },
+  "2102022": {
+    "zh": "Suspicious Gatherer",
+    "en": "Suspicious Gatherer"
+  },
+  "2102023": {
+    "zh": "Serene Gatherer",
+    "en": "Serene Gatherer"
+  },
+  "2102024": {
+    "zh": "Rice Farmer",
+    "en": "Rice Farmer"
+  },
+  "2102025": {
+    "zh": "Wheat Farmer",
+    "en": "Wheat Farmer"
+  },
+  "2102026": {
+    "zh": "Peanut Patrol",
+    "en": "Peanut Patrol"
+  },
+  "2102027": {
+    "zh": "Walnut Patrol",
+    "en": "Walnut Patrol"
+  },
+  "2102028": {
+    "zh": "Dawn Gatherer",
+    "en": "Dawn Gatherer"
+  },
+  "2102029": {
+    "zh": "Strange Gatherer",
+    "en": "Strange Gatherer"
+  },
+  "2102030": {
+    "zh": "Delicate Gatherer",
+    "en": "Delicate Gatherer"
+  },
+  "2102031": {
+    "zh": "Pure Gatherer",
+    "en": "Pure Gatherer"
+  },
+  "2102032": {
+    "zh": "Beekeeper",
+    "en": "Beekeeper"
+  },
+  "2102033": {
+    "zh": "Bird Egg Gatherer",
+    "en": "Bird Egg Gatherer"
+  },
+  "2102034": {
+    "zh": "Goose Egg Gatherer",
+    "en": "Goose Egg Gatherer"
+  },
+  "2103000": {
+    "zh": "Skilled Hunter",
+    "en": "Skilled Hunter"
+  },
+  "2103001": {
+    "zh": "A Hero's Beginning",
+    "en": "A Hero's Beginning"
+  },
+  "2103002": {
+    "zh": "Environmental Cleaner",
+    "en": "Environmental Cleaner"
+  },
+  "2103003": {
+    "zh": "One Who Erases Names",
+    "en": "One Who Erases Names"
+  },
+  "2103004": {
+    "zh": "Conqueror of Furcas",
+    "en": "Conqueror of Furcas"
+  },
+  "2103005": {
+    "zh": "Conqueror of Vanak",
+    "en": "Conqueror of Vanak"
+  },
+  "2103006": {
+    "zh": "Conqueror of Gallore the Collapse",
+    "en": "Conqueror of Gallore the Collapse"
+  },
+  "2103007": {
+    "zh": "Conqueror of Ghoul Greed",
+    "en": "Conqueror of Ghoul Greed"
+  },
+  "2103008": {
+    "zh": "Conqueror of the Earthlander",
+    "en": "Conqueror of the Earthlander"
+  },
+  "2103009": {
+    "zh": "the Roamer",
+    "en": "the Roamer"
+  },
+  "2103010": {
+    "zh": "the Predator",
+    "en": "the Predator"
+  },
+  "2103011": {
+    "zh": "Specter of Thirst",
+    "en": "Specter of Thirst"
+  },
+  "2103012": {
+    "zh": "Scraping",
+    "en": "Scraping"
+  },
+  "2103013": {
+    "zh": "Dark Necromancer",
+    "en": "Dark Necromancer"
+  },
+  "2103014": {
+    "zh": "Tyrant",
+    "en": "Tyrant"
+  },
+  "2103015": {
+    "zh": "Feather of Burning Ashes",
+    "en": "Feather of Burning Ashes"
+  },
+  "2103016": {
+    "zh": "Hungry Eye",
+    "en": "Hungry Eye"
+  },
+  "2103017": {
+    "zh": "Crushing Darkness",
+    "en": "Crushing Darkness"
+  },
+  "2103018": {
+    "zh": "One Who Broke the Dragon Horn",
+    "en": "One Who Broke the Dragon Horn"
+  },
+  "2103019": {
+    "zh": "One Who Broke the Thunderbolt",
+    "en": "One Who Broke the Thunderbolt"
+  },
+  "2104000": {
+    "zh": "Turning the Enemy Against Itself",
+    "en": "Turning the Enemy Against Itself"
+  },
+  "2104001": {
+    "zh": "Destroyer",
+    "en": "Destroyer"
+  },
+  "2104002": {
+    "zh": "Master of Ambush",
+    "en": "Master of Ambush"
+  },
+  "2104003": {
+    "zh": "Status Ailment Master",
+    "en": "Status Ailment Master"
+  },
+  "2104005": {
+    "zh": "Falling",
+    "en": "Falling"
+  },
+  "2104006": {
+    "zh": "Architect",
+    "en": "Architect"
+  },
+  "2104007": {
+    "zh": "【 777 】",
+    "en": "【 777 】"
+  },
+  "2104008": {
+    "zh": "Instagrab",
+    "en": "Instagrab"
+  },
+  "2104009": {
+    "zh": "Near-Death State",
+    "en": "Near-Death State"
+  },
+  "2104010": {
+    "zh": "One Whose Hobby Is Stomping",
+    "en": "One Whose Hobby Is Stomping"
+  },
+  "2104011": {
+    "zh": "One Who Defies Gravity",
+    "en": "One Who Defies Gravity"
+  },
+  "2104012": {
+    "zh": "Carousel",
+    "en": "Carousel"
+  },
+  "2104013": {
+    "zh": "Tycoon",
+    "en": "Tycoon"
+  },
+  "2104014": {
+    "zh": "Dragon's Word",
+    "en": "Dragon's Word"
+  },
+  "2104100": {
+    "zh": "Novice Mercenary Corps",
+    "en": "Novice Mercenary Corps"
+  },
+  "2104101": {
+    "zh": "Intermediate Mercenary Corps",
+    "en": "Intermediate Mercenary Corps"
+  },
+  "2104102": {
+    "zh": "High-Ranking Mercenary Corps",
+    "en": "High-Ranking Mercenary Corps"
+  },
+  "2104103": {
+    "zh": "Elite Mercenary Corps",
+    "en": "Elite Mercenary Corps"
+  },
+  "2104104": {
+    "zh": "Veteran Mercenary Corps",
+    "en": "Veteran Mercenary Corps"
+  },
+  "9990002": {
+    "zh": "Cartoon Lute",
+    "en": "Cartoon Lute"
+  },
+  "9990003": {
+    "zh": "Cartoon Castella",
+    "en": "Cartoon Castella"
+  },
+  "9990006": {
+    "zh": "Cartoon Aria",
+    "en": "Cartoon Aria"
+  },
+  "9990007": {
+    "zh": "Cartoon Johnny",
+    "en": "Cartoon Johnny"
+  },
+  "9990008": {
+    "zh": "Ophelia's Oath",
+    "en": "Ophelia's Oath"
+  },
+  "9990009": {
+    "zh": "Vow of Silence",
+    "en": "Vow of Silence"
+  },
+  "9990010": {
+    "zh": "Phantom Thief of Dawn",
+    "en": "Phantom Thief of Dawn"
+  },
+  "9990011": {
+    "zh": "Eve of Dawn",
+    "en": "Eve of Dawn"
+  },
+  "9990012": {
+    "zh": "Black-Dyed Vestment",
+    "en": "Black-Dyed Vestment"
+  },
+  "9990013": {
+    "zh": "Light-Shattering Judgment",
+    "en": "Light-Shattering Judgment"
+  },
+  "9990022": {
+    "zh": "Vestment of the Great Spirit",
+    "en": "Vestment of the Great Spirit"
+  },
+  "9990023": {
+    "zh": "Great Spirit's Vestment Weapon",
+    "en": "Great Spirit's Vestment Weapon"
+  },
+  "9990024": {
+    "zh": "Strawberry Waitress",
+    "en": "Strawberry Waitress"
+  },
+  "9990025": {
+    "zh": "Sweet Service",
+    "en": "Sweet Service"
+  },
+  "9990026": {
+    "zh": "Roderick Royal Uniform",
+    "en": "Roderick Royal Uniform"
+  },
+  "9990027": {
+    "zh": "Engraved Oath",
+    "en": "Engraved Oath"
+  },
+  "9990028": {
+    "zh": "Coral Summer Mischief",
+    "en": "Coral Summer Mischief"
+  },
+  "9990029": {
+    "zh": "Sunshine Heartshot",
+    "en": "Sunshine Heartshot"
+  },
+  "9990030": {
+    "zh": "White Flower of the Blue Waves",
+    "en": "White Flower of the Blue Waves"
+  },
+  "9990031": {
+    "zh": "Petals at the Wave's Edge",
+    "en": "Petals at the Wave's Edge"
+  }
+}

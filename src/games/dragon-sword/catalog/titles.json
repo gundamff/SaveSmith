@@ -1,1 +1,758 @@
-[]
+[
+  {
+    "titleId": 2100000,
+    "name": {
+      "zh": "Restorer of Grace",
+      "en": "Restorer of Grace"
+    }
+  },
+  {
+    "titleId": 2100001,
+    "name": {
+      "zh": "Pioneer of the Wind Path",
+      "en": "Pioneer of the Wind Path"
+    }
+  },
+  {
+    "titleId": 2100002,
+    "name": {
+      "zh": "Dungeon Conqueror",
+      "en": "Dungeon Conqueror"
+    }
+  },
+  {
+    "titleId": 2100003,
+    "name": {
+      "zh": "Guide of the World",
+      "en": "Guide of the World"
+    }
+  },
+  {
+    "titleId": 2100004,
+    "name": {
+      "zh": "Curious Hands",
+      "en": "Curious Hands"
+    }
+  },
+  {
+    "titleId": 2100005,
+    "name": {
+      "zh": "Chest Addict",
+      "en": "Chest Addict"
+    }
+  },
+  {
+    "titleId": 2100006,
+    "name": {
+      "zh": "Legendary Explorer",
+      "en": "Legendary Explorer"
+    }
+  },
+  {
+    "titleId": 2100007,
+    "name": {
+      "zh": "Loot Sweeper",
+      "en": "Loot Sweeper"
+    }
+  },
+  {
+    "titleId": 2100008,
+    "name": {
+      "zh": "Marmot Challenger",
+      "en": "Marmot Challenger"
+    }
+  },
+  {
+    "titleId": 2100009,
+    "name": {
+      "zh": "Master of Pressing",
+      "en": "Master of Pressing"
+    }
+  },
+  {
+    "titleId": 2100010,
+    "name": {
+      "zh": "Puzzle Solved by Pushing",
+      "en": "Puzzle Solved by Pushing"
+    }
+  },
+  {
+    "titleId": 2100011,
+    "name": {
+      "zh": "Nut Patrol",
+      "en": "Nut Patrol"
+    }
+  },
+  {
+    "titleId": 2100012,
+    "name": {
+      "zh": "Tail Tracker",
+      "en": "Tail Tracker"
+    }
+  },
+  {
+    "titleId": 2100013,
+    "name": {
+      "zh": "Victim and Perpetrator",
+      "en": "Victim and Perpetrator"
+    }
+  },
+  {
+    "titleId": 2100014,
+    "name": {
+      "zh": "A Small White Pang of Conscience",
+      "en": "A Small White Pang of Conscience"
+    }
+  },
+  {
+    "titleId": 2100015,
+    "name": {
+      "zh": "Uninvited Guest of the Nest",
+      "en": "Uninvited Guest of the Nest"
+    }
+  },
+  {
+    "titleId": 2100016,
+    "name": {
+      "zh": "World Traveling Chef",
+      "en": "World Traveling Chef"
+    }
+  },
+  {
+    "titleId": 2100017,
+    "name": {
+      "zh": "One Who Walks the Vein",
+      "en": "One Who Walks the Vein"
+    }
+  },
+  {
+    "titleId": 2100018,
+    "name": {
+      "zh": "Abundance Upon the Land",
+      "en": "Abundance Upon the Land"
+    }
+  },
+  {
+    "titleId": 2100019,
+    "name": {
+      "zh": "Patron of the Workshop",
+      "en": "Patron of the Workshop"
+    }
+  },
+  {
+    "titleId": 2101000,
+    "name": {
+      "zh": "Black Wings",
+      "en": "Black Wings"
+    }
+  },
+  {
+    "titleId": 2101001,
+    "name": {
+      "zh": "Impregnable",
+      "en": "Impregnable"
+    }
+  },
+  {
+    "titleId": 2101002,
+    "name": {
+      "zh": "One Who Connects The Six Heroes",
+      "en": "One Who Connects The Six Heroes"
+    }
+  },
+  {
+    "titleId": 2101003,
+    "name": {
+      "zh": "I Want to Do Missions",
+      "en": "I Want to Do Missions"
+    }
+  },
+  {
+    "titleId": 2101004,
+    "name": {
+      "zh": "Master of Mushroom Cuisine",
+      "en": "Master of Mushroom Cuisine"
+    }
+  },
+  {
+    "titleId": 2101005,
+    "name": {
+      "zh": "Doting Parent",
+      "en": "Doting Parent"
+    }
+  },
+  {
+    "titleId": 2101006,
+    "name": {
+      "zh": "Awaken, Hero",
+      "en": "Awaken, Hero"
+    }
+  },
+  {
+    "titleId": 2101007,
+    "name": {
+      "zh": "Synthesizer of Snow",
+      "en": "Synthesizer of Snow"
+    }
+  },
+  {
+    "titleId": 2101008,
+    "name": {
+      "zh": "Sage of the Blue Moon",
+      "en": "Sage of the Blue Moon"
+    }
+  },
+  {
+    "titleId": 2101009,
+    "name": {
+      "zh": "Saintess of Dawn",
+      "en": "Saintess of Dawn"
+    }
+  },
+  {
+    "titleId": 2101010,
+    "name": {
+      "zh": "Inquisitor",
+      "en": "Inquisitor"
+    }
+  },
+  {
+    "titleId": 2101011,
+    "name": {
+      "zh": "Red Fox",
+      "en": "Red Fox"
+    }
+  },
+  {
+    "titleId": 2101012,
+    "name": {
+      "zh": "Kind",
+      "en": "Kind"
+    }
+  },
+  {
+    "titleId": 2101013,
+    "name": {
+      "zh": "Fixer",
+      "en": "Fixer"
+    }
+  },
+  {
+    "titleId": 2102000,
+    "name": {
+      "zh": "Rabbit Hunter",
+      "en": "Rabbit Hunter"
+    }
+  },
+  {
+    "titleId": 2102001,
+    "name": {
+      "zh": "Goose Hunter",
+      "en": "Goose Hunter"
+    }
+  },
+  {
+    "titleId": 2102002,
+    "name": {
+      "zh": "Boar Hunter",
+      "en": "Boar Hunter"
+    }
+  },
+  {
+    "titleId": 2102003,
+    "name": {
+      "zh": "Fox Hunter",
+      "en": "Fox Hunter"
+    }
+  },
+  {
+    "titleId": 2102004,
+    "name": {
+      "zh": "Riverside Angler",
+      "en": "Riverside Angler"
+    }
+  },
+  {
+    "titleId": 2102005,
+    "name": {
+      "zh": "Silver Angler",
+      "en": "Silver Angler"
+    }
+  },
+  {
+    "titleId": 2102006,
+    "name": {
+      "zh": "Upstream Angler",
+      "en": "Upstream Angler"
+    }
+  },
+  {
+    "titleId": 2102007,
+    "name": {
+      "zh": "Sand Gatherer",
+      "en": "Sand Gatherer"
+    }
+  },
+  {
+    "titleId": 2102008,
+    "name": {
+      "zh": "Waterside Gatherer",
+      "en": "Waterside Gatherer"
+    }
+  },
+  {
+    "titleId": 2102009,
+    "name": {
+      "zh": "Beach Gatherer",
+      "en": "Beach Gatherer"
+    }
+  },
+  {
+    "titleId": 2102010,
+    "name": {
+      "zh": "Wave Gatherer",
+      "en": "Wave Gatherer"
+    }
+  },
+  {
+    "titleId": 2102011,
+    "name": {
+      "zh": "Root Gatherer",
+      "en": "Root Gatherer"
+    }
+  },
+  {
+    "titleId": 2102012,
+    "name": {
+      "zh": "Water Gatherer",
+      "en": "Water Gatherer"
+    }
+  },
+  {
+    "titleId": 2102013,
+    "name": {
+      "zh": "Crimson Gatherer",
+      "en": "Crimson Gatherer"
+    }
+  },
+  {
+    "titleId": 2102014,
+    "name": {
+      "zh": "Fragrant Gatherer",
+      "en": "Fragrant Gatherer"
+    }
+  },
+  {
+    "titleId": 2102015,
+    "name": {
+      "zh": "Blue Gatherer",
+      "en": "Blue Gatherer"
+    }
+  },
+  {
+    "titleId": 2102016,
+    "name": {
+      "zh": "Small Gatherer",
+      "en": "Small Gatherer"
+    }
+  },
+  {
+    "titleId": 2102017,
+    "name": {
+      "zh": "Pure White Gatherer",
+      "en": "Pure White Gatherer"
+    }
+  },
+  {
+    "titleId": 2102018,
+    "name": {
+      "zh": "Verdant Gatherer",
+      "en": "Verdant Gatherer"
+    }
+  },
+  {
+    "titleId": 2102019,
+    "name": {
+      "zh": "Violet Gatherer",
+      "en": "Violet Gatherer"
+    }
+  },
+  {
+    "titleId": 2102020,
+    "name": {
+      "zh": "Hardy Gatherer",
+      "en": "Hardy Gatherer"
+    }
+  },
+  {
+    "titleId": 2102021,
+    "name": {
+      "zh": "Nature Gatherer",
+      "en": "Nature Gatherer"
+    }
+  },
+  {
+    "titleId": 2102022,
+    "name": {
+      "zh": "Suspicious Gatherer",
+      "en": "Suspicious Gatherer"
+    }
+  },
+  {
+    "titleId": 2102023,
+    "name": {
+      "zh": "Serene Gatherer",
+      "en": "Serene Gatherer"
+    }
+  },
+  {
+    "titleId": 2102024,
+    "name": {
+      "zh": "Rice Farmer",
+      "en": "Rice Farmer"
+    }
+  },
+  {
+    "titleId": 2102025,
+    "name": {
+      "zh": "Wheat Farmer",
+      "en": "Wheat Farmer"
+    }
+  },
+  {
+    "titleId": 2102026,
+    "name": {
+      "zh": "Peanut Patrol",
+      "en": "Peanut Patrol"
+    }
+  },
+  {
+    "titleId": 2102027,
+    "name": {
+      "zh": "Walnut Patrol",
+      "en": "Walnut Patrol"
+    }
+  },
+  {
+    "titleId": 2102028,
+    "name": {
+      "zh": "Dawn Gatherer",
+      "en": "Dawn Gatherer"
+    }
+  },
+  {
+    "titleId": 2102029,
+    "name": {
+      "zh": "Strange Gatherer",
+      "en": "Strange Gatherer"
+    }
+  },
+  {
+    "titleId": 2102030,
+    "name": {
+      "zh": "Delicate Gatherer",
+      "en": "Delicate Gatherer"
+    }
+  },
+  {
+    "titleId": 2102031,
+    "name": {
+      "zh": "Pure Gatherer",
+      "en": "Pure Gatherer"
+    }
+  },
+  {
+    "titleId": 2102032,
+    "name": {
+      "zh": "Beekeeper",
+      "en": "Beekeeper"
+    }
+  },
+  {
+    "titleId": 2102033,
+    "name": {
+      "zh": "Bird Egg Gatherer",
+      "en": "Bird Egg Gatherer"
+    }
+  },
+  {
+    "titleId": 2102034,
+    "name": {
+      "zh": "Goose Egg Gatherer",
+      "en": "Goose Egg Gatherer"
+    }
+  },
+  {
+    "titleId": 2103000,
+    "name": {
+      "zh": "Skilled Hunter",
+      "en": "Skilled Hunter"
+    }
+  },
+  {
+    "titleId": 2103001,
+    "name": {
+      "zh": "A Hero's Beginning",
+      "en": "A Hero's Beginning"
+    }
+  },
+  {
+    "titleId": 2103002,
+    "name": {
+      "zh": "Environmental Cleaner",
+      "en": "Environmental Cleaner"
+    }
+  },
+  {
+    "titleId": 2103003,
+    "name": {
+      "zh": "One Who Erases Names",
+      "en": "One Who Erases Names"
+    }
+  },
+  {
+    "titleId": 2103004,
+    "name": {
+      "zh": "Conqueror of Furcas",
+      "en": "Conqueror of Furcas"
+    }
+  },
+  {
+    "titleId": 2103005,
+    "name": {
+      "zh": "Conqueror of Vanak",
+      "en": "Conqueror of Vanak"
+    }
+  },
+  {
+    "titleId": 2103006,
+    "name": {
+      "zh": "Conqueror of Gallore the Collapse",
+      "en": "Conqueror of Gallore the Collapse"
+    }
+  },
+  {
+    "titleId": 2103007,
+    "name": {
+      "zh": "Conqueror of Ghoul Greed",
+      "en": "Conqueror of Ghoul Greed"
+    }
+  },
+  {
+    "titleId": 2103008,
+    "name": {
+      "zh": "Conqueror of the Earthlander",
+      "en": "Conqueror of the Earthlander"
+    }
+  },
+  {
+    "titleId": 2103009,
+    "name": {
+      "zh": "the Roamer",
+      "en": "the Roamer"
+    }
+  },
+  {
+    "titleId": 2103010,
+    "name": {
+      "zh": "the Predator",
+      "en": "the Predator"
+    }
+  },
+  {
+    "titleId": 2103011,
+    "name": {
+      "zh": "Specter of Thirst",
+      "en": "Specter of Thirst"
+    }
+  },
+  {
+    "titleId": 2103012,
+    "name": {
+      "zh": "Scraping",
+      "en": "Scraping"
+    }
+  },
+  {
+    "titleId": 2103013,
+    "name": {
+      "zh": "Dark Necromancer",
+      "en": "Dark Necromancer"
+    }
+  },
+  {
+    "titleId": 2103014,
+    "name": {
+      "zh": "Tyrant",
+      "en": "Tyrant"
+    }
+  },
+  {
+    "titleId": 2103015,
+    "name": {
+      "zh": "Feather of Burning Ashes",
+      "en": "Feather of Burning Ashes"
+    }
+  },
+  {
+    "titleId": 2103016,
+    "name": {
+      "zh": "Hungry Eye",
+      "en": "Hungry Eye"
+    }
+  },
+  {
+    "titleId": 2103017,
+    "name": {
+      "zh": "Crushing Darkness",
+      "en": "Crushing Darkness"
+    }
+  },
+  {
+    "titleId": 2103018,
+    "name": {
+      "zh": "One Who Broke the Dragon Horn",
+      "en": "One Who Broke the Dragon Horn"
+    }
+  },
+  {
+    "titleId": 2103019,
+    "name": {
+      "zh": "One Who Broke the Thunderbolt",
+      "en": "One Who Broke the Thunderbolt"
+    }
+  },
+  {
+    "titleId": 2104000,
+    "name": {
+      "zh": "Turning the Enemy Against Itself",
+      "en": "Turning the Enemy Against Itself"
+    }
+  },
+  {
+    "titleId": 2104001,
+    "name": {
+      "zh": "Destroyer",
+      "en": "Destroyer"
+    }
+  },
+  {
+    "titleId": 2104002,
+    "name": {
+      "zh": "Master of Ambush",
+      "en": "Master of Ambush"
+    }
+  },
+  {
+    "titleId": 2104003,
+    "name": {
+      "zh": "Status Ailment Master",
+      "en": "Status Ailment Master"
+    }
+  },
+  {
+    "titleId": 2104005,
+    "name": {
+      "zh": "Falling",
+      "en": "Falling"
+    }
+  },
+  {
+    "titleId": 2104006,
+    "name": {
+      "zh": "Architect",
+      "en": "Architect"
+    }
+  },
+  {
+    "titleId": 2104007,
+    "name": {
+      "zh": "【 777 】",
+      "en": "【 777 】"
+    }
+  },
+  {
+    "titleId": 2104008,
+    "name": {
+      "zh": "Instagrab",
+      "en": "Instagrab"
+    }
+  },
+  {
+    "titleId": 2104009,
+    "name": {
+      "zh": "Near-Death State",
+      "en": "Near-Death State"
+    }
+  },
+  {
+    "titleId": 2104010,
+    "name": {
+      "zh": "One Whose Hobby Is Stomping",
+      "en": "One Whose Hobby Is Stomping"
+    }
+  },
+  {
+    "titleId": 2104011,
+    "name": {
+      "zh": "One Who Defies Gravity",
+      "en": "One Who Defies Gravity"
+    }
+  },
+  {
+    "titleId": 2104012,
+    "name": {
+      "zh": "Carousel",
+      "en": "Carousel"
+    }
+  },
+  {
+    "titleId": 2104013,
+    "name": {
+      "zh": "Tycoon",
+      "en": "Tycoon"
+    }
+  },
+  {
+    "titleId": 2104014,
+    "name": {
+      "zh": "Dragon's Word",
+      "en": "Dragon's Word"
+    }
+  },
+  {
+    "titleId": 2104100,
+    "name": {
+      "zh": "Novice Mercenary Corps",
+      "en": "Novice Mercenary Corps"
+    }
+  },
+  {
+    "titleId": 2104101,
+    "name": {
+      "zh": "Intermediate Mercenary Corps",
+      "en": "Intermediate Mercenary Corps"
+    }
+  },
+  {
+    "titleId": 2104102,
+    "name": {
+      "zh": "High-Ranking Mercenary Corps",
+      "en": "High-Ranking Mercenary Corps"
+    }
+  },
+  {
+    "titleId": 2104103,
+    "name": {
+      "zh": "Elite Mercenary Corps",
+      "en": "Elite Mercenary Corps"
+    }
+  },
+  {
+    "titleId": 2104104,
+    "name": {
+      "zh": "Veteran Mercenary Corps",
+      "en": "Veteran Mercenary Corps"
+    }
+  }
+]

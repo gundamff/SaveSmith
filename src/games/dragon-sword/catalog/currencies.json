@@ -1,5 +1,86 @@
 [
-  { "itemCid": 1000001, "name": { "zh": "金币", "en": "Gold" } },
-  { "itemCid": 1000002, "name": { "zh": "钻石", "en": "Diamond" } },
-  { "itemCid": 1000003, "name": { "zh": "体力", "en": "Stamina" } }
+  {
+    "itemCid": 1000001,
+    "name": {
+      "zh": "Gold",
+      "en": "Gold"
+    }
+  },
+  {
+    "itemCid": 1000002,
+    "name": {
+      "zh": "Aether Crystals",
+      "en": "Aether Crystals"
+    }
+  },
+  {
+    "itemCid": 1000003,
+    "name": {
+      "zh": "Emeralds",
+      "en": "Emeralds"
+    }
+  },
+  {
+    "itemCid": 1000004,
+    "name": {
+      "zh": "Emeralds",
+      "en": "Emeralds"
+    }
+  },
+  {
+    "itemCid": 1000005,
+    "name": {
+      "zh": "Aether Crystals",
+      "en": "Aether Crystals"
+    }
+  },
+  {
+    "itemCid": 1000101,
+    "name": {
+      "zh": "Key of Light",
+      "en": "Key of Light"
+    }
+  },
+  {
+    "itemCid": 1000102,
+    "name": {
+      "zh": "Ring of Light",
+      "en": "Ring of Light"
+    }
+  },
+  {
+    "itemCid": 1000103,
+    "name": {
+      "zh": "Relic of Light",
+      "en": "Relic of Light"
+    }
+  },
+  {
+    "itemCid": 1000104,
+    "name": {
+      "zh": "Key of Light Vault",
+      "en": "Key of Light Vault"
+    }
+  },
+  {
+    "itemCid": 1000201,
+    "name": {
+      "zh": "Mercenary Corps Rank EXP",
+      "en": "Mercenary Corps Rank EXP"
+    }
+  },
+  {
+    "itemCid": 1000202,
+    "name": {
+      "zh": "Hero EXP",
+      "en": "Hero EXP"
+    }
+  },
+  {
+    "itemCid": 1000700,
+    "name": {
+      "zh": "The Quill of Memories",
+      "en": "The Quill of Memories"
+    }
+  }
 ]

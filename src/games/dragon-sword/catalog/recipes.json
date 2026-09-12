@@ -1,1 +1,8202 @@
-[]
+[
+  {
+    "switchKey": 1001,
+    "dishCid": 1420101,
+    "name": {
+      "zh": "Grilled Meat",
+      "en": "Grilled Meat"
+    }
+  },
+  {
+    "switchKey": 1002,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1003,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1004,
+    "dishCid": 1420104,
+    "name": {
+      "zh": "Roasted Vegetables",
+      "en": "Roasted Vegetables"
+    }
+  },
+  {
+    "switchKey": 1005,
+    "dishCid": 1420122,
+    "name": {
+      "zh": "Herb Grill",
+      "en": "Herb Grill"
+    }
+  },
+  {
+    "switchKey": 1006,
+    "dishCid": 1420105,
+    "name": {
+      "zh": "Grilled Mushrooms",
+      "en": "Grilled Mushrooms"
+    }
+  },
+  {
+    "switchKey": 1007,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1008,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1009,
+    "dishCid": 1420107,
+    "name": {
+      "zh": "Fried Egg",
+      "en": "Fried Egg"
+    }
+  },
+  {
+    "switchKey": 1010,
+    "dishCid": 1420101,
+    "name": {
+      "zh": "Grilled Meat",
+      "en": "Grilled Meat"
+    }
+  },
+  {
+    "switchKey": 1011,
+    "dishCid": 1420108,
+    "name": {
+      "zh": "Double Steak",
+      "en": "Double Steak"
+    }
+  },
+  {
+    "switchKey": 1012,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1013,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1014,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1015,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1016,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1017,
+    "dishCid": 1420110,
+    "name": {
+      "zh": "Meat Bowl",
+      "en": "Meat Bowl"
+    }
+  },
+  {
+    "switchKey": 1018,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1019,
+    "dishCid": 1420111,
+    "name": {
+      "zh": "Assorted Grilled Fish",
+      "en": "Assorted Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1020,
+    "dishCid": 1420112,
+    "name": {
+      "zh": "Seafood Platter",
+      "en": "Seafood Platter"
+    }
+  },
+  {
+    "switchKey": 1021,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1022,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1023,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1024,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1025,
+    "dishCid": 1420113,
+    "name": {
+      "zh": "Grilled Fish Bowl",
+      "en": "Grilled Fish Bowl"
+    }
+  },
+  {
+    "switchKey": 1026,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1027,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1028,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1029,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1030,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1031,
+    "dishCid": 1420114,
+    "name": {
+      "zh": "Seafood Pasta",
+      "en": "Seafood Pasta"
+    }
+  },
+  {
+    "switchKey": 1032,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1033,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1034,
+    "dishCid": 1420104,
+    "name": {
+      "zh": "Roasted Vegetables",
+      "en": "Roasted Vegetables"
+    }
+  },
+  {
+    "switchKey": 1035,
+    "dishCid": 1420104,
+    "name": {
+      "zh": "Roasted Vegetables",
+      "en": "Roasted Vegetables"
+    }
+  },
+  {
+    "switchKey": 1036,
+    "dishCid": 1420115,
+    "name": {
+      "zh": "Stir-fried Mushrooms and Vegetables",
+      "en": "Stir-fried Mushrooms and Vegetables"
+    }
+  },
+  {
+    "switchKey": 1037,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1038,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1039,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1040,
+    "dishCid": 1420122,
+    "name": {
+      "zh": "Herb Grill",
+      "en": "Herb Grill"
+    }
+  },
+  {
+    "switchKey": 1041,
+    "dishCid": 1420105,
+    "name": {
+      "zh": "Grilled Mushrooms",
+      "en": "Grilled Mushrooms"
+    }
+  },
+  {
+    "switchKey": 1042,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1043,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1044,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1045,
+    "dishCid": 1420105,
+    "name": {
+      "zh": "Grilled Mushrooms",
+      "en": "Grilled Mushrooms"
+    }
+  },
+  {
+    "switchKey": 1046,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1047,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1048,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1049,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1050,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1051,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1052,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1053,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1054,
+    "dishCid": 1420107,
+    "name": {
+      "zh": "Fried Egg",
+      "en": "Fried Egg"
+    }
+  },
+  {
+    "switchKey": 1055,
+    "dishCid": 1420101,
+    "name": {
+      "zh": "Grilled Meat",
+      "en": "Grilled Meat"
+    }
+  },
+  {
+    "switchKey": 1056,
+    "dishCid": 1420108,
+    "name": {
+      "zh": "Double Steak",
+      "en": "Double Steak"
+    }
+  },
+  {
+    "switchKey": 1057,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1058,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1059,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1060,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1061,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1062,
+    "dishCid": 1420110,
+    "name": {
+      "zh": "Meat Bowl",
+      "en": "Meat Bowl"
+    }
+  },
+  {
+    "switchKey": 1063,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1064,
+    "dishCid": 1420108,
+    "name": {
+      "zh": "Double Steak",
+      "en": "Double Steak"
+    }
+  },
+  {
+    "switchKey": 1065,
+    "dishCid": 1420108,
+    "name": {
+      "zh": "Double Steak",
+      "en": "Double Steak"
+    }
+  },
+  {
+    "switchKey": 1066,
+    "dishCid": 1420108,
+    "name": {
+      "zh": "Double Steak",
+      "en": "Double Steak"
+    }
+  },
+  {
+    "switchKey": 1067,
+    "dishCid": 1420108,
+    "name": {
+      "zh": "Double Steak",
+      "en": "Double Steak"
+    }
+  },
+  {
+    "switchKey": 1068,
+    "dishCid": 1420108,
+    "name": {
+      "zh": "Double Steak",
+      "en": "Double Steak"
+    }
+  },
+  {
+    "switchKey": 1069,
+    "dishCid": 1420108,
+    "name": {
+      "zh": "Double Steak",
+      "en": "Double Steak"
+    }
+  },
+  {
+    "switchKey": 1070,
+    "dishCid": 1420108,
+    "name": {
+      "zh": "Double Steak",
+      "en": "Double Steak"
+    }
+  },
+  {
+    "switchKey": 1071,
+    "dishCid": 1420108,
+    "name": {
+      "zh": "Double Steak",
+      "en": "Double Steak"
+    }
+  },
+  {
+    "switchKey": 1072,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1073,
+    "dishCid": 1420117,
+    "name": {
+      "zh": "Steak Set Meal",
+      "en": "Steak Set Meal"
+    }
+  },
+  {
+    "switchKey": 1074,
+    "dishCid": 1420117,
+    "name": {
+      "zh": "Steak Set Meal",
+      "en": "Steak Set Meal"
+    }
+  },
+  {
+    "switchKey": 1075,
+    "dishCid": 1420117,
+    "name": {
+      "zh": "Steak Set Meal",
+      "en": "Steak Set Meal"
+    }
+  },
+  {
+    "switchKey": 1076,
+    "dishCid": 1420117,
+    "name": {
+      "zh": "Steak Set Meal",
+      "en": "Steak Set Meal"
+    }
+  },
+  {
+    "switchKey": 1077,
+    "dishCid": 1420117,
+    "name": {
+      "zh": "Steak Set Meal",
+      "en": "Steak Set Meal"
+    }
+  },
+  {
+    "switchKey": 1078,
+    "dishCid": 1420117,
+    "name": {
+      "zh": "Steak Set Meal",
+      "en": "Steak Set Meal"
+    }
+  },
+  {
+    "switchKey": 1079,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1080,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1081,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1082,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1083,
+    "dishCid": 1420110,
+    "name": {
+      "zh": "Meat Bowl",
+      "en": "Meat Bowl"
+    }
+  },
+  {
+    "switchKey": 1084,
+    "dishCid": 1420118,
+    "name": {
+      "zh": "Hamburger Steak",
+      "en": "Hamburger Steak"
+    }
+  },
+  {
+    "switchKey": 1085,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1086,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1087,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1088,
+    "dishCid": 1420110,
+    "name": {
+      "zh": "Meat Bowl",
+      "en": "Meat Bowl"
+    }
+  },
+  {
+    "switchKey": 1089,
+    "dishCid": 1420118,
+    "name": {
+      "zh": "Hamburger Steak",
+      "en": "Hamburger Steak"
+    }
+  },
+  {
+    "switchKey": 1090,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1091,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1092,
+    "dishCid": 1420110,
+    "name": {
+      "zh": "Meat Bowl",
+      "en": "Meat Bowl"
+    }
+  },
+  {
+    "switchKey": 1093,
+    "dishCid": 1420118,
+    "name": {
+      "zh": "Hamburger Steak",
+      "en": "Hamburger Steak"
+    }
+  },
+  {
+    "switchKey": 1094,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1095,
+    "dishCid": 1420110,
+    "name": {
+      "zh": "Meat Bowl",
+      "en": "Meat Bowl"
+    }
+  },
+  {
+    "switchKey": 1096,
+    "dishCid": 1420110,
+    "name": {
+      "zh": "Meat Bowl",
+      "en": "Meat Bowl"
+    }
+  },
+  {
+    "switchKey": 1097,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1098,
+    "dishCid": 1420118,
+    "name": {
+      "zh": "Hamburger Steak",
+      "en": "Hamburger Steak"
+    }
+  },
+  {
+    "switchKey": 1099,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1100,
+    "dishCid": 1420111,
+    "name": {
+      "zh": "Assorted Grilled Fish",
+      "en": "Assorted Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1101,
+    "dishCid": 1420112,
+    "name": {
+      "zh": "Seafood Platter",
+      "en": "Seafood Platter"
+    }
+  },
+  {
+    "switchKey": 1102,
+    "dishCid": 1420111,
+    "name": {
+      "zh": "Assorted Grilled Fish",
+      "en": "Assorted Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1103,
+    "dishCid": 1420111,
+    "name": {
+      "zh": "Assorted Grilled Fish",
+      "en": "Assorted Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1104,
+    "dishCid": 1420111,
+    "name": {
+      "zh": "Assorted Grilled Fish",
+      "en": "Assorted Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1105,
+    "dishCid": 1420111,
+    "name": {
+      "zh": "Assorted Grilled Fish",
+      "en": "Assorted Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1106,
+    "dishCid": 1420113,
+    "name": {
+      "zh": "Grilled Fish Bowl",
+      "en": "Grilled Fish Bowl"
+    }
+  },
+  {
+    "switchKey": 1107,
+    "dishCid": 1420111,
+    "name": {
+      "zh": "Assorted Grilled Fish",
+      "en": "Assorted Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1108,
+    "dishCid": 1420112,
+    "name": {
+      "zh": "Seafood Platter",
+      "en": "Seafood Platter"
+    }
+  },
+  {
+    "switchKey": 1109,
+    "dishCid": 1420112,
+    "name": {
+      "zh": "Seafood Platter",
+      "en": "Seafood Platter"
+    }
+  },
+  {
+    "switchKey": 1110,
+    "dishCid": 1420112,
+    "name": {
+      "zh": "Seafood Platter",
+      "en": "Seafood Platter"
+    }
+  },
+  {
+    "switchKey": 1111,
+    "dishCid": 1420112,
+    "name": {
+      "zh": "Seafood Platter",
+      "en": "Seafood Platter"
+    }
+  },
+  {
+    "switchKey": 1112,
+    "dishCid": 1420112,
+    "name": {
+      "zh": "Seafood Platter",
+      "en": "Seafood Platter"
+    }
+  },
+  {
+    "switchKey": 1113,
+    "dishCid": 1420112,
+    "name": {
+      "zh": "Seafood Platter",
+      "en": "Seafood Platter"
+    }
+  },
+  {
+    "switchKey": 1114,
+    "dishCid": 1420112,
+    "name": {
+      "zh": "Seafood Platter",
+      "en": "Seafood Platter"
+    }
+  },
+  {
+    "switchKey": 1115,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1116,
+    "dishCid": 1420119,
+    "name": {
+      "zh": "Fish Steak",
+      "en": "Fish Steak"
+    }
+  },
+  {
+    "switchKey": 1117,
+    "dishCid": 1420119,
+    "name": {
+      "zh": "Fish Steak",
+      "en": "Fish Steak"
+    }
+  },
+  {
+    "switchKey": 1118,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1119,
+    "dishCid": 1420113,
+    "name": {
+      "zh": "Grilled Fish Bowl",
+      "en": "Grilled Fish Bowl"
+    }
+  },
+  {
+    "switchKey": 1120,
+    "dishCid": 1420119,
+    "name": {
+      "zh": "Fish Steak",
+      "en": "Fish Steak"
+    }
+  },
+  {
+    "switchKey": 1121,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1122,
+    "dishCid": 1420119,
+    "name": {
+      "zh": "Fish Steak",
+      "en": "Fish Steak"
+    }
+  },
+  {
+    "switchKey": 1123,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1124,
+    "dishCid": 1420113,
+    "name": {
+      "zh": "Grilled Fish Bowl",
+      "en": "Grilled Fish Bowl"
+    }
+  },
+  {
+    "switchKey": 1125,
+    "dishCid": 1420119,
+    "name": {
+      "zh": "Fish Steak",
+      "en": "Fish Steak"
+    }
+  },
+  {
+    "switchKey": 1126,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1127,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1128,
+    "dishCid": 1420113,
+    "name": {
+      "zh": "Grilled Fish Bowl",
+      "en": "Grilled Fish Bowl"
+    }
+  },
+  {
+    "switchKey": 1129,
+    "dishCid": 1420119,
+    "name": {
+      "zh": "Fish Steak",
+      "en": "Fish Steak"
+    }
+  },
+  {
+    "switchKey": 1130,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1131,
+    "dishCid": 1420113,
+    "name": {
+      "zh": "Grilled Fish Bowl",
+      "en": "Grilled Fish Bowl"
+    }
+  },
+  {
+    "switchKey": 1132,
+    "dishCid": 1420113,
+    "name": {
+      "zh": "Grilled Fish Bowl",
+      "en": "Grilled Fish Bowl"
+    }
+  },
+  {
+    "switchKey": 1133,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1134,
+    "dishCid": 1420113,
+    "name": {
+      "zh": "Grilled Fish Bowl",
+      "en": "Grilled Fish Bowl"
+    }
+  },
+  {
+    "switchKey": 1135,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1136,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1137,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1138,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1139,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1140,
+    "dishCid": 1420114,
+    "name": {
+      "zh": "Seafood Pasta",
+      "en": "Seafood Pasta"
+    }
+  },
+  {
+    "switchKey": 1141,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1142,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1143,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1144,
+    "dishCid": 1420120,
+    "name": {
+      "zh": "Seafood Teppanyaki",
+      "en": "Seafood Teppanyaki"
+    }
+  },
+  {
+    "switchKey": 1145,
+    "dishCid": 1420120,
+    "name": {
+      "zh": "Seafood Teppanyaki",
+      "en": "Seafood Teppanyaki"
+    }
+  },
+  {
+    "switchKey": 1146,
+    "dishCid": 1420114,
+    "name": {
+      "zh": "Seafood Pasta",
+      "en": "Seafood Pasta"
+    }
+  },
+  {
+    "switchKey": 1147,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1148,
+    "dishCid": 1420120,
+    "name": {
+      "zh": "Seafood Teppanyaki",
+      "en": "Seafood Teppanyaki"
+    }
+  },
+  {
+    "switchKey": 1149,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1150,
+    "dishCid": 1420120,
+    "name": {
+      "zh": "Seafood Teppanyaki",
+      "en": "Seafood Teppanyaki"
+    }
+  },
+  {
+    "switchKey": 1151,
+    "dishCid": 1420114,
+    "name": {
+      "zh": "Seafood Pasta",
+      "en": "Seafood Pasta"
+    }
+  },
+  {
+    "switchKey": 1152,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1153,
+    "dishCid": 1420120,
+    "name": {
+      "zh": "Seafood Teppanyaki",
+      "en": "Seafood Teppanyaki"
+    }
+  },
+  {
+    "switchKey": 1154,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1155,
+    "dishCid": 1420114,
+    "name": {
+      "zh": "Seafood Pasta",
+      "en": "Seafood Pasta"
+    }
+  },
+  {
+    "switchKey": 1156,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1157,
+    "dishCid": 1420120,
+    "name": {
+      "zh": "Seafood Teppanyaki",
+      "en": "Seafood Teppanyaki"
+    }
+  },
+  {
+    "switchKey": 1158,
+    "dishCid": 1420114,
+    "name": {
+      "zh": "Seafood Pasta",
+      "en": "Seafood Pasta"
+    }
+  },
+  {
+    "switchKey": 1159,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1160,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1161,
+    "dishCid": 1420114,
+    "name": {
+      "zh": "Seafood Pasta",
+      "en": "Seafood Pasta"
+    }
+  },
+  {
+    "switchKey": 1162,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1163,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1164,
+    "dishCid": 1420104,
+    "name": {
+      "zh": "Roasted Vegetables",
+      "en": "Roasted Vegetables"
+    }
+  },
+  {
+    "switchKey": 1165,
+    "dishCid": 1420104,
+    "name": {
+      "zh": "Roasted Vegetables",
+      "en": "Roasted Vegetables"
+    }
+  },
+  {
+    "switchKey": 1166,
+    "dishCid": 1420115,
+    "name": {
+      "zh": "Stir-fried Mushrooms and Vegetables",
+      "en": "Stir-fried Mushrooms and Vegetables"
+    }
+  },
+  {
+    "switchKey": 1167,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1168,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1169,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1170,
+    "dishCid": 1420104,
+    "name": {
+      "zh": "Roasted Vegetables",
+      "en": "Roasted Vegetables"
+    }
+  },
+  {
+    "switchKey": 1171,
+    "dishCid": 1420115,
+    "name": {
+      "zh": "Stir-fried Mushrooms and Vegetables",
+      "en": "Stir-fried Mushrooms and Vegetables"
+    }
+  },
+  {
+    "switchKey": 1172,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1173,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1174,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1175,
+    "dishCid": 1420115,
+    "name": {
+      "zh": "Stir-fried Mushrooms and Vegetables",
+      "en": "Stir-fried Mushrooms and Vegetables"
+    }
+  },
+  {
+    "switchKey": 1176,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1177,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1178,
+    "dishCid": 1420121,
+    "name": {
+      "zh": "Omelet",
+      "en": "Omelet"
+    }
+  },
+  {
+    "switchKey": 1179,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1180,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1181,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1182,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1183,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1184,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1185,
+    "dishCid": 1420122,
+    "name": {
+      "zh": "Herb Grill",
+      "en": "Herb Grill"
+    }
+  },
+  {
+    "switchKey": 1186,
+    "dishCid": 1420105,
+    "name": {
+      "zh": "Grilled Mushrooms",
+      "en": "Grilled Mushrooms"
+    }
+  },
+  {
+    "switchKey": 1187,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1188,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1189,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1190,
+    "dishCid": 1420105,
+    "name": {
+      "zh": "Grilled Mushrooms",
+      "en": "Grilled Mushrooms"
+    }
+  },
+  {
+    "switchKey": 1191,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1192,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1193,
+    "dishCid": 1420121,
+    "name": {
+      "zh": "Omelet",
+      "en": "Omelet"
+    }
+  },
+  {
+    "switchKey": 1194,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1195,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1196,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1197,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1198,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1199,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1200,
+    "dishCid": 1420105,
+    "name": {
+      "zh": "Grilled Mushrooms",
+      "en": "Grilled Mushrooms"
+    }
+  },
+  {
+    "switchKey": 1201,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1202,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1203,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1204,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1205,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1206,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1207,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1208,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1209,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1210,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1211,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1212,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1213,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1214,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1215,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1216,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1217,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1218,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1219,
+    "dishCid": 1420107,
+    "name": {
+      "zh": "Fried Egg",
+      "en": "Fried Egg"
+    }
+  },
+  {
+    "switchKey": 1220,
+    "dishCid": 1420101,
+    "name": {
+      "zh": "Grilled Meat",
+      "en": "Grilled Meat"
+    }
+  },
+  {
+    "switchKey": 1221,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1222,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1223,
+    "dishCid": 1420104,
+    "name": {
+      "zh": "Roasted Vegetables",
+      "en": "Roasted Vegetables"
+    }
+  },
+  {
+    "switchKey": 1224,
+    "dishCid": 1420122,
+    "name": {
+      "zh": "Herb Grill",
+      "en": "Herb Grill"
+    }
+  },
+  {
+    "switchKey": 1225,
+    "dishCid": 1420105,
+    "name": {
+      "zh": "Grilled Mushrooms",
+      "en": "Grilled Mushrooms"
+    }
+  },
+  {
+    "switchKey": 1226,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1227,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1228,
+    "dishCid": 1420107,
+    "name": {
+      "zh": "Fried Egg",
+      "en": "Fried Egg"
+    }
+  },
+  {
+    "switchKey": 1229,
+    "dishCid": 1420101,
+    "name": {
+      "zh": "Grilled Meat",
+      "en": "Grilled Meat"
+    }
+  },
+  {
+    "switchKey": 1230,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1231,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1232,
+    "dishCid": 1420104,
+    "name": {
+      "zh": "Roasted Vegetables",
+      "en": "Roasted Vegetables"
+    }
+  },
+  {
+    "switchKey": 1233,
+    "dishCid": 1420122,
+    "name": {
+      "zh": "Herb Grill",
+      "en": "Herb Grill"
+    }
+  },
+  {
+    "switchKey": 1234,
+    "dishCid": 1420105,
+    "name": {
+      "zh": "Grilled Mushrooms",
+      "en": "Grilled Mushrooms"
+    }
+  },
+  {
+    "switchKey": 1235,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1236,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1237,
+    "dishCid": 1420107,
+    "name": {
+      "zh": "Fried Egg",
+      "en": "Fried Egg"
+    }
+  },
+  {
+    "switchKey": 1238,
+    "dishCid": 1420101,
+    "name": {
+      "zh": "Grilled Meat",
+      "en": "Grilled Meat"
+    }
+  },
+  {
+    "switchKey": 1239,
+    "dishCid": 1420108,
+    "name": {
+      "zh": "Double Steak",
+      "en": "Double Steak"
+    }
+  },
+  {
+    "switchKey": 1240,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1241,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1242,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1243,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1244,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1245,
+    "dishCid": 1420110,
+    "name": {
+      "zh": "Meat Bowl",
+      "en": "Meat Bowl"
+    }
+  },
+  {
+    "switchKey": 1246,
+    "dishCid": 1420109,
+    "name": {
+      "zh": "Assorted Grilled Meats",
+      "en": "Assorted Grilled Meats"
+    }
+  },
+  {
+    "switchKey": 1247,
+    "dishCid": 1420111,
+    "name": {
+      "zh": "Assorted Grilled Fish",
+      "en": "Assorted Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1248,
+    "dishCid": 1420112,
+    "name": {
+      "zh": "Seafood Platter",
+      "en": "Seafood Platter"
+    }
+  },
+  {
+    "switchKey": 1249,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1250,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1251,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1252,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1253,
+    "dishCid": 1420113,
+    "name": {
+      "zh": "Grilled Fish Bowl",
+      "en": "Grilled Fish Bowl"
+    }
+  },
+  {
+    "switchKey": 1254,
+    "dishCid": 1420102,
+    "name": {
+      "zh": "Grilled Fish",
+      "en": "Grilled Fish"
+    }
+  },
+  {
+    "switchKey": 1255,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1256,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1257,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1258,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1259,
+    "dishCid": 1420114,
+    "name": {
+      "zh": "Seafood Pasta",
+      "en": "Seafood Pasta"
+    }
+  },
+  {
+    "switchKey": 1260,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1261,
+    "dishCid": 1420103,
+    "name": {
+      "zh": "Grilled seafood",
+      "en": "Grilled seafood"
+    }
+  },
+  {
+    "switchKey": 1262,
+    "dishCid": 1420104,
+    "name": {
+      "zh": "Roasted Vegetables",
+      "en": "Roasted Vegetables"
+    }
+  },
+  {
+    "switchKey": 1263,
+    "dishCid": 1420104,
+    "name": {
+      "zh": "Roasted Vegetables",
+      "en": "Roasted Vegetables"
+    }
+  },
+  {
+    "switchKey": 1264,
+    "dishCid": 1420115,
+    "name": {
+      "zh": "Stir-fried Mushrooms and Vegetables",
+      "en": "Stir-fried Mushrooms and Vegetables"
+    }
+  },
+  {
+    "switchKey": 1265,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1266,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1267,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1268,
+    "dishCid": 1420122,
+    "name": {
+      "zh": "Herb Grill",
+      "en": "Herb Grill"
+    }
+  },
+  {
+    "switchKey": 1269,
+    "dishCid": 1420105,
+    "name": {
+      "zh": "Grilled Mushrooms",
+      "en": "Grilled Mushrooms"
+    }
+  },
+  {
+    "switchKey": 1270,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1271,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1272,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1273,
+    "dishCid": 1420105,
+    "name": {
+      "zh": "Grilled Mushrooms",
+      "en": "Grilled Mushrooms"
+    }
+  },
+  {
+    "switchKey": 1274,
+    "dishCid": 1420126,
+    "name": {
+      "zh": "Classic Pizza",
+      "en": "Classic Pizza"
+    }
+  },
+  {
+    "switchKey": 1275,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1276,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1277,
+    "dishCid": 1420123,
+    "name": {
+      "zh": "Pan-fried Dumplings",
+      "en": "Pan-fried Dumplings"
+    }
+  },
+  {
+    "switchKey": 1278,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1279,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1280,
+    "dishCid": 1420116,
+    "name": {
+      "zh": "Rolled Omelet",
+      "en": "Rolled Omelet"
+    }
+  },
+  {
+    "switchKey": 1281,
+    "dishCid": 1420106,
+    "name": {
+      "zh": "Fried Rice",
+      "en": "Fried Rice"
+    }
+  },
+  {
+    "switchKey": 1282,
+    "dishCid": 1420107,
+    "name": {
+      "zh": "Fried Egg",
+      "en": "Fried Egg"
+    }
+  },
+  {
+    "switchKey": 1283,
+    "dishCid": 1420124,
+    "name": {
+      "zh": "Tomato Spaghetti",
+      "en": "Tomato Spaghetti"
+    }
+  },
+  {
+    "switchKey": 1284,
+    "dishCid": 1420124,
+    "name": {
+      "zh": "Tomato Spaghetti",
+      "en": "Tomato Spaghetti"
+    }
+  },
+  {
+    "switchKey": 1285,
+    "dishCid": 1420124,
+    "name": {
+      "zh": "Tomato Spaghetti",
+      "en": "Tomato Spaghetti"
+    }
+  },
+  {
+    "switchKey": 1286,
+    "dishCid": 1420124,
+    "name": {
+      "zh": "Tomato Spaghetti",
+      "en": "Tomato Spaghetti"
+    }
+  },
+  {
+    "switchKey": 1287,
+    "dishCid": 1420124,
+    "name": {
+      "zh": "Tomato Spaghetti",
+      "en": "Tomato Spaghetti"
+    }
+  },
+  {
+    "switchKey": 1288,
+    "dishCid": 1420124,
+    "name": {
+      "zh": "Tomato Spaghetti",
+      "en": "Tomato Spaghetti"
+    }
+  },
+  {
+    "switchKey": 1289,
+    "dishCid": 1420124,
+    "name": {
+      "zh": "Tomato Spaghetti",
+      "en": "Tomato Spaghetti"
+    }
+  },
+  {
+    "switchKey": 1290,
+    "dishCid": 1420124,
+    "name": {
+      "zh": "Tomato Spaghetti",
+      "en": "Tomato Spaghetti"
+    }
+  },
+  {
+    "switchKey": 1291,
+    "dishCid": 1420124,
+    "name": {
+      "zh": "Tomato Spaghetti",
+      "en": "Tomato Spaghetti"
+    }
+  },
+  {
+    "switchKey": 1292,
+    "dishCid": 1420124,
+    "name": {
+      "zh": "Tomato Spaghetti",
+      "en": "Tomato Spaghetti"
+    }
+  },
+  {
+    "switchKey": 1293,
+    "dishCid": 1420124,
+    "name": {
+      "zh": "Tomato Spaghetti",
+      "en": "Tomato Spaghetti"
+    }
+  },
+  {
+    "switchKey": 1294,
+    "dishCid": 1420127,
+    "name": {
+      "zh": "Potato Pizza",
+      "en": "Potato Pizza"
+    }
+  },
+  {
+    "switchKey": 1295,
+    "dishCid": 1420127,
+    "name": {
+      "zh": "Potato Pizza",
+      "en": "Potato Pizza"
+    }
+  },
+  {
+    "switchKey": 1296,
+    "dishCid": 1420127,
+    "name": {
+      "zh": "Potato Pizza",
+      "en": "Potato Pizza"
+    }
+  },
+  {
+    "switchKey": 1297,
+    "dishCid": 1420127,
+    "name": {
+      "zh": "Potato Pizza",
+      "en": "Potato Pizza"
+    }
+  },
+  {
+    "switchKey": 1298,
+    "dishCid": 1420127,
+    "name": {
+      "zh": "Potato Pizza",
+      "en": "Potato Pizza"
+    }
+  },
+  {
+    "switchKey": 1299,
+    "dishCid": 1420127,
+    "name": {
+      "zh": "Potato Pizza",
+      "en": "Potato Pizza"
+    }
+  },
+  {
+    "switchKey": 1300,
+    "dishCid": 1420127,
+    "name": {
+      "zh": "Potato Pizza",
+      "en": "Potato Pizza"
+    }
+  },
+  {
+    "switchKey": 1301,
+    "dishCid": 1420127,
+    "name": {
+      "zh": "Potato Pizza",
+      "en": "Potato Pizza"
+    }
+  },
+  {
+    "switchKey": 1302,
+    "dishCid": 1420127,
+    "name": {
+      "zh": "Potato Pizza",
+      "en": "Potato Pizza"
+    }
+  },
+  {
+    "switchKey": 1303,
+    "dishCid": 1420125,
+    "name": {
+      "zh": "Fish and Chips",
+      "en": "Fish and Chips"
+    }
+  },
+  {
+    "switchKey": 1304,
+    "dishCid": 1420125,
+    "name": {
+      "zh": "Fish and Chips",
+      "en": "Fish and Chips"
+    }
+  },
+  {
+    "switchKey": 1305,
+    "dishCid": 1420125,
+    "name": {
+      "zh": "Fish and Chips",
+      "en": "Fish and Chips"
+    }
+  },
+  {
+    "switchKey": 1306,
+    "dishCid": 1420125,
+    "name": {
+      "zh": "Fish and Chips",
+      "en": "Fish and Chips"
+    }
+  },
+  {
+    "switchKey": 1307,
+    "dishCid": 1420125,
+    "name": {
+      "zh": "Fish and Chips",
+      "en": "Fish and Chips"
+    }
+  },
+  {
+    "switchKey": 1308,
+    "dishCid": 1420125,
+    "name": {
+      "zh": "Fish and Chips",
+      "en": "Fish and Chips"
+    }
+  },
+  {
+    "switchKey": 1309,
+    "dishCid": 1420125,
+    "name": {
+      "zh": "Fish and Chips",
+      "en": "Fish and Chips"
+    }
+  },
+  {
+    "switchKey": 1310,
+    "dishCid": 1420125,
+    "name": {
+      "zh": "Fish and Chips",
+      "en": "Fish and Chips"
+    }
+  },
+  {
+    "switchKey": 1311,
+    "dishCid": 1420125,
+    "name": {
+      "zh": "Fish and Chips",
+      "en": "Fish and Chips"
+    }
+  },
+  {
+    "switchKey": 1312,
+    "dishCid": 1420125,
+    "name": {
+      "zh": "Fish and Chips",
+      "en": "Fish and Chips"
+    }
+  },
+  {
+    "switchKey": 1313,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1314,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1315,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1316,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1317,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1318,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1319,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1320,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1321,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1322,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1323,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1324,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1325,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1326,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1327,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1328,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1329,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1330,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1331,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1332,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1333,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1334,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1335,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1336,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1337,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1338,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1339,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1340,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1341,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1342,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1343,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1344,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1345,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1346,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1347,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1348,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1349,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1350,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1351,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1352,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1353,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1354,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1355,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1356,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1357,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1358,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1359,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1360,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 1361,
+    "dishCid": 1420128,
+    "name": {
+      "zh": "Nougat",
+      "en": "Nougat"
+    }
+  },
+  {
+    "switchKey": 2000,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2001,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2002,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2003,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2004,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2005,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2006,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2007,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2008,
+    "dishCid": 1421108,
+    "name": {
+      "zh": "Hard-boiled Egg",
+      "en": "Hard-boiled Egg"
+    }
+  },
+  {
+    "switchKey": 2009,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2010,
+    "dishCid": 1421109,
+    "name": {
+      "zh": "Orbis-style Double Stew",
+      "en": "Orbis-style Double Stew"
+    }
+  },
+  {
+    "switchKey": 2011,
+    "dishCid": 1421110,
+    "name": {
+      "zh": "Orbis-Style Stew",
+      "en": "Orbis-Style Stew"
+    }
+  },
+  {
+    "switchKey": 2012,
+    "dishCid": 1421111,
+    "name": {
+      "zh": "Consommé",
+      "en": "Consommé"
+    }
+  },
+  {
+    "switchKey": 2013,
+    "dishCid": 1421111,
+    "name": {
+      "zh": "Consommé",
+      "en": "Consommé"
+    }
+  },
+  {
+    "switchKey": 2014,
+    "dishCid": 1421111,
+    "name": {
+      "zh": "Consommé",
+      "en": "Consommé"
+    }
+  },
+  {
+    "switchKey": 2015,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2016,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2017,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2018,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2019,
+    "dishCid": 1421112,
+    "name": {
+      "zh": "Seafood Hodgepodge",
+      "en": "Seafood Hodgepodge"
+    }
+  },
+  {
+    "switchKey": 2020,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2021,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2022,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2023,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2024,
+    "dishCid": 1421102,
+    "name": {
+      "zh": "Fish Porridge",
+      "en": "Fish Porridge"
+    }
+  },
+  {
+    "switchKey": 2025,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2026,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2027,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2028,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2029,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2030,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2031,
+    "dishCid": 1421115,
+    "name": {
+      "zh": "Seafood Porridge",
+      "en": "Seafood Porridge"
+    }
+  },
+  {
+    "switchKey": 2032,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2033,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2034,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2035,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2036,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2037,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2038,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2039,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2040,
+    "dishCid": 1421106,
+    "name": {
+      "zh": "Mushroom Tea",
+      "en": "Mushroom Tea"
+    }
+  },
+  {
+    "switchKey": 2041,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2042,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2043,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2044,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2045,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2046,
+    "dishCid": 1421118,
+    "name": {
+      "zh": "Mushroom Porridge",
+      "en": "Mushroom Porridge"
+    }
+  },
+  {
+    "switchKey": 2047,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2048,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2049,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2050,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2051,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2052,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2053,
+    "dishCid": 1421108,
+    "name": {
+      "zh": "Hard-boiled Egg",
+      "en": "Hard-boiled Egg"
+    }
+  },
+  {
+    "switchKey": 2054,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2055,
+    "dishCid": 1421109,
+    "name": {
+      "zh": "Orbis-style Double Stew",
+      "en": "Orbis-style Double Stew"
+    }
+  },
+  {
+    "switchKey": 2056,
+    "dishCid": 1421110,
+    "name": {
+      "zh": "Orbis-Style Stew",
+      "en": "Orbis-Style Stew"
+    }
+  },
+  {
+    "switchKey": 2057,
+    "dishCid": 1421111,
+    "name": {
+      "zh": "Consommé",
+      "en": "Consommé"
+    }
+  },
+  {
+    "switchKey": 2058,
+    "dishCid": 1421111,
+    "name": {
+      "zh": "Consommé",
+      "en": "Consommé"
+    }
+  },
+  {
+    "switchKey": 2059,
+    "dishCid": 1421111,
+    "name": {
+      "zh": "Consommé",
+      "en": "Consommé"
+    }
+  },
+  {
+    "switchKey": 2060,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2061,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2062,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2063,
+    "dishCid": 1421109,
+    "name": {
+      "zh": "Orbis-style Double Stew",
+      "en": "Orbis-style Double Stew"
+    }
+  },
+  {
+    "switchKey": 2064,
+    "dishCid": 1421119,
+    "name": {
+      "zh": "Orbis-style Special Stew",
+      "en": "Orbis-style Special Stew"
+    }
+  },
+  {
+    "switchKey": 2065,
+    "dishCid": 1421109,
+    "name": {
+      "zh": "Orbis-style Double Stew",
+      "en": "Orbis-style Double Stew"
+    }
+  },
+  {
+    "switchKey": 2066,
+    "dishCid": 1421120,
+    "name": {
+      "zh": "Nutritious Soup",
+      "en": "Nutritious Soup"
+    }
+  },
+  {
+    "switchKey": 2067,
+    "dishCid": 1421109,
+    "name": {
+      "zh": "Orbis-style Double Stew",
+      "en": "Orbis-style Double Stew"
+    }
+  },
+  {
+    "switchKey": 2068,
+    "dishCid": 1421109,
+    "name": {
+      "zh": "Orbis-style Double Stew",
+      "en": "Orbis-style Double Stew"
+    }
+  },
+  {
+    "switchKey": 2069,
+    "dishCid": 1421122,
+    "name": {
+      "zh": "Seafood Paella",
+      "en": "Seafood Paella"
+    }
+  },
+  {
+    "switchKey": 2070,
+    "dishCid": 1421109,
+    "name": {
+      "zh": "Orbis-style Double Stew",
+      "en": "Orbis-style Double Stew"
+    }
+  },
+  {
+    "switchKey": 2071,
+    "dishCid": 1421110,
+    "name": {
+      "zh": "Orbis-Style Stew",
+      "en": "Orbis-Style Stew"
+    }
+  },
+  {
+    "switchKey": 2072,
+    "dishCid": 1421110,
+    "name": {
+      "zh": "Orbis-Style Stew",
+      "en": "Orbis-Style Stew"
+    }
+  },
+  {
+    "switchKey": 2073,
+    "dishCid": 1421120,
+    "name": {
+      "zh": "Nutritious Soup",
+      "en": "Nutritious Soup"
+    }
+  },
+  {
+    "switchKey": 2074,
+    "dishCid": 1421110,
+    "name": {
+      "zh": "Orbis-Style Stew",
+      "en": "Orbis-Style Stew"
+    }
+  },
+  {
+    "switchKey": 2075,
+    "dishCid": 1421110,
+    "name": {
+      "zh": "Orbis-Style Stew",
+      "en": "Orbis-Style Stew"
+    }
+  },
+  {
+    "switchKey": 2076,
+    "dishCid": 1421122,
+    "name": {
+      "zh": "Seafood Paella",
+      "en": "Seafood Paella"
+    }
+  },
+  {
+    "switchKey": 2077,
+    "dishCid": 1421110,
+    "name": {
+      "zh": "Orbis-Style Stew",
+      "en": "Orbis-Style Stew"
+    }
+  },
+  {
+    "switchKey": 2078,
+    "dishCid": 1421111,
+    "name": {
+      "zh": "Consommé",
+      "en": "Consommé"
+    }
+  },
+  {
+    "switchKey": 2079,
+    "dishCid": 1421120,
+    "name": {
+      "zh": "Nutritious Soup",
+      "en": "Nutritious Soup"
+    }
+  },
+  {
+    "switchKey": 2080,
+    "dishCid": 1421111,
+    "name": {
+      "zh": "Consommé",
+      "en": "Consommé"
+    }
+  },
+  {
+    "switchKey": 2081,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2082,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2083,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2084,
+    "dishCid": 1421111,
+    "name": {
+      "zh": "Consommé",
+      "en": "Consommé"
+    }
+  },
+  {
+    "switchKey": 2085,
+    "dishCid": 1421120,
+    "name": {
+      "zh": "Nutritious Soup",
+      "en": "Nutritious Soup"
+    }
+  },
+  {
+    "switchKey": 2086,
+    "dishCid": 1421120,
+    "name": {
+      "zh": "Nutritious Soup",
+      "en": "Nutritious Soup"
+    }
+  },
+  {
+    "switchKey": 2087,
+    "dishCid": 1421120,
+    "name": {
+      "zh": "Nutritious Soup",
+      "en": "Nutritious Soup"
+    }
+  },
+  {
+    "switchKey": 2088,
+    "dishCid": 1421120,
+    "name": {
+      "zh": "Nutritious Soup",
+      "en": "Nutritious Soup"
+    }
+  },
+  {
+    "switchKey": 2089,
+    "dishCid": 1421111,
+    "name": {
+      "zh": "Consommé",
+      "en": "Consommé"
+    }
+  },
+  {
+    "switchKey": 2090,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2091,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2092,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2093,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2094,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2095,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2096,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2097,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2098,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2099,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2100,
+    "dishCid": 1421112,
+    "name": {
+      "zh": "Seafood Hodgepodge",
+      "en": "Seafood Hodgepodge"
+    }
+  },
+  {
+    "switchKey": 2101,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2102,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2103,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2104,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2105,
+    "dishCid": 1421102,
+    "name": {
+      "zh": "Fish Porridge",
+      "en": "Fish Porridge"
+    }
+  },
+  {
+    "switchKey": 2106,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2107,
+    "dishCid": 1421112,
+    "name": {
+      "zh": "Seafood Hodgepodge",
+      "en": "Seafood Hodgepodge"
+    }
+  },
+  {
+    "switchKey": 2108,
+    "dishCid": 1421112,
+    "name": {
+      "zh": "Seafood Hodgepodge",
+      "en": "Seafood Hodgepodge"
+    }
+  },
+  {
+    "switchKey": 2109,
+    "dishCid": 1421112,
+    "name": {
+      "zh": "Seafood Hodgepodge",
+      "en": "Seafood Hodgepodge"
+    }
+  },
+  {
+    "switchKey": 2110,
+    "dishCid": 1421112,
+    "name": {
+      "zh": "Seafood Hodgepodge",
+      "en": "Seafood Hodgepodge"
+    }
+  },
+  {
+    "switchKey": 2111,
+    "dishCid": 1421112,
+    "name": {
+      "zh": "Seafood Hodgepodge",
+      "en": "Seafood Hodgepodge"
+    }
+  },
+  {
+    "switchKey": 2112,
+    "dishCid": 1421122,
+    "name": {
+      "zh": "Seafood Paella",
+      "en": "Seafood Paella"
+    }
+  },
+  {
+    "switchKey": 2113,
+    "dishCid": 1421112,
+    "name": {
+      "zh": "Seafood Hodgepodge",
+      "en": "Seafood Hodgepodge"
+    }
+  },
+  {
+    "switchKey": 2114,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2115,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2116,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2117,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2118,
+    "dishCid": 1421102,
+    "name": {
+      "zh": "Fish Porridge",
+      "en": "Fish Porridge"
+    }
+  },
+  {
+    "switchKey": 2119,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2120,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2121,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2122,
+    "dishCid": 1421123,
+    "name": {
+      "zh": "Restorative Porridge",
+      "en": "Restorative Porridge"
+    }
+  },
+  {
+    "switchKey": 2123,
+    "dishCid": 1421123,
+    "name": {
+      "zh": "Restorative Porridge",
+      "en": "Restorative Porridge"
+    }
+  },
+  {
+    "switchKey": 2124,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2125,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2126,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2127,
+    "dishCid": 1421122,
+    "name": {
+      "zh": "Seafood Paella",
+      "en": "Seafood Paella"
+    }
+  },
+  {
+    "switchKey": 2128,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2129,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2130,
+    "dishCid": 1421102,
+    "name": {
+      "zh": "Fish Porridge",
+      "en": "Fish Porridge"
+    }
+  },
+  {
+    "switchKey": 2131,
+    "dishCid": 1421102,
+    "name": {
+      "zh": "Fish Porridge",
+      "en": "Fish Porridge"
+    }
+  },
+  {
+    "switchKey": 2132,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2133,
+    "dishCid": 1421102,
+    "name": {
+      "zh": "Fish Porridge",
+      "en": "Fish Porridge"
+    }
+  },
+  {
+    "switchKey": 2134,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2135,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2136,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2137,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2138,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2139,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2140,
+    "dishCid": 1421115,
+    "name": {
+      "zh": "Seafood Porridge",
+      "en": "Seafood Porridge"
+    }
+  },
+  {
+    "switchKey": 2141,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2142,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2143,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2144,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2145,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2146,
+    "dishCid": 1421115,
+    "name": {
+      "zh": "Seafood Porridge",
+      "en": "Seafood Porridge"
+    }
+  },
+  {
+    "switchKey": 2147,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2148,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2149,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2150,
+    "dishCid": 1421123,
+    "name": {
+      "zh": "Restorative Porridge",
+      "en": "Restorative Porridge"
+    }
+  },
+  {
+    "switchKey": 2151,
+    "dishCid": 1421123,
+    "name": {
+      "zh": "Restorative Porridge",
+      "en": "Restorative Porridge"
+    }
+  },
+  {
+    "switchKey": 2152,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2153,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2154,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2155,
+    "dishCid": 1421122,
+    "name": {
+      "zh": "Seafood Paella",
+      "en": "Seafood Paella"
+    }
+  },
+  {
+    "switchKey": 2156,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2157,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2158,
+    "dishCid": 1421115,
+    "name": {
+      "zh": "Seafood Porridge",
+      "en": "Seafood Porridge"
+    }
+  },
+  {
+    "switchKey": 2159,
+    "dishCid": 1421115,
+    "name": {
+      "zh": "Seafood Porridge",
+      "en": "Seafood Porridge"
+    }
+  },
+  {
+    "switchKey": 2160,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2161,
+    "dishCid": 1421115,
+    "name": {
+      "zh": "Seafood Porridge",
+      "en": "Seafood Porridge"
+    }
+  },
+  {
+    "switchKey": 2162,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2163,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2164,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2165,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2166,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2167,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2168,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2169,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2170,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2171,
+    "dishCid": 1421123,
+    "name": {
+      "zh": "Restorative Porridge",
+      "en": "Restorative Porridge"
+    }
+  },
+  {
+    "switchKey": 2172,
+    "dishCid": 1421123,
+    "name": {
+      "zh": "Restorative Porridge",
+      "en": "Restorative Porridge"
+    }
+  },
+  {
+    "switchKey": 2173,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2174,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2175,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2176,
+    "dishCid": 1421118,
+    "name": {
+      "zh": "Mushroom Porridge",
+      "en": "Mushroom Porridge"
+    }
+  },
+  {
+    "switchKey": 2177,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2178,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2179,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2180,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2181,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2182,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2183,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2184,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2185,
+    "dishCid": 1421106,
+    "name": {
+      "zh": "Mushroom Tea",
+      "en": "Mushroom Tea"
+    }
+  },
+  {
+    "switchKey": 2186,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2187,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2188,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2189,
+    "dishCid": 1421106,
+    "name": {
+      "zh": "Mushroom Tea",
+      "en": "Mushroom Tea"
+    }
+  },
+  {
+    "switchKey": 2190,
+    "dishCid": 1421123,
+    "name": {
+      "zh": "Restorative Porridge",
+      "en": "Restorative Porridge"
+    }
+  },
+  {
+    "switchKey": 2191,
+    "dishCid": 1421123,
+    "name": {
+      "zh": "Restorative Porridge",
+      "en": "Restorative Porridge"
+    }
+  },
+  {
+    "switchKey": 2192,
+    "dishCid": 1421106,
+    "name": {
+      "zh": "Mushroom Tea",
+      "en": "Mushroom Tea"
+    }
+  },
+  {
+    "switchKey": 2193,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2194,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2195,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2196,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2197,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2198,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2199,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2200,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2201,
+    "dishCid": 1421118,
+    "name": {
+      "zh": "Mushroom Porridge",
+      "en": "Mushroom Porridge"
+    }
+  },
+  {
+    "switchKey": 2202,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2203,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2204,
+    "dishCid": 1421118,
+    "name": {
+      "zh": "Mushroom Porridge",
+      "en": "Mushroom Porridge"
+    }
+  },
+  {
+    "switchKey": 2205,
+    "dishCid": 1421118,
+    "name": {
+      "zh": "Mushroom Porridge",
+      "en": "Mushroom Porridge"
+    }
+  },
+  {
+    "switchKey": 2206,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2207,
+    "dishCid": 1421118,
+    "name": {
+      "zh": "Mushroom Porridge",
+      "en": "Mushroom Porridge"
+    }
+  },
+  {
+    "switchKey": 2208,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2209,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2210,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2211,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2212,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2213,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2214,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2215,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2216,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2217,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2218,
+    "dishCid": 1421108,
+    "name": {
+      "zh": "Hard-boiled Egg",
+      "en": "Hard-boiled Egg"
+    }
+  },
+  {
+    "switchKey": 2219,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2220,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2221,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2222,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2223,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2224,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2225,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2226,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2227,
+    "dishCid": 1421108,
+    "name": {
+      "zh": "Hard-boiled Egg",
+      "en": "Hard-boiled Egg"
+    }
+  },
+  {
+    "switchKey": 2228,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2229,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2230,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2231,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2232,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2233,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2234,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2235,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2236,
+    "dishCid": 1421108,
+    "name": {
+      "zh": "Hard-boiled Egg",
+      "en": "Hard-boiled Egg"
+    }
+  },
+  {
+    "switchKey": 2237,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2238,
+    "dishCid": 1421109,
+    "name": {
+      "zh": "Orbis-style Double Stew",
+      "en": "Orbis-style Double Stew"
+    }
+  },
+  {
+    "switchKey": 2239,
+    "dishCid": 1421110,
+    "name": {
+      "zh": "Orbis-Style Stew",
+      "en": "Orbis-Style Stew"
+    }
+  },
+  {
+    "switchKey": 2240,
+    "dishCid": 1421111,
+    "name": {
+      "zh": "Consommé",
+      "en": "Consommé"
+    }
+  },
+  {
+    "switchKey": 2241,
+    "dishCid": 1421111,
+    "name": {
+      "zh": "Consommé",
+      "en": "Consommé"
+    }
+  },
+  {
+    "switchKey": 2242,
+    "dishCid": 1421111,
+    "name": {
+      "zh": "Consommé",
+      "en": "Consommé"
+    }
+  },
+  {
+    "switchKey": 2243,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2244,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2245,
+    "dishCid": 1421101,
+    "name": {
+      "zh": "Meat Stew",
+      "en": "Meat Stew"
+    }
+  },
+  {
+    "switchKey": 2246,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2247,
+    "dishCid": 1421112,
+    "name": {
+      "zh": "Seafood Hodgepodge",
+      "en": "Seafood Hodgepodge"
+    }
+  },
+  {
+    "switchKey": 2248,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2249,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2250,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2251,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2252,
+    "dishCid": 1421102,
+    "name": {
+      "zh": "Fish Porridge",
+      "en": "Fish Porridge"
+    }
+  },
+  {
+    "switchKey": 2253,
+    "dishCid": 1421113,
+    "name": {
+      "zh": "Fish Soup",
+      "en": "Fish Soup"
+    }
+  },
+  {
+    "switchKey": 2254,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2255,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2256,
+    "dishCid": 1421114,
+    "name": {
+      "zh": "Shipboard Tea",
+      "en": "Shipboard Tea"
+    }
+  },
+  {
+    "switchKey": 2257,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2258,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2259,
+    "dishCid": 1421115,
+    "name": {
+      "zh": "Seafood Porridge",
+      "en": "Seafood Porridge"
+    }
+  },
+  {
+    "switchKey": 2260,
+    "dishCid": 1421103,
+    "name": {
+      "zh": "Seafood Stew",
+      "en": "Seafood Stew"
+    }
+  },
+  {
+    "switchKey": 2261,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2262,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2263,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2264,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2265,
+    "dishCid": 1421125,
+    "name": {
+      "zh": "Risotto",
+      "en": "Risotto"
+    }
+  },
+  {
+    "switchKey": 2266,
+    "dishCid": 1421104,
+    "name": {
+      "zh": "Vegetable Soup",
+      "en": "Vegetable Soup"
+    }
+  },
+  {
+    "switchKey": 2267,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2268,
+    "dishCid": 1421106,
+    "name": {
+      "zh": "Mushroom Tea",
+      "en": "Mushroom Tea"
+    }
+  },
+  {
+    "switchKey": 2269,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2270,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2271,
+    "dishCid": 1421116,
+    "name": {
+      "zh": "Herbal Tea",
+      "en": "Herbal Tea"
+    }
+  },
+  {
+    "switchKey": 2272,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2273,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2274,
+    "dishCid": 1421118,
+    "name": {
+      "zh": "Mushroom Porridge",
+      "en": "Mushroom Porridge"
+    }
+  },
+  {
+    "switchKey": 2275,
+    "dishCid": 1421117,
+    "name": {
+      "zh": "Mushroom Soup",
+      "en": "Mushroom Soup"
+    }
+  },
+  {
+    "switchKey": 2276,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2277,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2278,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2279,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2280,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2281,
+    "dishCid": 1421108,
+    "name": {
+      "zh": "Hard-boiled Egg",
+      "en": "Hard-boiled Egg"
+    }
+  },
+  {
+    "switchKey": 2282,
+    "dishCid": 1421105,
+    "name": {
+      "zh": "Honey Tea",
+      "en": "Honey Tea"
+    }
+  },
+  {
+    "switchKey": 2283,
+    "dishCid": 1421105,
+    "name": {
+      "zh": "Honey Tea",
+      "en": "Honey Tea"
+    }
+  },
+  {
+    "switchKey": 2284,
+    "dishCid": 1421105,
+    "name": {
+      "zh": "Honey Tea",
+      "en": "Honey Tea"
+    }
+  },
+  {
+    "switchKey": 2285,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2286,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2287,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2288,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2289,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2290,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2291,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2292,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2293,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2294,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2295,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2296,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2297,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2298,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2299,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2300,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2301,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2302,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2303,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2304,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2305,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2306,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2307,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2308,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2309,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2310,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2311,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2312,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2313,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2314,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2315,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2316,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2317,
+    "dishCid": 1421124,
+    "name": {
+      "zh": "Tomato Stew",
+      "en": "Tomato Stew"
+    }
+  },
+  {
+    "switchKey": 2318,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2319,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2320,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2321,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2322,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 2323,
+    "dishCid": 1421107,
+    "name": {
+      "zh": "Grain Tea",
+      "en": "Grain Tea"
+    }
+  },
+  {
+    "switchKey": 3000,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3001,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3002,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3003,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3004,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3005,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3006,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3007,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3008,
+    "dishCid": 1422107,
+    "name": {
+      "zh": "Egg Renew",
+      "en": "Egg Renew"
+    }
+  },
+  {
+    "switchKey": 3009,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3010,
+    "dishCid": 1422108,
+    "name": {
+      "zh": "Assorted Sashimi",
+      "en": "Assorted Sashimi"
+    }
+  },
+  {
+    "switchKey": 3011,
+    "dishCid": 1422109,
+    "name": {
+      "zh": "Carpaccio",
+      "en": "Carpaccio"
+    }
+  },
+  {
+    "switchKey": 3012,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3013,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3014,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3015,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3016,
+    "dishCid": 1422110,
+    "name": {
+      "zh": "Beef Tartare Bibimbap",
+      "en": "Beef Tartare Bibimbap"
+    }
+  },
+  {
+    "switchKey": 3017,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3018,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3019,
+    "dishCid": 1422111,
+    "name": {
+      "zh": "Seafood Sauce",
+      "en": "Seafood Sauce"
+    }
+  },
+  {
+    "switchKey": 3020,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3021,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3022,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3023,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3024,
+    "dishCid": 1422112,
+    "name": {
+      "zh": "Assorted Sushi",
+      "en": "Assorted Sushi"
+    }
+  },
+  {
+    "switchKey": 3025,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3026,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3027,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3028,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3029,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3030,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3031,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3032,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3033,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3034,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3035,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3036,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3037,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3038,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3039,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3040,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3041,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3042,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3043,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3044,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3045,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3046,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3047,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3048,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3049,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3050,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3051,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3052,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3053,
+    "dishCid": 1422107,
+    "name": {
+      "zh": "Egg Renew",
+      "en": "Egg Renew"
+    }
+  },
+  {
+    "switchKey": 3054,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3055,
+    "dishCid": 1422108,
+    "name": {
+      "zh": "Assorted Sashimi",
+      "en": "Assorted Sashimi"
+    }
+  },
+  {
+    "switchKey": 3056,
+    "dishCid": 1422109,
+    "name": {
+      "zh": "Carpaccio",
+      "en": "Carpaccio"
+    }
+  },
+  {
+    "switchKey": 3057,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3058,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3059,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3060,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3061,
+    "dishCid": 1422110,
+    "name": {
+      "zh": "Beef Tartare Bibimbap",
+      "en": "Beef Tartare Bibimbap"
+    }
+  },
+  {
+    "switchKey": 3062,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3063,
+    "dishCid": 1422108,
+    "name": {
+      "zh": "Assorted Sashimi",
+      "en": "Assorted Sashimi"
+    }
+  },
+  {
+    "switchKey": 3064,
+    "dishCid": 1422108,
+    "name": {
+      "zh": "Assorted Sashimi",
+      "en": "Assorted Sashimi"
+    }
+  },
+  {
+    "switchKey": 3065,
+    "dishCid": 1422108,
+    "name": {
+      "zh": "Assorted Sashimi",
+      "en": "Assorted Sashimi"
+    }
+  },
+  {
+    "switchKey": 3066,
+    "dishCid": 1422108,
+    "name": {
+      "zh": "Assorted Sashimi",
+      "en": "Assorted Sashimi"
+    }
+  },
+  {
+    "switchKey": 3067,
+    "dishCid": 1422108,
+    "name": {
+      "zh": "Assorted Sashimi",
+      "en": "Assorted Sashimi"
+    }
+  },
+  {
+    "switchKey": 3068,
+    "dishCid": 1422108,
+    "name": {
+      "zh": "Assorted Sashimi",
+      "en": "Assorted Sashimi"
+    }
+  },
+  {
+    "switchKey": 3069,
+    "dishCid": 1422115,
+    "name": {
+      "zh": "Assorted Rice Bowls",
+      "en": "Assorted Rice Bowls"
+    }
+  },
+  {
+    "switchKey": 3070,
+    "dishCid": 1422108,
+    "name": {
+      "zh": "Assorted Sashimi",
+      "en": "Assorted Sashimi"
+    }
+  },
+  {
+    "switchKey": 3071,
+    "dishCid": 1422109,
+    "name": {
+      "zh": "Carpaccio",
+      "en": "Carpaccio"
+    }
+  },
+  {
+    "switchKey": 3072,
+    "dishCid": 1422109,
+    "name": {
+      "zh": "Carpaccio",
+      "en": "Carpaccio"
+    }
+  },
+  {
+    "switchKey": 3073,
+    "dishCid": 1422109,
+    "name": {
+      "zh": "Carpaccio",
+      "en": "Carpaccio"
+    }
+  },
+  {
+    "switchKey": 3074,
+    "dishCid": 1422109,
+    "name": {
+      "zh": "Carpaccio",
+      "en": "Carpaccio"
+    }
+  },
+  {
+    "switchKey": 3075,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3076,
+    "dishCid": 1422115,
+    "name": {
+      "zh": "Assorted Rice Bowls",
+      "en": "Assorted Rice Bowls"
+    }
+  },
+  {
+    "switchKey": 3077,
+    "dishCid": 1422109,
+    "name": {
+      "zh": "Carpaccio",
+      "en": "Carpaccio"
+    }
+  },
+  {
+    "switchKey": 3078,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3079,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3080,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3081,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3082,
+    "dishCid": 1422110,
+    "name": {
+      "zh": "Beef Tartare Bibimbap",
+      "en": "Beef Tartare Bibimbap"
+    }
+  },
+  {
+    "switchKey": 3083,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3084,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3085,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3086,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3087,
+    "dishCid": 1422110,
+    "name": {
+      "zh": "Beef Tartare Bibimbap",
+      "en": "Beef Tartare Bibimbap"
+    }
+  },
+  {
+    "switchKey": 3088,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3089,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3090,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3091,
+    "dishCid": 1422110,
+    "name": {
+      "zh": "Beef Tartare Bibimbap",
+      "en": "Beef Tartare Bibimbap"
+    }
+  },
+  {
+    "switchKey": 3092,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3093,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3094,
+    "dishCid": 1422110,
+    "name": {
+      "zh": "Beef Tartare Bibimbap",
+      "en": "Beef Tartare Bibimbap"
+    }
+  },
+  {
+    "switchKey": 3095,
+    "dishCid": 1422110,
+    "name": {
+      "zh": "Beef Tartare Bibimbap",
+      "en": "Beef Tartare Bibimbap"
+    }
+  },
+  {
+    "switchKey": 3096,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3097,
+    "dishCid": 1422110,
+    "name": {
+      "zh": "Beef Tartare Bibimbap",
+      "en": "Beef Tartare Bibimbap"
+    }
+  },
+  {
+    "switchKey": 3098,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3099,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3100,
+    "dishCid": 1422111,
+    "name": {
+      "zh": "Seafood Sauce",
+      "en": "Seafood Sauce"
+    }
+  },
+  {
+    "switchKey": 3101,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3102,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3103,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3104,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3105,
+    "dishCid": 1422112,
+    "name": {
+      "zh": "Assorted Sushi",
+      "en": "Assorted Sushi"
+    }
+  },
+  {
+    "switchKey": 3106,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3107,
+    "dishCid": 1422111,
+    "name": {
+      "zh": "Seafood Sauce",
+      "en": "Seafood Sauce"
+    }
+  },
+  {
+    "switchKey": 3108,
+    "dishCid": 1422111,
+    "name": {
+      "zh": "Seafood Sauce",
+      "en": "Seafood Sauce"
+    }
+  },
+  {
+    "switchKey": 3109,
+    "dishCid": 1422111,
+    "name": {
+      "zh": "Seafood Sauce",
+      "en": "Seafood Sauce"
+    }
+  },
+  {
+    "switchKey": 3110,
+    "dishCid": 1422111,
+    "name": {
+      "zh": "Seafood Sauce",
+      "en": "Seafood Sauce"
+    }
+  },
+  {
+    "switchKey": 3111,
+    "dishCid": 1422115,
+    "name": {
+      "zh": "Assorted Rice Bowls",
+      "en": "Assorted Rice Bowls"
+    }
+  },
+  {
+    "switchKey": 3112,
+    "dishCid": 1422115,
+    "name": {
+      "zh": "Assorted Rice Bowls",
+      "en": "Assorted Rice Bowls"
+    }
+  },
+  {
+    "switchKey": 3113,
+    "dishCid": 1422111,
+    "name": {
+      "zh": "Seafood Sauce",
+      "en": "Seafood Sauce"
+    }
+  },
+  {
+    "switchKey": 3114,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3115,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3116,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3117,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3118,
+    "dishCid": 1422112,
+    "name": {
+      "zh": "Assorted Sushi",
+      "en": "Assorted Sushi"
+    }
+  },
+  {
+    "switchKey": 3119,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3120,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3121,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3122,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3123,
+    "dishCid": 1422112,
+    "name": {
+      "zh": "Assorted Sushi",
+      "en": "Assorted Sushi"
+    }
+  },
+  {
+    "switchKey": 3124,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3125,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3126,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3127,
+    "dishCid": 1422112,
+    "name": {
+      "zh": "Assorted Sushi",
+      "en": "Assorted Sushi"
+    }
+  },
+  {
+    "switchKey": 3128,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3129,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3130,
+    "dishCid": 1422112,
+    "name": {
+      "zh": "Assorted Sushi",
+      "en": "Assorted Sushi"
+    }
+  },
+  {
+    "switchKey": 3131,
+    "dishCid": 1422112,
+    "name": {
+      "zh": "Assorted Sushi",
+      "en": "Assorted Sushi"
+    }
+  },
+  {
+    "switchKey": 3132,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3133,
+    "dishCid": 1422112,
+    "name": {
+      "zh": "Assorted Sushi",
+      "en": "Assorted Sushi"
+    }
+  },
+  {
+    "switchKey": 3134,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3135,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3136,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3137,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3138,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3139,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3140,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3141,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3142,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3143,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3144,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3145,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3146,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3147,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3148,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3149,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3150,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3151,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3152,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3153,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3154,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3155,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3156,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3157,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3158,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3159,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3160,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3161,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3162,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3163,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3164,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3165,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3166,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3167,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3168,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3169,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3170,
+    "dishCid": 1422116,
+    "name": {
+      "zh": "Assorted Salad",
+      "en": "Assorted Salad"
+    }
+  },
+  {
+    "switchKey": 3171,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3172,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3173,
+    "dishCid": 1422116,
+    "name": {
+      "zh": "Assorted Salad",
+      "en": "Assorted Salad"
+    }
+  },
+  {
+    "switchKey": 3174,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3175,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3176,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3177,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3178,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3179,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3180,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3181,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3182,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3183,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3184,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3185,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3186,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3187,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3188,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3189,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3190,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3191,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3192,
+    "dishCid": 1422116,
+    "name": {
+      "zh": "Assorted Salad",
+      "en": "Assorted Salad"
+    }
+  },
+  {
+    "switchKey": 3193,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3194,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3195,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3196,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3197,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3198,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3199,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3200,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3201,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3202,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3203,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3204,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3205,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3206,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3207,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3208,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3209,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3210,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3211,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3212,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3213,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3214,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3215,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3216,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3217,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3218,
+    "dishCid": 1422107,
+    "name": {
+      "zh": "Egg Renew",
+      "en": "Egg Renew"
+    }
+  },
+  {
+    "switchKey": 3219,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3220,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3221,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3222,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3223,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3224,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3225,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3226,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3227,
+    "dishCid": 1422107,
+    "name": {
+      "zh": "Egg Renew",
+      "en": "Egg Renew"
+    }
+  },
+  {
+    "switchKey": 3228,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3229,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3230,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3231,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3232,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3233,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3234,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3235,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3236,
+    "dishCid": 1422107,
+    "name": {
+      "zh": "Egg Renew",
+      "en": "Egg Renew"
+    }
+  },
+  {
+    "switchKey": 3237,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3238,
+    "dishCid": 1422108,
+    "name": {
+      "zh": "Assorted Sashimi",
+      "en": "Assorted Sashimi"
+    }
+  },
+  {
+    "switchKey": 3239,
+    "dishCid": 1422109,
+    "name": {
+      "zh": "Carpaccio",
+      "en": "Carpaccio"
+    }
+  },
+  {
+    "switchKey": 3240,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3241,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3242,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3243,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3244,
+    "dishCid": 1422110,
+    "name": {
+      "zh": "Beef Tartare Bibimbap",
+      "en": "Beef Tartare Bibimbap"
+    }
+  },
+  {
+    "switchKey": 3245,
+    "dishCid": 1422101,
+    "name": {
+      "zh": "Beef Tartare",
+      "en": "Beef Tartare"
+    }
+  },
+  {
+    "switchKey": 3246,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3247,
+    "dishCid": 1422111,
+    "name": {
+      "zh": "Seafood Sauce",
+      "en": "Seafood Sauce"
+    }
+  },
+  {
+    "switchKey": 3248,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3249,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3250,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3251,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3252,
+    "dishCid": 1422112,
+    "name": {
+      "zh": "Assorted Sushi",
+      "en": "Assorted Sushi"
+    }
+  },
+  {
+    "switchKey": 3253,
+    "dishCid": 1422102,
+    "name": {
+      "zh": "Sashimi",
+      "en": "Sashimi"
+    }
+  },
+  {
+    "switchKey": 3254,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3255,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3256,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3257,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3258,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3259,
+    "dishCid": 1422113,
+    "name": {
+      "zh": "Seafood Ceviche",
+      "en": "Seafood Ceviche"
+    }
+  },
+  {
+    "switchKey": 3260,
+    "dishCid": 1422103,
+    "name": {
+      "zh": "Scallop sashimi",
+      "en": "Scallop sashimi"
+    }
+  },
+  {
+    "switchKey": 3261,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3262,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3263,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3264,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3265,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3266,
+    "dishCid": 1422104,
+    "name": {
+      "zh": "Salad",
+      "en": "Salad"
+    }
+  },
+  {
+    "switchKey": 3267,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3268,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3269,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3270,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3271,
+    "dishCid": 1422105,
+    "name": {
+      "zh": "Nutritious Salad",
+      "en": "Nutritious Salad"
+    }
+  },
+  {
+    "switchKey": 3272,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3273,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3274,
+    "dishCid": 1422114,
+    "name": {
+      "zh": "Spring Rolls",
+      "en": "Spring Rolls"
+    }
+  },
+  {
+    "switchKey": 3275,
+    "dishCid": 1422117,
+    "name": {
+      "zh": "Mushroom Carving",
+      "en": "Mushroom Carving"
+    }
+  },
+  {
+    "switchKey": 3276,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3277,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3278,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3279,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3280,
+    "dishCid": 1422106,
+    "name": {
+      "zh": "Morning Meal",
+      "en": "Morning Meal"
+    }
+  },
+  {
+    "switchKey": 3281,
+    "dishCid": 1422107,
+    "name": {
+      "zh": "Egg Renew",
+      "en": "Egg Renew"
+    }
+  },
+  {
+    "switchKey": 3282,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3283,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3284,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3285,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3286,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3287,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3288,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3289,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3290,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3291,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3292,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3293,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3294,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3295,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3296,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3297,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3298,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3299,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3300,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3301,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3302,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3303,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3304,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3305,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3306,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3307,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3308,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3309,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3310,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3311,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3312,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3313,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3314,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3315,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3316,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3317,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3318,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3319,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3320,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3321,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3322,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3323,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3324,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3325,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3326,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3327,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3328,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3329,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 3330,
+    "dishCid": 1422118,
+    "name": {
+      "zh": "Cereal",
+      "en": "Cereal"
+    }
+  },
+  {
+    "switchKey": 4000,
+    "dishCid": 1420129,
+    "name": {
+      "zh": "Grilled Clams",
+      "en": "Grilled Clams"
+    }
+  },
+  {
+    "switchKey": 4001,
+    "dishCid": 1420129,
+    "name": {
+      "zh": "Grilled Clams",
+      "en": "Grilled Clams"
+    }
+  },
+  {
+    "switchKey": 4002,
+    "dishCid": 1420129,
+    "name": {
+      "zh": "Grilled Clams",
+      "en": "Grilled Clams"
+    }
+  },
+  {
+    "switchKey": 4003,
+    "dishCid": 1421127,
+    "name": {
+      "zh": "Clam Soup",
+      "en": "Clam Soup"
+    }
+  },
+  {
+    "switchKey": 4004,
+    "dishCid": 1421127,
+    "name": {
+      "zh": "Clam Soup",
+      "en": "Clam Soup"
+    }
+  },
+  {
+    "switchKey": 4005,
+    "dishCid": 1421127,
+    "name": {
+      "zh": "Clam Soup",
+      "en": "Clam Soup"
+    }
+  },
+  {
+    "switchKey": 4006,
+    "dishCid": 1421126,
+    "name": {
+      "zh": "Radish Soup",
+      "en": "Radish Soup"
+    }
+  },
+  {
+    "switchKey": 4007,
+    "dishCid": 1421126,
+    "name": {
+      "zh": "Radish Soup",
+      "en": "Radish Soup"
+    }
+  },
+  {
+    "switchKey": 4008,
+    "dishCid": 1421126,
+    "name": {
+      "zh": "Radish Soup",
+      "en": "Radish Soup"
+    }
+  }
+]

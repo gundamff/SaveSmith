@@ -1,1 +1,555 @@
-[]
+[
+  {
+    "characterCid": 10001,
+    "name": {
+      "zh": "Eileen",
+      "en": "Eileen"
+    }
+  },
+  {
+    "characterCid": 10002,
+    "name": {
+      "zh": "Lute",
+      "en": "Lute"
+    }
+  },
+  {
+    "characterCid": 10003,
+    "name": {
+      "zh": "Castella",
+      "en": "Castella"
+    }
+  },
+  {
+    "characterCid": 10004,
+    "name": {
+      "zh": "Reina",
+      "en": "Reina"
+    }
+  },
+  {
+    "characterCid": 10005,
+    "name": {
+      "zh": "Roxy",
+      "en": "Roxy"
+    }
+  },
+  {
+    "characterCid": 10006,
+    "name": {
+      "zh": "Aria",
+      "en": "Aria"
+    }
+  },
+  {
+    "characterCid": 10007,
+    "name": {
+      "zh": "Johnny",
+      "en": "Johnny"
+    }
+  },
+  {
+    "characterCid": 10008,
+    "name": {
+      "zh": "Ornette",
+      "en": "Ornette"
+    }
+  },
+  {
+    "characterCid": 10009,
+    "name": {
+      "zh": "Ropie",
+      "en": "Ropie"
+    }
+  },
+  {
+    "characterCid": 10010,
+    "name": {
+      "zh": "Ysera",
+      "en": "Ysera"
+    }
+  },
+  {
+    "characterCid": 10011,
+    "name": {
+      "zh": "Kalsion",
+      "en": "Kalsion"
+    }
+  },
+  {
+    "characterCid": 10013,
+    "name": {
+      "zh": "Ewald",
+      "en": "Ewald"
+    }
+  },
+  {
+    "characterCid": 10014,
+    "name": {
+      "zh": "Othello",
+      "en": "Othello"
+    }
+  },
+  {
+    "characterCid": 10015,
+    "name": {
+      "zh": "Jerome",
+      "en": "Jerome"
+    }
+  },
+  {
+    "characterCid": 10016,
+    "name": {
+      "zh": "Charlotte",
+      "en": "Charlotte"
+    }
+  },
+  {
+    "characterCid": 10017,
+    "name": {
+      "zh": "Ryza",
+      "en": "Ryza"
+    }
+  },
+  {
+    "characterCid": 10019,
+    "name": {
+      "zh": "Veronica",
+      "en": "Veronica"
+    }
+  },
+  {
+    "characterCid": 10020,
+    "name": {
+      "zh": "Alex",
+      "en": "Alex"
+    }
+  },
+  {
+    "characterCid": 10021,
+    "name": {
+      "zh": "Lyn (Legend) (#1)",
+      "en": "Lyn (Legend) (#1)"
+    }
+  },
+  {
+    "characterCid": 10022,
+    "name": {
+      "zh": "Theresia",
+      "en": "Theresia"
+    }
+  },
+  {
+    "characterCid": 10023,
+    "name": {
+      "zh": "Lyn (Legend) (#2)",
+      "en": "Lyn (Legend) (#2)"
+    }
+  },
+  {
+    "characterCid": 10025,
+    "name": {
+      "zh": "Lyn (Legend) (#3)",
+      "en": "Lyn (Legend) (#3)"
+    }
+  },
+  {
+    "characterCid": 10026,
+    "name": {
+      "zh": "Awakening Lute",
+      "en": "Awakening Lute"
+    }
+  },
+  {
+    "characterCid": 10027,
+    "name": {
+      "zh": "Lyn (Legend) (#4)",
+      "en": "Lyn (Legend) (#4)"
+    }
+  },
+  {
+    "characterCid": 10028,
+    "name": {
+      "zh": "Tarte",
+      "en": "Tarte"
+    }
+  },
+  {
+    "characterCid": 10029,
+    "name": {
+      "zh": "Cerese",
+      "en": "Cerese"
+    }
+  },
+  {
+    "characterCid": 10030,
+    "name": {
+      "zh": "Sion",
+      "en": "Sion"
+    }
+  },
+  {
+    "characterCid": 10031,
+    "name": {
+      "zh": "Bartz",
+      "en": "Bartz"
+    }
+  },
+  {
+    "characterCid": 10032,
+    "name": {
+      "zh": "Astria",
+      "en": "Astria"
+    }
+  },
+  {
+    "characterCid": 10033,
+    "name": {
+      "zh": "Logan",
+      "en": "Logan"
+    }
+  },
+  {
+    "characterCid": 10034,
+    "name": {
+      "zh": "Karina",
+      "en": "Karina"
+    }
+  },
+  {
+    "characterCid": 10035,
+    "name": {
+      "zh": "Viola",
+      "en": "Viola"
+    }
+  },
+  {
+    "characterCid": 10036,
+    "name": {
+      "zh": "Dana",
+      "en": "Dana"
+    }
+  },
+  {
+    "characterCid": 10037,
+    "name": {
+      "zh": "Kalien (Legend) (#1)",
+      "en": "Kalien (Legend) (#1)"
+    }
+  },
+  {
+    "characterCid": 10038,
+    "name": {
+      "zh": "Kalien (Legend) (#2)",
+      "en": "Kalien (Legend) (#2)"
+    }
+  },
+  {
+    "characterCid": 10039,
+    "name": {
+      "zh": "Lampi",
+      "en": "Lampi"
+    }
+  },
+  {
+    "characterCid": 10040,
+    "name": {
+      "zh": "Sabrina",
+      "en": "Sabrina"
+    }
+  },
+  {
+    "characterCid": 1110001,
+    "name": {
+      "zh": "Eileen",
+      "en": "Eileen"
+    }
+  },
+  {
+    "characterCid": 1110101,
+    "name": {
+      "zh": "Lute",
+      "en": "Lute"
+    }
+  },
+  {
+    "characterCid": 1110102,
+    "name": {
+      "zh": "Speed Lute",
+      "en": "Speed Lute"
+    }
+  },
+  {
+    "characterCid": 1110103,
+    "name": {
+      "zh": "Awakening Lute",
+      "en": "Awakening Lute"
+    }
+  },
+  {
+    "characterCid": 1110201,
+    "name": {
+      "zh": "Castella",
+      "en": "Castella"
+    }
+  },
+  {
+    "characterCid": 1110301,
+    "name": {
+      "zh": "Reina",
+      "en": "Reina"
+    }
+  },
+  {
+    "characterCid": 1110401,
+    "name": {
+      "zh": "Roxy",
+      "en": "Roxy"
+    }
+  },
+  {
+    "characterCid": 1110501,
+    "name": {
+      "zh": "Aria",
+      "en": "Aria"
+    }
+  },
+  {
+    "characterCid": 1110601,
+    "name": {
+      "zh": "Johnny",
+      "en": "Johnny"
+    }
+  },
+  {
+    "characterCid": 1110701,
+    "name": {
+      "zh": "Ornette",
+      "en": "Ornette"
+    }
+  },
+  {
+    "characterCid": 1110801,
+    "name": {
+      "zh": "Ropie",
+      "en": "Ropie"
+    }
+  },
+  {
+    "characterCid": 1110901,
+    "name": {
+      "zh": "Ysera",
+      "en": "Ysera"
+    }
+  },
+  {
+    "characterCid": 1111001,
+    "name": {
+      "zh": "Kalsion",
+      "en": "Kalsion"
+    }
+  },
+  {
+    "characterCid": 1111101,
+    "name": {
+      "zh": "Ewald",
+      "en": "Ewald"
+    }
+  },
+  {
+    "characterCid": 1111201,
+    "name": {
+      "zh": "Othello",
+      "en": "Othello"
+    }
+  },
+  {
+    "characterCid": 1111301,
+    "name": {
+      "zh": "Jerome",
+      "en": "Jerome"
+    }
+  },
+  {
+    "characterCid": 1111401,
+    "name": {
+      "zh": "Charlotte",
+      "en": "Charlotte"
+    }
+  },
+  {
+    "characterCid": 1111501,
+    "name": {
+      "zh": "Ryza",
+      "en": "Ryza"
+    }
+  },
+  {
+    "characterCid": 1111702,
+    "name": {
+      "zh": "Veronica",
+      "en": "Veronica"
+    }
+  },
+  {
+    "characterCid": 1111801,
+    "name": {
+      "zh": "Alex",
+      "en": "Alex"
+    }
+  },
+  {
+    "characterCid": 1111901,
+    "name": {
+      "zh": "Lyn",
+      "en": "Lyn"
+    }
+  },
+  {
+    "characterCid": 1112001,
+    "name": {
+      "zh": "Theresia",
+      "en": "Theresia"
+    }
+  },
+  {
+    "characterCid": 1112101,
+    "name": {
+      "zh": "Gilford",
+      "en": "Gilford"
+    }
+  },
+  {
+    "characterCid": 1112201,
+    "name": {
+      "zh": "Lana",
+      "en": "Lana"
+    }
+  },
+  {
+    "characterCid": 1112301,
+    "name": {
+      "zh": "Rubens",
+      "en": "Rubens"
+    }
+  },
+  {
+    "characterCid": 1112501,
+    "name": {
+      "zh": "Elise",
+      "en": "Elise"
+    }
+  },
+  {
+    "characterCid": 1112601,
+    "name": {
+      "zh": "Tarte",
+      "en": "Tarte"
+    }
+  },
+  {
+    "characterCid": 1112701,
+    "name": {
+      "zh": "Cerese",
+      "en": "Cerese"
+    }
+  },
+  {
+    "characterCid": 1112801,
+    "name": {
+      "zh": "Sion",
+      "en": "Sion"
+    }
+  },
+  {
+    "characterCid": 1112901,
+    "name": {
+      "zh": "Bartz",
+      "en": "Bartz"
+    }
+  },
+  {
+    "characterCid": 1113001,
+    "name": {
+      "zh": "Astria",
+      "en": "Astria"
+    }
+  },
+  {
+    "characterCid": 1113101,
+    "name": {
+      "zh": "Logan",
+      "en": "Logan"
+    }
+  },
+  {
+    "characterCid": 1113201,
+    "name": {
+      "zh": "Karina",
+      "en": "Karina"
+    }
+  },
+  {
+    "characterCid": 1113301,
+    "name": {
+      "zh": "Viola",
+      "en": "Viola"
+    }
+  },
+  {
+    "characterCid": 1113401,
+    "name": {
+      "zh": "Dana",
+      "en": "Dana"
+    }
+  },
+  {
+    "characterCid": 1113501,
+    "name": {
+      "zh": "Kalien",
+      "en": "Kalien"
+    }
+  },
+  {
+    "characterCid": 1113601,
+    "name": {
+      "zh": "Lampi",
+      "en": "Lampi"
+    }
+  },
+  {
+    "characterCid": 1113701,
+    "name": {
+      "zh": "Sabrina",
+      "en": "Sabrina"
+    }
+  },
+  {
+    "characterCid": 9990002,
+    "name": {
+      "zh": "Cartoon Lute",
+      "en": "Cartoon Lute"
+    }
+  },
+  {
+    "characterCid": 9990003,
+    "name": {
+      "zh": "Cartoon Castella",
+      "en": "Cartoon Castella"
+    }
+  },
+  {
+    "characterCid": 9990006,
+    "name": {
+      "zh": "Cartoon Aria",
+      "en": "Cartoon Aria"
+    }
+  },
+  {
+    "characterCid": 9990007,
+    "name": {
+      "zh": "Cartoon Johnny",
+      "en": "Cartoon Johnny"
+    }
+  }
+]

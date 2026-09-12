@@ -40,7 +40,10 @@ export const en: MessageTree = {
     restoreConfirm: 'Restore this backup? The current file will be backed up first.',
     saveDir: 'Save folder',
     currentSlot: 'Current slot',
-    noSlot: 'No slot loaded'
+    noSlot: 'No slot loaded',
+    busyParse: 'Parsing save…',
+    busySave: 'Saving…',
+    busyView: 'Loading panel…'
   },
   slots: {
     load: 'Load',

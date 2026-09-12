@@ -86,6 +86,23 @@ export const useSessionStore = defineStore('session', () => {
   const loadError = ref<string | null>(null)
   /** Bumps on each in-place edit so markRaw save trees still force view re-render. */
   const revision = ref(0)
+  /** True while parse/save/restore is in flight — host shows a blocking overlay. */
+  const busy = ref(false)
+  const busyMessageKey = ref<'editor.busyParse' | 'editor.busySave' | null>(null)
+
+  async function withBusy<T>(
+    messageKey: 'editor.busyParse' | 'editor.busySave',
+    fn: () => Promise<T>
+  ): Promise<T> {
+    busy.value = true
+    busyMessageKey.value = messageKey
+    try {
+      return await fn()
+    } finally {
+      busy.value = false
+      busyMessageKey.value = null
+    }
+  }
 
   function clearDraft(): void {
     currentSlotId.value = null
@@ -170,33 +187,35 @@ export const useSessionStore = defineStore('session', () => {
       loadError.value = slotId
       return
     }
-    const files: SlotBytes[] = []
-    for (const relativePath of slot.sessionFiles) {
-      try {
-        const bytes = await sessionIo.readFileBytes(dir, relativePath)
-        if (!bytes || bytes.length === 0) continue
-        files.push({ relativePath, bytes })
-      } catch {
-        /* optional / unreadable session file — skip */
+    await withBusy('editor.busyParse', async () => {
+      const files: SlotBytes[] = []
+      for (const relativePath of slot.sessionFiles) {
+        try {
+          const bytes = await sessionIo.readFileBytes(dir, relativePath)
+          if (!bytes || bytes.length === 0) continue
+          files.push({ relativePath, bytes })
+        } catch {
+          /* optional / unreadable session file — skip */
+        }
       }
-    }
-    if (files.length === 0) {
-      loadError.value = slot.sessionFiles[0] ?? slotId
-      return
-    }
-    try {
-      const parsed = wrapState(await mod.parse(files))
-      currentSlotId.value = slotId
-      state.value = parsed
-      original.value = files
-      dirty.value = false
-      loadError.value = null
-      revision.value = 0
-      triggerRef(state)
-      await refreshBackups(slot.sessionFiles)
-    } catch (e) {
-      loadError.value = translateError(e)
-    }
+      if (files.length === 0) {
+        loadError.value = slot.sessionFiles[0] ?? slotId
+        return
+      }
+      try {
+        const parsed = wrapState(await mod.parse(files))
+        currentSlotId.value = slotId
+        state.value = parsed
+        original.value = files
+        dirty.value = false
+        loadError.value = null
+        revision.value = 0
+        triggerRef(state)
+        await refreshBackups(slot.sessionFiles)
+      } catch (e) {
+        loadError.value = translateError(e)
+      }
+    })
   }
 
   function runAction(id: string, payload?: unknown): void {
@@ -219,30 +238,34 @@ export const useSessionStore = defineStore('session', () => {
   async function save(): Promise<ValidationIssue[]> {
     const mod = game.value
     if (!mod || state.value == null) return []
-    const issues = mod.validate(state.value)
-    if (issues.length) return issues
-    const next = await mod.serialize(state.value)
-    assertSerializeSane(next)
-    const changed = changedFiles(original.value, next)
-    for (const file of changed) {
-      await sessionIo.writeAtomic(saveDir.value, file.relativePath, file.bytes)
-    }
-    original.value = next.map((file) => ({
-      relativePath: file.relativePath,
-      bytes: file.bytes
-    }))
-    dirty.value = false
-    const sessionFiles =
-      slots.value.find((s) => s.id === currentSlotId.value)?.sessionFiles ??
-      next.map((f) => f.relativePath)
-    await refreshBackups(sessionFiles)
-    await refreshSlots()
-    return []
+    return withBusy('editor.busySave', async () => {
+      const issues = mod.validate(state.value)
+      if (issues.length) return issues
+      const next = await mod.serialize(state.value)
+      assertSerializeSane(next)
+      const changed = changedFiles(original.value, next)
+      for (const file of changed) {
+        await sessionIo.writeAtomic(saveDir.value, file.relativePath, file.bytes)
+      }
+      original.value = next.map((file) => ({
+        relativePath: file.relativePath,
+        bytes: file.bytes
+      }))
+      dirty.value = false
+      const sessionFiles =
+        slots.value.find((s) => s.id === currentSlotId.value)?.sessionFiles ??
+        next.map((f) => f.relativePath)
+      await refreshBackups(sessionFiles)
+      await refreshSlots()
+      return []
+    })
   }
 
   async function restore(relativePath: string, backupName: string): Promise<void> {
     const slotId = currentSlotId.value
-    await sessionIo.restoreBackup(saveDir.value, relativePath, backupName)
+    await withBusy('editor.busyParse', async () => {
+      await sessionIo.restoreBackup(saveDir.value, relativePath, backupName)
+    })
     if (slotId) await loadSlot(slotId)
   }
 
@@ -272,6 +295,8 @@ export const useSessionStore = defineStore('session', () => {
     backups,
     loadError,
     revision,
+    busy,
+    busyMessageKey,
     openGame,
     loadSlot,
     runAction,

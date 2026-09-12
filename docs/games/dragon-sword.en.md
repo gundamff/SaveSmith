@@ -4,6 +4,8 @@
 
 Unofficial save-editor notes. Rights holder: **HOUND13** (Steam AppID [4570720](https://store.steampowered.com/app/4570720/)). Not affiliated with the publisher. Module cover is the Steam store header; artwork © HOUND13.
 
+CID labels come from the public derived catalog (see `src/games/dragon-sword/catalog/SOURCE.md`). Chinese currently mirrors English until a local StringData export is available. Unknown CIDs still render as `#CID`.
+
 > **Offline / single-player only.** Do not edit saves used in online play, raids, or any mode that checks progress on a server. Quit the game completely before editing, and consider turning off Steam Cloud so a cloud copy cannot roll back your local file.
 
 ## Save location

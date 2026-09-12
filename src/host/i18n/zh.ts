@@ -40,7 +40,10 @@ export const zh: MessageTree = {
     restoreConfirm: '确认还原该备份？当前文件会先备份。',
     saveDir: '存档目录',
     currentSlot: '当前槽位',
-    noSlot: '未载入槽位'
+    noSlot: '未载入槽位',
+    busyParse: '正在解析存档…',
+    busySave: '正在保存…',
+    busyView: '正在加载面板…'
   },
   slots: {
     load: '载入',

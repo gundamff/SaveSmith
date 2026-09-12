@@ -32,6 +32,15 @@ Community reference: [gfriloux/dragonsword-save-editor — Content IDs & Paks](h
 
 `catalogLabel(cid)` returns a localized name when the CID appears in any catalog file; otherwise `#CID`.
 
+Committed catalogs are generated from public derived JSON (see `src/games/dragon-sword/catalog/SOURCE.md`) via:
+
+```bash
+# download items.json / recipes.json / titles.json into tmp-catalog/, then:
+node scripts/convert-dragon-sword-catalog.mjs
+```
+
+Chinese (`zh`) currently falls back to English until a local `StringData.xml` export fills it.
+
 ## Legal
 
 Names and ids are game content © their respective owners. Use exports for personal offline editing only.

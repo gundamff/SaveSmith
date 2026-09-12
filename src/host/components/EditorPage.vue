@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, provide, ref, toRef, watch } from 'vue'
+import { computed, nextTick, provide, ref, toRef, watch } from 'vue'
 import { ModuleError } from '@sdk/error'
 import { t, translateError } from '../i18n'
 import { useSessionStore } from '../stores/session'
@@ -14,6 +14,8 @@ provide('savesmithRev', toRef(store, 'revision'))
 
 const views = computed(() => store.game?.views ?? [])
 const activeViewId = ref<string | null>(null)
+const viewBusy = ref(false)
+const mountedViewId = ref<string | null>(null)
 
 watch(
   views,
@@ -25,7 +27,31 @@ watch(
   { immediate: true }
 )
 
-const activeView = computed(() => views.value.find((v) => v.id === activeViewId.value) ?? views.value[0] ?? null)
+watch(
+  activeViewId,
+  async (id) => {
+    if (!id) {
+      mountedViewId.value = null
+      return
+    }
+    if (id === mountedViewId.value) return
+    viewBusy.value = true
+    await nextTick()
+    await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()))
+    mountedViewId.value = id
+    await nextTick()
+    viewBusy.value = false
+  },
+  { immediate: true }
+)
+
+const activeView = computed(() => views.value.find((v) => v.id === mountedViewId.value) ?? null)
+
+const overlayMessage = computed(() => {
+  if (store.busy && store.busyMessageKey) return t(store.busyMessageKey)
+  if (viewBusy.value) return t('editor.busyView')
+  return null
+})
 
 function confirmLeave(): boolean {
   if (!store.dirty) return true
@@ -83,8 +109,13 @@ async function onRemoveBackup(relativePath: string, backupName: string): Promise
   <section class="editor">
     <p class="quit">{{ t('editor.quitGame') }}</p>
     <div class="toolbar">
-      <button type="button" @click="onLibrary">{{ t('editor.library') }}</button>
-      <button type="button" class="primary" :disabled="store.state == null" @click="onSave">
+      <button type="button" :disabled="store.busy" @click="onLibrary">{{ t('editor.library') }}</button>
+      <button
+        type="button"
+        class="primary"
+        :disabled="store.state == null || store.busy"
+        @click="onSave"
+      >
         {{ t('editor.save') }}
       </button>
       <span v-if="store.dirty" class="dirty">{{ t('editor.dirty') }}</span>
@@ -100,8 +131,9 @@ async function onRemoveBackup(relativePath: string, backupName: string): Promise
               :key="view.id"
               type="button"
               role="tab"
-              :aria-selected="activeView?.id === view.id"
-              :class="{ active: activeView?.id === view.id }"
+              :aria-selected="mountedViewId === view.id"
+              :disabled="store.busy || viewBusy"
+              :class="{ active: mountedViewId === view.id }"
               @click="activeViewId = view.id"
             >
               {{ t(view.labelKey) }}
@@ -114,11 +146,24 @@ async function onRemoveBackup(relativePath: string, backupName: string): Promise
         <BackupPanel v-if="store.currentSlotId" @restore="onRestore" @remove="onRemoveBackup" />
       </div>
     </div>
+    <div
+      v-if="overlayMessage"
+      class="busy-overlay"
+      role="status"
+      aria-live="polite"
+      :aria-busy="true"
+    >
+      <div class="busy-card">
+        <span class="busy-spinner" aria-hidden="true" />
+        <p>{{ overlayMessage }}</p>
+      </div>
+    </div>
   </section>
 </template>
 
 <style scoped>
 .editor {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -210,5 +255,52 @@ async function onRemoveBackup(relativePath: string, backupName: string): Promise
 .tabs button.active {
   background: #3b6dff;
   border-color: #3b6dff;
+}
+
+.tabs button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.busy-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 12, 16, 0.55);
+}
+
+.busy-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: 10px;
+  border: 1px solid #2c2c36;
+  background: #14141c;
+  color: #f3f3f5;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.busy-card p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.busy-spinner {
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  border: 2px solid rgba(59, 109, 255, 0.25);
+  border-top-color: #3b6dff;
+  animation: ss-spin 0.7s linear infinite;
+}
+
+@keyframes ss-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>
