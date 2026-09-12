@@ -4,16 +4,31 @@
 
 ## [Unreleased]
 
-新增 **龙之剑：觉醒**；保存前校验货币 / 堆叠 / 坐标 / 编队 CID。
+## [0.5.0] - 2026-09-12
+
+新增 **龙之剑：觉醒**；槽位探测、中文 CID、加载/保存忙碌反馈与关于文案修正。
 
 ### 新增
 
 - **龙之剑：觉醒 / DragonSword: Awakening**（HOUND13，Steam AppID 4570720）：SQLCipher v4 槽位 `*_SlotN.db`；货币、堆叠物品、料理/配方、角色、编队、装备、解锁（角色/称号/业力）、已拥有外观/坐骑、世界坐标
 - 保存校验：金额与堆叠须非负有限、坐标须有限、编队 CID 须为已有角色或空槽
+- 龙之剑 CID 中英标签目录；编辑区提示可在 [th.gl 数据库](https://dragonswordawakening.th.gl/) 查询 CID
+- README Shields.io 徽章（下载 / 版本 / 许可证 / Windows）
+
+### 修复
+
+- 宿主 `slotFilePatterns` 支持段内多星 glob（修复龙之剑 `*/*_Slot*.db`「已找到目录却无槽位」）
+- 「关于」免责声明始终按多游戏产品表述，不再把当前游戏/SaveSmith 写成唯一权利人
+- 打开槽位 / 保存 / 切 Tab 显示忙碌遮罩；保存前让出一帧以便「正在保存…」可见
+
+### 变更
+
+- 龙之剑封面改为 Steam 商店头图（© HOUND13）
 
 ### 工程 / 文档
 
 - 游戏说明见 `docs/games/dragon-sword.md`；编解码按 [gfriloux 公开格式文档](https://github.com/gfriloux/dragonsword-save-editor/tree/main/docs) 独立实现，未移植社区编辑器源码
+- 目录生成：`scripts/convert-dragon-sword-catalog.mjs` + 本机 `merge-dragon-sword-zh-from-pak.mjs`（`Zh_CN`）
 
 ## [0.4.1] - 2026-09-11
 

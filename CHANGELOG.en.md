@@ -4,16 +4,31 @@
 
 ## [Unreleased]
 
-Adds **DragonSword: Awakening**; save-time checks for amounts, stacks, positions, and team CIDs.
+## [0.5.0] - 2026-09-12
+
+Adds **DragonSword: Awakening**; slot glob fix, Chinese CID labels, busy overlays, and About copy fix.
 
 ### Added
 
 - **DragonSword: Awakening** (HOUND13, Steam AppID 4570720): SQLCipher v4 slot `*_SlotN.db`; currency, stackables, cooking/recipes, characters, team, equipment, unlock (characters/titles/karma), owned cosmetics/mounts, world position
 - Validation: amounts and stacks must be non-negative and finite; positions must be finite; team CIDs must be owned or empty (`0`)
+- Bilingual CID label catalog; editor hint linking to the [th.gl database](https://dragonswordawakening.th.gl/)
+- README Shields.io badges (downloads / version / license / Windows)
+
+### Fixed
+
+- Host `slotFilePatterns` multi-star globs (DragonSword `*/*_Slot*.db` no longer finds a folder with zero slots)
+- About disclaimer always uses the multi-game product wording (never SaveSmith / current game as the sole rights holder)
+- Busy overlay for load / save / tab switch; yield a frame before heavy serialize so “Saving…” can paint
+
+### Changed
+
+- DragonSword cover replaced with Steam store header (© HOUND13)
 
 ### Infrastructure / Docs
 
 - Game notes in `docs/games/dragon-sword.en.md`; codec follows the [gfriloux public format docs](https://github.com/gfriloux/dragonsword-save-editor/tree/main/docs) (clean-room; no community editor source)
+- Catalog tooling: `scripts/convert-dragon-sword-catalog.mjs` + local `merge-dragon-sword-zh-from-pak.mjs` (`Zh_CN`)
 
 ## [0.4.1] - 2026-09-11
 
