@@ -52,12 +52,14 @@ export function assertSerializeSane(files: SerializedFile[]): void {
 
 function segmentMatches(pattern: string, segment: string): boolean {
   if (pattern === '*') return true
-  const star = pattern.indexOf('*')
-  if (star === -1) return pattern.toLowerCase() === segment.toLowerCase()
-  const prefix = pattern.slice(0, star).toLowerCase()
-  const suffix = pattern.slice(star + 1).toLowerCase()
-  const seg = segment.toLowerCase()
-  return seg.startsWith(prefix) && seg.endsWith(suffix) && seg.length >= prefix.length + suffix.length
+  if (!pattern.includes('*')) {
+    return pattern.toLowerCase() === segment.toLowerCase()
+  }
+  // Escape RegExp specials except `*`, then treat each `*` as `.*` (multi-star globs).
+  const body = pattern
+    .replace(/[.+^${}()|[\]\\]/g, '\\$&')
+    .replace(/\*/g, '.*')
+  return new RegExp(`^${body}$`, 'i').test(segment)
 }
 
 export function matchSlotFilePatterns(paths: string[], patterns: string[]): string[] {
