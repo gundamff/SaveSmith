@@ -7,13 +7,15 @@ describe('catalogLabel', () => {
     expect(catalogLabel(12345)).toBe('#12345')
   })
 
-  it('resolves known currency stub by locale', () => {
-    expect(catalogLabel(1000001, 'zh')).toBe('Gold')
+  it('resolves known currency by locale', () => {
+    expect(catalogLabel(1000001, 'zh')).toBe('金币')
     expect(catalogLabel(1000001, 'en')).toBe('Gold')
   })
 
   it('resolves character and title names from imported catalog', () => {
+    expect(catalogLabel(10001, 'zh')).toBe('艾琳')
     expect(catalogLabel(10001, 'en')).toBe('Eileen')
+    expect(catalogLabel(2100000, 'zh')).toBe('恩泽的修复者')
     expect(catalogLabel(2100000, 'en')).toBe('Restorer of Grace')
   })
 
@@ -21,7 +23,6 @@ describe('catalogLabel', () => {
     setLocale('en')
     expect(catalogLabel(1000002)).toBe('Aether Crystals')
     setLocale('zh')
-    // zh currently mirrors EN until local StringData export
-    expect(catalogLabel(1000002)).toBe('Aether Crystals')
+    expect(catalogLabel(1000002)).toBe('以太晶体')
   })
 })

@@ -39,7 +39,14 @@ Committed catalogs are generated from public derived JSON (see `src/games/dragon
 node scripts/convert-dragon-sword-catalog.mjs
 ```
 
-Chinese (`zh`) currently falls back to English until a local `StringData.xml` export fills it.
+Then overlay Simplified Chinese from local pak XML (`Zh_CN`):
+
+```bash
+# needs Go + community pak-dump once (tooling only; XML not committed):
+# go run ./cmd/pak-dump -game "<DragonSword install>" -out tmp-catalog/pak \
+#   StringData.xml GameItemData.xml AccountTitleData.xml
+node scripts/merge-dragon-sword-zh-from-pak.mjs
+```
 
 ## Legal
 
