@@ -65,7 +65,9 @@ export const en: MessageTree = {
     donate: 'Donate',
     close: 'Close',
     disclaimer:
-      'Unofficial tool. Not affiliated with, authorized by, or endorsed by {0}. For personal, offline study by owners of a legitimate copy only. Online / multiplayer use is prohibited.'
+      'Unofficial tool. Not affiliated with, authorized by, or endorsed by {0} / {1}. For personal, offline study by owners of a legitimate copy only. Online / multiplayer use is prohibited.',
+    disclaimerGeneric:
+      'Unofficial tool. Not affiliated with, authorized by, or endorsed by any game publisher. For personal, offline study by owners of a legitimate copy only. Online / multiplayer use is prohibited.'
   },
   te: {
     tabs: {

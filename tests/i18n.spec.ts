@@ -22,6 +22,7 @@ const REQUIRED_KEYS = [
   'editor.noSlot',
   'slots.savedAt',
   'about.disclaimer',
+  'about.disclaimerGeneric',
   'backups.delete',
   'backups.deleteConfirm',
   'backups.deleteFailed',
@@ -147,18 +148,40 @@ describe('host i18n', () => {
     expect(translateError(new Error('raw'))).toBe('raw')
   })
 
-  it('about.disclaimer interpolates the rights holder', () => {
+  it('about.disclaimer interpolates rights holder and game name', () => {
     setLocale('zh')
-    const zh = t('about.disclaimer', 'ChaosGalaxyStudio')
+    const zh = t('about.disclaimer', 'ChaosGalaxyStudio', '混沌兵团')
     expect(zh).toContain('ChaosGalaxyStudio')
+    expect(zh).toContain('混沌兵团')
     expect(zh).toContain('非官方')
     expect(zh).toContain('单机')
     expect(zh).toContain('联机')
+    expect(zh).not.toContain('SaveSmith')
     setLocale('en')
-    const en = t('about.disclaimer', 'ChaosGalaxyStudio')
+    const en = t('about.disclaimer', 'ChaosGalaxyStudio', 'Chaos Front')
     expect(en).toContain('ChaosGalaxyStudio')
+    expect(en).toContain('Chaos Front')
     expect(en.toLowerCase()).toContain('unofficial')
     expect(en.toLowerCase()).toContain('offline')
     expect(en.toLowerCase()).toContain('online')
+    expect(en).not.toContain('SaveSmith')
+  })
+
+  it('about.disclaimerGeneric never names SaveSmith as rights holder', () => {
+    setLocale('zh')
+    const zh = t('about.disclaimerGeneric')
+    expect(zh).toContain('各游戏官方')
+    expect(zh).toContain('非官方')
+    expect(zh).toContain('单机')
+    expect(zh).toContain('联机')
+    expect(zh).not.toContain('SaveSmith')
+    expect(zh).not.toContain('存档酱')
+    setLocale('en')
+    const en = t('about.disclaimerGeneric')
+    expect(en.toLowerCase()).toContain('unofficial')
+    expect(en.toLowerCase()).toContain('any game')
+    expect(en.toLowerCase()).toContain('offline')
+    expect(en.toLowerCase()).toContain('online')
+    expect(en).not.toContain('SaveSmith')
   })
 })

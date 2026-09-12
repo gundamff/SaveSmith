@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import brandLogo from '../assets/brand/cundang-chan.png'
-import { APP_NAME, DONATION_URL, GITHUB_REPO_URL, brandDisplayName } from '../config'
+import { DONATION_URL, GITHUB_REPO_URL, brandDisplayName } from '../config'
 import { locale, t } from '../i18n'
 import { appVersion, openExternal } from '../tauri'
 
-defineProps<{
+const props = defineProps<{
   open: boolean
   rightsHolder?: string
+  gameName?: string | null
 }>()
 
 const emit = defineEmits<{
@@ -17,6 +18,12 @@ const emit = defineEmits<{
 
 const version = ref('')
 const displayBrand = computed(() => brandDisplayName(locale.value))
+const disclaimerText = computed(() => {
+  if (props.rightsHolder && props.gameName) {
+    return t('about.disclaimer', props.rightsHolder, props.gameName)
+  }
+  return t('about.disclaimerGeneric')
+})
 
 onMounted(async () => {
   try {
@@ -38,7 +45,7 @@ function openUrl(url: string): void {
       <p class="name">{{ displayBrand }}</p>
       <p class="tagline">{{ t('app.tagline') }}</p>
       <p v-if="version" class="meta">{{ t('about.version', version) }}</p>
-      <p class="disclaimer">{{ t('about.disclaimer', rightsHolder || APP_NAME) }}</p>
+      <p class="disclaimer">{{ disclaimerText }}</p>
       <div class="actions">
         <button v-if="GITHUB_REPO_URL" type="button" @click="openUrl(GITHUB_REPO_URL)">
           {{ t('about.github') }}
