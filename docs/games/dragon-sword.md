@@ -2,7 +2,7 @@
 
 [**中文**](dragon-sword.md) | [English](dragon-sword.en.md)
 
-非官方存档修改说明。权利人：**HOUND13**（Steam AppID [4570720](https://store.steampowered.com/app/4570720/)）。与官方无关联。
+非官方存档修改说明。权利人：**HOUND13**（Steam AppID [4570720](https://store.steampowered.com/app/4570720/)）。与官方无关联。模块封面取自 Steam 商店头图，版权归 HOUND13。
 
 > **仅限本地单机。** 不要在联机、讨伐/raid 或任何会校验服务端进度的模式下改档。改档前请完全退出游戏，并建议关闭 Steam Cloud，以免云存档把本地改动回滚。
 

@@ -4,7 +4,7 @@
  * Public format references (no community editor source copied):
  * - https://github.com/gfriloux/dragonsword-save-editor/tree/main/docs
  *
- * Cover is a solid-color JPEG placeholder (not game art).
+ * Cover: Steam store header for App 4570720 (© HOUND13).
  */
 import type { GameModule } from '@sdk/types'
 import { actions, applyAction } from './actions'
@@ -27,8 +27,8 @@ export const dragonSwordModule: GameModule<DragonSwordState> = {
     publisher: 'HOUND13',
     steamAppId: 4570720,
     summary: {
-      zh: '非官方存档修改器。请先退出游戏再改档。封面为占位图，非正式美术。',
-      en: 'Unofficial save editor. Quit the game before editing. Cover is a placeholder, not official art.'
+      zh: '非官方存档修改器。请先退出游戏再改档；建议关闭 Steam Cloud。',
+      en: 'Unofficial save editor. Quit the game before editing; consider turning off Steam Cloud.'
     }
   },
   locate,

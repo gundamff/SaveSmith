@@ -3,6 +3,13 @@
 [**中文**](README.md) | [English](README.en.md)
 
 <p align="center">
+  <a href="https://github.com/gundamff/SaveSmith/releases"><img alt="downloads" src="https://img.shields.io/github/downloads/gundamff/SaveSmith/total" /></a>
+  <a href="https://github.com/gundamff/SaveSmith/releases"><img alt="version" src="https://img.shields.io/github/v/release/gundamff/SaveSmith" /></a>
+  <a href="https://github.com/gundamff/SaveSmith/blob/main/LICENSE"><img alt="license" src="https://img.shields.io/github/license/gundamff/SaveSmith" /></a>
+  <img alt="platform" src="https://img.shields.io/badge/platform-Windows-0078D4" />
+</p>
+
+<p align="center">
   <img src="docs/brand/banner.png" alt="存档酱" width="640" />
 </p>
 
