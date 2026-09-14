@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+## [0.5.1] - 2026-09-14
+
+Chaos Front Resources tab can edit the Committee calendar (in-game date).
+
+### Added
+
+- Chaos Front: edit Committee calendar year / month / day on Resources; syncs `PlayerDay` and `HistoryTime` (for time-gated endings)
+
 ## [0.5.0] - 2026-09-12
 
 Adds **DragonSword: Awakening**; slot glob fix, Chinese CID labels, busy overlays, and About copy fix.
