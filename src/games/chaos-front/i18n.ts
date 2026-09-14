@@ -7,6 +7,10 @@ export const zh: MessageTree = {
   },
   resources: {
     relWarn: '关系值影响剧情走向，修改可能跳过/触发特定事件',
+    timeWarn: '结局与游戏时间相关；只改日期可能使剧情进度与日历对不上',
+    historyYear: '委员会历 · 年',
+    historyMonth: '月',
+    historyDay: '日',
     credit: '信用点',
     prestige: '威望',
     star: '星级',
@@ -145,6 +149,10 @@ export const en: MessageTree = {
   },
   resources: {
     relWarn: 'Relationship values affect the story. Editing may skip or trigger events.',
+    timeWarn: 'Endings depend on in-game time; changing only the date may desync story progress.',
+    historyYear: 'Committee calendar · Year',
+    historyMonth: 'Month',
+    historyDay: 'Day',
     credit: 'Credits',
     prestige: 'Prestige',
     star: 'Star rating',

@@ -75,6 +75,22 @@ describe('SaveData', () => {
     expect(s2.units).toHaveLength(2)
   })
 
+  it('setHistoryDate syncs PlayerDay and HistoryTime, leaves RealTime', () => {
+    const s = SaveData.load(fixture())
+    expect(s.day).toBe(9774)
+    expect(s.historyDate).toEqual({ year: 28, month: 2, day: 24 })
+    const realBefore = s.saveTime
+    s.setHistoryDate(26, 12, 7)
+    expect(s.day).toBe(9337)
+    expect(s.historyDate).toEqual({ year: 26, month: 12, day: 7 })
+    expect(s.historyTime).toBe('委员会历26年12月7日')
+    expect(s.saveTime).toBe(realBefore)
+    const s2 = SaveData.load(s.serialize())
+    expect(s2.day).toBe(9337)
+    expect(s2.historyTime).toBe('委员会历26年12月7日')
+    expect(s2.saveTime).toBe(realBefore)
+  })
+
   it('maxAllUnits uses per-unit levelType EXP6', () => {
     const s = SaveData.load(fixture())
     const n = s.maxAllUnits(gd)

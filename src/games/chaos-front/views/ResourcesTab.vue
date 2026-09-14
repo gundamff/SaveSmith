@@ -7,6 +7,10 @@ import { useCfEditor } from './inject'
 const editor = useCfEditor()
 const MAX_REL = 999
 
+const historyDate = computed(() => {
+  void editor.rev
+  return editor.save?.historyDate ?? { year: 1, month: 1, day: 1 }
+})
 const credit = computed(() => {
   void editor.rev
   return editor.save?.credit ?? 0
@@ -35,6 +39,12 @@ function changeNum(apply: (v: number) => void, v: number | undefined): void {
   if (v === undefined || Number.isNaN(v)) return
   wrap(() => apply(v))
 }
+function setHistoryPart(part: 'year' | 'month' | 'day', v: number | undefined): void {
+  if (v === undefined || Number.isNaN(v) || !editor.save) return
+  const cur = editor.save.historyDate
+  const next = { ...cur, [part]: v }
+  wrap(() => editor.save.setHistoryDate(next.year, next.month, next.day))
+}
 function maxResources(): void {
   wrap(() => {
     editor.save.setCredit(99_999_999)
@@ -54,8 +64,33 @@ function relLabel(i: number): string {
 
 <template>
   <div v-if="editor.save" :data-ss-rev="editor.rev">
+    <el-alert type="warning" show-icon :closable="false" :title="t('resources.timeWarn')" class="warn" />
     <el-alert type="warning" show-icon :closable="false" :title="t('resources.relWarn')" class="warn" />
     <el-form label-width="220px" style="max-width: 640px">
+      <el-form-item :label="t('resources.historyYear')">
+        <el-input-number
+          :model-value="historyDate.year"
+          :min="1"
+          :max="999"
+          @update:model-value="(v) => setHistoryPart('year', v ?? undefined)"
+        />
+      </el-form-item>
+      <el-form-item :label="t('resources.historyMonth')">
+        <el-input-number
+          :model-value="historyDate.month"
+          :min="1"
+          :max="12"
+          @update:model-value="(v) => setHistoryPart('month', v ?? undefined)"
+        />
+      </el-form-item>
+      <el-form-item :label="t('resources.historyDay')">
+        <el-input-number
+          :model-value="historyDate.day"
+          :min="1"
+          :max="30"
+          @update:model-value="(v) => setHistoryPart('day', v ?? undefined)"
+        />
+      </el-form-item>
       <el-form-item :label="t('resources.credit')">
         <el-input-number
           :model-value="credit"

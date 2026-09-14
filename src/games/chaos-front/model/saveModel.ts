@@ -9,6 +9,12 @@ import {
   unitTypeById,
   type GameData
 } from './gameData'
+import {
+  formatHistoryTime,
+  playerDayFromYmd,
+  ymdFromPlayerDay,
+  type HistoryYmd
+} from './calendar'
 import { CHARACTER_MAX_EXP, unitLevelForExp } from './level'
 import { getField, parseEs3, setField, stringifyEs3, type Es3Doc } from './es3'
 
@@ -148,6 +154,23 @@ export class SaveData {
 
   get day(): number {
     return this.num('PlayerDay')
+  }
+
+  get historyTime(): string {
+    return getField<string>(this.doc, 'HistoryTime')
+  }
+
+  get historyDate(): HistoryYmd {
+    return ymdFromPlayerDay(this.day)
+  }
+
+  /** 同步写入 PlayerDay 与 HistoryTime；不改 RealTime */
+  setHistoryDate(year: number, month: number, day: number): void {
+    const y = Math.min(999, Math.max(1, Math.round(year)))
+    const m = Math.min(12, Math.max(1, Math.round(month)))
+    const d = Math.min(30, Math.max(1, Math.round(day)))
+    this.setNum('PlayerDay', playerDayFromYmd(y, m, d))
+    setField(this.doc, 'HistoryTime', formatHistoryTime(y, m, d))
   }
 
   get saveTime(): string {

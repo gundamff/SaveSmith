@@ -16,7 +16,7 @@ Identify files such as `savedata0.cf` … `savedata5.cf` and `collection.cf`.
 
 | Tab | Contents |
 |-----|----------|
-| Resources | Credits, prestige, stars, medals / relationships |
+| Resources | Committee calendar (Y/M/D), credits, prestige, stars, medals / relationships |
 | Planets | Economy / industry / defense / stability and owning faction |
 | Formation | 4×6 grid deploy / undeploy / swap; assign pilots |
 | Units / ships | Level, XP, gear; add / remove |
