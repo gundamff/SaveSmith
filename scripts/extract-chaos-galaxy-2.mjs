@@ -44,6 +44,35 @@ const RESOURCE_MAX_GOLD_FALLBACK = 999999999
 const RESOURCE_MAX_SUPPLY_FALLBACK = 999999999
 const RESOURCE_MAX_PRESTIGE_FALLBACK = 999999
 
+/** Phase-1 stub caps (pre-extract); kept so re-extract never tightens below editor expectations */
+const PREVIOUS_STUB_CAPS = {
+  commanderMaxExp: 999999,
+  commanderMaxStar: 5,
+  commanderMaxStat: 99,
+  planetMaxDefense: 999,
+  planetMaxHqLevel: 10
+}
+
+/**
+ * Observed maxima from savedata1.cg2 (read-only scan, 2026-09-16).
+ * Commander star/admin/military/intellect/breeding/exp; Planet defense/hqLevel.
+ */
+const OBSERVED_SAVE_MAX = {
+  commanderMaxExp: 0,
+  commanderMaxStar: 1,
+  commanderMaxStat: 50,
+  planetMaxDefense: 400,
+  planetMaxHqLevel: 3
+}
+
+function capMax(...values) {
+  let m = 0
+  for (const v of values) {
+    if (Number.isFinite(v) && v > m) m = v
+  }
+  return m
+}
+
 const resAssets = path.join(GAME, 'resources.assets')
 const bin = fs.readFileSync(resAssets)
 
@@ -185,17 +214,46 @@ const collectionLengths = {
 
 const commanderStatMax = maxOf(commanders.flatMap((c) => [c.military, c.intellect, c.admin, c.breeding]))
 const rankBonusMax = maxOf(ranks.flatMap((r) => [r.military, r.intellect, r.admin]))
-const commanderMaxStat = commanderStatMax + rankBonusMax
-const commanderMaxStar = Math.max(maxOf(units.map((u) => u.rank)), maxOf(ranks.map((r) => r.rankType)))
-const planetMaxDefense = Math.max(
+const extractedCommanderMaxStat = commanderStatMax + rankBonusMax
+const extractedCommanderMaxStar = Math.max(
+  maxOf(units.map((u) => u.rank)),
+  maxOf(ranks.map((r) => r.rankType))
+)
+const extractedPlanetMaxDefense = Math.max(
   maxOf(buildings.flatMap((b) => b.defenseMax)),
   maxOf(planets.map((p) => p.defense))
 )
 // 行星指挥部 DefenseMax0/1/2 共 3 档；PlanetData.CommandCenter 实测 1..3
-const planetMaxHqLevel = Math.max(3, maxOf(planets.map((p) => p.commandCenter)))
+const extractedPlanetMaxHqLevel = Math.max(3, maxOf(planets.map((p) => p.commandCenter)))
+
+const commanderMaxExp = capMax(
+  COMMANDER_MAX_EXP_FALLBACK,
+  OBSERVED_SAVE_MAX.commanderMaxExp,
+  PREVIOUS_STUB_CAPS.commanderMaxExp
+)
+const commanderMaxStar = capMax(
+  extractedCommanderMaxStar,
+  OBSERVED_SAVE_MAX.commanderMaxStar,
+  PREVIOUS_STUB_CAPS.commanderMaxStar
+)
+const commanderMaxStat = capMax(
+  extractedCommanderMaxStat,
+  OBSERVED_SAVE_MAX.commanderMaxStat,
+  PREVIOUS_STUB_CAPS.commanderMaxStat
+)
+const planetMaxDefense = capMax(
+  extractedPlanetMaxDefense,
+  OBSERVED_SAVE_MAX.planetMaxDefense,
+  PREVIOUS_STUB_CAPS.planetMaxDefense
+)
+const planetMaxHqLevel = capMax(
+  extractedPlanetMaxHqLevel,
+  OBSERVED_SAVE_MAX.planetMaxHqLevel,
+  PREVIOUS_STUB_CAPS.planetMaxHqLevel
+)
 
 const gameData = {
-  commanderMaxExp: COMMANDER_MAX_EXP_FALLBACK,
+  commanderMaxExp,
   commanderMaxStar,
   commanderMaxStat,
   planetMaxDefense,

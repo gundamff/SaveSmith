@@ -64,9 +64,10 @@ export function validate(state: ChaosGalaxy2State): ValidationIssue[] {
     const entry = getEntry(state.config.entries, name)
     if (!entry || entry.kind !== 'bool[]' || !Array.isArray(entry.value)) continue
     const bits = entry.value as boolean[]
-    const expected = gameData.collectionLengths[COLLECTION_CATALOG_KEY[name]]
-    if (bits.length < expected) {
-      issues.push({ code: 'COLLECTION_LENGTH', args: [name, bits.length, expected] })
+    const catalogLen = gameData.collectionLengths[COLLECTION_CATALOG_KEY[name]]
+    // Real config.cg2 bitmasks are often padded (e.g. 256/512/128); only reject too-short arrays.
+    if (bits.length < catalogLen) {
+      issues.push({ code: 'COLLECTION_LENGTH', args: [name, bits.length, catalogLen] })
     }
   }
   return issues

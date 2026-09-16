@@ -23,7 +23,7 @@ function overCapCampaign(): Uint8Array {
 }
 
 describe('caps', () => {
-  it('clampCommander caps exp, star, and stats from game-data stubs', () => {
+  it('clampCommander caps exp, star, and stats from game-data caps', () => {
     const row: CommanderRow = {
       id: 1,
       exp: 9_999_999,
@@ -45,7 +45,7 @@ describe('caps', () => {
     expect(clamped.id).toBe(1)
   })
 
-  it('clampFactionResources writes gold/supply/prestige within stub caps', () => {
+  it('clampFactionResources writes gold/supply/prestige within game-data caps', () => {
     const save = SaveData.load(overCapCampaign())
     clampFactionResources(save, 0, gameData)
     expect(save.getFactionGold(0)).toBe(gameData.resourceMaxGold)
