@@ -1,11 +1,18 @@
 import { ModuleError } from '@sdk/error'
 import type { SerializedFile, SlotBytes, ValidationIssue } from '@sdk/types'
 import { applyCampaignCaps } from './model/caps'
-import { ConfigSnapshot } from './model/configModel'
+import { ConfigSnapshot, type CollectionName } from './model/configModel'
+import { getEntry } from './model/es3-binary'
 import { gameData } from './model/gameData'
 import { SaveData } from './model/saveModel'
 import type { ChaosGalaxy2State } from './model/types'
 import { slotFileName } from './slots'
+
+const COLLECTION_CATALOG_KEY: Record<CollectionName, keyof typeof gameData.collectionLengths> = {
+  CommanderCollections: 'commanders',
+  UnitCollections: 'units',
+  EventCollections: 'events'
+}
 
 export type { ChaosGalaxy2State } from './model/types'
 export { SaveData } from './model/saveModel'
@@ -51,7 +58,18 @@ export function serialize(state: ChaosGalaxy2State): SerializedFile[] {
 
 export function validate(state: ChaosGalaxy2State): ValidationIssue[] {
   applyCampaignCaps(state.campaign, gameData)
-  return []
+  const issues: ValidationIssue[] = []
+  if (!state.config) return issues
+  for (const name of Object.keys(COLLECTION_CATALOG_KEY) as CollectionName[]) {
+    const entry = getEntry(state.config.entries, name)
+    if (!entry || entry.kind !== 'bool[]' || !Array.isArray(entry.value)) continue
+    const bits = entry.value as boolean[]
+    const expected = gameData.collectionLengths[COLLECTION_CATALOG_KEY[name]]
+    if (bits.length < expected) {
+      issues.push({ code: 'COLLECTION_LENGTH', args: [name, bits.length, expected] })
+    }
+  }
+  return issues
 }
 
 function basename(relativePath: string): string {

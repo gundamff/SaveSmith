@@ -190,6 +190,7 @@ export const zh: MessageTree = {
     INVALID_STACK: '堆叠数量无效（CID {0}）',
     INVALID_POSITION: '坐标 {0} 不是有限数值',
     UNKNOWN_TEAM_CID: '编队页 {0} 的角色 CID {1} 不存在',
+    COLLECTION_LENGTH: '图鉴 {0} 长度 {1} 小于目录容量 {2}，拒绝改写',
     LIFE_OVER_MAX: '当前生命 {0} 超过上限 {1}',
     MANA_OVER_MAX: '当前魔力 {0} 超过上限 {1}',
     ENCRYPT_FAILED: '存档加密失败：{0}'

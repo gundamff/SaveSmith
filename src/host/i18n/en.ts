@@ -191,6 +191,8 @@ export const en: MessageTree = {
     INVALID_STACK: 'Invalid stack count (CID {0})',
     INVALID_POSITION: 'Position {0} is not a finite number',
     UNKNOWN_TEAM_CID: 'Team page {0} uses unknown character CID {1}',
+    COLLECTION_LENGTH:
+      'Collection {0} length {1} is shorter than catalog {2}; refusing rewrite',
     LIFE_OVER_MAX: 'Current life {0} exceeds max {1}',
     MANA_OVER_MAX: 'Current mana {0} exceeds max {1}',
     ENCRYPT_FAILED: 'Failed to encrypt save: {0}'

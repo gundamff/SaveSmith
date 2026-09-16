@@ -77,6 +77,7 @@ const REQUIRED_KEYS = [
   'error.INVALID_STACK',
   'error.INVALID_POSITION',
   'error.UNKNOWN_TEAM_CID',
+  'error.COLLECTION_LENGTH',
   'error.LIFE_OVER_MAX',
   'error.MANA_OVER_MAX'
 ] as const
