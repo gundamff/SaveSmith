@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { parseEs3Binary } from '../../src/games/chaos-galaxy-2/model/es3-binary'
+import { SaveData } from '../../src/games/chaos-galaxy-2/model/saveModel'
 import { parse, serialize } from '../../src/games/chaos-galaxy-2/parse'
 import { encodeMinimalCampaign, encodeMinimalConfig } from './fixtures'
 
@@ -12,7 +13,8 @@ describe('parse / serialize round-trip', () => {
       { relativePath: 'config.cg2', bytes: configBytes }
     ])
     expect(state.slot).toBe(2)
-    expect(state.campaignEntries).toEqual(parseEs3Binary(campaignBytes))
+    expect(state.campaign).toBeInstanceOf(SaveData)
+    expect(state.campaign.entries).toEqual(parseEs3Binary(campaignBytes))
     expect(state.configEntries).toEqual(parseEs3Binary(configBytes))
 
     const out = serialize(state)
