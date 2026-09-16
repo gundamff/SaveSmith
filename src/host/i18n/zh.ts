@@ -153,6 +153,22 @@ export const zh: MessageTree = {
       collection: '图鉴'
     }
   },
+  cg2: {
+    actions: {
+      fillResources: '一键拉满（资金/补给/威望）',
+      maxCommanders: '指挥官全部拉满',
+      unlockAll: '解锁全部已知项',
+      maxCollection: '图鉴一键拉满'
+    },
+    tabs: {
+      resources: '资源',
+      planets: '星球',
+      commanders: '指挥官',
+      fleets: '舰队',
+      unlock: '解锁',
+      collection: '图鉴'
+    }
+  },
   ds: {
     tabs: {
       currency: '货币',

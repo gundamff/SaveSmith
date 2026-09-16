@@ -153,6 +153,22 @@ export const en: MessageTree = {
       collection: 'Collection'
     }
   },
+  cg2: {
+    actions: {
+      fillResources: 'Max gold / supply / prestige',
+      maxCommanders: 'Max commanders',
+      unlockAll: 'Unlock all known flags',
+      maxCollection: 'Max collection'
+    },
+    tabs: {
+      resources: 'Resources',
+      planets: 'Planets',
+      commanders: 'Commanders',
+      fleets: 'Fleets',
+      unlock: 'Unlock',
+      collection: 'Collection'
+    }
+  },
   ds: {
     tabs: {
       currency: 'Currency',

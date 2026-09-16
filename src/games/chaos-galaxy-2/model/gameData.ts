@@ -103,3 +103,19 @@ export interface GameData {
 
 /** Extracted catalog from scripts/extract-chaos-galaxy-2.mjs */
 export const gameData = data as GameData
+
+export function commanderById(gd: GameData, id: number): CommanderEntry | undefined {
+  return gd.commanders.find((c) => c.id === id)
+}
+
+export function unitById(gd: GameData, id: number): UnitEntry | undefined {
+  return gd.units.find((u) => u.id === id)
+}
+
+export function planetById(gd: GameData, id: number): PlanetEntry | undefined {
+  return gd.planets.find((p) => p.id === id)
+}
+
+export function buildingById(gd: GameData, id: number): BuildingEntry | undefined {
+  return gd.buildings.find((b) => b.id === id)
+}
