@@ -315,5 +315,12 @@ export function setArray(entries: Es3BinaryEntry[], key: string, value: number[]
   }
 
   entry.value = value
+  if (value.length === 0) {
+    if (entry.kind === 'int[]' || entry.kind === 'bool[]') {
+      return
+    }
+    entry.kind = 'int[]'
+    return
+  }
   entry.kind = typeof value[0] === 'boolean' ? 'bool[]' : 'int[]'
 }

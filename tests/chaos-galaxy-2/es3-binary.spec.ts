@@ -52,4 +52,39 @@ describe('es3-binary', () => {
     expect(again[0].value).toBe(2099)
     expect(again[0].settings).toBe(0x0a)
   })
+
+  it('preserves opaque payload (0x53) as raw and round-trips bytes', () => {
+    // settings=0x0200, 0x53 marker + opaque bytes before 0x7B
+    const hex = [
+      '7E','04','44','61','74','61','00','02','00','00','53','AA','BB','CC','7B'
+    ]
+    const raw = Uint8Array.from(hex.map((h) => parseInt(h, 16)))
+    const entries = parseEs3Binary(raw)
+    expect(entries[0].kind).toBe('raw')
+    expect(entries[0].rawPayload).toEqual(new Uint8Array([0x53, 0xaa, 0xbb, 0xcc]))
+    expect([...serializeEs3Binary(entries)]).toEqual([...raw])
+  })
+
+  it('setArray empty preserves bool[] kind on round-trip', () => {
+    const hex = [
+      '7E','04','46','6C','61','67','0B','01','00','00','51','FF','9C','7C','4D','AD',
+      '04','00','00','00','01','00','01','00','7B'
+    ]
+    const raw = Uint8Array.from(hex.map((h) => parseInt(h, 16)))
+    const entries = parseEs3Binary(raw)
+    expect(entries[0].kind).toBe('bool[]')
+
+    setArray(entries, 'Flag', [])
+    const reserialized = serializeEs3Binary(entries)
+    const again = parseEs3Binary(reserialized)
+
+    expect(again[0].kind).toBe('bool[]')
+    expect(again[0].value).toEqual([])
+    expect([...reserialized.slice(10, 16)]).toEqual([0x51, 0xff, 0x9c, 0x7c, 0x4d, 0xad])
+    expect([...reserialized]).toEqual([
+      ...raw.slice(0, 16),
+      0x00, 0x00, 0x00, 0x00,
+      0x7b
+    ])
+  })
 })
