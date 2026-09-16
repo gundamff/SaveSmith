@@ -15,7 +15,8 @@ describe('parse / serialize round-trip', () => {
     expect(state.slot).toBe(2)
     expect(state.campaign).toBeInstanceOf(SaveData)
     expect(state.campaign.entries).toEqual(parseEs3Binary(campaignBytes))
-    expect(state.configEntries).toEqual(parseEs3Binary(configBytes))
+    expect(state.config).not.toBeNull()
+    expect(state.config?.entries).toEqual(parseEs3Binary(configBytes))
 
     const out = serialize(state)
     expect(out.map((f) => f.relativePath)).toEqual(['savedata2.cg2', 'config.cg2'])
@@ -23,10 +24,10 @@ describe('parse / serialize round-trip', () => {
     expect([...out[1]!.bytes]).toEqual([...configBytes])
   })
 
-  it('serializes campaign only when configEntries is null', () => {
+  it('serializes campaign only when config is null', () => {
     const campaignBytes = encodeMinimalCampaign()
     const state = parse([{ relativePath: 'savedata0.cg2', bytes: campaignBytes }])
-    expect(state.configEntries).toBeNull()
+    expect(state.config).toBeNull()
     const out = serialize(state)
     expect(out).toEqual([{ relativePath: 'savedata0.cg2', bytes: campaignBytes }])
   })

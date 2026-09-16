@@ -1,0 +1,13 @@
+{
+  "commanderMaxExp": 999999,
+  "commanderMaxStar": 5,
+  "commanderMaxStat": 99,
+  "planetMaxDefense": 999,
+  "planetMaxHqLevel": 10,
+  "resourceMaxGold": 999999999,
+  "resourceMaxSupply": 999999999,
+  "resourceMaxPrestige": 999999,
+  "commanders": [],
+  "units": [],
+  "levelTables": {}
+}

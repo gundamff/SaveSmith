@@ -1,12 +1,15 @@
 import { ModuleError } from '@sdk/error'
 import type { SerializedFile, SlotBytes, ValidationIssue } from '@sdk/types'
-import { parseEs3Binary, serializeEs3Binary } from './model/es3-binary'
+import { applyCampaignCaps } from './model/caps'
+import { ConfigSnapshot } from './model/configModel'
+import { gameData } from './model/gameData'
 import { SaveData } from './model/saveModel'
 import type { ChaosGalaxy2State } from './model/types'
 import { slotFileName } from './slots'
 
 export type { ChaosGalaxy2State } from './model/types'
 export { SaveData } from './model/saveModel'
+export { ConfigSnapshot } from './model/configModel'
 
 const SLOT_FILE = /^savedata(\d+)\.cg2$/i
 
@@ -18,16 +21,16 @@ export function parse(files: SlotBytes[]): ChaosGalaxy2State {
   const campaign = SaveData.load(campaignFile.bytes)
 
   const configFile = files.find((f) => basename(f.relativePath).toLowerCase() === 'config.cg2')
-  let configEntries: ChaosGalaxy2State['configEntries'] = null
+  let config: ChaosGalaxy2State['config'] = null
   if (configFile) {
     try {
-      configEntries = parseEs3Binary(configFile.bytes)
+      config = ConfigSnapshot.load(configFile.bytes)
     } catch {
-      configEntries = null
+      config = null
     }
   }
 
-  return { slot, campaign, configEntries }
+  return { slot, campaign, config }
 }
 
 export function serialize(state: ChaosGalaxy2State): SerializedFile[] {
@@ -37,16 +40,17 @@ export function serialize(state: ChaosGalaxy2State): SerializedFile[] {
       bytes: state.campaign.serialize()
     }
   ]
-  if (state.configEntries !== null) {
+  if (state.config !== null) {
     out.push({
       relativePath: 'config.cg2',
-      bytes: serializeEs3Binary(state.configEntries)
+      bytes: state.config.serialize()
     })
   }
   return out
 }
 
-export function validate(_state: ChaosGalaxy2State): ValidationIssue[] {
+export function validate(state: ChaosGalaxy2State): ValidationIssue[] {
+  applyCampaignCaps(state.campaign, gameData)
   return []
 }
 

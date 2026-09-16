@@ -1,4 +1,5 @@
 import type { GameModule } from '@sdk/types'
+import { actions, applyAction } from './actions'
 import { locate } from './locate'
 import { parse, serialize, validate, type ChaosGalaxy2State } from './parse'
 import { listSlots } from './slots'
@@ -27,7 +28,7 @@ export const chaosGalaxy2Module: GameModule<ChaosGalaxy2State> = {
   parse,
   serialize,
   validate,
-  actions: () => [],
-  applyAction: (state) => state,
+  actions,
+  applyAction,
   views: chaosGalaxy2Views
 }
