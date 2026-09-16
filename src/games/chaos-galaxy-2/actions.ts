@@ -1,14 +1,21 @@
 import { ModuleError } from '@sdk/error'
 import type { ActionSpec } from '@sdk/types'
+import { getEntry } from './model/es3-binary'
 import { gameData } from './model/gameData'
+import type { CommanderRow, SaveData } from './model/saveModel'
 import type { ChaosGalaxy2State } from './model/types'
-import type { SaveData } from './model/saveModel'
 
 export function fillResources(save: SaveData): void {
   const faction = save.getPlayFaction()
-  save.setFactionGold(faction, gameData.resourceMaxGold)
-  save.setFactionSupply(faction, gameData.resourceMaxSupply)
-  save.setFactionPrestige(faction, gameData.resourceMaxPrestige)
+  if (getEntry(save.entries, `Faction${faction}Gold`)) {
+    save.setFactionGold(faction, gameData.resourceMaxGold)
+  }
+  if (getEntry(save.entries, `Faction${faction}Supply`)) {
+    save.setFactionSupply(faction, gameData.resourceMaxSupply)
+  }
+  if (getEntry(save.entries, `Faction${faction}Prestige`)) {
+    save.setFactionPrestige(faction, gameData.resourceMaxPrestige)
+  }
 }
 
 export function actions(state: ChaosGalaxy2State): ActionSpec[] {
@@ -32,14 +39,23 @@ export function applyAction(state: ChaosGalaxy2State, id: string): ChaosGalaxy2S
       break
     case 'max-commanders':
       for (const commanderId of state.campaign.listCommanderIds()) {
-        state.campaign.setCommander(commanderId, {
-          exp: gameData.commanderMaxExp,
-          admin: gameData.commanderMaxStat,
-          military: gameData.commanderMaxStat,
-          intellect: gameData.commanderMaxStat,
-          breeding: gameData.commanderMaxStat,
-          star: gameData.commanderMaxStar
-        })
+        const patch: Partial<CommanderRow> = { exp: gameData.commanderMaxExp }
+        if (getEntry(state.campaign.entries, `Commander${commanderId}Admin`)) {
+          patch.admin = gameData.commanderMaxStat
+        }
+        if (getEntry(state.campaign.entries, `Commander${commanderId}Military`)) {
+          patch.military = gameData.commanderMaxStat
+        }
+        if (getEntry(state.campaign.entries, `Commander${commanderId}Intellect`)) {
+          patch.intellect = gameData.commanderMaxStat
+        }
+        if (getEntry(state.campaign.entries, `Commander${commanderId}Breeding`)) {
+          patch.breeding = gameData.commanderMaxStat
+        }
+        if (getEntry(state.campaign.entries, `Commander${commanderId}Star`)) {
+          patch.star = gameData.commanderMaxStar
+        }
+        state.campaign.setCommander(commanderId, patch)
       }
       break
     case 'unlock-all':

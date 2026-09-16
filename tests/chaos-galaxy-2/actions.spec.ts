@@ -90,6 +90,36 @@ describe('chaos-galaxy-2 actions', () => {
     expect(state.config?.entries.find((e) => e.key === 'Volume')?.value).toBe(80)
   })
 
+  it('fill-resources skips missing faction resource keys without throwing', () => {
+    const bytes = serializeEs3Binary([
+      { key: 'PlayFaction', settings: 10, kind: 'int', value: 0 },
+      { key: 'Faction0Gold', settings: 10, kind: 'int', value: 42 }
+    ])
+    const state = parse([{ relativePath: 'savedata0.cg2', bytes }])
+    expect(() => applyAction(state, 'fill-resources')).not.toThrow()
+    expect(state.campaign.getFactionGold(0)).toBe(gameData.resourceMaxGold)
+    expect(state.campaign.entries.some((e) => e.key === 'Faction0Supply')).toBe(false)
+    expect(state.campaign.entries.some((e) => e.key === 'Faction0Prestige')).toBe(false)
+  })
+
+  it('max-commanders skips missing stat keys without throwing', () => {
+    const bytes = serializeEs3Binary([
+      { key: 'PlayFaction', settings: 10, kind: 'int', value: 0 },
+      { key: 'Commander1Exp', settings: 10, kind: 'int', value: 0 },
+      { key: 'Commander1Admin', settings: 10, kind: 'int', value: 1 }
+    ])
+    const state = parse([{ relativePath: 'savedata0.cg2', bytes }])
+    expect(() => applyAction(state, 'max-commanders')).not.toThrow()
+    const row = state.campaign.getCommander(1)
+    expect(row.exp).toBe(gameData.commanderMaxExp)
+    expect(row.admin).toBe(gameData.commanderMaxStat)
+    expect(row.military).toBe(0)
+    expect(row.intellect).toBe(0)
+    expect(row.breeding).toBe(0)
+    expect(row.star).toBe(0)
+    expect(state.campaign.entries.some((e) => e.key === 'Commander1Military')).toBe(false)
+  })
+
   it('throws UNKNOWN_ACTION for an unknown id', () => {
     const state = parse([{ relativePath: 'savedata0.cg2', bytes: campaignBytes() }])
     expect(() => applyAction(state, 'nope')).toThrow(ModuleError)
