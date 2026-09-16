@@ -6,6 +6,7 @@ import {
   setScalar,
   type Es3BinaryEntry
 } from './es3-binary'
+import { isKnownUnitTypeId, type GameData } from './gameData'
 
 export type PlanetField =
   | 'faction'
@@ -236,6 +237,46 @@ export class SaveData {
 
   setFleetCommander(fleetId: number, commanderId: number): void {
     setScalar(this.entries, `Fleet${fleetId}Commander`, Math.round(commanderId))
+  }
+
+  setFleetFlagshipType(fleetId: number, typeId: number): void {
+    const key = `Fleet${fleetId}Flagship`
+    const entry = getEntry(this.entries, key)
+    if (!entry) throw new Error(`Missing entry "${key}"`)
+    if (entry.kind === 'int[]' && Array.isArray(entry.value)) {
+      const next = (entry.value as number[]).slice()
+      if (next.length === 0) next.push(Math.round(typeId))
+      else next[0] = Math.round(typeId)
+      setArray(this.entries, key, next)
+      return
+    }
+    if (entry.kind === 'int' || entry.kind === 'float') {
+      setScalar(this.entries, key, Math.round(typeId))
+      return
+    }
+    throw new Error(`Cannot set flagship type on "${key}"`)
+  }
+
+  /** Clamp unknown unit/flagship typeIds to 0 so polluted saves stay writable. */
+  sanitizeFleetTypeIds(gd: GameData): void {
+    for (const id of this.listFleetIds()) {
+      const flagship = this.readNumberOrArray(`Fleet${id}Flagship`)
+      if (Array.isArray(flagship)) {
+        const typeId = flagship[0] ?? 0
+        if (!isKnownUnitTypeId(gd, typeId)) this.setFleetFlagshipType(id, 0)
+      } else if (typeof flagship === 'number' && !isKnownUnitTypeId(gd, flagship)) {
+        this.setFleetFlagshipType(id, 0)
+      }
+      for (let slot = 1; slot <= FLEET_UNIT_SLOTS; slot++) {
+        const tuple = this.optionalIntArray(`Fleet${id}Unit${slot}`)
+        if (!tuple || tuple.length === 0) continue
+        const typeId = tuple[0] ?? 0
+        if (isKnownUnitTypeId(gd, typeId)) continue
+        const next = tuple.slice()
+        next[0] = 0
+        this.setFleetUnit(id, slot as FleetUnitSlot, next)
+      }
+    }
   }
 
   /** Sets existing Faction{f}*Unlocked bool/int fields. Does not add keys or touch raw. */

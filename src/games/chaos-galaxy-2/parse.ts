@@ -58,6 +58,7 @@ export function serialize(state: ChaosGalaxy2State): SerializedFile[] {
 
 export function validate(state: ChaosGalaxy2State): ValidationIssue[] {
   applyCampaignCaps(state.campaign, gameData)
+  state.campaign.sanitizeFleetTypeIds(gameData)
   const issues: ValidationIssue[] = []
   if (!state.config) return issues
   for (const name of Object.keys(COLLECTION_CATALOG_KEY) as CollectionName[]) {

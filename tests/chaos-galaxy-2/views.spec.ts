@@ -261,6 +261,7 @@ describe('ported view sources', () => {
     expect(text).toMatch(/index/)
     expect(text).toMatch(/el-table/)
     expect(text).toMatch(/setFleetUnit|setFleetCommander/)
+    expect(text).toMatch(/unitOptions/)
     expect(text).not.toMatch(/addFleet|removeFleet|deleteFleet/)
     expect(text).not.toMatch(/setFleetUnit\([^)]+,\s*14/)
     expect(text).toMatch(/markDirty/)

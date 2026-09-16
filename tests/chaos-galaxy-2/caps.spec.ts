@@ -65,4 +65,34 @@ describe('caps', () => {
     expect(state.campaign.getPlanet(1).defense).toBe(gameData.planetMaxDefense)
     expect(state.campaign.getPlanet(1).hqLevel).toBe(gameData.planetMaxHqLevel)
   })
+
+  it('validate clamps unknown fleet unit and flagship typeIds to 0 and keeps catalog ids', () => {
+    const bytes = serializeEs3Binary([
+      { key: 'PlayFaction', settings: 10, kind: 'int', value: 0 },
+      { key: 'Fleet1Faction', settings: 10, kind: 'int', value: 0 },
+      { key: 'Fleet1Commander', settings: 10, kind: 'int', value: 1 },
+      { key: 'Fleet1Flagship', settings: 0x1b, kind: 'int[]', value: [99999, 0, 2400, 750] },
+      { key: 'Fleet1Unit1', settings: 0x1b, kind: 'int[]', value: [1, 0, 1650, 600] },
+      { key: 'Fleet1Unit2', settings: 0x1b, kind: 'int[]', value: [88888, 0, 100, 50] },
+      { key: 'Fleet1Unit3', settings: 0x1b, kind: 'int[]', value: [0, 0, 0, 0] }
+    ])
+    const state = parse([{ relativePath: 'savedata0.cg2', bytes }])
+    expect(validate(state)).toEqual([])
+    const fleet = state.campaign.getFleet(1)
+    expect(fleet.flagship).toEqual([0, 0, 2400, 750])
+    expect(fleet.units[0]).toEqual([1, 0, 1650, 600])
+    expect(fleet.units[1]).toEqual([0, 0, 100, 50])
+    expect(fleet.units[2]).toEqual([0, 0, 0, 0])
+  })
+
+  it('validate clamps a scalar Flagship typeId that is not in the unit catalog', () => {
+    const bytes = serializeEs3Binary([
+      { key: 'PlayFaction', settings: 10, kind: 'int', value: 0 },
+      { key: 'Fleet2Faction', settings: 10, kind: 'int', value: 0 },
+      { key: 'Fleet2Flagship', settings: 10, kind: 'int', value: 424242 }
+    ])
+    const state = parse([{ relativePath: 'savedata0.cg2', bytes }])
+    expect(validate(state)).toEqual([])
+    expect(state.campaign.getFleet(2).flagship).toBe(0)
+  })
 })

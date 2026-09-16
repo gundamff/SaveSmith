@@ -21,12 +21,11 @@ interface FleetTableRow {
   faction: number
   commander: number
   commanderName: string
-  flagshipName: string
+  flagshipType: number | null
   units: UnitSlotRow[]
 }
 
 const editor = useCg2Editor()
-const maxUnitId = Math.max(0, ...gameData.units.map((u) => u.id))
 const TUPLE_MAX = 999999
 
 const commanderOptions = computed(() => {
@@ -36,6 +35,14 @@ const commanderOptions = computed(() => {
     label: `${commanderById(gameData, id)?.name ?? t('commanders.nameFallback', id)} (#${id})`
   }))
 })
+
+const unitOptions = [
+  { value: 0, label: t('fleets.empty') },
+  ...gameData.units.map((u) => ({
+    value: u.id,
+    label: `${u.name} (#${u.id})`
+  }))
+]
 
 const fleets = computed((): FleetTableRow[] => {
   void editor.rev
@@ -62,16 +69,14 @@ const fleets = computed((): FleetTableRow[] => {
       commander: fleet.commander,
       commanderName:
         commanderById(gameData, fleet.commander)?.name || t('commanders.nameFallback', fleet.commander),
-      flagshipName: flagshipLabel(fleet.flagship),
+      flagshipType: fleet.flagship === null ? null : flagshipTypeId(fleet.flagship),
       units
     }
   })
 })
 
-function flagshipLabel(flagship: number | number[] | null): string {
-  if (flagship === null) return t('fleets.empty')
-  const typeId = Array.isArray(flagship) ? (flagship[0] ?? 0) : flagship
-  return unitById(gameData, typeId)?.name || t('fleets.unitFallback', typeId)
+function flagshipTypeId(flagship: number | number[]): number {
+  return Array.isArray(flagship) ? (flagship[0] ?? 0) : flagship
 }
 
 function setFaction(fleetId: number, v: number | undefined): void {
@@ -93,6 +98,11 @@ function setUnitField(fleetId: number, slot: FleetUnitSlot, fieldIndex: number, 
   const next = tuple.slice()
   next[fieldIndex] = v
   editor.markDirty(() => editor.save.setFleetUnit(fleetId, slot, next))
+}
+
+function setFlagshipType(fleetId: number, v: number | undefined | null): void {
+  if (v === undefined || v === null || Number.isNaN(v)) return
+  editor.markDirty(() => editor.save.setFleetFlagshipType(fleetId, v))
 }
 </script>
 
@@ -131,24 +141,44 @@ function setUnitField(fleetId: number, slot: FleetUnitSlot, fieldIndex: number, 
           </el-select>
         </template>
       </el-table-column>
-      <el-table-column :label="t('fleets.flagship')" min-width="140">
-        <template #default="{ row }">{{ row.flagshipName }}</template>
+      <el-table-column :label="t('fleets.flagship')" min-width="200">
+        <template #default="{ row }">
+          <el-select
+            v-if="row.flagshipType !== null"
+            size="small"
+            filterable
+            :model-value="row.flagshipType"
+            style="width: 100%"
+            @update:model-value="(v) => setFlagshipType(row.id, v)"
+          >
+            <el-option v-for="o in unitOptions" :key="'f' + o.value" :label="o.label" :value="o.value" />
+          </el-select>
+          <span v-else class="empty">{{ t('fleets.empty') }}</span>
+        </template>
       </el-table-column>
       <el-table-column :label="t('fleets.units')" min-width="420">
         <template #default="{ row }">
           <div v-if="row.units.length === 0" class="empty">{{ t('fleets.empty') }}</div>
           <div v-for="u in row.units" :key="u.slot" class="unit-row">
             <span class="slot">{{ t('fleets.slot', u.slot) }}</span>
-            <span class="unit-name">{{ u.name }} #{{ u.typeId }}</span>
+            <el-select
+              size="small"
+              filterable
+              :model-value="u.typeId"
+              style="width: 180px"
+              @update:model-value="(v) => setUnitField(u.fleetId, u.slot, 0, v ?? undefined)"
+            >
+              <el-option v-for="o in unitOptions" :key="o.value" :label="o.label" :value="o.value" />
+            </el-select>
             <el-input-number
-              v-for="(field, fi) in u.fields"
-              :key="fi"
+              v-for="(field, fi) in u.fields.slice(1)"
+              :key="Number(fi) + 1"
               size="small"
               :model-value="field"
               :min="0"
-              :max="fi === 0 ? maxUnitId : TUPLE_MAX"
+              :max="TUPLE_MAX"
               controls-position="right"
-              @update:model-value="(v) => setUnitField(u.fleetId, u.slot, Number(fi), v ?? undefined)"
+              @update:model-value="(v) => setUnitField(u.fleetId, u.slot, Number(fi) + 1, v ?? undefined)"
             />
           </div>
         </template>
@@ -164,5 +194,4 @@ function setUnitField(fleetId: number, slot: FleetUnitSlot, fieldIndex: number, 
 .empty { color: #909399; }
 .unit-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 6px; }
 .slot { color: #909399; font-size: 12px; width: 48px; }
-.unit-name { min-width: 100px; }
 </style>

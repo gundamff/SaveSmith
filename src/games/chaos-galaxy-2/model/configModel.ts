@@ -5,6 +5,7 @@ import {
   setArray,
   type Es3BinaryEntry
 } from './es3-binary'
+import { gameData } from './gameData'
 
 export type CollectionName = 'CommanderCollections' | 'UnitCollections' | 'EventCollections'
 
@@ -43,10 +44,16 @@ export class ConfigSnapshot {
   }
 
   maxAllCollections(): void {
+    const catalogLen: Record<CollectionName, number> = {
+      CommanderCollections: gameData.collectionLengths.commanders,
+      UnitCollections: gameData.collectionLengths.units,
+      EventCollections: gameData.collectionLengths.events
+    }
     for (const name of COLLECTION_NAMES) {
       const entry = getEntry(this.entries, name)
       if (!entry || entry.kind !== 'bool[]' || !Array.isArray(entry.value)) continue
-      const bits = (entry.value as boolean[]).map(() => true)
+      const limit = catalogLen[name]
+      const bits = (entry.value as boolean[]).map((bit, index) => (index < limit ? true : bit))
       setArray(this.entries, name, bits)
     }
   }

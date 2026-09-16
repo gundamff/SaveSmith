@@ -112,6 +112,11 @@ export function unitById(gd: GameData, id: number): UnitEntry | undefined {
   return gd.units.find((u) => u.id === id)
 }
 
+/** Empty/sentinel 0 is allowed; any other id must exist in the unit catalog. */
+export function isKnownUnitTypeId(gd: GameData, id: number): boolean {
+  return id === 0 || unitById(gd, id) != null
+}
+
 export function planetById(gd: GameData, id: number): PlanetEntry | undefined {
   return gd.planets.find((p) => p.id === id)
 }
