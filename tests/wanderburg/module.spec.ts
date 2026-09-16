@@ -41,7 +41,8 @@ describe('wanderburgModule catalog / locate / registry', () => {
       'dragon-sword'
     ])
     expect(modules[0]).toBe(chaosFrontModule)
-    expect(modules[1]).toBe(wanderburgModule)
+    expect(modules[1]).toBe(chaosGalaxy2Module)
+    expect(modules[2]).toBe(wanderburgModule)
   })
 })
 
