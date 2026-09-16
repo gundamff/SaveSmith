@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { ModuleError } from '@sdk/error'
 import { modules } from '@host/registry'
 import { chaosFrontModule } from '../../src/games/chaos-front'
+import { chaosGalaxy2Module } from '../../src/games/chaos-galaxy-2'
 import { wanderburgModule } from '../../src/games/wanderburg'
 import { encryptUtf8ToSaveBytes } from '../../src/games/wanderburg/crypto/mmJsonEncrypted'
 import { MM_KEY } from '../../src/games/wanderburg/crypto/keys'
@@ -32,7 +33,13 @@ describe('wanderburgModule catalog / locate / registry', () => {
       identifyAnyOf: ['Saves'],
       slotFilePatterns: ['Saves/Playtest/Generation_*/SaveData.json']
     })
-    expect(modules.map((m) => m.id)).toEqual(['chaos-front', 'wanderburg', 'terraria', 'dragon-sword'])
+    expect(modules.map((m) => m.id)).toEqual([
+      'chaos-front',
+      'chaos-galaxy-2',
+      'wanderburg',
+      'terraria',
+      'dragon-sword'
+    ])
     expect(modules[0]).toBe(chaosFrontModule)
     expect(modules[1]).toBe(wanderburgModule)
   })
