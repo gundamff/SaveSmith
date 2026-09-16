@@ -4,6 +4,18 @@
 
 ## [Unreleased]
 
+新增 **混沌银河 2**。
+
+### 新增
+
+- **混沌银河 2 / Chaos Galaxy 2**（ChaosGalaxyStudio，Steam AppID 1537910）：二进制 ES3 槽位 `savedataN.cg2` + `config.cg2` 图鉴；资源、星球、指挥官、舰队、解锁、图鉴
+- 指挥官只改已有数值；舰队一期不增删单位槽；`config.cg2` 音量/分辨率等设置不改
+
+### 工程 / 文档
+
+- 游戏说明见 `docs/games/chaos-galaxy-2.md`；素材抽取 `scripts/extract-chaos-galaxy-2.mjs`
+- 真实存档 E2E 由 `CG2_SAVE` / `CG2_E2E_SAVE` / `CG2_E2E_CONFIG` 门控，不入库玩家存档
+
 ## [0.5.1] - 2026-09-14
 
 混沌兵团资源页可改委员会历（游戏时间）。

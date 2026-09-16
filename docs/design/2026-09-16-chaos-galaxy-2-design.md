@@ -3,7 +3,7 @@
 日期：2026-09-16  
 范围：完整模块（对齐混沌兵团能力面）+ AssetRipper 名称/图标 + 战役档与 config 图鉴  
 实现策略：独立 `GameModule` + 有序二进制 ES3 编解码（未知条目透传）  
-状态：设计已确认；实现计划见 `docs/design/2026-09-16-chaos-galaxy-2-plan.md`
+状态：实现中；计划见 `docs/design/2026-09-16-chaos-galaxy-2-plan.md`
 
 ## 背景
 

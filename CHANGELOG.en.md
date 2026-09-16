@@ -4,6 +4,18 @@
 
 ## [Unreleased]
 
+Adds **Chaos Galaxy 2**.
+
+### Added
+
+- **Chaos Galaxy 2** (ChaosGalaxyStudio, Steam AppID 1537910): binary ES3 slots `savedataN.cg2` plus `config.cg2` collections; resources, planets, commanders, fleets, unlocks, collection
+- Commanders: edit existing values only; fleet unit-slot add/delete deferred; `config.cg2` settings (volume/resolution) left untouched
+
+### Infrastructure / Docs
+
+- Game notes in `docs/games/chaos-galaxy-2.en.md`; extract via `scripts/extract-chaos-galaxy-2.mjs`
+- Real-save e2e gated by `CG2_SAVE` / `CG2_E2E_SAVE` / `CG2_E2E_CONFIG`; player saves are never committed
+
 ## [0.5.1] - 2026-09-14
 
 Chaos Front Resources tab can edit the Committee calendar (in-game date).
