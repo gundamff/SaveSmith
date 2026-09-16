@@ -65,6 +65,64 @@ describe('es3-binary', () => {
     expect([...serializeEs3Binary(entries)]).toEqual([...raw])
   })
 
+  it('raw 0x53 payload may contain 0x7B data bytes before terminator', () => {
+    // Real savedata1.cg2 BuildableUnits: 0x53 list includes unit id 123 (7B 00 00 00) then real 7B 7E
+    const hex = [
+      '7E','04','44','61','74','61','28','00','00','00',
+      '53','FF','56','08','A8','E2','7B','00','00','00','7B',
+      '7E','04','4E','65','78','74','0A','00','00','00','FF','56','08','A8','E2','01','00','00','00','7B'
+    ]
+    const raw = Uint8Array.from(hex.map((h) => parseInt(h, 16)))
+    const entries = parseEs3Binary(raw)
+    expect(entries.map((e) => e.key)).toEqual(['Data', 'Next'])
+    expect(entries[0].kind).toBe('raw')
+    expect(entries[0].rawPayload).toEqual(new Uint8Array([0x53, 0xff, 0x56, 0x08, 0xa8, 0xe2, 0x7b, 0x00, 0x00, 0x00]))
+    expect(entries[1].kind).toBe('int')
+    expect(entries[1].value).toBe(1)
+    expect([...serializeEs3Binary(entries)]).toEqual([...raw])
+  })
+
+  it('falls back to raw when known int[] payload continues past count', () => {
+    // Real savedata1.cg2 Faction0PolicyStatus: 0x51 + int hash + count=2 + 2 ints + trailing zeros + 7B
+    const extra = Array.from({ length: 16 }, () => '00')
+    const hex = [
+      '7E',
+      '04',
+      '44',
+      '61',
+      '74',
+      '61',
+      'D3',
+      '00',
+      '00',
+      '00',
+      '51',
+      'FF',
+      '56',
+      '08',
+      'A8',
+      'E2',
+      '02',
+      '00',
+      '00',
+      '00',
+      '17',
+      '00',
+      '00',
+      '00',
+      '01',
+      '00',
+      '00',
+      '00',
+      ...extra,
+      '7B'
+    ]
+    const raw = Uint8Array.from(hex.map((h) => parseInt(h, 16)))
+    const entries = parseEs3Binary(raw)
+    expect(entries[0].kind).toBe('raw')
+    expect([...serializeEs3Binary(entries)]).toEqual([...raw])
+  })
+
   it('setArray empty preserves bool[] kind on round-trip', () => {
     const hex = [
       '7E','04','46','6C','61','67','0B','01','00','00','51','FF','9C','7C','4D','AD',

@@ -52,7 +52,9 @@ function writeFloat32LE(value: number): Uint8Array {
 
 function findEntryEnd(bytes: Uint8Array, start: number): number {
   for (let i = start; i < bytes.length; i++) {
-    if (bytes[i] === ENTRY_END) {
+    if (bytes[i] !== ENTRY_END) continue
+    // Data bytes may be 0x7B (e.g. int 123). Real terminator is 0x7B then 0x7E or EOF.
+    if (i + 1 === bytes.length || bytes[i + 1] === ENTRY_START) {
       return i
     }
   }
@@ -175,20 +177,25 @@ export function parseEs3Binary(bytes: Uint8Array): Es3BinaryEntry[] {
       continue
     }
 
-    const parsed = parseKnownPayload(bytes, offset, hash, arrayMode)
-    offset = parsed.nextOffset
-
-    if (bytes[offset] !== ENTRY_END) {
-      throw new Error(`Expected entry end 0x7B at offset ${offset}`)
+    try {
+      const parsed = parseKnownPayload(bytes, offset, hash, arrayMode)
+      if (bytes[parsed.nextOffset] === ENTRY_END) {
+        offset = parsed.nextOffset + 1
+        entries.push({
+          key,
+          settings,
+          kind: parsed.kind,
+          value: parsed.value
+        })
+        continue
+      }
+    } catch {
+      // Fall through to opaque raw (same as unknown hash).
     }
-    offset += 1
 
-    entries.push({
-      key,
-      settings,
-      kind: parsed.kind,
-      value: parsed.value
-    })
+    const raw = sliceRawPayload(bytes, payloadStart)
+    entries.push({ key, settings, kind: 'raw', rawPayload: raw.rawPayload })
+    offset = raw.nextOffset
   }
 
   return entries
