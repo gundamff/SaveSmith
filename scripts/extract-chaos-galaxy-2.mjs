@@ -15,7 +15,7 @@
  *   CollectionEventData, CollectionUnitData, CommanderData, CommanderStrategyData,
  *   CommanderTacticsData, CommanderTalentData, ConversationData, CustomFigureData,
  *   CustomFlagData, CustomPolicyData, CustomSideData, DialogueData, FactionSelectData,
- *   FleetStatusData, LanguageData, PlanetData, PlanetFeatureData, PolicyData,
+ *   ChipSkillsData, FleetStatusData, LanguageData, PlanetData, PlanetFeatureData, PolicyData,
  *   PortraitShiftData, RankData, SpaceLaneData, TroopAnimData, UnitAbilityData,
  *   UnitEffectsData, UnitTypeData, UnitWeaponData
  *   无 UnitLevelData：指挥官经验上限无成长表，脚本内写入保守回落常量。
@@ -90,7 +90,9 @@ const tables = {
   unitWeapon: extractXml('<UnitWeaponData>'),
   commanderTalent: extractXml('<CommanderTalentData>'),
   commanderStrategy: extractXml('<CommanderStrategyData>'),
-  commanderTactics: extractXml('<CommanderTacticsData>')
+  commanderTactics: extractXml('<CommanderTacticsData>'),
+  factionSelect: extractXml('<FactionSelectData>'),
+  chipSkills: extractXml('<ChipSkillsData>')
 }
 
 const lang = parseXmlItems(tables.language).map((attrs) => xmlUnescape(attrs.CN ?? ''))
@@ -188,6 +190,21 @@ const weapons = parseXmlItems(tables.unitWeapon).map((a) => ({
   info: langAt(a.Info)
 }))
 
+const factions = parseXmlItems(tables.factionSelect).map((a) => ({
+  id: num(a.Index),
+  name: langAt(a.Name) || `势力${a.Index}`,
+  info: langAt(a.Info),
+  leader: num(a.Leader),
+  factionSide: num(a.FactionSide)
+}))
+
+const chipSkills = parseXmlItems(tables.chipSkills).map((a) => ({
+  id: num(a.Index),
+  name: langAt(a.Name) || `芯片${a.Index}`,
+  info: langAt(a.Info),
+  chipType: num(a.ChipType)
+}))
+
 const collectionCommanders = parseXmlItems(tables.collectionCommander).map((a) => ({
   index: num(a.Index),
   commanderId: num(a.Commander),
@@ -271,6 +288,8 @@ const gameData = {
   tactics,
   abilities,
   weapons,
+  factions,
+  chipSkills,
   levelTables: {},
   collectionLengths,
   collectionCommanders,
@@ -286,6 +305,8 @@ console.log(
   '| units:', units.length,
   '| planets:', planets.length,
   '| buildings:', buildings.length,
+  '| factions:', factions.length,
+  '| chipSkills:', chipSkills.length,
   '| collections:', JSON.stringify(collectionLengths),
   '| caps:', JSON.stringify({
     commanderMaxExp: gameData.commanderMaxExp,
@@ -304,6 +325,8 @@ if (collectionLengths.units !== 245) die(`CollectionUnitData 数量异常（应�
 if (collectionLengths.events !== 50) die(`CollectionEventData 数量异常（应为 50）`)
 if (commanders[0]?.name !== '文昌君') die('指挥官 1 名称异常，检查 LanguageData')
 if (units[0]?.name !== '作战卫星') die('单位 1 名称异常，检查 LanguageData')
+if (factions.length < 8) die(`势力数量异常（${factions.length}），检查 FactionSelectData`)
+if (chipSkills.length < 10) die(`芯片技能数量异常（${chipSkills.length}），检查 ChipSkillsData`)
 
 const skipImages = args['json-only'] || (!RIPPER && !args.export)
 if (skipImages) {

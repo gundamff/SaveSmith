@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { getEntry } from '../model/es3-binary'
-import { buildingById, gameData, planetById } from '../model/gameData'
+import { buildingById, factionOptions, gameData, planetById } from '../model/gameData'
 import type { PlanetField } from '../model/saveModel'
 import { t } from '../i18n'
 import { useCg2Editor } from './inject'
@@ -29,6 +29,7 @@ interface PlanetTableRow {
 const editor = useCg2Editor()
 const PLANET_LABOUR_MAX = 9999
 const PLANET_RESISTANCE_MAX = 9999
+const factions = factionOptions(gameData)
 
 const planets = computed((): PlanetTableRow[] => {
   void editor.rev
@@ -94,16 +95,17 @@ function maxAllStats(): void {
       <el-table-column :label="t('planets.planet')" min-width="140">
         <template #default="{ row }">{{ row.name }} <span class="id">#{{ row.id }}</span></template>
       </el-table-column>
-      <el-table-column :label="t('planets.faction')" width="140">
+      <el-table-column :label="t('planets.faction')" min-width="180">
         <template #default="{ row }">
-          <el-input-number
+          <el-select
             size="small"
+            filterable
             :model-value="row.faction"
-            :min="0"
-            :max="99"
-            controls-position="right"
+            style="width: 100%"
             @update:model-value="(v) => onField(row.id, 'faction', v ?? undefined)"
-          />
+          >
+            <el-option v-for="o in factions" :key="o.value" :label="o.label" :value="o.value" />
+          </el-select>
         </template>
       </el-table-column>
       <el-table-column :label="t('planets.defense')" width="160">

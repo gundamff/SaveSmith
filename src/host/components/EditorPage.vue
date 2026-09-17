@@ -20,6 +20,7 @@ const showDsCidHint = computed(() => store.game?.id === 'dragon-sword')
 const activeViewId = ref<string | null>(null)
 const viewBusy = ref(false)
 const mountedViewId = ref<string | null>(null)
+const panelMode = ref<'edit' | 'backups'>('edit')
 
 watch(
   views,
@@ -40,10 +41,14 @@ watch(
     }
     if (id === mountedViewId.value) return
     viewBusy.value = true
+    // Let the busy overlay paint before mounting a potentially heavy panel.
     await nextTick()
     await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()))
     mountedViewId.value = id
     await nextTick()
+    // Keep overlay up until the panel's own deferred shell can show a spinner.
+    await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()))
+    await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()))
     viewBusy.value = false
   },
   { immediate: true }
@@ -64,12 +69,18 @@ function confirmLeave(): boolean {
 
 function onLibrary(): void {
   if (!confirmLeave()) return
+  panelMode.value = 'edit'
   store.goLibrary()
+}
+
+function toggleBackups(): void {
+  panelMode.value = panelMode.value === 'backups' ? 'edit' : 'backups'
 }
 
 async function onSelectSlot(slotId: string): Promise<void> {
   if (slotId === store.currentSlotId) return
   if (!confirmLeave()) return
+  panelMode.value = 'edit'
   await store.loadSlot(slotId)
 }
 
@@ -126,38 +137,52 @@ function openCidDb(): void {
       >
         {{ t('editor.save') }}
       </button>
+      <button
+        type="button"
+        :class="{ active: panelMode === 'backups' }"
+        :disabled="!store.currentSlotId || store.busy"
+        @click="toggleBackups"
+      >
+        {{ t('editor.backups') }}
+      </button>
       <span v-if="store.dirty" class="dirty">{{ t('editor.dirty') }}</span>
       <p v-if="store.loadError" class="err">{{ store.loadError }}</p>
     </div>
     <div class="body">
       <SlotList @select="onSelectSlot" />
       <div class="main">
-        <p v-if="showDsCidHint" class="cid-hint">
-          <span>{{ t('ds.cidHint') }}</span>
-          <button type="button" class="linkish" :disabled="store.busy" @click="openCidDb">
-            {{ t('ds.cidHintLink') }}
-          </button>
-        </p>
-        <div v-if="store.state != null && views.length" class="views">
-          <nav class="tabs" role="tablist">
-            <button
-              v-for="view in views"
-              :key="view.id"
-              type="button"
-              role="tab"
-              :aria-selected="mountedViewId === view.id"
-              :disabled="store.busy || viewBusy"
-              :class="{ active: mountedViewId === view.id }"
-              @click="activeViewId = view.id"
-            >
-              {{ t(view.labelKey) }}
+        <template v-if="panelMode === 'edit'">
+          <p v-if="showDsCidHint" class="cid-hint">
+            <span>{{ t('ds.cidHint') }}</span>
+            <button type="button" class="linkish" :disabled="store.busy" @click="openCidDb">
+              {{ t('ds.cidHintLink') }}
             </button>
-          </nav>
-          <section v-if="activeView" :data-view="activeView.id" :data-ss-rev="store.revision">
-            <component :is="activeView.component" :data-ss-rev="store.revision" />
-          </section>
-        </div>
-        <BackupPanel v-if="store.currentSlotId" @restore="onRestore" @remove="onRemoveBackup" />
+          </p>
+          <div v-if="store.state != null && views.length" class="views">
+            <nav class="tabs" role="tablist">
+              <button
+                v-for="view in views"
+                :key="view.id"
+                type="button"
+                role="tab"
+                :aria-selected="mountedViewId === view.id"
+                :disabled="store.busy || viewBusy"
+                :class="{ active: mountedViewId === view.id }"
+                @click="activeViewId = view.id"
+              >
+                {{ t(view.labelKey) }}
+              </button>
+            </nav>
+            <section v-if="activeView" :data-view="activeView.id" :data-ss-rev="store.revision">
+              <component :is="activeView.component" :data-ss-rev="store.revision" />
+            </section>
+          </div>
+        </template>
+        <BackupPanel
+          v-else-if="store.currentSlotId"
+          @restore="onRestore"
+          @remove="onRemoveBackup"
+        />
       </div>
     </div>
     <div
@@ -216,6 +241,11 @@ function openCidDb(): void {
   border-color: #3b6dff;
 }
 
+.toolbar button.active {
+  background: #3b6dff;
+  border-color: #3b6dff;
+}
+
 .toolbar button:disabled {
   opacity: 0.45;
   cursor: not-allowed;
@@ -241,6 +271,8 @@ function openCidDb(): void {
 .main {
   flex: 1;
   min-width: 0;
+  min-height: 0;
+  overflow: auto;
   padding: 1rem 1.25rem 0;
 }
 

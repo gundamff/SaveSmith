@@ -4,6 +4,7 @@ import type { MessageTree } from '@host/i18n/zh'
 export const zh: MessageTree = {
   resources: {
     playFaction: '当前势力',
+    factionFallback: '势力',
     gold: '资金',
     supply: '补给',
     prestige: '威望',
@@ -25,10 +26,22 @@ export const zh: MessageTree = {
     hq: '总部等级',
     buildings: '建筑'
   },
+  common: {
+    loading: '正在加载…'
+  },
   commanders: {
     maxed: '已拉满 {0} 名指挥官',
+    maxedMine: '已拉满己方 {0} 名指挥官',
     maxAll: '全部拉满（经验/属性/星级）',
+    maxAllMine: '一键拉满己方',
     count: '共 {0} 人',
+    page: '第 {0}/{1} 页',
+    filterMine: '仅己方',
+    filterAll: '全部势力',
+    searchPlaceholder: '搜索姓名或编号',
+    faction: '阵营',
+    factionUnknown: '未编队',
+    factionHint: '阵营由舰队归属（及势力领袖）推断；「仅己方」= 当前势力舰队上的指挥官。',
     name: '姓名',
     nameFallback: '指挥官#{0}',
     exp: '经验',
@@ -37,13 +50,24 @@ export const zh: MessageTree = {
     intellect: '智力',
     breeding: '血统',
     star: '星级',
-    skills: '技能'
+    skills: '技能芯片',
+    skillSlot: '芯片{0}',
+    skillsHint: 'Skills 为最多 6 个技能芯片 ID（0=空）。天赋 / 战略 / 战术取自角色表，见左侧只读列。',
+    talent: '天赋',
+    strategy: '战略',
+    tactics: '战术',
+    none: '—'
   },
   fleets: {
     noAdd: '一期只改已有舰队槽，不新增或删除舰队/单位槽',
     count: '共 {0} 支',
+    filterMine: '仅己方',
+    filterAll: '全部势力',
+    loading: '正在整理舰队列表…',
+    page: '第 {0}/{1} 页',
     fleet: '舰队',
     faction: '势力',
+    factionFallback: '势力#{0}',
     commander: '指挥官',
     flagship: '旗舰',
     units: '单位槽',
@@ -51,13 +75,21 @@ export const zh: MessageTree = {
     empty: '空',
     unitFallback: '单位#{0}',
     type: '型号',
-    field: '字段 {0}'
+    field: '字段 {0}',
+    level: '等级',
+    power: '战力',
+    energy: '能量',
+    tupleHint: '单位槽数字依次为：等级、战力、能量（后两项对应单位表 Power/Energy；等级在本档常为 0）'
   },
   unlock: {
     unlockAll: '解锁全部已知项',
     unlockedAll: '已解锁全部已知项',
-    empty: '当前势力没有可识别的 Unlocked 字段',
-    count: '已解锁 {0}/{1}'
+    empty: '当前势力没有可识别的解锁项',
+    count: '已解锁 {0}/{1}',
+    hint: '下列开关来自当前势力存档中的 Unlocked 字段；勾选表示已解锁。',
+    alienLabel: '外星内容解锁',
+    alienHint: '对应存档字段 AlienUnlocked：勾选后，当前势力视为已解锁外星相关单位/科技等内容。',
+    genericHint: '存档字段：{0}'
   },
   collection: {
     maxed: '图鉴已拉满（请用顶部保存写入）',
@@ -77,6 +109,7 @@ export const zh: MessageTree = {
 export const en: MessageTree = {
   resources: {
     playFaction: 'Play faction',
+    factionFallback: 'Faction',
     gold: 'Gold',
     supply: 'Supply',
     prestige: 'Prestige',
@@ -98,10 +131,23 @@ export const en: MessageTree = {
     hq: 'HQ level',
     buildings: 'Buildings'
   },
+  common: {
+    loading: 'Loading…'
+  },
   commanders: {
     maxed: 'Maxed {0} commanders',
+    maxedMine: 'Maxed {0} commanders of your faction',
     maxAll: 'Max exp / stats / stars',
+    maxAllMine: 'Max my faction',
     count: '{0} commanders',
+    page: 'Page {0}/{1}',
+    filterMine: 'My faction',
+    filterAll: 'All factions',
+    searchPlaceholder: 'Search name or ID',
+    faction: 'Faction',
+    factionUnknown: 'Unassigned',
+    factionHint:
+      'Faction is inferred from fleet assignment (and faction leaders). “My faction” = commanders on your fleets.',
     name: 'Name',
     nameFallback: 'Commander #{0}',
     exp: 'XP',
@@ -110,13 +156,25 @@ export const en: MessageTree = {
     intellect: 'Intellect',
     breeding: 'Breeding',
     star: 'Star',
-    skills: 'Skills'
+    skills: 'Skill chips',
+    skillSlot: 'Chip {0}',
+    skillsHint:
+      'Skills holds up to 6 skill-chip IDs (0 = empty). Talent / Strategy / Tactics come from the commander table (read-only columns).',
+    talent: 'Talent',
+    strategy: 'Strategy',
+    tactics: 'Tactics',
+    none: '—'
   },
   fleets: {
     noAdd: 'Phase 1 edits existing fleet slots only — no add/delete of fleets or unit slots',
     count: '{0} fleets',
+    filterMine: 'My faction',
+    filterAll: 'All factions',
+    loading: 'Building fleet list…',
+    page: 'Page {0}/{1}',
     fleet: 'Fleet',
     faction: 'Faction',
+    factionFallback: 'Faction #{0}',
     commander: 'Commander',
     flagship: 'Flagship',
     units: 'Unit slots',
@@ -124,13 +182,23 @@ export const en: MessageTree = {
     empty: 'Empty',
     unitFallback: 'Unit #{0}',
     type: 'Type',
-    field: 'Field {0}'
+    field: 'Field {0}',
+    level: 'Level',
+    power: 'Power',
+    energy: 'Energy',
+    tupleHint:
+      'Unit slot numbers are Level, Power, Energy (last two match UnitTypeData Power/Energy; Level is often 0 in this save)'
   },
   unlock: {
     unlockAll: 'Unlock all known flags',
     unlockedAll: 'All known unlocks enabled',
-    empty: 'No recognizable Unlocked fields for this faction',
-    count: 'Unlocked {0}/{1}'
+    empty: 'No recognizable unlock flags for this faction',
+    count: 'Unlocked {0}/{1}',
+    hint: 'These switches come from Unlocked fields on the play faction. Checked means unlocked.',
+    alienLabel: 'Alien content unlock',
+    alienHint:
+      'Save field AlienUnlocked: when checked, this faction is treated as having unlocked alien units/tech.',
+    genericHint: 'Save field: {0}'
   },
   collection: {
     maxed: 'Collection maxed (use the host Save button)',

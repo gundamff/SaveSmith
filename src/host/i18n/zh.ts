@@ -43,7 +43,8 @@ export const zh: MessageTree = {
     noSlot: '未载入槽位',
     busyParse: '正在解析存档…',
     busySave: '正在保存…',
-    busyView: '正在加载面板…'
+    busyView: '正在加载面板…',
+    backups: '备份'
   },
   slots: {
     load: '载入',

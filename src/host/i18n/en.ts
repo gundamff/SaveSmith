@@ -43,7 +43,8 @@ export const en: MessageTree = {
     noSlot: 'No slot loaded',
     busyParse: 'Parsing save…',
     busySave: 'Saving…',
-    busyView: 'Loading panel…'
+    busyView: 'Loading panel…',
+    backups: 'Backups'
   },
   slots: {
     load: 'Load',

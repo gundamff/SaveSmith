@@ -81,7 +81,7 @@ ListedFiles
 | 资源 | `PlayFaction`、`Faction{f}Gold/Supply/Prestige`、`PlayerEconomicsLevel`、`playMonth`、Ark 相关有把握标量 | 改己方势力资源与经济相关标量 |
 | 星球 | `Planet{i}*`（实档约 80） | 势力、防御、抵抗、劳工、HQ、建筑/轨道等有把握字段 |
 | 指挥官 | `Commander{i}Exp/Admin/Military/Intellect/Breeding/Skills/Star` | **只改数值**；受上限约束 |
-| 舰队 | `Fleet{i}*`（`Unit1..14`、Commander、Flagship、Point、Status…） | 改组成与归属；增删后置 |
+| 舰队 | `Fleet{i}*`（`Unit1..14`、Commander、Flagship…） | 改组成与归属；单位槽四元组为 **型号 / 等级 / 战力 / 能量**；增删后置 |
 | 解锁 | `Faction{f}*Unlocked*` 等有把握字段 | 批量/一键解锁 |
 | 图鉴 | config bitmask 三段 | 点亮 / 全亮 |
 

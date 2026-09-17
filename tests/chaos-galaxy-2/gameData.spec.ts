@@ -29,6 +29,13 @@ describe('chaos-galaxy-2 game-data.json', () => {
     expect(gameData.units[0]).toMatchObject({ id: 1, name: '作战卫星' })
   })
 
+  it('has factions and chip skills with names', () => {
+    expect(gameData.factions.length).toBeGreaterThanOrEqual(8)
+    expect(gameData.factions[0]).toMatchObject({ id: 1, name: '勤王联军' })
+    expect(gameData.chipSkills.length).toBeGreaterThanOrEqual(10)
+    expect(gameData.chipSkills[0]).toMatchObject({ id: 1, name: '募兵专家' })
+  })
+
   it('has 80 planets and Collection*Data catalog lengths', () => {
     expect(gameData.planets).toHaveLength(80)
     expect(gameData.planets[0]).toMatchObject({ id: 1, name: '幽方' })

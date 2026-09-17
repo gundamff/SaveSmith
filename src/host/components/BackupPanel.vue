@@ -42,8 +42,7 @@ const emit = defineEmits<{
 
 <style scoped>
 .backups {
-  padding: 0.75rem 1rem 1.25rem;
-  border-top: 1px solid #23232c;
+  padding: 0 0 1.25rem;
 }
 
 h2 {

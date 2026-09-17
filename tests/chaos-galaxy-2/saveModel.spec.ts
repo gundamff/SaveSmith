@@ -166,6 +166,22 @@ describe('SaveData campaign projection', () => {
     expect(again.commander).toBe(7)
   })
 
+  it('getCommanderFactionMap prefers play faction and fills from FactionNLeader', () => {
+    const save = load([
+      int('Fleet2Faction', 4),
+      int('Fleet2Commander', 20),
+      int('Fleet3Faction', 1),
+      int('Fleet3Commander', 20),
+      int('Faction4Leader', 99),
+      int('Commander20Exp', 0),
+      int('Commander99Exp', 0)
+    ])
+    const map = save.getCommanderFactionMap(4)
+    expect(map.get(20)).toBe(4)
+    expect(map.get(99)).toBe(4)
+    expect(map.get(1)).toBe(0)
+  })
+
   it('does not create a missing fleet unit slot', () => {
     const save = load()
     expect(() => save.setFleetUnit(1, 2, [1, 0, 0, 0])).toThrow(/Fleet1Unit2/)

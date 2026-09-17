@@ -15,6 +15,10 @@ export default defineConfig({
     },
   },
   assetsInclude: ["**/*.wasm"],
+  build: {
+    // Monolith ships all game modules + Element Plus (~3MB); silence false alarm.
+    chunkSizeWarningLimit: 3500,
+  },
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   //

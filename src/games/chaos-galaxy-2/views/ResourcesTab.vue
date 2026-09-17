@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { fillResources } from '../actions'
 import { getEntry } from '../model/es3-binary'
-import { gameData } from '../model/gameData'
+import { factionLabel, gameData } from '../model/gameData'
 import { t } from '../i18n'
 import { useCg2Editor } from './inject'
 
@@ -16,6 +16,8 @@ const playFaction = computed(() => {
     return 0
   }
 })
+
+const playFactionLabel = computed(() => factionLabel(gameData, playFaction.value, t('resources.factionFallback')))
 
 const gold = computed(() => readInt(`Faction${playFaction.value}Gold`))
 const supply = computed(() => readInt(`Faction${playFaction.value}Supply`))
@@ -47,7 +49,7 @@ function maxResources(): void {
   <div v-if="editor.save" :data-ss-rev="editor.rev">
     <el-form label-width="220px" style="max-width: 640px">
       <el-form-item :label="t('resources.playFaction')">
-        <span>{{ playFaction }}</span>
+        <span>{{ playFactionLabel }}</span>
       </el-form-item>
       <el-form-item :label="t('resources.gold')">
         <el-input-number

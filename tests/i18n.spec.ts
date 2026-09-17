@@ -23,6 +23,7 @@ const REQUIRED_KEYS = [
   'editor.busyParse',
   'editor.busySave',
   'editor.busyView',
+  'editor.backups',
   'slots.savedAt',
   'about.disclaimer',
   'about.disclaimerGeneric',

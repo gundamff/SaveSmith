@@ -180,6 +180,34 @@ export class SaveData {
     return collectIds(this.entries, /^Commander(\d+)Exp$/)
   }
 
+  /**
+   * Infer commander → faction from fleet assignments, then FactionNLeader for gaps.
+   * When a commander serves multiple fleets, `preferFaction` wins if present.
+   */
+  getCommanderFactionMap(preferFaction?: number): Map<number, number> {
+    const map = new Map<number, number>()
+    for (const entry of this.entries) {
+      const m = /^Fleet(\d+)Commander$/.exec(entry.key)
+      if (!m || typeof entry.value !== 'number' || entry.value === 0) continue
+      const fleetId = Number(m[1])
+      const facEntry = getEntry(this.entries, `Fleet${fleetId}Faction`)
+      if (typeof facEntry?.value !== 'number') continue
+      const faction = facEntry.value
+      const prev = map.get(entry.value)
+      if (prev === undefined) {
+        map.set(entry.value, faction)
+      } else if (preferFaction !== undefined && faction === preferFaction) {
+        map.set(entry.value, faction)
+      }
+    }
+    for (const entry of this.entries) {
+      const m = /^Faction(\d+)Leader$/.exec(entry.key)
+      if (!m || typeof entry.value !== 'number' || entry.value === 0) continue
+      if (!map.has(entry.value)) map.set(entry.value, Number(m[1]))
+    }
+    return map
+  }
+
   getCommander(id: number): CommanderRow {
     this.requireInt(`Commander${id}Exp`)
     return {
@@ -211,7 +239,12 @@ export class SaveData {
   }
 
   getFleet(id: number): FleetRow {
-    if (!this.listFleetIds().includes(id)) {
+    // Avoid listFleetIds().includes (O(n²) when projecting hundreds of fleets).
+    if (
+      !getEntry(this.entries, `Fleet${id}Faction`) &&
+      !getEntry(this.entries, `Fleet${id}Commander`) &&
+      !getEntry(this.entries, `Fleet${id}Unit1`)
+    ) {
       throw new Error(`Missing entry "Fleet${id}"`)
     }
     const units: (number[] | null)[] = []

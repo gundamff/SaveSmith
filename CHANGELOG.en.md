@@ -2,18 +2,21 @@
 
 [中文](CHANGELOG.md) | **English**
 
-## [Unreleased]
+## [0.6.0] - 2026-09-17
 
-Adds **Chaos Galaxy 2**.
+Adds **Chaos Galaxy 2**; hardens fleet / commander editing UX.
 
 ### Added
 
 - **Chaos Galaxy 2** (ChaosGalaxyStudio, Steam AppID 1537910): binary ES3 slots `savedataN.cg2` plus `config.cg2` collections; resources, planets, commanders, fleets, unlocks, collection
-- Commanders: edit existing values only; fleet unit-slot add/delete deferred; `config.cg2` settings (volume/resolution) left untouched
+- Faction / skill-chip selects show names (with `#id`); unlock flag “Alien content unlock” includes an explanation
+- Commanders: default to my faction, name/ID search, faction column; max-my-faction button
+- Fleets: card layout (meta + unit-slot grid); default to my faction; loading state when switching to all factions
+- Host tab-switch busy overlay held an extra frame to reduce freeze when mounting heavy panels
 
 ### Infrastructure / Docs
 
-- Game notes in `docs/games/chaos-galaxy-2.en.md`; extract via `scripts/extract-chaos-galaxy-2.mjs`
+- Game notes and screenshots in `docs/games/chaos-galaxy-2.en.md`; extract via `scripts/extract-chaos-galaxy-2.mjs`
 - Real-save e2e gated by `CG2_SAVE` / `CG2_E2E_SAVE` / `CG2_E2E_CONFIG`; player saves are never committed
 
 ## [0.5.1] - 2026-09-14

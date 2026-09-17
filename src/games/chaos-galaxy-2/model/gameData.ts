@@ -75,6 +75,15 @@ export interface CollectionEventEntry {
   info: string
 }
 
+export interface FactionEntry extends NamedEntry {
+  leader: number
+  factionSide: number
+}
+
+export interface ChipSkillEntry extends NamedEntry {
+  chipType: number
+}
+
 export interface GameData {
   commanderMaxExp: number
   commanderMaxStar: number
@@ -94,6 +103,8 @@ export interface GameData {
   tactics: NamedEntry[]
   abilities: NamedEntry[]
   weapons: NamedEntry[]
+  factions: FactionEntry[]
+  chipSkills: ChipSkillEntry[]
   levelTables: Record<string, number[]>
   collectionLengths: CollectionLengths
   collectionCommanders: CollectionCommanderEntry[]
@@ -123,4 +134,41 @@ export function planetById(gd: GameData, id: number): PlanetEntry | undefined {
 
 export function buildingById(gd: GameData, id: number): BuildingEntry | undefined {
   return gd.buildings.find((b) => b.id === id)
+}
+
+export function factionById(gd: GameData, id: number): FactionEntry | undefined {
+  return gd.factions.find((f) => f.id === id)
+}
+
+/** Display label for a faction id (includes #id for disambiguation). */
+export function factionLabel(gd: GameData, id: number, fallbackPrefix = '势力'): string {
+  const name = factionById(gd, id)?.name
+  return name ? `${name} (#${id})` : `${fallbackPrefix}#${id}`
+}
+
+export function factionOptions(gd: GameData): { value: number; label: string }[] {
+  return gd.factions
+    .slice()
+    .sort((a, b) => a.id - b.id)
+    .map((f) => ({ value: f.id, label: `${f.name} (#${f.id})` }))
+}
+
+export function chipSkillById(gd: GameData, id: number): ChipSkillEntry | undefined {
+  return gd.chipSkills.find((c) => c.id === id)
+}
+
+export function chipSkillLabel(gd: GameData, id: number): string {
+  if (id === 0) return ''
+  const name = chipSkillById(gd, id)?.name
+  return name ? `${name} (#${id})` : `#${id}`
+}
+
+export function chipSkillOptions(gd: GameData): { value: number; label: string }[] {
+  return [
+    { value: 0, label: '—' },
+    ...gd.chipSkills
+      .slice()
+      .sort((a, b) => a.id - b.id)
+      .map((c) => ({ value: c.id, label: `${c.name} (#${c.id})` }))
+  ]
 }

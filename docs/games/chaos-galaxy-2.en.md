@@ -19,13 +19,25 @@ Identify files such as `savedata0.cg2` … `savedata5.cg2` and `config.cg2`.
 | Tab | Contents |
 |-----|----------|
 | Resources | Play-faction gold / supply / prestige, economics level, play month |
-| Planets | Owning faction, defense, resistance, labour, HQ level (building arrays read-only in phase 1) |
-| Commanders | XP, admin / military / intellect / breeding, star, skills; **edit values only, no add/delete** |
-| Fleets | Existing fleets’ commander and `Unit1..14` slots; **no add/delete of fleets or unit slots in phase 1** |
-| Unlock | Existing `*Unlocked` flags for the play faction; unlock-all known |
+| Planets | Owning faction (named select), defense, resistance, labour, HQ level (building arrays read-only in phase 1) |
+| Commanders | XP, admin / military / intellect / breeding, star; **skill chips** (named select); talent / strategy / tactics read-only. Defaults to my faction with search; max-my-faction. **No add/delete** |
+| Fleets | Card layout: faction / commander / flagship + unit-slot grid (**Level / Power / Energy**). Defaults to my faction. **No add/delete of fleets or unit slots in phase 1** |
+| Unlock | Play-faction `*Unlocked` flags (e.g. alien content unlock); unlock-all known |
 | Collection | Light commander / unit / event bits (`config.cg2` bitmasks) |
 
 Slots: up to six (player name). Volume, resolution, and language keys in `config.cg2` are **not** edited. Auto-backup before write (last 10 per file); restore from the backup panel.
+
+## Screenshots
+
+![Resources](../screenshot/chaos-galaxy-2-resources.png)
+
+![Planets](../screenshot/chaos-galaxy-2-planets.png)
+
+![Commanders](../screenshot/chaos-galaxy-2-commanders.png)
+
+![Fleets](../screenshot/chaos-galaxy-2-fleets.png)
+
+![Collection](../screenshot/chaos-galaxy-2-collection.png)
 
 ## Notes
 
