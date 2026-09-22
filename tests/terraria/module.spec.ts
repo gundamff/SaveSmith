@@ -6,6 +6,7 @@ import { modules } from '@host/registry'
 import { chaosFrontModule } from '../../src/games/chaos-front'
 import { chaosGalaxy2Module } from '../../src/games/chaos-galaxy-2'
 import { dragonSwordModule } from '../../src/games/dragon-sword'
+import { eslabongModule } from '../../src/games/eslabong'
 import { terrariaModule } from '../../src/games/terraria'
 import { wanderburgModule } from '../../src/games/wanderburg'
 
@@ -38,7 +39,8 @@ describe('terrariaModule catalog / locate / registry', () => {
       chaosGalaxy2Module,
       wanderburgModule,
       terrariaModule,
-      dragonSwordModule
+      dragonSwordModule,
+      eslabongModule
     ])
   })
 })

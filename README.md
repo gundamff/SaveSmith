@@ -44,6 +44,7 @@
 | [Wanderburg](docs/games/wanderburg.md) | Randwerk | 已支持（EA，格式可能变） | [中文](docs/games/wanderburg.md) · [English](docs/games/wanderburg.en.md) |
 | [泰拉瑞亚 / Terraria](docs/games/terraria.md) | Re-Logic | 已支持（原版 .plr） | [中文](docs/games/terraria.md) · [English](docs/games/terraria.en.md) |
 | [龙之剑：觉醒 / DragonSword: Awakening](docs/games/dragon-sword.md) | HOUND13 | 已支持（单机；请关 Steam Cloud） | [中文](docs/games/dragon-sword.md) · [English](docs/games/dragon-sword.en.md) |
+| [Eslabong](docs/games/eslabong.md) | shirowita | 已支持（EA，格式可能变） | [中文](docs/games/eslabong.md) · [English](docs/games/eslabong.en.md) |
 
 新增游戏时：补模块 + 在本表加一行 + 在 `docs/games/` 写独立说明。
 

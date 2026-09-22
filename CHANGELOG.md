@@ -2,6 +2,22 @@
 
 [**中文**](CHANGELOG.md) | [English](CHANGELOG.en.md)
 
+## [0.7.0] - 2026-09-22
+
+新增 **Eslabong** 完整改档（纯 TS 写回）。
+
+### 新增
+
+- **Eslabong**（shirowita，Steam AppID 4560660）：Godot RSCC `.res` + 侧车 `.json`；概览（金钱/声望/典籍）、佣兵、物品
+- 保存时重算侧车 `integrity`，并同步 `gold` ↔ `.res` `player_gold`
+- 佣兵页可直接编辑已装备遗物的随机属性；中文标签（职业/技能/遗物/属性）
+- 可编辑数值静态硬顶（输入框 min/max + 保存校验）
+
+### 工程 / 文档
+
+- 游戏说明见 `docs/games/eslabong.md`；封面取自 Steam 商店头图（© shirowita）
+- 模块测试 `tests/eslabong/`；真实存档冒烟由本机 AppData 路径门控
+
 ## [0.6.0] - 2026-09-17
 
 新增 **混沌银河 2**；舰队 / 指挥官编辑体验加固。

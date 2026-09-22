@@ -1,7 +1,7 @@
 {
   "name": "savesmith",
   "private": true,
-  "version": "0.6.0",
+  "version": "0.7.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -22,7 +22,8 @@
     "pinia": "^4.0.3",
     "rijndael-js": "^2.0.0",
     "sql.js": "^1.14.2",
-    "vue": "^3.5.13"
+    "vue": "^3.5.13",
+    "zstd-codec": "^0.1.5"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^2",

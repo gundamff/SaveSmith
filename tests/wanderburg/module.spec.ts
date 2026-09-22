@@ -38,7 +38,8 @@ describe('wanderburgModule catalog / locate / registry', () => {
       'chaos-galaxy-2',
       'wanderburg',
       'terraria',
-      'dragon-sword'
+      'dragon-sword',
+      'eslabong'
     ])
     expect(modules[0]).toBe(chaosFrontModule)
     expect(modules[1]).toBe(chaosGalaxy2Module)

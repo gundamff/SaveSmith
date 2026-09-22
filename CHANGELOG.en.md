@@ -2,6 +2,22 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.7.0] - 2026-09-22
+
+Adds **Eslabong** full save editing (pure TypeScript write-back).
+
+### Added
+
+- **Eslabong** (shirowita, Steam AppID 4560660): Godot RSCC `.res` + sidecar `.json`; overview (gold/renown/codex), fighters, items
+- Save recomputes sidecar `integrity` and keeps `gold` in sync with `.res` `player_gold`
+- Fighters tab can edit equipped relic rolled stats in place; Chinese labels (class/skills/relics/stats)
+- Static hard bounds for editable scalars (input min/max + save validation)
+
+### Infrastructure / Docs
+
+- Game notes in `docs/games/eslabong.en.md`; cover from Steam store header (© shirowita)
+- Module tests under `tests/eslabong/`; real-save smoke gated by local AppData paths
+
 ## [0.6.0] - 2026-09-17
 
 Adds **Chaos Galaxy 2**; hardens fleet / commander editing UX.

@@ -136,6 +136,69 @@ export const zh: MessageTree = {
       }
     }
   },
+  es: {
+    tabs: {
+      overview: '概览',
+      fighters: '佣兵',
+      items: '物品'
+    },
+    actions: {
+      maxProgress: '全部佣兵拉满等级/经验',
+      clearInjuries: '清除全部伤病'
+    },
+    overview: {
+      readonlyNotice: '请先退出游戏再改档保存。',
+      quitNotice: '请先退出游戏再改档保存。',
+      writeDisabled: '校验未就绪，当前只能查看，无法保存改动。',
+      teamName: '队名',
+      gold: '金币',
+      renown: '声望',
+      developmentStars: '成长典籍',
+      season: '赛季',
+      week: '周',
+      savedAt: '存档时间',
+      difficulty: '难度',
+      challengeTower: '挑战之塔已提交',
+      yes: '是',
+      no: '否'
+    },
+    fighters: {
+      empty: '当前存档没有可编辑的佣兵',
+      name: '名称',
+      profession: '职业',
+      level: '等级',
+      experience: '经验',
+      injured: '伤病',
+      growthStyles: '成长风格',
+      growthStylesHint: '可多选',
+      equipped: '已装备遗物',
+      equippedSlot: '槽位 {0}',
+      equippedEmpty: '空槽',
+      skills: '技能',
+      skillSlot: '技能 {0}',
+      injury: '伤病状态',
+      injuryBattles: '剩余伤病场次',
+      clearInjury: '清除伤病',
+      maxProgress: '拉满等级/经验',
+      birth: '出生属性',
+      growthBase: '成长基数',
+      career: '生涯属性',
+      personality: '个性',
+      aiProfile: '倾向'
+    },
+    items: {
+      empty: '当前存档没有可编辑的物品',
+      definition: '物品',
+      quality: '品质',
+      exceptionalRoll: '卓越随机',
+      instanceId: '实例 ID',
+      stats: '随机属性',
+      noStats: '该物品没有可编辑的随机属性',
+      statId: '属性',
+      amount: '数值',
+      ratio: '比例'
+    }
+  },
   cf: {
     actions: {
       fillResources: '一键拉满（信用/威望/星级）',

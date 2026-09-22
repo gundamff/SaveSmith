@@ -136,6 +136,69 @@ export const en: MessageTree = {
       }
     }
   },
+  es: {
+    tabs: {
+      overview: 'Overview',
+      fighters: 'Fighters',
+      items: 'Items'
+    },
+    actions: {
+      maxProgress: 'Max all fighters level / exp',
+      clearInjuries: 'Clear all injuries'
+    },
+    overview: {
+      readonlyNotice: 'Quit the game before editing and saving.',
+      quitNotice: 'Quit the game before editing and saving.',
+      writeDisabled: 'Integrity is not ready; view only — saving changes is disabled.',
+      teamName: 'Team name',
+      gold: 'Gold',
+      renown: 'Renown',
+      developmentStars: 'Development stars',
+      season: 'Season',
+      week: 'Week',
+      savedAt: 'Saved at',
+      difficulty: 'Difficulty',
+      challengeTower: 'Challenge Tower submitted',
+      yes: 'Yes',
+      no: 'No'
+    },
+    fighters: {
+      empty: 'No editable fighters in this save',
+      name: 'Name',
+      profession: 'Profession',
+      level: 'Level',
+      experience: 'Experience',
+      injured: 'Injured',
+      growthStyles: 'Growth styles',
+      growthStylesHint: 'Select one or more',
+      equipped: 'Equipped relics',
+      equippedSlot: 'Slot {0}',
+      equippedEmpty: 'Empty slot',
+      skills: 'Skills',
+      skillSlot: 'Skill {0}',
+      injury: 'Injury',
+      injuryBattles: 'Injury battles left',
+      clearInjury: 'Clear injury',
+      maxProgress: 'Max level / exp',
+      birth: 'Birth stats',
+      growthBase: 'Growth base',
+      career: 'Career stats',
+      personality: 'Personality',
+      aiProfile: 'AI profile'
+    },
+    items: {
+      empty: 'No editable items in this save',
+      definition: 'Item',
+      quality: 'Quality',
+      exceptionalRoll: 'Exceptional roll',
+      instanceId: 'Instance ID',
+      stats: 'Rolled stats',
+      noStats: 'This item has no editable rolled stats',
+      statId: 'Stat',
+      amount: 'Amount',
+      ratio: 'Ratio'
+    }
+  },
   cf: {
     actions: {
       fillResources: 'Max credits / prestige / stars',
