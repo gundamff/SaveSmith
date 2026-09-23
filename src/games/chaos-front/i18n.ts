@@ -108,7 +108,22 @@ export const zh: MessageTree = {
     name: '姓名',
     level: '等级',
     exp: '经验',
-    progress: '进度'
+    progress: '进度',
+    add: '添加',
+    addTitle: '收编驾驶员',
+    addHint:
+      '只能添加已灭亡势力的领袖 / 间谍头目 / 指挥官。添加后会从该势力名单移除，避免同场出现两个相同驾驶员导致崩溃。任务解锁的驾驶员不支持。',
+    person: '人选',
+    personPlaceholder: '选择驾驶员',
+    roleLeader: '领袖',
+    roleSpy: '间谍头目',
+    roleCommander: '指挥官',
+    optionLabel: '{0}（{1} · {2}）',
+    initLevel: '初始等级',
+    emptyPool: '当前没有已灭亡势力的可收编驾驶员',
+    added: '已添加 {0}（已从「{1}」移除）',
+    cancel: '取消',
+    confirmAdd: '添加'
   },
   unlock: {
     unlockedAll: '已解锁全部机型',
@@ -139,7 +154,10 @@ export const zh: MessageTree = {
     ITEM_FULL: '携带道具已满（最多 {0} 件；战舰 4 / 机体 2）',
     ITEM_EMPTY: '仓库中没有该道具（id {0}）',
     ITEM_ID: '无效道具 id: {0}',
-    ITEM_SLOT: '无效装备槽位: {0}'
+    ITEM_SLOT: '无效装备槽位: {0}',
+    PILOT_NOT_RECRUITABLE: '该驾驶员不可收编（需所属势力已灭亡且在其指挥官名单中）: {0}',
+    PILOT_ALREADY_OWNED: '驾驶员已在名单中: {0}',
+    PILOT_LEVEL: '驾驶员等级无效（1..10）: {0}'
   }
 }
 
@@ -250,7 +268,22 @@ export const en: MessageTree = {
     name: 'Name',
     level: 'Level',
     exp: 'XP',
-    progress: 'Progress'
+    progress: 'Progress',
+    add: 'Add',
+    addTitle: 'Recruit pilot',
+    addHint:
+      'Only leaders / spymasters / commanders from defeated factions. Recruiting removes them from that faction roster to avoid duplicate-ID crashes in battle. Mission-unlock pilots are not supported.',
+    person: 'Pilot',
+    personPlaceholder: 'Select a pilot',
+    roleLeader: 'Leader',
+    roleSpy: 'Spymaster',
+    roleCommander: 'Commander',
+    optionLabel: '{0} ({1} · {2})',
+    initLevel: 'Starting level',
+    emptyPool: 'No recruitable pilots from defeated factions',
+    added: 'Added {0} (removed from “{1}”)',
+    cancel: 'Cancel',
+    confirmAdd: 'Add'
   },
   unlock: {
     unlockedAll: 'All unit types unlocked',
@@ -282,7 +315,11 @@ export const en: MessageTree = {
     ITEM_FULL: 'Item slots full (max {0}; ships 4 / mechs 2)',
     ITEM_EMPTY: 'No stock of item id {0} in inventory',
     ITEM_ID: 'Invalid item id: {0}',
-    ITEM_SLOT: 'Invalid item slot: {0}'
+    ITEM_SLOT: 'Invalid item slot: {0}',
+    PILOT_NOT_RECRUITABLE:
+      'Pilot not recruitable (faction must be defeated and listed on its roster): {0}',
+    PILOT_ALREADY_OWNED: 'Pilot already owned: {0}',
+    PILOT_LEVEL: 'Invalid pilot level (1..10): {0}'
   }
 }
 

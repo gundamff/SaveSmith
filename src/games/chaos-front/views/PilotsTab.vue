@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { characterById, gameData } from '../model/gameData'
-import { CHARACTER_MAX_EXP, characterLevelForExp } from '../model/level'
+import { CHARACTER_MAX_EXP, CHARACTER_MAX_LEVEL, characterLevelForExp } from '../model/level'
+import type { PilotFactionRole, RecruitablePilot } from '../model/saveModel'
 import { gameImage } from '../lib/images'
-import { t } from '../i18n'
+import { t, translateError } from '../i18n'
 import { useCfEditor } from './inject'
 
 const editor = useCfEditor()
@@ -32,12 +33,59 @@ function maxAll(): void {
   })
   ElMessage.success(t('pilots.maxed', n))
 }
+
+const addVisible = ref(false)
+const addId = ref<number | null>(null)
+const addLevel = ref(CHARACTER_MAX_LEVEL)
+
+const recruitable = computed((): RecruitablePilot[] => {
+  void editor.rev
+  if (!editor.save) return []
+  return editor.save.listRecruitablePilots(gameData)
+})
+
+function roleLabel(role: PilotFactionRole): string {
+  if (role === 'leader') return t('pilots.roleLeader')
+  if (role === 'spyMaster') return t('pilots.roleSpy')
+  return t('pilots.roleCommander')
+}
+
+function optionLabel(p: RecruitablePilot): string {
+  const name = characterById(gameData, p.characterId)?.name ?? `#${p.characterId}`
+  return t('pilots.optionLabel', name, p.factionName, roleLabel(p.role))
+}
+
+function openAdd(): void {
+  addId.value = null
+  addLevel.value = CHARACTER_MAX_LEVEL
+  addVisible.value = true
+}
+
+function confirmAdd(): void {
+  if (!addId.value || !editor.save) return
+  const id = addId.value
+  const level = addLevel.value
+  try {
+    let got: RecruitablePilot | undefined
+    editor.markDirty(() => {
+      got = editor.save.addPilot(gameData, id, level)
+    })
+    if (got) {
+      const name = characterById(gameData, got.characterId)?.name ?? `#${got.characterId}`
+      ElMessage.success(t('pilots.added', name, got.factionName))
+    }
+    addVisible.value = false
+  } catch (e) {
+    ElMessage.error(translateError(e))
+  }
+}
 </script>
 
 <template>
   <div :data-ss-rev="editor.rev">
     <div class="toolbar">
       <el-button type="primary" @click="maxAll()">{{ t('pilots.maxAll') }}</el-button>
+      <el-button @click="openAdd()">{{ t('pilots.add') }}</el-button>
       <span class="count">{{ t('pilots.count', pilots.length) }}</span>
     </div>
     <el-table :data="pilots" size="small" max-height="560">
@@ -61,6 +109,37 @@ function maxAll(): void {
         </template>
       </el-table-column>
     </el-table>
+
+    <el-dialog v-model="addVisible" :title="t('pilots.addTitle')" width="560">
+      <p class="hint">{{ t('pilots.addHint') }}</p>
+      <el-form label-width="90px">
+        <el-form-item :label="t('pilots.person')">
+          <el-select
+            v-model="addId"
+            filterable
+            :disabled="recruitable.length === 0"
+            :placeholder="recruitable.length ? t('pilots.personPlaceholder') : t('pilots.emptyPool')"
+            style="width: 100%"
+          >
+            <el-option
+              v-for="p in recruitable"
+              :key="p.characterId"
+              :value="p.characterId"
+              :label="optionLabel(p)"
+            />
+          </el-select>
+        </el-form-item>
+        <el-form-item :label="t('pilots.initLevel')">
+          <el-slider v-model="addLevel" :min="1" :max="10" show-stops style="width: 300px" />
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <el-button @click="addVisible = false">{{ t('pilots.cancel') }}</el-button>
+        <el-button type="primary" :disabled="!addId" @click="confirmAdd()">{{
+          t('pilots.confirmAdd')
+        }}</el-button>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -68,4 +147,5 @@ function maxAll(): void {
 .toolbar { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
 .count { color: #909399; }
 .avatar { width: 36px; height: 36px; image-rendering: pixelated; }
+.hint { color: #909399; font-size: 13px; line-height: 1.5; margin: 0 0 12px; }
 </style>

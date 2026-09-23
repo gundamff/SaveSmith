@@ -20,7 +20,7 @@ Identify files such as `savedata0.cf` … `savedata5.cf` and `collection.cf`.
 | Planets | Economy / industry / defense / stability and owning faction |
 | Formation | 4×6 grid deploy / undeploy / swap; assign pilots |
 | Units / ships | Level, XP, gear; add / remove |
-| Pilots | Level, XP, and related stats |
+| Pilots | Level, XP; add leaders/spymasters/commanders from defeated factions (removed from that roster on add; mission unlocks unsupported) |
 | Unlock all | Unit types and equipment |
 | Collection | Endings and collection fill (`collection.cf`) |
 
