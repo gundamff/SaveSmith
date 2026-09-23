@@ -150,6 +150,104 @@ describe('SaveData', () => {
     expect(s2.characterExps).toEqual([20000, 20000, 20000])
   })
 
+  it('listRecruitablePilots returns only inactive-faction roster ids', () => {
+    const s = SaveData.load(fixture())
+    const recruitGd: GameData = {
+      ...gd,
+      characters: [
+        ...gd.characters,
+        { id: 17, name: '克拉苏斯', portrait: 17 },
+        { id: 21, name: '狄奥多拉', portrait: 21 },
+        { id: 18, name: '奥古斯塔', portrait: 18 },
+        { id: 41, name: '李存义', portrait: 41 }
+      ]
+    }
+    expect(s.listRecruitablePilots(recruitGd)).toEqual([])
+
+    const f1 = s.factions.find((f) => f.id === 1)!
+    f1.isActive = false
+    f1.leader = 17
+    f1.spyMaster = 21
+    f1.commanders = [17, 18]
+
+    const list = s.listRecruitablePilots(recruitGd)
+    expect(list.map((x) => x.characterId).sort((a, b) => a - b)).toEqual([17, 18, 21])
+    expect(list.find((x) => x.characterId === 17)?.role).toBe('leader')
+    expect(list.find((x) => x.characterId === 17)?.factionName).toBe('委员会军第一舰队')
+  })
+
+  it('listRecruitablePilots excludes already owned and unused', () => {
+    const s = SaveData.load(fixture())
+    const recruitGd: GameData = {
+      ...gd,
+      characters: [
+        ...gd.characters,
+        { id: 17, name: '克拉苏斯', portrait: 17 },
+        { id: 99, name: '未使用', portrait: 1 }
+      ]
+    }
+    const f1 = s.factions.find((f) => f.id === 1)!
+    f1.isActive = false
+    f1.leader = 17
+    f1.spyMaster = 99
+    f1.commanders = [84] // already in PlayerCharacters
+    const ids = s.listRecruitablePilots(recruitGd).map((x) => x.characterId)
+    expect(ids).toEqual([17])
+  })
+
+  it('addPilot appends player lists and clears faction fields', () => {
+    const s = SaveData.load(fixture())
+    const recruitGd: GameData = {
+      ...gd,
+      characters: [...gd.characters, { id: 17, name: '克拉苏斯', portrait: 17 }]
+    }
+    const f1 = s.factions.find((f) => f.id === 1)!
+    f1.isActive = false
+    f1.leader = 17
+    f1.spyMaster = 21
+    f1.commanders = [17, 18]
+
+    const got = s.addPilot(recruitGd, 17, 10)
+    expect(got.characterId).toBe(17)
+    expect(s.characters).toEqual([84, 87, 83, 17])
+    expect(s.characterExps[3]).toBe(20000)
+    expect(f1.leader).toBe(0)
+    expect(f1.commanders).toEqual([18])
+    expect(f1.spyMaster).toBe(21)
+
+    const s2 = SaveData.load(s.serialize())
+    expect(s2.characters).toContain(17)
+    const f1b = s2.factions.find((f) => f.id === 1)!
+    expect(f1b.leader).toBe(0)
+    expect(f1b.commanders).toEqual([18])
+  })
+
+  it('addPilot rejects active-faction, owned, and bad level', () => {
+    const s = SaveData.load(fixture())
+    const recruitGd: GameData = {
+      ...gd,
+      characters: [...gd.characters, { id: 17, name: '克拉苏斯', portrait: 17 }]
+    }
+    expect(() => s.addPilot(recruitGd, 17, 10)).toThrow(
+      expect.objectContaining({ code: 'PILOT_NOT_RECRUITABLE' })
+    )
+
+    const f1 = s.factions.find((f) => f.id === 1)!
+    f1.isActive = false
+    f1.leader = 17
+    f1.commanders = [17]
+    expect(() => s.addPilot(recruitGd, 84, 10)).toThrow(
+      expect.objectContaining({ code: 'PILOT_ALREADY_OWNED' })
+    )
+    // 84 is owned and not in inactive roster → ALREADY_OWNED takes precedence when id is owned
+    expect(() => s.addPilot(recruitGd, 17, 0)).toThrow(
+      expect.objectContaining({ code: 'PILOT_LEVEL' })
+    )
+    expect(() => s.addPilot(recruitGd, 17, 11)).toThrow(
+      expect.objectContaining({ code: 'PILOT_LEVEL' })
+    )
+  })
+
   it('sanitizeUnlockedUnitTypes drops 未使用 placeholders', () => {
     const s = SaveData.load(fixture())
     s.setUnlockedUnitTypes([1, 13, 35])

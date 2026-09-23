@@ -3,6 +3,7 @@ import {
   UNLOCKABLE_UNIT_TYPE_IDS,
   unlockableItems,
   armyById,
+  characterById,
   isUnusedEntry,
   levelTableOf,
   unitMaxExpOf,
@@ -15,7 +16,7 @@ import {
   ymdFromPlayerDay,
   type HistoryYmd
 } from './calendar'
-import { CHARACTER_MAX_EXP, unitLevelForExp } from './level'
+import { CHARACTER_MAX_EXP, characterExpForLevel, unitLevelForExp } from './level'
 import { getField, parseEs3, setField, stringifyEs3, type Es3Doc } from './es3'
 
 export interface UnitEntry {
@@ -66,6 +67,21 @@ export interface FactionState {
   proposalAction: number[]
   chats: unknown[]
   checkChats: boolean
+}
+
+export type PilotFactionRole = 'leader' | 'spyMaster' | 'commander'
+
+export interface RecruitablePilot {
+  characterId: number
+  factionId: number
+  factionName: string
+  role: PilotFactionRole
+}
+
+const ROLE_PRIORITY: Record<PilotFactionRole, number> = {
+  leader: 0,
+  spyMaster: 1,
+  commander: 2
 }
 
 export type PlanetStatKey = 'economics' | 'industry' | 'defense' | 'stability'
@@ -443,6 +459,67 @@ export class SaveData {
       }
     }
     return n
+  }
+
+  private factionDisplayName(gd: GameData, f: FactionState): string {
+    return armyById(gd, f.army)?.name ?? `势力${f.id}`
+  }
+
+  private stripCharacterFromFactions(characterId: number): void {
+    for (const f of this.factions) {
+      if (f.leader === characterId) f.leader = 0
+      if (f.spyMaster === characterId) f.spyMaster = 0
+      if (Array.isArray(f.commanders) && f.commanders.includes(characterId)) {
+        f.commanders = f.commanders.filter((id) => id !== characterId)
+      }
+    }
+  }
+
+  /** 可收编：仅 isActive===false 势力的 leader / spyMaster / commanders */
+  listRecruitablePilots(gd: GameData): RecruitablePilot[] {
+    const owned = new Set(this.characters)
+    const best = new Map<number, RecruitablePilot>()
+    for (const f of this.factions) {
+      if (f.isActive) continue
+      const factionName = this.factionDisplayName(gd, f)
+      const slots: { id: number; role: PilotFactionRole }[] = []
+      if (f.leader > 0) slots.push({ id: f.leader, role: 'leader' })
+      if (f.spyMaster > 0) slots.push({ id: f.spyMaster, role: 'spyMaster' })
+      for (const id of f.commanders ?? []) {
+        if (id > 0) slots.push({ id, role: 'commander' })
+      }
+      for (const { id, role } of slots) {
+        if (owned.has(id)) continue
+        const entry = characterById(gd, id)
+        if (!entry || isUnusedEntry(entry)) continue
+        const next: RecruitablePilot = {
+          characterId: id,
+          factionId: f.id,
+          factionName,
+          role
+        }
+        const prev = best.get(id)
+        if (!prev || ROLE_PRIORITY[role] < ROLE_PRIORITY[prev.role]) {
+          best.set(id, next)
+        }
+      }
+    }
+    return [...best.values()].sort((a, b) => a.characterId - b.characterId)
+  }
+
+  /** 收编灭亡势力驾驶员；同步从势力名单剥离该 ID */
+  addPilot(gd: GameData, characterId: number, level: number): RecruitablePilot {
+    const lv = Math.round(level)
+    if (lv < 1 || lv > 10) throw new SaveError('PILOT_LEVEL', [level])
+    const id = Math.round(characterId)
+    if (this.characters.includes(id)) throw new SaveError('PILOT_ALREADY_OWNED', [id])
+    const pool = this.listRecruitablePilots(gd)
+    const hit = pool.find((p) => p.characterId === id)
+    if (!hit) throw new SaveError('PILOT_NOT_RECRUITABLE', [id])
+    this.characters.push(id)
+    this.characterExps.push(characterExpForLevel(lv))
+    this.stripCharacterFromFactions(id)
+    return hit
   }
 
   get unlockedUnitTypes(): number[] {
