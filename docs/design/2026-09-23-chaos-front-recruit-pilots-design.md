@@ -44,7 +44,7 @@
 ### 写入
 
 - `PlayerCharacters.push(characterId)`
-- `PlayerCharacterEXPs.push(exp)`，`exp` 由等级 1..10 经现有 `characterExpForLevel`（或等价）换算；默认等级 10 → `CHARACTER_MAX_EXP`
+- `PlayerCharacterEXPs.push(exp)`，`exp` 由等级 1..10 经现有 `characterExpForLevel` 换算；默认等级 10 → `CHARACTER_MAX_EXP`
 - 遍历全部 `FactionData`：若 `leader` / `spyMaster` / `commanders[]` 含该 ID，则清除（标量置 `0`，数组过滤）
 
 ### 可选池 `listRecruitablePilots(gd)`
