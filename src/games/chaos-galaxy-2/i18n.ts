@@ -41,7 +41,7 @@ export const zh: MessageTree = {
     searchPlaceholder: '搜索姓名或编号',
     faction: '阵营',
     factionUnknown: '未编队',
-    factionHint: '阵营由舰队归属（及势力领袖）推断；「仅己方」= 当前势力舰队上的指挥官。',
+    factionHint: '阵营由舰队归属（及势力领袖）推断，本页不能直接改。要把某人算作己方：到「舰队」页把他设为己方舰队指挥官（必要时从敌方舰队卸下）。「仅己方」= 当前势力舰队上的指挥官。',
     name: '姓名',
     nameFallback: '指挥官#{0}',
     exp: '经验',
@@ -147,7 +147,7 @@ export const en: MessageTree = {
     faction: 'Faction',
     factionUnknown: 'Unassigned',
     factionHint:
-      'Faction is inferred from fleet assignment (and faction leaders). “My faction” = commanders on your fleets.',
+      'Faction is inferred from fleet assignment (and faction leaders); not editable here. To count someone as yours: on Fleets, set them as commander of one of your fleets (and clear enemy fleets if needed). “My faction” = commanders on your fleets.',
     name: 'Name',
     nameFallback: 'Commander #{0}',
     exp: 'XP',

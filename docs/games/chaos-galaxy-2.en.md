@@ -20,8 +20,8 @@ Identify files such as `savedata0.cg2` … `savedata5.cg2` and `config.cg2`.
 |-----|----------|
 | Resources | Play-faction gold / supply / prestige, economics level, play month |
 | Planets | Owning faction (named select), defense, resistance, labour, HQ level (building arrays read-only in phase 1) |
-| Commanders | XP, admin / military / intellect / breeding, star; **skill chips** (named select); talent / strategy / tactics read-only. Defaults to my faction with search; max-my-faction. **No add/delete** |
-| Fleets | Card layout: faction / commander / flagship + unit-slot grid (**Level / Power / Energy**). Defaults to my faction. **No add/delete of fleets or unit slots in phase 1** |
+| Commanders | XP, admin / military / intellect / breeding, star; **skill chips** (named select); talent / strategy / tactics read-only. Defaults to my faction with search; max-my-faction. **No add/delete**; the Faction column is **inferred** from fleet assignment / faction leaders and is not editable here |
+| Fleets | Card layout: faction / commander / flagship + unit-slot grid (**Level / Power / Energy**). Defaults to my faction. **No add/delete of fleets or unit slots in phase 1**. To count someone as yours: assign them as commander on one of your fleets (or change that fleet’s faction) |
 | Unlock | Play-faction `*Unlocked` flags (e.g. alien content unlock); unlock-all known |
 | Collection | Light commander / unit / event bits (`config.cg2` bitmasks) |
 
@@ -45,6 +45,7 @@ Slots: up to six (player name). Volume, resolution, and language keys in `config
 2. Test on a **copy** of the save first.
 3. Host write policy: backup → temp file → atomic replace; invalid saves are rejected.
 4. Steam Cloud / editing while the game is running is not guaranteed safe.
+5. **Commanders have no standalone “owner faction” field.** Unlike Chaos Front’s pilot roster, CG2 does not support “recruit / add commander.” To show someone under **My faction**, open **Fleets**, assign that commander to one of your fleets (and clear them from enemy fleets if needed)—do not expect to edit the Faction column on the Commanders tab.
 
 ## Developers: data extraction
 

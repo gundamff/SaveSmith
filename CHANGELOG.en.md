@@ -2,6 +2,18 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.8.0] - 2026-09-24
+
+Chaos Front can recruit defeated-faction pilots; clarifies Chaos Galaxy 2 commander faction usage.
+
+### Added
+
+- **Chaos Front**: Pilots tab “Add” — only leaders / spymasters / commanders from defeated factions; removing them from that faction roster on add to avoid duplicate-ID crashes; mission-unlock pilots unsupported
+
+### Docs
+
+- **Chaos Galaxy 2**: Document that commanders have no standalone owner field; use the Fleets tab to assign them for “My faction” (in-app hint updated)
+
 ## [0.7.0] - 2026-09-22
 
 Adds **Eslabong** full save editing (pure TypeScript write-back).
