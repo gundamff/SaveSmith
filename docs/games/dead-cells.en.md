@@ -28,6 +28,7 @@ With Steam Cloud on, the game's `save\` folder usually holds only the `steam_clo
 |-----|---------|
 | Resources | Gold (`deathMoney`), Cells (`deathCells`), skin / head skin (**dropdown**, names from the game localization), Boss Rush unlocks (localized field names) |
 | Blueprints | Item unlock table (`itemProgress`): localized item names (from the game's own localization), unlocked, new, invested cells |
+| Skins | All **149 outfits + 43 heads** shipped with the game, searchable and filterable, unlock / lock; skins missing from the save get a **new item-progress entry** |
 | Runes | Permanent rune toggles (Vine / Teleport / Ram / Spider / Homunculus / Customization / Challenger / Explorer / Traveler / Richter…) |
 
 Item, skin and rune display names come from the game's official localization (`lang/main.zh.mo`); the skin/head catalogs come from the `skin` / `customHead` sheets. All are extracted into `data/item-names.json` and `data/skins.json` by `scripts/extract-dead-cells-names.mjs` from the installed game; unknown ids fall back to the raw identifier.
