@@ -2,6 +2,15 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.11.0] - 2026-10-01
+
+Dead Cells gains a Skins tab that can unlock every outfit and head.
+
+### Added
+
+- **Dead Cells**: Skins tab — all 149 outfits + 43 heads shipped with the game, with search, type filter, per-skin unlock/lock and batch actions on the current list
+- **Dead Cells**: skins missing from the save get a **new `itemProgress` entry** — the codec now supports appending entries to object arrays (previously string arrays only)
+
 ## [0.10.1] - 2026-10-01
 
 Dead Cells: skins become dropdowns; Boss Rush unlock fields get localized names.
