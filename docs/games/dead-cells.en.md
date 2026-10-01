@@ -27,8 +27,10 @@ With Steam Cloud on, the game's `save\` folder usually holds only the `steam_clo
 | Tab | Content |
 |-----|---------|
 | Resources | Gold (`deathMoney`), Cells (`deathCells`) |
-| Blueprints | Item unlock table (`itemProgress`): unlocked, new, invested cells |
+| Blueprints | Item unlock table (`itemProgress`): localized item names (from the game's own localization), unlocked, new, invested cells |
 | Statistics | Lifetime stats (read-only); skin / head skin (strings); Boss Rush unlock toggles |
+
+Item display names come from the game's official localization (`lang/main.zh.mo`), extracted into `data/item-names.json` by `scripts/extract-dead-cells-names.mjs` from the installed game; unknown ids fall back to the raw identifier.
 
 The save is a custom binary format (59-byte header + zlib + hxbit serialization) with a SHA-1 checksum in the header; the checksum is recomputed on save and untouched bytes are preserved verbatim.
 
@@ -38,8 +40,9 @@ The save is a custom binary format (59-byte header + zlib + hxbit serialization)
 2. After editing, confirm the change in-game first; restore from the backup panel if anything breaks.
 3. Try on a **copy** of your save first.
 4. Skin IDs are internal identifiers (e.g. `default`); an unknown ID may cause display glitches.
-5. Gold/Cells have no gameplay cap enforced here beyond being non-negative integers; the game has the final say on absurd values.
-6. `S_Game` (in-progress run) and `dc_options.json` are never touched — byte-level passthrough.
+5. A blueprint's "invested cells" may be a negative sentinel (e.g. `-2`) in real saves — that is internal game state and **should be left alone**; locked entries show `0`.
+6. Gold/Cells have no gameplay cap enforced here beyond being non-negative integers; the game has the final say on absurd values.
+7. `S_Game` (in-progress run) and `dc_options.json` are never touched — byte-level passthrough.
 
 Each file is auto-backed-up before saving (up to 10 copies); restore from the backup panel.
 
