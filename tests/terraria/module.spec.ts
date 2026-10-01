@@ -5,6 +5,7 @@ import { ModuleError } from '@sdk/error'
 import { modules } from '@host/registry'
 import { chaosFrontModule } from '../../src/games/chaos-front'
 import { chaosGalaxy2Module } from '../../src/games/chaos-galaxy-2'
+import { deadCellsModule } from '../../src/games/dead-cells'
 import { dragonSwordModule } from '../../src/games/dragon-sword'
 import { eslabongModule } from '../../src/games/eslabong'
 import { terrariaModule } from '../../src/games/terraria'
@@ -37,6 +38,7 @@ describe('terrariaModule catalog / locate / registry', () => {
     expect(modules).toEqual([
       chaosFrontModule,
       chaosGalaxy2Module,
+      deadCellsModule,
       wanderburgModule,
       terrariaModule,
       dragonSwordModule,

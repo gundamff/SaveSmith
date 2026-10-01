@@ -36,6 +36,7 @@ describe('wanderburgModule catalog / locate / registry', () => {
     expect(modules.map((m) => m.id)).toEqual([
       'chaos-front',
       'chaos-galaxy-2',
+      'dead-cells',
       'wanderburg',
       'terraria',
       'dragon-sword',
@@ -43,7 +44,7 @@ describe('wanderburgModule catalog / locate / registry', () => {
     ])
     expect(modules[0]).toBe(chaosFrontModule)
     expect(modules[1]).toBe(chaosGalaxy2Module)
-    expect(modules[2]).toBe(wanderburgModule)
+    expect(modules[3]).toBe(wanderburgModule)
   })
 })
 

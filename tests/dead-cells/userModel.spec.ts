@@ -1,0 +1,86 @@
+import { describe, expect, it } from 'vitest'
+import { decodeHxs, encodeHxs } from '../../src/games/dead-cells/model/hxbit'
+import {
+  projectUser,
+  setBossRushUnlock,
+  setDeathCells,
+  setDeathMoney,
+  setHeroHeadSkin,
+  setHeroSkin,
+  setItemInvestedCells,
+  setItemIsNew,
+  setItemUnlocked
+} from '../../src/games/dead-cells/model/userModel'
+import { buildUserChunk } from './fixtures'
+
+describe('dead-cells userModel', () => {
+  it('projects resources, items, stats, skins and boss rush', () => {
+    const doc = decodeHxs(buildUserChunk(), 'User')
+    const view = projectUser(doc)
+    expect(view.editable).toBe(true)
+    expect(view.deathMoney).toBe(100)
+    expect(view.deathCells).toBe(5)
+    expect(view.heroSkin).toBe('default')
+    expect(view.heroHeadSkin).toBe('head0')
+    expect(view.items).toHaveLength(2)
+    expect(view.items[0]).toMatchObject({
+      itemId: 'sword',
+      investedCells: 3,
+      isNew: true,
+      unlocked: false
+    })
+    expect(view.items[1]).toMatchObject({ itemId: 'bow', unlocked: true })
+    expect(view.stats).toEqual([
+      { key: 'runs', value: 4 },
+      { key: 'goldEarned', value: 250 }
+    ])
+    expect(view.bossRush).toEqual([
+      { field: 'unlockedGameMode', idx: 0, unlock: true },
+      { field: 'unlockedGameMode', idx: 1, unlock: false }
+    ])
+  })
+
+  it('edits round-trip through encode/decode', () => {
+    const doc = decodeHxs(buildUserChunk(), 'User')
+    setDeathMoney(doc, 99999)
+    setDeathCells(doc, 500)
+    setItemUnlocked(doc, 0, true)
+    setItemInvestedCells(doc, 0, 20)
+    setItemIsNew(doc, 0, false)
+    setHeroSkin(doc, 'vampire')
+    setHeroHeadSkin(doc, 'head9')
+    setBossRushUnlock(doc, 'unlockedGameMode', 1, true)
+
+    const out = encodeHxs(doc)
+    const again = decodeHxs(out, 'User')
+    const view = projectUser(again)
+    expect(view.deathMoney).toBe(99999)
+    expect(view.deathCells).toBe(500)
+    expect(view.items[0]).toMatchObject({
+      itemId: 'sword',
+      investedCells: 20,
+      isNew: false,
+      unlocked: true
+    })
+    expect(view.heroSkin).toBe('vampire')
+    expect(view.heroHeadSkin).toBe('head9')
+    expect(view.bossRush[1]).toMatchObject({ idx: 1, unlock: true })
+    // untouched item preserved
+    expect(view.items[1]).toMatchObject({ itemId: 'bow', investedCells: 0, unlocked: true })
+  })
+
+  it('unedited chunk stays byte-identical', () => {
+    const original = buildUserChunk()
+    const doc = decodeHxs(original, 'User')
+    projectUser(doc) // read-only projection must not dirty anything
+    expect(encodeHxs(doc)).toEqual(original)
+  })
+
+  it('reports non-editable when opaque', () => {
+    const raw = buildUserChunk()
+    const truncated = raw.slice(0, raw.length - 8)
+    const doc = decodeHxs(truncated, 'User')
+    const view = projectUser(doc)
+    expect(view.editable).toBe(false)
+  })
+})

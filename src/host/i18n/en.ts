@@ -252,6 +252,36 @@ export const en: MessageTree = {
       'Adding items/characters needs game CIDs. Look up names and CIDs in the th.gl DragonSword database (characters, items, cooking, etc.).',
     cidHintLink: 'Open th.gl database'
   },
+  dc: {
+    tabs: {
+      resources: 'Resources',
+      blueprints: 'Blueprints',
+      stats: 'Statistics'
+    },
+    resources: {
+      deathMoney: 'Gold',
+      deathCells: 'Cells',
+      unreadable: 'Save structure cannot be parsed; view-only'
+    },
+    blueprints: {
+      itemId: 'Item ID',
+      unlocked: 'Unlocked',
+      isNew: 'New',
+      investedCells: 'Invested cells',
+      unreadable: 'Save structure cannot be parsed; editing disabled'
+    },
+    stats: {
+      heroSkin: 'Skin',
+      heroHeadSkin: 'Head skin',
+      counters: 'Lifetime stats (read-only)',
+      bossRush: 'Boss Rush unlocks',
+      field: 'Field',
+      value: 'Value',
+      idx: 'Index',
+      unlock: 'Unlocked',
+      unreadable: 'Save structure cannot be parsed; view-only'
+    }
+  },
   error: {
     EMPTY_SERIALIZE: 'Serialize produced an empty or invalid payload; write aborted',
     UNKNOWN_ACTION: 'Unknown action: {0}',

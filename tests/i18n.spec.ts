@@ -80,7 +80,14 @@ const REQUIRED_KEYS = [
   'error.UNKNOWN_TEAM_CID',
   'error.COLLECTION_LENGTH',
   'error.LIFE_OVER_MAX',
-  'error.MANA_OVER_MAX'
+  'error.MANA_OVER_MAX',
+  'dc.tabs.resources',
+  'dc.tabs.blueprints',
+  'dc.tabs.stats',
+  'dc.resources.deathMoney',
+  'dc.resources.deathCells',
+  'dc.blueprints.itemId',
+  'dc.stats.heroSkin'
 ] as const
 
 afterEach(() => {

@@ -252,6 +252,36 @@ export const zh: MessageTree = {
       '添加物品/角色等需要填写游戏 CID。可在 th.gl 龙之剑数据库查询名称与 CID（角色、物品、料理等）。',
     cidHintLink: '打开 th.gl 数据库'
   },
+  dc: {
+    tabs: {
+      resources: '资源',
+      blueprints: '蓝图解锁',
+      stats: '统计'
+    },
+    resources: {
+      deathMoney: '金币',
+      deathCells: '细胞',
+      unreadable: '存档结构无法解析，仅可查看原始文件'
+    },
+    blueprints: {
+      itemId: '物品 ID',
+      unlocked: '已解锁',
+      isNew: '新获得',
+      investedCells: '投入细胞',
+      unreadable: '存档结构无法解析，无法编辑解锁'
+    },
+    stats: {
+      heroSkin: '皮肤',
+      heroHeadSkin: '头部皮肤',
+      counters: '生涯统计（只读）',
+      bossRush: 'Boss Rush 解锁',
+      field: '字段',
+      value: '数值',
+      idx: '序号',
+      unlock: '解锁',
+      unreadable: '存档结构无法解析，仅可查看'
+    }
+  },
   error: {
     EMPTY_SERIALIZE: '序列化结果为空或字节无效，已拒绝写入',
     UNKNOWN_ACTION: '未知动作：{0}',

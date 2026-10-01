@@ -71,13 +71,14 @@ describe('chaosFrontModule catalog / locate', () => {
     expect(modules.map((m) => m.id)).toEqual([
       'chaos-front',
       'chaos-galaxy-2',
+      'dead-cells',
       'wanderburg',
       'terraria',
       'dragon-sword',
       'eslabong'
     ])
     expect(modules[0]).toBe(chaosFrontModule)
-    expect(modules[2]).toBe(wanderburgModule)
+    expect(modules[3]).toBe(wanderburgModule)
   })
 })
 
