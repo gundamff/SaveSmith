@@ -68,6 +68,8 @@ export interface FixtureOptions {
   heroSkin?: string
   heroHeadSkin?: string
   bossRush?: { field: string; idx: number; unlock: boolean }[]
+  metaItems?: string[]
+  permanentItems?: string[]
 }
 
 export function buildUserChunk(opts: FixtureOptions = {}): Uint8Array {
@@ -83,7 +85,9 @@ export function buildUserChunk(opts: FixtureOptions = {}): Uint8Array {
     bossRush = [
       { field: 'unlockedGameMode', idx: 0, unlock: true },
       { field: 'unlockedGameMode', idx: 1, unlock: false }
-    ]
+    ],
+    metaItems = [],
+    permanentItems = []
   } = opts
 
   parts.length = 0
@@ -107,11 +111,11 @@ export function buildUserChunk(opts: FixtureOptions = {}): Uint8Array {
   }
 
   // User schema: deathMoney, deathCells, heroSkin, heroHeadSkin,
-  //   consecutiveCompletedRuns, itemMeta, userStats
-  s(varint(1), varint(1), varint(8))
+  //   consecutiveCompletedRuns, itemMeta, userStats, metaItems
+  s(varint(1), varint(1), varint(9))
   for (const n of [
     'deathMoney', 'deathCells', 'heroSkin', 'heroHeadSkin',
-    'consecutiveCompletedRuns', 'itemMeta', 'userStats'
+    'consecutiveCompletedRuns', 'itemMeta', 'userStats', 'metaItems'
   ]) s(str(n))
   const userTypes: number[][] = [
     tSimple('PInt'),
@@ -120,16 +124,19 @@ export function buildUserChunk(opts: FixtureOptions = {}): Uint8Array {
     tSimple('PString'),
     tSimple('PInt'),
     tNamed('PSerializable', 'tool.ItemMetaManager'),
-    tNamed('PSerializable', 'UserStats')
+    tNamed('PSerializable', 'UserStats'),
+    tArray(tSimple('PString'))
   ]
   s(varint(userTypes.length + 1))
   for (const t of userTypes) s(t)
 
-  // ItemMetaManager: itemProgress (array of ItemProgress)
-  s(varint(2), varint(2), varint(2))
+  // ItemMetaManager: itemProgress (array of ItemProgress), permanentItems (strings)
+  s(varint(2), varint(2), varint(3))
   s(str('itemProgress'))
-  s(varint(2))
+  s(str('permanentItems'))
+  s(varint(3))
   s(tArray(tNamed('PSerializable', 'tool.ItemProgress')))
+  s(tArray(tSimple('PString')))
 
   // ItemProgress: itemId, investedCells, isNew, unlocked
   s(varint(3), varint(3), varint(5))
@@ -173,20 +180,22 @@ export function buildUserChunk(opts: FixtureOptions = {}): Uint8Array {
   push(str(heroHeadSkin))
   push(varint(0)) // consecutiveCompletedRuns
 
+  // itemMeta ref + body (itemProgress[], permanentItems[])
   const metaUid = nextUid++
   push(varint(metaUid))
   push(varint(items.length + 1))
-  const itemUids: number[] = []
   for (const it of items) {
     const uid = nextUid++
-    itemUids.push(uid)
     push(varint(uid))
     push(str(it.itemId))
     push(varint(it.investedCells))
     push(u8(it.isNew ? 1 : 0))
     push(u8(it.unlocked ? 1 : 0))
   }
+  push(varint(permanentItems.length + 1))
+  for (const p of permanentItems) push(str(p))
 
+  // userStats ref + body (runs, goldEarned, bossRushData)
   const statsUid = nextUid++
   push(varint(statsUid))
   push(varint(4)) // runs
@@ -200,6 +209,10 @@ export function buildUserChunk(opts: FixtureOptions = {}): Uint8Array {
     push(varint(1), varint(b.idx))
     push(u8(b.unlock ? 1 : 0))
   }
+
+  // metaItems[] (last User field)
+  push(varint(metaItems.length + 1))
+  for (const m of metaItems) push(str(m))
 
   return concat()
 }

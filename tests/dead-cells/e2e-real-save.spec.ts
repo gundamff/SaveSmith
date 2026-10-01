@@ -14,8 +14,9 @@ import {
   encodeHxs,
   setIntValue
 } from '../../src/games/dead-cells/model/hxbit'
-import { projectUser, setItemUnlocked } from '../../src/games/dead-cells/model/userModel'
+import { projectUser, setItemUnlocked, setRune } from '../../src/games/dead-cells/model/userModel'
 import { itemDisplayName, hasItemName } from '../../src/games/dead-cells/model/itemNames'
+import { runeDisplayName } from '../../src/games/dead-cells/model/runes'
 import { parse as parseSave, validate } from '../../src/games/dead-cells/parse'
 
 const SAVE = process.env.DC_SAVE
@@ -143,5 +144,30 @@ describe.skipIf(!SAVE)('dead-cells real save (DC_SAVE)', () => {
     expect(named.every((n) => n.length > 0)).toBe(true)
     // at least one item should be an actual Chinese string, not the raw id
     expect(named.some((n) => /[\u4e00-\u9fff]/.test(n))).toBe(true)
+  })
+
+  it('unlocks runes on the real save (in memory) and round-trips', async () => {
+    const raw = new Uint8Array(readFileSync(SAVE!))
+    const container = await parseContainer(raw)
+    const doc = decodeHxs(getChunk(container, 'S_User')!.data, 'User')
+    const before = projectUser(doc)
+    expect(before.runes.every((r) => !r.enabled)).toBe(true)
+    setRune(doc, 'LadderKey', true)
+    setRune(doc, 'TeleportKey', true)
+    const out = encodeHxs(doc)
+    expect(out).not.toEqual(getChunk(container, 'S_User')!.data)
+    const after = projectUser(decodeHxs(out, 'User'))
+    expect(after.runes.find((r) => r.id === 'LadderKey')?.enabled).toBe(true)
+    expect(after.runes.find((r) => r.id === 'TeleportKey')?.enabled).toBe(true)
+    expect(after.runes.find((r) => r.id === 'WallJumpKey')?.enabled).toBe(false)
+    // untouched data survives
+    expect(after.deathMoney).toBe(before.deathMoney)
+    expect(after.items.length).toBe(before.items.length)
+  })
+
+  it('rune names are localized', () => {
+    expect(runeDisplayName('LadderKey', 'zh')).toBe('藤蔓符文')
+    expect(runeDisplayName('WallJumpKey', 'zh')).toBe('蜘蛛符文')
+    expect(runeDisplayName('HomeKeyMissing', 'zh')).toBe('HomeKeyMissing')
   })
 })

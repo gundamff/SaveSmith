@@ -765,6 +765,52 @@ export function setStringValue(
   patchPart(doc, node.part, encodeString(value))
 }
 
+function concatBytes(parts: Uint8Array[]): Uint8Array {
+  let n = 0
+  for (const p of parts) n += p.length
+  const out = new Uint8Array(n)
+  let off = 0
+  for (const p of parts) {
+    out.set(p, off)
+    off += p.length
+  }
+  return out
+}
+
+const EMPTY = new Uint8Array(0)
+// Original item-part indices of a decoded array, captured before the first rewrite.
+const originalItemParts = new WeakMap<object, number[]>()
+
+/**
+ * Replace a `PArray<PString>` in place: the new count+items are emitted from the
+ * count slot and every original item part is blanked, so items can be added or
+ * removed without disturbing the rest of the object data.
+ */
+export function setStringArray(
+  doc: HxsDoc,
+  node: Extract<HxValue, { kind: 'array' }>,
+  values: string[]
+): void {
+  if (node.items.some((i) => i.kind !== 'string')) {
+    throw new HxFormatError('setStringArray only supports arrays of strings')
+  }
+  let parts = originalItemParts.get(node)
+  if (!parts) {
+    parts = node.items.map((i) => (i.kind === 'string' ? i.part : -1)).filter((p) => p >= 0)
+    originalItemParts.set(node, parts)
+  }
+  const body: Uint8Array[] = [encodeInt(values.length + 1)]
+  for (const v of values) body.push(encodeString(v))
+  patchPart(doc, node.countPart, concatBytes(body))
+  for (const p of parts) patchPart(doc, p, EMPTY)
+  node.items = values.map((value) => ({ kind: 'string', part: -1, value }))
+}
+
+export function asStringArray(v: HxValue | undefined): string[] | null {
+  if (!v || v.kind !== 'array') return null
+  return v.items.filter((i) => i.kind === 'string').map((i) => (i as Extract<HxValue, { kind: 'string' }>).value ?? '')
+}
+
 // -------------------------------------------------------------- value views
 
 export function asInt(v: HxValue | undefined): number | null {

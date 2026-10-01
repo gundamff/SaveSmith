@@ -10,13 +10,16 @@ import {
   asInt,
   asObject,
   asString,
+  asStringArray,
   setBoolValue,
   setIntValue,
+  setStringArray,
   setStringValue,
   type HxObject,
   type HxValue,
   type HxsDoc
 } from './hxbit'
+import { RUNE_ORDER } from './runes'
 
 export interface ItemRow {
   index: number
@@ -26,26 +29,26 @@ export interface ItemRow {
   unlocked: boolean
 }
 
-export interface StatRow {
-  key: string
-  value: number
-}
-
 export interface BossRushRow {
   field: string
   idx: number
   unlock: boolean
 }
 
+export interface RuneRow {
+  id: string
+  enabled: boolean
+}
+
 export interface DeadCellsView {
   deathMoney: number
   deathCells: number
   items: ItemRow[]
-  stats: StatRow[]
   heroSkin: string
   heroHeadSkin: string
   consecutiveCompletedRuns: number
   bossRush: BossRushRow[]
+  runes: RuneRow[]
   editable: boolean
 }
 
@@ -76,11 +79,11 @@ export function projectUser(doc: HxsDoc): DeadCellsView {
     deathMoney: 0,
     deathCells: 0,
     items: [],
-    stats: [],
     heroSkin: '',
     heroHeadSkin: '',
     consecutiveCompletedRuns: 0,
     bossRush: [],
+    runes: [],
     editable
   }
   if (!root) return view
@@ -109,13 +112,11 @@ export function projectUser(doc: HxsDoc): DeadCellsView {
     }
   }
 
-  const userStats = asObject(root.fields.get('userStats'))
-  if (userStats) {
-    for (const [key, value] of userStats.fields) {
-      const n = asInt(value)
-      if (n !== null) view.stats.push({ key, value: n })
-    }
+  const ownedRunes = new Set<string>()
+  for (const node of metaArrayNodes(root)) {
+    for (const id of asStringArray(node) ?? []) ownedRunes.add(id)
   }
+  view.runes = RUNE_ORDER.map((id) => ({ id, enabled: ownedRunes.has(id) }))
 
   const boss = asObject(root.fields.get('bossRushData') ?? findBossRush(root))
   if (boss) {
@@ -141,6 +142,21 @@ function findBossRush(root: HxObject): HxValue | undefined {
   // bossRushData lives on UserStats in current saves
   const userStats = asObject(root.fields.get('userStats'))
   return userStats?.fields.get('bossRushData')
+}
+
+/**
+ * The save stores permanent/meta item ids in two string arrays: `metaItems` on
+ * the User and `permanentItems` on the item-meta manager. Runes are read from
+ * both and written to both (the exact slot is unverified across versions).
+ */
+function metaArrayNodes(root: HxObject): Array<Extract<HxValue, { kind: 'array' }>> {
+  const nodes: Array<Extract<HxValue, { kind: 'array' }>> = []
+  const metaItems = root.fields.get('metaItems')
+  if (metaItems?.kind === 'array') nodes.push(metaItems)
+  const itemMeta = asObject(root.fields.get('itemMeta'))
+  const permanent = itemMeta?.fields.get('permanentItems')
+  if (permanent?.kind === 'array') nodes.push(permanent)
+  return nodes
 }
 
 function itemEntry(doc: HxsDoc, index: number): HxObject | null {
@@ -189,6 +205,20 @@ export function setHeroSkin(doc: HxsDoc, value: string): void {
 export function setHeroHeadSkin(doc: HxsDoc, value: string): void {
   const node = doc.root?.fields.get('heroHeadSkin')
   if (node?.kind === 'string') setStringValue(doc, node, value)
+}
+
+export function setRune(doc: HxsDoc, id: string, on: boolean): void {
+  const root = doc.root
+  if (!root) return
+  for (const node of metaArrayNodes(root)) {
+    const current = asStringArray(node) ?? []
+    const next = on
+      ? current.includes(id)
+        ? current
+        : [...current, id]
+      : current.filter((s) => s !== id)
+    setStringArray(doc, node, next)
+  }
 }
 
 export function setBossRushUnlock(doc: HxsDoc, field: string, idx: number, value: boolean): void {

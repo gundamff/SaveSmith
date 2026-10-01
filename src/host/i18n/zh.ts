@@ -256,11 +256,17 @@ export const zh: MessageTree = {
     tabs: {
       resources: '资源',
       blueprints: '蓝图解锁',
-      stats: '统计'
+      runes: '符文'
     },
     resources: {
       deathMoney: '金币',
       deathCells: '细胞',
+      heroSkin: '皮肤',
+      heroHeadSkin: '头部皮肤',
+      bossRush: 'Boss Rush 解锁',
+      field: '字段',
+      idx: '序号',
+      unlock: '解锁',
       unreadable: '存档结构无法解析，仅可查看原始文件'
     },
     blueprints: {
@@ -271,16 +277,13 @@ export const zh: MessageTree = {
       investedCells: '投入细胞',
       unreadable: '存档结构无法解析，无法编辑解锁'
     },
-    stats: {
-      heroSkin: '皮肤',
-      heroHeadSkin: '头部皮肤',
-      counters: '生涯统计（只读）',
-      bossRush: 'Boss Rush 解锁',
-      field: '字段',
-      value: '数值',
-      idx: '序号',
-      unlock: '解锁',
-      unreadable: '存档结构无法解析，仅可查看'
+    runes: {
+      name: '符文',
+      unlocked: '已解锁',
+      unlockAll: '全部解锁',
+      clearAll: '全部清除',
+      hint: '符文为永久升级，名称取自游戏本体本地化；修改后请进游戏确认（改前会自动备份）。',
+      unreadable: '存档结构无法解析，无法编辑符文'
     }
   },
   error: {

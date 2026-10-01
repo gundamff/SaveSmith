@@ -83,12 +83,14 @@ const REQUIRED_KEYS = [
   'error.MANA_OVER_MAX',
   'dc.tabs.resources',
   'dc.tabs.blueprints',
-  'dc.tabs.stats',
+  'dc.tabs.runes',
   'dc.resources.deathMoney',
   'dc.resources.deathCells',
+  'dc.resources.heroSkin',
   'dc.blueprints.itemId',
   'dc.blueprints.name',
-  'dc.stats.heroSkin'
+  'dc.runes.name',
+  'dc.runes.unlockAll'
 ] as const
 
 afterEach(() => {

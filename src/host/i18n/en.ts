@@ -256,11 +256,17 @@ export const en: MessageTree = {
     tabs: {
       resources: 'Resources',
       blueprints: 'Blueprints',
-      stats: 'Statistics'
+      runes: 'Runes'
     },
     resources: {
       deathMoney: 'Gold',
       deathCells: 'Cells',
+      heroSkin: 'Skin',
+      heroHeadSkin: 'Head skin',
+      bossRush: 'Boss Rush unlocks',
+      field: 'Field',
+      idx: 'Index',
+      unlock: 'Unlocked',
       unreadable: 'Save structure cannot be parsed; view-only'
     },
     blueprints: {
@@ -271,16 +277,13 @@ export const en: MessageTree = {
       investedCells: 'Invested cells',
       unreadable: 'Save structure cannot be parsed; editing disabled'
     },
-    stats: {
-      heroSkin: 'Skin',
-      heroHeadSkin: 'Head skin',
-      counters: 'Lifetime stats (read-only)',
-      bossRush: 'Boss Rush unlocks',
-      field: 'Field',
-      value: 'Value',
-      idx: 'Index',
-      unlock: 'Unlocked',
-      unreadable: 'Save structure cannot be parsed; view-only'
+    runes: {
+      name: 'Rune',
+      unlocked: 'Unlocked',
+      unlockAll: 'Unlock all',
+      clearAll: 'Clear all',
+      hint: 'Runes are permanent upgrades; names come from the game localization. Confirm in-game after editing (a backup is taken automatically).',
+      unreadable: 'Save structure cannot be parsed; rune editing disabled'
     }
   },
   error: {

@@ -9,7 +9,8 @@ import {
   setHeroSkin,
   setItemInvestedCells,
   setItemIsNew,
-  setItemUnlocked
+  setItemUnlocked,
+  setRune
 } from '../../src/games/dead-cells/model/userModel'
 import { buildUserChunk } from './fixtures'
 
@@ -30,14 +31,12 @@ describe('dead-cells userModel', () => {
       unlocked: false
     })
     expect(view.items[1]).toMatchObject({ itemId: 'bow', unlocked: true })
-    expect(view.stats).toEqual([
-      { key: 'runs', value: 4 },
-      { key: 'goldEarned', value: 250 }
-    ])
     expect(view.bossRush).toEqual([
       { field: 'unlockedGameMode', idx: 0, unlock: true },
       { field: 'unlockedGameMode', idx: 1, unlock: false }
     ])
+    expect(view.runes.every((r) => !r.enabled)).toBe(true)
+    expect(view.runes.map((r) => r.id)).toContain('LadderKey')
   })
 
   it('edits round-trip through encode/decode', () => {
@@ -73,6 +72,33 @@ describe('dead-cells userModel', () => {
     const original = buildUserChunk()
     const doc = decodeHxs(original, 'User')
     projectUser(doc) // read-only projection must not dirty anything
+    expect(encodeHxs(doc)).toEqual(original)
+  })
+
+  it('unlocks and clears runes across the meta item arrays', () => {
+    const original = buildUserChunk({ metaItems: ['LadderKey'], permanentItems: ['TeleportKey'] })
+    const doc = decodeHxs(original, 'User')
+    const before = projectUser(doc)
+    expect(before.runes.find((r) => r.id === 'LadderKey')?.enabled).toBe(true)
+    expect(before.runes.find((r) => r.id === 'TeleportKey')?.enabled).toBe(true)
+    expect(before.runes.find((r) => r.id === 'WallJumpKey')?.enabled).toBe(false)
+
+    setRune(doc, 'WallJumpKey', true)
+    setRune(doc, 'LadderKey', false)
+    const out = encodeHxs(doc)
+    const again = decodeHxs(out, 'User')
+    const view = projectUser(again)
+    expect(view.runes.find((r) => r.id === 'WallJumpKey')?.enabled).toBe(true)
+    expect(view.runes.find((r) => r.id === 'LadderKey')?.enabled).toBe(false)
+    expect(view.runes.find((r) => r.id === 'TeleportKey')?.enabled).toBe(true)
+    // unrelated edits survive
+    expect(view.deathMoney).toBe(100)
+  })
+
+  it('unmodified rune chunk round-trips byte-identical', () => {
+    const original = buildUserChunk({ metaItems: ['LadderKey'], permanentItems: ['TeleportKey'] })
+    const doc = decodeHxs(original, 'User')
+    projectUser(doc)
     expect(encodeHxs(doc)).toEqual(original)
   })
 
