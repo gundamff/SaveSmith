@@ -256,6 +256,7 @@ export const en: MessageTree = {
     tabs: {
       resources: 'Resources',
       blueprints: 'Blueprints',
+      skins: 'Skins',
       runes: 'Runes'
     },
     resources: {
@@ -295,6 +296,19 @@ export const en: MessageTree = {
       clearAll: 'Clear all',
       hint: 'Runes are permanent upgrades; names come from the game localization. Confirm in-game after editing (a backup is taken automatically).',
       unreadable: 'Save structure cannot be parsed; rune editing disabled'
+    },
+    skins: {
+      name: 'Name',
+      kind: 'Type',
+      outfit: 'Outfit',
+      head: 'Head',
+      all: 'All',
+      search: 'Search name / ID',
+      unlocked: 'Unlocked',
+      unlockVisible: 'Unlock listed',
+      clearVisible: 'Lock listed',
+      hint: 'Unlocking writes into the save item progress; skins missing from the save get a new entry. Confirm in-game after editing (a backup is taken automatically).',
+      unreadable: 'Save structure cannot be parsed; skin editing disabled'
     }
   },
   error: {

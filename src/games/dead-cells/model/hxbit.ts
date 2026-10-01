@@ -152,7 +152,7 @@ export type HxValue =
       isNull: boolean
       fields: Map<string, { present: boolean; value: HxValue | null }>
     }
-  | { kind: 'ref'; uidPart: number; uid: number; obj: HxObject | null }
+  | { kind: 'ref'; uidPart: number; uid: number; obj: HxObject | null; inline?: boolean }
 
 interface Part {
   start: number
@@ -164,6 +164,8 @@ export interface HxsDoc {
   raw: Uint8Array
   headRaw: Uint8Array
   parts: Part[]
+  /** Bytes to emit immediately after the given part index (appended array items). */
+  afterParts: Map<number, Uint8Array[]>
   classes: HxClassDef[]
   schemas: HxSchema[]
   root: HxObject | null
@@ -483,13 +485,13 @@ class ObjectWalker {
         const uidPart = this.part(uidStart)
         if (uid === 0) return { kind: 'ref', uidPart, uid, obj: null }
         const existing = this.objects.get(uid)
-        if (existing) return { kind: 'ref', uidPart, uid, obj: existing }
+        if (existing) return { kind: 'ref', uidPart, uid, obj: existing, inline: false }
         const schema = this.schemaByClass.get(type.name)
         if (!schema) {
           throw new HxFormatError(`no schema for class ${type.name}`)
         }
         const obj = this.readObjectBody(uid, schema)
-        return { kind: 'ref', uidPart, uid, obj }
+        return { kind: 'ref', uidPart, uid, obj, inline: true }
       }
       case 'PSerInterface': {
         const uidStart = this.pos
@@ -497,14 +499,14 @@ class ObjectWalker {
         const uidPart = this.part(uidStart)
         if (uid === 0) return { kind: 'ref', uidPart, uid, obj: null }
         const existing = this.objects.get(uid)
-        if (existing) return { kind: 'ref', uidPart, uid, obj: existing }
+        if (existing) return { kind: 'ref', uidPart, uid, obj: existing, inline: false }
         const clidStart = this.pos
         const clid = this.readU16be()
         this.part(clidStart)
         const schema = this.schemaByClid.get(clid)
         if (!schema) throw new HxFormatError(`no schema for runtime clid ${clid}`)
         const obj = this.readObjectBody(uid, schema)
-        return { kind: 'ref', uidPart, uid, obj }
+        return { kind: 'ref', uidPart, uid, obj, inline: true }
       }
       case 'PEnum': {
         const ctorStart = this.pos
@@ -694,7 +696,16 @@ export function decodeHxs(chunk: Uint8Array, rootClassName: string): HxsDoc {
   // Guarantee parts cover the object region contiguously.
   const last = walk.parts[walk.parts.length - 1]!
   if (last.end < chunk.length) walk.parts.push({ start: last.end, end: chunk.length })
-  return { raw: chunk, headRaw, parts: walk.parts, classes, schemas, root, opaque }
+  return {
+    raw: chunk,
+    headRaw,
+    parts: walk.parts,
+    afterParts: new Map(),
+    classes,
+    schemas,
+    root,
+    opaque
+  }
 }
 
 // ------------------------------------------------------------------- encode
@@ -702,10 +713,18 @@ export function decodeHxs(chunk: Uint8Array, rootClassName: string): HxsDoc {
 export function encodeHxs(doc: HxsDoc): Uint8Array {
   const chunks: Uint8Array[] = [doc.headRaw]
   let total = doc.headRaw.length
-  for (const part of doc.parts) {
+  for (let i = 0; i < doc.parts.length; i++) {
+    const part = doc.parts[i]!
     const bytes = part.patch ?? doc.raw.subarray(part.start, part.end)
     chunks.push(bytes)
     total += bytes.length
+    const appended = doc.afterParts.get(i)
+    if (appended) {
+      for (const extra of appended) {
+        chunks.push(extra)
+        total += extra.length
+      }
+    }
   }
   const out = new Uint8Array(total)
   let off = 0
@@ -809,6 +828,116 @@ export function setStringArray(
 export function asStringArray(v: HxValue | undefined): string[] | null {
   if (!v || v.kind !== 'array') return null
   return v.items.filter((i) => i.kind === 'string').map((i) => (i as Extract<HxValue, { kind: 'string' }>).value ?? '')
+}
+
+// ------------------------------------------------------- object-array append
+
+function valueParts(v: HxValue): number[] {
+  switch (v.kind) {
+    case 'int':
+    case 'int64':
+    case 'float':
+    case 'bool':
+    case 'string':
+    case 'bytes':
+      return [v.part]
+    case 'enum':
+      return [v.ctorPart, ...v.args.flatMap(valueParts)]
+    case 'null':
+      return [v.wrapperPart, ...(v.inner ? valueParts(v.inner) : [])]
+    case 'array':
+      return [v.countPart, ...v.items.flatMap(valueParts)]
+    case 'map':
+      return [v.countPart, ...v.entries.flatMap((e) => [...valueParts(e.key), ...valueParts(e.value)])]
+    case 'obj':
+      return [
+        v.bitsPart,
+        ...[...v.fields.values()].filter((f) => f.present && f.value).flatMap((f) => valueParts(f.value!))
+      ]
+    case 'ref': {
+      if (!v.obj || v.inline === false) return [v.uidPart]
+      return [v.uidPart, ...[...v.obj.fields.values()].flatMap(valueParts)]
+    }
+  }
+}
+
+function lastPartIndex(v: HxValue): number {
+  return Math.max(...valueParts(v))
+}
+
+/** Highest object UID referenced in the document (for allocating new ones). */
+export function maxObjectUid(doc: HxsDoc): number {
+  let max = 0
+  const seen = new Set<HxObject>()
+  function walkVal(v: HxValue): void {
+    switch (v.kind) {
+      case 'ref':
+        if (v.uid > max) max = v.uid
+        if (v.obj) walkObj(v.obj)
+        return
+      case 'array':
+        v.items.forEach(walkVal)
+        return
+      case 'map':
+        v.entries.forEach((e) => {
+          walkVal(e.key)
+          walkVal(e.value)
+        })
+        return
+      case 'obj':
+        v.fields.forEach((f) => {
+          if (f.present && f.value) walkVal(f.value)
+        })
+        return
+      case 'null':
+        if (v.inner) walkVal(v.inner)
+        return
+      default:
+        return
+    }
+  }
+  function walkObj(o: HxObject): void {
+    if (seen.has(o)) return
+    seen.add(o)
+    if (o.uid > max) max = o.uid
+    for (const v of o.fields.values()) walkVal(v)
+  }
+  if (doc.root) walkObj(doc.root)
+  return max
+}
+
+const appendAnchor = new WeakMap<object, { baseCount: number; anchor: number }>()
+
+function appendStateFor(node: Extract<HxValue, { kind: 'array' }>): {
+  baseCount: number
+  anchor: number
+} {
+  let st = appendAnchor.get(node)
+  if (!st) {
+    const baseCount = node.items.length
+    const anchor = baseCount > 0 ? lastPartIndex(node.items[baseCount - 1]!) : node.countPart
+    st = { baseCount, anchor }
+    appendAnchor.set(node, st)
+  }
+  return st
+}
+
+/**
+ * Replace the appended tail of an array with `items` (raw encoded entries).
+ * The original entries are untouched, so this is safe to call repeatedly.
+ */
+export function setArrayAppended(
+  doc: HxsDoc,
+  node: Extract<HxValue, { kind: 'array' }>,
+  items: Uint8Array[]
+): void {
+  const st = appendStateFor(node)
+  if (st.baseCount === 0) {
+    patchPart(doc, node.countPart, concatBytes([encodeInt(items.length + 1), ...items]))
+  } else {
+    patchPart(doc, node.countPart, encodeInt(st.baseCount + items.length + 1))
+    doc.afterParts.set(st.anchor, items)
+  }
 }
 
 // -------------------------------------------------------------- value views

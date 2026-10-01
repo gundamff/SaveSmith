@@ -14,9 +14,10 @@ import {
   encodeHxs,
   setIntValue
 } from '../../src/games/dead-cells/model/hxbit'
-import { projectUser, setItemUnlocked, setRune } from '../../src/games/dead-cells/model/userModel'
+import { projectUser, setItemUnlocked, setRune, setSkinUnlocked, isSkinUnlocked } from '../../src/games/dead-cells/model/userModel'
 import { itemDisplayName, hasItemName } from '../../src/games/dead-cells/model/itemNames'
 import { runeDisplayName } from '../../src/games/dead-cells/model/runes'
+import { skinCatalog } from '../../src/games/dead-cells/model/skins'
 import { parse as parseSave, validate } from '../../src/games/dead-cells/parse'
 
 const SAVE = process.env.DC_SAVE
@@ -168,5 +169,37 @@ describe.skipIf(!SAVE)('dead-cells real save (DC_SAVE)', () => {
     expect(runeDisplayName('LadderKey', 'zh')).toBe('藤蔓符文')
     expect(runeDisplayName('WallJumpKey', 'zh')).toBe('蜘蛛符文')
     expect(runeDisplayName('HomeKeyMissing', 'zh')).toBe('HomeKeyMissing')
+  })
+
+  it('appends a missing skin to the real save and stays valid', async () => {
+    const raw = new Uint8Array(readFileSync(SAVE!))
+    const container = await parseContainer(raw)
+    const doc = decodeHxs(getChunk(container, 'S_User')!.data, 'User')
+    const before = projectUser(doc)
+    const present = new Set(before.items.map((i) => i.itemId))
+    const missing = skinCatalog()
+      .map((s) => s.id)
+      .find((id) => !present.has(id))
+    expect(missing).toBeTruthy()
+    expect(isSkinUnlocked(doc, missing!)).toBe(false)
+    setSkinUnlocked(doc, missing!, true)
+    const userChunk = encodeHxs(doc)
+    const edited = {
+      header: container.header,
+      chunks: container.chunks.map((c) =>
+        c.name === 'S_User' ? { ...c, data: userChunk } : c
+      )
+    }
+    const out = await buildContainer(edited)
+    await expect(verifyChecksum(out)).resolves.toBe(true)
+    const final = await parseContainer(out)
+    const after = projectUser(decodeHxs(getChunk(final, 'S_User')!.data, 'User'))
+    expect(after.items.length).toBe(before.items.length + 1)
+    expect(after.items.find((i) => i.itemId === missing)?.unlocked).toBe(true)
+    // pre-existing items unchanged
+    expect(after.deathMoney).toBe(before.deathMoney)
+    expect(after.runes.filter((r) => r.enabled).length).toBe(
+      before.runes.filter((r) => r.enabled).length
+    )
   })
 })

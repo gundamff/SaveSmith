@@ -28,3 +28,18 @@ export function outfitOptions(locale: AppLocale, current?: string): SkinOption[]
 export function headOptions(locale: AppLocale, current?: string): SkinOption[] {
   return toOptions(SKINS.heads, locale, current)
 }
+
+export type SkinKind = 'outfit' | 'head'
+
+export interface SkinEntry {
+  id: string
+  kind: SkinKind
+}
+
+/** Full skin catalog: every outfit and head skin shipped with the game. */
+export function skinCatalog(): SkinEntry[] {
+  return [
+    ...SKINS.outfits.map((id): SkinEntry => ({ id, kind: 'outfit' })),
+    ...SKINS.heads.map((id): SkinEntry => ({ id, kind: 'head' }))
+  ]
+}

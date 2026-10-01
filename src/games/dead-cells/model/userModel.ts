@@ -11,6 +11,11 @@ import {
   asObject,
   asString,
   asStringArray,
+  encodeBool,
+  encodeInt,
+  encodeString,
+  maxObjectUid,
+  setArrayAppended,
   setBoolValue,
   setIntValue,
   setStringArray,
@@ -239,4 +244,87 @@ export function setBossRushUnlock(doc: HxsDoc, field: string, idx: number, value
     }
     return
   }
+}
+
+// ------------------------------------------------------------------- skins
+
+/** Skins unlocked by this session but absent from the save, tracked per doc. */
+const appendedSkins = new WeakMap<HxsDoc, Map<string, number>>()
+const nextUidByDoc = new WeakMap<HxsDoc, number>()
+
+function itemProgressNode(doc: HxsDoc): Extract<HxValue, { kind: 'array' }> | null {
+  const itemMeta = asObject(doc.root?.fields.get('itemMeta'))
+  const node = itemMeta?.fields.get('itemProgress')
+  return node?.kind === 'array' ? node : null
+}
+
+function originalItemEntry(doc: HxsDoc, id: string): HxObject | null {
+  const node = itemProgressNode(doc)
+  if (!node) return null
+  for (const item of node.items) {
+    const obj = asObject(item)
+    if (obj && asString(obj.fields.get('itemId')) === id) return obj
+  }
+  return null
+}
+
+function allocateUid(doc: HxsDoc): number {
+  let n = nextUidByDoc.get(doc)
+  if (n === undefined) n = maxObjectUid(doc) + 1
+  nextUidByDoc.set(doc, n + 1)
+  return n
+}
+
+/** Encode a tool.ItemProgress entry (itemId, investedCells, isNew, unlocked). */
+function encodeItemProgress(uid: number, itemId: string): Uint8Array {
+  const parts = [
+    encodeInt(uid),
+    encodeString(itemId),
+    encodeInt(-2), // same sentinel as unlocked entries in real saves
+    encodeBool(false),
+    encodeBool(true)
+  ]
+  let len = 0
+  for (const p of parts) len += p.length
+  const out = new Uint8Array(len)
+  let off = 0
+  for (const p of parts) {
+    out.set(p, off)
+    off += p.length
+  }
+  return out
+}
+
+/** Whether a skin/item id is unlocked (present and unlocked, or added this session). */
+export function isSkinUnlocked(doc: HxsDoc, id: string): boolean {
+  const entry = originalItemEntry(doc, id)
+  if (entry) return asBool(entry.fields.get('unlocked')) ?? false
+  return appendedSkins.get(doc)?.has(id) ?? false
+}
+
+/**
+ * Unlock or relock a skin. Entries already present in `itemProgress` are toggled
+ * in place; missing ones are appended as new items (and removed again on relock).
+ */
+export function setSkinUnlocked(doc: HxsDoc, id: string, on: boolean): void {
+  const node = itemProgressNode(doc)
+  if (!node) return
+  const entry = originalItemEntry(doc, id)
+  if (entry) {
+    const unlockNode = entry.fields.get('unlocked')
+    if (unlockNode?.kind === 'bool') setBoolValue(doc, unlockNode, on)
+    return
+  }
+  let map = appendedSkins.get(doc)
+  if (!map) {
+    map = new Map()
+    appendedSkins.set(doc, map)
+  }
+  if (on) {
+    if (!map.has(id)) map.set(id, allocateUid(doc))
+  } else {
+    map.delete(id)
+  }
+  const items = [...map.entries()].map(([sid, uid]) => encodeItemProgress(uid, sid))
+  setArrayAppended(doc, node, items)
 }

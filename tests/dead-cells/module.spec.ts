@@ -38,10 +38,16 @@ async function makeContainerBytes(chunk?: Uint8Array): Promise<Uint8Array> {
 describe('deadCellsModule catalog / locate / registry', () => {
   it('registers as dead-cells with catalog, locate and three views', () => {
     expect(deadCellsModule.id).toBe('dead-cells')
-    expect(deadCellsModule.views.map((v) => v.id)).toEqual(['resources', 'blueprints', 'runes'])
+    expect(deadCellsModule.views.map((v) => v.id)).toEqual([
+      'resources',
+      'blueprints',
+      'skins',
+      'runes'
+    ])
     expect(deadCellsModule.views.map((v) => v.labelKey)).toEqual([
       'dc.tabs.resources',
       'dc.tabs.blueprints',
+      'dc.tabs.skins',
       'dc.tabs.runes'
     ])
     expect(deadCellsModule.views.every((v) => v.component != null)).toBe(true)
