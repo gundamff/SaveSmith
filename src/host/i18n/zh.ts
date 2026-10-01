@@ -262,6 +262,7 @@ export const zh: MessageTree = {
     resources: {
       deathMoney: '金币',
       deathCells: '细胞',
+      bossCells: 'Boss起源细胞（难度）',
       heroSkin: '皮肤',
       heroHeadSkin: '头部皮肤',
       bossRush: 'Boss Rush 解锁',
@@ -269,6 +270,14 @@ export const zh: MessageTree = {
       idx: '序号',
       unlock: '解锁',
       unreadable: '存档结构无法解析，仅可查看原始文件'
+    },
+    difficulty: {
+      normal: '普通',
+      hard: '困难',
+      veryHard: '超难',
+      expert: '专家',
+      nightmare: '噩梦',
+      hell: '地狱'
     },
     bossRush: {
       unlockedGameMode: '游戏模式',

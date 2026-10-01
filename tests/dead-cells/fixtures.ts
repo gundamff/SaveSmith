@@ -64,6 +64,7 @@ function concat(): Uint8Array {
 export interface FixtureOptions {
   deathMoney?: number
   deathCells?: number
+  bossCells?: number
   items?: { itemId: string; investedCells: number; isNew: boolean; unlocked: boolean }[]
   heroSkin?: string
   heroHeadSkin?: string
@@ -76,6 +77,7 @@ export function buildUserChunk(opts: FixtureOptions = {}): Uint8Array {
   const {
     deathMoney = 100,
     deathCells = 5,
+    bossCells = 0,
     items = [
       { itemId: 'sword', investedCells: 3, isNew: true, unlocked: false },
       { itemId: 'bow', investedCells: 0, isNew: false, unlocked: true }
@@ -110,14 +112,15 @@ export function buildUserChunk(opts: FixtureOptions = {}): Uint8Array {
     for (const x of xs) schemaBodies.push(x instanceof Uint8Array ? x : new Uint8Array(x))
   }
 
-  // User schema: deathMoney, deathCells, heroSkin, heroHeadSkin,
+  // User schema: deathMoney, deathCells, bossRuneActivated, heroSkin, heroHeadSkin,
   //   consecutiveCompletedRuns, itemMeta, userStats, metaItems
-  s(varint(1), varint(1), varint(9))
+  s(varint(1), varint(1), varint(10))
   for (const n of [
-    'deathMoney', 'deathCells', 'heroSkin', 'heroHeadSkin',
+    'deathMoney', 'deathCells', 'bossRuneActivated', 'heroSkin', 'heroHeadSkin',
     'consecutiveCompletedRuns', 'itemMeta', 'userStats', 'metaItems'
   ]) s(str(n))
   const userTypes: number[][] = [
+    tSimple('PInt'),
     tSimple('PInt'),
     tSimple('PInt'),
     tSimple('PString'),
@@ -176,6 +179,7 @@ export function buildUserChunk(opts: FixtureOptions = {}): Uint8Array {
   push(varint(userUid))
   push(varint(deathMoney))
   push(varint(deathCells))
+  push(varint(bossCells)) // bossRuneActivated
   push(str(heroSkin))
   push(str(heroHeadSkin))
   push(varint(0)) // consecutiveCompletedRuns

@@ -14,7 +14,7 @@ import {
   encodeHxs,
   setIntValue
 } from '../../src/games/dead-cells/model/hxbit'
-import { projectUser, setItemUnlocked, setRune, setSkinUnlocked, isSkinUnlocked } from '../../src/games/dead-cells/model/userModel'
+import { projectUser, setItemUnlocked, setRune, setSkinUnlocked, isSkinUnlocked, setBossCells } from '../../src/games/dead-cells/model/userModel'
 import { itemDisplayName, hasItemName } from '../../src/games/dead-cells/model/itemNames'
 import { runeDisplayName } from '../../src/games/dead-cells/model/runes'
 import { skinCatalog } from '../../src/games/dead-cells/model/skins'
@@ -161,6 +161,30 @@ describe.skipIf(!SAVE)('dead-cells real save (DC_SAVE)', () => {
     const after = projectUser(decodeHxs(out, 'User'))
     expect(after.runes.find((r) => r.id === id)?.enabled).toBe(true)
     // untouched data survives
+    expect(after.deathMoney).toBe(before.deathMoney)
+    expect(after.items.length).toBe(before.items.length)
+  })
+
+  it('sets boss cell difficulty on the real save', async () => {
+    const raw = new Uint8Array(readFileSync(SAVE!))
+    const container = await parseContainer(raw)
+    const doc = decodeHxs(getChunk(container, 'S_User')!.data, 'User')
+    const before = projectUser(doc)
+    setBossCells(doc, 5)
+    expect(projectUser(doc).bossCells).toBe(5)
+    const userChunk = encodeHxs(doc)
+    const out = await buildContainer({
+      header: container.header,
+      chunks: container.chunks.map((c) => (c.name === 'S_User' ? { ...c, data: userChunk } : c))
+    })
+    await expect(verifyChecksum(out)).resolves.toBe(true)
+    const final = await parseContainer(out)
+    const after = projectUser(decodeHxs(getChunk(final, 'S_User')!.data, 'User'))
+    expect(after.bossCells).toBe(5)
+    // runes and resources survive the meta-array rewrite
+    expect(after.runes.filter((r) => r.enabled).length).toBe(
+      before.runes.filter((r) => r.enabled).length
+    )
     expect(after.deathMoney).toBe(before.deathMoney)
     expect(after.items.length).toBe(before.items.length)
   })

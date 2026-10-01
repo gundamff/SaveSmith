@@ -4,6 +4,7 @@ import { locale, t } from '@host/i18n'
 import type { HxsDoc } from '../model/hxbit'
 import {
   projectUser,
+  setBossCells,
   setBossRushUnlock,
   setDeathCells,
   setDeathMoney,
@@ -14,11 +15,28 @@ import {
 import { headOptions, outfitOptions } from '../model/skins'
 import { useDcEditor } from './inject'
 
+const DIFFICULTY_KEYS = [
+  'dc.difficulty.normal',
+  'dc.difficulty.hard',
+  'dc.difficulty.veryHard',
+  'dc.difficulty.expert',
+  'dc.difficulty.nightmare',
+  'dc.difficulty.hell'
+]
+
 const editor = useDcEditor()
 const view = computed(() => {
   void editor.rev
   return projectUser(editor.save.doc)
 })
+const bossCellChoices = computed(() => {
+  void editor.rev
+  return DIFFICULTY_KEYS.map((key, i) => ({ value: i, label: `${i} · ${t(key)}` }))
+})
+
+function changeBossCells(v: number): void {
+  editor.markDirty(() => setBossCells(editor.save.doc, v))
+}
 const bossRows = computed((): BossRushRow[] => view.value.bossRush.map((b) => ({ ...b })))
 const outfitChoices = computed(() => {
   void editor.rev
@@ -69,6 +87,15 @@ function toggleBoss(field: string, idx: number, v: boolean | string | number): v
             :max="2147483647"
             @update:model-value="(v) => changeNum(setDeathCells, v ?? undefined)"
           />
+        </el-form-item>
+        <el-form-item :label="t('dc.resources.bossCells')">
+          <el-select
+            :model-value="view.bossCells"
+            style="max-width: 240px"
+            @update:model-value="(v: number) => changeBossCells(v)"
+          >
+            <el-option v-for="o in bossCellChoices" :key="o.value" :label="o.label" :value="o.value" />
+          </el-select>
         </el-form-item>
         <el-form-item :label="t('dc.resources.heroSkin')">
           <el-select

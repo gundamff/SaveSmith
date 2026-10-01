@@ -48,6 +48,7 @@ export interface RuneRow {
 export interface DeadCellsView {
   deathMoney: number
   deathCells: number
+  bossCells: number
   items: ItemRow[]
   heroSkin: string
   heroHeadSkin: string
@@ -56,6 +57,9 @@ export interface DeadCellsView {
   runes: RuneRow[]
   editable: boolean
 }
+
+export const BOSS_CELL_IDS = ['BossRune1', 'BossRune2', 'BossRune3', 'BossRune4', 'BossRune5']
+export const MAX_BOSS_CELLS = BOSS_CELL_IDS.length
 
 const BOSS_RUSH_FIELDS = [
   'unlockedGameMode',
@@ -83,6 +87,7 @@ export function projectUser(doc: HxsDoc): DeadCellsView {
   const view: DeadCellsView = {
     deathMoney: 0,
     deathCells: 0,
+    bossCells: 0,
     items: [],
     heroSkin: '',
     heroHeadSkin: '',
@@ -95,6 +100,7 @@ export function projectUser(doc: HxsDoc): DeadCellsView {
 
   view.deathMoney = intField(root, 'deathMoney')
   view.deathCells = intField(root, 'deathCells')
+  view.bossCells = intField(root, 'bossRuneActivated')
   view.heroSkin = stringField(root, 'heroSkin')
   view.heroHeadSkin = stringField(root, 'heroHeadSkin')
   view.consecutiveCompletedRuns = intField(root, 'consecutiveCompletedRuns')
@@ -223,6 +229,28 @@ export function setRune(doc: HxsDoc, id: string, on: boolean): void {
         : [...current, id]
       : current.filter((s) => s !== id)
     setStringArray(doc, node, next)
+  }
+}
+
+/** Number of Boss Stem Cells (difficulty level 0..5) recorded on the save. */
+export function bossCells(doc: HxsDoc): number {
+  return asInt(doc.root?.fields.get('bossRuneActivated')) ?? 0
+}
+
+/**
+ * Set the Boss Stem Cell difficulty (0..5): writes `bossRuneActivated` and keeps
+ * the meta item arrays in sync with the absorbed cell items (BossRune1..N).
+ */
+export function setBossCells(doc: HxsDoc, n: number): void {
+  const root = doc.root
+  if (!root) return
+  const value = Math.max(0, Math.min(MAX_BOSS_CELLS, Math.round(n)))
+  const node = root.fields.get('bossRuneActivated')
+  if (node?.kind === 'int') setIntValue(doc, node, value)
+  for (const arr of metaArrayNodes(root)) {
+    const current = (asStringArray(arr) ?? []).filter((id) => !BOSS_CELL_IDS.includes(id))
+    for (let i = 0; i < value; i++) current.push(BOSS_CELL_IDS[i]!)
+    setStringArray(doc, arr, current)
   }
 }
 

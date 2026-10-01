@@ -262,6 +262,7 @@ export const en: MessageTree = {
     resources: {
       deathMoney: 'Gold',
       deathCells: 'Cells',
+      bossCells: 'Boss Stem Cells (difficulty)',
       heroSkin: 'Skin',
       heroHeadSkin: 'Head skin',
       bossRush: 'Boss Rush unlocks',
@@ -269,6 +270,14 @@ export const en: MessageTree = {
       idx: 'Index',
       unlock: 'Unlocked',
       unreadable: 'Save structure cannot be parsed; view-only'
+    },
+    difficulty: {
+      normal: 'Normal',
+      hard: 'Hard',
+      veryHard: 'Very Hard',
+      expert: 'Expert',
+      nightmare: 'Nightmare',
+      hell: 'Hell'
     },
     bossRush: {
       unlockedGameMode: 'Game mode',

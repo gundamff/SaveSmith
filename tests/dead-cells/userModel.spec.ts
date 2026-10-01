@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest'
-import { decodeHxs, encodeHxs } from '../../src/games/dead-cells/model/hxbit'
+import { decodeHxs, encodeHxs, asObject, asStringArray } from '../../src/games/dead-cells/model/hxbit'
 import {
   isSkinUnlocked,
   projectUser,
+  setBossCells,
   setBossRushUnlock,
   setDeathCells,
   setDeathMoney,
@@ -95,6 +96,34 @@ describe('dead-cells userModel', () => {
     expect(view.runes.find((r) => r.id === 'TeleportKey')?.enabled).toBe(true)
     // unrelated edits survive
     expect(view.deathMoney).toBe(100)
+  })
+
+  it('sets boss cell difficulty and syncs the meta item arrays', () => {
+    const doc = decodeHxs(buildUserChunk({ bossCells: 0 }), 'User')
+    expect(projectUser(doc).bossCells).toBe(0)
+    setBossCells(doc, 3)
+    expect(projectUser(doc).bossCells).toBe(3)
+    const again = decodeHxs(encodeHxs(doc), 'User')
+    expect(projectUser(again).bossCells).toBe(3)
+    const meta = asStringArray(again.root!.fields.get('metaItems'))!
+    expect(meta).toEqual(['BossRune1', 'BossRune2', 'BossRune3'])
+    const permanent = asStringArray(
+      asObject(again.root!.fields.get('itemMeta'))!.fields.get('permanentItems')
+    )
+    expect(permanent).toEqual(['BossRune1', 'BossRune2', 'BossRune3'])
+    // lowering the difficulty removes the extra cells again
+    setBossCells(doc, 1)
+    const lower = decodeHxs(encodeHxs(doc), 'User')
+    expect(projectUser(lower).bossCells).toBe(1)
+    expect(asStringArray(lower.root!.fields.get('metaItems'))).toEqual(['BossRune1'])
+  })
+
+  it('clamps boss cells to 0..5', () => {
+    const doc = decodeHxs(buildUserChunk(), 'User')
+    setBossCells(doc, 99)
+    expect(projectUser(doc).bossCells).toBe(5)
+    setBossCells(doc, -4)
+    expect(projectUser(doc).bossCells).toBe(0)
   })
 
   it('unmodified rune chunk round-trips byte-identical', () => {
