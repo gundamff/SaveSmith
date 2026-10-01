@@ -2,6 +2,20 @@
 
 [**中文**](CHANGELOG.md) | [English](CHANGELOG.en.md)
 
+## [0.9.0] - 2026-10-01
+
+新增 **死亡细胞** 元进度改档。
+
+### 新增
+
+- **死亡细胞 / Dead Cells**（Motion Twin / Evil Empire，Steam AppID 588650）：PC 版 user_N.dat 容器（59 字节头 + zlib + hxbit）编解码；资源（金币/细胞）、蓝图解锁（itemProgress）、统计（UserStats 只读 + 皮肤 / Boss Rush 解锁）
+- 通用 hxbit（HXS）编解码层：schema 自描述解析，未改动字节原样回写，保存时重算 SHA-1 校验和
+- 真实存档冒烟测试由 DC_SAVE 环境变量门控
+
+### 注意
+
+- 改档前必须完全退出游戏（Steam 云退出时上传会覆盖修改）
+
 ## [0.8.0] - 2026-09-24
 
 混沌兵团可收编灭亡势力驾驶员；澄清混沌银河 2 指挥官阵营用法。

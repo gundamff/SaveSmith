@@ -2,6 +2,20 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.9.0] - 2026-10-01
+
+Adds **Dead Cells** meta-progression editing.
+
+### Added
+
+- **Dead Cells** (Motion Twin / Evil Empire, Steam AppID 588650): PC user_N.dat container (59-byte header + zlib + hxbit) codec; resources (gold/cells), blueprint unlocks (itemProgress), statistics (read-only UserStats + skins / Boss Rush unlocks)
+- Generic hxbit (HXS) codec layer: self-describing schema parsing, untouched bytes written back verbatim, SHA-1 checksum recomputed on save
+- Real-save smoke test gated by the DC_SAVE env var
+
+### Notes
+
+- Quit the game completely before editing (Steam Cloud upload on exit would overwrite changes)
+
 ## [0.8.0] - 2026-09-24
 
 Chaos Front can recruit defeated-faction pilots; clarifies Chaos Galaxy 2 commander faction usage.
