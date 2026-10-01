@@ -2,6 +2,18 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.12.0] - 2026-10-01
+
+Dead Cells gains a Boss Stem Cell (difficulty) selector.
+
+### Added
+
+- **Dead Cells**: Resources tab now offers a "Boss Stem Cells (difficulty)" dropdown (0–5: Normal / Hard / Very Hard / Expert / Nightmare / Hell); writes `bossRuneActivated` and syncs `BossRune1..N` into the permanent item lists
+
+### Notes
+
+- The Boss Stem Cell field semantics (count vs. bitmask) are not yet verified in-game; if the difficulty does not change, please share a save copy
+
 ## [0.11.0] - 2026-10-01
 
 Dead Cells gains a Skins tab that can unlock every outfit and head.
