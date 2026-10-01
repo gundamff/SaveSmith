@@ -2,6 +2,15 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.9.1] - 2026-10-01
+
+Dead Cells blueprint entries now show Chinese display names; fixes a save-blocking negative-sentinel bug.
+
+### Fixed
+
+- **Dead Cells**: `itemProgress.investedCells` can be a negative sentinel (e.g. `-2`) in real saves, which the save validator wrongly rejected (blocking save). Only Gold/Cells are range-checked now.
+- **Dead Cells**: blueprint entries show the game’s official localized names (e.g. 圆斩箭塔 / 均衡之刃), extracted from the installed game by `scripts/extract-dead-cells-names.mjs`; unknown ids fall back to the raw identifier.
+
 ## [0.9.0] - 2026-10-01
 
 Adds **Dead Cells** meta-progression editing.
