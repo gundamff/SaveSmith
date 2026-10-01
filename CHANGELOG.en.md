@@ -2,6 +2,23 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.10.0] - 2026-10-01
+
+Dead Cells gains a rune editor; the read-only stats table is dropped and skins / Boss Rush move into Resources.
+
+### Added
+
+- **Dead Cells**: Runes tab — unlock / clear permanent runes (Vine, Teleport, Ram, Spider, Homunculus, Customization, Challenger, Explorer, Traveler, Richter), names from the game localization; one-click unlock all
+- **Dead Cells**: hxbit codec now supports adding/removing string-array entries (previously in-place value edits only)
+
+### Changed
+
+- **Dead Cells**: removed the read-only lifetime stats table; skins and Boss Rush toggles moved into the Resources tab
+
+### Notes
+
+- **Dead Cells**: the rune storage slot is not yet community-verified; the tool writes to both `permanentItems` and `metaItems`. If it does not take effect in-game, please share a save copy.
+
 ## [0.9.1] - 2026-10-01
 
 Dead Cells blueprint entries now show Chinese display names; fixes a save-blocking negative-sentinel bug.
