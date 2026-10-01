@@ -264,6 +264,7 @@ export const en: MessageTree = {
       unreadable: 'Save structure cannot be parsed; view-only'
     },
     blueprints: {
+      name: 'Item',
       itemId: 'Item ID',
       unlocked: 'Unlocked',
       isNew: 'New',

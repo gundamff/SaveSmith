@@ -87,6 +87,7 @@ const REQUIRED_KEYS = [
   'dc.resources.deathMoney',
   'dc.resources.deathCells',
   'dc.blueprints.itemId',
+  'dc.blueprints.name',
   'dc.stats.heroSkin'
 ] as const
 

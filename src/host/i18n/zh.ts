@@ -264,6 +264,7 @@ export const zh: MessageTree = {
       unreadable: '存档结构无法解析，仅可查看原始文件'
     },
     blueprints: {
+      name: '物品',
       itemId: '物品 ID',
       unlocked: '已解锁',
       isNew: '新获得',

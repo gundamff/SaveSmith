@@ -1,0 +1,3271 @@
+{
+  "Adele1": {
+    "en": "Cold Death Outfit",
+    "zh": "冰冷死神装束"
+  },
+  "Adele2": {
+    "en": "Red Death Outfit",
+    "zh": "红色死神装束"
+  },
+  "Adele3": {
+    "en": "Edgy Death Outfit",
+    "zh": "中二死神装束"
+  },
+  "Adele4": {
+    "en": "Spectral Death Outfit",
+    "zh": "灵体死神装束"
+  },
+  "AdeleDefault": {
+    "en": "Death Outfit",
+    "zh": "死神装束"
+  },
+  "AdeleScythe": {
+    "en": "Death's Scythe",
+    "zh": "死神巨镰"
+  },
+  "AdminWeapon": {
+    "en": "ADMIN WEAPON"
+  },
+  "AggressiveZombie": {
+    "en": "Failed Experiment",
+    "zh": "失败实验体"
+  },
+  "AlchemicGun": {
+    "en": "Alchemic Carbine",
+    "zh": "炼金卡宾枪"
+  },
+  "AllUp": {
+    "en": "Epic Scroll of Power",
+    "zh": "传奇威力卷轴"
+  },
+  "Alucard": {
+    "en": "Alucard Outfit"
+  },
+  "AlucardShield": {
+    "en": "Alucard's Shield",
+    "zh": "阿鲁卡多的盾"
+  },
+  "AmazonBrutal": {
+    "en": "Kleio"
+  },
+  "AmazonSurvival": {
+    "en": "Calliope"
+  },
+  "AmazonTactic": {
+    "en": "Euterpe"
+  },
+  "Anathema": {
+    "en": "Anathema",
+    "zh": "革籍"
+  },
+  "AnchorGuy": {
+    "en": "Mutineer"
+  },
+  "ANCHORGUY": {
+    "en": "Mutineer Outfit"
+  },
+  "AncientTemple": {
+    "en": "Slumbering Sanctuary",
+    "zh": "沉睡的庇护所"
+  },
+  "AnyUp": {
+    "en": "Scroll of Power",
+    "zh": "威力卷轴"
+  },
+  "Arbiter": {
+    "en": "Arbiter",
+    "zh": "仲裁者"
+  },
+  "Archer": {
+    "en": "Undead Archer",
+    "zh": "不死弓手"
+  },
+  "AreaShield": {
+    "en": "Punishment",
+    "zh": "惩罚"
+  },
+  "ArmoryUnlock": {
+    "en": "Recycling tubes",
+    "zh": "回收管道"
+  },
+  "ASP_Assassin": {
+    "en": "Assassin"
+  },
+  "ASP_Berzerker": {
+    "en": "Relentless",
+    "zh": "不屈"
+  },
+  "ASP_BloodDrinker": {
+    "en": "Blood Drinker"
+  },
+  "ASP_Damned": {
+    "en": "Damned"
+  },
+  "ASP_Firestarter": {
+    "en": "Firestarter"
+  },
+  "ASP_GottaGoFast": {
+    "en": "Gotta Go Fast"
+  },
+  "ASP_Grenadier": {
+    "en": "Grenadier"
+  },
+  "ASP_Menagerie": {
+    "en": "Menagerie"
+  },
+  "ASP_Shatter": {
+    "en": "Shatter"
+  },
+  "ASP_Stomper": {
+    "en": "Stomper"
+  },
+  "ASP_Superconductor": {
+    "en": "Superconductor"
+  },
+  "ASP_Tinker": {
+    "en": "Tinker"
+  },
+  "ASP_ToxinLover": {
+    "en": "Toxin Lover"
+  },
+  "Assassin1": {
+    "en": "Desert Temporal Outfit",
+    "zh": "时间装束：沙漠"
+  },
+  "Assassin2": {
+    "en": "Volcanic Temporal Outfit",
+    "zh": "时间装束：火山"
+  },
+  "Assassin3": {
+    "en": "Hunter's Temporal Outfit",
+    "zh": "时间装束：猎手"
+  },
+  "Assassin4": {
+    "en": "Collector's Temporal Outfit",
+    "zh": "时间装束：收藏家"
+  },
+  "AssassinDefault": {
+    "en": "Classic Temporal Outfit",
+    "zh": "时间装束：经典"
+  },
+  "Astrolab": {
+    "en": "Astrolab"
+  },
+  "AstrolabKeyA": {
+    "en": "Allen Key",
+    "zh": "内六角钥匙"
+  },
+  "AstrolabKeyB": {
+    "en": "Elevator Key",
+    "zh": "升降机钥匙"
+  },
+  "AstrolabKeyBoss": {
+    "en": "Guardian's key",
+    "zh": "看守钥匙"
+  },
+  "AstrolabKeyC": {
+    "en": "Apex Key",
+    "zh": "巅峰钥匙"
+  },
+  "Avril": {
+    "en": "Castlevania",
+    "zh": "恶魔城"
+  },
+  "AxeStatue": {
+    "en": "Stone Warden",
+    "zh": "石雕守卫"
+  },
+  "BackBlink": {
+    "en": "Phaser",
+    "zh": "位移"
+  },
+  "BackPackKey": {
+    "en": "Traveler's Rune",
+    "zh": "旅行者符文"
+  },
+  "BackpackUnlock": {
+    "en": "Backpack",
+    "zh": "背包"
+  },
+  "BackStabber": {
+    "en": "Assassin's Dagger",
+    "zh": "刺客匕首"
+  },
+  "Bank": {
+    "en": "The Bank",
+    "zh": "银行"
+  },
+  "Banker": {
+    "en": "Gentleman's Outfit",
+    "zh": "绅士装束"
+  },
+  "BankFloor1Keycard": {
+    "en": "Red Pass",
+    "zh": "红色通行证"
+  },
+  "BankFloor2Keycard": {
+    "en": "Blue Pass",
+    "zh": "蓝色通行证"
+  },
+  "BankFloor3Keycard": {
+    "en": "Green Pass",
+    "zh": "绿色通行证"
+  },
+  "BarrelLauncher": {
+    "en": "Barrel Launcher",
+    "zh": "木桶发射器"
+  },
+  "BaseballBat": {
+    "en": "Baseball Bat",
+    "zh": "棒球棍"
+  },
+  "BaseFlame": {
+    "en": "Classic Head",
+    "zh": "经典脑袋"
+  },
+  "BatDasher": {
+    "en": "Bat",
+    "zh": "蝙蝠"
+  },
+  "BatDasherPurple": {
+    "en": "Vampire Bat",
+    "zh": "吸血蝙蝠"
+  },
+  "BatKamikaze": {
+    "en": "Kamikaze"
+  },
+  "BatVolley": {
+    "en": "Bat Volley",
+    "zh": "蝙蝠群"
+  },
+  "Beheaded": {
+    "en": "The Beheaded"
+  },
+  "Behemoth": {
+    "en": "The Concierge",
+    "zh": "看守者"
+  },
+  "Behemoth1": {
+    "en": "Piccolo Concierge Outfit",
+    "zh": "看守者装束：比克"
+  },
+  "Behemoth2": {
+    "en": "Misunderstood Concierge Outfit",
+    "zh": "被误解的看守者装束。"
+  },
+  "Behemoth3": {
+    "en": "Ascended Concierge Outfit",
+    "zh": "看守者装束：超凡"
+  },
+  "Behemoth4": {
+    "en": "Ultimate Concierge Outfit",
+    "zh": "终极的看守者装束。"
+  },
+  "BehemothDefault": {
+    "en": "Classic Concierge Outfit",
+    "zh": "看守者装束：经典"
+  },
+  "BehemothHammer": {
+    "en": "Flint",
+    "zh": "燧石"
+  },
+  "Beholder": {
+    "en": "Conjunctivius",
+    "zh": "肿胀眼魔"
+  },
+  "Beholder1": {
+    "en": "Starved Conjunctivius Outfit",
+    "zh": "肿胀眼魔装束：饥饿"
+  },
+  "Beholder2": {
+    "en": "Enraged Conjunctivius Outfit",
+    "zh": "愤怒的肿胀眼魔装束。"
+  },
+  "Beholder3": {
+    "en": "Revolted Conjunctivius Outfit",
+    "zh": "肿胀眼魔装束：反叛"
+  },
+  "Beholder4": {
+    "en": "Legendary Conjunctivius Outfit",
+    "zh": "传说中的肿胀眼魔装束。"
+  },
+  "BeholderDefault": {
+    "en": "Classic Conjunctivius Outfit",
+    "zh": "肿胀眼魔装束：经典"
+  },
+  "BeholderPit": {
+    "en": "Insufferable Crypt",
+    "zh": "作呕地窖"
+  },
+  "BeholderTtcl": {
+    "en": "Conjunctivius' Tentacle",
+    "zh": "肿胀眼魔的触手"
+  },
+  "Berserk": {
+    "en": "The Time Keeper",
+    "zh": "时光守护者"
+  },
+  "Bible": {
+    "en": "Bible",
+    "zh": "圣书"
+  },
+  "BigGem": {
+    "en": "Blue Sapphire",
+    "zh": "蓝宝石"
+  },
+  "Bitter": {
+    "en": "Biter Head",
+    "zh": "噬咬虫头"
+  },
+  "BlackHole": {
+    "en": "Black Hole",
+    "zh": "黑洞"
+  },
+  "BlackHoleBlue": {
+    "en": "Blue Hole",
+    "zh": "蓝洞"
+  },
+  "BlackHoleGreen": {
+    "en": "Green Hole",
+    "zh": "绿洞"
+  },
+  "BlackHoleRed": {
+    "en": "Red Hole",
+    "zh": "红洞"
+  },
+  "BlackHoleViolet": {
+    "en": "Violet Hole",
+    "zh": "紫洞"
+  },
+  "BlackHoleWhite": {
+    "en": "White Hole",
+    "zh": "白洞"
+  },
+  "Blasphemous": {
+    "en": "Penitent's outfit",
+    "zh": "忏悔者装束"
+  },
+  "Blazer": {
+    "en": "Periodic AOE",
+    "zh": "周期范围攻击"
+  },
+  "BleedAxe": {
+    "en": "Hemorrhage",
+    "zh": "放血"
+  },
+  "BleedCrit": {
+    "en": "Sadist's Stiletto",
+    "zh": "施虐者匕首"
+  },
+  "Bleeder": {
+    "en": "Blood Sword",
+    "zh": "血之刃"
+  },
+  "Blobby": {
+    "en": "Toxic Miasma",
+    "zh": "毒性瘴气"
+  },
+  "BlobbyFlame": {
+    "en": "Toxic Blob",
+    "zh": "毒性黏球"
+  },
+  "BlobbyFlameGum": {
+    "en": "Sweet Blob",
+    "zh": "甜甜黏球"
+  },
+  "BlobbyFlameMagma": {
+    "en": "Magma Blob",
+    "zh": "岩浆黏球"
+  },
+  "BlobbyFlameMalaise": {
+    "en": "Shadow Blob",
+    "zh": "暗影黏球"
+  },
+  "BloodShield": {
+    "en": "Bloodthirsty Shield",
+    "zh": "鲜血盾"
+  },
+  "Blowgun": {
+    "en": "Blowgun",
+    "zh": "吹箭"
+  },
+  "Blowgunner": {
+    "en": "Blowgunner",
+    "zh": "吹箭师"
+  },
+  "BlowTorch": {
+    "en": "Blowtorch",
+    "zh": "喷灯"
+  },
+  "BlowTorchBlack": {
+    "en": "Dark Blowtorch",
+    "zh": "黑暗喷灯"
+  },
+  "BlowTorchGold": {
+    "en": "Golden Blowtorch",
+    "zh": "黄金喷灯"
+  },
+  "BlowTorchRed": {
+    "en": "Bright Red Blowtorch",
+    "zh": "亮红喷灯"
+  },
+  "BlueErinaceus": {
+    "en": "Delayed Hedgehog Outfit"
+  },
+  "BoatDock": {
+    "en": "Pier",
+    "zh": "码头"
+  },
+  "Bobby": {
+    "en": "Bobby Outfit",
+    "zh": "波比装束"
+  },
+  "BobbyFlame": {
+    "en": "Bobby Head",
+    "zh": "波比脑袋"
+  },
+  "BoilerRoom": {
+    "en": "Armored Shrimp"
+  },
+  "Bomber": {
+    "en": "Bomber",
+    "zh": "炸弹兵"
+  },
+  "BonePillar": {
+    "en": "Bone Pillar",
+    "zh": "骨柱"
+  },
+  "BoneThrower": {
+    "en": "Throw Master",
+    "zh": "投掷大师"
+  },
+  "Boomerang": {
+    "en": "Boomerang"
+  },
+  "BootlegBowman": {
+    "en": "Dastardly Archer",
+    "zh": "懦弱弓手"
+  },
+  "BootlegHomunculus": {
+    "en": "Failed Homunculus",
+    "zh": "失败人造人"
+  },
+  "BootlegShovelman": {
+    "en": "Compulsive Gravedigger",
+    "zh": "强迫症掘墓人"
+  },
+  "BootlegSwordsman": {
+    "en": "Clumsy Swordsman",
+    "zh": "笨拙剑士"
+  },
+  "BossCellHead": {
+    "en": "Boss Cell",
+    "zh": "Boss细胞"
+  },
+  "BossRune1": {
+    "en": "Stem Cell I",
+    "zh": "Boss起源细胞I"
+  },
+  "BossRune2": {
+    "en": "Stem Cell II",
+    "zh": "Boss起源细胞II"
+  },
+  "BossRune3": {
+    "en": "Stem Cell III",
+    "zh": "Boss起源细胞III"
+  },
+  "BossRune4": {
+    "en": "Stem Cell IV",
+    "zh": "Boss起源细胞IV"
+  },
+  "BossRune5": {
+    "en": "Boss Cell V",
+    "zh": "Boss起源细胞V"
+  },
+  "BossRushHUB": {
+    "en": "Boss Rush",
+    "zh": "连续头目战"
+  },
+  "BouncingStone": {
+    "en": "Rebound Stone",
+    "zh": "跳矿石"
+  },
+  "BreakableGroundKey": {
+    "en": "Ram Rune",
+    "zh": "牧羊符文"
+  },
+  "Bridge": {
+    "en": "Black Bridge",
+    "zh": "黑色大桥"
+  },
+  "BroadSword": {
+    "en": "Broadsword",
+    "zh": "大剑"
+  },
+  "BRS_Basement": {
+    "en": "Base",
+    "zh": "基座"
+  },
+  "BRS_Cap": {
+    "en": "Cloak",
+    "zh": "披风"
+  },
+  "BRS_Material": {
+    "en": "Material",
+    "zh": "材料"
+  },
+  "BRS_Pant": {
+    "en": "Pants",
+    "zh": "裤子"
+  },
+  "BRS_Skirt": {
+    "en": "Belt",
+    "zh": "腰带"
+  },
+  "BRS_Skull": {
+    "en": "Helmet",
+    "zh": "头盔"
+  },
+  "BRS_Top": {
+    "en": "Armor",
+    "zh": "铠甲"
+  },
+  "BRS_Weapon": {
+    "en": "Weapon",
+    "zh": "武器"
+  },
+  "BSUp": {
+    "en": "Minotaur’s Scroll",
+    "zh": "牛头人卷轴"
+  },
+  "BTUp": {
+    "en": "Assassin’s Scroll",
+    "zh": "暗杀者卷轴"
+  },
+  "Buer": {
+    "en": "Buer",
+    "zh": "布耶尔"
+  },
+  "Bull": {
+    "en": "Bull",
+    "zh": "牛肉"
+  },
+  "BulletBlade": {
+    "en": "Shrapnel Axes",
+    "zh": "碎裂手斧"
+  },
+  "BulletKiller": {
+    "en": "Deflector",
+    "zh": "飞箭反弹"
+  },
+  "BumpBoots": {
+    "en": "Spartan Sandals",
+    "zh": "斯巴达草鞋"
+  },
+  "BumpShield": {
+    "en": "Knockback Shield",
+    "zh": "猛推盾"
+  },
+  "BuriedBat": {
+    "en": "Sand Bird",
+    "zh": "沙中鸟"
+  },
+  "Burner": {
+    "en": "Torch",
+    "zh": "火把"
+  },
+  "Cannon": {
+    "en": "Scavenged Bombard"
+  },
+  "Castle": {
+    "en": "High Peak Castle",
+    "zh": "山巅城堡"
+  },
+  "CastleKey": {
+    "en": "Key to the Castle",
+    "zh": "城堡钥匙"
+  },
+  "CastleKnight": {
+    "en": "Guardian Knight",
+    "zh": "守护骑士"
+  },
+  "Cavern": {
+    "en": "Cavern",
+    "zh": "山洞"
+  },
+  "CavernKey": {
+    "en": "Cavern Key",
+    "zh": "山洞钥匙。"
+  },
+  "CeilTurret": {
+    "en": "Barnacle",
+    "zh": "藤壶"
+  },
+  "CellBonus": {
+    "en": "Liposuction",
+    "zh": "细胞抽取器"
+  },
+  "CellGold": {
+    "en": "Gold Cell",
+    "zh": "金色细胞"
+  },
+  "CellHead": {
+    "en": "Cell",
+    "zh": "细胞"
+  },
+  "CellMapKey": {
+    "en": "Key to maximum-security sector",
+    "zh": "最高安全等级区域钥匙"
+  },
+  "Cemetery": {
+    "en": "Graveyard",
+    "zh": "墓地"
+  },
+  "CemeteryKey": {
+    "en": "Graveyard Key",
+    "zh": "墓地钥匙"
+  },
+  "CemSecretKey": {
+    "en": "Architect's Key",
+    "zh": "建筑师的钥匙"
+  },
+  "Challenge": {
+    "en": "Challenge",
+    "zh": "挑战"
+  },
+  "Chicken": {
+    "en": "Infernal Chicken!",
+    "zh": "地狱小鸡！"
+  },
+  "ChristmasKey": {
+    "en": "Madman's Key",
+    "zh": "愚者的钥匙"
+  },
+  "ChristmasSkinKey": {
+    "en": "Garland Key",
+    "zh": "花环钥匙"
+  },
+  "Cliff": {
+    "en": "Undying Shores",
+    "zh": "不死海滩"
+  },
+  "ClockTower": {
+    "en": "Clock Tower",
+    "zh": "钟楼"
+  },
+  "CloseCombatBow": {
+    "en": "Infantry Bow",
+    "zh": "步兵短弓"
+  },
+  "Club": {
+    "en": "Toothpick",
+    "zh": "牙签"
+  },
+  "ClubBroken": {
+    "en": "Broken Toothpick",
+    "zh": "损坏的牙签"
+  },
+  "ClusterBomb": {
+    "en": "Cluster Grenade",
+    "zh": "集束手雷"
+  },
+  "ClusterGrenader": {
+    "en": "Bombardier"
+  },
+  "Collector": {
+    "en": "The Collector",
+    "zh": "收藏家"
+  },
+  "CollectorDefault": {
+    "en": "Fallen Collector Outfit",
+    "zh": "堕落收藏家装束"
+  },
+  "CollectorHood": {
+    "en": "Collector Hood",
+    "zh": "收藏家兜帽"
+  },
+  "CollectorSpin": {
+    "en": "Collector's Syringe",
+    "zh": "收藏家的针筒"
+  },
+  "Comb": {
+    "en": "Giant Comb",
+    "zh": "巨型梳子"
+  },
+  "CombinedTickScythe": {
+    "en": "Scythe Claw",
+    "zh": "巨镰利爪"
+  },
+  "ComboMult": {
+    "en": "Points Bonus",
+    "zh": "额外分数"
+  },
+  "Comboter": {
+    "en": "Slasher",
+    "zh": "斩杀者"
+  },
+  "ConciergeFlame": {
+    "en": "Concierge Flame",
+    "zh": "看守者火焰"
+  },
+  "ConjunctiviusHead": {
+    "en": "Conjunctivius tentacles",
+    "zh": "肿胀眼魔触手"
+  },
+  "ConvertedKey": {
+    "en": "Moonflower Key",
+    "zh": "月光花钥匙"
+  },
+  "CorruptedKey": {
+    "en": "Corrupted Key",
+    "zh": "腐化钥匙"
+  },
+  "CourtyardKey": {
+    "en": "Gardener's Key",
+    "zh": "园丁的钥匙"
+  },
+  "CrazyAlchimist": {
+    "en": "Mad Alchemist",
+    "zh": "疯狂炼金师"
+  },
+  "CrossBow": {
+    "en": "Heavy Crossbow",
+    "zh": "重型弩弓"
+  },
+  "CrossbowMan": {
+    "en": "Demolisher",
+    "zh": "爆破手"
+  },
+  "CrossBowOffHand": {
+    "en": "Reload",
+    "zh": "重新上弹"
+  },
+  "Crowbar": {
+    "en": "Crowbar",
+    "zh": "撬棍"
+  },
+  "Crypt": {
+    "en": "Forgotten Sepulcher",
+    "zh": "被遗忘的陵墓"
+  },
+  "CryptKey": {
+    "en": "Crypt Key",
+    "zh": "墓穴钥匙"
+  },
+  "Cultist": {
+    "en": "Cultist Outfit",
+    "zh": "邪教徒装束"
+  },
+  "CupidityDagger": {
+    "en": "Dagger of Profit",
+    "zh": "利润匕首"
+  },
+  "CursedGem": {
+    "en": "Corrupted Artifact",
+    "zh": "腐化的文物"
+  },
+  "CurseofTheDeadGods": {
+    "en": "Explorer's outfit",
+    "zh": "探险家装束"
+  },
+  "Curser": {
+    "en": "Curser",
+    "zh": "诅咒者"
+  },
+  "CustomKey": {
+    "en": "Customization Rune",
+    "zh": "自定符文"
+  },
+  "CustomOutside": {
+    "en": "Custom",
+    "zh": "自定"
+  },
+  "DamageAura": {
+    "en": "Lacerating Aura",
+    "zh": "撕裂光环"
+  },
+  "DamageBuff": {
+    "en": "Corrupted Power",
+    "zh": "堕落力量"
+  },
+  "DarknessLantern": {
+    "en": "Night Light",
+    "zh": "夜之光"
+  },
+  "Dash": {
+    "en": "Lightspeed",
+    "zh": "极速"
+  },
+  "DashShield": {
+    "en": "Assault Shield",
+    "zh": "突击盾"
+  },
+  "DashSword": {
+    "en": "Meat Skewer",
+    "zh": "串刺之剑"
+  },
+  "Death": {
+    "en": "Death",
+    "zh": "死神"
+  },
+  "DeathArena": {
+    "en": "Defiled Necropolis",
+    "zh": "被污染的大墓地"
+  },
+  "DeathCells": {
+    "en": "Residual cells",
+    "zh": "残留细胞"
+  },
+  "DeathMage": {
+    "en": "Magistrate of Death",
+    "zh": "死亡裁判官"
+  },
+  "DeathMoney": {
+    "en": "Dead Man's Bag",
+    "zh": "死人的钱袋"
+  },
+  "DebugDamien": {
+    "en": "Debug Damien"
+  },
+  "DebugGwen": {
+    "en": "Photo Room",
+    "zh": "Gwen debug"
+  },
+  "DebugMat": {
+    "en": "Looping debug",
+    "zh": "Looping debug"
+  },
+  "DebugRTC": {
+    "en": "For the RTC"
+  },
+  "DebugSeb": {
+    "en": "Seb debug",
+    "zh": "Seb debug"
+  },
+  "DebugSkool": {
+    "en": "Skool debug",
+    "zh": "Skool debug"
+  },
+  "DebugThomas": {
+    "en": "Thomas debug",
+    "zh": "Thomas debug"
+  },
+  "DebugTipyx": {
+    "en": "Tipyx debug",
+    "zh": "Tipyx debug"
+  },
+  "Decoy": {
+    "en": "Explosive Decoy",
+    "zh": "爆炸诱饵"
+  },
+  "Default": {
+    "en": "Classic",
+    "zh": "经典"
+  },
+  "Defender": {
+    "en": "Defender",
+    "zh": "守卫者"
+  },
+  "Demon": {
+    "en": "Demon",
+    "zh": "恶魔"
+  },
+  "Distillery": {
+    "en": "Derelict Distillery",
+    "zh": "废弃酿酒厂"
+  },
+  "DistilleryKey": {
+    "en": "Distillery Key",
+    "zh": "酿酒厂钥匙"
+  },
+  "DiverseDeckCatalyst": {
+    "en": "Catalyst",
+    "zh": "催化剂"
+  },
+  "DiverseDeckElectro": {
+    "en": "Electrodynamics",
+    "zh": "电动力学"
+  },
+  "DiverseDeckJuggernaut": {
+    "en": "Barricade",
+    "zh": "壁垒"
+  },
+  "DiverseDeckWatcher": {
+    "en": "Foresight",
+    "zh": "先见之明"
+  },
+  "Dooku": {
+    "en": "Dracula",
+    "zh": "德古拉"
+  },
+  "Dooku1": {
+    "en": "Mathias Cronqvist Outfit",
+    "zh": "马提亚斯・克洛克维斯特装束"
+  },
+  "Dooku2": {
+    "en": "Doctor Dracula Outfit",
+    "zh": "德古拉博士装束"
+  },
+  "Dooku3": {
+    "en": "Pompous Dracula Outfit",
+    "zh": "招摇德古拉装束"
+  },
+  "Dooku4": {
+    "en": "Vigilante Dracula Outfit",
+    "zh": "义侠德古拉装束"
+  },
+  "DookuArena": {
+    "en": "Master's Keep",
+    "zh": "城主的据点"
+  },
+  "DookuBeast": {
+    "en": "Dracula - Final Form",
+    "zh": "德古拉 - 最终形态"
+  },
+  "DookuCastle": {
+    "en": "Dracula's Castle",
+    "zh": "恶魔城"
+  },
+  "DookuDefault": {
+    "en": "Dracula Outfit",
+    "zh": "德古拉装束"
+  },
+  "DoomBringer": {
+    "en": "Doom Bringer",
+    "zh": "祸星"
+  },
+  "DualBow": {
+    "en": "Multiple-nocks Bow",
+    "zh": "多头弓"
+  },
+  "DualDaggers": {
+    "en": "Twin Daggers",
+    "zh": "双匕首"
+  },
+  "Duelist": {
+    "en": "Dancer",
+    "zh": "舞者"
+  },
+  "Earthquaker": {
+    "en": "Ground Shaker",
+    "zh": "撼地者"
+  },
+  "ElbowBlades": {
+    "en": "Bladed Tonfas"
+  },
+  "Elite": {
+    "en": "Elite Creature",
+    "zh": "精英怪物"
+  },
+  "EliteSideKick": {
+    "en": "Elite Lieutenant",
+    "zh": "精英副官"
+  },
+  "Enforcer": {
+    "en": "Oven Knight"
+  },
+  "EvilEmpire": {
+    "en": "Evil Minion Head",
+    "zh": "邪恶爪牙头"
+  },
+  "EvilSword": {
+    "en": "Cursed Sword",
+    "zh": "诅咒之刃"
+  },
+  "Expert": {
+    "en": "Expert"
+  },
+  "ExploKey": {
+    "en": "Explorer's Rune",
+    "zh": "探险家的符文"
+  },
+  "ExplosiveBarrel": {
+    "en": "Explosive Barrel",
+    "zh": "爆炸桶"
+  },
+  "ExplosiveCrossBow": {
+    "en": "Explosive Crossbow",
+    "zh": "爆炸十字弓"
+  },
+  "ExplosiveCrossBowOffHand": {
+    "en": "Cross Hit",
+    "zh": "弩柄攻击"
+  },
+  "ExplosiveGrenade": {
+    "en": "Powerful Grenade",
+    "zh": "强力手雷"
+  },
+  "ExtraHeal": {
+    "en": "Tonic",
+    "zh": "药剂"
+  },
+  "ExtraHealEmpty": {
+    "en": "Tonic (empty)",
+    "zh": "药剂（空）"
+  },
+  "FaceFlask": {
+    "en": "Face Flask",
+    "zh": "拍脸血瓶"
+  },
+  "FastBow": {
+    "en": "Quick Bow",
+    "zh": "迅捷之弓"
+  },
+  "FastGrenade": {
+    "en": "Infantry Grenade",
+    "zh": "步兵手雷"
+  },
+  "FastZombie": {
+    "en": "Running Zombie",
+    "zh": "奔跑僵尸"
+  },
+  "FatZombie": {
+    "en": "Corpulent Zombie",
+    "zh": "臃肿僵尸"
+  },
+  "FireBall": {
+    "en": "Pyrotechnics",
+    "zh": "焰火制造"
+  },
+  "FireBomb": {
+    "en": "Fire Grenade",
+    "zh": "火焰手雷"
+  },
+  "FireTurret": {
+    "en": "Flamethrower Turret",
+    "zh": "喷火塔"
+  },
+  "FlameThrower": {
+    "en": "Fire blast",
+    "zh": "火焰喷射"
+  },
+  "Flask1": {
+    "en": "Health Flask I",
+    "zh": "生命药瓶 I"
+  },
+  "Flask2": {
+    "en": "Health Flask II",
+    "zh": "生命药瓶 II"
+  },
+  "Flask3": {
+    "en": "Health Flask III",
+    "zh": "生命药瓶 III"
+  },
+  "Flask4": {
+    "en": "Health Flask IV",
+    "zh": "生命药瓶 IV"
+  },
+  "FlaskRefill": {
+    "en": "Flask Recharge",
+    "zh": "补充药瓶"
+  },
+  "Flawless": {
+    "en": "Flawless Torch",
+    "zh": "无瑕炎头"
+  },
+  "FlawlessAdele": {
+    "en": "Flawless Death Outfit",
+    "zh": "无瑕死神装束"
+  },
+  "FlawlessAssassin": {
+    "en": "Flawless Temporal Outfit"
+  },
+  "FlawlessBehemoth": {
+    "en": "Flawless Concierge Outfit"
+  },
+  "FlawlessBeholder": {
+    "en": "Flawless Conjunctivius Outfit"
+  },
+  "FlawlessDooku": {
+    "en": "Flawless Dracula Outfit",
+    "zh": "无瑕德古拉装束"
+  },
+  "FlawlessGardener": {
+    "en": "Flawless Scarecrow Outfit"
+  },
+  "FlawlessGiant": {
+    "en": "Flawless Giant Outfit"
+  },
+  "FlawlessHotk": {
+    "en": "Flawless Hand of the King Outfit"
+  },
+  "FlawlessQueen": {
+    "en": "Flawless Queen Outfit"
+  },
+  "FlawlessServante": {
+    "en": "Flawless Servant Outfit"
+  },
+  "FlawlessTick": {
+    "en": "Flawless Tick Outfit"
+  },
+  "Fly": {
+    "en": "Buzzcutter",
+    "zh": "飞咬虫"
+  },
+  "FlyingCrow": {
+    "en": "Myopic Crow",
+    "zh": "近视乌鸦"
+  },
+  "FlyingPoison": {
+    "en": "Ghost",
+    "zh": "幽灵"
+  },
+  "FlyingShooter": {
+    "en": "Evil Eye",
+    "zh": "邪眼"
+  },
+  "FlyingSword": {
+    "en": "Serenade",
+    "zh": "夜歌"
+  },
+  "FlyZombie": {
+    "en": "Swarm Zombie",
+    "zh": "虫群僵尸"
+  },
+  "Fogger": {
+    "en": "Masker",
+    "zh": "遮蔽者"
+  },
+  "ForgeRefine1": {
+    "en": "Advanced Forge I",
+    "zh": "高级铸造所I"
+  },
+  "FreemanSkin": {
+    "en": "HEV Outfit",
+    "zh": "HEV装束"
+  },
+  "Freeze": {
+    "en": "Frost Blast",
+    "zh": "冰霜爆破"
+  },
+  "FrostArcher": {
+    "en": "Frozen Archer",
+    "zh": "冰冻弓手"
+  },
+  "FrostBow": {
+    "en": "Ice Bow",
+    "zh": "冰之弓"
+  },
+  "FrostCrossBow": {
+    "en": "Ice Crossbow",
+    "zh": "寒冰弩"
+  },
+  "FrostCrossBowOffHand": {
+    "en": "Piercing Shot",
+    "zh": "穿刺射击"
+  },
+  "Fugitive": {
+    "en": "Banished",
+    "zh": "被弃者"
+  },
+  "Gardener1": {
+    "en": "Green Thumb Scarecrow Outfit",
+    "zh": "稻草人装束：园艺"
+  },
+  "Gardener2": {
+    "en": "Wicked Scarecrow of the West Outfit",
+    "zh": "稻草人装束：西国魔巫"
+  },
+  "Gardener3": {
+    "en": "Cutecrow Outfit",
+    "zh": "稻草人装束：可爱"
+  },
+  "Gardener4": {
+    "en": "Gothic Scarecrow Outfit",
+    "zh": "稻草人装束：哥特"
+  },
+  "GardenerBoss": {
+    "en": "The Scarecrow",
+    "zh": "稻草人"
+  },
+  "GardenerDefault": {
+    "en": "Classic Scarecrow Outfit",
+    "zh": "稻草人装束：经典"
+  },
+  "GardenerSickles": {
+    "en": "Scarecrow's Sickles",
+    "zh": "稻草人镰刀"
+  },
+  "GardenerStage": {
+    "en": "The Mausoleum",
+    "zh": "阴森墓园"
+  },
+  "GemPack": {
+    "en": "NOT MEANT TO BE SEEN"
+  },
+  "GenericEliteInfos": {
+    "en": "Elite mob",
+    "zh": "精英怪"
+  },
+  "GenericKey": {
+    "en": "Key",
+    "zh": "钥匙"
+  },
+  "Giant": {
+    "en": "The Giant",
+    "zh": "巨人"
+  },
+  "Giant1": {
+    "en": "Disappointed Giant's Outfit",
+    "zh": "巨人装束：失望"
+  },
+  "Giant2": {
+    "en": "Cursed Giant's Outfit",
+    "zh": "巨人装束：诅咒"
+  },
+  "Giant3": {
+    "en": "Misunderstood Giant's Outfit",
+    "zh": "巨人装束：误会"
+  },
+  "Giant4": {
+    "en": "Frustrated Giant's Outfit",
+    "zh": "巨人装束：沮丧"
+  },
+  "GiantDefault": {
+    "en": "Classic Giant Outfit",
+    "zh": "巨人装束：经典"
+  },
+  "GiantEye": {
+    "en": "The Giant's Eye",
+    "zh": "巨人之眼"
+  },
+  "GiantFlame": {
+    "en": "Giant Flame",
+    "zh": "巨人火焰"
+  },
+  "GiantHand": {
+    "en": "The Giant's Hand",
+    "zh": "巨人之手"
+  },
+  "GiantKiller": {
+    "en": "Giantkiller",
+    "zh": "巨人杀手"
+  },
+  "GiantStaff": {
+    "en": "Iron Staff",
+    "zh": "铁杖"
+  },
+  "GiantWhistle": {
+    "en": "Giant Whistle",
+    "zh": "巨人口哨"
+  },
+  "GlitchyHead": {
+    "en": "Glitch",
+    "zh": "故障"
+  },
+  "GlitchyHeadDeepSpace": {
+    "en": "Spatial Anomaly",
+    "zh": "空间异常"
+  },
+  "GlitchyHeadRed": {
+    "en": "Menacing Anomaly",
+    "zh": "恐怖异常"
+  },
+  "GodAxe": {
+    "en": "The Boy's Axe",
+    "zh": "Boy之斧"
+  },
+  "GoldDigger": {
+    "en": "Gold Digger",
+    "zh": "掘金者"
+  },
+  "GoldEater": {
+    "en": "GoldEater",
+    "zh": "噬金者"
+  },
+  "GoldenBatKamikaze": {
+    "en": "Golden Kamikaze",
+    "zh": "黄金神风队"
+  },
+  "Golem": {
+    "en": "Golem"
+  },
+  "GreedArrow": {
+    "en": "Golden Arrow",
+    "zh": "金箭矢"
+  },
+  "GreedGem": {
+    "en": "Gold Tooth",
+    "zh": "金牙"
+  },
+  "GreedShield": {
+    "en": "Greed Shield",
+    "zh": "贪婪盾"
+  },
+  "Greenhouse": {
+    "en": "Dilapidated Arboretum",
+    "zh": "荒废植物园"
+  },
+  "GreenhouseKey": {
+    "en": "Dilapidated Arboretum Key",
+    "zh": "荒废植物园"
+  },
+  "GroundSaw": {
+    "en": "Cleaver",
+    "zh": "碎肉者"
+  },
+  "Guacamelee": {
+    "en": "Luchador's outfit",
+    "zh": "摔跤手装束"
+  },
+  "Guillain": {
+    "en": "Guillain Head",
+    "zh": "吉兰头部"
+  },
+  "GuillainThief": {
+    "en": "Robber Outfit"
+  },
+  "Hammer": {
+    "en": "Hammer"
+  },
+  "HandHook": {
+    "en": "Hand Hook"
+  },
+  "HandOfTheKingFlame": {
+    "en": "Hand of the King Flame",
+    "zh": "国王之手火焰"
+  },
+  "Hard": {
+    "en": "Hard",
+    "zh": "困难"
+  },
+  "HardLightGun": {
+    "en": "Hard Light Gun",
+    "zh": "固化光枪"
+  },
+  "HardLightSword": {
+    "en": "Hard Light Sword",
+    "zh": "固化光剑"
+  },
+  "Harpy": {
+    "en": "Harpy",
+    "zh": "哈耳庇厄"
+  },
+  "HauntedArmor": {
+    "en": "Haunted Armor Outfit",
+    "zh": "活动铠甲装束"
+  },
+  "HeavyAxe": {
+    "en": "Oven Axe",
+    "zh": "烤炉之斧"
+  },
+  "HeavyBow": {
+    "en": "Gilded Yumi"
+  },
+  "HeavyTurret": {
+    "en": "Heavy Turret",
+    "zh": "重型箭塔"
+  },
+  "Hector": {
+    "en": "Hector Outfit"
+  },
+  "Hell": {
+    "en": "Hell",
+    "zh": "地狱"
+  },
+  "HoldShield": {
+    "en": "Force Shield",
+    "zh": "力场盾"
+  },
+  "HollowKnight": {
+    "en": "Vessel's outfit",
+    "zh": "容器装束"
+  },
+  "HolyWater": {
+    "en": "Holy Water",
+    "zh": "圣水"
+  },
+  "HomKey": {
+    "en": "Homunculus Rune",
+    "zh": "人造人符文"
+  },
+  "Hook": {
+    "en": "Grappling Hook",
+    "zh": "抓钩"
+  },
+  "Hooker": {
+    "en": "Catcher",
+    "zh": "捕捉者"
+  },
+  "HookWhip": {
+    "en": "Wrenching Whip",
+    "zh": "缠绕鞭"
+  },
+  "HordesZeroHood": {
+    "en": "Horde Zero Hood",
+    "zh": "零号尸群兜帽"
+  },
+  "HorizontalTurret": {
+    "en": "Double Crossb-o-matic",
+    "zh": "双向弩弓塔"
+  },
+  "Hotk1": {
+    "en": "Loyal Hand of the King Outfit",
+    "zh": "国王之手装束：忠诚"
+  },
+  "Hotk2": {
+    "en": "Incorruptible Hand of the King Outfit",
+    "zh": "国王之手装束：刚直"
+  },
+  "Hotk3": {
+    "en": "Faithful Hand of the King Outfit",
+    "zh": "国王之手装束：信任"
+  },
+  "Hotk4": {
+    "en": "Devoted Hand of the King Outfit",
+    "zh": "国王之手装束：献身"
+  },
+  "HotkDefault": {
+    "en": "The Hand of the King Outfit",
+    "zh": "国王之手装束"
+  },
+  "HotlineMiamiOwl": {
+    "en": "Modernized Bomber Outfit",
+    "zh": "现代风飞行员装束"
+  },
+  "HugeGem": {
+    "en": "Ruby",
+    "zh": "红宝石"
+  },
+  "Hurler": {
+    "en": "Infected Worker",
+    "zh": "感染工人"
+  },
+  "HydraSpell": {
+    "en": "Peril Glyphs",
+    "zh": "危机符文"
+  },
+  "HyperLightDrifter": {
+    "en": "The Magician's outfit",
+    "zh": "魔术师装束"
+  },
+  "IceArmor": {
+    "en": "Ice Armor",
+    "zh": "寒冰铠甲"
+  },
+  "IceBomb": {
+    "en": "Ice Grenade",
+    "zh": "冰冻手雷"
+  },
+  "IceShield": {
+    "en": "Ice Shield",
+    "zh": "寒冰盾"
+  },
+  "IllegalLevel": {
+    "en": "Architects' Rest",
+    "zh": "建筑师的休息处"
+  },
+  "Immortality": {
+    "en": "\"Ygdar Orus Li Ox!\""
+  },
+  "Indulgence": {
+    "en": "Indulgence",
+    "zh": "纵容"
+  },
+  "InfectionRemedy": {
+    "en": "Cough Syrup",
+    "zh": "止咳糖浆"
+  },
+  "InfectionRemedySmall": {
+    "en": "Small Cough Syrup",
+    "zh": "小止咳糖浆"
+  },
+  "InfiniteBow": {
+    "en": "Bow and Endless Quiver",
+    "zh": "无限箭制弓"
+  },
+  "JavelinSnake": {
+    "en": "Cold Blooded Guardian",
+    "zh": "冷血守护者"
+  },
+  "Katana": {
+    "en": "Hattori's Katana",
+    "zh": "服部的武士刀"
+  },
+  "KatanaZero": {
+    "en": "Zero Outfit",
+    "zh": "零号装束"
+  },
+  "KingDefault": {
+    "en": "King Outfit",
+    "zh": "国王装束"
+  },
+  "KingScepter": {
+    "en": "King Scepter",
+    "zh": "国王权杖"
+  },
+  "KingsFinger": {
+    "en": "Royal Guard",
+    "zh": "王室卫兵"
+  },
+  "KingsHand": {
+    "en": "The Hand of the King",
+    "zh": "国王之手"
+  },
+  "KingsSpear": {
+    "en": "Symmetrical Lance",
+    "zh": "对称长枪"
+  },
+  "KingWhite": {
+    "en": "White King Outfit",
+    "zh": "国王装束：白色"
+  },
+  "KnivesCircle": {
+    "en": "Knife Dance",
+    "zh": "圆舞飞刀"
+  },
+  "KunaiMaster": {
+    "en": "Knife Thrower",
+    "zh": "投刀者"
+  },
+  "LabArt": {
+    "en": "LabArt"
+  },
+  "LadderKey": {
+    "en": "Vine Rune",
+    "zh": "藤蔓符文"
+  },
+  "Lancer": {
+    "en": "Lancer",
+    "zh": "长枪手"
+  },
+  "LancerPurple": {
+    "en": "Armor Knight",
+    "zh": "铠甲骑士"
+  },
+  "Lantern": {
+    "en": "Ferryman's Lantern",
+    "zh": "冥河提灯"
+  },
+  "LanternOffHand": {
+    "en": "Soul Shot",
+    "zh": "灵魂发射"
+  },
+  "LargeBaguette": {
+    "en": "\"La Baguette\""
+  },
+  "LargeCastlevania": {
+    "en": "Turkey",
+    "zh": "火鸡"
+  },
+  "LargeCheese": {
+    "en": "Camembert"
+  },
+  "LargeFruit": {
+    "en": "Watermelon",
+    "zh": "西瓜"
+  },
+  "LargeHalfLife": {
+    "en": "Big Med-kit",
+    "zh": "大医疗包"
+  },
+  "LargeMeat": {
+    "en": "Drumstick",
+    "zh": "鸡腿"
+  },
+  "LargeMonster": {
+    "en": "Monster's eye",
+    "zh": "怪物眼珠"
+  },
+  "LargeVeggie": {
+    "en": "Big ol' radish",
+    "zh": "大萝卜"
+  },
+  "LaserGlaive": {
+    "en": "Laser Glaive",
+    "zh": "激光月刃"
+  },
+  "LavaWorm": {
+    "en": "Lava Worm",
+    "zh": "岩浆虫"
+  },
+  "LeapingDuelyst": {
+    "en": "Cannibal",
+    "zh": "食人者"
+  },
+  "LeechBuff": {
+    "en": "Vampirism",
+    "zh": "吸血"
+  },
+  "LeechBuffEmpty": {
+    "en": "Vampirism (empty)",
+    "zh": "吸血（空）"
+  },
+  "LegendGem": {
+    "en": "Fragment of the Philosopher's Stone",
+    "zh": "贤者之石碎片"
+  },
+  "Librarian": {
+    "en": "Librarian",
+    "zh": "图书管理员"
+  },
+  "Lighthouse": {
+    "en": "Lighthouse"
+  },
+  "LighthouseKey": {
+    "en": "Lighthouse Key",
+    "zh": "灯塔钥匙"
+  },
+  "Lightning": {
+    "en": "Lightning Bolt",
+    "zh": "闪电光束"
+  },
+  "LightningRod": {
+    "en": "Lightning Rods",
+    "zh": "引雷针"
+  },
+  "LightningWhip": {
+    "en": "Electric Whip",
+    "zh": "电鞭"
+  },
+  "LongBow": {
+    "en": "Marksman's Bow",
+    "zh": "猎人长弓"
+  },
+  "LoreNotes": {
+    "en": "A scrap of parchment",
+    "zh": "羊皮纸碎片"
+  },
+  "LowHealth": {
+    "en": "Frantic Sword",
+    "zh": "狂暴之刃"
+  },
+  "MachetePistol": {
+    "en": "Machete and Pistol",
+    "zh": "砍刀与手枪"
+  },
+  "Mage360": {
+    "en": "Inquisitor",
+    "zh": "审判者"
+  },
+  "MagicBow": {
+    "en": "Magic Bow"
+  },
+  "MagicSalve": {
+    "en": "Magic Missiles",
+    "zh": "魔法飞弹"
+  },
+  "MagnetGrenade": {
+    "en": "Magnetic Grenade",
+    "zh": "磁力手雷"
+  },
+  "MamaTick": {
+    "en": "Mama Tick",
+    "zh": "蜱虫之母"
+  },
+  "MamaTickEye": {
+    "en": "Mama Tick Eye",
+    "zh": "蜱虫之母眼睛"
+  },
+  "Map": {
+    "en": "Forgotten Map",
+    "zh": "被遗忘的地图"
+  },
+  "Maria": {
+    "en": "Maria Renard Outfit",
+    "zh": "玛莉亚·里纳德装束"
+  },
+  "MariaCatKey": {
+    "en": "Ribonned key",
+    "zh": "缎带钥匙"
+  },
+  "MarkBow": {
+    "en": "Hokuto's Bow",
+    "zh": "北斗之弓"
+  },
+  "MediumGem": {
+    "en": "Amethyst",
+    "zh": "紫水晶"
+  },
+  "Medusa": {
+    "en": "Medusa",
+    "zh": "美杜莎"
+  },
+  "MedusaHead": {
+    "en": "Medusa's Head",
+    "zh": "美杜莎之首"
+  },
+  "Mentor": {
+    "en": "Boss Knight Outfit",
+    "zh": "头目骑士装束"
+  },
+  "Mentor1": {
+    "en": "Barbarian Boss Knight Outfit",
+    "zh": "野蛮人头目骑士装束"
+  },
+  "Mentor2": {
+    "en": "Triumphant Boss Knight Outfit",
+    "zh": "胜利头目骑士装束"
+  },
+  "Mentor3": {
+    "en": "Luminous Boss Knight Outfit",
+    "zh": "发光头目骑士装束"
+  },
+  "Merman": {
+    "en": "Merman",
+    "zh": "半鱼人"
+  },
+  "Mimic": {
+    "en": "Living Barrel",
+    "zh": "活木桶"
+  },
+  "Minimoth": {
+    "en": "Sweeper",
+    "zh": "清扫者"
+  },
+  "MiniPyramid": {
+    "en": "Walking Pyramid",
+    "zh": "移动金字塔"
+  },
+  "MiniWerewolf": {
+    "en": "Werewolf",
+    "zh": "狼人"
+  },
+  "MinorGem": {
+    "en": "Shiny Pebble",
+    "zh": "发光石头"
+  },
+  "MirrorUnlock": {
+    "en": "Hunter's Mirror",
+    "zh": "猎手魔镜"
+  },
+  "Misericord": {
+    "en": "Misericorde",
+    "zh": "慈悲"
+  },
+  "ModedLevel": {
+    "en": "Modded level",
+    "zh": "已修改关卡"
+  },
+  "Money1": {
+    "en": "Gold Reserves I",
+    "zh": "回收金币 I"
+  },
+  "Money2": {
+    "en": "Gold Reserves II",
+    "zh": "回收金币 II"
+  },
+  "Money3": {
+    "en": "Gold Reserves III",
+    "zh": "回收金币 III"
+  },
+  "Money4": {
+    "en": "Gold Reserves IV",
+    "zh": "回收金币 IV"
+  },
+  "Money5": {
+    "en": "Gold Reserves V",
+    "zh": "回收金币 V"
+  },
+  "MoneyShooter": {
+    "en": "Money Shooter",
+    "zh": "金钱射手"
+  },
+  "Morpher": {
+    "en": "Unstable Experience",
+    "zh": "不稳定实验体"
+  },
+  "MultiCrossBow": {
+    "en": "Repeater Crossbow",
+    "zh": "连射弩"
+  },
+  "MultiCrossBowOffHand": {
+    "en": "Quiver of Bolts",
+    "zh": "弩箭连射"
+  },
+  "MultiKickBoots": {
+    "en": "Hayabusa Boots",
+    "zh": "隼之靴"
+  },
+  "MushroomBoi": {
+    "en": "Mushroom Boi Cap",
+    "zh": "蘑菇宝宝伞帽"
+  },
+  "Necromant": {
+    "en": "Apostate",
+    "zh": "叛教者"
+  },
+  "Nightmare": {
+    "en": "Nightmare",
+    "zh": "噩梦"
+  },
+  "Ninja": {
+    "en": "Dark Tracker",
+    "zh": "黑暗跟踪者"
+  },
+  "Normal": {
+    "en": "Normal"
+  },
+  "NotFlyingSword": {
+    "en": "Serenade (in-hand)",
+    "zh": "夜歌（手持）"
+  },
+  "NunchuckPan": {
+    "en": "Panchaku",
+    "zh": "双截锅"
+  },
+  "Observatory": {
+    "en": "Observatory",
+    "zh": "观星台"
+  },
+  "OilBomb": {
+    "en": "Oil Grenade",
+    "zh": "油腻手雷"
+  },
+  "OilSword": {
+    "en": "Oiled Sword",
+    "zh": "油腻之剑"
+  },
+  "OrbLauncher": {
+    "en": "Caster",
+    "zh": "球法师"
+  },
+  "Ossuary": {
+    "en": "Ossuary",
+    "zh": "藏骨堂"
+  },
+  "Owl": {
+    "en": "Great Owl of War",
+    "zh": "战争巨枭"
+  },
+  "P_Ammo": {
+    "en": "Ammo",
+    "zh": "弹药"
+  },
+  "P_AmmoOnHit": {
+    "en": "Ripper",
+    "zh": "剖离"
+  },
+  "P_AttackSpeed_Combo": {
+    "en": "Kill Rhythm",
+    "zh": "杀戮节奏"
+  },
+  "P_Backpack_Melee": {
+    "en": "Porcupack",
+    "zh": "刺猬背包"
+  },
+  "P_Backpack_Ranged": {
+    "en": "Acrobatipack",
+    "zh": "杂技背包"
+  },
+  "P_Backpack_Shield": {
+    "en": "Armadillopack",
+    "zh": "犰狳背包"
+  },
+  "P_Bleed": {
+    "en": "Open wounds",
+    "zh": "开放性伤口"
+  },
+  "P_Caltrops": {
+    "en": "Crow's Foot",
+    "zh": "铁蒺藜"
+  },
+  "P_CDR_Crit": {
+    "en": "Instinct of the Master of Arms",
+    "zh": "武器大师"
+  },
+  "P_CDR_Distance": {
+    "en": "Hunter's instinct",
+    "zh": "猎手本能"
+  },
+  "P_CDR_Kill": {
+    "en": "Killer instinct",
+    "zh": "杀戮天性"
+  },
+  "P_CDR_locked": {
+    "en": "Heart of Ice",
+    "zh": "冰之心"
+  },
+  "P_CDR_Parry": {
+    "en": "Blind faith",
+    "zh": "不屈斗志"
+  },
+  "P_ColdDmg": {
+    "en": "Frostbite",
+    "zh": "冻伤"
+  },
+  "P_Cooldown": {
+    "en": "Efficiency",
+    "zh": "效率"
+  },
+  "P_CooldownGrenade": {
+    "en": "Fireworks Technician",
+    "zh": "烟火专家"
+  },
+  "P_CorruptedHealing": {
+    "en": "Tainted Flask",
+    "zh": "腐化"
+  },
+  "P_Curse": {
+    "en": "Alienation",
+    "zh": "疏离"
+  },
+  "P_CursedFlask": {
+    "en": "Cursed Flask",
+    "zh": "诅咒血瓶"
+  },
+  "P_DamnedVigor": {
+    "en": "Damned Vigor",
+    "zh": "诅咒活力"
+  },
+  "P_DeathBomb": {
+    "en": "Parting Gift",
+    "zh": "临别赠品"
+  },
+  "P_DeathShield": {
+    "en": "Berserker"
+  },
+  "P_DemonicForce": {
+    "en": "Demon Strength",
+    "zh": "恶魔力量"
+  },
+  "P_DeployedDmg": {
+    "en": "Support",
+    "zh": "支援"
+  },
+  "P_Disengage": {
+    "en": "Disengagement",
+    "zh": "脱离战线"
+  },
+  "P_DmgDotsAround": {
+    "en": "Sadism",
+    "zh": "残虐"
+  },
+  "P_DmgFirstHit": {
+    "en": "Initiative"
+  },
+  "P_DmgKill": {
+    "en": "Combo",
+    "zh": "连击"
+  },
+  "P_DmgNearRanged": {
+    "en": "Point Blank"
+  },
+  "P_DmgParry": {
+    "en": "Counterattack",
+    "zh": "反击"
+  },
+  "P_DmgPlantedArrow": {
+    "en": "Barbed Tips"
+  },
+  "P_DmgRevenge": {
+    "en": "Vengeance"
+  },
+  "P_DmgSkillRanged": {
+    "en": "Ranger's gear"
+  },
+  "P_DmgSkl": {
+    "en": "Scheme",
+    "zh": "谋划"
+  },
+  "P_DodgeHeal": {
+    "en": "Adrenaline",
+    "zh": "肾上腺素"
+  },
+  "P_DodgeSlow": {
+    "en": "Tactical retreat",
+    "zh": "战略退却"
+  },
+  "P_EasierCurse": {
+    "en": "Acceptance",
+    "zh": "接纳"
+  },
+  "P_Execute_LowHealth": {
+    "en": "No Mercy"
+  },
+  "P_Food": {
+    "en": "Gastronomy",
+    "zh": "料理"
+  },
+  "P_HealOnKill": {
+    "en": "Necromancy",
+    "zh": "死灵法术"
+  },
+  "P_HealOnParry": {
+    "en": "What Doesn't Kill Me",
+    "zh": "吸收"
+  },
+  "P_Health": {
+    "en": "Dead Inside",
+    "zh": "死者之心"
+  },
+  "P_Hot": {
+    "en": "Extended Healing",
+    "zh": "延长治疗"
+  },
+  "P_InvisibilityOnKill": {
+    "en": "Predator",
+    "zh": "猎杀者"
+  },
+  "P_ManyMobsAround": {
+    "en": "Melee",
+    "zh": "近战"
+  },
+  "P_NoMobAround": {
+    "en": "Tranquility",
+    "zh": "宁静"
+  },
+  "P_QuickHeal": {
+    "en": "Emergency Triage",
+    "zh": "紧急治疗"
+  },
+  "P_Rally": {
+    "en": "Recovery",
+    "zh": "重整旗鼓"
+  },
+  "P_ScaledHealth": {
+    "en": "Soldier's Resistance",
+    "zh": "历战坚韧"
+  },
+  "P_ShareDamage": {
+    "en": "Networking",
+    "zh": "疼痛之网"
+  },
+  "P_SpeedBuff": {
+    "en": "Velocity",
+    "zh": "速度"
+  },
+  "P_SpeedHeal": {
+    "en": "Frenzy",
+    "zh": "狂乱"
+  },
+  "P_SuperParry": {
+    "en": "Spite",
+    "zh": "憎恨"
+  },
+  "P_Traps": {
+    "en": "Masochist",
+    "zh": "受虐狂"
+  },
+  "P_U28_PerkGoldPerDamage": {
+    "en": "Midas' Blood",
+    "zh": "迈达斯之血"
+  },
+  "P_U28_PerkGoldShield": {
+    "en": "Gold Plating",
+    "zh": "黄金涂层"
+  },
+  "P_U28_PerkGoldSpeed": {
+    "en": "Get Rich Quick",
+    "zh": "致富妙方"
+  },
+  "P_Wishes": {
+    "en": "Wish",
+    "zh": "愿望"
+  },
+  "P_WishesDepleted": {
+    "en": "Wished",
+    "zh": "愿望已实现"
+  },
+  "P_Yolo": {
+    "en": "Ygdar Orus Li Ox"
+  },
+  "Pan": {
+    "en": "Vorpan",
+    "zh": "平底锅"
+  },
+  "ParryBlade": {
+    "en": "Flashing Fans",
+    "zh": "铁扇"
+  },
+  "ParryShield": {
+    "en": "Parry Shield",
+    "zh": "反击盾"
+  },
+  "Pecheur": {
+    "en": "Fisherman Hood",
+    "zh": "渔夫兜帽"
+  },
+  "PerfectHalberd": {
+    "en": "Flawless",
+    "zh": "化境"
+  },
+  "PermanentPoisonRemedy": {
+    "en": "DEPRECATED"
+  },
+  "PetrifiedKey": {
+    "en": "Petrified Key",
+    "zh": "石化钥匙"
+  },
+  "PirateChief": {
+    "en": "Pirate Captain",
+    "zh": "海盗船长"
+  },
+  "Pistol": {
+    "en": "Pistol",
+    "zh": "手枪"
+  },
+  "Pitcher": {
+    "en": "Yeeter",
+    "zh": "丢丢怪"
+  },
+  "Pokebomb": {
+    "en": "Hunter's Grenade",
+    "zh": "猎人手雷"
+  },
+  "PokebombUnlock": {
+    "en": "The Specialist's Showroom",
+    "zh": "专家的陈列室"
+  },
+  "Pokecharge": {
+    "en": "Blueprint Extractor",
+    "zh": "图纸取出器"
+  },
+  "PolloPower": {
+    "en": "Pollo Power",
+    "zh": "小鸡之力"
+  },
+  "PortableDoor": {
+    "en": "Emergency Door",
+    "zh": "紧急用门"
+  },
+  "PreciseBow": {
+    "en": "Nerves of Steel",
+    "zh": "钢铁意志"
+  },
+  "PrisonCorrupt": {
+    "en": "Corrupted Prison",
+    "zh": "腐化牢房"
+  },
+  "PrisonCourtyard": {
+    "en": "Promenade of the Condemned",
+    "zh": "有罪者的大道"
+  },
+  "PrisonDepths": {
+    "en": "Prison Depths",
+    "zh": "监狱深处"
+  },
+  "PrisonDepthsKey1": {
+    "en": "Iron Cells key",
+    "zh": "铁牢钥匙"
+  },
+  "PrisonDepthsKey2": {
+    "en": "Gold Cells key",
+    "zh": "金牢钥匙"
+  },
+  "PrisonerAladdin": {
+    "en": "A Thousand and One Nights Outfit",
+    "zh": "一千零一夜装束"
+  },
+  "PrisonerAphrodite": {
+    "en": "Aphrodite Outfit",
+    "zh": "阿芙洛狄忒装束"
+  },
+  "PrisonerBison": {
+    "en": "Dictator Outfit",
+    "zh": "独裁者装束"
+  },
+  "PrisonerBlack": {
+    "en": "Ninja Outfit",
+    "zh": "忍者装束"
+  },
+  "PrisonerBlowgunner": {
+    "en": "Blowgunner's Outfit",
+    "zh": "吹箭师装束"
+  },
+  "PrisonerBootleg": {
+    "en": "Almost-Yourself Outfit",
+    "zh": "几乎是你自己装束"
+  },
+  "PrisonerCarduus": {
+    "en": "Carduus Outfit",
+    "zh": "飞廉装束"
+  },
+  "PrisonerCloth": {
+    "en": "Prisoner's Collar",
+    "zh": "囚者颈环"
+  },
+  "PrisonerCloud": {
+    "en": "Cloud Outfit",
+    "zh": "克劳德装束"
+  },
+  "PrisonerCrossbowMan": {
+    "en": "Arbalester's Outfit",
+    "zh": "弩手装束"
+  },
+  "PrisonerDefault": {
+    "en": "Classic Outfit",
+    "zh": "经典装束"
+  },
+  "PrisonerDemon": {
+    "en": "Demon Outfit",
+    "zh": "恶魔装束"
+  },
+  "PrisonerFrench": {
+    "en": "Baguette Outfit",
+    "zh": "法棍套装"
+  },
+  "PrisonerFriendlyHardy": {
+    "en": "Mushroom Boi's Outfit",
+    "zh": "蘑菇君装束"
+  },
+  "PrisonerFugitive": {
+    "en": "Banished's Outfit",
+    "zh": "被弃者装束"
+  },
+  "PrisonerGardener": {
+    "en": "Gardener's Outfit",
+    "zh": "园艺师装束"
+  },
+  "PrisonerGhost": {
+    "en": "Ghost Outfit",
+    "zh": "幽灵装束"
+  },
+  "PrisonerGOG": {
+    "en": "Galaxy Outfit",
+    "zh": "Galaxy套装"
+  },
+  "PrisonerGold": {
+    "en": "Golden Outfit",
+    "zh": "黄金装束"
+  },
+  "PrisonerHyperlight": {
+    "en": "Drifter Outfit",
+    "zh": "旅者装束"
+  },
+  "PrisonerJavelinSnake": {
+    "en": "Lizard Outfit",
+    "zh": "蜥蜴装束"
+  },
+  "PrisonerKamikaze": {
+    "en": "Kamikaze Outfit",
+    "zh": "神风装束"
+  },
+  "PrisonerKillBill": {
+    "en": "Blade Master's Outfit",
+    "zh": "剑刃大师装束"
+  },
+  "PrisonerMage": {
+    "en": "Mage Outfit",
+    "zh": "法师装束"
+  },
+  "PrisonerMushroom": {
+    "en": "Mushroom King Outfit",
+    "zh": "蘑菇王装束"
+  },
+  "PrisonerNecromant": {
+    "en": "Apostate Outfit",
+    "zh": "叛教者装束"
+  },
+  "PrisonerNeon": {
+    "en": "Neon Outfit",
+    "zh": "霓虹装束"
+  },
+  "PrisonerRetro": {
+    "en": "Retro Outfit",
+    "zh": "复古装束"
+  },
+  "PrisonerSand": {
+    "en": "Desert Dweller Outfit",
+    "zh": "沙漠之民装束"
+  },
+  "PrisonerSanta": {
+    "en": "Festive Outfit",
+    "zh": "节日装束"
+  },
+  "PrisonerSewers": {
+    "en": "Donatello Outfit",
+    "zh": "多纳泰罗装束"
+  },
+  "PrisonerShaman": {
+    "en": "Shaman Outfit",
+    "zh": "萨满装束"
+  },
+  "PrisonerSkeleton": {
+    "en": "Skeleton Outfit",
+    "zh": "骷髅装束"
+  },
+  "PrisonerSonGoku": {
+    "en": "Legendary Warrior's Outfit",
+    "zh": "传说中的战士"
+  },
+  "PrisonerStilt": {
+    "en": "Fisherman's Outfit",
+    "zh": "渔夫装束"
+  },
+  "PrisonerSylvanian": {
+    "en": "Robin Hood Outfit",
+    "zh": "罗宾汉装束"
+  },
+  "PrisonerTick": {
+    "en": "Tick Trainer's Outfit",
+    "zh": "蜱虫驯师装束"
+  },
+  "PrisonerWarrior": {
+    "en": "Warrior Outfit",
+    "zh": "战士装束"
+  },
+  "PrisonerXmas": {
+    "en": "Flying Alcoholic Outfit",
+    "zh": "飞天老酒鬼装束"
+  },
+  "PrisonRoof": {
+    "en": "Ramparts",
+    "zh": "壁垒"
+  },
+  "PrisonRoofCorrupt": {
+    "en": "Corrupted Rooftops",
+    "zh": "腐化楼顶"
+  },
+  "PrisonStart": {
+    "en": "Prisoners' Quarters",
+    "zh": "被囚者的牢房"
+  },
+  "PureNail": {
+    "en": "Pure Nail",
+    "zh": "纯粹骨钉"
+  },
+  "PurpleGarden": {
+    "en": "Castle's Outskirts",
+    "zh": "城堡边陲"
+  },
+  "QuarterUp": {
+    "en": "Scroll Fragment",
+    "zh": "卷轴碎片"
+  },
+  "Queen": {
+    "en": "The Queen"
+  },
+  "Queen1": {
+    "en": "White Gold Queen Outfit"
+  },
+  "Queen2": {
+    "en": "Cherry Blossom Queen Outfit"
+  },
+  "Queen3": {
+    "en": "Frozen Queen Outfit"
+  },
+  "Queen4": {
+    "en": "Spicy Queen Outfit"
+  },
+  "QueenArena": {
+    "en": "The Crown"
+  },
+  "QueenDefault": {
+    "en": "Queen Outfit"
+  },
+  "QueenFlame": {
+    "en": "Queen Flame",
+    "zh": "王后火焰"
+  },
+  "QueenRapier": {
+    "en": "Queen's Rapier"
+  },
+  "QuickFists": {
+    "en": "Hayabusa Gauntlets",
+    "zh": "隼之拳套"
+  },
+  "QuickSword": {
+    "en": "Balanced Blade",
+    "zh": "均衡之刃"
+  },
+  "Rampager": {
+    "en": "Rampager",
+    "zh": "暴怒"
+  },
+  "Rampart": {
+    "en": "Rampart",
+    "zh": "壁垒"
+  },
+  "RandomBow": {
+    "en": "Random Starter Bow",
+    "zh": "随机初始弓"
+  },
+  "RandomCC": {
+    "en": "Random Melee Weapon",
+    "zh": "随机近战武器"
+  },
+  "RandomShield": {
+    "en": "Random Starter Shield",
+    "zh": "随机初始盾"
+  },
+  "Rapier": {
+    "en": "Rapier",
+    "zh": "刺剑"
+  },
+  "Rat": {
+    "en": "Rancid Rat",
+    "zh": "腐臭老鼠"
+  },
+  "Recycling1": {
+    "en": "Recycling I",
+    "zh": "回收利用 I"
+  },
+  "Recycling2": {
+    "en": "Recycling II",
+    "zh": "回收利用 II"
+  },
+  "Retro": {
+    "en": "8-Bits",
+    "zh": "8比特"
+  },
+  "RevengeSword": {
+    "en": "Spite Sword",
+    "zh": "怨恨之刃"
+  },
+  "RhythmicBlade": {
+    "en": "Rhythm n' Bouzouki",
+    "zh": "节奏布祖基琴"
+  },
+  "Richter": {
+    "en": "Richter Belmont"
+  },
+  "RichterCastle": {
+    "en": "Richter Mode",
+    "zh": "里希达模式"
+  },
+  "RichterCross": {
+    "en": "Cross",
+    "zh": "十字架"
+  },
+  "RichterROB": {
+    "en": "Richter Outfit",
+    "zh": "里希达装束"
+  },
+  "RichterVampireKiller": {
+    "en": "Vampire Killer",
+    "zh": "吸血鬼杀手"
+  },
+  "RiskOfRain": {
+    "en": "Commando Outfit"
+  },
+  "RootBomb": {
+    "en": "Root Grenade",
+    "zh": "藤蔓手雷"
+  },
+  "RootGrenader": {
+    "en": "Imprisoner",
+    "zh": "囚禁者"
+  },
+  "RootTrap": {
+    "en": "Wolf Trap",
+    "zh": "捕兽夹"
+  },
+  "RoyalGardener": {
+    "en": "The Royal Gardener's Outfit",
+    "zh": "王室园艺师装束"
+  },
+  "Runner": {
+    "en": "Runner",
+    "zh": "速魔"
+  },
+  "S_Fly": {
+    "en": "Sewer Fly",
+    "zh": "下水道飞虫"
+  },
+  "S_HeroChicken": {
+    "en": "Corpse Worm",
+    "zh": "尸虫"
+  },
+  "S_SewerShort": {
+    "en": "Toxic Sewers",
+    "zh": "猛毒下水道"
+  },
+  "S_WallEggWorm": {
+    "en": "Weaver Worm",
+    "zh": "病原虫"
+  },
+  "S_ZombieFly": {
+    "en": "Corpse Fly",
+    "zh": "尸咬虫"
+  },
+  "Samurai": {
+    "en": "Weirded Warrior",
+    "zh": "奇异武士"
+  },
+  "Sanctuary": {
+    "en": "Sanctuary",
+    "zh": "庇护所"
+  },
+  "SanctuaryEmpty": {
+    "en": "Sanctuary (depleted)",
+    "zh": "庇护所（已耗尽）"
+  },
+  "SantaKLOS": {
+    "en": "Reverse Burglar's Outfit",
+    "zh": "反向小偷装束"
+  },
+  "Scarecrow": {
+    "en": "Scarecrow"
+  },
+  "ScarecrowHat": {
+    "en": "Scarecrow Hat",
+    "zh": "稻草人帽子"
+  },
+  "Scissor": {
+    "en": "Sewing Scissors",
+    "zh": "裁缝剪刀"
+  },
+  "ScoringKey": {
+    "en": "Challenger's Rune",
+    "zh": "挑战者符文"
+  },
+  "Scorpio": {
+    "en": "Scorpion"
+  },
+  "Screamer": {
+    "en": "Screamer",
+    "zh": "尖叫者"
+  },
+  "SeismicStomp": {
+    "en": "Telluric Shock",
+    "zh": "震地冲击"
+  },
+  "Servante1": {
+    "en": "Toxic Servant Outfit"
+  },
+  "Servante2": {
+    "en": "Silver Servant Outfit"
+  },
+  "Servante3": {
+    "en": "Aurora Servant Outfit"
+  },
+  "Servante4": {
+    "en": "King's Servant Outfit"
+  },
+  "ServanteDefault": {
+    "en": "Servant Outfit"
+  },
+  "ServantsMask": {
+    "en": "Servant Mask",
+    "zh": "仆从面具"
+  },
+  "SewerDepths": {
+    "en": "Ancient Sewers",
+    "zh": "旧下水道"
+  },
+  "SewerDepthsKey": {
+    "en": "Old Service key",
+    "zh": "旧维修钥匙"
+  },
+  "SewerTtcl": {
+    "en": "Sewer's Tentacle",
+    "zh": "下水道触手"
+  },
+  "Shark": {
+    "en": "Maw of the Deep"
+  },
+  "Shield": {
+    "en": "Cudgel",
+    "zh": "击晕盾"
+  },
+  "Shielder": {
+    "en": "Protector",
+    "zh": "防御者"
+  },
+  "Shipwreck": {
+    "en": "Infested Shipwreck"
+  },
+  "ShipwreckKey": {
+    "en": "Crowned Key"
+  },
+  "Shocker": {
+    "en": "Shocker",
+    "zh": "电击者"
+  },
+  "Shockwave": {
+    "en": "Wave of Denial",
+    "zh": "阻隔波"
+  },
+  "ShopCategories": {
+    "en": "Merchandise Categories",
+    "zh": "商品类别"
+  },
+  "ShopMimic": {
+    "en": "Mimic",
+    "zh": "拟态魔"
+  },
+  "ShopRerolls": {
+    "en": "Restock",
+    "zh": "货品更换"
+  },
+  "Shovel": {
+    "en": "Shovel",
+    "zh": "铲子"
+  },
+  "ShovelKnight": {
+    "en": "Shovel Knight Outfit",
+    "zh": "铲子骑士装束"
+  },
+  "SideBomb": {
+    "en": "Swarm",
+    "zh": "噬咬虫群"
+  },
+  "SideTurret": {
+    "en": "Aggressive apparition"
+  },
+  "Simon": {
+    "en": "Simon Outfit"
+  },
+  "SismicBlade": {
+    "en": "Seismic Strike",
+    "zh": "震地之刃"
+  },
+  "Skul": {
+    "en": "Little Bone's outfit",
+    "zh": "小骨装束"
+  },
+  "SkulBone": {
+    "en": "Bone",
+    "zh": "骨头"
+  },
+  "Skull": {
+    "en": "Screaming Skull",
+    "zh": "尖叫头骨"
+  },
+  "SlayTheSpire": {
+    "en": "Ironclad Outfit",
+    "zh": "铁甲战士装束"
+  },
+  "SlowOrb": {
+    "en": "Death Orb",
+    "zh": "死亡之球"
+  },
+  "SmallBaguette": {
+    "en": "\"Le Croissant\""
+  },
+  "SmallCastlevania": {
+    "en": "Pastry",
+    "zh": "糕点"
+  },
+  "SmallCheese": {
+    "en": "Gruyère"
+  },
+  "SmallFruit": {
+    "en": "Cherries",
+    "zh": "樱桃"
+  },
+  "SmallGem": {
+    "en": "Malachite"
+  },
+  "SmallHalfLife": {
+    "en": "Small Med-kit",
+    "zh": "小医疗包"
+  },
+  "SmallMeat": {
+    "en": "Kebab",
+    "zh": "烤串"
+  },
+  "SmallMonster": {
+    "en": "Guts",
+    "zh": "内脏"
+  },
+  "SmallVeggie": {
+    "en": "Carrot",
+    "zh": "胡萝卜"
+  },
+  "SmokeBomb": {
+    "en": "Smoke Bomb",
+    "zh": "烟雾弹"
+  },
+  "SnakeFang": {
+    "en": "Snake Fangs",
+    "zh": "蛇牙"
+  },
+  "SnakeSwordSwap": {
+    "en": "Transformation",
+    "zh": "转换形态"
+  },
+  "SnakeSwordWeapon": {
+    "en": "Whip Sword, sword form",
+    "zh": "鞭剑，剑形态"
+  },
+  "SnakeSwordWeaponAlt": {
+    "en": "Whip Sword, whip form",
+    "zh": "鞭剑，鞭形态"
+  },
+  "Snowman": {
+    "en": "Winter Outfit",
+    "zh": "寒冬装束"
+  },
+  "SonicCrossbow": {
+    "en": "Sonic Carbine",
+    "zh": "音速卡宾枪"
+  },
+  "SoreLooser": {
+    "en": "Sore Loser",
+    "zh": "输不起"
+  },
+  "SoulKnight": {
+    "en": "Knight's Outfit",
+    "zh": "骑士装束"
+  },
+  "Spawner": {
+    "en": "Spawner",
+    "zh": "死亡喷吐者"
+  },
+  "SpawnerGem": {
+    "en": "Ingot",
+    "zh": "金锭"
+  },
+  "SpawnFriendlyHardy": {
+    "en": "Mushroom Boi!",
+    "zh": "蘑菇君"
+  },
+  "SpawnLilStaphy": {
+    "en": "Leghugger"
+  },
+  "Spawnling": {
+    "en": "Corpse Juice",
+    "zh": "尸液怪"
+  },
+  "Spear": {
+    "en": "War Spear",
+    "zh": "战矛"
+  },
+  "SpecialFlask": {
+    "en": "Secret potion of ???",
+    "zh": "？？？的秘密药水"
+  },
+  "SpeedBlade": {
+    "en": "Swift Sword",
+    "zh": "迅捷之剑"
+  },
+  "SpiderHealer": {
+    "en": "StaticHealer"
+  },
+  "SpikedBoots": {
+    "en": "Spiked Boots",
+    "zh": "钉鞋"
+  },
+  "SpikedSatyr": {
+    "en": "Thorny",
+    "zh": "刺刺"
+  },
+  "Spiker": {
+    "en": "Impaler",
+    "zh": "穿刺者"
+  },
+  "SpikeShield": {
+    "en": "Spiked Shield",
+    "zh": "带刺盾"
+  },
+  "Spinner": {
+    "en": "Lacerator",
+    "zh": "撕裂者"
+  },
+  "StandardTurret": {
+    "en": "Sinew Slicer",
+    "zh": "圆斩箭塔"
+  },
+  "Staphy": {
+    "en": "Armored Shrimp Carcass Outfit"
+  },
+  "StaphyHead": {
+    "en": "Leghugger Head",
+    "zh": "抱腿兽的头"
+  },
+  "Starfury": {
+    "en": "Starfury",
+    "zh": "星怒"
+  },
+  "StartBow": {
+    "en": "Beginner's Bow",
+    "zh": "初学者弓箭"
+  },
+  "StartShield": {
+    "en": "Old Wooden Shield",
+    "zh": "老木盾"
+  },
+  "StartSword": {
+    "en": "Rusty Sword",
+    "zh": "生锈的刀"
+  },
+  "Statue": {
+    "en": "Rocky Outfit",
+    "zh": "洛基装束"
+  },
+  "StiltStaphyKey": {
+    "en": "Michel's Key",
+    "zh": "米歇尔的钥匙"
+  },
+  "StiltVillage": {
+    "en": "Stilt Village",
+    "zh": "雾萦港湾"
+  },
+  "Stomper": {
+    "en": "Slammer",
+    "zh": "啄地者"
+  },
+  "StompSkeleton": {
+    "en": "Skeleton",
+    "zh": "骷髅"
+  },
+  "STSAltarKey": {
+    "en": "Sapphire Key",
+    "zh": "蓝宝石钥匙"
+  },
+  "STSEliteKey": {
+    "en": "Emerald Key",
+    "zh": "绿宝石钥匙"
+  },
+  "STSMerchantKey": {
+    "en": "Ruby Key",
+    "zh": "红宝石钥匙"
+  },
+  "StunMace": {
+    "en": "Nutcracker",
+    "zh": "胡桃夹子"
+  },
+  "StunningGrenade": {
+    "en": "Stun Grenade",
+    "zh": "闪光弹"
+  },
+  "Swamp": {
+    "en": "Morass of the Banished",
+    "zh": "被弃者沼泽"
+  },
+  "SwampHeart": {
+    "en": "Nest",
+    "zh": "巢穴"
+  },
+  "Sypha": {
+    "en": "Sypha Outfit"
+  },
+  "T_AfterBridge": {
+    "en": "Passage to the Stilt Village and the Slumbering Sanctuary",
+    "zh": "前往雾萦港湾和沉睡的庇护所"
+  },
+  "T_AfterDeathArena": {
+    "en": "Passage to the Stilt Village, the Slumbering Sanctuary and the Graveyard",
+    "zh": "前往雾萦港湾、沉睡的庇护所、墓地"
+  },
+  "T_AfterSwamp": {
+    "en": "Passage to the Stilt Village and the Graveyard",
+    "zh": "前往雾萦港湾和墓地"
+  },
+  "T_AncientTemple": {
+    "en": "Passage to the Slumbering Sanctuary",
+    "zh": "前往沉睡的庇护所"
+  },
+  "T_Astrolab": {
+    "en": "Passageway to the Astrolab",
+    "zh": "前往观星实验所"
+  },
+  "T_Bank": {
+    "en": "Exit the Bank",
+    "zh": "离开银行"
+  },
+  "T_BeholderPit": {
+    "en": "Passage to the Insufferable Crypt",
+    "zh": "前往作呕地窖"
+  },
+  "T_BoatDock": {
+    "en": "Passage to the Pier",
+    "zh": "前往码头"
+  },
+  "T_Bridge": {
+    "en": "Passage to the Black Bridge",
+    "zh": "前往黑色大桥"
+  },
+  "T_Castle": {
+    "en": "Passage to the High Peak Castle and the Derelict Distillery",
+    "zh": "前往山巅城堡和废弃酿酒厂"
+  },
+  "T_Cavern": {
+    "en": "Passage to the Cavern",
+    "zh": "前往山洞"
+  },
+  "T_Cemetery": {
+    "en": "Passage to the Graveyard",
+    "zh": "前往墓地"
+  },
+  "T_Cliff": {
+    "en": "Passage to the Undying Shores",
+    "zh": "前往不死海滩"
+  },
+  "T_ClockTower": {
+    "en": "Passage to the Clock Tower",
+    "zh": "前往钟楼"
+  },
+  "T_Courtyard": {
+    "en": "Passage to the Promenade of the Condemned",
+    "zh": "前往有罪者的大道"
+  },
+  "T_Crypt": {
+    "en": "Passage to the Forgotten Sepulcher",
+    "zh": "前往被遗忘的陵墓"
+  },
+  "T_DeathArena": {
+    "en": "Path to the Master's Keep",
+    "zh": "前往城主的据点"
+  },
+  "T_Distillery": {
+    "en": "Passage to the Derelict Distillery",
+    "zh": "前往废弃酿酒厂"
+  },
+  "T_DookuCastle": {
+    "en": "Path to Dracula's Castle",
+    "zh": "前往恶魔城"
+  },
+  "T_GardenerStage": {
+    "en": "Passage to the Mausoleum",
+    "zh": "前往阴森墓园"
+  },
+  "T_Giant": {
+    "en": "Passage to the Guardian's Haven",
+    "zh": "前往守护者的居所"
+  },
+  "T_Greenhouse": {
+    "en": "Passage to the Dilapidated Arboretum",
+    "zh": "前往荒废植物园"
+  },
+  "T_Lighthouse": {
+    "en": "Path to the Lighthouse"
+  },
+  "T_Observatory": {
+    "en": "Passageway to the Observatory",
+    "zh": "前往观星台"
+  },
+  "T_Ossuary": {
+    "en": "Passage to the Ossuary",
+    "zh": "前往藏骨堂"
+  },
+  "T_PrisonCorrupt": {
+    "en": "Passage to the Corrupted Prison",
+    "zh": "前往腐化牢房"
+  },
+  "T_PrisonDepths": {
+    "en": "Passage to the Prison Depths",
+    "zh": "前往监狱深处"
+  },
+  "T_PurpleGarden": {
+    "en": "Path to the Castle's Outskirts",
+    "zh": "前往城堡边陲"
+  },
+  "T_Queen": {
+    "en": "Path to the Lighthouse's Top"
+  },
+  "T_Roof": {
+    "en": "Passage to the Ramparts",
+    "zh": "前往壁垒"
+  },
+  "T_SewerDepthsAfterPrison": {
+    "en": "Passage to the Ancient Sewers",
+    "zh": "前往旧下水道"
+  },
+  "T_SewerShort": {
+    "en": "Passage to the Toxic Sewers",
+    "zh": "前往猛毒下水道"
+  },
+  "T_Swamp": {
+    "en": "Passage to the Morass of the Banished",
+    "zh": "前往被弃者沼泽"
+  },
+  "T_SwampHeart": {
+    "en": "Passage to the Nest",
+    "zh": "前往巢穴"
+  },
+  "T_Throne": {
+    "en": "Passage to the Throne Room",
+    "zh": "前往王座之间"
+  },
+  "T_TopClockTower": {
+    "en": "Passage to the Clock Room",
+    "zh": "前往时钟室"
+  },
+  "T_Tumulus": {
+    "en": "Passage to the Fractured Shrines",
+    "zh": "前往崩坏神庙"
+  },
+  "Talisman1": {
+    "en": "Ruby Amulet",
+    "zh": "红宝石护符"
+  },
+  "Talisman2": {
+    "en": "Topaz Amulet",
+    "zh": "黄宝石护符"
+  },
+  "Talisman3": {
+    "en": "Sapphire Amulet",
+    "zh": "蓝宝石护符"
+  },
+  "Talisman4": {
+    "en": "Golden Amulet",
+    "zh": "黄金护符"
+  },
+  "Talisman5": {
+    "en": "Moonstone Amulet",
+    "zh": "月光石护符"
+  },
+  "Taunt": {
+    "en": "Taunt",
+    "zh": "挑衅"
+  },
+  "TeleportKey": {
+    "en": "Teleportation Rune",
+    "zh": "传送符文"
+  },
+  "TentacleWhip": {
+    "en": "Tentacle",
+    "zh": "触手"
+  },
+  "Terraria": {
+    "en": "Familiar Outfit",
+    "zh": "熟悉的装束"
+  },
+  "TeslaCoil": {
+    "en": "Tesla Coil",
+    "zh": "特斯拉电圈"
+  },
+  "TestSeb": {
+    "en": "Seb test",
+    "zh": "Seb test"
+  },
+  "Throne": {
+    "en": "Throne Room",
+    "zh": "王座之间"
+  },
+  "ThrowableMushroom": {
+    "en": "Jerkshroom",
+    "zh": "吐吐菇"
+  },
+  "ThrowableStuff": {
+    "en": "Throwable Objects",
+    "zh": "可投掷物品"
+  },
+  "ThrowingAxe": {
+    "en": "Throwing Axe",
+    "zh": "投斧"
+  },
+  "ThrowingCards": {
+    "en": "Killing Deck"
+  },
+  "ThrowingIce": {
+    "en": "Ice Shards",
+    "zh": "冰霜碎片"
+  },
+  "ThrowingKnife": {
+    "en": "Throwing Knife",
+    "zh": "飞刀"
+  },
+  "ThrowingSpear": {
+    "en": "War Javelin",
+    "zh": "战争投枪"
+  },
+  "ThrowingTorch": {
+    "en": "Firebrands",
+    "zh": "投掷火把"
+  },
+  "ThunderShield": {
+    "en": "Thunder Shield",
+    "zh": "雷盾"
+  },
+  "Tick": {
+    "en": "Giant Tick",
+    "zh": "巨大蜱虫"
+  },
+  "Tick1": {
+    "en": "Annoyed Tick Outfit",
+    "zh": "蜱虫不爽装束"
+  },
+  "Tick2": {
+    "en": "Irritated Tick Outfit",
+    "zh": "蜱虫烦躁装束"
+  },
+  "Tick3": {
+    "en": "Mad Tick Outfit",
+    "zh": "蜱虫生气装束"
+  },
+  "Tick4": {
+    "en": "Furious Tick Outfit",
+    "zh": "蜱虫暴怒装束"
+  },
+  "TickDefault": {
+    "en": "Giant Tick Outfit",
+    "zh": "巨大蜱虫装束"
+  },
+  "TickSacrifice": {
+    "en": "Sacrificial Tick Outfit",
+    "zh": "祭品蜱虫装束"
+  },
+  "TickScytheLeft": {
+    "en": "Left Scythe Claw",
+    "zh": "巨镰左爪"
+  },
+  "TickScytheRight": {
+    "en": "Right Scythe Claw",
+    "zh": "巨镰右爪"
+  },
+  "TimeDistorsion": {
+    "en": "Temporal Distortion",
+    "zh": "时间扭曲"
+  },
+  "TimeKeeperBot": {
+    "en": "Automaton",
+    "zh": "机械人"
+  },
+  "TimeKeeperHat": {
+    "en": "Time Keeper Mask",
+    "zh": "时光守护者面具"
+  },
+  "TopClockTower": {
+    "en": "Clock Room",
+    "zh": "时钟室"
+  },
+  "Tornado": {
+    "en": "Tornado",
+    "zh": "旋风"
+  },
+  "TowerKey": {
+    "en": "Clockmaker's Key",
+    "zh": "钟表匠的钥匙"
+  },
+  "TowerSecretKey": {
+    "en": "Bell Tower Key",
+    "zh": "钟楼钥匙"
+  },
+  "ToxicCloud": {
+    "en": "Corrosive Cloud",
+    "zh": "腐蚀毒云"
+  },
+  "TPSword": {
+    "en": "Alucard's Sword",
+    "zh": "阿鲁卡多的佩剑"
+  },
+  "TrainingDojo": {
+    "en": "Dojo"
+  },
+  "TrainingUnlock": {
+    "en": "Training Room Key"
+  },
+  "Trevor": {
+    "en": "Trevor Outfit"
+  },
+  "Trident": {
+    "en": "Abyssal Trident"
+  },
+  "TridentKey": {
+    "en": "Forked Key"
+  },
+  "TridentMap": {
+    "en": "Mysterious map",
+    "zh": "神秘地图"
+  },
+  "TridentMapQuarter": {
+    "en": "Map part",
+    "zh": "地图残片"
+  },
+  "TSUp": {
+    "en": "Guardian’s Scroll",
+    "zh": "守护者卷轴"
+  },
+  "Tumulus": {
+    "en": "Fractured Shrines",
+    "zh": "崩坏神庙"
+  },
+  "TwitchAnyUp": {
+    "en": "Choice of Power",
+    "zh": "选择威力"
+  },
+  "TwitchBSUp": {
+    "en": "Choice of the Minotaur",
+    "zh": "选择牛头人"
+  },
+  "TwitchBTUp": {
+    "en": "Choice of the Assassin",
+    "zh": "选择暗杀者"
+  },
+  "TwitchTalisman": {
+    "en": "Community ring",
+    "zh": "社区戒指"
+  },
+  "TwitchTSUp": {
+    "en": "Choice of the Guardian",
+    "zh": "选择守护者"
+  },
+  "U28_Steal": {
+    "en": "Agitated Pickpocket",
+    "zh": "急躁的小偷"
+  },
+  "U28_VacuumCleaner": {
+    "en": "Gold Gorger",
+    "zh": "吞金者"
+  },
+  "VerticalPit": {
+    "en": "The Well",
+    "zh": "深井"
+  },
+  "VeryHard": {
+    "en": "Very hard",
+    "zh": "超难"
+  },
+  "VictoriusBeheaded": {
+    "en": "Triumph Outfit",
+    "zh": "凯旋装束"
+  },
+  "VictoriusBeheaded1": {
+    "en": "Bisonnica Triumph Outfit",
+    "zh": "维迦凯旋装束"
+  },
+  "VictoriusBeheaded2": {
+    "en": "Mentoral Triumph Outfit",
+    "zh": "导师凯旋装束"
+  },
+  "VictoriusBeheaded3": {
+    "en": "Radiant Triumph Outfit",
+    "zh": "光辉凯旋装束"
+  },
+  "VillageKey": {
+    "en": "Village Key",
+    "zh": "村庄钥匙"
+  },
+  "VolteWarrior": {
+    "en": "Duelist",
+    "zh": "决斗家"
+  },
+  "VortexAndSea": {
+    "en": "Abyssal Vortex",
+    "zh": "深渊漩涡"
+  },
+  "VortexBadSeed": {
+    "en": "Sanguine Vortex",
+    "zh": "血红漩涡"
+  },
+  "VortexFoundry": {
+    "en": "Dark Vortex",
+    "zh": "黑暗漩涡"
+  },
+  "VortexHelloDarkness": {
+    "en": "Vortex",
+    "zh": "漩涡"
+  },
+  "WallJumpKey": {
+    "en": "Spider Rune",
+    "zh": "蜘蛛符文"
+  },
+  "WarriorShield": {
+    "en": "Front Line Shield",
+    "zh": "前线盾"
+  },
+  "Werewolf": {
+    "en": "Dire Werewolf",
+    "zh": "凶暴狼人"
+  },
+  "Whip": {
+    "en": "Valmont's Whip",
+    "zh": "瓦尔蒙特长鞭"
+  },
+  "WiggleWhip": {
+    "en": "Morning Star",
+    "zh": "晨星"
+  },
+  "Wings": {
+    "en": "Wings of the Crow",
+    "zh": "乌鸦之翼"
+  },
+  "Worm": {
+    "en": "Disgusting Worm",
+    "zh": "丑陋蠕虫"
+  },
+  "WormZombie": {
+    "en": "Purulent Zombie",
+    "zh": "脓肿僵尸"
+  },
+  "WreckingBall": {
+    "en": "Wrecking Ball"
+  },
+  "Zombie": {
+    "en": "Zombie"
+  }
+}
