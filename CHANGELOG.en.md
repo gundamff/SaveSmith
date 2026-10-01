@@ -2,6 +2,16 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.10.1] - 2026-10-01
+
+Dead Cells: skins become dropdowns; Boss Rush unlock fields get localized names.
+
+### Changed
+
+- **Dead Cells**: skin / head skin switched from text input to a searchable **dropdown** covering all 149 outfits and 43 heads shipped with the game (localized names)
+- **Dead Cells**: Boss Rush unlock fields now show localized names (Game mode, Base, Cloak, Pants, Belt, Helmet, Armor, Weapon, Material) with the raw field name as a subtitle
+- `scripts/extract-dead-cells-names.mjs` also emits `data/skins.json`
+
 ## [0.10.0] - 2026-10-01
 
 Dead Cells gains a rune editor; the read-only stats table is dropped and skins / Boss Rush move into Resources.
