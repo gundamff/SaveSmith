@@ -112,7 +112,7 @@ function parseMo(b) {
 
 // ---------------------------------------------------------------------- main
 const { idToEn, idToFr } = parsePot(join(gameDir, 'lang/main-en.pot'))
-const pak = extractFromPak(join(gameDir, 'res.pak'), ['lang/main.zh.mo'])
+const pak = extractFromPak(join(gameDir, 'res.pak'), ['lang/main.zh.mo', 'data.cdb'])
 const zhMo = parseMo(pak['lang/main.zh.mo'])
 
 const sorted = {}
@@ -127,3 +127,17 @@ for (const [id, en] of [...idToEn].sort((a, b) => a[0].localeCompare(b[0]))) {
 mkdirSync(dirname(outPath), { recursive: true })
 writeFileSync(outPath, JSON.stringify(sorted, null, 2) + '\n', 'utf8')
 console.log(`wrote ${outPath}: ${Object.keys(sorted).length} ids (${zhCount} with zh)`)
+
+// ------------------------------------------------- skins.json (outfits / heads)
+const cdb = JSON.parse(pak['data.cdb'].toString('utf8'))
+const sheet = (name) => cdb.sheets.find((s) => s.name === name)
+const idsOf = (sheetName) => {
+  const s = sheet(sheetName)
+  if (!s) return []
+  return s.lines.map((row) => (Array.isArray(row) ? row[s.columns.findIndex((c) => c.name === 'item')] : row.item))
+}
+const named = (ids) => ids.filter((id) => id && id in sorted)
+const skins = { outfits: named(idsOf('skin')), heads: named(idsOf('customHead')) }
+const skinsPath = join(root, 'src/games/dead-cells/data/skins.json')
+writeFileSync(skinsPath, JSON.stringify(skins, null, 2) + '\n', 'utf8')
+console.log(`wrote ${skinsPath}: ${skins.outfits.length} outfits, ${skins.heads.length} heads`)

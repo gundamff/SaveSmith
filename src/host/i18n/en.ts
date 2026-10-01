@@ -269,6 +269,17 @@ export const en: MessageTree = {
       unlock: 'Unlocked',
       unreadable: 'Save structure cannot be parsed; view-only'
     },
+    bossRush: {
+      unlockedGameMode: 'Game mode',
+      basementUnlock: 'Base',
+      capUnlock: 'Cloak',
+      pantUnlock: 'Pants',
+      skirtUnlock: 'Belt',
+      skullUnlock: 'Helmet',
+      topUnlock: 'Armor',
+      weaponUnlock: 'Weapon',
+      materialUnlock: 'Material'
+    },
     blueprints: {
       name: 'Item',
       itemId: 'Item ID',

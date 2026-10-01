@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { t } from '@host/i18n'
+import { locale, t } from '@host/i18n'
 import type { HxsDoc } from '../model/hxbit'
 import {
   projectUser,
@@ -11,6 +11,7 @@ import {
   setHeroSkin,
   type BossRushRow
 } from '../model/userModel'
+import { headOptions, outfitOptions } from '../model/skins'
 import { useDcEditor } from './inject'
 
 const editor = useDcEditor()
@@ -19,6 +20,20 @@ const view = computed(() => {
   return projectUser(editor.save.doc)
 })
 const bossRows = computed((): BossRushRow[] => view.value.bossRush.map((b) => ({ ...b })))
+const outfitChoices = computed(() => {
+  void editor.rev
+  return outfitOptions(locale.value, view.value.heroSkin)
+})
+const headChoices = computed(() => {
+  void editor.rev
+  return headOptions(locale.value, view.value.heroHeadSkin)
+})
+
+function bossLabel(field: string): string {
+  const key = `dc.bossRush.${field}`
+  const text = t(key)
+  return text === key ? field : text
+}
 
 function changeNum(setter: (doc: HxsDoc, v: number) => void, v: number | undefined): void {
   if (v === undefined || Number.isNaN(v)) return
@@ -56,25 +71,38 @@ function toggleBoss(field: string, idx: number, v: boolean | string | number): v
           />
         </el-form-item>
         <el-form-item :label="t('dc.resources.heroSkin')">
-          <el-input
+          <el-select
             :model-value="view.heroSkin"
+            filterable
             style="max-width: 240px"
             @update:model-value="(v: string) => changeSkin(setHeroSkin, v)"
-          />
+          >
+            <el-option v-for="o in outfitChoices" :key="o.value" :label="o.label" :value="o.value" />
+          </el-select>
         </el-form-item>
         <el-form-item :label="t('dc.resources.heroHeadSkin')">
-          <el-input
+          <el-select
             :model-value="view.heroHeadSkin"
+            filterable
             style="max-width: 240px"
             @update:model-value="(v: string) => changeSkin(setHeroHeadSkin, v)"
-          />
+          >
+            <el-option v-for="o in headChoices" :key="o.value" :label="o.label" :value="o.value" />
+          </el-select>
         </el-form-item>
       </el-form>
 
       <template v-if="bossRows.length > 0">
         <h4>{{ t('dc.resources.bossRush') }}</h4>
         <el-table :data="bossRows" size="small" style="width: 100%">
-          <el-table-column prop="field" :label="t('dc.resources.field')" min-width="200" />
+          <el-table-column :label="t('dc.resources.field')" min-width="200">
+            <template #default="{ row }">
+              <div class="name-cell">
+                <span>{{ bossLabel(row.field) }}</span>
+                <span class="raw-id">{{ row.field }}</span>
+              </div>
+            </template>
+          </el-table-column>
           <el-table-column prop="idx" :label="t('dc.resources.idx')" width="80" />
           <el-table-column :label="t('dc.resources.unlock')" width="110">
             <template #default="{ row }">
@@ -96,6 +124,15 @@ function toggleBoss(field: string, idx: number, v: boolean | string | number): v
 .dc-resources h4 {
   margin: 0 0 8px;
   font-size: 14px;
+}
+.name-cell {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+.raw-id {
+  font-size: 11px;
+  opacity: 0.45;
 }
 .dc-empty {
   opacity: 0.7;

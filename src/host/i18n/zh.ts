@@ -269,6 +269,17 @@ export const zh: MessageTree = {
       unlock: '解锁',
       unreadable: '存档结构无法解析，仅可查看原始文件'
     },
+    bossRush: {
+      unlockedGameMode: '游戏模式',
+      basementUnlock: '基座',
+      capUnlock: '披风',
+      pantUnlock: '裤子',
+      skirtUnlock: '腰带',
+      skullUnlock: '头盔',
+      topUnlock: '铠甲',
+      weaponUnlock: '武器',
+      materialUnlock: '材料'
+    },
     blueprints: {
       name: '物品',
       itemId: '物品 ID',

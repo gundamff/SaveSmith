@@ -87,6 +87,8 @@ const REQUIRED_KEYS = [
   'dc.resources.deathMoney',
   'dc.resources.deathCells',
   'dc.resources.heroSkin',
+  'dc.bossRush.basementUnlock',
+  'dc.bossRush.unlockedGameMode',
   'dc.blueprints.itemId',
   'dc.blueprints.name',
   'dc.runes.name',

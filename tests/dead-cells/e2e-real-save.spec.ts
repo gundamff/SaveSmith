@@ -151,15 +151,14 @@ describe.skipIf(!SAVE)('dead-cells real save (DC_SAVE)', () => {
     const container = await parseContainer(raw)
     const doc = decodeHxs(getChunk(container, 'S_User')!.data, 'User')
     const before = projectUser(doc)
-    expect(before.runes.every((r) => !r.enabled)).toBe(true)
-    setRune(doc, 'LadderKey', true)
-    setRune(doc, 'TeleportKey', true)
+    const id = 'LadderKey'
+    // clear, then unlock, so the test is independent of the current save state
+    setRune(doc, id, false)
+    expect(projectUser(doc).runes.find((r) => r.id === id)?.enabled).toBe(false)
+    setRune(doc, id, true)
     const out = encodeHxs(doc)
-    expect(out).not.toEqual(getChunk(container, 'S_User')!.data)
     const after = projectUser(decodeHxs(out, 'User'))
-    expect(after.runes.find((r) => r.id === 'LadderKey')?.enabled).toBe(true)
-    expect(after.runes.find((r) => r.id === 'TeleportKey')?.enabled).toBe(true)
-    expect(after.runes.find((r) => r.id === 'WallJumpKey')?.enabled).toBe(false)
+    expect(after.runes.find((r) => r.id === id)?.enabled).toBe(true)
     // untouched data survives
     expect(after.deathMoney).toBe(before.deathMoney)
     expect(after.items.length).toBe(before.items.length)
