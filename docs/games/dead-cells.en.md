@@ -26,7 +26,7 @@ With Steam Cloud on, the game's `save\` folder usually holds only the `steam_clo
 
 | Tab | Content |
 |-----|---------|
-| Resources | Gold (`deathMoney`), Cells (`deathCells`), skin / head skin (**dropdown**, names from the game localization), Boss Rush unlocks (localized field names) |
+| Resources | Gold (`deathMoney`), Cells (`deathCells`), **Boss Stem Cells / difficulty (0–5, Normal→Hell)**, skin / head skin (dropdown, names from the game localization), Boss Rush unlocks (localized field names) |
 | Blueprints | Item unlock table (`itemProgress`): localized item names (from the game's own localization), unlocked, new, invested cells |
 | Skins | All **149 outfits + 43 heads** shipped with the game, searchable and filterable, unlock / lock; skins missing from the save get a **new item-progress entry** |
 | Runes | Permanent rune toggles (Vine / Teleport / Ram / Spider / Homunculus / Customization / Challenger / Explorer / Traveler / Richter…) |
