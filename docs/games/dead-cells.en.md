@@ -26,13 +26,15 @@ With Steam Cloud on, the game's `save\` folder usually holds only the `steam_clo
 
 | Tab | Content |
 |-----|---------|
-| Resources | Gold (`deathMoney`), Cells (`deathCells`) |
+| Resources | Gold (`deathMoney`), Cells (`deathCells`), skin / head skin (strings), Boss Rush unlock toggles |
 | Blueprints | Item unlock table (`itemProgress`): localized item names (from the game's own localization), unlocked, new, invested cells |
-| Statistics | Lifetime stats (read-only); skin / head skin (strings); Boss Rush unlock toggles |
+| Runes | Permanent rune toggles (Vine / Teleport / Ram / Spider / Homunculus / Customization / Challenger / Explorer / Traveler / Richter…) |
 
-Item display names come from the game's official localization (`lang/main.zh.mo`), extracted into `data/item-names.json` by `scripts/extract-dead-cells-names.mjs` from the installed game; unknown ids fall back to the raw identifier.
+Item and rune display names come from the game's official localization (`lang/main.zh.mo`), extracted into `data/item-names.json` by `scripts/extract-dead-cells-names.mjs` from the installed game; unknown ids fall back to the raw identifier.
 
 The save is a custom binary format (59-byte header + zlib + hxbit serialization) with a SHA-1 checksum in the header; the checksum is recomputed on save and untouched bytes are preserved verbatim.
+
+> **Runes (experimental):** runes are stored as id strings in two lists (`permanentItems` / `metaItems`) and the tool writes to **both**. The exact slot is not yet confirmed by the community; if it does not take effect in-game, share a save copy so we can pin it down. A backup is taken before saving.
 
 ## Notes
 

@@ -26,13 +26,15 @@ Steam 云开启时，游戏目录 `save\` 里通常只有 `steam_cloud.dat` 标�
 
 | 标签 | 内容 |
 |------|------|
-| 资源 | 金币（`deathMoney`）、细胞（`deathCells`） |
+| 资源 | 金币（`deathMoney`）、细胞（`deathCells`）、皮肤 / 头部皮肤（字符串）、Boss Rush 解锁开关 |
 | 蓝图解锁 | 物品解锁表（`itemProgress`）：物品名称（取自游戏官方本地化）、已解锁、新获得、投入细胞 |
-| 统计 | 生涯统计只读展示；皮肤 / 头部皮肤（字符串）；Boss Rush 解锁开关 |
+| 符文 | 永久符文解锁开关（藤蔓 / 传送 / 公羊 / 蜘蛛 / 人造人 / 自定 / 挑战者 / 探险家 / 旅行者 / 里希特…） |
 
-物品显示名来自游戏本体的官方本地化（`lang/main.zh.mo`），由 `scripts/extract-dead-cells-names.mjs` 从已安装游戏提取生成 `data/item-names.json`；未收录的 ID 直接显示原始标识符。
+物品与符文显示名来自游戏本体的官方本地化（`lang/main.zh.mo`），由 `scripts/extract-dead-cells-names.mjs` 从已安装游戏提取生成 `data/item-names.json`；未收录的 ID 直接显示原始标识符。
 
 存档为自定义二进制格式（59 字节头 + zlib + hxbit 序列化），头内含 SHA-1 校验；保存时自动重算校验和，未改动的字节保持原样。
+
+> **符文说明（实验性）**：符文以字符串 ID 形式存于 `permanentItems` / `metaItems` 两个列表，本工具**同时写入两处**。该字段尚未经社区实测确认，若游戏内未生效请把存档副本反馈，以便定位。修改前会自动备份。
 
 ## 使用注意
 
