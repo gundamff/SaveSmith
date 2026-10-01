@@ -15,6 +15,8 @@ import {
   setIntValue
 } from '../../src/games/dead-cells/model/hxbit'
 import { projectUser, setItemUnlocked } from '../../src/games/dead-cells/model/userModel'
+import { itemDisplayName, hasItemName } from '../../src/games/dead-cells/model/itemNames'
+import { parse as parseSave, validate } from '../../src/games/dead-cells/parse'
 
 const SAVE = process.env.DC_SAVE
 
@@ -123,5 +125,23 @@ describe.skipIf(!SAVE)('dead-cells real save (DC_SAVE)', () => {
     const again = projectUser(decodeHxs(out, 'User'))
     const after = again.items.find((i) => i.index === target.index)!
     expect(after.unlocked).toBe(!target.unlocked)
+  })
+
+  it('validate passes on the real save despite negative item sentinels', async () => {
+    const raw = new Uint8Array(readFileSync(SAVE!))
+    const state = await parseSave([{ relativePath: 'user_0.dat', bytes: raw }])
+    expect(validate(state)).toEqual([])
+  })
+
+  it('maps every itemProgress id to a display name (mostly Chinese)', async () => {
+    const raw = new Uint8Array(readFileSync(SAVE!))
+    const container = await parseContainer(raw)
+    const view = projectUser(decodeHxs(getChunk(container, 'S_User')!.data, 'User'))
+    const missing = view.items.filter((i) => !hasItemName(i.itemId))
+    expect(missing.map((i) => i.itemId)).toEqual([])
+    const named = view.items.map((i) => itemDisplayName(i.itemId, 'zh'))
+    expect(named.every((n) => n.length > 0)).toBe(true)
+    // at least one item should be an actual Chinese string, not the raw id
+    expect(named.some((n) => /[\u4e00-\u9fff]/.test(n))).toBe(true)
   })
 })

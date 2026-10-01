@@ -47,12 +47,9 @@ export function validate(state: DeadCellsState): ValidationIssue[] {
     issues.push({ code: 'PARSE_FAILED', args: ['S_User'] })
     return issues
   }
+  // Note: itemProgress.investedCells uses negative sentinels in real saves
+  // (e.g. -2), so only the top-level resources are range-checked here.
   if (view.deathMoney < 0) issues.push({ code: 'INVALID_AMOUNT', args: ['deathMoney'] })
   if (view.deathCells < 0) issues.push({ code: 'INVALID_AMOUNT', args: ['deathCells'] })
-  for (const item of view.items) {
-    if (item.investedCells < 0) {
-      issues.push({ code: 'INVALID_AMOUNT', args: [item.itemId] })
-    }
-  }
   return issues
 }

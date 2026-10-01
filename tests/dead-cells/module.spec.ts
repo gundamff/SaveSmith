@@ -31,8 +31,8 @@ function containerOf(userChunk: Uint8Array): DcContainer {
   }
 }
 
-async function makeContainerBytes(): Promise<Uint8Array> {
-  return buildContainer(containerOf(buildUserChunk()))
+async function makeContainerBytes(chunk?: Uint8Array): Promise<Uint8Array> {
+  return buildContainer(containerOf(chunk ?? buildUserChunk()))
 }
 
 describe('deadCellsModule catalog / locate / registry', () => {
@@ -121,6 +121,15 @@ describe('deadCellsModule parse / serialize', () => {
     const issues = validate(state)
     expect(issues).toHaveLength(1)
     expect(issues[0]!.code).toBe('INVALID_AMOUNT')
+  })
+
+  it('validate tolerates negative item sentinels used by real saves', async () => {
+    const chunk = buildUserChunk({
+      items: [{ itemId: 'StandardTurret', investedCells: -2, isNew: false, unlocked: true }]
+    })
+    const bytes = await makeContainerBytes(chunk)
+    const state = await parse([{ relativePath, bytes }])
+    expect(validate(state)).toEqual([])
   })
 
   it('actions is empty and applyAction is identity', async () => {
