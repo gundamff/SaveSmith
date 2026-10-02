@@ -2,6 +2,20 @@
 
 [**中文**](CHANGELOG.md) | [English](CHANGELOG.en.md)
 
+## [0.14.0] - 2026-10-02
+
+新增《皇牌空战 8：希孚之翼》战役存档编辑（MRP、通关权限、伪二周目）。
+
+### 新增
+
+- **皇牌空战 8**：编辑 `Campaign.sav` 中的当前 / 累计 MRP
+- **皇牌空战 8**：「进度 / 周目」——开启通关权限（FeatureFlag + CompletionCount + Free Mission 全开），或伪二周目（重置任务光标、保留机库与 MRP、保留通关权益）
+- 写回时按游戏公式重算 `Checksum`（`CRC32(PackedData, 种子 0x41916EBD)`），避免「存档已损坏」
+
+### 修复
+
+- **宿主**：自动探测存档路径时纳入 `%LOCALAPPDATA%`（ACE COMBAT 8 等依赖该变量的游戏）
+
 ## [0.13.0] - 2026-10-02
 
 死亡细胞新增「解锁」页（全部可解锁物品）；修复 Steam 不在 D 盘时找不到存档。

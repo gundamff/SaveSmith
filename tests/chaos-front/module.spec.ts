@@ -75,7 +75,8 @@ describe('chaosFrontModule catalog / locate', () => {
       'wanderburg',
       'terraria',
       'dragon-sword',
-      'eslabong'
+      'eslabong',
+      'ace-combat-8'
     ])
     expect(modules[0]).toBe(chaosFrontModule)
     expect(modules[3]).toBe(wanderburgModule)

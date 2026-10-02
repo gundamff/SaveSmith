@@ -32,7 +32,13 @@ async function windowsEnv(): Promise<Record<string, string | undefined>> {
   } catch {
     /* ignore */
   }
-  return { USERPROFILE: userProfile, DOCUMENTS: documents }
+  // LOCALAPPDATA is not exposed by @tauri-apps/api/path; derive the standard location.
+  const localAppData = userProfile ? `${userProfile}\\AppData\\Local` : ''
+  return {
+    USERPROFILE: userProfile,
+    DOCUMENTS: documents,
+    LOCALAPPDATA: localAppData || undefined
+  }
 }
 
 async function probeAll(): Promise<void> {

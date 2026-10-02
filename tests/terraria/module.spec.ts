@@ -35,15 +35,17 @@ describe('terrariaModule catalog / locate / registry', () => {
       identifyAnyOf: ['Players'],
       slotFilePatterns: ['Players/*.plr']
     })
-    expect(modules).toEqual([
-      chaosFrontModule,
-      chaosGalaxy2Module,
-      deadCellsModule,
-      wanderburgModule,
-      terrariaModule,
-      dragonSwordModule,
-      eslabongModule
+    expect(modules.map((m) => m.id)).toEqual([
+      'chaos-front',
+      'chaos-galaxy-2',
+      'dead-cells',
+      'wanderburg',
+      'terraria',
+      'dragon-sword',
+      'eslabong',
+      'ace-combat-8'
     ])
+    expect(modules).toContain(terrariaModule)
   })
 })
 

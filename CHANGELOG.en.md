@@ -2,6 +2,20 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.14.0] - 2026-10-02
+
+Adds ACE COMBAT 8: WINGS OF THEVE campaign editing (MRP, post-clear unlocks, pseudo NG+).
+
+### Added
+
+- **ACE COMBAT 8**: edit current / total MRP in `Campaign.sav`
+- **ACE COMBAT 8**: Progress / Playthrough — enable post-clear privileges (FeatureFlag + CompletionCount + all Free Missions), or pseudo NG+ (reset mission cursor, keep hangar/MRP, keep clear privileges)
+- Recomputes `Checksum` on write (`CRC32(PackedData, seed 0x41916EBD)`) so the game does not report a corrupted save
+
+### Fixed
+
+- **Host**: save-path probing now includes `%LOCALAPPDATA%` (needed by ACE COMBAT 8 and similar titles)
+
 ## [0.13.0] - 2026-10-02
 
 Dead Cells gains an Unlock tab (all unlockables); fixes save detection when Steam is not on D:.

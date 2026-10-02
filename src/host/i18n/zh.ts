@@ -252,6 +252,32 @@ export const zh: MessageTree = {
       '添加物品/角色等需要填写游戏 CID。可在 th.gl 龙之剑数据库查询名称与 CID（角色、物品、料理等）。',
     cidHintLink: '打开 th.gl 数据库'
   },
+  ac8: {
+    tabs: {
+      resources: '资源',
+      progress: '进度 / 周目'
+    },
+    hint: {
+      quitAndCloud: '请先完全退出游戏，并暂时关闭 Steam 云同步，再改档保存。'
+    },
+    resources: {
+      currentMrp: '当前 MRP',
+      totalMrp: '累计 MRP（TotalMRP）',
+      syncTotal: '把累计 MRP 设为等于当前 MRP'
+    },
+    progress: {
+      hint: '「伪二周目」会保留 MRP/机库，重置战役光标，并打开通关后功能（涂装/徽章/Aircraft Set 等）。DLC 机体进战役还依赖 CompletionCount≥1。请进游戏确认菜单状态。',
+      completionCount: '通关次数 (CompletionCount)',
+      lastCompleted: '最近完成任务 ID',
+      lastPlayed: '最近游玩任务 ID',
+      featureFlags: '功能旗标 FeatureFlagMask',
+      freeMissions: 'Free Mission 已解锁'
+    },
+    actions: {
+      postCampaignUnlocks: '开启通关权限（不重置故事）',
+      pseudoNgPlus: '伪二周目（重置故事 + 通关权限）'
+    }
+  },
   dc: {
     tabs: {
       resources: '资源',
@@ -347,6 +373,9 @@ export const zh: MessageTree = {
     COLLECTION_LENGTH: '图鉴 {0} 长度 {1} 小于目录容量 {2}，拒绝改写',
     LIFE_OVER_MAX: '当前生命 {0} 超过上限 {1}',
     MANA_OVER_MAX: '当前魔力 {0} 超过上限 {1}',
-    ENCRYPT_FAILED: '存档加密失败：{0}'
+    ENCRYPT_FAILED: '存档加密失败：{0}',
+    INVALID_FORMAT: '存档格式无效：{0}',
+    OUT_OF_RANGE: '字段超出范围：{0}',
+    INVALID_STATE: '存档状态无效：{0}'
   }
 }

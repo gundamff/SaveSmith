@@ -252,6 +252,32 @@ export const en: MessageTree = {
       'Adding items/characters needs game CIDs. Look up names and CIDs in the th.gl DragonSword database (characters, items, cooking, etc.).',
     cidHintLink: 'Open th.gl database'
   },
+  ac8: {
+    tabs: {
+      resources: 'Resources',
+      progress: 'Progress / NG+'
+    },
+    hint: {
+      quitAndCloud: 'Quit the game completely and temporarily disable Steam Cloud before editing.'
+    },
+    resources: {
+      currentMrp: 'Current MRP',
+      totalMrp: 'Lifetime MRP (TotalMRP)',
+      syncTotal: 'Set Total MRP equal to Current MRP'
+    },
+    progress: {
+      hint: 'Pseudo NG+ keeps MRP/hangar, resets the campaign cursor, and enables post-clear features (skins/emblems/Aircraft Sets). Campaign DLC aircraft also need CompletionCount ≥ 1. Confirm menus in-game after saving.',
+      completionCount: 'Clear count (CompletionCount)',
+      lastCompleted: 'Last completed mission ID',
+      lastPlayed: 'Last played mission ID',
+      featureFlags: 'FeatureFlagMask',
+      freeMissions: 'Free Mission unlocks'
+    },
+    actions: {
+      postCampaignUnlocks: 'Enable post-clear unlocks (keep story)',
+      pseudoNgPlus: 'Pseudo NG+ (reset story + unlocks)'
+    }
+  },
   dc: {
     tabs: {
       resources: 'Resources',
@@ -349,6 +375,9 @@ export const en: MessageTree = {
       'Collection {0} length {1} is shorter than catalog {2}; refusing rewrite',
     LIFE_OVER_MAX: 'Current life {0} exceeds max {1}',
     MANA_OVER_MAX: 'Current mana {0} exceeds max {1}',
-    ENCRYPT_FAILED: 'Failed to encrypt save: {0}'
+    ENCRYPT_FAILED: 'Failed to encrypt save: {0}',
+    INVALID_FORMAT: 'Invalid save format: {0}',
+    OUT_OF_RANGE: 'Value out of range: {0}',
+    INVALID_STATE: 'Invalid save state: {0}'
   }
 }

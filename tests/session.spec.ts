@@ -21,6 +21,15 @@ describe('expandWindowsTemplate', () => {
       })
     ).toBe('D:\\user\\Documents\\My Games\\Terraria')
   })
+
+  it('replaces LOCALAPPDATA', () => {
+    expect(
+      expandWindowsTemplate(
+        '%LOCALAPPDATA%\\BANDAI NAMCO Entertainment\\ACE COMBAT 8\\Saved\\SaveGames',
+        { LOCALAPPDATA: 'C:\\Users\\a\\AppData\\Local' }
+      )
+    ).toBe('C:\\Users\\a\\AppData\\Local\\BANDAI NAMCO Entertainment\\ACE COMBAT 8\\Saved\\SaveGames')
+  })
 })
 
 describe('identifySaveDir', () => {
