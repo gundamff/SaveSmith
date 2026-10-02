@@ -8,17 +8,17 @@
 
 ## 存档位置
 
-按以下顺序探测（`user_0.dat` / `user_1.dat` / `user_2.dat` 存在即命中）：
+自动探测会遍历常见 Steam 安装位置（C 盘默认路径，以及 D/E/F 盘的 `Steam` / `SteamLibrary`），其中 `userdata` 下的**账号 ID 用通配符匹配**，因此不同机器 / 不同账号都能找到。命中条件：目录里有 `user_0.dat` / `user_1.dat` / `user_2.dat`。
 
 1. **Steam 云同步目录**（Steam 云开启时的权威副本）：
 
-   `C:\Program Files (x86)\Steam\userdata\<SteamID3>\588650\remote`
+   `<Steam 安装目录>\userdata\<账号 ID>\588650\remote`
 
 2. **游戏目录下的 `save\`**（Steam 云关闭时）：
 
    `<游戏目录>\save\`（如 `D:\SteamLibrary\steamapps\common\Dead Cells\save`）
 
-Steam 云开启时，游戏目录 `save\` 里通常只有 `steam_cloud.dat` 标志文件，真实存档在 Steam 云同步目录。探测不到时请手动选择上述目录之一。
+Steam 云开启时，游戏目录 `save\` 里通常只有 `steam_cloud.dat` 标志文件，真实存档在 Steam 云同步目录。若你的 Steam 装在非常规位置且未自动找到，请手动选择上述目录之一。
 
 同目录的 `dc_options.json` 是键位/设置，**不参与**编辑。每个 `user_N.dat` 是一个独立存档槽位。
 
@@ -27,11 +27,11 @@ Steam 云开启时，游戏目录 `save\` 里通常只有 `steam_cloud.dat` 标�
 | 标签 | 内容 |
 |------|------|
 | 资源 | 金币（`deathMoney`）、细胞（`deathCells`）、**Boss起源细胞 / 难度（0–5，普通→地狱）**、皮肤 / 头部皮肤（下拉，名称取自游戏本地化）、Boss Rush 解锁（中文字段名） |
-| 蓝图解锁 | 物品解锁表（`itemProgress`）：物品名称（取自游戏官方本地化）、已解锁、新获得、投入细胞 |
-| 皮肤 | 游戏全部 **149 套装束 + 43 个头饰**，可搜索、按类型筛选，解锁 / 锁定；存档里没有的皮肤会**新增物品进度条目** |
+| 蓝图解锁 | 存档里已有的物品进度条目（`itemProgress`）：已解锁、新获得、投入细胞 |
+| 解锁 | 游戏**全部可解锁物品**（武器与技能 201、变异 57、形态 13、皮肤 149、头饰 43、永久升级 22），可搜索 / 按类别筛选，解锁或锁定；存档里没有的物品会**新增条目** |
 | 符文 | 永久符文解锁开关（藤蔓 / 传送 / 公羊 / 蜘蛛 / 人造人 / 自定 / 挑战者 / 探险家 / 旅行者 / 里希特…） |
 
-物品、皮肤与符文显示名来自游戏本体的官方本地化（`lang/main.zh.mo`），皮肤与头部目录取自 `skin` / `customHead` 表；均由 `scripts/extract-dead-cells-names.mjs` 从已安装游戏提取生成 `data/item-names.json` 与 `data/skins.json`；未收录的 ID 直接显示原始标识符。
+物品、皮肤与符文显示名来自游戏本体的官方本地化（`lang/main.zh.mo`），皮肤与解锁目录取自游戏数据表；均由 `scripts/extract-dead-cells-names.mjs` 从已安装游戏提取生成 `data/item-names.json` 与 `data/catalog.json`；未收录的 ID 直接显示原始标识符。
 
 存档为自定义二进制格式（59 字节头 + zlib + hxbit 序列化），头内含 SHA-1 校验；保存时自动重算校验和，未改动的字节保持原样。
 

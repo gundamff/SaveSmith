@@ -8,17 +8,17 @@ Unofficial save editing notes. Rights holder **Motion Twin / Evil Empire** (Stea
 
 ## Save location
 
-Probed in order (a directory with `user_0.dat` / `user_1.dat` / `user_2.dat` matches):
+Auto-detection walks the common Steam install roots (the C: default plus `Steam` / `SteamLibrary` on D/E/F) and matches the per-account folder under `userdata` with a **wildcard**, so different machines and accounts work. A directory matches when it holds `user_0.dat` / `user_1.dat` / `user_2.dat`.
 
 1. **Steam Cloud sync directory** (authoritative copy while Steam Cloud is on):
 
-   `C:\Program Files (x86)\Steam\userdata\<SteamID3>\588650\remote`
+   `<Steam install>\userdata\<account id>\588650\remote`
 
 2. **`save\` under the game directory** (with Steam Cloud off):
 
    `<game dir>\save\` (e.g. `D:\SteamLibrary\steamapps\common\Dead Cells\save`)
 
-With Steam Cloud on, the game's `save\` folder usually holds only the `steam_cloud.dat` marker and the real save lives in the Steam Cloud directory. If probing fails, pick one of the directories above manually.
+With Steam Cloud on, the game's `save\` folder usually holds only the `steam_cloud.dat` marker and the real save lives in the Steam Cloud directory. If your Steam is installed in an unusual place and detection fails, pick one of the directories above manually.
 
 `dc_options.json` in the same folder holds key bindings/settings and is **not** edited. Each `user_N.dat` is an independent save slot.
 
@@ -27,11 +27,11 @@ With Steam Cloud on, the game's `save\` folder usually holds only the `steam_clo
 | Tab | Content |
 |-----|---------|
 | Resources | Gold (`deathMoney`), Cells (`deathCells`), **Boss Stem Cells / difficulty (0–5, Normal→Hell)**, skin / head skin (dropdown, names from the game localization), Boss Rush unlocks (localized field names) |
-| Blueprints | Item unlock table (`itemProgress`): localized item names (from the game's own localization), unlocked, new, invested cells |
-| Skins | All **149 outfits + 43 heads** shipped with the game, searchable and filterable, unlock / lock; skins missing from the save get a **new item-progress entry** |
+| Blueprints | Item-progress entries already in the save (`itemProgress`): unlocked, new, invested cells |
+| Unlock | **Every unlockable item** — weapons & skills 201, mutations 57, aspects 13, skins 149, heads 43, permanent upgrades 22 — searchable and filterable, unlock/lock; items missing from the save get a **new entry** |
 | Runes | Permanent rune toggles (Vine / Teleport / Ram / Spider / Homunculus / Customization / Challenger / Explorer / Traveler / Richter…) |
 
-Item, skin and rune display names come from the game's official localization (`lang/main.zh.mo`); the skin/head catalogs come from the `skin` / `customHead` sheets. All are extracted into `data/item-names.json` and `data/skins.json` by `scripts/extract-dead-cells-names.mjs` from the installed game; unknown ids fall back to the raw identifier.
+Item, skin and rune display names come from the game's official localization (`lang/main.zh.mo`); the skin and unlock catalogs come from the game data sheets. All are extracted into `data/item-names.json` and `data/catalog.json` by `scripts/extract-dead-cells-names.mjs` from the installed game; unknown ids fall back to the raw identifier.
 
 The save is a custom binary format (59-byte header + zlib + hxbit serialization) with a SHA-1 checksum in the header; the checksum is recomputed on save and untouched bytes are preserved verbatim.
 
