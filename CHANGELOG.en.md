@@ -2,6 +2,19 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.13.0] - 2026-10-02
+
+Dead Cells gains an Unlock tab (all unlockables); fixes save detection when Steam is not on D:.
+
+### Added
+
+- **Dead Cells**: the Unlock tab replaces the Skins tab and covers all **472 unlockable items** — weapons & skills 201, mutations 57, aspects 13, skins 149, heads 43, permanent upgrades 22 — with search, category filter and per-item or batch unlock/lock
+- Items missing from the save are appended to `itemProgress` (reusing the object-append support)
+
+### Fixed
+
+- **Save path detection**: path templates now support `*` wildcard segments (for Steam `userdata\<account id>`) and walk the common Steam roots (C: default plus `Steam` / `SteamLibrary` on D/E/F), fixing save detection when **Steam is not installed on D:**; templates whose env vars are unavailable are skipped instead of producing junk paths
+
 ## [0.12.0] - 2026-10-01
 
 Dead Cells gains a Boss Stem Cell (difficulty) selector.

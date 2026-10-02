@@ -2889,7 +2889,7 @@ dependencies = [
 
 [[package]]
 name = "savesmith"
-version = "0.12.0"
+version = "0.13.0"
 dependencies = [
  "serde",
  "serde_json",
