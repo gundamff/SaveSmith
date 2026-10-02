@@ -274,9 +274,9 @@ export function setBossRushUnlock(doc: HxsDoc, field: string, idx: number, value
   }
 }
 
-// ------------------------------------------------------------------- skins
+// ------------------------------------------------------------ item unlocks
 
-/** Skins unlocked by this session but absent from the save, tracked per doc. */
+/** Item ids unlocked by this session but absent from the save, tracked per doc. */
 const appendedSkins = new WeakMap<HxsDoc, Map<string, number>>()
 const nextUidByDoc = new WeakMap<HxsDoc, number>()
 
@@ -323,8 +323,8 @@ function encodeItemProgress(uid: number, itemId: string): Uint8Array {
   return out
 }
 
-/** Whether a skin/item id is unlocked (present and unlocked, or added this session). */
-export function isSkinUnlocked(doc: HxsDoc, id: string): boolean {
+/** Whether an unlockable item id is unlocked (present and unlocked, or added this session). */
+export function isItemUnlockedById(doc: HxsDoc, id: string): boolean {
   const entry = originalItemEntry(doc, id)
   if (entry) return asBool(entry.fields.get('unlocked')) ?? false
   return appendedSkins.get(doc)?.has(id) ?? false
@@ -334,7 +334,7 @@ export function isSkinUnlocked(doc: HxsDoc, id: string): boolean {
  * Unlock or relock a skin. Entries already present in `itemProgress` are toggled
  * in place; missing ones are appended as new items (and removed again on relock).
  */
-export function setSkinUnlocked(doc: HxsDoc, id: string, on: boolean): void {
+export function setItemUnlockedById(doc: HxsDoc, id: string, on: boolean): void {
   const node = itemProgressNode(doc)
   if (!node) return
   const entry = originalItemEntry(doc, id)

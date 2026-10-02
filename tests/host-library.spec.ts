@@ -28,6 +28,35 @@ describe('probeModuleSaveDir', () => {
     identifyAnyOf: ['save.txt']
   }
 
+  it('expands * wildcard segments (e.g. Steam userdata accounts)', async () => {
+    const wildcard = {
+      windowsPathTemplates: ['C:\\Steam\\userdata\\*\\588650\\remote'],
+      identifyAnyOf: ['user_0.dat']
+    }
+    const listDirNames = vi.fn(async (dir: string) => {
+      if (dir === 'C:\\Steam\\userdata') return ['111', '222']
+      if (dir === 'C:\\Steam\\userdata\\222\\588650\\remote') return ['user_0.dat']
+      return []
+    })
+    await expect(probeModuleSaveDir(wildcard, {}, listDirNames)).resolves.toBe(
+      'C:\\Steam\\userdata\\222\\588650\\remote'
+    )
+  })
+
+  it('skips templates whose env vars are unavailable instead of building junk paths', async () => {
+    const withEnv = {
+      windowsPathTemplates: ['%NOPE%\\Saved Games\\Dead Cells', '%USERPROFILE%\\y'],
+      identifyAnyOf: ['user_0.dat']
+    }
+    const listDirNames = vi.fn(async (dir: string) =>
+      dir === 'C:\\Users\\a\\y' ? ['user_0.dat'] : []
+    )
+    await expect(probeModuleSaveDir(withEnv, { USERPROFILE: 'C:\\Users\\a' }, listDirNames)).resolves.toBe(
+      'C:\\Users\\a\\y'
+    )
+    expect(listDirNames).not.toHaveBeenCalledWith(expect.stringContaining('NOPE'))
+  })
+
   it('probe prefers DOCUMENTS template when provided', async () => {
     const terrariaLocator = {
       windowsPathTemplates: [

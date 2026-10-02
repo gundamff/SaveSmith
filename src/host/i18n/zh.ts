@@ -256,7 +256,7 @@ export const zh: MessageTree = {
     tabs: {
       resources: '资源',
       blueprints: '蓝图解锁',
-      skins: '皮肤',
+      unlock: '解锁',
       runes: '符文'
     },
     resources: {
@@ -306,18 +306,24 @@ export const zh: MessageTree = {
       hint: '符文为永久升级，名称取自游戏本体本地化；修改后请进游戏确认（改前会自动备份）。',
       unreadable: '存档结构无法解析，无法编辑符文'
     },
-    skins: {
+    unlock: {
       name: '名称',
       kind: '类型',
-      outfit: '套装',
-      head: '头饰',
-      all: '全部',
       search: '搜索名称 / ID',
       unlocked: '已解锁',
       unlockVisible: '解锁当前列表',
       clearVisible: '锁定当前列表',
-      hint: '解锁会写入存档的物品进度；存档里没有的皮肤会新增条目。修改后请进游戏确认（改前会自动备份）。',
-      unreadable: '存档结构无法解析，无法编辑皮肤'
+      hint: '解锁会写入存档的物品进度；存档里没有的物品会新增条目。修改后请进游戏确认（改前会自动备份）。',
+      unreadable: '存档结构无法解析，无法编辑解锁',
+      cat: {
+        all: '全部',
+        weapons: '武器与技能',
+        mutations: '变异',
+        aspects: '形态',
+        skins: '皮肤',
+        heads: '头饰',
+        meta: '永久升级'
+      }
     }
   },
   error: {

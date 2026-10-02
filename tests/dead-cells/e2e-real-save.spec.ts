@@ -14,10 +14,10 @@ import {
   encodeHxs,
   setIntValue
 } from '../../src/games/dead-cells/model/hxbit'
-import { projectUser, setItemUnlocked, setRune, setSkinUnlocked, isSkinUnlocked, setBossCells } from '../../src/games/dead-cells/model/userModel'
+import { projectUser, setItemUnlocked, setRune, setItemUnlockedById, isItemUnlockedById, setBossCells } from '../../src/games/dead-cells/model/userModel'
 import { itemDisplayName, hasItemName } from '../../src/games/dead-cells/model/itemNames'
 import { runeDisplayName } from '../../src/games/dead-cells/model/runes'
-import { skinCatalog } from '../../src/games/dead-cells/model/skins'
+import { categoryIds } from '../../src/games/dead-cells/model/catalog'
 import { parse as parseSave, validate } from '../../src/games/dead-cells/parse'
 
 const SAVE = process.env.DC_SAVE
@@ -201,12 +201,10 @@ describe.skipIf(!SAVE)('dead-cells real save (DC_SAVE)', () => {
     const doc = decodeHxs(getChunk(container, 'S_User')!.data, 'User')
     const before = projectUser(doc)
     const present = new Set(before.items.map((i) => i.itemId))
-    const missing = skinCatalog()
-      .map((s) => s.id)
-      .find((id) => !present.has(id))
+    const missing = categoryIds('all').find((id) => !present.has(id))
     expect(missing).toBeTruthy()
-    expect(isSkinUnlocked(doc, missing!)).toBe(false)
-    setSkinUnlocked(doc, missing!, true)
+    expect(isItemUnlockedById(doc, missing!)).toBe(false)
+    setItemUnlockedById(doc, missing!, true)
     const userChunk = encodeHxs(doc)
     const edited = {
       header: container.header,
@@ -227,3 +225,4 @@ describe.skipIf(!SAVE)('dead-cells real save (DC_SAVE)', () => {
     )
   })
 })
+

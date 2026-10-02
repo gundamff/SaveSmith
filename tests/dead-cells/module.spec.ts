@@ -41,13 +41,13 @@ describe('deadCellsModule catalog / locate / registry', () => {
     expect(deadCellsModule.views.map((v) => v.id)).toEqual([
       'resources',
       'blueprints',
-      'skins',
+      'unlock',
       'runes'
     ])
     expect(deadCellsModule.views.map((v) => v.labelKey)).toEqual([
       'dc.tabs.resources',
       'dc.tabs.blueprints',
-      'dc.tabs.skins',
+      'dc.tabs.unlock',
       'dc.tabs.runes'
     ])
     expect(deadCellsModule.views.every((v) => v.component != null)).toBe(true)
@@ -59,12 +59,19 @@ describe('deadCellsModule catalog / locate / registry', () => {
     expect(deadCellsModule.catalog.cover.length).toBeGreaterThan(0)
     expect(deadCellsModule.locate).toEqual({
       windowsPathTemplates: [
-        'C:\\Program Files (x86)\\Steam\\userdata\\1836167462\\588650\\remote',
+        'C:\\Program Files (x86)\\Steam\\userdata\\*\\588650\\remote',
+        'C:\\Program Files\\Steam\\userdata\\*\\588650\\remote',
+        'D:\\Steam\\userdata\\*\\588650\\remote',
+        'E:\\Steam\\userdata\\*\\588650\\remote',
+        'F:\\Steam\\userdata\\*\\588650\\remote',
+        'D:\\SteamLibrary\\userdata\\*\\588650\\remote',
+        'E:\\SteamLibrary\\userdata\\*\\588650\\remote',
+        'F:\\SteamLibrary\\userdata\\*\\588650\\remote',
+        'C:\\Program Files (x86)\\Steam\\steamapps\\common\\Dead Cells\\save',
+        'C:\\Program Files\\Steam\\steamapps\\common\\Dead Cells\\save',
         'D:\\SteamLibrary\\steamapps\\common\\Dead Cells\\save',
         'E:\\SteamLibrary\\steamapps\\common\\Dead Cells\\save',
-        'F:\\SteamLibrary\\steamapps\\common\\Dead Cells\\save',
-        '%PROGRAMFILES(X86)%\\Steam\\steamapps\\common\\Dead Cells\\save',
-        '%PROGRAMFILES%\\Steam\\steamapps\\common\\Dead Cells\\save'
+        'F:\\SteamLibrary\\steamapps\\common\\Dead Cells\\save'
       ],
       identifyAnyOf: ['user_0.dat', 'user_1.dat', 'user_2.dat'],
       slotFilePatterns: ['user_*.dat']

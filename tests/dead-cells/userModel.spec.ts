@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { decodeHxs, encodeHxs, asObject, asStringArray } from '../../src/games/dead-cells/model/hxbit'
 import {
-  isSkinUnlocked,
+  isItemUnlockedById,
   projectUser,
   setBossCells,
   setBossRushUnlock,
@@ -13,7 +13,7 @@ import {
   setItemIsNew,
   setItemUnlocked,
   setRune,
-  setSkinUnlocked
+  setItemUnlockedById
 } from '../../src/games/dead-cells/model/userModel'
 import { buildUserChunk } from './fixtures'
 
@@ -136,8 +136,8 @@ describe('dead-cells userModel', () => {
   it('unlocks an existing item entry in place', () => {
     const doc = decodeHxs(buildUserChunk(), 'User')
     // 'sword' exists with unlocked=false in the fixture
-    expect(isSkinUnlocked(doc, 'sword')).toBe(false)
-    setSkinUnlocked(doc, 'sword', true)
+    expect(isItemUnlockedById(doc, 'sword')).toBe(false)
+    setItemUnlockedById(doc, 'sword', true)
     const view = projectUser(decodeHxs(encodeHxs(doc), 'User'))
     expect(view.items.find((i) => i.itemId === 'sword')?.unlocked).toBe(true)
   })
@@ -145,14 +145,14 @@ describe('dead-cells userModel', () => {
   it('appends a new item entry for a skin missing from the save, then removes it', () => {
     const original = buildUserChunk()
     const doc = decodeHxs(original, 'User')
-    expect(isSkinUnlocked(doc, 'PrisonerGold')).toBe(false)
-    setSkinUnlocked(doc, 'PrisonerGold', true)
+    expect(isItemUnlockedById(doc, 'PrisonerGold')).toBe(false)
+    setItemUnlockedById(doc, 'PrisonerGold', true)
     let out = encodeHxs(doc)
     expect(out).not.toEqual(original)
     // appended entry is visible to the projection and decode round-trips
-    expect(isSkinUnlocked(doc, 'PrisonerGold')).toBe(true)
+    expect(isItemUnlockedById(doc, 'PrisonerGold')).toBe(true)
     const again = decodeHxs(out, 'User')
-    expect(isSkinUnlocked(again, 'PrisonerGold')).toBe(true)
+    expect(isItemUnlockedById(again, 'PrisonerGold')).toBe(true)
     // the appended entry becomes a regular itemProgress item after re-decode
     const items = projectUser(again).items
     expect(items).toHaveLength(3)
@@ -160,7 +160,7 @@ describe('dead-cells userModel', () => {
     // original items are untouched
     expect(items.find((i) => i.itemId === 'sword')?.unlocked).toBe(false)
     // relocking removes the appended entry and restores the original bytes
-    setSkinUnlocked(doc, 'PrisonerGold', false)
+    setItemUnlockedById(doc, 'PrisonerGold', false)
     out = encodeHxs(doc)
     expect(out).toEqual(original)
   })

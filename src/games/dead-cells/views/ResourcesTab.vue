@@ -12,7 +12,7 @@ import {
   setHeroSkin,
   type BossRushRow
 } from '../model/userModel'
-import { headOptions, outfitOptions } from '../model/skins'
+import { headOptions, outfitOptions } from '../model/catalog'
 import { useDcEditor } from './inject'
 
 const DIFFICULTY_KEYS = [

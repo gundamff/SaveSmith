@@ -128,7 +128,7 @@ mkdirSync(dirname(outPath), { recursive: true })
 writeFileSync(outPath, JSON.stringify(sorted, null, 2) + '\n', 'utf8')
 console.log(`wrote ${outPath}: ${Object.keys(sorted).length} ids (${zhCount} with zh)`)
 
-// ------------------------------------------------- skins.json (outfits / heads)
+// ------------------------------------------------- skins.json + unlock catalog
 const cdb = JSON.parse(pak['data.cdb'].toString('utf8'))
 const sheet = (name) => cdb.sheets.find((s) => s.name === name)
 const idsOf = (sheetName) => {
@@ -137,7 +137,35 @@ const idsOf = (sheetName) => {
   return s.lines.map((row) => (Array.isArray(row) ? row[s.columns.findIndex((c) => c.name === 'item')] : row.item))
 }
 const named = (ids) => ids.filter((id) => id && id in sorted)
-const skins = { outfits: named(idsOf('skin')), heads: named(idsOf('customHead')) }
-const skinsPath = join(root, 'src/games/dead-cells/data/skins.json')
-writeFileSync(skinsPath, JSON.stringify(skins, null, 2) + '\n', 'utf8')
-console.log(`wrote ${skinsPath}: ${skins.outfits.length} outfits, ${skins.heads.length} heads`)
+const outfits = named(idsOf('skin'))
+const heads = named(idsOf('customHead'))
+
+// Unlockable item catalog, grouped from the item sheet.
+const item = sheet('item')
+const tagsOf = (row) => (row.tags ?? []).map((t) => (typeof t === 'object' && t ? (t.tag ?? Object.values(t)[0]) : t))
+const EXCLUDE = new Set(['NotRealItem', 'Deprecated', 'Key', 'MetaKey', 'BossRune', 'TierUpgrade'])
+const byGroup = (groups) =>
+  item.lines
+    .filter((row) => groups.includes(row.group))
+    .filter((row) => !tagsOf(row).some((t) => EXCLUDE.has(t)))
+    .map((row) => row.id)
+    .filter((id) => id in sorted)
+
+const catalog = {
+  outfits,
+  heads,
+  unlock: {
+    weapons: byGroup([0, 1, 3, 4, 5, 6]),
+    mutations: byGroup([12]),
+    aspects: byGroup([15]),
+    skins: outfits,
+    heads,
+    meta: byGroup([9])
+  }
+}
+const catalogPath = join(root, 'src/games/dead-cells/data/catalog.json')
+writeFileSync(catalogPath, JSON.stringify(catalog, null, 2) + '\n', 'utf8')
+console.log(
+  `wrote ${catalogPath}: ${outfits.length} outfits, ${heads.length} heads, unlock ` +
+    `${Object.entries(catalog.unlock).map(([k, v]) => `${k}=${v.length}`).join(' ')}`
+)
