@@ -165,12 +165,19 @@ export function writeInt32(bytes: Uint8Array, offset: number, value: number): vo
   view.setInt32(offset, value, true)
 }
 
+type NumericArrayInner = 'IntProperty' | 'UInt32Property'
+
 /**
- * ArrayProperty&lt;IntProperty&gt; layout (AC8 Campaign.sav):
+ * ArrayProperty&lt;IntProperty|UInt32Property&gt; layout (AC8 Campaign.sav):
  *   name, "ArrayProperty", arrayIndex(i32), innerType FString,
  *   pad(i32=0), dataSize(i32 = 4 + n*4), guid(u8=0), count(i32), values(i32)*n
  */
-function parseInt32ArrayAt(bytes: Uint8Array, nameOffset: number, name: string): GvasInt32ArrayField | null {
+function parseNumericArrayAt(
+  bytes: Uint8Array,
+  nameOffset: number,
+  name: string,
+  innerType: NumericArrayInner
+): GvasInt32ArrayField | null {
   const namePart = readNameAt(bytes, nameOffset)
   if (!namePart || namePart.name !== name) return null
   const typePart = readNameAt(bytes, namePart.next)
@@ -180,7 +187,7 @@ function parseInt32ArrayAt(bytes: Uint8Array, nameOffset: number, name: string):
   if (cursor + 4 > bytes.length) return null
   cursor += 4 // arrayIndex (observed as 1 in AC8)
   const inner = readNameAt(bytes, cursor)
-  if (!inner || inner.name !== 'IntProperty') return null
+  if (!inner || inner.name !== innerType) return null
   cursor = inner.next
   if (cursor + 9 > bytes.length) return null
   const pad = view.getInt32(cursor, true)
@@ -206,8 +213,11 @@ function parseInt32ArrayAt(bytes: Uint8Array, nameOffset: number, name: string):
   }
 }
 
-/** First ArrayProperty&lt;IntProperty&gt; with matching name. */
-export function findInt32ArrayProperty(bytes: Uint8Array, name: string): GvasInt32ArrayField | null {
+function findNumericArrayProperty(
+  bytes: Uint8Array,
+  name: string,
+  innerType: NumericArrayInner
+): GvasInt32ArrayField | null {
   const needle = textEncoder.encode(`${name}\0`)
   for (let i = 4; i <= bytes.length - needle.length; i++) {
     let ok = true
@@ -223,10 +233,20 @@ export function findInt32ArrayProperty(bytes: Uint8Array, name: string): GvasInt
       true
     )
     if (nameLen !== needle.length) continue
-    const field = parseInt32ArrayAt(bytes, i - 4, name)
+    const field = parseNumericArrayAt(bytes, i - 4, name, innerType)
     if (field) return field
   }
   return null
+}
+
+/** First ArrayProperty&lt;IntProperty&gt; with matching name. */
+export function findInt32ArrayProperty(bytes: Uint8Array, name: string): GvasInt32ArrayField | null {
+  return findNumericArrayProperty(bytes, name, 'IntProperty')
+}
+
+/** First ArrayProperty&lt;UInt32Property&gt; with matching name. */
+export function findUInt32ArrayProperty(bytes: Uint8Array, name: string): GvasInt32ArrayField | null {
+  return findNumericArrayProperty(bytes, name, 'UInt32Property')
 }
 
 /**
@@ -300,22 +320,33 @@ export function readInt32Array(bytes: Uint8Array, field: GvasInt32ArrayField): n
   return out
 }
 
-/** Replace array elements; may resize underlying buffer. Updates dataSize + count. */
-export function writeInt32Array(bytes: Uint8Array, field: GvasInt32ArrayField, values: number[]): Uint8Array {
+export function readUInt32Array(bytes: Uint8Array, field: GvasInt32ArrayField): number[] {
+  const out: number[] = []
+  for (let i = 0; i < field.count; i++) {
+    out.push(readUInt32(bytes, field.dataOffset + i * 4))
+  }
+  return out
+}
+
+function writeNumericArray(
+  bytes: Uint8Array,
+  field: GvasInt32ArrayField,
+  values: number[],
+  writeValue: (buf: Uint8Array, offset: number, value: number) => void
+): Uint8Array {
   const newDataSize = 4 + values.length * 4
   const delta = (values.length - field.count) * 4
   if (delta === 0) {
     writeInt32(bytes, field.dataSizeOffset, newDataSize)
     writeInt32(bytes, field.countOffset, values.length)
     for (let i = 0; i < values.length; i++) {
-      writeInt32(bytes, field.dataOffset + i * 4, values[i]!)
+      writeValue(bytes, field.dataOffset + i * 4, values[i]!)
     }
     return bytes
   }
   const next = new Uint8Array(bytes.length + delta)
   next.set(bytes.subarray(0, field.dataSizeOffset))
   writeInt32(next, field.dataSizeOffset, newDataSize)
-  // pad already copied; write count after guid byte which sits between dataSize and count
   // Layout: dataSize(4) | guid(1) | count(4) | values
   const guidOffset = field.dataSizeOffset + 4
   next[guidOffset] = 0
@@ -323,11 +354,21 @@ export function writeInt32Array(bytes: Uint8Array, field: GvasInt32ArrayField, v
   writeInt32(next, countOffset, values.length)
   let cursor = countOffset + 4
   for (const v of values) {
-    writeInt32(next, cursor, v)
+    writeValue(next, cursor, v)
     cursor += 4
   }
   next.set(bytes.subarray(field.blockEnd), cursor)
   return next
+}
+
+/** Replace IntProperty array elements; may resize underlying buffer. */
+export function writeInt32Array(bytes: Uint8Array, field: GvasInt32ArrayField, values: number[]): Uint8Array {
+  return writeNumericArray(bytes, field, values, writeInt32)
+}
+
+/** Replace UInt32Property array elements; may resize underlying buffer. */
+export function writeUInt32Array(bytes: Uint8Array, field: GvasInt32ArrayField, values: number[]): Uint8Array {
+  return writeNumericArray(bytes, field, values, writeUInt32)
 }
 
 export function assertGvasMagic(bytes: Uint8Array): void {

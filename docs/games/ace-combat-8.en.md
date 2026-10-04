@@ -19,7 +19,9 @@ On write, SaveSmith recomputes `Checksum` with the game formula (`CRC32(PackedDa
 | Tab | Contents |
 |-----|----------|
 | Resources | Current MRP and cumulative TotalMRP; sync total to current |
-| Progress / Playthrough | Completion count, last completed / played mission IDs, read-only feature-flag summary; one-click post-clear unlocks, or pseudo NG+ (reset story cursor + keep hangar/MRP + post-clear privileges) |
+| Progress / Playthrough | Completion count, last completed / played mission IDs, summaries for FeatureFlag / Free Mission / hangar situations / aircraft-tree nodes; one-click post-clear unlocks (full mask + hangar + tree nodes), or pseudo NG+ (reset story cursor + the same unlocks) |
+
+Do not manually set last completed / played mission IDs to 30/31 — the campaign can soft-lock on the finale. Use Pseudo NG+ to reset the cursor to 0. Bulk skin ID injection is not implemented yet; some skins may still need in-game unlocks even after the FeatureFlag bit is set.
 
 ### Screenshots
 

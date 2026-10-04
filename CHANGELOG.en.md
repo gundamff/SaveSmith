@@ -2,6 +2,15 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.14.1] - 2026-10-04
+
+Fix incomplete ACE COMBAT 8 post-clear unlocks: sync hangar situations and aircraft-tree nodes, and warn against moving the mission cursor to the finale.
+
+### Fixed
+
+- **ACE COMBAT 8**: “Enable post-clear unlocks / Pseudo NG+” now writes the full clear `FeatureFlagMask` (`0x3EFC`, including Aircraft Tree), syncs Free Mission and hangar situation IDs 1–31, and merges cleared-save aircraft-tree nodes; previously only the flag delta and Free Missions were updated, so in-game menus could still look locked
+- **ACE COMBAT 8**: Progress tab warns not to set last completed/played mission IDs to 30/31 (finale soft-lock); use Pseudo NG+ to reset the cursor to 0
+
 ## [0.14.0] - 2026-10-02
 
 Adds ACE COMBAT 8: WINGS OF THEVE campaign editing (MRP, post-clear unlocks, pseudo NG+).

@@ -10,7 +10,7 @@
 - 格式：UE5 GVAS（`/Script/Live.LiveCampaignSaveGame`）
 - 一周目限制：战役涂装/徽章/Aircraft Set、DLC 机体进战役需通关一次
 
-`FeatureFlagMask` 各位对应 exe 中 `ELiveFeature` 枚举（bit1=AceDifficulty … bit13=DataViewer）。通关差值主要为 AircraftSet/Skin/Emblem/SpWeapon2ndSlot/Weathering（`0x634`）。
+`FeatureFlagMask` 各位对应 exe 中 `ELiveFeature` 枚举（bit1=AceDifficulty … bit13=DataViewer）。通关差值主要为 AircraftSet/Skin/Emblem/SpWeapon2ndSlot/Weathering（`0x634`）。「开启通关权限」应 OR 完整通关掩码 `0x3EFC`（含 AircraftTree），并同步 `UnlockedHangarSituationIDs`（1–31）与合并通关档 `UnlockedAircraftTreeNodeIDs`；仅改旗标不够。
 
 ## 目标
 

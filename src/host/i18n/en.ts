@@ -266,12 +266,15 @@ export const en: MessageTree = {
       syncTotal: 'Set Total MRP equal to Current MRP'
     },
     progress: {
-      hint: 'Pseudo NG+ keeps MRP/hangar, resets the campaign cursor, and enables post-clear features (skins/emblems/Aircraft Sets). Campaign DLC aircraft also need CompletionCount ≥ 1. Confirm menus in-game after saving.',
+      hint: '“Enable post-clear unlocks” writes the full clear FeatureFlagMask, Free Missions, hangar situations, and aircraft-tree nodes; it does not move the mission cursor. Pseudo NG+ also sets last completed/played mission IDs to 0. Do not manually set those IDs to 30/31 or the campaign may stick on the finale. Campaign DLC aircraft still need CompletionCount ≥ 1.',
+      missionIdWarn: 'Do not manually set last completed/played mission ID to 30 or 31 — the game resumes from that cursor and can soft-lock without full clear records. If stuck, use Pseudo NG+ to reset the cursor to 0.',
       completionCount: 'Clear count (CompletionCount)',
       lastCompleted: 'Last completed mission ID',
       lastPlayed: 'Last played mission ID',
       featureFlags: 'FeatureFlagMask',
-      freeMissions: 'Free Mission unlocks'
+      freeMissions: 'Free Mission unlocks',
+      hangarSituations: 'Hangar situations unlocked',
+      treeNodes: 'Aircraft tree nodes unlocked'
     },
     actions: {
       postCampaignUnlocks: 'Enable post-clear unlocks (keep story)',

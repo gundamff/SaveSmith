@@ -1,8 +1,11 @@
 import { ModuleError } from '@sdk/error'
 import {
+  CLEARED_AIRCRAFT_TREE_NODE_IDS,
   CLEARED_CAMPAIGN_FEATURE_MASK,
   FREE_MISSION_IDS,
+  HANGAR_SITUATION_IDS,
   mergePostCampaignFlags,
+  mergeUniqueIds,
   POST_CAMPAIGN_CLEAR_MASK
 } from './features'
 import {
@@ -11,13 +14,16 @@ import {
   findByteArrayProperty,
   findInt32ArrayProperty,
   findScalarProperty,
+  findUInt32ArrayProperty,
   readInt32,
   readInt32Array,
   readUInt32,
+  readUInt32Array,
   readUInt64,
   writeInt32,
   writeInt32Array,
   writeUInt32,
+  writeUInt32Array,
   writeUInt64,
   type GvasInt32ArrayField
 } from './gvas'
@@ -30,6 +36,8 @@ export interface CampaignSaveView {
   lastCompletedMissionId: number
   lastPlayedMissionId: number
   unlockedFreeMissionIds: number[]
+  unlockedHangarSituationIds: number[]
+  unlockedAircraftTreeNodeCount: number
 }
 
 interface GvasScalarRef {
@@ -109,9 +117,37 @@ function bumpPackedDataSize(bytes: Uint8Array, delta: number): void {
   writeInt32(bytes, packed.countOffset, packed.count + delta)
 }
 
+function replaceInt32ArrayByName(patch: CampaignSavePatch, name: string, ids: number[]): void {
+  const field = findInt32ArrayProperty(patch.bytes, name)
+  if (!field) throw new ModuleError('MISSING_FIELD', [name])
+  const current = readInt32Array(patch.bytes, field)
+  if (current.length === ids.length && current.every((v, i) => v === ids[i])) return
+  const delta = (ids.length - field.count) * 4
+  const nextBytes = writeInt32Array(patch.bytes, field, ids)
+  bumpPackedDataSize(nextBytes, delta)
+  rebind(patch, nextBytes)
+}
+
+function mergeUInt32ArrayByName(patch: CampaignSavePatch, name: string, extra: readonly number[]): void {
+  const field = findUInt32ArrayProperty(patch.bytes, name)
+  if (!field) throw new ModuleError('MISSING_FIELD', [name])
+  const merged = mergeUniqueIds(readUInt32Array(patch.bytes, field), extra)
+  if (merged.length === field.count) {
+    // Length unchanged but order/content may still need write if subset equal size — only skip when identical
+    const cur = readUInt32Array(patch.bytes, field)
+    if (cur.length === merged.length && cur.every((v, i) => v === merged[i])) return
+  }
+  const delta = (merged.length - field.count) * 4
+  const nextBytes = writeUInt32Array(patch.bytes, field, merged)
+  bumpPackedDataSize(nextBytes, delta)
+  rebind(patch, nextBytes)
+}
+
 export function readCampaignView(patch: CampaignSavePatch): CampaignSaveView {
   const b = patch.bytes
   const s = patch.scalars
+  const hangar = findInt32ArrayProperty(b, 'UnlockedHangarSituationIDs')
+  const tree = findUInt32ArrayProperty(b, 'UnlockedAircraftTreeNodeIDs')
   return {
     currentMrp: readUInt64(b, s.currentMrp.valueOffset),
     totalMrp: readUInt64(b, s.totalMrp.valueOffset),
@@ -119,7 +155,9 @@ export function readCampaignView(patch: CampaignSavePatch): CampaignSaveView {
     completionCount: readUInt32(b, s.completionCount.valueOffset),
     lastCompletedMissionId: readInt32(b, s.lastCompletedMissionId.valueOffset),
     lastPlayedMissionId: readInt32(b, s.lastPlayedMissionId.valueOffset),
-    unlockedFreeMissionIds: readInt32Array(b, patch.unlockedFreeMissionIds)
+    unlockedFreeMissionIds: readInt32Array(b, patch.unlockedFreeMissionIds),
+    unlockedHangarSituationIds: hangar ? readInt32Array(b, hangar) : [],
+    unlockedAircraftTreeNodeCount: tree ? tree.count : 0
   }
 }
 
@@ -162,22 +200,33 @@ export function setUnlockedFreeMissionIds(patch: CampaignSavePatch, ids: number[
   for (const id of ids) {
     if (id < 1 || id > 31) throw new ModuleError('OUT_OF_RANGE', ['UnlockedFreeMissionIDs'])
   }
-  const delta = (ids.length - patch.unlockedFreeMissionIds.count) * 4
-  const nextBytes = writeInt32Array(patch.bytes, patch.unlockedFreeMissionIds, ids)
-  bumpPackedDataSize(nextBytes, delta)
-  rebind(patch, nextBytes)
+  replaceInt32ArrayByName(patch, 'UnlockedFreeMissionIDs', ids)
   resealChecksum(patch)
 }
 
-/** Unlock post-campaign features (skin/emblem/DLC gate) without resetting story. */
+/**
+ * Unlock post-campaign features without resetting story cursor.
+ * Also syncs hangar situations + merges cleared-save aircraft-tree nodes (FeatureFlag alone is not enough).
+ */
 export function applyPostCampaignUnlocks(patch: CampaignSavePatch): void {
   const view = readCampaignView(patch)
-  if (view.completionCount < 1) setCompletionCount(patch, 1)
-  const ids = readInt32Array(patch.bytes, patch.unlockedFreeMissionIds)
-  if (ids.length < FREE_MISSION_IDS.length) {
-    setUnlockedFreeMissionIds(patch, FREE_MISSION_IDS)
+  if (view.completionCount < 1) {
+    writeUInt32(patch.bytes, patch.scalars.completionCount.valueOffset, 1)
   }
-  setFeatureFlagMask(patch, mergePostCampaignFlags(readCampaignView(patch).featureFlagMask))
+  writeUInt32(
+    patch.bytes,
+    patch.scalars.featureFlagMask.valueOffset,
+    mergePostCampaignFlags(readUInt32(patch.bytes, patch.scalars.featureFlagMask.valueOffset))
+  )
+
+  replaceInt32ArrayByName(patch, 'UnlockedFreeMissionIDs', FREE_MISSION_IDS)
+  replaceInt32ArrayByName(patch, 'NewlyUnlockedFreeMissionIDs', FREE_MISSION_IDS)
+  replaceInt32ArrayByName(patch, 'UnlockedHangarSituationIDs', HANGAR_SITUATION_IDS)
+  replaceInt32ArrayByName(patch, 'NewlyUnlockedHangarSituationIDs', HANGAR_SITUATION_IDS)
+  mergeUInt32ArrayByName(patch, 'UnlockedAircraftTreeNodeIDs', CLEARED_AIRCRAFT_TREE_NODE_IDS)
+  mergeUInt32ArrayByName(patch, 'NewlyUnlockedAircraftTreeNodeIDs', CLEARED_AIRCRAFT_TREE_NODE_IDS)
+
+  resealChecksum(patch)
 }
 
 /**

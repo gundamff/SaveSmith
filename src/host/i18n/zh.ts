@@ -266,12 +266,15 @@ export const zh: MessageTree = {
       syncTotal: '把累计 MRP 设为等于当前 MRP'
     },
     progress: {
-      hint: '「伪二周目」会保留 MRP/机库，重置战役光标，并打开通关后功能（涂装/徽章/Aircraft Set 等）。DLC 机体进战役还依赖 CompletionCount≥1。请进游戏确认菜单状态。',
+      hint: '「开启通关权限」会写入完整通关旗标、Free Mission、机库情境与科技树节点；不改任务光标。「伪二周目」额外把最近完成/游玩任务 ID 置 0。请勿手动把任务 ID 改到 30/31，否则容易卡在末盘。DLC 机体进战役仍依赖 CompletionCount≥1。',
+      missionIdWarn: '不要把「最近完成/游玩任务 ID」手动调到 30 或 31——游戏会按光标续关，缺少完整通关记录时容易卡关。若已卡住，请用「伪二周目」把光标重置为 0。',
       completionCount: '通关次数 (CompletionCount)',
       lastCompleted: '最近完成任务 ID',
       lastPlayed: '最近游玩任务 ID',
       featureFlags: '功能旗标 FeatureFlagMask',
-      freeMissions: 'Free Mission 已解锁'
+      freeMissions: 'Free Mission 已解锁',
+      hangarSituations: '机库情境已解锁',
+      treeNodes: '科技树节点已解锁'
     },
     actions: {
       postCampaignUnlocks: '开启通关权限（不重置故事）',

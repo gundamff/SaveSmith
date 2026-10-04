@@ -63,6 +63,7 @@ function runPseudoNgPlus(): void {
 <template>
   <div :data-ss-rev="editor.rev">
     <el-alert type="info" show-icon :closable="false" :title="t('ac8.progress.hint')" class="warn" />
+    <el-alert type="warning" show-icon :closable="false" :title="t('ac8.progress.missionIdWarn')" class="warn" />
     <el-descriptions :column="1" border style="max-width: 720px; margin-bottom: 16px">
       <el-descriptions-item :label="t('ac8.progress.completionCount')">
         {{ view.completionCount }}
@@ -79,6 +80,12 @@ function runPseudoNgPlus(): void {
       </el-descriptions-item>
       <el-descriptions-item :label="t('ac8.progress.freeMissions')">
         {{ view.unlockedFreeMissionIds.length }} / 31
+      </el-descriptions-item>
+      <el-descriptions-item :label="t('ac8.progress.hangarSituations')">
+        {{ view.unlockedHangarSituationIds.length }} / 31
+      </el-descriptions-item>
+      <el-descriptions-item :label="t('ac8.progress.treeNodes')">
+        {{ view.unlockedAircraftTreeNodeCount }}
       </el-descriptions-item>
     </el-descriptions>
 

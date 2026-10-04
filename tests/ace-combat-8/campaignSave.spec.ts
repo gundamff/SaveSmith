@@ -10,12 +10,22 @@ import {
   setCurrentMrp,
   setTotalMrp
 } from '../../src/games/ace-combat-8/model/campaignSave'
-import { FREE_MISSION_IDS, POST_CAMPAIGN_CLEAR_MASK } from '../../src/games/ace-combat-8/model/features'
+import {
+  CLEARED_AIRCRAFT_TREE_NODE_IDS,
+  CLEARED_CAMPAIGN_FEATURE_MASK,
+  FREE_MISSION_IDS,
+  HANGAR_SITUATION_IDS,
+  POST_CAMPAIGN_CLEAR_MASK
+} from '../../src/games/ace-combat-8/model/features'
 import {
   computePackedChecksum,
   findByteArrayProperty,
+  findInt32ArrayProperty,
   findScalarProperty,
-  readUInt32
+  findUInt32ArrayProperty,
+  readInt32Array,
+  readUInt32,
+  readUInt32Array
 } from '../../src/games/ace-combat-8/model/gvas'
 
 function readStoredChecksum(bytes: Uint8Array): number {
@@ -79,19 +89,37 @@ describe('ace-combat-8 campaign save', () => {
     assertChecksumValid(patch.bytes)
   })
 
-  it('applies post-campaign unlocks and expands free missions', () => {
+  it('applies post-campaign unlocks: flags, hangar, free missions, tree nodes', () => {
     const patch = loadCampaignPatch(load('campaign-midgame.sav'))
     const before = patch.bytes.length
     applyPostCampaignUnlocks(patch)
     const view = readCampaignView(patch)
     expect(view.completionCount).toBe(1)
     expect(view.unlockedFreeMissionIds).toEqual(FREE_MISSION_IDS)
+    expect(view.featureFlagMask & CLEARED_CAMPAIGN_FEATURE_MASK).toBe(CLEARED_CAMPAIGN_FEATURE_MASK)
     expect(view.featureFlagMask & POST_CAMPAIGN_CLEAR_MASK).toBe(POST_CAMPAIGN_CLEAR_MASK)
     expect(patch.bytes.length).toBeGreaterThan(before)
+
+    const hangar = findInt32ArrayProperty(patch.bytes, 'UnlockedHangarSituationIDs')
+    expect(hangar).toBeTruthy()
+    expect(readInt32Array(patch.bytes, hangar!)).toEqual(HANGAR_SITUATION_IDS)
+    const newlyHangar = findInt32ArrayProperty(patch.bytes, 'NewlyUnlockedHangarSituationIDs')
+    expect(readInt32Array(patch.bytes, newlyHangar!)).toEqual(HANGAR_SITUATION_IDS)
+    const newlyFree = findInt32ArrayProperty(patch.bytes, 'NewlyUnlockedFreeMissionIDs')
+    expect(readInt32Array(patch.bytes, newlyFree!)).toEqual(FREE_MISSION_IDS)
+
+    const tree = findUInt32ArrayProperty(patch.bytes, 'UnlockedAircraftTreeNodeIDs')
+    expect(tree).toBeTruthy()
+    const treeIds = new Set(readUInt32Array(patch.bytes, tree!))
+    for (const id of CLEARED_AIRCRAFT_TREE_NODE_IDS) expect(treeIds.has(id)).toBe(true)
+
     const packed = findByteArrayProperty(patch.bytes, 'PackedData')
     expect(packed).toBeTruthy()
     expect(packed!.count).toBe(packed!.blockEnd - packed!.dataOffset)
     assertChecksumValid(patch.bytes)
+    // Keep story cursor — do not shove the player onto mission 30/31.
+    expect(view.lastCompletedMissionId).toBe(5)
+    expect(view.lastPlayedMissionId).toBe(5)
   })
 
   it('pseudo NG+ resets mission cursor while keeping unlocks', () => {
@@ -103,8 +131,10 @@ describe('ace-combat-8 campaign save', () => {
     expect(view.lastCompletedMissionId).toBe(0)
     expect(view.lastPlayedMissionId).toBe(0)
     expect(view.completionCount).toBe(1)
-    expect(view.featureFlagMask & POST_CAMPAIGN_CLEAR_MASK).toBe(POST_CAMPAIGN_CLEAR_MASK)
+    expect(view.featureFlagMask & CLEARED_CAMPAIGN_FEATURE_MASK).toBe(CLEARED_CAMPAIGN_FEATURE_MASK)
     expect(view.unlockedFreeMissionIds).toEqual(FREE_MISSION_IDS)
+    const hangar = findInt32ArrayProperty(patch.bytes, 'UnlockedHangarSituationIDs')
+    expect(readInt32Array(patch.bytes, hangar!)).toEqual(HANGAR_SITUATION_IDS)
     assertChecksumValid(patch.bytes)
   })
 })
