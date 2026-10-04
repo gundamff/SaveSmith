@@ -1,8 +1,8 @@
 # ACE COMBAT 8 存档模块设计
 
-日期：2026-10-02  
+日期：2026-10-02（深化计划见 [2026-10-04-ace-combat-8-deepening-design.md](./2026-10-04-ace-combat-8-deepening-design.md)）  
 范围：Campaign.sav 轻量 GVAS 补丁（MRP + 伪二周目）  
-状态：已实现首版
+状态：已实现首版；后续 C→A→B 见深化设计/计划
 
 ## 背景
 
@@ -30,9 +30,15 @@
 
 ## 封条（Checksum）
 
-`Checksum`（外层 `UInt32Property`）= **CRC32（PackedData 嵌套字节，种子 `0x41916EBD`）**：
+游戏公式（exe / [ac8-save-editor](https://github.com/RivaTesu/ac8-save-editor) 恢复）：
+
+`Checksum = FCrc::MemCrc32(PackedData, FCrc::StrCrc32(TEXT("XnMVqmFJnH!2")))`
+
+盐 **`XnMVqmFJnH!2`** 经 UE `StrCrc32` 后即种子 **`0x41916EBD`**。SaveSmith 实现与之等价：
 
 - 输入：`PackedData` 的 Byte 数组载荷（不含 count 头）
 - 算法：标准 CRC-32／ISO-HDLC 多项式 `0xEDB88320`，初值 `~0x41916EBD`，终值再 `^ 0xFFFFFFFF`
 - 任何改动（含仅改 MRP）后必须重算写回，否则游戏报「存档已损坏」
 - 扩写 PackedData 内数组时，同步更新外层 `PackedData` 的 `dataSize` / `count`
+
+用户可见字段说明与能力矩阵见 [docs/games/ace-combat-8.md](../games/ace-combat-8.md)。
