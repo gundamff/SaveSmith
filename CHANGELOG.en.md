@@ -2,6 +2,24 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.14.3] - 2026-10-04
+
+ACE COMBAT 8: independent Aircraft / Skins / Emblems / Mission-rank tabs; list and rank writes use a full GVAS tree rewrite like the reference editor.
+
+### Added
+
+- **ACE COMBAT 8**: Aircraft / Skins / Emblems / Mission-rank tabs; names extracted from the reference editor assets (DataTable + English loc), PNG icons not bundled
+- Docs capability matrix; 100% snapshot now includes `OwnedAircrafts` IDs
+
+### Fixed
+
+- **ACE COMBAT 8**: Growing fields (skins / emblems / aircraft) are serialized from the property tree then checksummed (same as [ac8-save-editor](https://github.com/RivaTesu/ac8-save-editor) `Writer.Save`), so CRC-valid files no longer fail to load
+- **ACE COMBAT 8**: Mission ranks only poke existing `HighestRank` letters; ancestor Size fields are rebuilt on save
+
+### Notes
+
+- A `.sys` filename in the middle of the Easy Anti-Cheat splash (e.g. `RTCoreMini64.sys`) is a blocked overlay driver (RivaTuner and similar), not a bad save
+
 ## [0.14.2] - 2026-10-04
 
 ACE COMBAT 8: post-clear unlocks now merge 100% reference lists (skins/emblems/medals/tree) and activate Ace UnlockData.

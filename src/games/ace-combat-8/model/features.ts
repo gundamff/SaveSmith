@@ -65,10 +65,17 @@ function idsOf(name: keyof typeof reference100pct.arrays): readonly number[] {
   return a.ids
 }
 
+function idsOfMap(name: 'OwnedAircrafts'): readonly number[] {
+  const m = reference100pct.maps[name]
+  if (!m?.ids?.length) throw new Error(`missing snapshot map ${name}`)
+  return m.ids
+}
+
 export const REF_AIRCRAFT_TREE_NODE_IDS = idsOf('UnlockedAircraftTreeNodeIDs')
 export const REF_SKIN_IDS = idsOf('UnlockedSkinIdList')
 export const REF_EMBLEM_IDS = idsOf('UnlockedEmblemIdList')
 export const REF_MEDAL_IDS = idsOf('UnlockedMedalIdList')
+export const REF_OWNED_AIRCRAFT_IDS = idsOfMap('OwnedAircrafts')
 
 /** @deprecated use REF_AIRCRAFT_TREE_NODE_IDS */
 export const CLEARED_AIRCRAFT_TREE_NODE_IDS = REF_AIRCRAFT_TREE_NODE_IDS

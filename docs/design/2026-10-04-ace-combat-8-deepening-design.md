@@ -37,7 +37,7 @@
 
 ## 架构原则
 
-- 继续 **定点补丁 + 未知字节透传**（不强制上完整 GVAS AST，除非 B 期某功能证明补丁不够）。
+- **定点补丁有硬边界**：参考编辑器对每个 Property 写回 **Size + TagFlags + payload**，再重建 PackedData。SaveSmith 不能改 FString/嵌套结构长度，除非同步所有祖先 Size。任务评级只允许改 `ELiveClearRank::` 后一个字母。
 - 参考编辑器作**语义与字段清单权威**；实现仍落在 `src/games/ace-combat-8/`，符合 SaveSmith 模块约定。
 - 数据表（机体/涂装 ID 等）：优先从游戏 pak / 参考编辑器公开 JSON 结构**自行提取**，写入 `src/games/ace-combat-8/data/`；不复制 Nexus 存档二进制。
 - 每期可独立发版（建议 C 可不发版或只 docs；A→`0.15.x`；B 拆 `0.16+`）。
@@ -50,6 +50,49 @@
 | 完整 GVAS 成本高 | A 继续补丁；B 按页引入，必要时再引入结构化读写 |
 | assets.zip 体积/版权 | SaveSmith 用文本 ID + 可选本地化名，不做游戏内图标包 |
 | 与参考编辑器功能重叠 | README 可致谢/链接；定位「存档酱多游戏宿主里的 AC8 模块」 |
+
+## 2026-10-04 手测：进不去游戏 vs 存档写出
+
+两件事要拆开。删档 + Steam 完整性校验仍卡在同一画面，说明**当前进不去不是 Campaign.sav 坏了**。
+
+### A. 启动画面中央显示 `RTCoreMini64.sys`（本次截图）
+
+这是 **Easy Anti-Cheat 拦截内核驱动** 的典型表现（同类游戏会写成 “Please unload RTCoreMini64.sys”）。EAC logo 还在，标题画面没出来。
+
+本机核对（2026-10-04）：
+
+- 服务名 `RTCoreMini64`，状态 **Running**
+- 路径：`C:\Program Files (x86)\RivaTuner Statistics Server\PlugIns\Client\RTCoreMini64.sys`
+- 来源：**RivaTuner Statistics Server**（常随 MSI Afterburner）。该驱动有已知 BYOVD 漏洞，EAC/Vanguard 会拦。
+
+删存档、校验游戏文件**不会**卸载这个驱动，所以现象不变。
+
+处理顺序（改系统前先关游戏）：退出 Afterburner / RTSS 托盘 → 管理员 `sc stop RTCoreMini64` → 再从 Steam 启动。仍 Running 则卸 RTSS/Afterburner 后重启。不要把 `.sys` 随便改名后继续超频监控。
+
+另：同机还有 `PawnIO` 在跑（Unwinder 新 IO 驱动）。本次画面点名的是 RTCoreMini64；PawnIO 先观察。
+
+### B. 存档写出（对照 [RivaTesu/ac8-save-editor](https://github.com/RivaTesu/ac8-save-editor)，仍有效）
+
+GitHub 编辑器：`Reader.Load` 整树 → 改值 → `Writer.Save` 重算每个 Size / PackedData / Checksum。Load 后立刻 round-trip，字节必须一致。
+
+SaveSmith 是原地补丁。CRC 用同一套 `MemCrc32(PackedData, StrCrc32("XnMVqmFJnH!2"))` ≡ `0x41916EBD`，**CRC 绿 ≠ 游戏能载**。祖先 Size 对不上时游戏报存档损坏。
+
+已确认布局（UE 5.4 `FPropertyTypeName`）：
+
+- 属性：`Name` + TypeName（`Inner.Count` + 嵌套）+ `Size` + TagFlags(u8) + payload。`Inner.Count` 不是旧 GVAS 的 arrayIndex。
+- `HighestRank`：TypeName = `EnumProperty<ELiveClearRank</Script/Live>, ByteProperty>`，Size=22，FString 长度字段 18。
+- 旧路径 `writeFStringAt` 若缩短 FString 而不更新 `CompletedMissionList` 等祖先 Size，会写出「校验成功、游戏拒载」的档。
+- **皮肤/徽章列表扩容**（2026-10-04 第一关档）：原地 splice 的 `UnlockedSkinIdList` 走查能过，游戏仍报损坏。对照 GitHub：应用 `Writer.Save` 整树重写。现已 `loadCampaignSave` → 改数组 → `saveCampaignSave`（每次封条走这条路径）。
+- 打开/封条时用与参考 Reader 相同的 Size 消耗走查。fixture 上 MRP / 通关解锁 / 机体涂装 / 评级走查通过。
+- **已经写坏的 Campaign.sav 不能靠再保存撑回去**，只能还原 SaveSmith 备份。这与 EAC 卡启动是两条线。
+
+### C. 怎么判断下次是哪一种
+
+| 现象 | 更可能 |
+|------|--------|
+| EAC 画面中央一个 `.sys` 文件名，进不了标题 | 反作弊拦驱动，不是存档 |
+| 能进标题 / 选档，提示存档损坏或存档不出现 | 再查 Campaign.sav / 备份 |
+| 删档 + 校验完整性后仍卡在同一 `.sys` | 几乎肯定不是存档 |
 
 ## 验收总览
 

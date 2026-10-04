@@ -27,7 +27,7 @@ Checksum = FCrc::MemCrc32(PackedDataBytes, FCrc::StrCrc32(TEXT("XnMVqmFJnH!2")))
 - Salt string: `XnMVqmFJnH!2` (UE `StrCrc32` feeds each TCHAR as 4 bytes)
 - That seed is the commonly cited **`0x41916EBD`**
 - SaveSmith: reflected CRC-32 (poly `0xEDB88320`), init `~0x41916EBD`, final XOR `0xFFFFFFFF`, over PackedData **byte payload** (not the outer count header)
-- When resizing arrays inside PackedData, update outer `dataSize` / `count`
+- Growing fields (skins / emblems / aircraft lists) rewrite PackedData from the property tree like the reference editor, then reseal Checksum
 
 ## FeatureFlagMask (`ELiveFeature`)
 
@@ -67,8 +67,12 @@ Flipping Feature bit 1 alone is often not enough. Reference editors also:
 |-----|----------|
 | Resources | Current MRP and cumulative TotalMRP; sync total to current |
 | Progress / Playthrough | Completion count, last completed / played mission IDs, FeatureFlag / Free Mission / hangar / tree summaries; post-clear unlocks or pseudo NG+ |
+| Aircraft | Toggle `OwnedAircrafts`; names from the reference editor DataTable (no icons) |
+| Skins | `UnlockedSkinIdList` with English names |
+| Emblems | `UnlockedEmblemIdList` with English names |
+| Mission ranks | 31 English titles; edit HighestRank on existing records only; set-all-S |
 
-Do not manually set last completed / played mission IDs to 30/31. “Enable post-clear unlocks” merges the 100% reference lists (tree / skins / emblems / medals) and activates Ace UnlockData. Owned-aircraft map and mission ranks remain plan **B**.
+Do not manually set last completed / played mission IDs to 30/31. “Enable post-clear unlocks” merges the 100% reference lists (tree / skins / emblems / medals) and activates Ace UnlockData.
 
 ### Screenshots
 
@@ -91,6 +95,7 @@ Counts come from local analysis snapshots (e.g. `src/games/ace-combat-8/data/ref
 | UnlockedSkinIdList | 5 | 525 | 882 |
 | UnlockedEmblemIdList | 95 | 112 | 285 |
 | UnlockedMedalIdList | 0 | 12 | 29 |
+| OwnedAircrafts | 15 | 32 | 36 |
 
 Note: the 100% reference leaves the cursor on mission 3 — full unlocks do not require sitting on 30/31.
 
@@ -103,8 +108,9 @@ Compared with [RivaTesu/ac8-save-editor](https://github.com/RivaTesu/ac8-save-ed
 | MRP / Checksum | yes | yes | — |
 | FeatureFlag / FreeMission / Hangar / Tree merge | yes (100% lists) | yes | **A** done |
 | Ace difficulty (Feature + UnlockData) | yes (A) | yes (also MenuMiscFlag) | 100% refs often omit NewAceDifficulty; SaveSmith matches that |
-| OwnedAircrafts / Skins / Emblems / Medals / Parts | no | yes | **B** |
-| CompletedMissionList ranks | no | yes | **B** |
+| OwnedAircrafts / Skins / Emblems | yes (by ID; no icons/names) | yes (named cards) | **B** tabs shipped |
+| Medals / Parts | no dedicated tabs | yes | medals merged on post-clear; parts still out |
+| CompletedMissionList ranks | yes (existing records; set-all-S) | yes | **B** |
 | System.sav | no | yes | B optional |
 | Full UnlockData | no | yes | A minimal (Ace) + B |
 | Advanced property tree | no | yes | **out of scope** |
@@ -115,11 +121,13 @@ Compared with [RivaTesu/ac8-save-editor](https://github.com/RivaTesu/ac8-save-ed
 2. Test on a **copy** first; Save auto-backs up (last 10 per file).
 3. Pseudo NG+ keeps hangar/MRP, resets the mission cursor to 0, and enables post-clear features. Campaign DLC aircraft still need `CompletionCount ≥ 1`.
 4. Do not use for online play or redistribute modified saves.
+5. A driver name such as `RTCoreMini64.sys` in the middle of the splash is Easy Anti-Cheat blocking overlay software (RivaTuner / MSI Afterburner), not a corrupt save.
 
 ## Developers
 
 - Module: `src/games/ace-combat-8/`
 - Snapshot script: `node scripts/ac8-snapshot-save.mjs <Campaign.sav> [out.json]`
+- Name catalog: `node scripts/ac8-extract-catalog.mjs <ac8-save-editor/assets>` (writes `src/games/ace-combat-8/data/catalog.json`; does not copy PNGs)
 - Design: [2026-10-02](../design/2026-10-02-ace-combat-8-design.md) · [deepening 2026-10-04](../design/2026-10-04-ace-combat-8-deepening-design.md)
 
 Back to [README](../../README.en.md).

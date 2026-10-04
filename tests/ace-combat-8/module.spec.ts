@@ -11,7 +11,14 @@ const fixtures = join(dirname(fileURLToPath(import.meta.url)), 'fixtures')
 describe('aceCombat8Module catalog / locate / registry', () => {
   it('registers with resources and progress views', () => {
     expect(aceCombat8Module.id).toBe('ace-combat-8')
-    expect(aceCombat8Module.views.map((v) => v.id)).toEqual(['resources', 'progress'])
+    expect(aceCombat8Module.views.map((v) => v.id)).toEqual([
+      'resources',
+      'progress',
+      'aircraft',
+      'skins',
+      'emblems',
+      'missions'
+    ])
     expect(aceCombat8Module.catalog.steamAppId).toBe(2288340)
     expect(aceCombat8Module.locate.identifyAnyOf).toContain('Campaign.sav')
     expect(modules.map((m) => m.id)).toContain('ace-combat-8')

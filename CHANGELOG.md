@@ -2,6 +2,24 @@
 
 [**中文**](CHANGELOG.md) | [English](CHANGELOG.en.md)
 
+## [0.14.3] - 2026-10-04
+
+皇牌空战 8：机体 / 涂装 / 徽章 / 任务评级独立编辑页；列表与评级写入对齐参考编辑器的 GVAS 整树重写。
+
+### 新增
+
+- **皇牌空战 8**：机体 / 涂装 / 徽章 / 任务评级独立页；名称从参考编辑器 assets（DataTable + 英文本地化）提取，不捆绑 PNG 图标
+- 文档能力矩阵更新；100% 快照补 `OwnedAircrafts` 机体 ID 目录
+
+### 修复
+
+- **皇牌空战 8**：涂装 / 徽章 / 机体等变长字段改为整棵属性树序列化后再封 Checksum（对齐 [ac8-save-editor](https://github.com/RivaTesu/ac8-save-editor) 的 `Writer.Save`），避免「CRC 通过、游戏仍报存档损坏」
+- **皇牌空战 8**：任务评级只改已有 `HighestRank` 字母，保存时重算祖先 Size
+
+### 注意
+
+- 游戏启动画面中央出现 `RTCoreMini64.sys` 一类文件名，是 Easy Anti-Cheat 拦截监控驱动（如 RivaTuner），不是存档损坏
+
 ## [0.14.2] - 2026-10-04
 
 皇牌空战 8：通关权限对齐 100% 参考列表（涂装/徽章/勋章/科技树），并激活 Ace UnlockData。

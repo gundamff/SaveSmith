@@ -255,7 +255,11 @@ export const en: MessageTree = {
   ac8: {
     tabs: {
       resources: 'Resources',
-      progress: 'Progress / NG+'
+      progress: 'Progress / NG+',
+      aircraft: 'Aircraft',
+      skins: 'Skins',
+      emblems: 'Emblems',
+      missions: 'Mission ranks'
     },
     hint: {
       quitAndCloud: 'Quit the game completely and temporarily disable Steam Cloud before editing.'
@@ -285,6 +289,27 @@ export const en: MessageTree = {
     actions: {
       postCampaignUnlocks: 'Enable post-clear unlocks (keep story)',
       pseudoNgPlus: 'Pseudo NG+ (reset story + unlocks)'
+    },
+    lists: {
+      searchId: 'Search ID',
+      searchName: 'Search name or ID',
+      onlyLocked: 'Locked only',
+      unlockVisible: 'Unlock visible',
+      lockVisible: 'Lock visible',
+      id: 'ID',
+      name: 'Name',
+      unlocked: 'Unlocked',
+      owned: 'Owned',
+      skinsHint: 'Search by name and toggle unlock.',
+      emblemsHint: 'Search by name and toggle unlock.',
+      aircraftHint: 'Check to own the aircraft. The save stores owned/not owned, not a count.'
+    },
+    missions: {
+      hint: 'You can only change ranks on missions you have already flown. Uncleared missions have no record to edit.',
+      id: 'Mission',
+      lastRank: 'Last rank',
+      noRecord: 'no record',
+      allS: 'Set existing records to S'
     }
   },
   dc: {

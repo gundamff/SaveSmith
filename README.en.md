@@ -50,7 +50,7 @@ Per-game editable fields, default paths, and caveats live in the docs linked bel
 | [Terraria](docs/games/terraria.en.md) | Re-Logic | Supported (vanilla .plr) | [English](docs/games/terraria.en.md) · [中文](docs/games/terraria.md) |
 | [DragonSword: Awakening](docs/games/dragon-sword.en.md) | HOUND13 | Supported (offline; disable Steam Cloud) | [English](docs/games/dragon-sword.en.md) · [中文](docs/games/dragon-sword.md) |
 | [Eslabong](docs/games/eslabong.en.md) | shirowita | Supported (EA; format may change) | [English](docs/games/eslabong.en.md) · [中文](docs/games/eslabong.md) |
-| [ACE COMBAT 8](docs/games/ace-combat-8.en.md) | Bandai Namco Entertainment | Supported (campaign MRP / pseudo NG+) | [English](docs/games/ace-combat-8.en.md) · [中文](docs/games/ace-combat-8.md) |
+| [ACE COMBAT 8](docs/games/ace-combat-8.en.md) | Bandai Namco Entertainment | Supported (campaign MRP / NG+ / aircraft skins emblems / mission ranks) | [English](docs/games/ace-combat-8.en.md) · [中文](docs/games/ace-combat-8.md) |
 
 When adding a game: ship the module, add a row here, and write `docs/games/<id>.md` (+ `.en.md`).
 

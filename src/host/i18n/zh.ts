@@ -255,7 +255,11 @@ export const zh: MessageTree = {
   ac8: {
     tabs: {
       resources: '资源',
-      progress: '进度 / 周目'
+      progress: '进度 / 周目',
+      aircraft: '机体',
+      skins: '涂装',
+      emblems: '徽章',
+      missions: '任务评级'
     },
     hint: {
       quitAndCloud: '请先完全退出游戏，并暂时关闭 Steam 云同步，再改档保存。'
@@ -285,6 +289,27 @@ export const zh: MessageTree = {
     actions: {
       postCampaignUnlocks: '开启通关权限（不重置故事）',
       pseudoNgPlus: '伪二周目（重置故事 + 通关权限）'
+    },
+    lists: {
+      searchId: '搜索 ID',
+      searchName: '搜索名称或 ID',
+      onlyLocked: '只看未解锁',
+      unlockVisible: '解锁当前列表',
+      lockVisible: '锁定当前列表',
+      id: 'ID',
+      name: '名称',
+      unlocked: '已解锁',
+      owned: '已拥有',
+      skinsHint: '按名称搜索，开关控制是否解锁。',
+      emblemsHint: '按名称搜索，开关控制是否解锁。',
+      aircraftHint: '勾选即拥有该机体。存档只有拥有/未拥有，没有架数。'
+    },
+    missions: {
+      hint: '只能改已经打过的关的评级；没有记录的关无法凭空加上。',
+      id: '任务',
+      lastRank: '最近评级',
+      noRecord: '无记录',
+      allS: '已有记录全部 S'
     }
   },
   dc: {

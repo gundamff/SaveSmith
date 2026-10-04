@@ -13,13 +13,14 @@ import {
   REF_SKIN_IDS
 } from './features'
 import { activateAceUnlockEntry, isAceUnlockEntryActive } from './unlockFlags'
+import { assertPackedDataUe54, rewriteCampaignSave } from './ue54'
 import {
   assertGvasMagic,
-  computePackedChecksum,
   findByteArrayProperty,
   findInt32ArrayProperty,
   findScalarProperty,
   findUInt32ArrayProperty,
+  findUInt32ByteMapProperty,
   readInt32,
   readInt32Array,
   readUInt32,
@@ -47,6 +48,7 @@ export interface CampaignSaveView {
   unlockedEmblemCount: number
   unlockedMedalCount: number
   aceUnlockActive: boolean
+  ownedAircraftCount: number
 }
 
 interface GvasScalarRef {
@@ -81,6 +83,7 @@ function requireScalar(
 
 function resolvePatch(bytes: Uint8Array): CampaignSavePatch {
   assertGvasMagic(bytes)
+  assertPackedDataUe54(bytes)
   const freeMissions = findInt32ArrayProperty(bytes, 'UnlockedFreeMissionIDs')
   if (!freeMissions) throw new ModuleError('MISSING_FIELD', ['UnlockedFreeMissionIDs'])
   return {
@@ -108,22 +111,27 @@ function rebind(patch: CampaignSavePatch, bytes: Uint8Array): void {
   patch.unlockedFreeMissionIds = next.unlockedFreeMissionIds
 }
 
-/** Recompute Checksum = CRC32(PackedData, seed 0x41916EBD). Call after any edit. */
-export function resealChecksum(patch: CampaignSavePatch): void {
-  const packed = findByteArrayProperty(patch.bytes, 'PackedData')
-  if (!packed) throw new ModuleError('MISSING_FIELD', ['PackedData'])
-  const checksum = findScalarProperty(patch.bytes, 'Checksum', 'UInt32Property')
-  if (!checksum) throw new ModuleError('MISSING_FIELD', ['Checksum'])
-  const value = computePackedChecksum(patch.bytes.subarray(packed.dataOffset, packed.blockEnd))
-  writeUInt32(patch.bytes, checksum.valueOffset, value)
+export function rebindPatch(patch: CampaignSavePatch, bytes: Uint8Array): void {
+  rebind(patch, bytes)
 }
 
-function bumpPackedDataSize(bytes: Uint8Array, delta: number): void {
+/** Recompute Checksum = CRC32(PackedData, seed 0x41916EBD). Call after any edit. */
+export function resealChecksum(patch: CampaignSavePatch): void {
+  const next = rewriteCampaignSave(patch.bytes)
+  rebind(patch, next)
+}
+
+export function bumpPackedDataSize(bytes: Uint8Array, delta: number): void {
   if (delta === 0) return
   const packed = findByteArrayProperty(bytes, 'PackedData')
   if (!packed) throw new ModuleError('MISSING_FIELD', ['PackedData'])
   writeInt32(bytes, packed.dataSizeOffset, packed.count + 4 + delta)
   writeInt32(bytes, packed.countOffset, packed.count + delta)
+}
+
+export function resealAfter(patch: CampaignSavePatch, bytes: Uint8Array): void {
+  rebind(patch, bytes)
+  resealChecksum(patch)
 }
 
 function replaceInt32ArrayByName(patch: CampaignSavePatch, name: string, ids: number[]): void {
@@ -173,7 +181,8 @@ export function readCampaignView(patch: CampaignSavePatch): CampaignSaveView {
     unlockedSkinCount: skins ? skins.count : 0,
     unlockedEmblemCount: emblems ? emblems.count : 0,
     unlockedMedalCount: medals ? medals.count : 0,
-    aceUnlockActive: isAceUnlockEntryActive(b)
+    aceUnlockActive: isAceUnlockEntryActive(b),
+    ownedAircraftCount: findUInt32ByteMapProperty(b, 'OwnedAircrafts')?.count ?? 0
   }
 }
 

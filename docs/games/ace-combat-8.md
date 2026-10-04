@@ -27,7 +27,7 @@ Checksum = FCrc::MemCrc32(PackedDataBytes, FCrc::StrCrc32(TEXT("XnMVqmFJnH!2")))
 - 盐字符串：`XnMVqmFJnH!2`（UE `StrCrc32` 按 TCHAR 每字符 4 字节喂入）
 - 得到的 CRC 初值即论坛常见的 **`0x41916EBD`**
 - SaveSmith 实现：标准反射 CRC-32（多项式 `0xEDB88320`），初值 `~0x41916EBD`，终值再 `^ 0xFFFFFFFF`，输入为 PackedData **字节载荷**（不含外层 count 头）
-- 扩写 PackedData 内数组时，须同步外层 `dataSize` / `count`
+- 变长字段（涂装 / 徽章 / 机体列表等）按参考编辑器方式整树重写 PackedData，再重算 Checksum；不要只改列表字节却不更新祖先 Size
 
 ## FeatureFlagMask（ELiveFeature）
 
@@ -66,9 +66,13 @@ Checksum = FCrc::MemCrc32(PackedDataBytes, FCrc::StrCrc32(TEXT("XnMVqmFJnH!2")))
 | 标签 | 内容 |
 |------|------|
 | 资源 | 当前 MRP、累计 TotalMRP；可将累计同步为当前值 |
-| 进度 / 周目 | 通关次数、最近完成 / 游玩任务 ID、功能旗标 / Free Mission / 机库情境 / 科技树节点摘要；一键开启通关权限（完整旗标 + 机库 + 树节点），或伪二周目（重置故事光标 + 同上） |
+| 进度 / 周目 | 通关次数、最近完成 / 游玩任务 ID、功能旗标 / Free Mission / 机库情境 / 科技树节点摘要；一键开启通关权限或伪二周目 |
+| 机体 | `OwnedAircrafts` 拥有开关；名称来自参考编辑器 assets 的 DataTable（无图标） |
+| 涂装 | `UnlockedSkinIdList`；显示英文名称 |
+| 徽章 | `UnlockedEmblemIdList`；显示英文名称 |
+| 任务评级 | 31 关英文标题；仅改存档里已有记录的 HighestRank；可一键 S |
 
-请勿手动把「最近完成 / 游玩任务 ID」改到 30/31，否则容易卡在末盘；卡住时用「伪二周目」把光标置 0。「开启通关权限」会合并 100% 参考列表（科技树 / 涂装 / 徽章 / 勋章）并激活 Ace UnlockData；机体 Map 与任务评级属计划 **B**。
+请勿手动把「最近完成 / 游玩任务 ID」改到 30/31，否则容易卡在末盘；卡住时用「伪二周目」把光标置 0。「开启通关权限」会合并 100% 参考列表（科技树 / 涂装 / 徽章 / 勋章）并激活 Ace UnlockData。
 
 ### 截图
 
@@ -91,6 +95,7 @@ Checksum = FCrc::MemCrc32(PackedDataBytes, FCrc::StrCrc32(TEXT("XnMVqmFJnH!2")))
 | UnlockedSkinIdList | 5 | 525 | 882 |
 | UnlockedEmblemIdList | 95 | 112 | 285 |
 | UnlockedMedalIdList | 0 | 12 | 29 |
+| OwnedAircrafts | 15 | 32 | 36 |
 
 说明：100% 参考档把任务光标停在第 3 关，说明「全解锁」不必卡在 30/31。
 
@@ -103,8 +108,9 @@ Checksum = FCrc::MemCrc32(PackedDataBytes, FCrc::StrCrc32(TEXT("XnMVqmFJnH!2")))
 | MRP / Checksum | 有 | 有 | — |
 | FeatureFlag / FreeMission / Hangar / Tree merge | 部分（通关掩码 + 列表） | 有 | **A** 已对齐 100% 列表 |
 | Ace 难度（Feature + UnlockData） | 有（A） | 有（另可写 MenuMiscFlag） | 100% 参考档无 NewAceDifficulty 旗，SaveSmith 与之对齐 |
-| OwnedAircrafts / Skins / Emblems / Medals / Parts | 无 | 有 | **B** |
-| CompletedMissionList 评级 | 无 | 有 | **B** |
+| OwnedAircrafts / Skins / Emblems | 有（按 ID；无图标名） | 有（含 assets 名/图） | **B** 已接入独立页 |
+| Medals / Parts | 无独立页 | 有 | 勋章随通关 merge；零件仍不做 |
+| CompletedMissionList 评级 | 有（仅已有记录；可一键 S） | 有 | **B** |
 | System.sav | 无 | 有 | B 可选 |
 | UnlockData 全表 | 无 | 有 | A 最小（Ace）+ B 扩展 |
 | Advanced 属性树 | 无 | 有 | **不做** |
@@ -115,11 +121,13 @@ Checksum = FCrc::MemCrc32(PackedDataBytes, FCrc::StrCrc32(TEXT("XnMVqmFJnH!2")))
 2. 首次请用存档**副本**试验；保存前会自动备份（每文件最近 10 份）。
 3. 伪二周目会保留机库与 MRP，把任务光标重置为 0，并打开通关后功能；DLC 机体进战役仍依赖 `CompletionCount ≥ 1`。
 4. 请勿用于联机或传播已修改存档。
+5. 启动画面正中出现 `RTCoreMini64.sys` 等驱动名：Easy Anti-Cheat 在拦监控软件，不是存档损坏。先退出 RivaTuner / MSI Afterburner。
 
 ## 开发者
 
 - 模块代码：`src/games/ace-combat-8/`
 - 字段快照脚本：`node scripts/ac8-snapshot-save.mjs <Campaign.sav> [out.json]`
+- 名称表提取：`node scripts/ac8-extract-catalog.mjs <ac8-save-editor/assets>`（写入 `src/games/ace-combat-8/data/catalog.json`；不复制 PNG）
 - 设计：[2026-10-02](../design/2026-10-02-ace-combat-8-design.md) · [深化 2026-10-04](../design/2026-10-04-ace-combat-8-deepening-design.md)
 
 返回 [README](../../README.md)。

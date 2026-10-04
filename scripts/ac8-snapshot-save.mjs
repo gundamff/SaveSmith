@@ -54,6 +54,37 @@ function findNumericArray(buf, name, inner) {
   return null
 }
 
+function findUInt32ByteMapKeys(buf, name) {
+  const needle = Buffer.from(name + '\0')
+  for (let i = 4; i < buf.length - needle.length; i++) {
+    if (!buf.subarray(i, i + needle.length).equals(needle)) continue
+    if (buf.readInt32LE(i - 4) !== needle.length) continue
+    let c = i + needle.length
+    const tlen = buf.readInt32LE(c)
+    if (buf.toString('ascii', c + 4, c + 4 + tlen - 1) !== 'MapProperty') continue
+    c += 4 + tlen + 4
+    const klen = buf.readInt32LE(c)
+    if (buf.toString('ascii', c + 4, c + 4 + klen - 1) !== 'UInt32Property') continue
+    c += 4 + klen + 4
+    const vlen = buf.readInt32LE(c)
+    if (buf.toString('ascii', c + 4, c + 4 + vlen - 1) !== 'ByteProperty') continue
+    c += 4 + vlen + 4
+    const dataSize = buf.readInt32LE(c)
+    c += 5
+    const pad = buf.readInt32LE(c)
+    c += 4
+    const count = buf.readInt32LE(c)
+    c += 4
+    if (pad !== 0 || count < 0 || dataSize !== 8 + count * 5) continue
+    const ids = []
+    for (let k = 0; k < count; k++) {
+      ids.push(buf.readUInt32LE(c + k * 5))
+    }
+    return { count, ids: [...ids].sort((a, b) => a - b) }
+  }
+  return null
+}
+
 function snapshot(buf, sourceLabel) {
   const arrays = [
     ['UnlockedFreeMissionIDs', 'IntProperty'],
@@ -84,12 +115,17 @@ function snapshot(buf, sourceLabel) {
     completionCount: findScalar(buf, 'CompletionCount', 'UInt32Property'),
     lastCompletedMissionId: findScalar(buf, 'LastCompletedMissionID', 'IntProperty'),
     lastPlayedMissionId: findScalar(buf, 'LastPlayedMissionID', 'IntProperty'),
-    arrays: {}
+    arrays: {},
+    maps: {}
   }
   for (const [name, inner] of arrays) {
     const a = findNumericArray(buf, name, inner)
     out.arrays[name] = a ? { inner: a.inner, count: a.count, ids: a.ids } : null
   }
+  const owned = findUInt32ByteMapKeys(buf, 'OwnedAircrafts')
+  out.maps.OwnedAircrafts = owned
+    ? { key: 'UInt32Property', value: 'ByteProperty', count: owned.count, ids: owned.ids }
+    : null
   return out
 }
 

@@ -15,7 +15,7 @@
 - Nexus 100% 存档路径（本机）：`D:\zp\Downloads\AC8 100 Percent Save 21 1 2026-10-04T05-38Z KnbP\Campaign.sav` — **禁止**提交该 `.sav` 进公开仓库。
 - 参考编辑器：MIT，可阅读算法与字段名；**不**捆绑其 `assets.zip` 图标。
 - Checksum：`CRC32(PackedData, seed=StrCrc32_UE("XnMVqmFJnH!2"))` ≡ `0x41916EBD` 初值语义（已实现，文档必须写清）。
-- 发版节奏：C 合 docs；A 为 `0.14.2`（仍在 0.14.x）；B 另议。
+- 发版节奏：C 合 docs；A 为 `0.14.2`；B 编辑页为 `0.14.3`（仍在 0.14.x）。
 - 默认中文 UI 文案；文档中英双语同步。
 - Never break userspace：已有 MRP / 伪二周目行为保持；扩展「开启通关权限」只能变完整、不能弄坏旧档。
 
