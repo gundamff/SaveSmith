@@ -68,7 +68,7 @@ Flipping Feature bit 1 alone is often not enough. Reference editors also:
 | Resources | Current MRP and cumulative TotalMRP; sync total to current |
 | Progress / Playthrough | Completion count, last completed / played mission IDs, FeatureFlag / Free Mission / hangar / tree summaries; post-clear unlocks or pseudo NG+ |
 
-Do not manually set last completed / played mission IDs to 30/31. Bulk skin/emblem lists and the Ace trio are plan **A**; owned aircraft map / mission ranks are plan **B**.
+Do not manually set last completed / played mission IDs to 30/31. “Enable post-clear unlocks” merges the 100% reference lists (tree / skins / emblems / medals) and activates Ace UnlockData. Owned-aircraft map and mission ranks remain plan **B**.
 
 ### Screenshots
 
@@ -101,8 +101,8 @@ Compared with [RivaTesu/ac8-save-editor](https://github.com/RivaTesu/ac8-save-ed
 | Capability | SaveSmith | Reference editor | Plan |
 |------------|-----------|------------------|------|
 | MRP / Checksum | yes | yes | — |
-| FeatureFlag / FreeMission / Hangar / Tree merge | partial | yes | **A** align to 100% |
-| Ace difficulty trio | no | yes | **A** |
+| FeatureFlag / FreeMission / Hangar / Tree merge | yes (100% lists) | yes | **A** done |
+| Ace difficulty (Feature + UnlockData) | yes (A) | yes (also MenuMiscFlag) | 100% refs often omit NewAceDifficulty; SaveSmith matches that |
 | OwnedAircrafts / Skins / Emblems / Medals / Parts | no | yes | **B** |
 | CompletedMissionList ranks | no | yes | **B** |
 | System.sav | no | yes | B optional |

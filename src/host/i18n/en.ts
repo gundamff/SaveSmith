@@ -274,7 +274,13 @@ export const en: MessageTree = {
       featureFlags: 'FeatureFlagMask',
       freeMissions: 'Free Mission unlocks',
       hangarSituations: 'Hangar situations unlocked',
-      treeNodes: 'Aircraft tree nodes unlocked'
+      treeNodes: 'Aircraft tree nodes unlocked',
+      skins: 'Skins unlocked',
+      emblems: 'Emblems unlocked',
+      medals: 'Medals unlocked',
+      aceUnlock: 'Ace difficulty UnlockData',
+      yes: 'Yes',
+      no: 'No'
     },
     actions: {
       postCampaignUnlocks: 'Enable post-clear unlocks (keep story)',

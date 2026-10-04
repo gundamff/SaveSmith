@@ -2,6 +2,16 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.14.2] - 2026-10-04
+
+ACE COMBAT 8: post-clear unlocks now merge 100% reference lists (skins/emblems/medals/tree) and activate Ace UnlockData.
+
+### Added
+
+- **ACE COMBAT 8**: “Enable post-clear unlocks / Pseudo NG+” merges reference aircraft-tree, skin, emblem, and medal IDs; `FeatureFlagMask` includes Ace difficulty; activates UnlockData entry `1800001`
+- Progress tab shows skin / emblem / medal counts and Ace UnlockData state
+- Docs: checksum salt, Feature bit table, capability matrix, and field snapshot (no third-party full save binary)
+
 ## [0.14.1] - 2026-10-04
 
 Fix incomplete ACE COMBAT 8 post-clear unlocks: sync hangar situations and aircraft-tree nodes, and warn against moving the mission cursor to the finale.

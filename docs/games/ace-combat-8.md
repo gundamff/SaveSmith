@@ -68,7 +68,7 @@ Checksum = FCrc::MemCrc32(PackedDataBytes, FCrc::StrCrc32(TEXT("XnMVqmFJnH!2")))
 | 资源 | 当前 MRP、累计 TotalMRP；可将累计同步为当前值 |
 | 进度 / 周目 | 通关次数、最近完成 / 游玩任务 ID、功能旗标 / Free Mission / 机库情境 / 科技树节点摘要；一键开启通关权限（完整旗标 + 机库 + 树节点），或伪二周目（重置故事光标 + 同上） |
 
-请勿手动把「最近完成 / 游玩任务 ID」改到 30/31，否则容易卡在末盘；卡住时用「伪二周目」把光标置 0。涂装 / 徽章 ID 批量注入与 Ace 三件套属计划 **A**；机体 Map / 任务评级属计划 **B**。
+请勿手动把「最近完成 / 游玩任务 ID」改到 30/31，否则容易卡在末盘；卡住时用「伪二周目」把光标置 0。「开启通关权限」会合并 100% 参考列表（科技树 / 涂装 / 徽章 / 勋章）并激活 Ace UnlockData；机体 Map 与任务评级属计划 **B**。
 
 ### 截图
 
@@ -101,8 +101,8 @@ Checksum = FCrc::MemCrc32(PackedDataBytes, FCrc::StrCrc32(TEXT("XnMVqmFJnH!2")))
 | 能力 | SaveSmith | 参考编辑器 | 计划 |
 |------|-----------|------------|------|
 | MRP / Checksum | 有 | 有 | — |
-| FeatureFlag / FreeMission / Hangar / Tree merge | 部分（通关掩码 + 列表） | 有 | **A** 对齐 100% |
-| Ace 难度三件套 | 无 | 有 | **A** |
+| FeatureFlag / FreeMission / Hangar / Tree merge | 部分（通关掩码 + 列表） | 有 | **A** 已对齐 100% 列表 |
+| Ace 难度（Feature + UnlockData） | 有（A） | 有（另可写 MenuMiscFlag） | 100% 参考档无 NewAceDifficulty 旗，SaveSmith 与之对齐 |
 | OwnedAircrafts / Skins / Emblems / Medals / Parts | 无 | 有 | **B** |
 | CompletedMissionList 评级 | 无 | 有 | **B** |
 | System.sav | 无 | 有 | B 可选 |

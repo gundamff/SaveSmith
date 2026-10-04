@@ -15,7 +15,7 @@
 - Nexus 100% 存档路径（本机）：`D:\zp\Downloads\AC8 100 Percent Save 21 1 2026-10-04T05-38Z KnbP\Campaign.sav` — **禁止**提交该 `.sav` 进公开仓库。
 - 参考编辑器：MIT，可阅读算法与字段名；**不**捆绑其 `assets.zip` 图标。
 - Checksum：`CRC32(PackedData, seed=StrCrc32_UE("XnMVqmFJnH!2"))` ≡ `0x41916EBD` 初值语义（已实现，文档必须写清）。
-- 发版节奏：C 可只合 docs；A 建议 `0.15.0`；B 拆多个小版本，勿一次巨型 PR。
+- 发版节奏：C 合 docs；A 为 `0.14.2`（仍在 0.14.x）；B 另议。
 - 默认中文 UI 文案；文档中英双语同步。
 - Never break userspace：已有 MRP / 伪二周目行为保持；扩展「开启通关权限」只能变完整、不能弄坏旧档。
 
@@ -36,7 +36,7 @@
 - [x] **Step 1:** 在游戏文档「封条」节写入参考编辑器恢复的公式与盐字符串（并注明与现实现等价）。
 - [x] **Step 2:** 增加 `ELiveFeature` 位表（与 `features.ts` / 参考编辑器 `FeatureNames` 对齐）。
 - [x] **Step 3:** 说明 Ace 难度三件套：`FeatureFlagMask` bit1 + `UnlockData` id `1800001` + `MenuMiscFlag NewAceDifficulty`。
-- [ ] **Step 4:** 提交（若用户要求发版/提交时）：`docs(ac8): checksum salt and feature bit table`
+- [x] **Step 4:** 提交（若用户要求发版/提交时）：`docs(ac8): checksum salt and feature bit table`
 
 ### Task C2: 金标准字段快照（JSON，无整档）
 
@@ -77,7 +77,7 @@
 
 - [x] **Step 1:** 读 `CampaignModel.cs` / `MainWindow.xaml.cs` 补全矩阵。
 - [x] **Step 2:** 写入文档；Phase C 收尾。
-- [ ] **Step 3:** 用户确认 C 完成后再开 A（门禁）。
+- [x] **Step 3:** 用户确认 C 完成后再开 A（门禁）。
 
 **Phase C 完成门禁：** 文档 + snapshot JSON 齐；无产品代码强制变更（允许注释/常量重命名）。
 

@@ -1,13 +1,18 @@
 import { ModuleError } from '@sdk/error'
 import {
-  CLEARED_AIRCRAFT_TREE_NODE_IDS,
   CLEARED_CAMPAIGN_FEATURE_MASK,
   FREE_MISSION_IDS,
+  FULL_UNLOCK_FEATURE_MASK,
   HANGAR_SITUATION_IDS,
   mergePostCampaignFlags,
   mergeUniqueIds,
-  POST_CAMPAIGN_CLEAR_MASK
+  POST_CAMPAIGN_CLEAR_MASK,
+  REF_AIRCRAFT_TREE_NODE_IDS,
+  REF_EMBLEM_IDS,
+  REF_MEDAL_IDS,
+  REF_SKIN_IDS
 } from './features'
+import { activateAceUnlockEntry, isAceUnlockEntryActive } from './unlockFlags'
 import {
   assertGvasMagic,
   computePackedChecksum,
@@ -38,6 +43,10 @@ export interface CampaignSaveView {
   unlockedFreeMissionIds: number[]
   unlockedHangarSituationIds: number[]
   unlockedAircraftTreeNodeCount: number
+  unlockedSkinCount: number
+  unlockedEmblemCount: number
+  unlockedMedalCount: number
+  aceUnlockActive: boolean
 }
 
 interface GvasScalarRef {
@@ -148,6 +157,9 @@ export function readCampaignView(patch: CampaignSavePatch): CampaignSaveView {
   const s = patch.scalars
   const hangar = findInt32ArrayProperty(b, 'UnlockedHangarSituationIDs')
   const tree = findUInt32ArrayProperty(b, 'UnlockedAircraftTreeNodeIDs')
+  const skins = findUInt32ArrayProperty(b, 'UnlockedSkinIdList')
+  const emblems = findUInt32ArrayProperty(b, 'UnlockedEmblemIdList')
+  const medals = findUInt32ArrayProperty(b, 'UnlockedMedalIdList')
   return {
     currentMrp: readUInt64(b, s.currentMrp.valueOffset),
     totalMrp: readUInt64(b, s.totalMrp.valueOffset),
@@ -157,7 +169,11 @@ export function readCampaignView(patch: CampaignSavePatch): CampaignSaveView {
     lastPlayedMissionId: readInt32(b, s.lastPlayedMissionId.valueOffset),
     unlockedFreeMissionIds: readInt32Array(b, patch.unlockedFreeMissionIds),
     unlockedHangarSituationIds: hangar ? readInt32Array(b, hangar) : [],
-    unlockedAircraftTreeNodeCount: tree ? tree.count : 0
+    unlockedAircraftTreeNodeCount: tree ? tree.count : 0,
+    unlockedSkinCount: skins ? skins.count : 0,
+    unlockedEmblemCount: emblems ? emblems.count : 0,
+    unlockedMedalCount: medals ? medals.count : 0,
+    aceUnlockActive: isAceUnlockEntryActive(b)
   }
 }
 
@@ -206,7 +222,7 @@ export function setUnlockedFreeMissionIds(patch: CampaignSavePatch, ids: number[
 
 /**
  * Unlock post-campaign features without resetting story cursor.
- * Also syncs hangar situations + merges cleared-save aircraft-tree nodes (FeatureFlag alone is not enough).
+ * Aligns FeatureFlag (+Ace), UnlockData Ace entry, hangar/free lists, and 100% reference ID lists.
  */
 export function applyPostCampaignUnlocks(patch: CampaignSavePatch): void {
   const view = readCampaignView(patch)
@@ -218,13 +234,22 @@ export function applyPostCampaignUnlocks(patch: CampaignSavePatch): void {
     patch.scalars.featureFlagMask.valueOffset,
     mergePostCampaignFlags(readUInt32(patch.bytes, patch.scalars.featureFlagMask.valueOffset))
   )
+  activateAceUnlockEntry(patch.bytes)
 
   replaceInt32ArrayByName(patch, 'UnlockedFreeMissionIDs', FREE_MISSION_IDS)
   replaceInt32ArrayByName(patch, 'NewlyUnlockedFreeMissionIDs', FREE_MISSION_IDS)
   replaceInt32ArrayByName(patch, 'UnlockedHangarSituationIDs', HANGAR_SITUATION_IDS)
   replaceInt32ArrayByName(patch, 'NewlyUnlockedHangarSituationIDs', HANGAR_SITUATION_IDS)
-  mergeUInt32ArrayByName(patch, 'UnlockedAircraftTreeNodeIDs', CLEARED_AIRCRAFT_TREE_NODE_IDS)
-  mergeUInt32ArrayByName(patch, 'NewlyUnlockedAircraftTreeNodeIDs', CLEARED_AIRCRAFT_TREE_NODE_IDS)
+
+  mergeUInt32ArrayByName(patch, 'UnlockedAircraftTreeNodeIDs', REF_AIRCRAFT_TREE_NODE_IDS)
+  mergeUInt32ArrayByName(patch, 'NewlyUnlockedAircraftTreeNodeIDs', REF_AIRCRAFT_TREE_NODE_IDS)
+  mergeUInt32ArrayByName(patch, 'UnlockedSkinIdList', REF_SKIN_IDS)
+  mergeUInt32ArrayByName(patch, 'NewlyUnlockedSkinIdList', REF_SKIN_IDS)
+  mergeUInt32ArrayByName(patch, 'UnlockedEmblemIdList', REF_EMBLEM_IDS)
+  mergeUInt32ArrayByName(patch, 'NewlyUnlockedEmblemIdList', REF_EMBLEM_IDS)
+  mergeUInt32ArrayByName(patch, 'UnlockedMedalIdList', REF_MEDAL_IDS)
+  // NewlyUnlockedMedalIdList may be empty in 100% refs; still merge ids for consistency
+  mergeUInt32ArrayByName(patch, 'NewlyUnlockedMedalIdList', REF_MEDAL_IDS)
 
   resealChecksum(patch)
 }
@@ -245,4 +270,5 @@ export function validateCampaignView(view: CampaignSaveView): void {
 }
 
 export const REFERENCE_CLEARED_FEATURE_MASK = CLEARED_CAMPAIGN_FEATURE_MASK
+export const REFERENCE_FULL_UNLOCK_FEATURE_MASK = FULL_UNLOCK_FEATURE_MASK
 export const REFERENCE_POST_CLEAR_DELTA = POST_CAMPAIGN_CLEAR_MASK

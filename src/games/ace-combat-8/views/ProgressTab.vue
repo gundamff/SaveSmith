@@ -87,6 +87,18 @@ function runPseudoNgPlus(): void {
       <el-descriptions-item :label="t('ac8.progress.treeNodes')">
         {{ view.unlockedAircraftTreeNodeCount }}
       </el-descriptions-item>
+      <el-descriptions-item :label="t('ac8.progress.skins')">
+        {{ view.unlockedSkinCount }}
+      </el-descriptions-item>
+      <el-descriptions-item :label="t('ac8.progress.emblems')">
+        {{ view.unlockedEmblemCount }}
+      </el-descriptions-item>
+      <el-descriptions-item :label="t('ac8.progress.medals')">
+        {{ view.unlockedMedalCount }}
+      </el-descriptions-item>
+      <el-descriptions-item :label="t('ac8.progress.aceUnlock')">
+        {{ view.aceUnlockActive ? t('ac8.progress.yes') : t('ac8.progress.no') }}
+      </el-descriptions-item>
     </el-descriptions>
 
     <el-form label-width="220px" style="max-width: 640px">

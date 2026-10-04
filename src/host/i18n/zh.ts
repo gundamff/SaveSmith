@@ -274,7 +274,13 @@ export const zh: MessageTree = {
       featureFlags: '功能旗标 FeatureFlagMask',
       freeMissions: 'Free Mission 已解锁',
       hangarSituations: '机库情境已解锁',
-      treeNodes: '科技树节点已解锁'
+      treeNodes: '科技树节点已解锁',
+      skins: '涂装已解锁',
+      emblems: '徽章已解锁',
+      medals: '勋章已解锁',
+      aceUnlock: 'Ace 难度 UnlockData',
+      yes: '是',
+      no: '否'
     },
     actions: {
       postCampaignUnlocks: '开启通关权限（不重置故事）',
