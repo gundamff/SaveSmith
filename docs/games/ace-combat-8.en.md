@@ -72,7 +72,7 @@ Flipping Feature bit 1 alone is often not enough. Reference editors also:
 | Emblems | `UnlockedEmblemIdList` with English names |
 | Mission ranks | 31 English titles; edit HighestRank on existing records only; set-all-S |
 
-Do not manually set last completed / played mission IDs to 30/31. “Enable post-clear unlocks” merges the 100% reference lists (tree / skins / emblems / medals) and activates Ace UnlockData.
+Do not manually set last completed / played mission IDs to 30/31. “Enable post-clear unlocks” writes clear flags / Ace / Free Mission·hangar 1–31 and stubs mission records. It **no longer dumps 100% skin/emblem/medal lists** (that bricks mid-campaign saves in-game); use the dedicated tabs instead.
 
 ### Screenshots
 

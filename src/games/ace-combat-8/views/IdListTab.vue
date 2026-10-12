@@ -9,7 +9,7 @@ import {
   skinLabel
 } from '../model/catalog'
 import { findUInt32ArrayProperty, readUInt32Array } from '../model/gvas'
-import { setContainsU32 } from '../model/ownedLists'
+import { setContainsManyU32, setContainsU32 } from '../model/ownedLists'
 import { refreshView } from '../parse'
 import { useAc8Editor } from './inject'
 
@@ -56,9 +56,14 @@ function toggle(id: number, on: boolean): void {
 
 function setVisible(on: boolean): void {
   editor.markDirty(() => {
-    for (const r of rows.value) {
-      setContainsU32(editor.save.patch, listName.value, r.id, on, newlyName.value)
-    }
+    // One UE54 rewrite for the whole visible set (ac8-save-editor Check All).
+    setContainsManyU32(
+      editor.save.patch,
+      listName.value,
+      rows.value.map((r) => r.id),
+      on,
+      newlyName.value
+    )
     refreshView(editor.save)
   })
 }

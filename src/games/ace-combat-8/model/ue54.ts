@@ -608,6 +608,101 @@ export function findNamedArray(sf: CampaignSaveFile, name: string): Extract<Gvas
   return null
 }
 
+export function findNamedProp(sf: CampaignSaveFile, name: string): GvasProp | null {
+  for (const sec of sf.sections) {
+    for (const p of sec) {
+      if (p.name === name) return p
+    }
+  }
+  return null
+}
+
+/** Deep-clone a struct property list via serialize/parse (same trick as ac8-save-editor). */
+export function cloneStructProps(props: GvasProp[]): GvasProp[] {
+  const w = new W()
+  w.properties(props)
+  return new R(w.toArray(), 0).properties()
+}
+
+export function setIntPropOnSave(sf: CampaignSaveFile, name: string, value: number | bigint): void {
+  const p = findNamedProp(sf, name)
+  if (!p || p.value.k !== 'int') throw new ModuleError('MISSING_FIELD', [name])
+  p.value.v = typeof value === 'bigint' ? value : BigInt(value)
+}
+
+export function replaceNumericArrayOnSave(sf: CampaignSaveFile, name: string, ids: readonly number[]): void {
+  const a = findNamedArray(sf, name)
+  if (!a) throw new ModuleError('MISSING_FIELD', [name])
+  a.items = ids.map((id) => ({ k: 'int' as const, kind: a.elem.name, v: BigInt(id >>> 0) }))
+}
+
+export function mergeU32ArrayOnSave(sf: CampaignSaveFile, name: string, extra: readonly number[]): void {
+  const a = findNamedArray(sf, name)
+  if (!a) throw new ModuleError('MISSING_FIELD', [name])
+  const seen = new Set<number>()
+  for (const e of a.items) {
+    if (e.k === 'int') seen.add(Number(e.v) >>> 0)
+  }
+  for (const id of extra) {
+    const u = id >>> 0
+    if (seen.has(u)) continue
+    seen.add(u)
+    a.items.push({ k: 'int', kind: a.elem.name, v: BigInt(u) })
+  }
+}
+
+/**
+ * Ensure CompletedMissionList has an entry for each mission id.
+ * Free Mission / hangar unlocks without matching records are rejected in-game as corrupt.
+ */
+export function ensureCompletedMissionIdsOnSave(sf: CampaignSaveFile, ids: readonly number[]): void {
+  const list = findNamedArray(sf, 'CompletedMissionList')
+  if (!list || list.items.length === 0) throw new ModuleError('MISSING_FIELD', ['CompletedMissionList'])
+  const template = list.items.find((e) => e.k === 'struct')
+  if (!template || template.k !== 'struct') throw new ModuleError('MISSING_FIELD', ['CompletedMissionList.template'])
+
+  const have = new Set<number>()
+  for (const item of list.items) {
+    if (item.k !== 'struct') continue
+    const mid = item.props.find((p) => p.name === 'MissionID')
+    if (mid?.value.k === 'int') have.add(Number(mid.value.v))
+  }
+
+  for (const id of ids) {
+    if (have.has(id)) continue
+    const props = cloneStructProps(template.props)
+    const mid = props.find((p) => p.name === 'MissionID')
+    if (!mid || mid.value.k !== 'int') throw new ModuleError('MISSING_FIELD', ['MissionID'])
+    mid.value.v = BigInt(id)
+    list.items.push({ k: 'struct', props })
+    have.add(id)
+  }
+
+  list.items.sort((a, b) => {
+    const ia = a.k === 'struct' ? a.props.find((p) => p.name === 'MissionID') : null
+    const ib = b.k === 'struct' ? b.props.find((p) => p.name === 'MissionID') : null
+    const na = ia?.value.k === 'int' ? Number(ia.value.v) : 0
+    const nb = ib?.value.k === 'int' ? Number(ib.value.v) : 0
+    return na - nb
+  })
+}
+
+/** Activate UnlockData entry 1800001 (Ace difficulty). */
+export function activateAceUnlockOnSave(sf: CampaignSaveFile, unlockId = 1800001): void {
+  const list = findNamedArray(sf, 'UnlockData')
+  if (!list) throw new ModuleError('MISSING_FIELD', ['UnlockData'])
+  for (const item of list.items) {
+    if (item.k !== 'struct') continue
+    const idProp = item.props.find((p) => p.name === 'ID')
+    if (idProp?.value.k !== 'int' || Number(idProp.value.v) !== unlockId) continue
+    const act = item.props.find((p) => p.name === 'bIsActivated')
+    if (!act || act.value.k !== 'bool') throw new ModuleError('MISSING_FIELD', [`UnlockData:${unlockId}.bIsActivated`])
+    act.value.v = true
+    return
+  }
+  throw new ModuleError('MISSING_FIELD', [`UnlockData:${unlockId}`])
+}
+
 export function setContainsU32OnSave(sf: CampaignSaveFile, name: string, id: number, present: boolean): void {
   const a = findNamedArray(sf, name)
   if (!a) throw new ModuleError('MISSING_FIELD', [name])
@@ -620,12 +715,126 @@ export function setContainsU32OnSave(sf: CampaignSaveFile, name: string, id: num
   }
 }
 
+export function setContainsManyU32OnSave(
+  sf: CampaignSaveFile,
+  name: string,
+  ids: readonly number[],
+  present: boolean
+): void {
+  for (const id of ids) setContainsU32OnSave(sf, name, id, present)
+}
+
+export function setMenuMiscFlagOnSave(sf: CampaignSaveFile, flag: string, on: boolean): void {
+  const p = findNamedProp(sf, 'MenuMiscFlags')
+  if (!p || p.value.k !== 'set') throw new ModuleError('MISSING_FIELD', ['MenuMiscFlags'])
+  const set = p.value
+  const idx = set.items.findIndex((e) => e.k === 'enum' && e.v === flag)
+  if (on && idx < 0) {
+    set.items.push({ k: 'enum', v: flag })
+  } else if (!on && idx >= 0) {
+    set.items.splice(idx, 1)
+  }
+}
+
+function findAircraftRecord(
+  sf: CampaignSaveFile,
+  planeId: number
+): Extract<GvasValue, { k: 'struct' }> | null {
+  const list = findNamedArray(sf, 'AircraftTypeRecords')
+  if (!list) return null
+  const want = BigInt(planeId >>> 0)
+  for (const item of list.items) {
+    if (item.k !== 'struct') continue
+    const pid = item.props.find((p) => p.name === 'PlaneID')
+    if (pid?.value.k === 'int' && pid.value.v === want) return item
+  }
+  return null
+}
+
+/** Clone template AircraftTypeRecords entry like ac8-save-editor EnsureAircraftRecord. */
+export function ensureAircraftRecordOnSave(
+  sf: CampaignSaveFile,
+  planeId: number,
+  category = ''
+): Extract<GvasValue, { k: 'struct' }> {
+  const existing = findAircraftRecord(sf, planeId)
+  if (existing) return existing
+  const list = findNamedArray(sf, 'AircraftTypeRecords')
+  const template = list?.items[0]
+  if (!list || !template || template.k !== 'struct') {
+    throw new ModuleError('MISSING_FIELD', ['AircraftTypeRecords'])
+  }
+  const props = cloneStructProps(template.props)
+  for (const p of props) {
+    if (p.value.k === 'int') {
+      p.value.v = p.name === 'PlaneID' ? BigInt(planeId >>> 0) : 0n
+    } else if (p.value.k === 'enum' && p.name === 'PlaneCategory' && category) {
+      p.value.v = category
+    } else if (p.value.k === 'array') {
+      p.value.items = []
+    }
+  }
+  const copy: Extract<GvasValue, { k: 'struct' }> = { k: 'struct', props }
+  list.items.push(copy)
+  return copy
+}
+
+export function readOwnedWeaponsOnSave(sf: CampaignSaveFile, planeId: number): string[] {
+  const rec = findAircraftRecord(sf, planeId)
+  if (!rec) return []
+  const ow = rec.props.find((p) => p.name === 'OwnedWeapons')
+  if (!ow || ow.value.k !== 'array') return []
+  return ow.value.items.filter((e) => e.k === 'enum').map((e) => (e.k === 'enum' ? e.v : ''))
+}
+
+export function setOwnedWeaponOnSave(
+  sf: CampaignSaveFile,
+  planeId: number,
+  weaponId: string,
+  owned: boolean,
+  category = '',
+  order: readonly string[] = []
+): void {
+  const rec = owned ? ensureAircraftRecordOnSave(sf, planeId, category) : findAircraftRecord(sf, planeId)
+  if (!rec) {
+    if (owned) throw new ModuleError('MISSING_FIELD', ['AircraftTypeRecords'])
+    return
+  }
+  const rank = (id: string) => {
+    const i = order.indexOf(id)
+    return i < 0 ? Number.MAX_SAFE_INTEGER : i
+  }
+  for (const name of ['OwnedWeapons', 'NewlyOwnedWeapons']) {
+    const prop = rec.props.find((p) => p.name === name)
+    if (!prop || prop.value.k !== 'array') continue
+    const a = prop.value
+    const idx = a.items.findIndex((e) => e.k === 'enum' && e.v === weaponId)
+    if (owned && idx < 0) {
+      let at = a.items.findIndex((e) => e.k === 'enum' && rank(e.v) > rank(weaponId))
+      if (at < 0) at = a.items.length
+      a.items.splice(at, 0, { k: 'enum', v: weaponId })
+    } else if (!owned && idx >= 0) {
+      a.items.splice(idx, 1)
+    }
+  }
+}
+
+export interface OwnedAircraftOptions {
+  flags?: number
+  category?: string
+  spWeapons?: readonly string[]
+  /** When true (check-all), unlock every SP slot; otherwise only SP1 like hangar purchase. */
+  unlockAllSp?: boolean
+  weaponOrder?: readonly string[]
+}
+
 export function setOwnedAircraftOnSave(
   sf: CampaignSaveFile,
   id: number,
   owned: boolean,
-  flags = 4
+  options: OwnedAircraftOptions = {}
 ): void {
+  const flags = options.flags ?? 4
   let map: Extract<GvasValue, { k: 'map' }> | null = null
   for (const sec of sf.sections) {
     for (const p of sec) {
@@ -644,6 +853,21 @@ export function setOwnedAircraftOnSave(
     map.items.splice(idx, 1)
   }
   setContainsU32OnSave(sf, 'NewlyOwnedAircrafts', id, owned)
+  // Match ac8-save-editor: owning also unlocks the hangar tree node.
+  setContainsU32OnSave(sf, 'UnlockedAircraftTreeNodeIDs', id, owned)
+  setContainsU32OnSave(sf, 'NewlyUnlockedAircraftTreeNodeIDs', id, owned)
+
+  const sp = options.spWeapons ?? []
+  const category = options.category ?? ''
+  const order = options.weaponOrder ?? []
+  if (owned && sp.length > 0) {
+    const wantSp = options.unlockAllSp ? sp : [sp[0]!]
+    for (const wid of wantSp) setOwnedWeaponOnSave(sf, id, wid, true, category, order)
+  } else if (!owned) {
+    for (const wid of readOwnedWeaponsOnSave(sf, id)) {
+      setOwnedWeaponOnSave(sf, id, wid, false, category, order)
+    }
+  }
 }
 
 export function assertPackedDataUe54(bytes: Uint8Array): void {

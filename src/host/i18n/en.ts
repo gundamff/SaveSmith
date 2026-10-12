@@ -270,7 +270,7 @@ export const en: MessageTree = {
       syncTotal: 'Set Total MRP equal to Current MRP'
     },
     progress: {
-      hint: '“Enable post-clear unlocks” writes the full clear FeatureFlagMask, Free Missions, hangar situations, and aircraft-tree nodes; it does not move the mission cursor. Pseudo NG+ also sets last completed/played mission IDs to 0. Do not manually set those IDs to 30/31 or the campaign may stick on the finale. Campaign DLC aircraft still need CompletionCount ≥ 1.',
+      hint: '“Enable post-clear unlocks” writes clear FeatureFlags, Ace (incl. MenuMiscFlag), Free Mission / hangar 1–31, and stubs matching mission records; it does not move the cursor or dump 100% skins/emblems (use Unlock visible on those tabs). Pseudo NG+ also resets mission IDs to 0. Campaign DLC aircraft need CompletionCount ≥ 1.',
       missionIdWarn: 'Do not manually set last completed/played mission ID to 30 or 31 — the game resumes from that cursor and can soft-lock without full clear records. If stuck, use Pseudo NG+ to reset the cursor to 0.',
       completionCount: 'Clear count (CompletionCount)',
       lastCompleted: 'Last completed mission ID',
@@ -300,9 +300,14 @@ export const en: MessageTree = {
       name: 'Name',
       unlocked: 'Unlocked',
       owned: 'Owned',
-      skinsHint: 'Search by name and toggle unlock.',
-      emblemsHint: 'Search by name and toggle unlock.',
-      aircraftHint: 'Check to own the aircraft. The save stores owned/not owned, not a count.'
+      skinsHint:
+        'Search by name and toggle unlock. “Unlock visible” rewrites the save tree once (ac8-save-editor Check All).',
+      emblemsHint:
+        'Search by name and toggle unlock. “Unlock visible” rewrites the save tree once (ac8-save-editor Check All).',
+      aircraftHint:
+        'Owning syncs the hangar tree node and unlocks SP1 (hangar purchase). Toggle SP2/SP3 per plane; Unlock visible skips mission loaners and opens every SP weapon.',
+      spWeapons: 'Special weapons',
+      missionOnly: 'Mission loaner (not sold in the tree)'
     },
     missions: {
       hint: 'You can only change ranks on missions you have already flown. Uncleared missions have no record to edit.',

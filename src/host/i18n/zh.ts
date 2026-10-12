@@ -270,7 +270,7 @@ export const zh: MessageTree = {
       syncTotal: '把累计 MRP 设为等于当前 MRP'
     },
     progress: {
-      hint: '「开启通关权限」会写入完整通关旗标、Free Mission、机库情境与科技树节点；不改任务光标。「伪二周目」额外把最近完成/游玩任务 ID 置 0。请勿手动把任务 ID 改到 30/31，否则容易卡在末盘。DLC 机体进战役仍依赖 CompletionCount≥1。',
+      hint: '「开启通关权限」写入通关旗标、Ace（含 MenuMiscFlag）、Free Mission / 机库情境 1–31，并补齐对应任务记录；不改任务光标，也不灌 100% 涂装/徽章（请用对应分页的「解锁当前列表」）。「伪二周目」额外把最近完成/游玩任务 ID 置 0。ADFX 等 DLC 机体进战役需 CompletionCount≥1。',
       missionIdWarn: '不要把「最近完成/游玩任务 ID」手动调到 30 或 31——游戏会按光标续关，缺少完整通关记录时容易卡关。若已卡住，请用「伪二周目」把光标重置为 0。',
       completionCount: '通关次数 (CompletionCount)',
       lastCompleted: '最近完成任务 ID',
@@ -300,9 +300,12 @@ export const zh: MessageTree = {
       name: '名称',
       unlocked: '已解锁',
       owned: '已拥有',
-      skinsHint: '按名称搜索，开关控制是否解锁。',
-      emblemsHint: '按名称搜索，开关控制是否解锁。',
-      aircraftHint: '勾选即拥有该机体。存档只有拥有/未拥有，没有架数。'
+      skinsHint: '按名称搜索，开关控制是否解锁。当前列表「解锁」一次整树写入（对齐参考编辑器 Check All）。',
+      emblemsHint: '按名称搜索，开关控制是否解锁。当前列表「解锁」一次整树写入（对齐参考编辑器 Check All）。',
+      aircraftHint:
+        '勾选拥有时同步科技树节点，并自动解锁 SP1（机库购买行为）。SP2/SP3 可单独勾选；「解锁当前列表」会跳过任务租借机并打开全部特殊武器。',
+      spWeapons: '特殊武器',
+      missionOnly: '任务租借机（科技树不卖）'
     },
     missions: {
       hint: '只能改已经打过的关的评级；没有记录的关无法凭空加上。',

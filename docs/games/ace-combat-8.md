@@ -67,12 +67,12 @@ Checksum = FCrc::MemCrc32(PackedDataBytes, FCrc::StrCrc32(TEXT("XnMVqmFJnH!2")))
 |------|------|
 | 资源 | 当前 MRP、累计 TotalMRP；可将累计同步为当前值 |
 | 进度 / 周目 | 通关次数、最近完成 / 游玩任务 ID、功能旗标 / Free Mission / 机库情境 / 科技树节点摘要；一键开启通关权限或伪二周目 |
-| 机体 | `OwnedAircrafts` 拥有开关；名称来自参考编辑器 assets 的 DataTable（无图标） |
-| 涂装 | `UnlockedSkinIdList`；显示英文名称 |
-| 徽章 | `UnlockedEmblemIdList`；显示英文名称 |
+| 机体 | `OwnedAircrafts` + 科技树节点 + `AircraftTypeRecords`/SP1–SP3（对齐参考编辑器；任务租借机标记） |
+| 涂装 | `UnlockedSkinIdList`；列表「解锁」一次整树批量写入 |
+| 徽章 | `UnlockedEmblemIdList`；同上 |
 | 任务评级 | 31 关英文标题；仅改存档里已有记录的 HighestRank；可一键 S |
 
-请勿手动把「最近完成 / 游玩任务 ID」改到 30/31，否则容易卡在末盘；卡住时用「伪二周目」把光标置 0。「开启通关权限」会合并 100% 参考列表（科技树 / 涂装 / 徽章 / 勋章）并激活 Ace UnlockData。
+请勿手动把「最近完成 / 游玩任务 ID」改到 30/31，否则容易卡在末盘；卡住时用「伪二周目」把光标置 0。「开启通关权限」写入通关旗标 / Ace / Free Mission·机库 1–31，并为任务记录补齐条目。**不会再灌入 100% 涂装/徽章/勋章表**（中盘存档灌表会导致游戏报存档损坏）；涂装等请用对应分页。
 
 ### 截图
 

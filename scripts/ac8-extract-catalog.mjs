@@ -27,18 +27,34 @@ function t(key) {
   return typeof v === 'string' ? v : ''
 }
 
+const spTable = JSON.parse(fs.readFileSync(path.join(dataDir, 'spweapon.json'), 'utf8'))
+const weaponOrder = Array.isArray(spTable.WeaponOrder) ? spTable.WeaponOrder : []
+const spByPlane = spTable.Planes && typeof spTable.Planes === 'object' ? spTable.Planes : {}
+
 const aircraftRows = Object.values(loadTable('aircraft.json'))
 const aircraftByCode = new Map()
 const aircraft = []
 for (const row of aircraftRows) {
   const id = row.PlaneID >>> 0
   if (!id) continue
-  const code = String(row.PlaneStringID ?? '').replace(/^PP\d+_/, '')
+  const stringId = String(row.PlaneStringID ?? '')
+  const code = stringId.replace(/^PP\d+_/, '')
   const name = t(row.PlaneNameTextID) || code || String(id)
-  aircraft.push({ id, code, name, sort: row.SortNumber ?? id })
+  const category = String(row.Category ?? 'EPlaneCategory::Any')
+  const missionOnly = Boolean(row.bNonCustomizable)
+  const rawSp = Array.isArray(spByPlane[String(id)]) ? spByPlane[String(id)] : []
+  const spWeapons = rawSp.filter((w) => w && w !== 'ELiveWeaponID::WID_NONE')
+  aircraft.push({
+    id,
+    code,
+    name,
+    sort: row.SortNumber ?? id,
+    category,
+    missionOnly,
+    spWeapons
+  })
   aircraftByCode.set(code, name)
-  const short = String(row.PlaneStringID ?? '')
-  if (short) aircraftByCode.set(short, name)
+  if (stringId) aircraftByCode.set(stringId, name)
 }
 
 const skins = []
@@ -87,6 +103,7 @@ emblems.sort((a, b) => a.sort - b.sort || a.id - b.id)
 
 const out = {
   note: 'Names extracted from local ac8-save-editor assets (DT_* + text_CP_B). Not redistributing PNG icons.',
+  weaponOrder,
   aircraft,
   skins,
   emblems,
@@ -100,5 +117,7 @@ console.log('wrote', dest, {
   aircraft: aircraft.length,
   skins: skins.length,
   emblems: emblems.length,
-  missions: missions.length
+  missions: missions.length,
+  weaponOrder: weaponOrder.length,
+  withSp: aircraft.filter((a) => a.spWeapons.length > 0).length
 })

@@ -2,6 +2,16 @@
 
 [**中文**](CHANGELOG.md) | [English](CHANGELOG.en.md)
 
+## [0.14.4] - 2026-10-12
+
+皇牌空战 8：通关权限瘦身防损坏；机体 / 涂装 / 徽章对齐参考编辑器写档行为。
+
+### 修复
+
+- **皇牌空战 8**：「开启通关权限 / 伪二周目」改为 UE54 整树写入，补齐 Free Mission 1–31 的 `CompletedMissionList`；**不再合并 100% 涂装/徽章/勋章/科技树 ID 表**（中盘灌表会出现「Checksum 正确但游戏仍报存档损坏」）
+- **皇牌空战 8**：勾选拥有机体时同步科技树节点、`AircraftTypeRecords` 与 SP1；可单独勾 SP2/SP3；列表全开跳过任务租借机并开全特殊武器（对齐 [ac8-save-editor](https://github.com/RivaTesu/ac8-save-editor)）
+- **皇牌空战 8**：涂装/徽章「解锁当前列表」改为一次整树批量写入；通关权限补写 Ace `MenuMiscFlag`
+
 ## [0.14.3] - 2026-10-04
 
 皇牌空战 8：机体 / 涂装 / 徽章 / 任务评级独立编辑页；列表与评级写入对齐参考编辑器的 GVAS 整树重写。

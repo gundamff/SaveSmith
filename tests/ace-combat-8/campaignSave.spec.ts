@@ -16,14 +16,20 @@ import {
   FULL_UNLOCK_FEATURE_MASK,
   HANGAR_SITUATION_IDS,
   POST_CAMPAIGN_CLEAR_MASK,
-  REF_AIRCRAFT_TREE_NODE_IDS,
-  REF_EMBLEM_IDS,
-  REF_MEDAL_IDS,
   REF_OWNED_AIRCRAFT_IDS,
   REF_SKIN_IDS
 } from '../../src/games/ace-combat-8/model/features'
 import { isAceUnlockEntryActive } from '../../src/games/ace-combat-8/model/unlockFlags'
-import { setContainsU32, setOwnedAircraft, readOwnedAircraftIds } from '../../src/games/ace-combat-8/model/ownedLists'
+import { aircraftInfo } from '../../src/games/ace-combat-8/model/catalog'
+import {
+  setContainsManyU32,
+  setContainsU32,
+  setOwnedAircraft,
+  setOwnedWeapon,
+  readOwnedAircraftIds,
+  readOwnedWeapons
+} from '../../src/games/ace-combat-8/model/ownedLists'
+import { loadCampaignSave } from '../../src/games/ace-combat-8/model/ue54'
 import { readMissionRecords, setMissionDifficultyRank } from '../../src/games/ace-combat-8/model/missionRecords'
 import {
   computePackedChecksum,
@@ -50,11 +56,6 @@ function assertChecksumValid(bytes: Uint8Array): void {
     computePackedChecksum(bytes.subarray(packed.dataOffset, packed.blockEnd))
   )
   assertPackedDataUe54(bytes)
-}
-
-function expectSuperset(actual: number[], required: readonly number[]): void {
-  const set = new Set(actual)
-  for (const id of required) expect(set.has(id)).toBe(true)
 }
 
 const fixtures = join(dirname(fileURLToPath(import.meta.url)), 'fixtures')
@@ -106,8 +107,9 @@ describe('ace-combat-8 campaign save', () => {
     assertChecksumValid(patch.bytes)
   })
 
-  it('applies post-campaign unlocks aligned to 100% snapshot lists', () => {
+  it('applies post-campaign unlocks without dumping 100% cosmetic lists', () => {
     const patch = loadCampaignPatch(load('campaign-midgame.sav'))
+    const beforeSkins = findUInt32ArrayProperty(patch.bytes, 'UnlockedSkinIdList')!.count
     const before = patch.bytes.length
     applyPostCampaignUnlocks(patch)
     const view = readCampaignView(patch)
@@ -121,14 +123,11 @@ describe('ace-combat-8 campaign save', () => {
     const hangar = findInt32ArrayProperty(patch.bytes, 'UnlockedHangarSituationIDs')
     expect(readInt32Array(patch.bytes, hangar!)).toEqual(HANGAR_SITUATION_IDS)
 
-    const tree = findUInt32ArrayProperty(patch.bytes, 'UnlockedAircraftTreeNodeIDs')
-    expectSuperset(readUInt32Array(patch.bytes, tree!), REF_AIRCRAFT_TREE_NODE_IDS)
-    const skins = findUInt32ArrayProperty(patch.bytes, 'UnlockedSkinIdList')
-    expectSuperset(readUInt32Array(patch.bytes, skins!), REF_SKIN_IDS)
-    const emblems = findUInt32ArrayProperty(patch.bytes, 'UnlockedEmblemIdList')
-    expectSuperset(readUInt32Array(patch.bytes, emblems!), REF_EMBLEM_IDS)
-    const medals = findUInt32ArrayProperty(patch.bytes, 'UnlockedMedalIdList')
-    expectSuperset(readUInt32Array(patch.bytes, medals!), REF_MEDAL_IDS)
+    // Cosmetics stay on their own tabs — bulk 100% merge bricks mid-campaign saves in-game.
+    expect(findUInt32ArrayProperty(patch.bytes, 'UnlockedSkinIdList')!.count).toBe(beforeSkins)
+
+    const missionIds = readMissionRecords(patch.bytes).map((r) => r.missionId).sort((a, b) => a - b)
+    expect(missionIds).toEqual(FREE_MISSION_IDS)
 
     const packed = findByteArrayProperty(patch.bytes, 'PackedData')
     expect(packed!.count).toBe(packed!.blockEnd - packed!.dataOffset)
@@ -171,6 +170,55 @@ describe('ace-combat-8 campaign save', () => {
     expect(extra).toBeTruthy()
     setOwnedAircraft(patch, extra!, true)
     expect(readOwnedAircraftIds(patch.bytes)).toContain(extra)
+    const tree = findUInt32ArrayProperty(patch.bytes, 'UnlockedAircraftTreeNodeIDs')
+    expect(readUInt32Array(patch.bytes, tree!)).toContain(extra)
+    const info = aircraftInfo(extra!)
+    expect(info?.spWeapons?.length).toBeGreaterThan(0)
+    expect(readOwnedWeapons(patch.bytes, extra!)).toEqual([info!.spWeapons![0]])
+    assertChecksumValid(patch.bytes)
+  })
+
+  it('can unlock remaining SP weapons on an owned plane like ac8-save-editor', () => {
+    const patch = loadCampaignPatch(load('campaign-midgame.sav'))
+    const id = 38010
+    setOwnedAircraft(patch, id, true)
+    const info = aircraftInfo(id)!
+    expect(info.spWeapons!.length).toBeGreaterThanOrEqual(2)
+    expect(readOwnedWeapons(patch.bytes, id)).toContain(info.spWeapons![0]!)
+    setOwnedWeapon(patch, id, info.spWeapons![1]!, true)
+    const ownedSp = new Set(readOwnedWeapons(patch.bytes, id))
+    expect(ownedSp.has(info.spWeapons![0]!)).toBe(true)
+    expect(ownedSp.has(info.spWeapons![1]!)).toBe(true)
+    assertChecksumValid(patch.bytes)
+  })
+
+  it('batches skin unlocks in one UE54 rewrite (check-all style)', () => {
+    const patch = loadCampaignPatch(load('campaign-midgame.sav'))
+    const before = findByteArrayProperty(patch.bytes, 'PackedData')!.count
+    const field = findUInt32ArrayProperty(patch.bytes, 'UnlockedSkinIdList')!
+    const have = new Set(readUInt32Array(patch.bytes, field))
+    const add = REF_SKIN_IDS.filter((id) => !have.has(id)).slice(0, 40)
+    expect(add.length).toBeGreaterThan(10)
+    setContainsManyU32(patch, 'UnlockedSkinIdList', add, true, 'NewlyUnlockedSkinIdList')
+    const after = new Set(readUInt32Array(patch.bytes, findUInt32ArrayProperty(patch.bytes, 'UnlockedSkinIdList')!))
+    for (const id of add) expect(after.has(id)).toBe(true)
+    expect(findByteArrayProperty(patch.bytes, 'PackedData')!.count).toBeGreaterThan(before)
+    assertChecksumValid(patch.bytes)
+  })
+
+  it('sets Ace MenuMiscFlag on post-campaign unlocks', () => {
+    const patch = loadCampaignPatch(load('campaign-midgame.sav'))
+    applyPostCampaignUnlocks(patch)
+    const sf = loadCampaignSave(patch.bytes)
+    let flags: string[] = []
+    for (const sec of sf.sections) {
+      for (const p of sec) {
+        if (p.name === 'MenuMiscFlags' && p.value.k === 'set') {
+          flags = p.value.items.map((x) => (x.k === 'enum' ? x.v : '')).filter(Boolean)
+        }
+      }
+    }
+    expect(flags).toContain('ELiveMenuMiscFlagID::NewAceDifficulty')
     assertChecksumValid(patch.bytes)
   })
 

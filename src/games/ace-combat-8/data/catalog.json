@@ -1,221 +1,556 @@
 {
   "note": "Names extracted from local ac8-save-editor assets (DT_* + text_CP_B). Not redistributing PNG icons.",
+  "weaponOrder": [
+    "ELiveWeaponID::WID_NONE",
+    "ELiveWeaponID::WID_mg",
+    "ELiveWeaponID::WID_msl",
+    "ELiveWeaponID::WID_2aam",
+    "ELiveWeaponID::WID_4aam",
+    "ELiveWeaponID::WID_4agm",
+    "ELiveWeaponID::WID_6aam",
+    "ELiveWeaponID::WID_6agm",
+    "ELiveWeaponID::WID_8aam",
+    "ELiveWeaponID::WID_8agm",
+    "ELiveWeaponID::WID_eml",
+    "ELiveWeaponID::WID_gpb",
+    "ELiveWeaponID::WID_grkt",
+    "ELiveWeaponID::WID_hcaa",
+    "ELiveWeaponID::WID_hpaa",
+    "ELiveWeaponID::WID_hvaa",
+    "ELiveWeaponID::WID_laam",
+    "ELiveWeaponID::WID_lacm",
+    "ELiveWeaponID::WID_lagm",
+    "ELiveWeaponID::WID_lasm",
+    "ELiveWeaponID::WID_mgp",
+    "ELiveWeaponID::WID_qaam",
+    "ELiveWeaponID::WID_rkt",
+    "ELiveWeaponID::WID_saam",
+    "ELiveWeaponID::WID_sasm",
+    "ELiveWeaponID::WID_plsl",
+    "ELiveWeaponID::WID_sffs",
+    "ELiveWeaponID::WID_sod",
+    "ELiveWeaponID::WID_tls",
+    "ELiveWeaponID::WID_uav",
+    "ELiveWeaponID::WID_ugb",
+    "ELiveWeaponID::WID_xsdb",
+    "ELiveWeaponID::WID_faeb",
+    "ELiveWeaponID::WID_mpbm",
+    "ELiveWeaponID::WID_esm",
+    "ELiveWeaponID::WID_pgun",
+    "ELiveWeaponID::WID_msl2a",
+    "ELiveWeaponID::WID_msl2c",
+    "ELiveWeaponID::WID_msl2b",
+    "ELiveWeaponID::WID_msl2d",
+    "ELiveWeaponID::WID_ecm",
+    "ELiveWeaponID::WID_iews",
+    "ELiveWeaponID::WID_admm",
+    "ELiveWeaponID::WID_ugbl",
+    "ELiveWeaponID::WID_emlt",
+    "ELiveWeaponID::WID_emlb",
+    "ELiveWeaponID::WID_tgtp",
+    "ELiveWeaponID::WID_uav_plsl",
+    "ELiveWeaponID::WID_uav_gun",
+    "ELiveWeaponID::WID_uav_tls",
+    "ELiveWeaponID::WID_sod_child",
+    "ELiveWeaponID::WID_sffs_child",
+    "ELiveWeaponID::WID_droptank",
+    "ELiveWeaponID::WID_AI_gun",
+    "ELiveWeaponID::WID_AI_gun_emitter",
+    "ELiveWeaponID::WID_AI_aagun",
+    "ELiveWeaponID::WID_AI_aam",
+    "ELiveWeaponID::WID_AI_longrange_aam",
+    "ELiveWeaponID::WID_AI_artillery",
+    "ELiveWeaponID::WID_AI_bomb",
+    "ELiveWeaponID::WID_AI_ciws",
+    "ELiveWeaponID::WID_AI_laser_interceptor",
+    "ELiveWeaponID::WID_AI_rktl",
+    "ELiveWeaponID::WID_AI_sam",
+    "ELiveWeaponID::WID_AI_vls",
+    "ELiveWeaponID::WID_AI_aias_aam",
+    "ELiveWeaponID::WID_AI_aias_lcn",
+    "ELiveWeaponID::WID_AI_aias_plc",
+    "ELiveWeaponID::WID_AI_aias_htb",
+    "ELiveWeaponID::WID_AI_eml",
+    "ELiveWeaponID::WID_AI_eml_stonehenge",
+    "ELiveWeaponID::WID_AI_lpg",
+    "ELiveWeaponID::WID_AI_mop",
+    "ELiveWeaponID::WID_AI_rbr",
+    "ELiveWeaponID::WID_AI_utl",
+    "ELiveWeaponID::WID_AI_ssm",
+    "ELiveWeaponID::WID_AI_esm",
+    "ELiveWeaponID::WID_AI_flakgun",
+    "ELiveWeaponID::WID_AI_ecm",
+    "ELiveWeaponID::WID_AI_iews",
+    "ELiveWeaponID::WID_MAX"
+  ],
   "aircraft": [
     {
       "id": 7010,
       "code": "f18c",
       "name": "F/A-18C Hornet",
-      "sort": 0
+      "sort": 0,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_4aam",
+        "ELiveWeaponID::WID_ugb",
+        "ELiveWeaponID::WID_lasm"
+      ]
     },
     {
       "id": 13010,
       "code": "a06e",
       "name": "A-6E Intruder",
-      "sort": 1100
+      "sort": 1100,
+      "category": "EPlaneCategory::Attacker",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_lagm",
+        "ELiveWeaponID::WID_lasm",
+        "ELiveWeaponID::WID_ugb"
+      ]
     },
     {
       "id": 10013010,
       "code": "a06e_ms15",
       "name": "A-6E Intruder",
-      "sort": 1101
+      "sort": 1101,
+      "category": "EPlaneCategory::Attacker",
+      "missionOnly": true,
+      "spWeapons": [
+        "ELiveWeaponID::WID_lagm",
+        "ELiveWeaponID::WID_lasm",
+        "ELiveWeaponID::WID_ugb"
+      ]
     },
     {
       "id": 1010,
       "code": "a10c",
       "name": "A-10C Thunderbolt II",
-      "sort": 1110
+      "sort": 1110,
+      "category": "EPlaneCategory::Attacker",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_4agm",
+        "ELiveWeaponID::WID_ugb",
+        "ELiveWeaponID::WID_rkt"
+      ]
     },
     {
       "id": 31010,
       "code": "e06b",
       "name": "EA-6B Prowler",
-      "sort": 1500
+      "sort": 1500,
+      "category": "EPlaneCategory::Electronic",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_ecm",
+        "ELiveWeaponID::WID_lagm",
+        "ELiveWeaponID::WID_esm"
+      ]
     },
     {
       "id": 10010,
       "code": "e18g",
       "name": "EA-18G Growler",
-      "sort": 1510
+      "sort": 1510,
+      "category": "EPlaneCategory::Electronic",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_esm",
+        "ELiveWeaponID::WID_2aam",
+        "ELiveWeaponID::WID_ecm"
+      ]
     },
     {
       "id": 2010,
       "code": "f02a",
       "name": "F-2A",
-      "sort": 1600
+      "sort": 1600,
+      "category": "EPlaneCategory::Attacker",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_lasm",
+        "ELiveWeaponID::WID_ugb",
+        "ELiveWeaponID::WID_hvaa"
+      ]
     },
     {
       "id": 3010,
       "code": "f04e",
       "name": "F-4E Phantom II",
-      "sort": 1610
+      "sort": 1610,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_hvaa",
+        "ELiveWeaponID::WID_ugb",
+        "ELiveWeaponID::WID_mgp"
+      ]
     },
     {
       "id": 10034010,
       "code": "f14a",
       "name": "F-14A Tomcat",
-      "sort": 1620
+      "sort": 1620,
+      "category": "EPlaneCategory::Fighter",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_hvaa",
+        "ELiveWeaponID::WID_saam",
+        "ELiveWeaponID::WID_ugb"
+      ]
     },
     {
       "id": 23010,
       "code": "f14d",
       "name": "F-14D Super Tomcat",
-      "sort": 1625
+      "sort": 1625,
+      "category": "EPlaneCategory::Fighter",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_laam",
+        "ELiveWeaponID::WID_saam",
+        "ELiveWeaponID::WID_gpb"
+      ]
     },
     {
       "id": 4010,
       "code": "f15c",
       "name": "F-15C Eagle",
-      "sort": 1630
+      "sort": 1630,
+      "category": "EPlaneCategory::Fighter",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_4aam",
+        "ELiveWeaponID::WID_hcaa",
+        "ELiveWeaponID::WID_sasm"
+      ]
     },
     {
       "id": 25010,
       "code": "f15e",
       "name": "F-15E Strike Eagle",
-      "sort": 1633
+      "sort": 1633,
+      "category": "EPlaneCategory::Attacker",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_xsdb",
+        "ELiveWeaponID::WID_sffs",
+        "ELiveWeaponID::WID_hcaa"
+      ]
     },
     {
       "id": 12010,
       "code": "f15j",
       "name": "F-15J Eagle",
-      "sort": 1635
+      "sort": 1635,
+      "category": "EPlaneCategory::Fighter",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_hpaa",
+        "ELiveWeaponID::WID_hcaa",
+        "ELiveWeaponID::WID_ugb"
+      ]
     },
     {
       "id": 22010,
       "code": "f16c",
       "name": "F-16C Fighting Falcon",
-      "sort": 1640
+      "sort": 1640,
+      "category": "EPlaneCategory::Fighter",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_2aam",
+        "ELiveWeaponID::WID_qaam",
+        "ELiveWeaponID::WID_lagm"
+      ]
     },
     {
       "id": 5010,
       "code": "f22a",
       "name": "F-22A Raptor",
-      "sort": 1650
+      "sort": 1650,
+      "category": "EPlaneCategory::Fighter",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_qaam",
+        "ELiveWeaponID::WID_4aam",
+        "ELiveWeaponID::WID_xsdb"
+      ]
     },
     {
       "id": 6010,
       "code": "f35c",
       "name": "F-35C Lightning II",
-      "sort": 1670
+      "sort": 1670,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_lacm",
+        "ELiveWeaponID::WID_hcaa",
+        "ELiveWeaponID::WID_8agm"
+      ]
     },
     {
       "id": 32010,
       "code": "f18e",
       "name": "F/A-18E Super Hornet",
-      "sort": 1685
+      "sort": 1685,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_6aam",
+        "ELiveWeaponID::WID_sod",
+        "ELiveWeaponID::WID_qaam"
+      ]
     },
     {
       "id": 24010,
       "code": "f18f",
       "name": "F/A-18F Super Hornet",
-      "sort": 1690
+      "sort": 1690,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_lasm",
+        "ELiveWeaponID::WID_4aam",
+        "ELiveWeaponID::WID_gpb"
+      ]
     },
     {
       "id": 10024010,
       "code": "f18f_ms01",
       "name": "F/A-18F Super Hornet",
-      "sort": 1691
+      "sort": 1691,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": true,
+      "spWeapons": [
+        "ELiveWeaponID::WID_lasm",
+        "ELiveWeaponID::WID_4aam",
+        "ELiveWeaponID::WID_gpb"
+      ]
     },
     {
       "id": 8010,
       "code": "j39e",
       "name": "Gripen E",
-      "sort": 2010
+      "sort": 2010,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_sasm",
+        "ELiveWeaponID::WID_6agm",
+        "ELiveWeaponID::WID_laam"
+      ]
     },
     {
       "id": 17010,
       "code": "mr2k",
       "name": "Mirage 2000-5",
-      "sort": 2020
+      "sort": 2020,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_ugb",
+        "ELiveWeaponID::WID_4aam",
+        "ELiveWeaponID::WID_lasm"
+      ]
     },
     {
       "id": 11010,
       "code": "typn",
       "name": "Typhoon",
-      "sort": 2030
+      "sort": 2030,
+      "category": "EPlaneCategory::Fighter",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_4aam",
+        "ELiveWeaponID::WID_laam",
+        "ELiveWeaponID::WID_8agm"
+      ]
     },
     {
       "id": 14010,
       "code": "rflm",
       "name": "Rafale M",
-      "sort": 2030
+      "sort": 2030,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_hcaa",
+        "ELiveWeaponID::WID_lacm",
+        "ELiveWeaponID::WID_laam"
+      ]
     },
     {
       "id": 27010,
       "code": "m21b",
       "name": "MiG-21bis Fishbed",
-      "sort": 3000
+      "sort": 3000,
+      "category": "EPlaneCategory::Fighter",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_sasm",
+        "ELiveWeaponID::WID_qaam",
+        "ELiveWeaponID::WID_mgp"
+      ]
     },
     {
       "id": 20010,
       "code": "m29a",
       "name": "MiG-29A Fulcrum",
-      "sort": 3010
+      "sort": 3010,
+      "category": "EPlaneCategory::Fighter",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_hcaa",
+        "ELiveWeaponID::WID_hpaa",
+        "ELiveWeaponID::WID_lagm"
+      ]
     },
     {
       "id": 29010,
       "code": "m31b",
       "name": "MiG-31B Foxhound",
-      "sort": 3020
+      "sort": 3020,
+      "category": "EPlaneCategory::Fighter",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_laam",
+        "ELiveWeaponID::WID_saam",
+        "ELiveWeaponID::WID_qaam"
+      ]
     },
     {
       "id": 15010,
       "code": "su25",
       "name": "Su-25SM Frogfoot",
-      "sort": 3100
+      "sort": 3100,
+      "category": "EPlaneCategory::Attacker",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_4agm",
+        "ELiveWeaponID::WID_sffs",
+        "ELiveWeaponID::WID_mgp"
+      ]
     },
     {
       "id": 30010,
       "code": "su33",
       "name": "Su-33 Flanker-D",
-      "sort": 3120
+      "sort": 3120,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_qaam",
+        "ELiveWeaponID::WID_rkt",
+        "ELiveWeaponID::WID_hvaa"
+      ]
     },
     {
       "id": 9010,
       "code": "su34",
       "name": "Su-34 Fullback",
-      "sort": 3130
+      "sort": 3130,
+      "category": "EPlaneCategory::Attacker",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_4agm",
+        "ELiveWeaponID::WID_ugbl",
+        "ELiveWeaponID::WID_hcaa"
+      ]
     },
     {
       "id": 28010,
       "code": "su35",
       "name": "Su-35S Flanker-E",
-      "sort": 3140
+      "sort": 3140,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_6aam",
+        "ELiveWeaponID::WID_lagm",
+        "ELiveWeaponID::WID_hvaa"
+      ]
     },
     {
       "id": 26010,
       "code": "su47",
       "name": "Su-47 Berkut",
-      "sort": 3160
+      "sort": 3160,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_saam",
+        "ELiveWeaponID::WID_ugb",
+        "ELiveWeaponID::WID_hpaa"
+      ]
     },
     {
       "id": 21010,
       "code": "su57",
       "name": "Su-57 Felon",
-      "sort": 3170
+      "sort": 3170,
+      "category": "EPlaneCategory::Fighter",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_qaam",
+        "ELiveWeaponID::WID_hcaa",
+        "ELiveWeaponID::WID_lacm"
+      ]
     },
     {
       "id": 38010,
       "code": "adfx02_L001",
       "name": "ADFX-02 Morgan -PIXY-",
-      "sort": 4020
+      "sort": 4020,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_mpbm",
+        "ELiveWeaponID::WID_tls",
+        "ELiveWeaponID::WID_ecm"
+      ]
     },
     {
       "id": 19010,
       "code": "ea36",
       "name": "EA-36 Barricader",
-      "sort": 4100
+      "sort": 4100,
+      "category": "EPlaneCategory::Electronic",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_iews",
+        "ELiveWeaponID::WID_4aam",
+        "ELiveWeaponID::WID_xsdb"
+      ]
     },
     {
       "id": 18010,
       "code": "fa36",
       "name": "FA-36 Game",
-      "sort": 4200
+      "sort": 4200,
+      "category": "EPlaneCategory::Fighter",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_sasm",
+        "ELiveWeaponID::WID_hpaa",
+        "ELiveWeaponID::WID_sod"
+      ]
     },
     {
       "id": 16010,
       "code": "x40a",
       "name": "X-40 Nightmare",
-      "sort": 4300
+      "sort": 4300,
+      "category": "EPlaneCategory::Multirole",
+      "missionOnly": false,
+      "spWeapons": [
+        "ELiveWeaponID::WID_uav_tls",
+        "ELiveWeaponID::WID_emlb",
+        "ELiveWeaponID::WID_qaam"
+      ]
     }
   ],
   "skins": [

@@ -2,6 +2,16 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [0.14.4] - 2026-10-12
+
+ACE COMBAT 8: safer post-clear unlocks; aircraft / skins / emblems write path aligned with the reference editor.
+
+### Fixed
+
+- **ACE COMBAT 8**: Post-clear unlocks / pseudo NG+ use the UE54 tree writer and stub Free Mission 1–31 records; they **no longer merge 100% skin/emblem/medal/tree ID dumps** (that produced checksum-valid files the game still rejected on mid-campaign saves)
+- **ACE COMBAT 8**: Owning an aircraft syncs tree nodes, `AircraftTypeRecords`, and SP1; SP2/SP3 are per-plane toggles; Unlock visible skips mission loaners and opens all SP (aligned with [ac8-save-editor](https://github.com/RivaTesu/ac8-save-editor))
+- **ACE COMBAT 8**: Skin/emblem Unlock visible batches into one tree rewrite; post-clear unlocks also set Ace `MenuMiscFlag`
+
 ## [0.14.3] - 2026-10-04
 
 ACE COMBAT 8: independent Aircraft / Skins / Emblems / Mission-rank tabs; list and rank writes use a full GVAS tree rewrite like the reference editor.

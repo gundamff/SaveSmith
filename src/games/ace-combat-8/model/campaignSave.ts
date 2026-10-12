@@ -5,15 +5,20 @@ import {
   FULL_UNLOCK_FEATURE_MASK,
   HANGAR_SITUATION_IDS,
   mergePostCampaignFlags,
-  mergeUniqueIds,
-  POST_CAMPAIGN_CLEAR_MASK,
-  REF_AIRCRAFT_TREE_NODE_IDS,
-  REF_EMBLEM_IDS,
-  REF_MEDAL_IDS,
-  REF_SKIN_IDS
+  POST_CAMPAIGN_CLEAR_MASK
 } from './features'
-import { activateAceUnlockEntry, isAceUnlockEntryActive } from './unlockFlags'
-import { assertPackedDataUe54, rewriteCampaignSave } from './ue54'
+import { isAceUnlockEntryActive } from './unlockFlags'
+import {
+  activateAceUnlockOnSave,
+  assertPackedDataUe54,
+  ensureCompletedMissionIdsOnSave,
+  loadCampaignSave,
+  replaceNumericArrayOnSave,
+  rewriteCampaignSave,
+  saveCampaignSave,
+  setIntPropOnSave,
+  setMenuMiscFlagOnSave
+} from './ue54'
 import {
   assertGvasMagic,
   findByteArrayProperty,
@@ -24,12 +29,10 @@ import {
   readInt32,
   readInt32Array,
   readUInt32,
-  readUInt32Array,
   readUInt64,
   writeInt32,
   writeInt32Array,
   writeUInt32,
-  writeUInt32Array,
   writeUInt64,
   type GvasInt32ArrayField
 } from './gvas'
@@ -145,21 +148,6 @@ function replaceInt32ArrayByName(patch: CampaignSavePatch, name: string, ids: nu
   rebind(patch, nextBytes)
 }
 
-function mergeUInt32ArrayByName(patch: CampaignSavePatch, name: string, extra: readonly number[]): void {
-  const field = findUInt32ArrayProperty(patch.bytes, name)
-  if (!field) throw new ModuleError('MISSING_FIELD', [name])
-  const merged = mergeUniqueIds(readUInt32Array(patch.bytes, field), extra)
-  if (merged.length === field.count) {
-    // Length unchanged but order/content may still need write if subset equal size — only skip when identical
-    const cur = readUInt32Array(patch.bytes, field)
-    if (cur.length === merged.length && cur.every((v, i) => v === merged[i])) return
-  }
-  const delta = (merged.length - field.count) * 4
-  const nextBytes = writeUInt32Array(patch.bytes, field, merged)
-  bumpPackedDataSize(nextBytes, delta)
-  rebind(patch, nextBytes)
-}
-
 export function readCampaignView(patch: CampaignSavePatch): CampaignSaveView {
   const b = patch.bytes
   const s = patch.scalars
@@ -231,36 +219,29 @@ export function setUnlockedFreeMissionIds(patch: CampaignSavePatch, ids: number[
 
 /**
  * Unlock post-campaign features without resetting story cursor.
- * Aligns FeatureFlag (+Ace), UnlockData Ace entry, hangar/free lists, and 100% reference ID lists.
+ *
+ * Deliberately does NOT merge 100% skin/emblem/medal/tree ID dumps — that combination
+ * produces a checksum-valid file the game still rejects as corrupt on mid-campaign saves.
+ * Use the dedicated Skins / Emblems / Aircraft tabs for those.
  */
 export function applyPostCampaignUnlocks(patch: CampaignSavePatch): void {
+  const sf = loadCampaignSave(patch.bytes)
   const view = readCampaignView(patch)
-  if (view.completionCount < 1) {
-    writeUInt32(patch.bytes, patch.scalars.completionCount.valueOffset, 1)
-  }
-  writeUInt32(
-    patch.bytes,
-    patch.scalars.featureFlagMask.valueOffset,
-    mergePostCampaignFlags(readUInt32(patch.bytes, patch.scalars.featureFlagMask.valueOffset))
-  )
-  activateAceUnlockEntry(patch.bytes)
+  if (view.completionCount < 1) setIntPropOnSave(sf, 'CompletionCount', 1)
+  setIntPropOnSave(sf, 'FeatureFlagMask', mergePostCampaignFlags(view.featureFlagMask))
+  activateAceUnlockOnSave(sf)
+  // Match ac8-save-editor UnlockAce (UI chrome; 100% dumps often omit it).
+  setMenuMiscFlagOnSave(sf, 'ELiveMenuMiscFlagID::NewAceDifficulty', true)
 
-  replaceInt32ArrayByName(patch, 'UnlockedFreeMissionIDs', FREE_MISSION_IDS)
-  replaceInt32ArrayByName(patch, 'NewlyUnlockedFreeMissionIDs', FREE_MISSION_IDS)
-  replaceInt32ArrayByName(patch, 'UnlockedHangarSituationIDs', HANGAR_SITUATION_IDS)
-  replaceInt32ArrayByName(patch, 'NewlyUnlockedHangarSituationIDs', HANGAR_SITUATION_IDS)
+  replaceNumericArrayOnSave(sf, 'UnlockedFreeMissionIDs', FREE_MISSION_IDS)
+  replaceNumericArrayOnSave(sf, 'NewlyUnlockedFreeMissionIDs', FREE_MISSION_IDS)
+  replaceNumericArrayOnSave(sf, 'UnlockedHangarSituationIDs', HANGAR_SITUATION_IDS)
+  replaceNumericArrayOnSave(sf, 'NewlyUnlockedHangarSituationIDs', HANGAR_SITUATION_IDS)
 
-  mergeUInt32ArrayByName(patch, 'UnlockedAircraftTreeNodeIDs', REF_AIRCRAFT_TREE_NODE_IDS)
-  mergeUInt32ArrayByName(patch, 'NewlyUnlockedAircraftTreeNodeIDs', REF_AIRCRAFT_TREE_NODE_IDS)
-  mergeUInt32ArrayByName(patch, 'UnlockedSkinIdList', REF_SKIN_IDS)
-  mergeUInt32ArrayByName(patch, 'NewlyUnlockedSkinIdList', REF_SKIN_IDS)
-  mergeUInt32ArrayByName(patch, 'UnlockedEmblemIdList', REF_EMBLEM_IDS)
-  mergeUInt32ArrayByName(patch, 'NewlyUnlockedEmblemIdList', REF_EMBLEM_IDS)
-  mergeUInt32ArrayByName(patch, 'UnlockedMedalIdList', REF_MEDAL_IDS)
-  // NewlyUnlockedMedalIdList may be empty in 100% refs; still merge ids for consistency
-  mergeUInt32ArrayByName(patch, 'NewlyUnlockedMedalIdList', REF_MEDAL_IDS)
+  // Free Mission 1–31 without matching CompletedMissionList entries → in-game "corrupt save".
+  ensureCompletedMissionIdsOnSave(sf, FREE_MISSION_IDS)
 
-  resealChecksum(patch)
+  rebindPatch(patch, saveCampaignSave(sf))
 }
 
 /**
