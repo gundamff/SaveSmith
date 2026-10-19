@@ -6,7 +6,7 @@ import { modules } from '@host/registry'
 describe('registry', () => {
   it('registers compiled game modules in registry order', () => {
     expect(Array.isArray(modules)).toBe(true)
-    expect(modules).toHaveLength(8)
+    expect(modules).toHaveLength(9)
     expect(modules.map((m) => m.id)).toEqual([
       'chaos-front',
       'chaos-galaxy-2',
@@ -15,7 +15,8 @@ describe('registry', () => {
       'terraria',
       'dragon-sword',
       'eslabong',
-      'ace-combat-8'
+      'ace-combat-8',
+      'belmonts-curse'
     ])
   })
 })
