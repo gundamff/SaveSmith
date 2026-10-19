@@ -51,6 +51,7 @@
 | [龙之剑：觉醒 / DragonSword: Awakening](docs/games/dragon-sword.md) | HOUND13 | 已支持（单机；请关 Steam Cloud） | [中文](docs/games/dragon-sword.md) · [English](docs/games/dragon-sword.en.md) |
 | [Eslabong](docs/games/eslabong.md) | shirowita | 已支持（EA，格式可能变） | [中文](docs/games/eslabong.md) · [English](docs/games/eslabong.en.md) |
 | [皇牌空战 8 / ACE COMBAT 8](docs/games/ace-combat-8.md) | Bandai Namco Entertainment | 已支持（战役 MRP / 周目 / 机体涂装徽章 / 任务评级） | [中文](docs/games/ace-combat-8.md) · [English](docs/games/ace-combat-8.en.md) |
+| [恶魔城：贝尔蒙特的诅咒 / Castlevania: Belmont's Curse](docs/games/belmonts-curse.md) | KONAMI | 已支持（一期标量；背包 / 探索只读） | [中文](docs/games/belmonts-curse.md) · [English](docs/games/belmonts-curse.en.md) |
 
 新增游戏时：补模块 + 在本表加一行 + 在 `docs/games/` 写独立说明。
 

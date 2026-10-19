@@ -2,6 +2,16 @@
 
 [中文](CHANGELOG.md) | **English**
 
+## [Unreleased]
+
+Castlevania: Belmont's Curse — phase 1 (writable character scalars, deep tabs read-only).
+
+### Added
+
+- **Castlevania: Belmont's Curse**: Edit `BuildSave_*.sav` (UTF-8 JSON); Character tab whitelist scalars (level, XP, upgrade fragments, current HP/MP, etc.)
+- **Castlevania: Belmont's Curse**: Inventory, Abilities / Arcana, and Exploration tabs are **read-only**; `PLAYERPREFS.sav` is never listed or written
+- User docs and [HANDTEST](docs/HANDTEST.md) checklist
+
 ## [0.14.4] - 2026-10-12
 
 ACE COMBAT 8: safer post-clear unlocks; aircraft / skins / emblems write path aligned with the reference editor.

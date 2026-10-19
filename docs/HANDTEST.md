@@ -181,3 +181,28 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 - [ ] **完全退出游戏**后用 SaveSmith 改档并保存
 - [ ] 启动游戏能正常加载存档（校验和有效），数值与修改一致，无「存档损坏」提示
 - [ ] 改档时游戏仍在运行的反例：改完保存后直接退游戏，确认修改被覆盖（Steam 云行为，文档已警告）
+
+---
+
+## 恶魔城：贝尔蒙特的诅咒（Belmont's Curse）手测
+
+**警告：** 修改前**完全退出游戏**。Steam Cloud 会同步 `*.sav`；建议关云并用存档**副本**试验。本模块**只**编辑 `BuildSave_*.sav`，**不得**出现 `PLAYERPREFS.sav` 槽位。
+
+默认真档目录（仅作复制来源）：
+
+`%USERPROFILE%\AppData\LocalLow\KONAMI\Castlevania Belmont's Curse`
+
+槽位文件：`BuildSave_0.sav` … `BuildSave_3.sav`（以本机为准）。同目录的 `PLAYERPREFS.sav` 不在 SaveSmith 槽位列表中。
+
+### BC1. 槽位与往返（写回硬门槛）
+
+- [ ] 在**副本**目录打开 SaveSmith，载入某一 `BuildSave_*.sav` 槽位
+- [ ] **未改任何字段**直接保存（若宿主已标「无变更」可跳过保存）→ 再导出 / 重载同一槽 → **游戏能正常开档**
+- [ ] 在「角色」页将 `experienceCurrent` **+1** 并保存 → 启动游戏，**经验条 / 数值与修改一致**
+- [ ] 「背包」页与游戏内**抽样**对照（物品 ID 或名称一致）；只读，不可保存增删
+- [ ] 左侧槽位列表**仅** `BuildSave_*.sav`，**确认没有** `PLAYERPREFS` 或 `PLAYERPREFS.sav` 条目
+
+### BC2. 宿主与备份（可选）
+
+- [ ] 真档在默认路径时卡片显示「已找到存档目录」；手选无 `BuildSave_*.sav` 的目录应拒绝进入
+- [ ] 保存后 `backup/` 出现对应 `.sav` 时间戳备份；备份面板可还原
