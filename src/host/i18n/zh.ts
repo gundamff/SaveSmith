@@ -315,6 +315,65 @@ export const zh: MessageTree = {
       allS: '已有记录全部 S'
     }
   },
+  bc: {
+    tabs: {
+      overview: '概览',
+      character: '角色',
+      inventory: '背包',
+      abilities: '能力 / Arcana',
+      exploration: '探索'
+    },
+    hint: {
+      quitAndCloud: '请先完全退出游戏，并暂时关闭 Steam 云同步，再改档保存。'
+    },
+    overview: {
+      version: '存档版本',
+      saveDate: '保存时间',
+      playTime: '游戏时长（秒）'
+    },
+    character: {
+      playerId: '角色 ID',
+      level: '等级',
+      experienceCurrent: '当前经验',
+      healthUpgradeFragmentCount: '生命升级碎片',
+      manaUpgradeFragmentCount: '魔力升级碎片',
+      atkBonusUpgradeCount: '攻击加成次数',
+      defBonusUpgradeCount: '防御加成次数',
+      currentHealth: '当前生命',
+      currentMana: '当前魔力',
+      currentHealChargesCount: '治疗次数',
+      currentTheHermitDeathDefianceCount: 'Hermit 免死次数'
+    },
+    inventory: {
+      items: '背包物品',
+      equipment: '已装备',
+      weapon: '武器',
+      spell: '副武器 / 法术',
+      skin: '外观',
+      charmSlot: '护符槽 {0}',
+      empty: '（空）',
+      emptyList: '背包为空',
+      colSlot: '槽位',
+      colId: 'ID',
+      colName: '名称',
+      readonlyHint: '一期只读；名称表未收录时显示原始 ID。'
+    },
+    abilities: {
+      vaniaMoves: 'Vania 招式',
+      progression: '持久进度',
+      arcanaTasks: 'Arcana 已完成任务',
+      arcanaTalents: 'Arcana 已解锁天赋',
+      colId: 'GUID',
+      empty: '（无条目）',
+      readonlyHint: '一期只读；后续映射落地后可新增能力。'
+    },
+    exploration: {
+      worldKeyCount: '世界区块数',
+      completionItemCount: '完成度条目合计',
+      entityCount: '可保存实体数',
+      readonlyHint: '仅统计摘要；不逐实体编辑。'
+    }
+  },
   dc: {
     tabs: {
       resources: '资源',

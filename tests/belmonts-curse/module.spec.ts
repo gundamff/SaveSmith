@@ -12,5 +12,12 @@ describe('belmontsCurseModule', () => {
     expect(featureFlags.addAbility).toBe(false)
     expect(modules.map((m) => m.id)).toContain('belmonts-curse')
     expect(belmontsCurseModule.locate.identifyNameRegex).toContain('BuildSave_')
+    expect(belmontsCurseModule.views.map((v) => v.id)).toEqual([
+      'overview',
+      'character',
+      'inventory',
+      'abilities',
+      'exploration'
+    ])
   })
 })
