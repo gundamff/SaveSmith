@@ -476,6 +476,9 @@ export const en: MessageTree = {
     ENCRYPT_FAILED: 'Failed to encrypt save: {0}',
     INVALID_FORMAT: 'Invalid save format: {0}',
     OUT_OF_RANGE: 'Value out of range: {0}',
-    INVALID_STATE: 'Invalid save state: {0}'
+    INVALID_STATE: 'Invalid save state: {0}',
+    INVALID_JSON: 'Invalid JSON in {0}',
+    BC_LEVEL: 'Invalid level (must be an integer ≥ 1): {0}',
+    BC_SCALAR: 'Invalid value for field {0}: {1}'
   }
 }

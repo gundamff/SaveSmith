@@ -472,6 +472,9 @@ export const zh: MessageTree = {
     ENCRYPT_FAILED: '存档加密失败：{0}',
     INVALID_FORMAT: '存档格式无效：{0}',
     OUT_OF_RANGE: '字段超出范围：{0}',
-    INVALID_STATE: '存档状态无效：{0}'
+    INVALID_STATE: '存档状态无效：{0}',
+    INVALID_JSON: '无法解析 JSON 文件：{0}',
+    BC_LEVEL: '等级无效（须为 ≥1 的整数）：{0}',
+    BC_SCALAR: '字段 {0} 数值无效：{1}'
   }
 }

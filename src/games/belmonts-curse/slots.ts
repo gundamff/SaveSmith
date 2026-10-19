@@ -15,9 +15,9 @@ function subtitleFromBytes(bytes: Uint8Array): string | undefined {
     const playerSave = root.playerSave
     if (!playerSave || typeof playerSave !== 'object' || Array.isArray(playerSave)) return undefined
     const ps = playerSave as Record<string, unknown>
-    const level = ps.level
     const saveDate = ps.saveDate
-    if (typeof level !== 'number' || typeof saveDate !== 'string') return undefined
+    const level = Number(ps.level)
+    if (!Number.isFinite(level) || typeof saveDate !== 'string') return undefined
     return `Lv.${level} · ${saveDate}`
   } catch {
     return undefined

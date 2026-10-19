@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest'
-import { locate } from '../../src/games/belmonts-curse/locate'
 import { listSlots } from '../../src/games/belmonts-curse/slots'
 import { utf8Encode } from '../../src/sdk/session'
 
