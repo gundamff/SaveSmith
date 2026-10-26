@@ -1,4 +1,9 @@
 import { ModuleError } from '@sdk/error'
+import {
+  catalogIdsByCategory,
+  isAddableCategory,
+  type ItemCategory
+} from '../catalog/names'
 import type { BelmontsCurseState } from './types'
 import { refreshViews } from './saveModel'
 
@@ -36,6 +41,25 @@ export function addItem(state: BelmontsCurseState, id: string): void {
   }
   writeInventory(ps, [...inv, trimmed])
   refreshViews(state)
+}
+
+/**
+ * Add every catalog id of an addable category (weapon/spell/charm/skin).
+ * Returns how many new ids were appended. Clue/key/other → 0.
+ */
+export function addAllOfCategory(state: BelmontsCurseState, category: ItemCategory): number {
+  if (!isAddableCategory(category)) return 0
+  const ps = playerSave(state)
+  const inv = inventoryOf(ps)
+  const owned = new Set(inv)
+  const toAdd = catalogIdsByCategory(category).filter((id) => !owned.has(id))
+  if (toAdd.length === 0) {
+    refreshViews(state)
+    return 0
+  }
+  writeInventory(ps, [...inv, ...toAdd])
+  refreshViews(state)
+  return toAdd.length
 }
 
 /**

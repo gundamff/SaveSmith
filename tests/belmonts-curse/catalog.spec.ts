@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   ADDABLE_CATEGORIES,
+  catalogIdsByCategory,
   getItemCategory,
   isAddableCategory,
   searchCatalogOptions
@@ -38,5 +39,13 @@ describe('belmonts-curse catalog categories (policy B)', () => {
 
     const weapons = searchCatalogOptions('cestus', 'en', 80, 'weapon')
     expect(weapons.some((o) => o.id === 'WeaponFistTier1')).toBe(true)
+  })
+
+  it('catalogIdsByCategory lists all ids of that type', () => {
+    const weapons = catalogIdsByCategory('weapon')
+    expect(weapons.length).toBeGreaterThan(10)
+    expect(weapons.every((id) => getItemCategory(id) === 'weapon')).toBe(true)
+    const clues = catalogIdsByCategory('clue')
+    expect(clues.some((id) => id.startsWith('Clue_'))).toBe(true)
   })
 })

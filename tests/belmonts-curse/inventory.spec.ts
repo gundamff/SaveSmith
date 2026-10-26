@@ -5,7 +5,9 @@ import { describe, expect, it } from 'vitest'
 import { catalogReady } from '../../src/games/belmonts-curse/catalog/ready'
 import { lookupItemName } from '../../src/games/belmonts-curse/catalog/names'
 import { featureFlags } from '../../src/games/belmonts-curse/model/featureFlags'
+import { catalogIdsByCategory, getItemCategory } from '../../src/games/belmonts-curse/catalog/names'
 import {
+  addAllOfCategory,
   addItem,
   removeItem,
   setEquippedCharm,
@@ -86,5 +88,19 @@ describe('belmonts-curse inventory mutators', () => {
     const codes = validate(again).map((i) => i.code)
     expect(codes).toContain('BC_INV_DUP')
     expect(codes).toContain('BC_EQUIP_ORPHAN')
+  })
+
+  it('addAllOfCategory adds missing ids and is idempotent', () => {
+    const state = loadState()
+    const before = state.player.itemsInInventory.length
+    const expected = catalogIdsByCategory('charm')
+    const added = addAllOfCategory(state, 'charm')
+    expect(added).toBeGreaterThan(0)
+    expect(state.player.itemsInInventory.filter((id) => getItemCategory(id) === 'charm')).toHaveLength(
+      expected.length
+    )
+    expect(state.player.itemsInInventory.length).toBe(before + added)
+    expect(addAllOfCategory(state, 'charm')).toBe(0)
+    expect(addAllOfCategory(state, 'clue')).toBe(0)
   })
 })

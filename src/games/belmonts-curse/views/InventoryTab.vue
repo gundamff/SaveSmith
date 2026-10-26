@@ -1,15 +1,18 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
+import { ElMessage } from 'element-plus'
 import { locale, t } from '@host/i18n'
 import {
   ADDABLE_CATEGORIES,
   getItemCategory,
+  isAddableCategory,
   lookupItemName,
   searchCatalogOptions,
   type ItemCategory
 } from '../catalog/names'
 import { featureFlags } from '../model/featureFlags'
 import {
+  addAllOfCategory,
   addItem,
   removeItem,
   setEquippedCharm,
@@ -33,35 +36,57 @@ interface EquipRow {
   name: string
 }
 
-type AddCategory = ItemCategory | 'all-addable'
+/** Shared filter: owned table + add dropdown. */
+type TypeFilter = 'all' | ItemCategory
 
 const editor = useBcEditor()
 const writable = featureFlags.addItem
 const addQuery = ref('')
-const addCategory = ref<AddCategory>('all-addable')
+const typeFilter = ref<TypeFilter>('all')
 const pendingAdd = ref<string | undefined>()
 
 const loc = computed((): 'zh' | 'en' => (locale.value === 'en' ? 'en' : 'zh'))
 
+const LIST_FILTER_ORDER: TypeFilter[] = [
+  'all',
+  'weapon',
+  'spell',
+  'charm',
+  'skin',
+  'clue',
+  'key',
+  'other'
+]
+
 const ADDABLE_ORDER: ItemCategory[] = ['weapon', 'spell', 'charm', 'skin']
 
-const addCategoryOptions = computed(() => [
-  { value: 'all-addable' as const, label: t('bc.inventory.catAllAddable') },
-  ...ADDABLE_ORDER.map((c) => ({
-    value: c,
-    label: categoryLabel(c)
-  }))
-])
-
 function categoryLabel(cat: ItemCategory): string {
-  const key = `bc.inventory.cat.${cat}` as const
+  const key = `bc.inventory.cat.${cat}`
   const translated = t(key)
   return translated === key ? cat : translated
 }
 
+const typeFilterOptions = computed(() =>
+  LIST_FILTER_ORDER.map((value) => ({
+    value,
+    label: value === 'all' ? t('bc.inventory.catAll') : categoryLabel(value)
+  }))
+)
+
+const canAddCurrentType = computed(() => {
+  if (typeFilter.value === 'all') return true
+  return isAddableCategory(typeFilter.value)
+})
+
+const addSearchCategory = computed(() => {
+  if (typeFilter.value === 'all') return 'all-addable' as const
+  if (isAddableCategory(typeFilter.value)) return typeFilter.value
+  return 'all-addable' as const
+})
+
 const inventoryRows = computed((): ItemRow[] => {
   void editor.rev
-  return editor.save.player.itemsInInventory.map((id, index) => {
+  const rows = editor.save.player.itemsInInventory.map((id, index) => {
     const category = getItemCategory(id)
     return {
       index,
@@ -71,6 +96,8 @@ const inventoryRows = computed((): ItemRow[] => {
       categoryLabel: categoryLabel(category)
     }
   })
+  if (typeFilter.value === 'all') return rows
+  return rows.filter((r) => r.category === typeFilter.value)
 })
 
 function ownedOptionsFor(cat: ItemCategory) {
@@ -89,7 +116,7 @@ const skinOptions = computed(() => ownedOptionsFor('skin'))
 const charmOptions = computed(() => ownedOptionsFor('charm'))
 
 const addOptions = computed(() =>
-  searchCatalogOptions(addQuery.value, loc.value, 80, addCategory.value)
+  searchCatalogOptions(addQuery.value, loc.value, 80, addSearchCategory.value)
 )
 
 const charmSlots = computed(() => {
@@ -127,7 +154,7 @@ const equipRows = computed((): EquipRow[] => {
   return rows
 })
 
-watch(addCategory, () => {
+watch(typeFilter, () => {
   pendingAdd.value = undefined
   addQuery.value = ''
 })
@@ -143,6 +170,16 @@ function onAdd(): void {
   editor.markDirty(() => addItem(editor.save, id))
   pendingAdd.value = undefined
   addQuery.value = ''
+}
+
+function onAddAll(category: ItemCategory): void {
+  if (!writable || !isAddableCategory(category)) return
+  let n = 0
+  editor.markDirty(() => {
+    n = addAllOfCategory(editor.save, category)
+  })
+  if (n > 0) ElMessage.success(t('bc.inventory.addedAll', categoryLabel(category), n))
+  else ElMessage.info(t('bc.inventory.addedAllNone', categoryLabel(category)))
 }
 
 function onRemove(id: string): void {
@@ -191,15 +228,30 @@ function changeCharm(index: number, id: string | undefined): void {
     />
 
     <h3 class="section">{{ t('bc.inventory.items') }}</h3>
-    <div v-if="writable" class="add-row">
-      <el-select v-model="addCategory" style="width: 140px">
+    <div class="filter-row">
+      <span class="filter-label">{{ t('bc.inventory.typeFilter') }}</span>
+      <el-select v-model="typeFilter" style="width: 160px">
         <el-option
-          v-for="opt in addCategoryOptions"
-          :key="opt.value"
+          v-for="opt in typeFilterOptions"
+          :key="String(opt.value)"
           :label="opt.label"
           :value="opt.value"
         />
       </el-select>
+    </div>
+
+    <div v-if="writable" class="bulk-row">
+      <el-button
+        v-for="cat in ADDABLE_ORDER"
+        :key="cat"
+        size="small"
+        @click="onAddAll(cat)"
+      >
+        {{ t('bc.inventory.addAll', categoryLabel(cat)) }}
+      </el-button>
+    </div>
+
+    <div v-if="writable && canAddCurrentType" class="add-row">
       <el-select
         v-model="pendingAdd"
         filterable
@@ -292,6 +344,22 @@ function changeCharm(index: number, id: string | undefined): void {
   margin: 16px 0 8px;
   font-size: 14px;
   font-weight: 600;
+}
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.filter-label {
+  font-size: 13px;
+  opacity: 0.85;
+}
+.bulk-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 .add-row {
   display: flex;

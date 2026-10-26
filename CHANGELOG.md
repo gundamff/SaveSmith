@@ -9,7 +9,7 @@
 ### 新增
 
 - **恶魔城：贝尔蒙特的诅咒**：编辑 `BuildSave_*.sav`（UTF-8 JSON）；角色页可改等级 / 经验 / 升级碎片等持久标量
-- **恶魔城：贝尔蒙特的诅咒**：Addressables 抽表 `catalog/items.json`（en + zh，本机缺 zh-cn 时用 zh-tw；含 category）；背包按类型添加（仅武器/护符/魔导器/外观，不含线索/钥匙）与装备编辑（不双写世界拾取）
+- **恶魔城：贝尔蒙特的诅咒**：Addressables 抽表 `catalog/items.json`（en + zh，本机缺 zh-cn 时用 zh-tw；含 category）；背包按类型筛选/添加（仅武器/护符/魔导器/外观）；一键添加全部四类；装备编辑（不双写世界拾取）
 - **恶魔城：贝尔蒙特的诅咒**：能力 / Arcana、探索 Tab **只读**；不识别、不写入 `PLAYERPREFS.sav`
 - 用户文档与 [HANDTEST](docs/HANDTEST.md) 手测清单
 

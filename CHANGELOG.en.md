@@ -9,7 +9,7 @@ Castlevania: Belmont's Curse — character scalars plus inventory when the name 
 ### Added
 
 - **Castlevania: Belmont's Curse**: Edit `BuildSave_*.sav` (UTF-8 JSON); Character tab persistent scalars (level, XP, upgrade fragments, etc.)
-- **Castlevania: Belmont's Curse**: Addressables-derived `catalog/items.json` (en + zh; zh-tw fallback; with category); add by type (weapons/charms/spells/skins only — no clues/keys) and equipment edit (no world-pickup dual-write)
+- **Castlevania: Belmont's Curse**: Addressables-derived `catalog/items.json` (en + zh; zh-tw fallback; with category); inventory type filter; add by type / add-all for weapons·charms·spells·skins; equipment edit (no world-pickup dual-write)
 - **Castlevania: Belmont's Curse**: Abilities / Arcana and Exploration remain **read-only**; `PLAYERPREFS.sav` is never listed or written
 - User docs and [HANDTEST](docs/HANDTEST.md) checklist
 

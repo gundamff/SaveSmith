@@ -53,6 +53,11 @@ export function isAddableCategory(cat: ItemCategory): boolean {
   return ADDABLE_CATEGORIES.has(cat)
 }
 
+/** All catalog ids of a category (sorted). */
+export function catalogIdsByCategory(category: ItemCategory): string[] {
+  return catalogIds().filter((id) => getItemCategory(id) === category)
+}
+
 export function lookupItemName(id: string, locale: 'zh' | 'en'): string {
   if (!id) return id
   const row = catalog[id]
