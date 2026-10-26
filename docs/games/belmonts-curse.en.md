@@ -54,6 +54,16 @@ Everything else (including `worldSaves`, `progressionBoardSave`) is **passed thr
 
 Automatic backups (last 10 per file) before save; restore from the backup panel.
 
+### Screenshots
+
+| SaveSmith inventory | SaveSmith Tarot |
+|:---:|:---:|
+| ![Inventory](../screenshot/belmonts-curse-inventory.png) | ![Tarot](../screenshot/belmonts-curse-tarot.png) |
+
+| In-game weapons | In-game Works of Mercy |
+|:---:|:---:|
+| ![Weapons](../screenshot/belmonts-curse-ingame-weapons.jpg) | ![Arcana](../screenshot/belmonts-curse-ingame-tarot.jpg) |
+
 ## Usage notes
 
 1. **Fully quit the game** before editing (quit may rewrite `BuildSave_*.sav`).

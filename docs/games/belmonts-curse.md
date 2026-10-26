@@ -54,6 +54,16 @@ Steam Cloud 会同步该目录下的 `*.sav`（配额约 40 MiB）。改档前
 
 保存前自动备份（每文件最近 10 份），可在备份面板还原。
 
+### 截图
+
+| SaveSmith 背包 | SaveSmith 塔罗 |
+|:---:|:---:|
+| ![背包](../screenshot/belmonts-curse-inventory.png) | ![塔罗](../screenshot/belmonts-curse-tarot.png) |
+
+| 游戏内武器 | 游戏内救赎之道 |
+|:---:|:---:|
+| ![武器](../screenshot/belmonts-curse-ingame-weapons.jpg) | ![塔罗奥秘](../screenshot/belmonts-curse-ingame-tarot.jpg) |
+
 ## 使用注意
 
 1. 修改前**完全退出游戏**（退出时可能覆写 `BuildSave_*.sav`）。
