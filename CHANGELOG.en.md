@@ -4,7 +4,11 @@
 
 ## [Unreleased]
 
-Castlevania: Belmont's Curse — character scalars plus inventory when the name catalog is ready.
+## [0.15.0] - 2026-10-26
+
+Castlevania: Belmont's Curse support (character / inventory / Tarot).
+
+> **Note (Belmont's Curse):** This game is too trashy for the author to bother finishing, so related features are only partially tested. Feedback welcome if something breaks.
 
 ### Added
 
