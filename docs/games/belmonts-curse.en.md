@@ -4,7 +4,7 @@
 
 Unofficial save-editing notes. Rights holder: **KONAMI** (Steam AppID [4231820](https://store.steampowered.com/app/4231820/)). Not affiliated with the publisher. Module cover uses the Steam store header (© KONAMI).
 
-> **Current scope:** Edits `playerSave` **character scalars**, **inventory / equipment** (when the name catalog is ready), and **Arcana unlock-all** (when `arcana.json` is ready) in slot files `BuildSave_*.sav`. Exploration stays read-only. Does **not** read or write `PLAYERPREFS.sav`. Does **not** dual-write `worldSaves` pickup state.
+> **Current scope:** Edits `playerSave` **character scalars**, **inventory / equipment** (when the name catalog is ready), and **Tarot** (Arcana unlock + complete all Works of Mercy) in slot files `BuildSave_*.sav`. No separate Abilities / Exploration tabs. Does **not** read or write `PLAYERPREFS.sav`. Does **not** dual-write `worldSaves` pickup state.
 
 Design: [2026-10-19](../design/2026-10-19-belmonts-curse-design.md) · [Inventory](../design/2026-10-26-belmonts-curse-inventory-design.md)
 
@@ -33,8 +33,7 @@ Steam Cloud syncs `*.sav` in this folder (~40 MiB quota). **Quit the game comp
 | Overview | Read-only summary | `version`, `saveDate`, `playTimeInSeconds`, etc. |
 | Character | **Writable** | Whitelist below |
 | Inventory | **Writable** (catalog ready) | Add/remove weapons / charms / spells / skins (deduped; skips abstract / Doppelganger / deprecated; **no** clue/key in add list); edit equip slots (must own; charms may be empty) |
-| Abilities / Arcana | **Writable** (Arcana catalog ready) | Unlock-all writes `characterProgressionSteps` (15 Tarot CharacterIDs) plus linked spells / vania GUIDs; task/talent lists stay summary-only |
-| Exploration | Read-only | World entry counts, `currentCompletionItemCount`, entity state counts (no per-entity editing) |
+| Tarot | **Writable** (`arcana.json` + `mercy.json` ready) | Unlock all 15 Arcana (`characterProgressionSteps` + spells / vania); complete all Works of Mercy (`arcanaCompletedTasks` / `arcanaSeenTasks` / `arcanaUnlockedTalents`) |
 
 ### Character scalar whitelist (`playerSave`)
 
@@ -68,6 +67,7 @@ Automatic backups (last 10 per file) before save; restore from the backup panel.
 
 - Module: `src/games/belmonts-curse/`
 - Name / Arcana catalogs: `py -3 scripts/bc_extract_names.py --game "<install root>"` (requires UnityPy; writes `items.json` + `arcana.json`)
+- Works of Mercy GUIDs: `py -3 scripts/_bc_dump_mercy_catalog.py` (writes `catalog/mercy.json`)
 - Tests: `npx vitest run tests/belmonts-curse`
 
 Back to [README](../../README.en.md).

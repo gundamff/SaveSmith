@@ -322,8 +322,7 @@ export const en: MessageTree = {
       overview: 'Overview',
       character: 'Character',
       inventory: 'Inventory',
-      abilities: 'Abilities / Arcana',
-      exploration: 'Exploration'
+      tarot: 'Tarot'
     },
     hint: {
       quitAndCloud: 'Quit the game completely and temporarily disable Steam Cloud before editing.',
@@ -385,33 +384,24 @@ export const en: MessageTree = {
       noWorldSync: 'World pickup state is not synced: added items may be pickable again at their original locations.',
       readonlyHint: 'Read-only until the name catalog is ready; unknown IDs show as raw strings.'
     },
-    abilities: {
-      tarot: 'Tarot / Arcana',
-      tarotHint:
-        'Writes characterProgressionSteps (CharacterID GUIDs) and adds linked spells / vania moves. Does not dual-write world pickups or PLAYERPREFS.',
+    tarot: {
+      hint: 'Unlock Tarot Arcana cards and complete all Works of Mercy (tasks + gifts). Does not dual-write world pickups or PLAYERPREFS.',
+      needCatalog: 'Tarot catalogs not ready: generate catalog/arcana.json and catalog/mercy.json first.',
+      cards: 'Arcana cards',
       unlockAll: 'Unlock all Arcana',
       unlockedAll: 'Unlocked {0} Arcana',
       unlockedAllNone: 'All Arcana already unlocked',
-      needArcanaCatalog: 'Arcana catalog not ready: run the extract script to generate catalog/arcana.json.',
+      mercy: 'Works of Mercy',
+      mercyProgress: 'Tasks {0}/{1} · Gifts {2}/{3}',
+      completeMercy: 'Complete all Works of Mercy',
+      mercyDone: 'Completed {0} new Works of Mercy tasks (and unlocked gifts)',
+      mercyDoneNone: 'All Works of Mercy already complete',
       colNum: '#',
       colName: 'Character',
       colSpell: 'Spell',
       colStatus: 'Status',
       statusOn: 'Unlocked',
-      statusOff: 'Locked',
-      vaniaMoves: 'Vania moves',
-      progression: 'Persistent progression',
-      arcanaTasks: 'Arcana completed tasks',
-      arcanaTalents: 'Arcana unlocked talents',
-      colId: 'GUID',
-      empty: '(none)',
-      readonlyHint: 'Read-only in phase 1; add flows unlock after mapping.'
-    },
-    exploration: {
-      worldKeyCount: 'World regions',
-      completionItemCount: 'Completion items (sum)',
-      entityCount: 'Savable entities',
-      readonlyHint: 'Summary counts only; no per-entity editing.'
+      statusOff: 'Locked'
     }
   },
   dc: {

@@ -10,7 +10,7 @@ Castlevania: Belmont's Curse — character scalars plus inventory when the name 
 
 - **Castlevania: Belmont's Curse**: Edit `BuildSave_*.sav` (UTF-8 JSON); Character tab persistent scalars (level, XP, upgrade fragments, etc.)
 - **Castlevania: Belmont's Curse**: Addressables-derived `catalog/items.json` + `arcana.json` (en + zh; zh-tw fallback; category / abstract); inventory type filter; add by type / add-all for weapons·charms·spells·skins (skips abstract / Doppelganger); equipment edit (no world-pickup dual-write)
-- **Castlevania: Belmont's Curse**: Abilities tab can unlock all 15 Arcana (`characterProgressionSteps` + linked spells / vania); Exploration stays read-only; `PLAYERPREFS.sav` is never listed or written
+- **Castlevania: Belmont's Curse**: **Tarot** tab — unlock all 15 Arcana; complete all Works of Mercy (tasks + gifts); Abilities / Exploration tabs removed; `PLAYERPREFS.sav` is never listed or written
 - User docs and [HANDTEST](docs/HANDTEST.md) checklist
 
 ### Fixed

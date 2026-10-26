@@ -1,0 +1,546 @@
+{
+  "tasks": [
+    {
+      "guid": "3d75694d9a9eca748a17cdcc8c4012e9",
+      "name": "BloodSpikes_Task_BleedKillCount",
+      "en": "BloodSpikes_Task_BleedKillCount",
+      "zh": ""
+    },
+    {
+      "guid": "9878548b8c3aa5048b45f8e7ec702e2c",
+      "name": "BloodSpikes_Task_FindDualWieldingWeapons",
+      "en": "BloodSpikes_Task_FindDualWieldingWeapons",
+      "zh": ""
+    },
+    {
+      "guid": "f736a228c4c47c442bf92e2350fabf2c",
+      "name": "BloodSpikes_Task_LongTermBleeding",
+      "en": "BloodSpikes_Task_LongTermBleeding",
+      "zh": ""
+    },
+    {
+      "guid": "cf586d0902bdb784db7a061351979bcf",
+      "name": "BoomerangCross_Task_ChainKill",
+      "en": "BoomerangCross_Task_ChainKill",
+      "zh": ""
+    },
+    {
+      "guid": "59d04ac0868a2ca4781268efaf054024",
+      "name": "BoomerangCross_Task_FindWhipWeapons",
+      "en": "BoomerangCross_Task_FindWhipWeapons",
+      "zh": ""
+    },
+    {
+      "guid": "5a1c97ee47764cf44a9ff4f8ce0c7370",
+      "name": "BoomerangCross_Task_WhipAttackKillCount",
+      "en": "BoomerangCross_Task_WhipAttackKillCount",
+      "zh": ""
+    },
+    {
+      "guid": "1c26d19acd6d910448748388f5f044be",
+      "name": "CurseFireBall_Task_HitCount",
+      "en": "CurseFireBall_Task_HitCount",
+      "zh": ""
+    },
+    {
+      "guid": "a96860c17952b15458739e186029b33f",
+      "name": "CurseFireBall_Task_SecretTask",
+      "en": "CurseFireBall_Task_SecretTask",
+      "zh": ""
+    },
+    {
+      "guid": "359078c57388f7544815f930aa6116d2",
+      "name": "Detainment_Task_DetainedGroup",
+      "en": "Detainment_Task_DetainedGroup",
+      "zh": ""
+    },
+    {
+      "guid": "7e2866036f07c854b836c9f540379b01",
+      "name": "Detainment_Task_DetainedKillCount",
+      "en": "Detainment_Task_DetainedKillCount",
+      "zh": ""
+    },
+    {
+      "guid": "0e6672336301e984c80f18777d0e2243",
+      "name": "Detainment_Task_UpgradeLifeMana",
+      "en": "Detainment_Task_UpgradeLifeMana",
+      "zh": ""
+    },
+    {
+      "guid": "6ceb76eab60dc964f8dac40c76f39023",
+      "name": "FireSeismicWave_Task_GroupFire",
+      "en": "FireSeismicWave_Task_GroupFire",
+      "zh": ""
+    },
+    {
+      "guid": "8e65503567065954b95eab71a4d7965b",
+      "name": "FireSeismicWave_Task_HolyPlace",
+      "en": "FireSeismicWave_Task_HolyPlace",
+      "zh": ""
+    },
+    {
+      "guid": "f2c497d34c5eabe4988d891a35a93ba8",
+      "name": "FireSeismicWave_Task_ParryCount",
+      "en": "FireSeismicWave_Task_ParryCount",
+      "zh": ""
+    },
+    {
+      "guid": "e587e7c596de40f4aa9cb5d17eb956c7",
+      "name": "FreezingMist_Task_FreezeBreakKillCount",
+      "en": "FreezingMist_Task_FreezeBreakKillCount",
+      "zh": ""
+    },
+    {
+      "guid": "9252cd70e18ac204f89444c671ffd816",
+      "name": "FreezingMist_Task_GroupFreeze",
+      "en": "FreezingMist_Task_GroupFreeze",
+      "zh": ""
+    },
+    {
+      "guid": "c07c4dff0f114aa428eb1189e40567a9",
+      "name": "GiantFist_Task_AirborneEnemyKill",
+      "en": "GiantFist_Task_AirborneEnemyKill",
+      "zh": ""
+    },
+    {
+      "guid": "61af9bd8957c082489bc2b5fd061e379",
+      "name": "GiantFist_Task_FistGroupKill",
+      "en": "GiantFist_Task_FistGroupKill",
+      "zh": ""
+    },
+    {
+      "guid": "28195e676518fc3448c7eb0062821b49",
+      "name": "GiantFist_Task_StompKill",
+      "en": "GiantFist_Task_StompKill",
+      "zh": ""
+    },
+    {
+      "guid": "7eb73d5f26825764aa991bfdf3454497",
+      "name": "GlassArmor_Task_GlassShieldSavior",
+      "en": "GlassArmor_Task_GlassShieldSavior",
+      "zh": ""
+    },
+    {
+      "guid": "c8716f87b125d4341b2b47fb4462319b",
+      "name": "GlassArmor_Task_HauntedArmorsKillCount",
+      "en": "GlassArmor_Task_HauntedArmorsKillCount",
+      "zh": ""
+    },
+    {
+      "guid": "60765778caa388943b486c3347068e84",
+      "name": "GlassArmor_Task_SingleAttackGroupKill",
+      "en": "GlassArmor_Task_SingleAttackGroupKill",
+      "zh": ""
+    },
+    {
+      "guid": "8d1fdecc1e4e2dd49a1d5e2329c0343f",
+      "name": "InvocationStone_Task_DiveAttackKillCount",
+      "en": "InvocationStone_Task_DiveAttackKillCount",
+      "zh": ""
+    },
+    {
+      "guid": "93535d91ae2ba0b458fad8c9b1415f2f",
+      "name": "InvocationStone_Task_GargoyleKillingGargoyle",
+      "en": "InvocationStone_Task_GargoyleKillingGargoyle",
+      "zh": ""
+    },
+    {
+      "guid": "0f6658a45480b224ea4dee66e3681838",
+      "name": "InvocationStone_Task_InvocationStoneFatalFall",
+      "en": "InvocationStone_Task_InvocationStoneFatalFall",
+      "zh": ""
+    },
+    {
+      "guid": "9047ced99b419ef4fbf0619f8c48cc21",
+      "name": "InvocationStone_Task_MainHallSecretZonesExploration",
+      "en": "InvocationStone_Task_MainHallSecretZonesExploration",
+      "zh": ""
+    },
+    {
+      "guid": "9bceaaf310bae9448a666817bbca77e3",
+      "name": "LaserScytheSlash_Task_GroupScythes",
+      "en": "LaserScytheSlash_Task_GroupScythes",
+      "zh": ""
+    },
+    {
+      "guid": "2a3f2c8d9a534e647b2b9430d7c54a14",
+      "name": "LaserScytheSlash_Task_NotreDamePuzzle",
+      "en": "LaserScytheSlash_Task_NotreDamePuzzle",
+      "zh": ""
+    },
+    {
+      "guid": "bac9a8b71483d514d9ad273e3f37f008",
+      "name": "LaserScytheSlash_Task_SkeletonKillCount",
+      "en": "LaserScytheSlash_Task_SkeletonKillCount",
+      "zh": ""
+    },
+    {
+      "guid": "3411973f6dcba2d4cb19191582ae48ba",
+      "name": "LifeDrain_Task_DrainDuration",
+      "en": "LifeDrain_Task_DrainDuration",
+      "zh": ""
+    },
+    {
+      "guid": "670c95b801ea1d546947236606321a4e",
+      "name": "LifeDrain_Task_ExploreBiome",
+      "en": "LifeDrain_Task_ExploreBiome",
+      "zh": ""
+    },
+    {
+      "guid": "200c35ff386b15d4888ab1a29c24af44",
+      "name": "LifeDrain_Task_KillCount",
+      "en": "LifeDrain_Task_KillCount",
+      "zh": ""
+    },
+    {
+      "guid": "1ff5e2143642ab040bd6219c1cf8ae55",
+      "name": "MassPurification_Task_ExploreBiome",
+      "en": "MassPurification_Task_ExploreBiome",
+      "zh": ""
+    },
+    {
+      "guid": "fbb8c7e13f6eb774e92d8a25ec574164",
+      "name": "MassPurification_Task_FullHealCount",
+      "en": "MassPurification_Task_FullHealCount",
+      "zh": ""
+    },
+    {
+      "guid": "89ee2507a0e54c3418ca494e6027e5cd",
+      "name": "MassPurification_Task_KillGroupMultiple",
+      "en": "MassPurification_Task_KillGroupMultiple",
+      "zh": ""
+    },
+    {
+      "guid": "b298c3fe842c7d34bba95e3fd64ae88f",
+      "name": "PetrifyingRay_Task_PetrifiedFatalFallKillCount",
+      "en": "PetrifyingRay_Task_PetrifiedFatalFallKillCount",
+      "zh": ""
+    },
+    {
+      "guid": "862dd7b84a2033e46b87aab31a6a4916",
+      "name": "PetrifyingRay_Task_ShieldedEnemiesPetrification",
+      "en": "PetrifyingRay_Task_ShieldedEnemiesPetrification",
+      "zh": ""
+    },
+    {
+      "guid": "d679013200fb648419def3ca63d99891",
+      "name": "PocketMirror_Task_DodgeAndKillCount",
+      "en": "PocketMirror_Task_DodgeAndKillCount",
+      "zh": ""
+    },
+    {
+      "guid": "6f98fa9fff5b67e468d918fd31ee1c50",
+      "name": "PocketMirror_Task_HealthRecoverCount",
+      "en": "PocketMirror_Task_HealthRecoverCount",
+      "zh": ""
+    },
+    {
+      "guid": "42cc4d2bdabd3084fb9302ed6c2dec2b",
+      "name": "PocketMirror_Task_SaveRoomsDiscovery",
+      "en": "PocketMirror_Task_SaveRoomsDiscovery",
+      "zh": ""
+    },
+    {
+      "guid": "f458bad117b9c784aafb5098ea039daa",
+      "name": "RiseAndFall_Task_ClockTowerExploration",
+      "en": "RiseAndFall_Task_ClockTowerExploration",
+      "zh": ""
+    },
+    {
+      "guid": "d3519383b44f03248bbdd21f9508bae6",
+      "name": "RiseAndFall_Task_SlowMoKillCount",
+      "en": "RiseAndFall_Task_SlowMoKillCount",
+      "zh": ""
+    },
+    {
+      "guid": "5c66aafa82cab4041bc7b81a2b552159",
+      "name": "TargetingChargingWheels_Task_KillCount",
+      "en": "TargetingChargingWheels_Task_KillCount",
+      "zh": ""
+    },
+    {
+      "guid": "e649519df0f00a34fb27e9cfc66a49a7",
+      "name": "TargetingChargingWheels_Task_LongTermWheel",
+      "en": "TargetingChargingWheels_Task_LongTermWheel",
+      "zh": ""
+    },
+    {
+      "guid": "2f8b22964f26d564aa1cc85b1a20d08c",
+      "name": "TargetingChargingWheels_Task_LoseMana",
+      "en": "TargetingChargingWheels_Task_LoseMana",
+      "zh": ""
+    }
+  ],
+  "talents": [
+    {
+      "guid": "5453444e3715f984a8155f873c47b90d",
+      "name": "BloodSpikes_Talent_BleedLifeSteal",
+      "en": "BloodSpikes_Talent_BleedLifeSteal",
+      "zh": ""
+    },
+    {
+      "guid": "973815755c510a0488f075e6954a5c77",
+      "name": "BloodSpikes_Talent_DoubleBleedDamages",
+      "en": "BloodSpikes_Talent_DoubleBleedDamages",
+      "zh": ""
+    },
+    {
+      "guid": "fdb91094c0010a24e82a62823c561ab6",
+      "name": "BloodSpikes_Talent_WeakeningBleed",
+      "en": "BloodSpikes_Talent_WeakeningBleed",
+      "zh": ""
+    },
+    {
+      "guid": "7ac0837d721f75f49b54bde40d157aa3",
+      "name": "BoomerangCross_Talent_DistanceIncreasingDamages",
+      "en": "BoomerangCross_Talent_DistanceIncreasingDamages",
+      "zh": ""
+    },
+    {
+      "guid": "ed8d72a5c9eb81849b58bf3a50f6f556",
+      "name": "BoomerangCross_Talent_DoubleCross",
+      "en": "BoomerangCross_Talent_DoubleCross",
+      "zh": ""
+    },
+    {
+      "guid": "c62bd116d36dd4843a03da9a96a45d00",
+      "name": "BoomerangCross_Talent_FlyingMobsIncreasedDamages",
+      "en": "BoomerangCross_Talent_FlyingMobsIncreasedDamages",
+      "zh": ""
+    },
+    {
+      "guid": "14c7a54344f19094db1daa938b0e6dac",
+      "name": "BoomerangCross_Talent_RegainManaOnCatch",
+      "en": "BoomerangCross_Talent_RegainManaOnCatch",
+      "zh": ""
+    },
+    {
+      "guid": "36fec1e5ae091bd479861e34f3940c3e",
+      "name": "CursedFireBall_Talent_BigFireBall",
+      "en": "CursedFireBall_Talent_BigFireBall",
+      "zh": ""
+    },
+    {
+      "guid": "9a4e50dc21a418e4f8a52975d4aaa609",
+      "name": "Detainment_Talent_DetainedStaggerLoop",
+      "en": "Detainment_Talent_DetainedStaggerLoop",
+      "zh": ""
+    },
+    {
+      "guid": "2db626072b045564bb12de787dc6cb18",
+      "name": "Detainment_Talent_LowLifeKill",
+      "en": "Detainment_Talent_LowLifeKill",
+      "zh": ""
+    },
+    {
+      "guid": "97c453cf3beb15040be3a5a7844c1b2b",
+      "name": "Detainment_Talent_StunDetained",
+      "en": "Detainment_Talent_StunDetained",
+      "zh": ""
+    },
+    {
+      "guid": "aecbaf1f675a42e4f800051981844b39",
+      "name": "FireSeismicWave_Talent_HigherProjection",
+      "en": "FireSeismicWave_Talent_HigherProjection",
+      "zh": ""
+    },
+    {
+      "guid": "07568814b647cbc4ab74ad4562453dca",
+      "name": "FireSeismicWave_Talent_ManaRecoverOnExplosionHit",
+      "en": "FireSeismicWave_Talent_ManaRecoverOnExplosionHit",
+      "zh": ""
+    },
+    {
+      "guid": "6b53d5052c9ad6f4ebaab98e746dce97",
+      "name": "FireSeismicWave_Talent_ReignitionOnWeaponHit",
+      "en": "FireSeismicWave_Talent_ReignitionOnWeaponHit",
+      "zh": ""
+    },
+    {
+      "guid": "64ffb5bbb69ce214ea2dca591cff7df3",
+      "name": "FreezingMist_Talent_FrostWaveOnEnd",
+      "en": "FreezingMist_Talent_FrostWaveOnEnd",
+      "zh": ""
+    },
+    {
+      "guid": "323a4a9d44ff6eb4ebfe8b867125ecc6",
+      "name": "FreezingMist_Talent_IncreasedSpeedOnMist",
+      "en": "FreezingMist_Talent_IncreasedSpeedOnMist",
+      "zh": ""
+    },
+    {
+      "guid": "054ed4e8390ebcd45bdaa7b2b5bb05b2",
+      "name": "GiantFist_Talent_ControlledEnemiesIncreasedDamages",
+      "en": "GiantFist_Talent_ControlledEnemiesIncreasedDamages",
+      "zh": ""
+    },
+    {
+      "guid": "dc09f106ce0b3ab4c84aa4e8d115cd32",
+      "name": "GiantFist_Talent_IncreasedSeismicWave",
+      "en": "GiantFist_Talent_IncreasedSeismicWave",
+      "zh": ""
+    },
+    {
+      "guid": "cf88a7b03457b1e40bf684b6a57cec60",
+      "name": "GiantFist_Talent_SpikesFist",
+      "en": "GiantFist_Talent_SpikesFist",
+      "zh": ""
+    },
+    {
+      "guid": "8e9df52a991cefa4d9584b51926d746d",
+      "name": "GlassArmor_Talent_AdditionalShield",
+      "en": "GlassArmor_Talent_AdditionalShield",
+      "zh": ""
+    },
+    {
+      "guid": "c361222cbc6dc0e4f80e50244ceabe57",
+      "name": "GlassArmor_Talent_GlassShardOnHit",
+      "en": "GlassArmor_Talent_GlassShardOnHit",
+      "zh": ""
+    },
+    {
+      "guid": "3db425c348e217145b0fee9c8612a09d",
+      "name": "GlassArmor_Talent_ResistanceDuringWeaponAttack",
+      "en": "GlassArmor_Talent_ResistanceDuringWeaponAttack",
+      "zh": ""
+    },
+    {
+      "guid": "df078384c9c943a4ab3f9e39a6ef311e",
+      "name": "InvocationStone_Talent_DoubleGargoyle",
+      "en": "InvocationStone_Talent_DoubleGargoyle",
+      "zh": ""
+    },
+    {
+      "guid": "aa829f8f48941ae469fc64610e2be07b",
+      "name": "InvocationStone_Talent_HealingFireball",
+      "en": "InvocationStone_Talent_HealingFireball",
+      "zh": ""
+    },
+    {
+      "guid": "a6d5bbae7d80fa147ba7a45625fc0fa4",
+      "name": "InvocationStone_Talent_MultipleFireball",
+      "en": "InvocationStone_Talent_MultipleFireball",
+      "zh": ""
+    },
+    {
+      "guid": "832ad780c5aca6642b9e03f0fdc52fe2",
+      "name": "InvocationStone_Talent_PreserveGargoyleOnKill",
+      "en": "InvocationStone_Talent_PreserveGargoyleOnKill",
+      "zh": ""
+    },
+    {
+      "guid": "35fe8503662a7dd469ad4fbd5362ec97",
+      "name": "LaserScytheSlash_Talent_ManaRecoverOnScytheKill",
+      "en": "LaserScytheSlash_Talent_ManaRecoverOnScytheKill",
+      "zh": ""
+    },
+    {
+      "guid": "fab2657df02676e40ae9796ee4ea7a55",
+      "name": "LaserScytheSlash_Talent_ScythesAdditionalSplit",
+      "en": "LaserScytheSlash_Talent_ScythesAdditionalSplit",
+      "zh": ""
+    },
+    {
+      "guid": "ec88c83b40a56734da9fa1299b333d04",
+      "name": "LaserScytheSlash_Talent_SingleHitHeal",
+      "en": "LaserScytheSlash_Talent_SingleHitHeal",
+      "zh": ""
+    },
+    {
+      "guid": "d06b08991403c0342a6ae6e5dbfbf8f0",
+      "name": "LifeDrain_Talent_FullLifeBonusDamage",
+      "en": "LifeDrain_Talent_FullLifeBonusDamage",
+      "zh": ""
+    },
+    {
+      "guid": "f4cebfc93e60a0445bbe38e9559b0bc2",
+      "name": "LifeDrain_Talent_InterruptProtect",
+      "en": "LifeDrain_Talent_InterruptProtect",
+      "zh": ""
+    },
+    {
+      "guid": "a5b4abdba9780c64a8d193b4a21d5f42",
+      "name": "LifeDrain_Talent_MultipleTarget",
+      "en": "LifeDrain_Talent_MultipleTarget",
+      "zh": ""
+    },
+    {
+      "guid": "badb7ce5c8249574dbf0821c4d7a672c",
+      "name": "MassPurification_Talent_BurnOnHit",
+      "en": "MassPurification_Talent_BurnOnHit",
+      "zh": ""
+    },
+    {
+      "guid": "56d6d74dc2381d54c92cdb3f101f99f0",
+      "name": "MassPurification_Talent_HealOnKill",
+      "en": "MassPurification_Talent_HealOnKill",
+      "zh": ""
+    },
+    {
+      "guid": "1eec585dfe6f10c4dbd269abd3e9c282",
+      "name": "MassPurification_Talent_MoreDamageFullHealth",
+      "en": "MassPurification_Talent_MoreDamageFullHealth",
+      "zh": ""
+    },
+    {
+      "guid": "e9517c6b7693f174a880eba310dfc9ae",
+      "name": "PetrifyingRay_Talent_ManaRecoverOnPetrifiedKill",
+      "en": "PetrifyingRay_Talent_ManaRecoverOnPetrifiedKill",
+      "zh": ""
+    },
+    {
+      "guid": "13468740adb68df4a8792b9c45cd9685",
+      "name": "PetrifyingRay_Talent_PersistingClosePetrification",
+      "en": "PetrifyingRay_Talent_PersistingClosePetrification",
+      "zh": ""
+    },
+    {
+      "guid": "ee6d0c85ed77d3247852d8ab2bb2912b",
+      "name": "PocketMirror_Talent_DamagingTeleportation",
+      "en": "PocketMirror_Talent_DamagingTeleportation",
+      "zh": ""
+    },
+    {
+      "guid": "e96e85081d8dedd4f901559933e43499",
+      "name": "PocketMirror_Talent_DeathDefiance",
+      "en": "PocketMirror_Talent_DeathDefiance",
+      "zh": ""
+    },
+    {
+      "guid": "5a4ec3aa7982c8e4093b8e182aa34f6c",
+      "name": "PocketMirror_Talent_ManaRecoverWhenNoHeal",
+      "en": "PocketMirror_Talent_ManaRecoverWhenNoHeal",
+      "zh": ""
+    },
+    {
+      "guid": "ec79a6122bc2cb6459428597657fad95",
+      "name": "RiseAndFall_Talent_AdditionalDamageStep",
+      "en": "RiseAndFall_Talent_AdditionalDamageStep",
+      "zh": ""
+    },
+    {
+      "guid": "7196d92f748580f4cb9d699908227b65",
+      "name": "RiseAndFall_Talent_IncreasedSlowMoDuration",
+      "en": "RiseAndFall_Talent_IncreasedSlowMoDuration",
+      "zh": ""
+    },
+    {
+      "guid": "4ae3114f63f7b4849a52af3ed6346403",
+      "name": "TargetingChargingWheels_Talent_ChainIncreasedDamages",
+      "en": "TargetingChargingWheels_Talent_ChainIncreasedDamages",
+      "zh": ""
+    },
+    {
+      "guid": "aca3afadc56a0ed43a0e270453595857",
+      "name": "TargetingChargingWheels_Talent_ConsumeHealthInsteadOfMana",
+      "en": "TargetingChargingWheels_Talent_ConsumeHealthInsteadOfMana",
+      "zh": ""
+    },
+    {
+      "guid": "b66fc4d2e5106514c9d32d019ab4ee87",
+      "name": "TargetingChargingWheels_Talent_RandomEffects",
+      "en": "TargetingChargingWheels_Talent_RandomEffects",
+      "zh": ""
+    }
+  ]
+}

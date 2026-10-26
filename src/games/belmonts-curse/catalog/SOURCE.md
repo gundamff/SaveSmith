@@ -31,4 +31,5 @@ Requires: `pip install UnityPy`
 - Display names: `itemDisplayName.m_KeyId` joined to `Items_*_en` / `Items_*_zh-cn` (fallback `zh-tw`) `m_TableData`.
 - This install: en=569 zh-cn=569 zh-tw=569 keyed entries.
 - `arcana.json`: CharacterID GUID → spell / vania for `characterProgressionSteps` unlocks.
+- `mercy.json`: Works of Mercy task/talent `_guid`s (from `scripts/_bc_dump_mercy_catalog.py`).
 - UI policy B: add-list only `weapon|spell|charm|skin` (clue/key hidden from add).

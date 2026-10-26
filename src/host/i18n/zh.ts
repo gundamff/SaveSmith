@@ -320,8 +320,7 @@ export const zh: MessageTree = {
       overview: '概览',
       character: '角色',
       inventory: '背包',
-      abilities: '能力 / Arcana',
-      exploration: '探索'
+      tarot: '塔罗'
     },
     hint: {
       quitAndCloud: '请先完全退出游戏，并暂时关闭 Steam 云同步，再改档保存。',
@@ -383,32 +382,24 @@ export const zh: MessageTree = {
       noWorldSync: '不会同步世界拾取状态：添加的物品可能在原获取点被再次捡到。',
       readonlyHint: '名称表未就绪时只读；未收录 ID 显示原始字符串。'
     },
-    abilities: {
-      tarot: '塔罗 / Arcana',
-      tarotHint: '写入 characterProgressionSteps（CharacterID GUID），并补齐关联魔导器与 Vania 招式；不改世界拾取与 PLAYERPREFS。',
-      unlockAll: '一键解锁全部 Arcana',
-      unlockedAll: '已解锁 {0} 张 Arcana',
-      unlockedAllNone: 'Arcana 已全部解锁',
-      needArcanaCatalog: 'Arcana 表未就绪：请先运行抽表脚本生成 catalog/arcana.json。',
+    tarot: {
+      hint: '解锁塔罗奥秘卡牌，并一键完成救赎之道（任务 + 新能力）。不改世界拾取与 PLAYERPREFS。',
+      needCatalog: '塔罗目录未就绪：请先生成 catalog/arcana.json 与 catalog/mercy.json。',
+      cards: '塔罗奥秘',
+      unlockAll: '一键解锁全部奥秘',
+      unlockedAll: '已解锁 {0} 张奥秘',
+      unlockedAllNone: '奥秘已全部解锁',
+      mercy: '救赎之道',
+      mercyProgress: '任务 {0}/{1} · 新能力 {2}/{3}',
+      completeMercy: '一键完成全部救赎之道',
+      mercyDone: '新完成 {0} 项救赎之道任务（并解锁对应新能力）',
+      mercyDoneNone: '救赎之道已全部完成',
       colNum: '编号',
       colName: '角色',
       colSpell: '魔导器',
       colStatus: '状态',
       statusOn: '已解锁',
-      statusOff: '未解锁',
-      vaniaMoves: 'Vania 招式',
-      progression: '持久进度',
-      arcanaTasks: 'Arcana 已完成任务',
-      arcanaTalents: 'Arcana 已解锁天赋',
-      colId: 'GUID',
-      empty: '（无条目）',
-      readonlyHint: '一期只读；后续映射落地后可新增能力。'
-    },
-    exploration: {
-      worldKeyCount: '世界区块数',
-      completionItemCount: '完成度条目合计',
-      entityCount: '可保存实体数',
-      readonlyHint: '仅统计摘要；不逐实体编辑。'
+      statusOff: '未解锁'
     }
   },
   dc: {

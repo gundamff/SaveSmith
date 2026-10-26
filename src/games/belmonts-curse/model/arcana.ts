@@ -1,4 +1,5 @@
 import { arcanaCatalog } from '../catalog/arcana'
+import { mercyTalentGuids, mercyTaskGuids } from '../catalog/mercy'
 import type { BelmontsCurseState } from './types'
 import { addItem } from './inventory'
 import { refreshViews } from './saveModel'
@@ -71,4 +72,38 @@ export function unlockAllArcana(state: BelmontsCurseState): number {
   ps.unconsultedFoundBeforeHintedTarotArcana = []
   refreshViews(state)
   return newly
+}
+
+function mergeGuidList(existing: unknown, add: string[]): { list: string[]; newly: number } {
+  const cur = Array.isArray(existing)
+    ? existing.filter((x): x is string => typeof x === 'string')
+    : []
+  const set = new Set(cur)
+  let newly = 0
+  for (const g of add) {
+    if (!set.has(g)) {
+      set.add(g)
+      newly += 1
+    }
+  }
+  return { list: [...set].sort(), newly }
+}
+
+/**
+ * Complete all Works of Mercy (救赎之道): mark every catalog task seen+completed
+ * and unlock every catalog talent (新能力). Returns newly completed task count.
+ */
+export function completeAllMercy(state: BelmontsCurseState): number {
+  const tasks = mercyTaskGuids()
+  const talents = mercyTalentGuids()
+  if (tasks.length === 0) return 0
+  const ps = playerSave(state)
+  const done = mergeGuidList(ps.arcanaCompletedTasks, tasks)
+  const seen = mergeGuidList(ps.arcanaSeenTasks, tasks)
+  const unlocked = mergeGuidList(ps.arcanaUnlockedTalents, talents)
+  ps.arcanaCompletedTasks = done.list
+  ps.arcanaSeenTasks = seen.list
+  ps.arcanaUnlockedTalents = unlocked.list
+  refreshViews(state)
+  return done.newly
 }

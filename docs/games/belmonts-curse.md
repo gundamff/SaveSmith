@@ -4,7 +4,7 @@
 
 非官方存档修改说明。权利人：**KONAMI**（Steam AppID [4231820](https://store.steampowered.com/app/4231820/)）。与官方无关联。模块封面取自 Steam 商店头图，版权归 KONAMI。
 
-> **当前范围：** 编辑槽位档 `BuildSave_*.sav` 中 `playerSave` 的**角色标量**、**背包 / 装备**（名称表就绪时），以及 **Arcana 一键解锁**（`arcana.json` 就绪时）。探索仍为只读。不读写 `PLAYERPREFS.sav`。不双写 `worldSaves` 拾取状态。
+> **当前范围：** 编辑槽位档 `BuildSave_*.sav` 中 `playerSave` 的**角色标量**、**背包 / 装备**（名称表就绪时），以及 **塔罗**（奥秘解锁 + 救赎之道全完成）。不读写 `PLAYERPREFS.sav`。不双写 `worldSaves` 拾取状态。无独立「能力 / 探索」页。
 
 设计说明：[2026-10-19](../design/2026-10-19-belmonts-curse-design.md) · [背包](../design/2026-10-26-belmonts-curse-inventory-design.md)
 
@@ -33,8 +33,7 @@ Steam Cloud 会同步该目录下的 `*.sav`（配额约 40 MiB）。改档前
 | 概览 | 只读摘要 | `version`、`saveDate`、`playTimeInSeconds` 等 |
 | 角色 | **可写** | 见下表白名单 |
 | 背包 | **可写**（名称表就绪） | 增删武器 / 护符 / 魔导器 / 外观（去重；跳过 abstract / Doppelganger / 废弃项；**不提供**线索/钥匙添加）；改装备槽（须已在背包；护符可空） |
-| 能力 / Arcana | **可写**（Arcana 表就绪） | 一键写入 `characterProgressionSteps`（15 张塔罗 CharacterID）并补关联魔导器 / Vania GUID；任务/天赋列表仍只读摘要 |
-| 探索 | 只读 | 世界条目数、`currentCompletionItemCount`、实体状态计数（不逐实体编辑） |
+| 塔罗 | **可写**（`arcana.json` + `mercy.json` 就绪） | 一键解锁 15 张奥秘（`characterProgressionSteps` + 魔导器 / Vania）；一键完成救赎之道（`arcanaCompletedTasks` / `arcanaSeenTasks` / `arcanaUnlockedTalents`） |
 
 ### 角色标量白名单（`playerSave`）
 
@@ -67,7 +66,8 @@ Steam Cloud 会同步该目录下的 `*.sav`（配额约 40 MiB）。改档前
 ## 开发者
 
 - 模块代码：`src/games/belmonts-curse/`
-- 名称表 / Arcana 表：`py -3 scripts/bc_extract_names.py --game "<安装根>"`（需 UnityPy；产出 `items.json` + `arcana.json`）
+- 名称 / 奥秘表：`py -3 scripts/bc_extract_names.py --game "<安装根>"`（需 UnityPy；产出 `items.json` + `arcana.json`）
+- 救赎之道 GUID：`py -3 scripts/_bc_dump_mercy_catalog.py`（开发机探针，写入 `catalog/mercy.json`）
 - 自动化：`npx vitest run tests/belmonts-curse`
 
 返回 [README](../../README.md)。
