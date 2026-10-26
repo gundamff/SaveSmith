@@ -317,6 +317,65 @@ export const en: MessageTree = {
       allS: 'Set existing records to S'
     }
   },
+  bc: {
+    tabs: {
+      overview: 'Overview',
+      character: 'Character',
+      inventory: 'Inventory',
+      abilities: 'Abilities / Arcana',
+      exploration: 'Exploration'
+    },
+    hint: {
+      quitAndCloud: 'Quit the game completely and temporarily disable Steam Cloud before editing.'
+    },
+    overview: {
+      version: 'Save version',
+      saveDate: 'Saved at',
+      playTime: 'Play time (seconds)'
+    },
+    character: {
+      playerId: 'Character ID',
+      level: 'Level',
+      experienceCurrent: 'Current XP',
+      healthUpgradeFragmentCount: 'Health upgrade fragments',
+      manaUpgradeFragmentCount: 'Mana upgrade fragments',
+      atkBonusUpgradeCount: 'ATK bonus upgrades',
+      defBonusUpgradeCount: 'DEF bonus upgrades',
+      currentHealth: 'Current health',
+      currentMana: 'Current mana',
+      currentHealChargesCount: 'Heal charges',
+      currentTheHermitDeathDefianceCount: 'Hermit death defiance charges'
+    },
+    inventory: {
+      items: 'Inventory',
+      equipment: 'Equipped',
+      weapon: 'Weapon',
+      spell: 'Sub-weapon / spell',
+      skin: 'Skin',
+      charmSlot: 'Charm slot {0}',
+      empty: '(empty)',
+      emptyList: 'Inventory is empty',
+      colSlot: 'Slot',
+      colId: 'ID',
+      colName: 'Name',
+      readonlyHint: 'Read-only in phase 1; raw ID when not in the name catalog.'
+    },
+    abilities: {
+      vaniaMoves: 'Vania moves',
+      progression: 'Persistent progression',
+      arcanaTasks: 'Arcana completed tasks',
+      arcanaTalents: 'Arcana unlocked talents',
+      colId: 'GUID',
+      empty: '(none)',
+      readonlyHint: 'Read-only in phase 1; add flows unlock after mapping.'
+    },
+    exploration: {
+      worldKeyCount: 'World regions',
+      completionItemCount: 'Completion items (sum)',
+      entityCount: 'Savable entities',
+      readonlyHint: 'Summary counts only; no per-entity editing.'
+    }
+  },
   dc: {
     tabs: {
       resources: 'Resources',
@@ -417,6 +476,9 @@ export const en: MessageTree = {
     ENCRYPT_FAILED: 'Failed to encrypt save: {0}',
     INVALID_FORMAT: 'Invalid save format: {0}',
     OUT_OF_RANGE: 'Value out of range: {0}',
-    INVALID_STATE: 'Invalid save state: {0}'
+    INVALID_STATE: 'Invalid save state: {0}',
+    INVALID_JSON: 'Invalid JSON in {0}',
+    BC_LEVEL: 'Invalid level (must be an integer ≥ 1): {0}',
+    BC_SCALAR: 'Invalid value for field {0}: {1}'
   }
 }

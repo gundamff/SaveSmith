@@ -41,7 +41,8 @@ describe('wanderburgModule catalog / locate / registry', () => {
       'terraria',
       'dragon-sword',
       'eslabong',
-      'ace-combat-8'
+      'ace-combat-8',
+      'belmonts-curse'
     ])
     expect(modules[0]).toBe(chaosFrontModule)
     expect(modules[1]).toBe(chaosGalaxy2Module)

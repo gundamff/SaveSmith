@@ -43,7 +43,8 @@ describe('terrariaModule catalog / locate / registry', () => {
       'terraria',
       'dragon-sword',
       'eslabong',
-      'ace-combat-8'
+      'ace-combat-8',
+      'belmonts-curse'
     ])
     expect(modules).toContain(terrariaModule)
   })
