@@ -386,6 +386,19 @@ export const en: MessageTree = {
       readonlyHint: 'Read-only until the name catalog is ready; unknown IDs show as raw strings.'
     },
     abilities: {
+      tarot: 'Tarot / Arcana',
+      tarotHint:
+        'Writes characterProgressionSteps (CharacterID GUIDs) and adds linked spells / vania moves. Does not dual-write world pickups or PLAYERPREFS.',
+      unlockAll: 'Unlock all Arcana',
+      unlockedAll: 'Unlocked {0} Arcana',
+      unlockedAllNone: 'All Arcana already unlocked',
+      needArcanaCatalog: 'Arcana catalog not ready: run the extract script to generate catalog/arcana.json.',
+      colNum: '#',
+      colName: 'Character',
+      colSpell: 'Spell',
+      colStatus: 'Status',
+      statusOn: 'Unlocked',
+      statusOff: 'Locked',
       vaniaMoves: 'Vania moves',
       progression: 'Persistent progression',
       arcanaTasks: 'Arcana completed tasks',

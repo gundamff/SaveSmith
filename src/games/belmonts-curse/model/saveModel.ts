@@ -25,6 +25,13 @@ function readStringArray(v: unknown): string[] {
   return v.filter((x): x is string => typeof x === 'string')
 }
 
+function readGuidDictKeys(v: unknown): string[] {
+  if (!v || typeof v !== 'object' || Array.isArray(v)) return []
+  const keys = (v as Record<string, unknown>).m_keys
+  if (!Array.isArray(keys)) return []
+  return keys.filter((x): x is string => typeof x === 'string')
+}
+
 function projectExploration(raw: Record<string, unknown>): ExplorationView {
   const ws = raw.worldSaves
   if (!isRecord(ws)) {
@@ -72,7 +79,8 @@ function projectPlayer(raw: Record<string, unknown>, playerSave: Record<string, 
     vaniaMoves: readStringArray(playerSave.vaniaMoves),
     progressionPersistentSave: readStringArray(playerSave.progressionPersistentSave),
     arcanaCompletedTasks: readStringArray(playerSave.arcanaCompletedTasks),
-    arcanaUnlockedTalents: readStringArray(playerSave.arcanaUnlockedTalents)
+    arcanaUnlockedTalents: readStringArray(playerSave.arcanaUnlockedTalents),
+    arcanaCharacterGuids: readGuidDictKeys(playerSave.characterProgressionSteps)
   }
 }
 

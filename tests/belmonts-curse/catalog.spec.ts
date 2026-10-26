@@ -27,10 +27,11 @@ describe('belmonts-curse catalog categories (policy B)', () => {
     expect(isAddableCategory('weapon')).toBe(true)
   })
 
-  it('searchCatalogOptions never returns clues/keys; category filter works', () => {
+  it('searchCatalogOptions never returns clues/keys/abstract weapons; category filter works', () => {
     const all = searchCatalogOptions('', 'zh', 500)
     expect(all.some((o) => o.id.startsWith('Clue_'))).toBe(false)
     expect(all.some((o) => getItemCategory(o.id) === 'key')).toBe(false)
+    expect(all.some((o) => o.id === 'WeaponWhip')).toBe(false)
     expect(all.some((o) => o.id === 'Charm_BoostDamageAfterSpell')).toBe(true)
 
     const charms = searchCatalogOptions('', 'en', 80, 'charm')

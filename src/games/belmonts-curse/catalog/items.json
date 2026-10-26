@@ -1,23 +1,33 @@
 {
+  "AerialDash": {
+    "category": "other",
+    "en": "Aerial Rush",
+    "zh": "空中冲刺"
+  },
+  "BloodSpikes": {
+    "category": "spell",
+    "en": "Blood Spikes",
+    "zh": "血棘"
+  },
   "BoomerangCross": {
     "category": "spell",
     "en": "Holy Cross",
-    "zh": "神聖十字架"
+    "zh": "神圣十字架"
   },
   "CatacombsGateKeyJeanne": {
     "category": "key",
     "en": "The Warrior's Key",
-    "zh": "戰士鑰匙"
+    "zh": "战士之钥"
   },
   "CatacombsGateKeyLeon": {
     "category": "key",
     "en": "The Fallen's Key",
-    "zh": "怪物鑰匙"
+    "zh": "怪物之钥"
   },
   "CatacombsGateKeyMedusa": {
     "category": "key",
     "en": "The Prophetess's Key",
-    "zh": "預言者鑰匙"
+    "zh": "预言者之钥"
   },
   "Charm_BatPet": {
     "category": "charm",
@@ -32,67 +42,67 @@
   "Charm_BoostDamageAfterParry": {
     "category": "charm",
     "en": "Cursed Coin",
-    "zh": "被詛咒的硬幣"
+    "zh": "诅咒硬币"
   },
   "Charm_BoostDamageAfterSpell": {
     "category": "charm",
     "en": "Twilight Gem",
-    "zh": "黃昏寶石"
+    "zh": "黄昏宝石"
   },
   "Charm_BoostDamageBackHit": {
     "category": "charm",
     "en": "Vile Trinket",
-    "zh": "邪惡小飾品"
+    "zh": "恶意配饰"
   },
   "Charm_BoostDamageBackReduceDamageFront": {
     "category": "charm",
     "en": "Pale Thorn",
-    "zh": "蒼白之棘"
+    "zh": "苍白之刺"
   },
   "Charm_BoostDamageButReduceLife": {
     "category": "charm",
     "en": "Beelzebub's Seal",
-    "zh": "別西卜之印"
+    "zh": "别西卜之印"
   },
   "Charm_BoostDamageFullLife": {
     "category": "charm",
     "en": "Forsaken Ring",
-    "zh": "被遺棄者之戒"
+    "zh": "见弃者之戒"
   },
   "Charm_BoostDamageOnControlledMob": {
     "category": "charm",
     "en": "Abyssal Eye",
-    "zh": "深淵之眼"
+    "zh": "深渊之眼"
   },
   "Charm_BoostDamageOnLowLife": {
     "category": "charm",
     "en": "Specter's Whisper",
-    "zh": "死者的呢喃"
+    "zh": "死者的低语"
   },
   "Charm_BoostDamageOnMobFullLife": {
     "category": "charm",
     "en": "Sinister Rune",
-    "zh": "惡意符文"
+    "zh": "恶意符文"
   },
   "Charm_BoostDamagePerEmptyPotion": {
     "category": "charm",
     "en": "Witch's Brew",
-    "zh": "魔女的調合藥"
+    "zh": "魔女的秘药"
   },
   "Charm_BoostDamageWhenUnGrounded": {
     "category": "charm",
     "en": "Raven's Feather",
-    "zh": "渡鴉的羽毛"
+    "zh": "渡鸦之羽"
   },
   "Charm_BoostDefenseAfterGettingHit": {
     "category": "charm",
     "en": "Haunting Relic",
-    "zh": "心靈的遺物"
+    "zh": "心灵遗物"
   },
   "Charm_BoostDefenseForTrap": {
     "category": "charm",
     "en": "Ghostly Pendant",
-    "zh": "靈體墜飾"
+    "zh": "灵体吊坠"
   },
   "Charm_BoostDefenseOnFullLife": {
     "category": "charm",
@@ -102,82 +112,82 @@
   "Charm_BoostDefenseOnLowLife": {
     "category": "charm",
     "en": "Shadow Veil",
-    "zh": "暗影面紗"
+    "zh": "影之面纱"
   },
   "Charm_BoostManaKillMob": {
     "category": "charm",
     "en": "Revenant's Shard",
-    "zh": "亡者碎片"
+    "zh": "亡者残骸"
   },
   "Charm_BoostSpeedAfterSave": {
     "category": "charm",
     "en": "Sand Charm",
-    "zh": "沙之飾品"
+    "zh": "时沙饰物"
   },
   "Charm_BoostSpeedAfterWhip": {
     "category": "charm",
     "en": "Hollow Bone",
-    "zh": "空心骨"
+    "zh": "空洞之骨"
   },
   "Charm_BoostSpeedLowMana": {
     "category": "charm",
     "en": "Dusk Amulet",
-    "zh": "落日護身符"
+    "zh": "薄暮护符"
   },
   "Charm_BoostXPKillMobFullLife": {
     "category": "charm",
     "en": "Moonlit Shard",
-    "zh": "月光碎片"
+    "zh": "残碎月光"
   },
   "Charm_ChestRecover": {
     "category": "charm",
     "en": "Crypt Key",
-    "zh": "墓地鑰匙"
+    "zh": "墓穴钥匙"
   },
   "Charm_ClampMCMana": {
     "category": "charm",
     "en": "Infernal Medallion",
-    "zh": "地獄勳章"
+    "zh": "地狱徽记"
   },
   "Charm_ConsummableChanceBoost": {
     "category": "charm",
     "en": "Crystallized Blood",
-    "zh": "結晶化的血"
+    "zh": "结晶之血"
   },
   "Charm_GainHPHitMobNoPotion": {
     "category": "charm",
     "en": "Blackened Heart",
-    "zh": "黑化的心臟"
+    "zh": "焦黑之心"
   },
   "Charm_GetManaFromDmgReceived": {
     "category": "charm",
     "en": "Banshee's Wail",
-    "zh": "報喪女妖嘆息"
+    "zh": "报丧女妖哀叹"
   },
   "Charm_HealthPotionHealFullLife": {
     "category": "charm",
     "en": "Witch's Knot",
-    "zh": "魔女繩結"
+    "zh": "魔女的结扣"
   },
   "Charm_InvulnerabilityAfterSave": {
     "category": "charm",
     "en": "Eldritch Talisman",
-    "zh": "詭異的護符"
+    "zh": "避凶秘符"
   },
   "Charm_KillMobBoostDamageInflicted": {
     "category": "charm",
     "en": "Necro Charm",
-    "zh": "死靈飾品"
+    "zh": "亡灵饰物"
   },
   "Charm_KillMobBoostSpeed": {
     "category": "charm",
     "en": "Mourning Bead",
-    "zh": "哀悼珠"
+    "zh": "哀悼之珠"
   },
   "Charm_KillMobRevengeHeal": {
     "category": "charm",
     "en": "Wraith's Tear",
-    "zh": "亡靈之淚"
+    "zh": "亡灵之泪"
   },
   "Charm_LongerMobStagger": {
     "category": "charm",
@@ -187,17 +197,17 @@
   "Charm_NerfDmgOnLowMana": {
     "category": "charm",
     "en": "Midnight Tear",
-    "zh": "夜之淚"
+    "zh": "夜之泪"
   },
   "Charm_ParryGiveMana": {
     "category": "charm",
     "en": "Grim Token",
-    "zh": "恐怖代幣"
+    "zh": "恐怖信物"
   },
   "Charm_PotionGiveMana": {
     "category": "charm",
     "en": "Nightshade",
-    "zh": "顛茄"
+    "zh": "夜影茄"
   },
   "Charm_ReduceSpellManaCostSpam": {
     "category": "charm",
@@ -207,92 +217,92 @@
   "Charm_RevealSecret": {
     "category": "charm",
     "en": "Gloomstone",
-    "zh": "幽暗之石"
+    "zh": "洞幽石"
   },
   "Charm_RoomChangeResetMobSpawner": {
     "category": "charm",
     "en": "Phantom Ring",
-    "zh": "亡靈戒指"
+    "zh": "亡灵指环"
   },
   "Clue_Arthur_ExcaliburStele": {
     "category": "clue",
     "en": "Feat of Strength",
-    "zh": "力量成就之物"
+    "zh": "力量铸就之物"
   },
   "Clue_Brauner_AlucardPainting": {
     "category": "clue",
     "en": "Alucard Guides",
-    "zh": "阿爾卡多的引導"
+    "zh": "阿鲁卡多的指引"
   },
   "Clue_Brauner_MainHallLocation": {
     "category": "clue",
     "en": "Artist hides in the Main Hall",
-    "zh": "潛藏於惡魔城中央部分的藝術家"
+    "zh": "藏身于恶魔城中央区的艺术家"
   },
   "Clue_Brauner_NotreDamePainting": {
     "category": "clue",
     "en": "A Strange Painting of Notre-Dame",
-    "zh": "不可思議的聖母院圖"
+    "zh": "不可思议的巴黎圣母院画作"
   },
   "Clue_Brauner_StatueInstruction": {
     "category": "clue",
     "en": "Brauner's \"Masterpiece\"",
-    "zh": "布勞爾的「傑作」"
+    "zh": "布罗内尔的“杰作”"
   },
   "Clue_Carmilla_BloodPoem": {
     "category": "clue",
     "en": "Blood Poem",
-    "zh": "鮮血之詩"
+    "zh": "鲜血之诗"
   },
   "Clue_Carmilla_BraunerNote": {
     "category": "clue",
     "en": "Carmilla in the Library",
-    "zh": "藏書閣的卡蜜拉"
+    "zh": "藏书库的卡蜜拉"
   },
   "Clue_Carmilla_DiaryRequest": {
     "category": "clue",
     "en": "Star Chart",
-    "zh": "星圖"
+    "zh": "星图"
   },
   "Clue_Carmilla_PlanetList": {
     "category": "clue",
     "en": "Organic Astrology",
-    "zh": "臟器占星術"
+    "zh": "器官占星术"
   },
   "Clue_Carmilla_ToolSTheft": {
     "category": "clue",
     "en": "Magical Brush",
-    "zh": "魔力之筆"
+    "zh": "魔力之笔"
   },
   "Clue_Death_Catacombs": {
     "category": "clue",
     "en": "Death Mark",
-    "zh": "死亡印記"
+    "zh": "死亡之印"
   },
   "Clue_Death_Concerto": {
     "category": "clue",
     "en": "Melody Sheet for the Concerto of Notre-Dame",
-    "zh": "聖母院的協奏曲樂譜"
+    "zh": "巴黎圣母院协奏曲的乐谱"
   },
   "Clue_Death_MaestrosLocations": {
     "category": "clue",
     "en": "The Masters of Music hide from Death",
-    "zh": "躲避死神的樂師"
+    "zh": "首席乐师藏身避死神"
   },
   "Clue_Death_MelodiesNumber": {
     "category": "clue",
     "en": "Melody Sheet for the Fugue of Notre-Dame",
-    "zh": "聖母院的賦格樂譜"
+    "zh": "巴黎圣母院赋格曲的乐谱"
   },
   "Clue_Death_OrganPipes": {
     "category": "clue",
     "en": "The Corrupted Pipes of the Notre-Dame Organ",
-    "zh": "聖母院管風琴遭腐蝕的管子"
+    "zh": "巴黎圣母院管风琴的腐蚀音管"
   },
   "Clue_Death_Sonata": {
     "category": "clue",
     "en": "Melody Sheet for the Sonata of Notre-Dame",
-    "zh": "聖母院的奏鳴曲樂譜"
+    "zh": "巴黎圣母院奏鸣曲的乐谱"
   },
   "Clue_Doppelganger_FirstCard": {
     "category": "clue",
@@ -302,157 +312,195 @@
   "Clue_Doppelganger_Prophecy": {
     "category": "clue",
     "en": "The Prophecy",
-    "zh": "預言"
+    "zh": "预言"
   },
   "Clue_Eleanor_Escaping": {
     "category": "clue",
     "en": "Eleanor Flees to the Cemetary",
-    "zh": "逃往墓地的艾莉諾"
+    "zh": "逃往墓地的埃莉诺"
   },
   "Clue_Eleanor_KneelDown": {
     "category": "clue",
     "en": "Kneeling is the Way",
-    "zh": "跪下開啟道路"
+    "zh": "下跪方能开启道路"
   },
   "Clue_Eleanor_SealsLocation": {
     "category": "clue",
     "en": "A Sketch from Talos",
-    "zh": "塔羅斯的草圖"
+    "zh": "塔罗斯的手稿"
   },
   "Clue_Eleanor_TrueWay": {
     "category": "clue",
     "en": "The Reflection Deceives",
-    "zh": "反射即欺瞞"
+    "zh": "镜像设骗局"
   },
   "Clue_Ferryman_MissingCoins": {
     "category": "clue",
     "en": "Stolen Oboles",
-    "zh": "被偷的奧波勒斯"
+    "zh": "失窃的银币"
   },
   "Clue_Isaac_BossLocation": {
     "category": "clue",
     "en": "Isaac waits in the Clock Tower.",
-    "zh": "艾薩克在鐘塔等待"
+    "zh": "在钟楼等候的艾萨克"
   },
   "Clue_JoanArc_TowerLocation": {
     "category": "clue",
     "en": "The Warrior is at the top of the Tower.",
-    "zh": "塔上的戰士"
+    "zh": "塔顶的战士"
   },
   "Clue_JoanArc_TowerShortcut": {
     "category": "clue",
     "en": "Carpenter's Crane Sketch",
-    "zh": "木工繪製的升降裝置草圖"
+    "zh": "木匠绘制的升降装置手稿"
   },
   "Clue_Leon_BossDoor": {
     "category": "clue",
     "en": "A Monster terrorizes Paris",
-    "zh": "出現在巴黎的魔物"
+    "zh": "出现在巴黎的魔物"
   },
   "Clue_Leon_HiddenLever": {
     "category": "clue",
     "en": "A Lever for the Well",
-    "zh": "井的拉桿"
+    "zh": "水井的拉杆"
   },
   "Clue_Mammon_DiaryFebruary": {
     "category": "clue",
     "en": "Hospital Relic",
-    "zh": "醫院的遺物"
+    "zh": "医院遗物"
   },
   "Clue_Mammon_DiaryJanuary": {
     "category": "clue",
     "en": "Tomb Relic",
-    "zh": "隱密的墓地遺物"
+    "zh": "隐秘墓穴的遗物"
   },
   "Clue_Mammon_DiaryMarch": {
     "category": "clue",
     "en": "Catacomb Relic",
-    "zh": "地下墓穴的遺物"
+    "zh": "地下墓穴遗物"
   },
   "Clue_Mammon_EyesDoor": {
     "category": "clue",
     "en": "A Door made of Flesh and Eyes",
-    "zh": "肉和眼球做成的門"
+    "zh": "血肉与眼球堆砌成的门"
   },
   "Clue_Medusa_CanalShortcut": {
     "category": "clue",
     "en": "Cemetary Fountain",
-    "zh": "墓地的水路"
+    "zh": "墓地的水道"
   },
   "Clue_Medusa_CemeteryLocation": {
     "category": "clue",
     "en": "The roots of the Hollow Tree",
-    "zh": "墓地的呢喃"
+    "zh": "墓地的低语"
   },
   "Clue_Medusa_RomanBath": {
     "category": "clue",
     "en": "Roman Baths",
-    "zh": "羅馬浴場"
+    "zh": "罗马浴场"
   },
   "Clue_Medusa_SpecialAttack": {
     "category": "clue",
     "en": "Guardian's Gaze",
-    "zh": "守護者之眼"
+    "zh": "守护者之眼"
   },
   "Clue_SaintLouis_ScaleText": {
     "category": "clue",
     "en": "Balancing the Scales of Justice",
-    "zh": "平衡正義的天秤"
+    "zh": "矫正正义的天平"
   },
   "Clue_Succubus_HoMLocation": {
     "category": "clue",
     "en": "The Temptress guards the Hall of Mirrors",
-    "zh": "守護鏡廳的誘惑者"
+    "zh": "守护镜之厅的诱惑者"
   },
   "Clue_Talos_ArchitectLocation": {
     "category": "clue",
     "en": "Builder flees to the Clock Tower",
-    "zh": "逃往鐘塔的建築師"
+    "zh": "逃往钟楼的建筑师"
   },
   "Clue_Talos_ArchitectShortcut": {
     "category": "clue",
     "en": "Blueprints for the Clock Tower",
-    "zh": "鐘塔設計圖"
+    "zh": "钟楼设计图"
   },
   "DEPRECATED_Charm_BoostManaOnDmgLowLife": {
     "category": "charm",
     "en": "Soul Fragment",
-    "zh": "靈魂碎片"
+    "zh": "灵魂碎片"
   },
   "DEPRECATED_Charm_BoostXPKillMob": {
     "category": "charm",
+    "deprecated": true,
     "en": "DEPRECATED_Charm_BoostXPKillMob",
     "zh": ""
   },
   "DEPRECATED_Charm_PotionHealBoost": {
     "category": "charm",
+    "deprecated": true,
     "en": "DEPRECATED_Charm_PotionHealBoost",
+    "zh": ""
+  },
+  "Detainment": {
+    "category": "spell",
+    "en": "Detainment",
     "zh": ""
   },
   "DoubleJump": {
     "category": "other",
     "en": "Double Jump",
-    "zh": "雙重跳躍"
+    "zh": "二段跳"
+  },
+  "DualSword": {
+    "abstract": true,
+    "category": "weapon",
+    "en": "DualSword",
+    "zh": ""
   },
   "FerrymanCompletionKey": {
     "category": "key",
     "en": "Ferryman's Obol",
-    "zh": "船夫的奧波勒斯"
+    "zh": "摆渡人的银币"
+  },
+  "FireSeismicWave": {
+    "category": "spell",
+    "en": "Infernal Pyre",
+    "zh": "业火"
+  },
+  "FreezingMist": {
+    "category": "spell",
+    "en": "FreezingMist",
+    "zh": ""
   },
   "GiantFist": {
     "category": "spell",
     "en": "Fist of Talos",
-    "zh": "塔羅斯鐵鎚"
+    "zh": "塔罗斯重锤"
   },
   "GlassArmor": {
     "category": "spell",
     "en": "Stained-Glass Shield",
-    "zh": "彩繪玻璃護盾"
+    "zh": "彩绘玻璃盾"
+  },
+  "InvocationStone": {
+    "category": "spell",
+    "en": "InvocationStone",
+    "zh": ""
   },
   "LaserScytheSlash": {
     "category": "spell",
     "en": "Soul Harvest",
-    "zh": "掠奪之鐮"
+    "zh": "摄魂之镰"
+  },
+  "LifeDrain": {
+    "category": "spell",
+    "en": "Life Drain",
+    "zh": "生命汲取"
+  },
+  "LightCrash": {
+    "category": "other",
+    "en": "Smash",
+    "zh": "踏击"
   },
   "MammonKeyCrossFire": {
     "category": "charm",
@@ -462,79 +510,97 @@
   "MammonKeyHoming": {
     "category": "charm",
     "en": "Trembling Eye",
-    "zh": "顫動之眼"
+    "zh": "震颤之眼"
   },
   "MammonKeyMines": {
     "category": "charm",
     "en": "Thrilling Eye",
-    "zh": "狂喜之眼"
+    "zh": "亢奋之眼"
   },
   "NotreDameKey": {
     "category": "key",
     "en": "Brauner's Paintbrush",
-    "zh": "布勞爾的畫筆"
+    "zh": "布罗内尔的画笔"
   },
   "PetrifyingRay": {
     "category": "spell",
     "en": "Petrifying Gaze",
-    "zh": "石化視線"
+    "zh": "石化凝视"
   },
   "PocketMirror": {
     "category": "spell",
     "en": "Mirror Walk",
-    "zh": "鏡子漫步"
+    "zh": "镜行回溯"
+  },
+  "RageIncarnation": {
+    "category": "spell",
+    "en": "RageIncarnation",
+    "zh": ""
   },
   "RiseAndFall": {
     "category": "spell",
     "en": "Chronomantic Dive",
-    "zh": "時空俯衝"
+    "zh": "时空飞冲"
   },
   "Skin_MC_Alucard": {
     "category": "skin",
     "en": "Alucard Style Costume",
-    "zh": "阿爾卡多造型服裝"
+    "zh": "阿鲁卡多风格服装"
   },
   "Skin_MC_Base": {
     "category": "skin",
     "en": "Rose's outfit",
-    "zh": "羅絲的服裝"
+    "zh": "萝丝的服装"
   },
   "Skin_MC_Doppleganger": {
     "category": "skin",
     "en": "Doppelganger Style Costume",
-    "zh": "分身造型服裝"
+    "zh": "分身风格服装"
   },
   "Skin_MC_FullCurse": {
     "category": "skin",
     "en": "Cursed's outfit",
-    "zh": "羅絲的服裝（詛咒）"
+    "zh": "萝丝的服装（诅咒）"
   },
   "Skin_MC_Sonia": {
     "category": "skin",
     "en": "Sonia Style Costume",
-    "zh": "索妮亞造型服裝"
+    "zh": "索妮娅风格服装"
   },
   "Skin_MC_Sypha": {
     "category": "skin",
     "en": "Sypha Style Costume",
-    "zh": "賽法造型服裝"
+    "zh": "赛法风格服装"
   },
   "Skin_MC_Trevor": {
     "category": "skin",
     "en": "Trevor Style Costume",
-    "zh": "崔佛造型服裝"
+    "zh": "特雷弗风格服装"
+  },
+  "TargetingChargingWheel": {
+    "category": "spell",
+    "en": "TargetingChargingWheel",
+    "zh": ""
   },
   "UniqueItemID": {
     "category": "charm",
+    "deprecated": true,
     "en": "UniqueItemID",
     "zh": ""
   },
+  "VaniaLight": {
+    "category": "other",
+    "en": "Holy Light",
+    "zh": "神圣辉光"
+  },
   "WeaponAndShield": {
+    "abstract": true,
     "category": "weapon",
     "en": "WeaponAndShield",
     "zh": ""
   },
   "WeaponAndShieldBase": {
+    "abstract": true,
     "category": "weapon",
     "en": "WeaponAndShieldBase",
     "zh": ""
@@ -542,19 +608,30 @@
   "WeaponAndShieldTier1": {
     "category": "weapon",
     "en": "Rusted Harpè and Aegis",
-    "zh": "生鏽的赫帕爾與埃癸斯"
+    "zh": "锈蚀的哈耳珀与埃癸斯"
+  },
+  "WeaponAndShieldTier2": {
+    "category": "weapon",
+    "en": "Fleuret and Tower Shield",
+    "zh": "花剑与塔盾"
   },
   "WeaponAndShieldTier3": {
     "category": "weapon",
     "en": "Arondight and Lancelot's Shield",
-    "zh": "阿隆戴特與蘭斯洛特之盾"
+    "zh": "阿隆戴特与兰斯洛特之盾"
   },
   "WeaponAndShieldTier3_Doppelganger": {
     "category": "weapon",
     "en": "Arondight and Lancelot's Shield",
-    "zh": "阿隆戴特與蘭斯洛特之盾"
+    "zh": "阿隆戴特与兰斯洛特之盾"
+  },
+  "WeaponAndShieldTier4": {
+    "category": "weapon",
+    "en": "Alucard's Sword and Shield",
+    "zh": "阿鲁卡多之剑与盾"
   },
   "WeaponDualWield": {
+    "abstract": true,
     "category": "weapon",
     "en": "WeaponDualWield",
     "zh": ""
@@ -562,24 +639,36 @@
   "WeaponDualWieldTier1": {
     "category": "weapon",
     "en": "Pair of Longswords",
-    "zh": "雙重長劍"
+    "zh": "双长剑"
+  },
+  "WeaponDualWieldTier2": {
+    "category": "weapon",
+    "en": "Rapiers",
+    "zh": "细剑"
   },
   "WeaponDualWieldTier3": {
     "category": "weapon",
     "en": "Almace and Hauteclaire",
-    "zh": "阿爾瑪斯與奧特克萊爾"
+    "zh": "阿尔玛斯与奥特克莱尔"
   },
   "WeaponDualWieldTier3_Doppelganger": {
     "category": "weapon",
     "en": "Almace and Hauteclaire",
-    "zh": "阿爾瑪斯與奧特克萊爾"
+    "zh": "阿尔玛斯与奥特克莱尔"
+  },
+  "WeaponDualWieldTier4": {
+    "category": "weapon",
+    "en": "War and Famine",
+    "zh": "默示录之刃"
   },
   "WeaponFist": {
+    "abstract": true,
     "category": "weapon",
     "en": "WeaponFist",
     "zh": ""
   },
   "WeaponFistBase": {
+    "abstract": true,
     "category": "weapon",
     "en": "WeaponFistBase",
     "zh": ""
@@ -587,14 +676,30 @@
   "WeaponFistTier1": {
     "category": "weapon",
     "en": "Cestus",
-    "zh": "皮革拳套"
+    "zh": "拳套"
+  },
+  "WeaponFistTier2": {
+    "category": "weapon",
+    "en": "Jewel Knuckles",
+    "zh": "钻石指虎"
+  },
+  "WeaponFistTier3": {
+    "category": "weapon",
+    "en": "Fists of Talos",
+    "zh": "塔罗斯之拳"
   },
   "WeaponFistTier3_Doppelganger": {
     "category": "weapon",
     "en": "Fists of Talos",
-    "zh": "塔羅斯之拳"
+    "zh": "塔罗斯之拳"
+  },
+  "WeaponFistTier4": {
+    "category": "weapon",
+    "en": "Bernhard's Wrath",
+    "zh": "伯恩哈德之怒"
   },
   "WeaponOneHanded": {
+    "abstract": true,
     "category": "weapon",
     "en": "WeaponOneHanded",
     "zh": ""
@@ -602,12 +707,12 @@
   "WeaponOneHandedTier1": {
     "category": "weapon",
     "en": "Longsword",
-    "zh": "長劍"
+    "zh": "长剑"
   },
   "WeaponOneHandedTier2": {
     "category": "weapon",
     "en": "Bastard sword",
-    "zh": "變種劍"
+    "zh": "混种剑"
   },
   "WeaponOneHandedTier3": {
     "category": "weapon",
@@ -622,14 +727,16 @@
   "WeaponOneHandedTier4": {
     "category": "weapon",
     "en": "Valmanway",
-    "zh": "真空劍"
+    "zh": "瓦尔曼维"
   },
   "WeaponSpear": {
+    "abstract": true,
     "category": "weapon",
     "en": "WeaponSpear",
     "zh": ""
   },
   "WeaponSpearBase": {
+    "abstract": true,
     "category": "weapon",
     "en": "WeaponSpearBase",
     "zh": ""
@@ -637,24 +744,36 @@
   "WeaponSpearTier1": {
     "category": "weapon",
     "en": "Lance",
-    "zh": "騎槍"
+    "zh": "长矛"
+  },
+  "WeaponSpearTier2": {
+    "category": "weapon",
+    "en": "Halberd",
+    "zh": "斧枪"
+  },
+  "WeaponSpearTier3": {
+    "category": "weapon",
+    "en": "Gungnir",
+    "zh": "冈格尼尔"
   },
   "WeaponSpearTier3_Doppelganger": {
     "category": "weapon",
     "en": "Gungnir",
-    "zh": "岡格尼爾"
+    "zh": "冈格尼尔"
   },
   "WeaponSpearTier4": {
     "category": "weapon",
     "en": "Chauve-Souris",
-    "zh": "蝠翼戟矛"
+    "zh": "蝠翼戟"
   },
   "WeaponTwoHanded": {
+    "abstract": true,
     "category": "weapon",
     "en": "WeaponTwoHanded",
     "zh": ""
   },
   "WeaponTwoHandedBase": {
+    "abstract": true,
     "category": "weapon",
     "en": "WeaponTwoHandedBase",
     "zh": ""
@@ -662,36 +781,57 @@
   "WeaponTwoHandedTier1": {
     "category": "weapon",
     "en": "Burnt Sword of Fierbois",
-    "zh": "焦黑的菲爾波瓦之劍"
+    "zh": "灼痕累累的菲耶尔布瓦剑"
   },
   "WeaponTwoHandedTier2": {
     "category": "weapon",
     "en": "Claymore",
-    "zh": "闊刃大劍"
+    "zh": "克雷莫大剑"
   },
   "WeaponTwoHandedTier3": {
     "category": "weapon",
     "en": "Durandal",
-    "zh": "迪蘭達爾"
+    "zh": "杜兰德尔"
   },
   "WeaponTwoHandedTier3_Doppelganger": {
     "category": "weapon",
     "en": "Durandal",
-    "zh": "迪蘭達爾"
+    "zh": "杜兰德尔"
   },
   "WeaponTwoHandedTier4": {
     "category": "weapon",
     "en": "Excalibur",
-    "zh": "王者之劍"
+    "zh": "王者之剑"
   },
   "WeaponWhip": {
+    "abstract": true,
     "category": "weapon",
     "en": "WeaponWhip",
     "zh": ""
   },
+  "WeaponWhipTier1": {
+    "category": "weapon",
+    "en": "Whip",
+    "zh": "长鞭"
+  },
   "WeaponWhipTier2": {
     "category": "weapon",
     "en": "Thorn Whip",
-    "zh": "荊棘鞭"
+    "zh": "荆棘之鞭"
+  },
+  "WeaponWhipTier3": {
+    "category": "weapon",
+    "en": "Morning Star",
+    "zh": "晨星"
+  },
+  "WeaponWhipTier4": {
+    "category": "weapon",
+    "en": "Vampire Killer",
+    "zh": "吸血鬼杀手"
+  },
+  "WhipPendulum": {
+    "category": "other",
+    "en": "Arcane Whip",
+    "zh": "塔罗奥秘之鞭"
   }
 }

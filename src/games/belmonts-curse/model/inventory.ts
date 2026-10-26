@@ -1,6 +1,6 @@
 import { ModuleError } from '@sdk/error'
 import {
-  catalogIdsByCategory,
+  catalogAddableIdsByCategory,
   isAddableCategory,
   type ItemCategory
 } from '../catalog/names'
@@ -52,7 +52,7 @@ export function addAllOfCategory(state: BelmontsCurseState, category: ItemCatego
   const ps = playerSave(state)
   const inv = inventoryOf(ps)
   const owned = new Set(inv)
-  const toAdd = catalogIdsByCategory(category).filter((id) => !owned.has(id))
+  const toAdd = catalogAddableIdsByCategory(category).filter((id) => !owned.has(id))
   if (toAdd.length === 0) {
     refreshViews(state)
     return 0

@@ -9,12 +9,13 @@
 ### 新增
 
 - **恶魔城：贝尔蒙特的诅咒**：编辑 `BuildSave_*.sav`（UTF-8 JSON）；角色页可改等级 / 经验 / 升级碎片等持久标量
-- **恶魔城：贝尔蒙特的诅咒**：Addressables 抽表 `catalog/items.json`（en + zh，本机缺 zh-cn 时用 zh-tw；含 category）；背包按类型筛选/添加（仅武器/护符/魔导器/外观）；一键添加全部四类；装备编辑（不双写世界拾取）
-- **恶魔城：贝尔蒙特的诅咒**：能力 / Arcana、探索 Tab **只读**；不识别、不写入 `PLAYERPREFS.sav`
+- **恶魔城：贝尔蒙特的诅咒**：Addressables 抽表 `catalog/items.json` + `arcana.json`（en + zh，本机缺 zh-cn 时用 zh-tw；含 category / abstract）；背包按类型筛选/添加（仅武器/护符/魔导器/外观，跳过 abstract 与 Doppelganger）；一键添加全部四类；装备编辑（不双写世界拾取）
+- **恶魔城：贝尔蒙特的诅咒**：能力 Tab 可一键解锁 15 张 Arcana（写 `characterProgressionSteps` + 关联魔导器 / Vania）；探索仍只读；不识别、不写入 `PLAYERPREFS.sav`
 - 用户文档与 [HANDTEST](docs/HANDTEST.md) 手测清单
 
 ### 修复
 
+- **恶魔城：贝尔蒙特的诅咒**：抽表不再依赖 bundle 内 ASCII `itemID`（补齐鞭等 Tier 武器与部分魔导器）；一键添加武器约 28 把可收集品（对齐公开约 23–28）
 - **恶魔城：贝尔蒙特的诅咒**：当前生命 / 魔力 / 治疗次数改为只读展示——生命之镜读档会回满，改这些字段进游戏无效；说明改升级碎片以提高上限
 
 ## [0.14.4] - 2026-10-12

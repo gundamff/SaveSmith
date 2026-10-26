@@ -5,7 +5,10 @@ import { describe, expect, it } from 'vitest'
 import { catalogReady } from '../../src/games/belmonts-curse/catalog/ready'
 import { lookupItemName } from '../../src/games/belmonts-curse/catalog/names'
 import { featureFlags } from '../../src/games/belmonts-curse/model/featureFlags'
-import { catalogIdsByCategory, getItemCategory } from '../../src/games/belmonts-curse/catalog/names'
+import {
+  catalogAddableIdsByCategory,
+  getItemCategory
+} from '../../src/games/belmonts-curse/catalog/names'
 import {
   addAllOfCategory,
   addItem,
@@ -93,7 +96,7 @@ describe('belmonts-curse inventory mutators', () => {
   it('addAllOfCategory adds missing ids and is idempotent', () => {
     const state = loadState()
     const before = state.player.itemsInInventory.length
-    const expected = catalogIdsByCategory('charm')
+    const expected = catalogAddableIdsByCategory('charm')
     const added = addAllOfCategory(state, 'charm')
     expect(added).toBeGreaterThan(0)
     expect(state.player.itemsInInventory.filter((id) => getItemCategory(id) === 'charm')).toHaveLength(

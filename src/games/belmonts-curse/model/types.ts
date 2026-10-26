@@ -34,6 +34,8 @@ export interface PlayerView {
   progressionPersistentSave: string[]
   arcanaCompletedTasks: string[]
   arcanaUnlockedTalents: string[]
+  /** CharacterID GUIDs present in characterProgressionSteps. */
+  arcanaCharacterGuids: string[]
 }
 
 export interface ExplorationView {

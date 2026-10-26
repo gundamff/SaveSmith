@@ -1,0 +1,137 @@
+[
+  {
+    "characterGuid": "53500253a3c9f3049837a73294af9236",
+    "characterKey": "Doppelganger",
+    "arcanaNumber": 1,
+    "spellItemID": "RageIncarnation",
+    "vaniaGuid": "",
+    "en": "Doppelganger",
+    "zh": ""
+  },
+  {
+    "characterGuid": "0388e2209eace06468617c673e70d001",
+    "characterKey": "Leon",
+    "arcanaNumber": 2,
+    "spellItemID": "BoomerangCross",
+    "vaniaGuid": "71276b8978cebc848aaf094a91bee40e",
+    "en": "Leon",
+    "zh": ""
+  },
+  {
+    "characterGuid": "c780f2bb5d95b6d4e88196839e50ecb9",
+    "characterKey": "Joan",
+    "arcanaNumber": 3,
+    "spellItemID": "FireSeismicWave",
+    "vaniaGuid": "de8186906ea0812439ed17a8a49f813a",
+    "en": "Joan",
+    "zh": ""
+  },
+  {
+    "characterGuid": "4e87b57ded43fb44c99aae5c306ed768",
+    "characterKey": "Medusa",
+    "arcanaNumber": 4,
+    "spellItemID": "PetrifyingRay",
+    "vaniaGuid": "",
+    "en": "Medusa",
+    "zh": ""
+  },
+  {
+    "characterGuid": "12a37ca8ff8088842868084523b92d11",
+    "characterKey": "Talos",
+    "arcanaNumber": 5,
+    "spellItemID": "GiantFist",
+    "vaniaGuid": "2090f3e7a84872b41a57081bc0090cf0",
+    "en": "Talos",
+    "zh": ""
+  },
+  {
+    "characterGuid": "e6498431ecae12c4583e7e39cbce068b",
+    "characterKey": "Brauner",
+    "arcanaNumber": 6,
+    "spellItemID": "InvocationStone",
+    "vaniaGuid": "6f258a566021a4442839fbe32b2b10a5",
+    "en": "Brauner",
+    "zh": ""
+  },
+  {
+    "characterGuid": "9bf347103c709f04b92bae6589068590",
+    "characterKey": "Carmilla",
+    "arcanaNumber": 7,
+    "spellItemID": "BloodSpikes",
+    "vaniaGuid": "",
+    "en": "Carmilla",
+    "zh": ""
+  },
+  {
+    "characterGuid": "78d226492a031dc43825223d911401f4",
+    "characterKey": "Death",
+    "arcanaNumber": 8,
+    "spellItemID": "LaserScytheSlash",
+    "vaniaGuid": "15b5c745d645ff7418900e6df0670fd6",
+    "en": "Death",
+    "zh": ""
+  },
+  {
+    "characterGuid": "ab62ecd7a50efed47b11425afe0b7fd4",
+    "characterKey": "Mammon",
+    "arcanaNumber": 9,
+    "spellItemID": "TargetingChargingWheel",
+    "vaniaGuid": "",
+    "en": "Mammon",
+    "zh": ""
+  },
+  {
+    "characterGuid": "f302873f7d791ff4db8298dd137524f6",
+    "characterKey": "Ferryman",
+    "arcanaNumber": 10,
+    "spellItemID": "FreezingMist",
+    "vaniaGuid": "",
+    "en": "Ferryman",
+    "zh": ""
+  },
+  {
+    "characterGuid": "5adde6c101bdba143967bf11f60b9fce",
+    "characterKey": "Isaac",
+    "arcanaNumber": 11,
+    "spellItemID": "RiseAndFall",
+    "vaniaGuid": "",
+    "en": "Isaac",
+    "zh": ""
+  },
+  {
+    "characterGuid": "1018f242a71d14a4bb2cb912706f1a09",
+    "characterKey": "Succubus",
+    "arcanaNumber": 12,
+    "spellItemID": "LifeDrain",
+    "vaniaGuid": "",
+    "en": "Succubus",
+    "zh": ""
+  },
+  {
+    "characterGuid": "a376230c91a7591489f3576341dbc5d0",
+    "characterKey": "Arthur",
+    "arcanaNumber": 13,
+    "spellItemID": "GlassArmor",
+    "vaniaGuid": "",
+    "en": "Arthur",
+    "zh": ""
+  },
+  {
+    "characterGuid": "44ae5a8c951ccfd48947002ec28baf42",
+    "characterKey": "StLouis",
+    "arcanaNumber": 14,
+    "spellItemID": "Detainment",
+    "vaniaGuid": "",
+    "en": "StLouis",
+    "zh": ""
+  },
+  {
+    "characterGuid": "df983c362202bfb498c5f540259a97c4",
+    "characterKey": "Eleanor",
+    "arcanaNumber": 15,
+    "spellItemID": "PocketMirror",
+    "vaniaGuid": "",
+    "en": "Eleanor",
+    "zh": ""
+  }
+]

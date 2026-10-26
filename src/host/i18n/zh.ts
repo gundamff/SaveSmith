@@ -384,6 +384,18 @@ export const zh: MessageTree = {
       readonlyHint: '名称表未就绪时只读；未收录 ID 显示原始字符串。'
     },
     abilities: {
+      tarot: '塔罗 / Arcana',
+      tarotHint: '写入 characterProgressionSteps（CharacterID GUID），并补齐关联魔导器与 Vania 招式；不改世界拾取与 PLAYERPREFS。',
+      unlockAll: '一键解锁全部 Arcana',
+      unlockedAll: '已解锁 {0} 张 Arcana',
+      unlockedAllNone: 'Arcana 已全部解锁',
+      needArcanaCatalog: 'Arcana 表未就绪：请先运行抽表脚本生成 catalog/arcana.json。',
+      colNum: '编号',
+      colName: '角色',
+      colSpell: '魔导器',
+      colStatus: '状态',
+      statusOn: '已解锁',
+      statusOff: '未解锁',
       vaniaMoves: 'Vania 招式',
       progression: '持久进度',
       arcanaTasks: 'Arcana 已完成任务',
