@@ -326,7 +326,9 @@ export const en: MessageTree = {
       exploration: 'Exploration'
     },
     hint: {
-      quitAndCloud: 'Quit the game completely and temporarily disable Steam Cloud before editing.'
+      quitAndCloud: 'Quit the game completely and temporarily disable Steam Cloud before editing.',
+      mirrorRestoresVitals:
+        'Loading from a Mirror of Life restores full HP/MP and heal charges, so editing the fields below has no lasting effect. Raise caps via health/mana upgrade fragments instead.'
     },
     overview: {
       version: 'Save version',
@@ -341,9 +343,9 @@ export const en: MessageTree = {
       manaUpgradeFragmentCount: 'Mana upgrade fragments',
       atkBonusUpgradeCount: 'ATK bonus upgrades',
       defBonusUpgradeCount: 'DEF bonus upgrades',
-      currentHealth: 'Current health',
-      currentMana: 'Current mana',
-      currentHealChargesCount: 'Heal charges',
+      currentHealth: 'Current health (restored on load)',
+      currentMana: 'Current mana (restored on load)',
+      currentHealChargesCount: 'Heal charges (restored on load)',
       currentTheHermitDeathDefianceCount: 'Hermit death defiance charges'
     },
     inventory: {

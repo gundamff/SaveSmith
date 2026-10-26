@@ -46,10 +46,10 @@ Steam Cloud 会同步该目录下的 `*.sav`（配额约 40 MiB）。改档前
 | `manaUpgradeFragmentCount` | 整数 ≥ 0 |
 | `atkBonusUpgradeCount` | 整数 ≥ 0 |
 | `defBonusUpgradeCount` | 整数 ≥ 0 |
-| `currentHealth` | 数 ≥ 0 |
-| `currentMana` | 数 ≥ 0 |
-| `currentHealChargesCount` | 整数 ≥ 0 |
 | `currentTheHermitDeathDefianceCount` | 整数 ≥ 0 |
+
+以下字段仍会显示，但**不可编辑**（改了也无效）：`currentHealth`、`currentMana`、`currentHealChargesCount`。  
+原因：从**生命之镜（Mirror of Life）**继续游戏时，游戏会回满生命 / 魔力并补满治疗次数；存档里的「当前值」在正常读档路径上会被覆盖。等级、经验、升级碎片等是持久进度，因此能生效。若要更高生命/魔力**上限**，请改对应升级碎片，而不是当前值。
 
 其余键（含 `worldSaves`、`progressionBoardSave`、装备 ID 列表等）保存时**原样透传**。一期**不能**在 UI 中新增背包物品或能力（二期需物品↔世界实体映射与手测门闩）。
 

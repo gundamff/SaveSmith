@@ -8,9 +8,13 @@ Castlevania: Belmont's Curse — phase 1 (writable character scalars, deep tabs 
 
 ### Added
 
-- **Castlevania: Belmont's Curse**: Edit `BuildSave_*.sav` (UTF-8 JSON); Character tab whitelist scalars (level, XP, upgrade fragments, current HP/MP, etc.)
+- **Castlevania: Belmont's Curse**: Edit `BuildSave_*.sav` (UTF-8 JSON); Character tab persistent scalars (level, XP, upgrade fragments, etc.)
 - **Castlevania: Belmont's Curse**: Inventory, Abilities / Arcana, and Exploration tabs are **read-only**; `PLAYERPREFS.sav` is never listed or written
 - User docs and [HANDTEST](docs/HANDTEST.md) checklist
+
+### Fixed
+
+- **Castlevania: Belmont's Curse**: Current HP / MP / heal charges are read-only — Mirror of Life load restores them, so editing those fields does nothing in-game; raise caps via upgrade fragments instead
 
 ## [0.14.4] - 2026-10-12
 
