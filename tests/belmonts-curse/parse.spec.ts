@@ -13,7 +13,12 @@ describe('belmonts-curse parse', () => {
   it('round-trips scalars and preserves opaque keys', () => {
     const state = parse([{ relativePath: 'BuildSave_0.sav', bytes }])
     expect(state.player.level).toBe(3)
-    expect(state.player.itemsInInventory).toEqual(['WeaponFistTier1', 'BoomerangCross'])
+    expect(state.player.itemsInInventory).toEqual([
+      'WeaponFistTier1',
+      'BoomerangCross',
+      'Skin_MC_Base',
+      'Charm_ChestRecover'
+    ])
     expect(state.exploration.entityCount).toBe(1)
     expect(state.exploration.completionItemCount).toBe(2)
     setPlayerScalar(state, 'experienceCurrent', 11)

@@ -52,5 +52,33 @@ export function validate(state: BelmontsCurseState): ValidationIssue[] {
   ] as const) {
     if (!Number.isFinite(v) || v < 0) issues.push({ code: 'BC_SCALAR', args: [name, v] })
   }
+
+  const inv = p.itemsInInventory
+  const seen = new Set<string>()
+  for (const id of inv) {
+    if (seen.has(id)) {
+      issues.push({ code: 'BC_INV_DUP', args: [id] })
+      break
+    }
+    seen.add(id)
+  }
+
+  const owned = new Set(inv)
+  const orphanSlots: Array<[string, string]> = [
+    ['equippedWeaponItem', p.equippedWeaponItem],
+    ['equippedSpellItem', p.equippedSpellItem],
+    ['equippedSkin', p.equippedSkin]
+  ]
+  for (const [slot, id] of orphanSlots) {
+    if (id && !owned.has(id)) {
+      issues.push({ code: 'BC_EQUIP_ORPHAN', args: [slot, id] })
+    }
+  }
+  p.equippedCharmItems.forEach((id, i) => {
+    if (id && !owned.has(id)) {
+      issues.push({ code: 'BC_EQUIP_ORPHAN', args: [`equippedCharmItems[${i}]`, id] })
+    }
+  })
+
   return issues
 }

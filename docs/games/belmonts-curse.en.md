@@ -4,9 +4,9 @@
 
 Unofficial save-editing notes. Rights holder: **KONAMI** (Steam AppID [4231820](https://store.steampowered.com/app/4231820/)). Not affiliated with the publisher. Module cover uses the Steam store header (© KONAMI).
 
-> **Phase 1:** Edits only the **character scalar whitelist** under `playerSave` in slot files `BuildSave_*.sav`. Inventory, Abilities / Arcana, and Exploration are **read-only**. Does **not** read or write `PLAYERPREFS.sav` (settings / DLC flags).
+> **Current scope:** Edits `playerSave` **character scalars** and **inventory / equipment** (when the name catalog is ready) in slot files `BuildSave_*.sav`. Abilities / Arcana and Exploration stay read-only. Does **not** read or write `PLAYERPREFS.sav`. Does **not** dual-write `worldSaves` pickup state.
 
-Design: [2026-10-19](../design/2026-10-19-belmonts-curse-design.md)
+Design: [2026-10-19](../design/2026-10-19-belmonts-curse-design.md) · [Inventory](../design/2026-10-26-belmonts-curse-inventory-design.md)
 
 ## Save location
 
@@ -21,7 +21,7 @@ The same folder may contain `PLAYERPREFS.sav` (preferences / DLC-related keys) a
 ## Format
 
 - Single-line UTF-8 **JSON**; common top-level keys include `version`, `playerSave`, `worldSaves`, `progressionBoardSave`.
-- **No** checksum / HMAC. Unknown keys are **passed through**; only whitelist scalars change.
+- **No** checksum / HMAC. Unknown keys are **passed through**; only edited whitelist fields change.
 - `JSON.stringify` on save may alter whitespace or key order vs. the original file. Success means **the game loads the file** (see [HANDTEST](../HANDTEST.md)).
 
 Steam Cloud syncs `*.sav` in this folder (~40 MiB quota). **Quit the game completely** before editing, and consider **disabling Steam Cloud** for this title so an older cloud copy does not overwrite your edits.
@@ -32,7 +32,7 @@ Steam Cloud syncs `*.sav` in this folder (~40 MiB quota). **Quit the game comp
 |-----|------|---------|
 | Overview | Read-only summary | `version`, `saveDate`, `playTimeInSeconds`, etc. |
 | Character | **Writable** | Whitelist below |
-| Inventory | Read-only | `itemsInInventory`, equip slots; localized names when catalog exists, else raw IDs |
+| Inventory | **Writable** (catalog ready) | Add/remove `itemsInInventory` (deduped); edit weapon / spell / skin / charms (must own; charms may be empty) |
 | Abilities / Arcana | Read-only | `vaniaMoves`, `progressionPersistentSave`, Arcana list summaries |
 | Exploration | Read-only | World entry counts, `currentCompletionItemCount`, entity state counts (no per-entity editing) |
 
@@ -51,7 +51,7 @@ Steam Cloud syncs `*.sav` in this folder (~40 MiB quota). **Quit the game comp
 | `currentHealChargesCount` | integer ≥ 0 |
 | `currentTheHermitDeathDefianceCount` | integer ≥ 0 |
 
-Everything else (including `worldSaves`, `progressionBoardSave`, equip IDs) is **passed through unchanged**. Phase 1 **cannot** add inventory items or abilities in the UI (phase 2 needs item↔world mapping and hand-test gates).
+Everything else (including `worldSaves`, `progressionBoardSave`) is **passed through unchanged**. **World pickup state is not synced** — items added in the editor may still be pickable again at their original locations.
 
 Automatic backups (last 10 per file) before save; restore from the backup panel.
 
@@ -60,12 +60,14 @@ Automatic backups (last 10 per file) before save; restore from the backup panel.
 1. **Fully quit the game** before editing (quit may rewrite `BuildSave_*.sav`).
 2. Consider **turning off Steam Cloud** for this game until you verify edits stick.
 3. Use a **copy** of your save for first trials—not your only live slot.
-4. For legitimate owners, **offline single-player** study only; do not use online or distribute modified saves.
-5. After major game updates, JSON shape or `version` may drift; see the module and [CHANGELOG](../../CHANGELOG.en.md).
+4. Loading at a Mirror of Life restores full HP / MP / heal charges; editing those current values usually does not persist — prefer upgrade-fragment fields.
+5. For legitimate owners, **offline single-player** study only; do not use online or distribute modified saves.
+6. After major game updates, JSON shape or `version` may drift; see the module and [CHANGELOG](../../CHANGELOG.en.md).
 
 ## Developers
 
 - Module: `src/games/belmonts-curse/`
+- Name catalog: `py -3 scripts/bc_extract_names.py --game "<install root>"` (requires UnityPy)
 - Tests: `npx vitest run tests/belmonts-curse`
 
 Back to [README](../../README.en.md).

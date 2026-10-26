@@ -14,7 +14,8 @@ type ScalarField = {
   step: number
 }
 
-const scalarFields: ScalarField[] = [
+/** Persists across Mirror of Life load. */
+const writableFields: ScalarField[] = [
   { key: 'level', labelKey: 'bc.character.level', min: 1, step: 1 },
   { key: 'experienceCurrent', labelKey: 'bc.character.experienceCurrent', min: 0, step: 1 },
   {
@@ -31,17 +32,24 @@ const scalarFields: ScalarField[] = [
   },
   { key: 'atkBonusUpgradeCount', labelKey: 'bc.character.atkBonusUpgradeCount', min: 0, step: 1 },
   { key: 'defBonusUpgradeCount', labelKey: 'bc.character.defBonusUpgradeCount', min: 0, step: 1 },
+  {
+    key: 'currentTheHermitDeathDefianceCount',
+    labelKey: 'bc.character.currentTheHermitDeathDefianceCount',
+    min: 0,
+    step: 1
+  }
+]
+
+/**
+ * Written into the save, but loading from a Mirror of Life restores full HP/MP and
+ * refill flasks — so editing these has no lasting effect for normal continue.
+ */
+const runtimeReadonlyFields: ScalarField[] = [
   { key: 'currentHealth', labelKey: 'bc.character.currentHealth', min: 0, step: 1 },
   { key: 'currentMana', labelKey: 'bc.character.currentMana', min: 0, step: 1 },
   {
     key: 'currentHealChargesCount',
     labelKey: 'bc.character.currentHealChargesCount',
-    min: 0,
-    step: 1
-  },
-  {
-    key: 'currentTheHermitDeathDefianceCount',
-    labelKey: 'bc.character.currentTheHermitDeathDefianceCount',
     min: 0,
     step: 1
   }
@@ -70,13 +78,26 @@ const playerId = computed(() => {
     <el-alert type="warning" show-icon :closable="false" :title="t('bc.hint.quitAndCloud')" class="warn" />
     <p class="meta">{{ t('bc.character.playerId') }}: {{ playerId }}</p>
     <el-form label-width="240px" style="max-width: 640px">
-      <el-form-item v-for="f in scalarFields" :key="f.key" :label="t(f.labelKey)">
+      <el-form-item v-for="f in writableFields" :key="f.key" :label="t(f.labelKey)">
         <el-input-number
           :model-value="scalarValue(f.key)"
           :min="f.min"
           :step="f.step"
           @update:model-value="(v) => changeScalar(f.key, v ?? undefined)"
         />
+      </el-form-item>
+    </el-form>
+
+    <el-alert
+      type="info"
+      show-icon
+      :closable="false"
+      :title="t('bc.hint.mirrorRestoresVitals')"
+      class="warn"
+    />
+    <el-form label-width="240px" style="max-width: 640px">
+      <el-form-item v-for="f in runtimeReadonlyFields" :key="f.key" :label="t(f.labelKey)">
+        <el-input-number :model-value="scalarValue(f.key)" :min="f.min" :step="f.step" disabled />
       </el-form-item>
     </el-form>
   </div>

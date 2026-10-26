@@ -4,12 +4,13 @@
 
 ## [Unreleased]
 
-Castlevania: Belmont's Curse — phase 1 (writable character scalars, deep tabs read-only).
+Castlevania: Belmont's Curse — character scalars plus inventory when the name catalog is ready.
 
 ### Added
 
-- **Castlevania: Belmont's Curse**: Edit `BuildSave_*.sav` (UTF-8 JSON); Character tab whitelist scalars (level, XP, upgrade fragments, current HP/MP, etc.)
-- **Castlevania: Belmont's Curse**: Inventory, Abilities / Arcana, and Exploration tabs are **read-only**; `PLAYERPREFS.sav` is never listed or written
+- **Castlevania: Belmont's Curse**: Edit `BuildSave_*.sav` (UTF-8 JSON); Character tab whitelist scalars (level, XP, upgrade fragments, etc.)
+- **Castlevania: Belmont's Curse**: Addressables-derived `catalog/items.json` (en + zh; zh-tw fallback when zh-cn bundles are missing); inventory add/remove and equipment edit (no world-pickup dual-write)
+- **Castlevania: Belmont's Curse**: Abilities / Arcana and Exploration remain **read-only**; `PLAYERPREFS.sav` is never listed or written
 - User docs and [HANDTEST](docs/HANDTEST.md) checklist
 
 ## [0.14.4] - 2026-10-12

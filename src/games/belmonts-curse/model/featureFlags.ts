@@ -1,4 +1,7 @@
+import { catalogReady } from '../catalog/ready'
+
 export const featureFlags = {
-  addItem: false,
+  /** Inventory add/remove/equip unlocked when catalog gate passes. */
+  addItem: catalogReady(),
   addAbility: false
 } as const

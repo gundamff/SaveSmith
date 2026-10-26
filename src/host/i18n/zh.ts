@@ -356,7 +356,13 @@ export const zh: MessageTree = {
       colSlot: '槽位',
       colId: 'ID',
       colName: '名称',
-      readonlyHint: '一期只读；名称表未收录时显示原始 ID。'
+      colActions: '操作',
+      add: '添加',
+      remove: '移除',
+      addPlaceholder: '搜索物品名称或 ID…',
+      needCatalog: '名称表未就绪：请在开发机运行抽表脚本生成 catalog/items.json 后再编辑背包。',
+      noWorldSync: '不会同步世界拾取状态：添加的物品可能在原获取点被再次捡到。',
+      readonlyHint: '名称表未就绪时只读；未收录 ID 显示原始字符串。'
     },
     abilities: {
       vaniaMoves: 'Vania 招式',
@@ -475,6 +481,8 @@ export const zh: MessageTree = {
     INVALID_STATE: '存档状态无效：{0}',
     INVALID_JSON: '无法解析 JSON 文件：{0}',
     BC_LEVEL: '等级无效（须为 ≥1 的整数）：{0}',
-    BC_SCALAR: '字段 {0} 数值无效：{1}'
+    BC_SCALAR: '字段 {0} 数值无效：{1}',
+    BC_INV_DUP: '背包存在重复物品 ID：{0}',
+    BC_EQUIP_ORPHAN: '装备槽 {0} 的物品不在背包中：{1}'
   }
 }

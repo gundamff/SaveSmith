@@ -1,1 +1,558 @@
-{}
+{
+  "BoomerangCross": {
+    "en": "Holy Cross",
+    "zh": "神聖十字架"
+  },
+  "CatacombsGateKeyJeanne": {
+    "en": "The Warrior's Key",
+    "zh": "戰士鑰匙"
+  },
+  "CatacombsGateKeyLeon": {
+    "en": "The Fallen's Key",
+    "zh": "怪物鑰匙"
+  },
+  "CatacombsGateKeyMedusa": {
+    "en": "The Prophetess's Key",
+    "zh": "預言者鑰匙"
+  },
+  "Charm_BatPet": {
+    "en": "Vampire's Fang",
+    "zh": "吸血鬼之牙"
+  },
+  "Charm_BoostDamageAfterBreak": {
+    "en": "Obsidian Fang",
+    "zh": "黑曜石之牙"
+  },
+  "Charm_BoostDamageAfterParry": {
+    "en": "Cursed Coin",
+    "zh": "被詛咒的硬幣"
+  },
+  "Charm_BoostDamageAfterSpell": {
+    "en": "Twilight Gem",
+    "zh": "黃昏寶石"
+  },
+  "Charm_BoostDamageBackHit": {
+    "en": "Vile Trinket",
+    "zh": "邪惡小飾品"
+  },
+  "Charm_BoostDamageBackReduceDamageFront": {
+    "en": "Pale Thorn",
+    "zh": "蒼白之棘"
+  },
+  "Charm_BoostDamageButReduceLife": {
+    "en": "Beelzebub's Seal",
+    "zh": "別西卜之印"
+  },
+  "Charm_BoostDamageFullLife": {
+    "en": "Forsaken Ring",
+    "zh": "被遺棄者之戒"
+  },
+  "Charm_BoostDamageOnControlledMob": {
+    "en": "Abyssal Eye",
+    "zh": "深淵之眼"
+  },
+  "Charm_BoostDamageOnLowLife": {
+    "en": "Specter's Whisper",
+    "zh": "死者的呢喃"
+  },
+  "Charm_BoostDamageOnMobFullLife": {
+    "en": "Sinister Rune",
+    "zh": "惡意符文"
+  },
+  "Charm_BoostDamagePerEmptyPotion": {
+    "en": "Witch's Brew",
+    "zh": "魔女的調合藥"
+  },
+  "Charm_BoostDamageWhenUnGrounded": {
+    "en": "Raven's Feather",
+    "zh": "渡鴉的羽毛"
+  },
+  "Charm_BoostDefenseAfterGettingHit": {
+    "en": "Haunting Relic",
+    "zh": "心靈的遺物"
+  },
+  "Charm_BoostDefenseForTrap": {
+    "en": "Ghostly Pendant",
+    "zh": "靈體墜飾"
+  },
+  "Charm_BoostDefenseOnFullLife": {
+    "en": "Dark Sigil",
+    "zh": "黑暗印章"
+  },
+  "Charm_BoostDefenseOnLowLife": {
+    "en": "Shadow Veil",
+    "zh": "暗影面紗"
+  },
+  "Charm_BoostManaKillMob": {
+    "en": "Revenant's Shard",
+    "zh": "亡者碎片"
+  },
+  "Charm_BoostSpeedAfterSave": {
+    "en": "Sand Charm",
+    "zh": "沙之飾品"
+  },
+  "Charm_BoostSpeedAfterWhip": {
+    "en": "Hollow Bone",
+    "zh": "空心骨"
+  },
+  "Charm_BoostSpeedLowMana": {
+    "en": "Dusk Amulet",
+    "zh": "落日護身符"
+  },
+  "Charm_BoostXPKillMobFullLife": {
+    "en": "Moonlit Shard",
+    "zh": "月光碎片"
+  },
+  "Charm_ChestRecover": {
+    "en": "Crypt Key",
+    "zh": "墓地鑰匙"
+  },
+  "Charm_ClampMCMana": {
+    "en": "Infernal Medallion",
+    "zh": "地獄勳章"
+  },
+  "Charm_ConsummableChanceBoost": {
+    "en": "Crystallized Blood",
+    "zh": "結晶化的血"
+  },
+  "Charm_GainHPHitMobNoPotion": {
+    "en": "Blackened Heart",
+    "zh": "黑化的心臟"
+  },
+  "Charm_GetManaFromDmgReceived": {
+    "en": "Banshee's Wail",
+    "zh": "報喪女妖嘆息"
+  },
+  "Charm_HealthPotionHealFullLife": {
+    "en": "Witch's Knot",
+    "zh": "魔女繩結"
+  },
+  "Charm_InvulnerabilityAfterSave": {
+    "en": "Eldritch Talisman",
+    "zh": "詭異的護符"
+  },
+  "Charm_KillMobBoostDamageInflicted": {
+    "en": "Necro Charm",
+    "zh": "死靈飾品"
+  },
+  "Charm_KillMobBoostSpeed": {
+    "en": "Mourning Bead",
+    "zh": "哀悼珠"
+  },
+  "Charm_KillMobRevengeHeal": {
+    "en": "Wraith's Tear",
+    "zh": "亡靈之淚"
+  },
+  "Charm_LongerMobStagger": {
+    "en": "Ebony Claw",
+    "zh": "漆黑之爪"
+  },
+  "Charm_NerfDmgOnLowMana": {
+    "en": "Midnight Tear",
+    "zh": "夜之淚"
+  },
+  "Charm_ParryGiveMana": {
+    "en": "Grim Token",
+    "zh": "恐怖代幣"
+  },
+  "Charm_PotionGiveMana": {
+    "en": "Nightshade",
+    "zh": "顛茄"
+  },
+  "Charm_ReduceSpellManaCostSpam": {
+    "en": "Lich's Mark",
+    "zh": "巫妖刻印"
+  },
+  "Charm_RevealSecret": {
+    "en": "Gloomstone",
+    "zh": "幽暗之石"
+  },
+  "Charm_RoomChangeResetMobSpawner": {
+    "en": "Phantom Ring",
+    "zh": "亡靈戒指"
+  },
+  "Clue_Arthur_ExcaliburStele": {
+    "en": "Feat of Strength",
+    "zh": "力量成就之物"
+  },
+  "Clue_Brauner_AlucardPainting": {
+    "en": "Alucard Guides",
+    "zh": "阿爾卡多的引導"
+  },
+  "Clue_Brauner_MainHallLocation": {
+    "en": "Artist hides in the Main Hall",
+    "zh": "潛藏於惡魔城中央部分的藝術家"
+  },
+  "Clue_Brauner_NotreDamePainting": {
+    "en": "A Strange Painting of Notre-Dame",
+    "zh": "不可思議的聖母院圖"
+  },
+  "Clue_Brauner_StatueInstruction": {
+    "en": "Brauner's \"Masterpiece\"",
+    "zh": "布勞爾的「傑作」"
+  },
+  "Clue_Carmilla_BloodPoem": {
+    "en": "Blood Poem",
+    "zh": "鮮血之詩"
+  },
+  "Clue_Carmilla_BraunerNote": {
+    "en": "Carmilla in the Library",
+    "zh": "藏書閣的卡蜜拉"
+  },
+  "Clue_Carmilla_DiaryRequest": {
+    "en": "Star Chart",
+    "zh": "星圖"
+  },
+  "Clue_Carmilla_PlanetList": {
+    "en": "Organic Astrology",
+    "zh": "臟器占星術"
+  },
+  "Clue_Carmilla_ToolSTheft": {
+    "en": "Magical Brush",
+    "zh": "魔力之筆"
+  },
+  "Clue_Death_Catacombs": {
+    "en": "Death Mark",
+    "zh": "死亡印記"
+  },
+  "Clue_Death_Concerto": {
+    "en": "Melody Sheet for the Concerto of Notre-Dame",
+    "zh": "聖母院的協奏曲樂譜"
+  },
+  "Clue_Death_MaestrosLocations": {
+    "en": "The Masters of Music hide from Death",
+    "zh": "躲避死神的樂師"
+  },
+  "Clue_Death_MelodiesNumber": {
+    "en": "Melody Sheet for the Fugue of Notre-Dame",
+    "zh": "聖母院的賦格樂譜"
+  },
+  "Clue_Death_OrganPipes": {
+    "en": "The Corrupted Pipes of the Notre-Dame Organ",
+    "zh": "聖母院管風琴遭腐蝕的管子"
+  },
+  "Clue_Death_Sonata": {
+    "en": "Melody Sheet for the Sonata of Notre-Dame",
+    "zh": "聖母院的奏鳴曲樂譜"
+  },
+  "Clue_Doppelganger_FirstCard": {
+    "en": "The First Card",
+    "zh": "最初的卡牌"
+  },
+  "Clue_Doppelganger_Prophecy": {
+    "en": "The Prophecy",
+    "zh": "預言"
+  },
+  "Clue_Eleanor_Escaping": {
+    "en": "Eleanor Flees to the Cemetary",
+    "zh": "逃往墓地的艾莉諾"
+  },
+  "Clue_Eleanor_KneelDown": {
+    "en": "Kneeling is the Way",
+    "zh": "跪下開啟道路"
+  },
+  "Clue_Eleanor_SealsLocation": {
+    "en": "A Sketch from Talos",
+    "zh": "塔羅斯的草圖"
+  },
+  "Clue_Eleanor_TrueWay": {
+    "en": "The Reflection Deceives",
+    "zh": "反射即欺瞞"
+  },
+  "Clue_Ferryman_MissingCoins": {
+    "en": "Stolen Oboles",
+    "zh": "被偷的奧波勒斯"
+  },
+  "Clue_Isaac_BossLocation": {
+    "en": "Isaac waits in the Clock Tower.",
+    "zh": "艾薩克在鐘塔等待"
+  },
+  "Clue_JoanArc_TowerLocation": {
+    "en": "The Warrior is at the top of the Tower.",
+    "zh": "塔上的戰士"
+  },
+  "Clue_JoanArc_TowerShortcut": {
+    "en": "Carpenter's Crane Sketch",
+    "zh": "木工繪製的升降裝置草圖"
+  },
+  "Clue_Leon_BossDoor": {
+    "en": "A Monster terrorizes Paris",
+    "zh": "出現在巴黎的魔物"
+  },
+  "Clue_Leon_HiddenLever": {
+    "en": "A Lever for the Well",
+    "zh": "井的拉桿"
+  },
+  "Clue_Mammon_DiaryFebruary": {
+    "en": "Hospital Relic",
+    "zh": "醫院的遺物"
+  },
+  "Clue_Mammon_DiaryJanuary": {
+    "en": "Tomb Relic",
+    "zh": "隱密的墓地遺物"
+  },
+  "Clue_Mammon_DiaryMarch": {
+    "en": "Catacomb Relic",
+    "zh": "地下墓穴的遺物"
+  },
+  "Clue_Mammon_EyesDoor": {
+    "en": "A Door made of Flesh and Eyes",
+    "zh": "肉和眼球做成的門"
+  },
+  "Clue_Medusa_CanalShortcut": {
+    "en": "Cemetary Fountain",
+    "zh": "墓地的水路"
+  },
+  "Clue_Medusa_CemeteryLocation": {
+    "en": "The roots of the Hollow Tree",
+    "zh": "墓地的呢喃"
+  },
+  "Clue_Medusa_RomanBath": {
+    "en": "Roman Baths",
+    "zh": "羅馬浴場"
+  },
+  "Clue_Medusa_SpecialAttack": {
+    "en": "Guardian's Gaze",
+    "zh": "守護者之眼"
+  },
+  "Clue_SaintLouis_ScaleText": {
+    "en": "Balancing the Scales of Justice",
+    "zh": "平衡正義的天秤"
+  },
+  "Clue_Succubus_HoMLocation": {
+    "en": "The Temptress guards the Hall of Mirrors",
+    "zh": "守護鏡廳的誘惑者"
+  },
+  "Clue_Talos_ArchitectLocation": {
+    "en": "Builder flees to the Clock Tower",
+    "zh": "逃往鐘塔的建築師"
+  },
+  "Clue_Talos_ArchitectShortcut": {
+    "en": "Blueprints for the Clock Tower",
+    "zh": "鐘塔設計圖"
+  },
+  "DEPRECATED_Charm_BoostManaOnDmgLowLife": {
+    "en": "Soul Fragment",
+    "zh": "靈魂碎片"
+  },
+  "DEPRECATED_Charm_BoostXPKillMob": {
+    "en": "DEPRECATED_Charm_BoostXPKillMob",
+    "zh": ""
+  },
+  "DEPRECATED_Charm_PotionHealBoost": {
+    "en": "DEPRECATED_Charm_PotionHealBoost",
+    "zh": ""
+  },
+  "DoubleJump": {
+    "en": "Double Jump",
+    "zh": "雙重跳躍"
+  },
+  "FerrymanCompletionKey": {
+    "en": "Ferryman's Obol",
+    "zh": "船夫的奧波勒斯"
+  },
+  "GiantFist": {
+    "en": "Fist of Talos",
+    "zh": "塔羅斯鐵鎚"
+  },
+  "GlassArmor": {
+    "en": "Stained-Glass Shield",
+    "zh": "彩繪玻璃護盾"
+  },
+  "LaserScytheSlash": {
+    "en": "Soul Harvest",
+    "zh": "掠奪之鐮"
+  },
+  "MammonKeyCrossFire": {
+    "en": "Oozing Eye",
+    "zh": "充血之眼"
+  },
+  "MammonKeyHoming": {
+    "en": "Trembling Eye",
+    "zh": "顫動之眼"
+  },
+  "MammonKeyMines": {
+    "en": "Thrilling Eye",
+    "zh": "狂喜之眼"
+  },
+  "NotreDameKey": {
+    "en": "Brauner's Paintbrush",
+    "zh": "布勞爾的畫筆"
+  },
+  "PetrifyingRay": {
+    "en": "Petrifying Gaze",
+    "zh": "石化視線"
+  },
+  "PocketMirror": {
+    "en": "Mirror Walk",
+    "zh": "鏡子漫步"
+  },
+  "RiseAndFall": {
+    "en": "Chronomantic Dive",
+    "zh": "時空俯衝"
+  },
+  "Skin_MC_Alucard": {
+    "en": "Alucard Style Costume",
+    "zh": "阿爾卡多造型服裝"
+  },
+  "Skin_MC_Base": {
+    "en": "Rose's outfit",
+    "zh": "羅絲的服裝"
+  },
+  "Skin_MC_Doppleganger": {
+    "en": "Doppelganger Style Costume",
+    "zh": "分身造型服裝"
+  },
+  "Skin_MC_FullCurse": {
+    "en": "Cursed's outfit",
+    "zh": "羅絲的服裝（詛咒）"
+  },
+  "Skin_MC_Sonia": {
+    "en": "Sonia Style Costume",
+    "zh": "索妮亞造型服裝"
+  },
+  "Skin_MC_Sypha": {
+    "en": "Sypha Style Costume",
+    "zh": "賽法造型服裝"
+  },
+  "Skin_MC_Trevor": {
+    "en": "Trevor Style Costume",
+    "zh": "崔佛造型服裝"
+  },
+  "UniqueItemID": {
+    "en": "UniqueItemID",
+    "zh": ""
+  },
+  "WeaponAndShield": {
+    "en": "WeaponAndShield",
+    "zh": ""
+  },
+  "WeaponAndShieldBase": {
+    "en": "WeaponAndShieldBase",
+    "zh": ""
+  },
+  "WeaponAndShieldTier1": {
+    "en": "Rusted Harpè and Aegis",
+    "zh": "生鏽的赫帕爾與埃癸斯"
+  },
+  "WeaponAndShieldTier3": {
+    "en": "Arondight and Lancelot's Shield",
+    "zh": "阿隆戴特與蘭斯洛特之盾"
+  },
+  "WeaponAndShieldTier3_Doppelganger": {
+    "en": "Arondight and Lancelot's Shield",
+    "zh": "阿隆戴特與蘭斯洛特之盾"
+  },
+  "WeaponDualWield": {
+    "en": "WeaponDualWield",
+    "zh": ""
+  },
+  "WeaponDualWieldTier1": {
+    "en": "Pair of Longswords",
+    "zh": "雙重長劍"
+  },
+  "WeaponDualWieldTier3": {
+    "en": "Almace and Hauteclaire",
+    "zh": "阿爾瑪斯與奧特克萊爾"
+  },
+  "WeaponDualWieldTier3_Doppelganger": {
+    "en": "Almace and Hauteclaire",
+    "zh": "阿爾瑪斯與奧特克萊爾"
+  },
+  "WeaponFist": {
+    "en": "WeaponFist",
+    "zh": ""
+  },
+  "WeaponFistBase": {
+    "en": "WeaponFistBase",
+    "zh": ""
+  },
+  "WeaponFistTier1": {
+    "en": "Cestus",
+    "zh": "皮革拳套"
+  },
+  "WeaponFistTier3_Doppelganger": {
+    "en": "Fists of Talos",
+    "zh": "塔羅斯之拳"
+  },
+  "WeaponOneHanded": {
+    "en": "WeaponOneHanded",
+    "zh": ""
+  },
+  "WeaponOneHandedTier1": {
+    "en": "Longsword",
+    "zh": "長劍"
+  },
+  "WeaponOneHandedTier2": {
+    "en": "Bastard sword",
+    "zh": "變種劍"
+  },
+  "WeaponOneHandedTier3": {
+    "en": "Joyeuse",
+    "zh": "咎瓦尤斯"
+  },
+  "WeaponOneHandedTier3_Doppelganger": {
+    "en": "Joyeuse",
+    "zh": "咎瓦尤斯"
+  },
+  "WeaponOneHandedTier4": {
+    "en": "Valmanway",
+    "zh": "真空劍"
+  },
+  "WeaponSpear": {
+    "en": "WeaponSpear",
+    "zh": ""
+  },
+  "WeaponSpearBase": {
+    "en": "WeaponSpearBase",
+    "zh": ""
+  },
+  "WeaponSpearTier1": {
+    "en": "Lance",
+    "zh": "騎槍"
+  },
+  "WeaponSpearTier3_Doppelganger": {
+    "en": "Gungnir",
+    "zh": "岡格尼爾"
+  },
+  "WeaponSpearTier4": {
+    "en": "Chauve-Souris",
+    "zh": "蝠翼戟矛"
+  },
+  "WeaponTwoHanded": {
+    "en": "WeaponTwoHanded",
+    "zh": ""
+  },
+  "WeaponTwoHandedBase": {
+    "en": "WeaponTwoHandedBase",
+    "zh": ""
+  },
+  "WeaponTwoHandedTier1": {
+    "en": "Burnt Sword of Fierbois",
+    "zh": "焦黑的菲爾波瓦之劍"
+  },
+  "WeaponTwoHandedTier2": {
+    "en": "Claymore",
+    "zh": "闊刃大劍"
+  },
+  "WeaponTwoHandedTier3": {
+    "en": "Durandal",
+    "zh": "迪蘭達爾"
+  },
+  "WeaponTwoHandedTier3_Doppelganger": {
+    "en": "Durandal",
+    "zh": "迪蘭達爾"
+  },
+  "WeaponTwoHandedTier4": {
+    "en": "Excalibur",
+    "zh": "王者之劍"
+  },
+  "WeaponWhip": {
+    "en": "WeaponWhip",
+    "zh": ""
+  },
+  "WeaponWhipTier2": {
+    "en": "Thorn Whip",
+    "zh": "荊棘鞭"
+  }
+}

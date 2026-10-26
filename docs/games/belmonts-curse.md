@@ -4,9 +4,9 @@
 
 非官方存档修改说明。权利人：**KONAMI**（Steam AppID [4231820](https://store.steampowered.com/app/4231820/)）。与官方无关联。模块封面取自 Steam 商店头图，版权归 KONAMI。
 
-> **一期范围：** 仅编辑槽位档 `BuildSave_*.sav` 中 `playerSave` 的**角色标量白名单**；背包、能力 / Arcana、探索为**只读**。不读写 `PLAYERPREFS.sav`（设置 / DLC 旗标等）。
+> **当前范围：** 编辑槽位档 `BuildSave_*.sav` 中 `playerSave` 的**角色标量**与**背包 / 装备**（名称表就绪时）；能力 / Arcana、探索仍为只读。不读写 `PLAYERPREFS.sav`。不双写 `worldSaves` 拾取状态。
 
-设计说明：[2026-10-19](../design/2026-10-19-belmonts-curse-design.md)
+设计说明：[2026-10-19](../design/2026-10-19-belmonts-curse-design.md) · [背包](../design/2026-10-26-belmonts-curse-inventory-design.md)
 
 ## 存档位置
 
@@ -32,7 +32,7 @@ Steam Cloud 会同步该目录下的 `*.sav`（配额约 40 MiB）。改档前
 |------|------|------|
 | 概览 | 只读摘要 | `version`、`saveDate`、`playTimeInSeconds` 等 |
 | 角色 | **可写** | 见下表白名单 |
-| 背包 | 只读 | `itemsInInventory`、装备槽；有名称表时显示中/英名，否则 raw ID |
+| 背包 | **可写**（名称表就绪） | 增删 `itemsInInventory`（去重）；改武器 / 法术 / 皮肤 / 护符（须已在背包；护符可空） |
 | 能力 / Arcana | 只读 | `vaniaMoves`、`progressionPersistentSave`、Arcana 相关列表摘要 |
 | 探索 | 只读 | 世界条目数、`currentCompletionItemCount`、实体状态计数（不逐实体编辑） |
 
@@ -51,7 +51,7 @@ Steam Cloud 会同步该目录下的 `*.sav`（配额约 40 MiB）。改档前
 | `currentHealChargesCount` | 整数 ≥ 0 |
 | `currentTheHermitDeathDefianceCount` | 整数 ≥ 0 |
 
-其余键（含 `worldSaves`、`progressionBoardSave`、装备 ID 列表等）保存时**原样透传**。一期**不能**在 UI 中新增背包物品或能力（二期需物品↔世界实体映射与手测门闩）。
+其余键（含 `worldSaves`、`progressionBoardSave` 等）保存时**原样透传**。**不会**同步世界拾取状态：用编辑器添加的物品，仍可能在原获取点被再次捡到。
 
 保存前自动备份（每文件最近 10 份），可在备份面板还原。
 
@@ -60,12 +60,14 @@ Steam Cloud 会同步该目录下的 `*.sav`（配额约 40 MiB）。改档前
 1. 修改前**完全退出游戏**（退出时可能覆写 `BuildSave_*.sav`）。
 2. 建议在 Steam 属性里**关闭该游戏的云存档**，改完确认无误后再按需打开。
 3. 首次请用存档**副本**试验；不要用唯一真档做第一次保存。
-4. 仅供已购买正版的玩家在**本地、单机**环境学习研究；请勿用于联机或传播已修改存档。
-5. 游戏大版本更新后若 `version` 或 JSON 结构变化，可能出现警告或无法写回，以当前模块与 [CHANGELOG](../../CHANGELOG.md) 为准。
+4. 「生命之镜」读档会回满生命 / 魔力 / 治疗次数，改这些当前值通常无持久效果；请改升级碎片等持久字段。
+5. 仅供已购买正版的玩家在**本地、单机**环境学习研究；请勿用于联机或传播已修改存档。
+6. 游戏大版本更新后若 `version` 或 JSON 结构变化，可能出现警告或无法写回，以当前模块与 [CHANGELOG](../../CHANGELOG.md) 为准。
 
 ## 开发者
 
 - 模块代码：`src/games/belmonts-curse/`
+- 名称表：`py -3 scripts/bc_extract_names.py --game "<安装根>"`（需 UnityPy）
 - 自动化：`npx vitest run tests/belmonts-curse`
 
 返回 [README](../../README.md)。

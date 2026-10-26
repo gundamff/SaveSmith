@@ -358,7 +358,13 @@ export const en: MessageTree = {
       colSlot: 'Slot',
       colId: 'ID',
       colName: 'Name',
-      readonlyHint: 'Read-only in phase 1; raw ID when not in the name catalog.'
+      colActions: 'Actions',
+      add: 'Add',
+      remove: 'Remove',
+      addPlaceholder: 'Search item name or ID…',
+      needCatalog: 'Name catalog not ready: run the extract script on a dev machine to generate catalog/items.json before editing inventory.',
+      noWorldSync: 'World pickup state is not synced: added items may be pickable again at their original locations.',
+      readonlyHint: 'Read-only until the name catalog is ready; unknown IDs show as raw strings.'
     },
     abilities: {
       vaniaMoves: 'Vania moves',
@@ -479,6 +485,8 @@ export const en: MessageTree = {
     INVALID_STATE: 'Invalid save state: {0}',
     INVALID_JSON: 'Invalid JSON in {0}',
     BC_LEVEL: 'Invalid level (must be an integer ≥ 1): {0}',
-    BC_SCALAR: 'Invalid value for field {0}: {1}'
+    BC_SCALAR: 'Invalid value for field {0}: {1}',
+    BC_INV_DUP: 'Duplicate inventory item ID: {0}',
+    BC_EQUIP_ORPHAN: 'Equipped {0} is not in inventory: {1}'
   }
 }

@@ -14,7 +14,7 @@
     "currentMana": 50,
     "currentHealChargesCount": 2,
     "currentTheHermitDeathDefianceCount": 1,
-    "itemsInInventory": ["WeaponFistTier1", "BoomerangCross"],
+    "itemsInInventory": ["WeaponFistTier1", "BoomerangCross", "Skin_MC_Base", "Charm_ChestRecover"],
     "equippedWeaponItem": "WeaponFistTier1",
     "equippedSpellItem": "BoomerangCross",
     "equippedSkin": "Skin_MC_Base",
