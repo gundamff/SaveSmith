@@ -324,7 +324,9 @@ export const zh: MessageTree = {
       exploration: '探索'
     },
     hint: {
-      quitAndCloud: '请先完全退出游戏，并暂时关闭 Steam 云同步，再改档保存。'
+      quitAndCloud: '请先完全退出游戏，并暂时关闭 Steam 云同步，再改档保存。',
+      mirrorRestoresVitals:
+        '生命之镜读档会回满生命 / 魔力并补满治疗次数，改下面三项进游戏无效。若要提高上限，请改「生命/魔力升级碎片」。'
     },
     overview: {
       version: '存档版本',
@@ -339,9 +341,9 @@ export const zh: MessageTree = {
       manaUpgradeFragmentCount: '魔力升级碎片',
       atkBonusUpgradeCount: '攻击加成次数',
       defBonusUpgradeCount: '防御加成次数',
-      currentHealth: '当前生命',
-      currentMana: '当前魔力',
-      currentHealChargesCount: '治疗次数',
+      currentHealth: '当前生命（读档回满）',
+      currentMana: '当前魔力（读档回满）',
+      currentHealChargesCount: '治疗次数（读档回满）',
       currentTheHermitDeathDefianceCount: 'Hermit 免死次数'
     },
     inventory: {

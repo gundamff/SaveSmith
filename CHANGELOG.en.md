@@ -8,10 +8,14 @@ Castlevania: Belmont's Curse — character scalars plus inventory when the name 
 
 ### Added
 
-- **Castlevania: Belmont's Curse**: Edit `BuildSave_*.sav` (UTF-8 JSON); Character tab whitelist scalars (level, XP, upgrade fragments, etc.)
+- **Castlevania: Belmont's Curse**: Edit `BuildSave_*.sav` (UTF-8 JSON); Character tab persistent scalars (level, XP, upgrade fragments, etc.)
 - **Castlevania: Belmont's Curse**: Addressables-derived `catalog/items.json` (en + zh; zh-tw fallback when zh-cn bundles are missing); inventory add/remove and equipment edit (no world-pickup dual-write)
 - **Castlevania: Belmont's Curse**: Abilities / Arcana and Exploration remain **read-only**; `PLAYERPREFS.sav` is never listed or written
 - User docs and [HANDTEST](docs/HANDTEST.md) checklist
+
+### Fixed
+
+- **Castlevania: Belmont's Curse**: Current HP / MP / heal charges are read-only — Mirror of Life load restores them, so editing those fields does nothing in-game; raise caps via upgrade fragments instead
 
 ## [0.14.4] - 2026-10-12
 

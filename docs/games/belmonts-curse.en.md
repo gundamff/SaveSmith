@@ -46,10 +46,10 @@ Steam Cloud syncs `*.sav` in this folder (~40 MiB quota). **Quit the game comp
 | `manaUpgradeFragmentCount` | integer ≥ 0 |
 | `atkBonusUpgradeCount` | integer ≥ 0 |
 | `defBonusUpgradeCount` | integer ≥ 0 |
-| `currentHealth` | number ≥ 0 |
-| `currentMana` | number ≥ 0 |
-| `currentHealChargesCount` | integer ≥ 0 |
 | `currentTheHermitDeathDefianceCount` | integer ≥ 0 |
+
+These are shown but **not editable** (edits would not stick): `currentHealth`, `currentMana`, `currentHealChargesCount`.  
+Reason: continuing from a **Mirror of Life** restores full HP/MP and refill heal charges, so runtime vitals in the save are overwritten on a normal load. Level / XP / upgrade fragments are persistent, so they stick. To raise HP/MP **caps**, edit the upgrade fragment fields—not current values.
 
 Everything else (including `worldSaves`, `progressionBoardSave`) is **passed through unchanged**. **World pickup state is not synced** — items added in the editor may still be pickable again at their original locations.
 
