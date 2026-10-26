@@ -1,7 +1,13 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { locale, t } from '@host/i18n'
-import { lookupItemName, searchCatalogOptions } from '../catalog/names'
+import {
+  ADDABLE_CATEGORIES,
+  getItemCategory,
+  lookupItemName,
+  searchCatalogOptions,
+  type ItemCategory
+} from '../catalog/names'
 import { featureFlags } from '../model/featureFlags'
 import {
   addItem,
@@ -17,6 +23,8 @@ interface ItemRow {
   index: number
   id: string
   name: string
+  category: ItemCategory
+  categoryLabel: string
 }
 
 interface EquipRow {
@@ -25,31 +33,64 @@ interface EquipRow {
   name: string
 }
 
+type AddCategory = ItemCategory | 'all-addable'
+
 const editor = useBcEditor()
 const writable = featureFlags.addItem
 const addQuery = ref('')
+const addCategory = ref<AddCategory>('all-addable')
 const pendingAdd = ref<string | undefined>()
 
 const loc = computed((): 'zh' | 'en' => (locale.value === 'en' ? 'en' : 'zh'))
 
+const ADDABLE_ORDER: ItemCategory[] = ['weapon', 'spell', 'charm', 'skin']
+
+const addCategoryOptions = computed(() => [
+  { value: 'all-addable' as const, label: t('bc.inventory.catAllAddable') },
+  ...ADDABLE_ORDER.map((c) => ({
+    value: c,
+    label: categoryLabel(c)
+  }))
+])
+
+function categoryLabel(cat: ItemCategory): string {
+  const key = `bc.inventory.cat.${cat}` as const
+  const translated = t(key)
+  return translated === key ? cat : translated
+}
+
 const inventoryRows = computed((): ItemRow[] => {
   void editor.rev
-  return editor.save.player.itemsInInventory.map((id, index) => ({
-    index,
-    id,
-    name: lookupItemName(id, loc.value)
-  }))
+  return editor.save.player.itemsInInventory.map((id, index) => {
+    const category = getItemCategory(id)
+    return {
+      index,
+      id,
+      name: lookupItemName(id, loc.value),
+      category,
+      categoryLabel: categoryLabel(category)
+    }
+  })
 })
 
-const ownedOptions = computed(() => {
+function ownedOptionsFor(cat: ItemCategory) {
   void editor.rev
-  return editor.save.player.itemsInInventory.filter(Boolean).map((id) => ({
-    id,
-    label: `${lookupItemName(id, loc.value)} (${id})`
-  }))
-})
+  return editor.save.player.itemsInInventory
+    .filter((id) => id && getItemCategory(id) === cat)
+    .map((id) => ({
+      id,
+      label: `${lookupItemName(id, loc.value)} (${id})`
+    }))
+}
 
-const addOptions = computed(() => searchCatalogOptions(addQuery.value, loc.value, 80))
+const weaponOptions = computed(() => ownedOptionsFor('weapon'))
+const spellOptions = computed(() => ownedOptionsFor('spell'))
+const skinOptions = computed(() => ownedOptionsFor('skin'))
+const charmOptions = computed(() => ownedOptionsFor('charm'))
+
+const addOptions = computed(() =>
+  searchCatalogOptions(addQuery.value, loc.value, 80, addCategory.value)
+)
 
 const charmSlots = computed(() => {
   void editor.rev
@@ -86,6 +127,11 @@ const equipRows = computed((): EquipRow[] => {
   return rows
 })
 
+watch(addCategory, () => {
+  pendingAdd.value = undefined
+  addQuery.value = ''
+})
+
 function filterAdd(query: string): void {
   addQuery.value = query
 }
@@ -93,6 +139,7 @@ function filterAdd(query: string): void {
 function onAdd(): void {
   const id = pendingAdd.value
   if (!id || !writable) return
+  if (!ADDABLE_CATEGORIES.has(getItemCategory(id))) return
   editor.markDirty(() => addItem(editor.save, id))
   pendingAdd.value = undefined
   addQuery.value = ''
@@ -145,22 +192,32 @@ function changeCharm(index: number, id: string | undefined): void {
 
     <h3 class="section">{{ t('bc.inventory.items') }}</h3>
     <div v-if="writable" class="add-row">
+      <el-select v-model="addCategory" style="width: 140px">
+        <el-option
+          v-for="opt in addCategoryOptions"
+          :key="opt.value"
+          :label="opt.label"
+          :value="opt.value"
+        />
+      </el-select>
       <el-select
         v-model="pendingAdd"
         filterable
         clearable
         :filter-method="filterAdd"
         :placeholder="t('bc.inventory.addPlaceholder')"
-        style="min-width: 280px; flex: 1"
+        style="min-width: 240px; flex: 1"
       >
         <el-option v-for="opt in addOptions" :key="opt.id" :label="opt.label" :value="opt.id" />
       </el-select>
       <el-button type="primary" :disabled="!pendingAdd" @click="onAdd">{{ t('bc.inventory.add') }}</el-button>
     </div>
+    <p v-if="writable" class="hint add-hint">{{ t('bc.inventory.addableOnlyHint') }}</p>
     <p v-if="inventoryRows.length === 0" class="empty">{{ t('bc.inventory.emptyList') }}</p>
     <el-table v-else :data="inventoryRows" size="small" row-key="index" style="width: 100%">
-      <el-table-column :label="t('bc.inventory.colId')" prop="id" min-width="200" />
-      <el-table-column :label="t('bc.inventory.colName')" prop="name" min-width="200" />
+      <el-table-column :label="t('bc.inventory.colCategory')" prop="categoryLabel" width="100" />
+      <el-table-column :label="t('bc.inventory.colId')" prop="id" min-width="180" />
+      <el-table-column :label="t('bc.inventory.colName')" prop="name" min-width="180" />
       <el-table-column v-if="writable" :label="t('bc.inventory.colActions')" width="100" align="center">
         <template #default="{ row }">
           <el-button link type="danger" @click="onRemove(row.id)">{{ t('bc.inventory.remove') }}</el-button>
@@ -177,7 +234,7 @@ function changeCharm(index: number, id: string | undefined): void {
           style="width: 100%"
           @update:model-value="changeWeapon"
         >
-          <el-option v-for="opt in ownedOptions" :key="'w-' + opt.id" :label="opt.label" :value="opt.id" />
+          <el-option v-for="opt in weaponOptions" :key="'w-' + opt.id" :label="opt.label" :value="opt.id" />
         </el-select>
       </el-form-item>
       <el-form-item :label="t('bc.inventory.spell')">
@@ -187,7 +244,7 @@ function changeCharm(index: number, id: string | undefined): void {
           style="width: 100%"
           @update:model-value="changeSpell"
         >
-          <el-option v-for="opt in ownedOptions" :key="'s-' + opt.id" :label="opt.label" :value="opt.id" />
+          <el-option v-for="opt in spellOptions" :key="'s-' + opt.id" :label="opt.label" :value="opt.id" />
         </el-select>
       </el-form-item>
       <el-form-item :label="t('bc.inventory.skin')">
@@ -197,7 +254,7 @@ function changeCharm(index: number, id: string | undefined): void {
           style="width: 100%"
           @update:model-value="changeSkin"
         >
-          <el-option v-for="opt in ownedOptions" :key="'k-' + opt.id" :label="opt.label" :value="opt.id" />
+          <el-option v-for="opt in skinOptions" :key="'k-' + opt.id" :label="opt.label" :value="opt.id" />
         </el-select>
       </el-form-item>
       <el-form-item
@@ -213,7 +270,7 @@ function changeCharm(index: number, id: string | undefined): void {
           @update:model-value="(v: string | undefined) => changeCharm(i, v)"
         >
           <el-option :label="t('bc.inventory.empty')" value="" />
-          <el-option v-for="opt in ownedOptions" :key="'c' + i + '-' + opt.id" :label="opt.label" :value="opt.id" />
+          <el-option v-for="opt in charmOptions" :key="'c' + i + '-' + opt.id" :label="opt.label" :value="opt.id" />
         </el-select>
       </el-form-item>
     </el-form>
@@ -240,6 +297,9 @@ function changeCharm(index: number, id: string | undefined): void {
   display: flex;
   gap: 8px;
   align-items: center;
+  margin-bottom: 4px;
+}
+.add-hint {
   margin-bottom: 8px;
 }
 .empty,
@@ -250,5 +310,8 @@ function changeCharm(index: number, id: string | undefined): void {
 }
 .hint {
   margin-top: 12px;
+}
+.add-hint.hint {
+  margin-top: 0;
 }
 </style>

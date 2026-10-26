@@ -32,7 +32,7 @@ Steam Cloud syncs `*.sav` in this folder (~40 MiB quota). **Quit the game comp
 |-----|------|---------|
 | Overview | Read-only summary | `version`, `saveDate`, `playTimeInSeconds`, etc. |
 | Character | **Writable** | Whitelist below |
-| Inventory | **Writable** (catalog ready) | Add/remove `itemsInInventory` (deduped); edit weapon / spell / skin / charms (must own; charms may be empty) |
+| Inventory | **Writable** (catalog ready) | Add/remove weapons / charms / spells / skins (deduped; **no** clue/key in add list); edit equip slots (must own; charms may be empty) |
 | Abilities / Arcana | Read-only | `vaniaMoves`, `progressionPersistentSave`, Arcana list summaries |
 | Exploration | Read-only | World entry counts, `currentCompletionItemCount`, entity state counts (no per-entity editing) |
 

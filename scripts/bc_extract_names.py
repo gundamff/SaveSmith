@@ -32,6 +32,37 @@ SOURCE = REPO / "src" / "games" / "belmonts-curse" / "catalog" / "SOURCE.md"
 # zh-cn may be remote-only on some installs; zh-tw is often local and used as zh fallback.
 ITEM_TABLE_RE = re.compile(r"^Items_[A-Za-z0-9]+_(en|zh-cn|zh-tw)$")
 
+# Unity ItemData.itemType enum (observed on PC build).
+ITEM_TYPE_TO_CATEGORY = {
+    1: "weapon",
+    2: "spell",
+    3: "charm",
+    4: "other",
+    5: "clue",
+    6: "key",
+    7: "skin",
+}
+
+
+def category_from_item_type(item_type) -> str:
+    try:
+        n = int(item_type)
+    except (TypeError, ValueError):
+        return "other"
+    return ITEM_TYPE_TO_CATEGORY.get(n, "other")
+
+
+def category_from_id_prefix(iid: str) -> str:
+    if iid.startswith("Weapon"):
+        return "weapon"
+    if iid.startswith("Charm_"):
+        return "charm"
+    if iid.startswith("Skin_"):
+        return "skin"
+    if iid.startswith("Clue_"):
+        return "clue"
+    return "other"
+
 
 def resolve_data_dir(game: Path) -> Path:
     game = game.resolve()
@@ -112,14 +143,18 @@ def key_id_from_localized_string(field) -> int | None:
     return n if n != 0 else None
 
 
-def extract_item_id_key(tree: dict) -> tuple[str, int] | None:
+def extract_item_meta(tree: dict) -> tuple[str, int, str] | None:
+    """itemID, localization KeyId (0 if none), category."""
     iid = tree.get("itemID")
     if not isinstance(iid, str) or not iid.strip():
         return None
-    kid = key_id_from_localized_string(tree.get("itemDisplayName"))
-    if kid is None:
-        return iid.strip(), 0
-    return iid.strip(), kid
+    iid = iid.strip()
+    kid = key_id_from_localized_string(tree.get("itemDisplayName")) or 0
+    if "itemType" in tree:
+        cat = category_from_item_type(tree.get("itemType"))
+    else:
+        cat = category_from_id_prefix(iid)
+    return iid, kid, cat
 
 
 def main() -> int:
@@ -137,8 +172,8 @@ def main() -> int:
     publisher, product = read_app_info(data_dir)
     build_hash = read_build_hash(aa)
 
-    # itemID -> localization key id (0 = no display name ref)
-    id_to_key: dict[str, int] = {}
+    # itemID -> (keyId, category)
+    id_meta: dict[str, tuple[int, str]] = {}
     en_by_id: dict[int, str] = {}
     zh_cn_by_id: dict[int, str] = {}
     zh_tw_by_id: dict[int, str] = {}
@@ -165,13 +200,14 @@ def main() -> int:
             name = str(tree.get("m_Name") or "")
 
             if "itemID" in tree:
-                pair = extract_item_id_key(tree)
-                if pair:
-                    iid, kid = pair
-                    # Prefer a real KeyId if we see the same item again
-                    prev = id_to_key.get(iid)
-                    if prev is None or (prev == 0 and kid != 0):
-                        id_to_key[iid] = kid
+                meta = extract_item_meta(tree)
+                if meta:
+                    iid, kid, cat = meta
+                    prev = id_meta.get(iid)
+                    if prev is None or (prev[0] == 0 and kid != 0):
+                        id_meta[iid] = (kid, cat)
+                    elif prev is not None and prev[1] == "other" and cat != "other":
+                        id_meta[iid] = (prev[0] or kid, cat)
                 continue
 
             if not ITEM_TABLE_RE.match(name):
@@ -189,16 +225,18 @@ def main() -> int:
                 zh_tw_by_id.update(localized)
 
     items: dict[str, dict[str, str]] = {}
-    for iid, kid in sorted(id_to_key.items()):
+    cat_counts: dict[str, int] = {}
+    for iid, (kid, cat) in sorted(id_meta.items()):
         en = en_by_id.get(kid, "") if kid else ""
         zh = ""
         if kid:
             zh = zh_cn_by_id.get(kid, "") or zh_tw_by_id.get(kid, "")
         if not en and not zh:
             # Still catalog the ID so add-item UI can offer it; UI falls back to id
-            items[iid] = {"en": iid, "zh": ""}
+            items[iid] = {"en": iid, "zh": "", "category": cat}
         else:
-            items[iid] = {"en": en or zh, "zh": zh}
+            items[iid] = {"en": en or zh, "zh": zh, "category": cat}
+        cat_counts[cat] = cat_counts.get(cat, 0) + 1
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(items, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -218,6 +256,7 @@ Derived from a local PC install via `scripts/bc_extract_names.py` (UnityPy). **N
 - Product: `{product}`
 - Addressables `m_BuildResultHash`: `{build_hash}`
 - Entries written: **{n}**
+- Categories: `{json.dumps(cat_counts, sort_keys=True)}`
 - Prefix gate: Weapon*={has_w} Charm_*={has_c} Skin_*={has_s}
 
 ## Regenerate
@@ -232,15 +271,17 @@ Requires: `pip install UnityPy`
 
 - Shipped bundles do **not** expose SharedTableData `m_Entries` to UnityPy.
 - Keys are save `itemID` strings from ItemData MonoBehaviours.
+- `category` from ItemData `itemType` (1 weapon, 2 spell, 3 charm, 5 clue, 6 key, 7 skin).
 - Display names: `itemDisplayName.m_KeyId` joined to `Items_*_en` / `Items_*_zh-cn` (fallback `zh-tw`) `m_TableData`.
 - This install: en={len(en_by_id)} zh-cn={len(zh_cn_by_id)} zh-tw={len(zh_tw_by_id)} keyed entries.
-- Entries with no KeyId still listed with `en` = id for add-item catalog completeness.
+- UI policy B: add-list only `weapon|spell|charm|skin` (clue/key hidden from add).
 """
     SOURCE.write_text(source, encoding="utf-8")
     print(
-        f"wrote {OUT} entries={n} itemIDs={len(id_to_key)} "
+        f"wrote {OUT} entries={n} itemIDs={len(id_meta)} "
         f"enIds={len(en_by_id)} zhCn={len(zh_cn_by_id)} zhTw={len(zh_tw_by_id)}"
     )
+    print(f"categories {cat_counts}")
     print(f"prefix gate Weapon={has_w} Charm_={has_c} Skin_={has_s}")
     if n < 50 or not (has_w and has_c and has_s):
         print("WARNING: catalogReady gate may stay false", file=sys.stderr)

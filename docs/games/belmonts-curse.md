@@ -32,7 +32,7 @@ Steam Cloud 会同步该目录下的 `*.sav`（配额约 40 MiB）。改档前
 |------|------|------|
 | 概览 | 只读摘要 | `version`、`saveDate`、`playTimeInSeconds` 等 |
 | 角色 | **可写** | 见下表白名单 |
-| 背包 | **可写**（名称表就绪） | 增删 `itemsInInventory`（去重）；改武器 / 法术 / 皮肤 / 护符（须已在背包；护符可空） |
+| 背包 | **可写**（名称表就绪） | 增删武器 / 护符 / 魔导器 / 外观（去重；**不提供**线索/钥匙添加）；改装备槽（须已在背包；护符可空） |
 | 能力 / Arcana | 只读 | `vaniaMoves`、`progressionPersistentSave`、Arcana 相关列表摘要 |
 | 探索 | 只读 | 世界条目数、`currentCompletionItemCount`、实体状态计数（不逐实体编辑） |
 

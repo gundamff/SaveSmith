@@ -361,9 +361,21 @@ export const en: MessageTree = {
       colId: 'ID',
       colName: 'Name',
       colActions: 'Actions',
+      colCategory: 'Type',
       add: 'Add',
       remove: 'Remove',
       addPlaceholder: 'Search item name or ID…',
+      catAllAddable: 'All addable',
+      addableOnlyHint: 'Add list includes only weapons / charms / spells / skins; clues and keys are omitted (often no combat effect or hard to find in-game).',
+      cat: {
+        weapon: 'Weapon',
+        spell: 'Spell',
+        charm: 'Charm',
+        skin: 'Skin',
+        clue: 'Clue',
+        key: 'Key',
+        other: 'Other'
+      },
       needCatalog: 'Name catalog not ready: run the extract script on a dev machine to generate catalog/items.json before editing inventory.',
       noWorldSync: 'World pickup state is not synced: added items may be pickable again at their original locations.',
       readonlyHint: 'Read-only until the name catalog is ready; unknown IDs show as raw strings.'

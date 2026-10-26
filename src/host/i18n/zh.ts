@@ -359,9 +359,21 @@ export const zh: MessageTree = {
       colId: 'ID',
       colName: '名称',
       colActions: '操作',
+      colCategory: '类型',
       add: '添加',
       remove: '移除',
       addPlaceholder: '搜索物品名称或 ID…',
+      catAllAddable: '全部可添加',
+      addableOnlyHint: '添加列表仅含武器 / 护符 / 魔导器 / 外观；线索与钥匙不提供添加（避免无效果或找不到）。',
+      cat: {
+        weapon: '武器',
+        spell: '魔导器',
+        charm: '护符',
+        skin: '外观',
+        clue: '线索',
+        key: '钥匙',
+        other: '其他'
+      },
       needCatalog: '名称表未就绪：请在开发机运行抽表脚本生成 catalog/items.json 后再编辑背包。',
       noWorldSync: '不会同步世界拾取状态：添加的物品可能在原获取点被再次捡到。',
       readonlyHint: '名称表未就绪时只读；未收录 ID 显示原始字符串。'
