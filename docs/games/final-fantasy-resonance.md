@@ -26,6 +26,16 @@
 
 名称表：`catalog/names.json`（`en` 社区公开表；`zh` 为已核对简中 / FF 经典译名，假名不顶中文；装备过滤见 `catalog/equipment.json`）。数据来源见模块内 `catalog/SOURCE.md`。
 
+### 截图
+
+| 记录 | 角色 | 物品 |
+|:---:|:---:|:---:|
+| ![记录](../screenshot/final-fantasy-resonance-records.png) | ![角色](../screenshot/final-fantasy-resonance-party.png) | ![物品](../screenshot/final-fantasy-resonance-items.png) |
+
+| 幻象 | 图鉴 |
+|:---:|:---:|
+| ![幻象](../screenshot/final-fantasy-resonance-visions.png) | ![图鉴](../screenshot/final-fantasy-resonance-bestiary.png) |
+
 ## 注意
 
 1. **先完全退出游戏**，建议暂时关闭 Steam 云同步。

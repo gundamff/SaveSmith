@@ -26,6 +26,16 @@ Format: `SVHD` header + AES-256-ECB body + SHA-1; plaintext is UE5.5+ GVAS.
 
 Names: `catalog/names.json` (`en` from public community tables; `zh` curated Simplified Chinese / classic FF terms — no kana-as-Chinese). See `catalog/SOURCE.md`.
 
+### Screenshots
+
+| Records | Party | Items |
+|:---:|:---:|:---:|
+| ![Records](../screenshot/final-fantasy-resonance-records.png) | ![Party](../screenshot/final-fantasy-resonance-party.png) | ![Items](../screenshot/final-fantasy-resonance-items.png) |
+
+| Visions | Bestiary |
+|:---:|:---:|
+| ![Visions](../screenshot/final-fantasy-resonance-visions.png) | ![Bestiary](../screenshot/final-fantasy-resonance-bestiary.png) |
+
 ## Notes
 
 1. **Quit the game first**; disable Steam Cloud while editing.
