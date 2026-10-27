@@ -13,9 +13,13 @@ const emit = defineEmits<{
   close: []
 }>()
 
-function openPaypal(): void {
+async function openPaypal(): Promise<void> {
   if (!DONATION_URL) return
-  void openExternal(DONATION_URL)
+  try {
+    await openExternal(DONATION_URL)
+  } catch (err) {
+    console.error('open PayPal failed', err)
+  }
 }
 </script>
 

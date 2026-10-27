@@ -13,6 +13,8 @@ const ALLOWED_URL_PREFIXES: &[&str] = &[
     "https://afdian.com/",
     "https://ko-fi.com/",
     "https://buymeacoffee.com/",
+    "https://paypal.me/",
+    "https://www.paypal.com/",
     "https://dragonswordawakening.th.gl/",
 ];
 
@@ -124,6 +126,8 @@ mod tests {
             "https://afdian.com/a/x",
             "https://ko-fi.com/x",
             "https://buymeacoffee.com/x",
+            "https://paypal.me/gundamff",
+            "https://www.paypal.com/donate",
             "https://dragonswordawakening.th.gl/",
             "https://dragonswordawakening.th.gl/db/characters",
         ] {
