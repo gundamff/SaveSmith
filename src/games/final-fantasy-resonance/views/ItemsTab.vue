@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { t } from '@host/i18n'
+import { t, locale } from '@host/i18n'
 import { addOrSetInventoryItem } from '../actions'
+import { catalogLabel } from '../catalog/names'
 import { setInventoryNum } from '../model/saveModel'
 import { useFfrEditor } from './inject'
 
@@ -11,7 +12,12 @@ const newNum = ref(1)
 
 const rows = computed(() => {
   void editor.rev
-  return editor.save.inventory.map((r, i) => ({ i, ...r }))
+  const loc = locale.value === 'zh' ? 'zh' : 'en'
+  return editor.save.inventory.map((r, i) => ({
+    i,
+    ...r,
+    name: catalogLabel('item', r.itemId, loc)
+  }))
 })
 
 function onNum(i: number, v: number | undefined) {
@@ -32,7 +38,8 @@ function onAdd() {
       <el-button type="primary" @click="onAdd">{{ t('ffr.items.add') }}</el-button>
     </div>
     <el-table :data="rows" stripe height="440">
-      <el-table-column prop="itemId" :label="t('ffr.items.id')" width="120" />
+      <el-table-column prop="itemId" :label="t('ffr.items.id')" width="100" />
+      <el-table-column prop="name" :label="t('ffr.items.name')" min-width="140" />
       <el-table-column :label="t('ffr.items.num')" width="160">
         <template #default="{ row }">
           <el-input-number

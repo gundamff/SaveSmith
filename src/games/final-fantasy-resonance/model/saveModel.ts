@@ -7,8 +7,14 @@ import {
 } from './gvasIndex'
 import type {
   FinalFantasyResonanceState,
+  FfrArtifact,
+  FfrBestiaryEntry,
+  FfrColosseum,
   FfrInventoryItem,
   FfrMapEntry,
+  FfrQuestBoard,
+  FfrRequest,
+  FfrShopRow,
   FfrUnit,
   FfrVision
 } from './types'
@@ -71,18 +77,112 @@ function projectVisions(index: GvasIndex, plain: Uint8Array): FfrVision[] {
   return out
 }
 
-function projectMaps(index: GvasIndex, plain: Uint8Array): FfrMapEntry[] {
+function projectMaps(index: GvasIndex, _plain: Uint8Array): FfrMapEntry[] {
   const out: FfrMapEntry[] = []
   for (let i = 0; index.fields.has(`Map.perMapSaveDataMap{${i}}.key`); i++) {
-    const known = index.bools.get(`Map.perMapSaveDataMap{${i}}.value.bIsKnown`) ?? false
-    const visited = index.bools.get(`Map.perMapSaveDataMap{${i}}.value.bIsVisited`) ?? false
-    const cleared = index.bools.get(`Map.perMapSaveDataMap{${i}}.value.bIsCleared`) ?? false
     out.push({
       index: i,
-      mapId: getInt(index, plain, `Map.perMapSaveDataMap{${i}}.key`),
-      known,
-      visited,
-      cleared
+      mapId: getInt(index, _plain, `Map.perMapSaveDataMap{${i}}.key`),
+      known: index.bools.get(`Map.perMapSaveDataMap{${i}}.value.bIsKnown`) ?? false,
+      visited: index.bools.get(`Map.perMapSaveDataMap{${i}}.value.bIsVisited`) ?? false,
+      cleared: index.bools.get(`Map.perMapSaveDataMap{${i}}.value.bIsCleared`) ?? false
+    })
+  }
+  return out
+}
+
+function projectBestiary(index: GvasIndex, plain: Uint8Array): FfrBestiaryEntry[] {
+  const n = countPrefix(index, 'unitList', 'SaveId')
+  const out: FfrBestiaryEntry[] = []
+  for (let i = 0; i < n; i++) {
+    const elements: FfrBestiaryEntry['elements'] = []
+    for (let j = 0; index.strings.has(`unitList[${i}].analyzedElments{${j}}.key`); j++) {
+      elements.push({
+        index: j,
+        key: index.strings.get(`unitList[${i}].analyzedElments{${j}}.key`) ?? '',
+        value: index.bools.get(`unitList[${i}].analyzedElments{${j}}.value`) ?? false
+      })
+    }
+    out.push({
+      index: i,
+      saveId: getInt(index, plain, `unitList[${i}].SaveId`),
+      defeatNum: getInt(index, plain, `unitList[${i}].defeatNum`),
+      isAnalyzed: index.bools.get(`unitList[${i}].IsAnalyzed`) ?? false,
+      elements
+    })
+  }
+  return out
+}
+
+function projectQuests(index: GvasIndex, plain: Uint8Array): FfrQuestBoard[] {
+  const n = countPrefix(index, 'questBoardList', 'QuestId')
+  const out: FfrQuestBoard[] = []
+  for (let i = 0; i < n; i++) {
+    const deliveries: FfrQuestBoard['deliveries'] = []
+    for (let j = 0; index.fields.has(`questBoardList[${i}].KilledCount[${j}].ID`); j++) {
+      deliveries.push({
+        index: j,
+        id: getInt(index, plain, `questBoardList[${i}].KilledCount[${j}].ID`),
+        quantity: getInt(index, plain, `questBoardList[${i}].KilledCount[${j}].DeliveryQuantity`)
+      })
+    }
+    out.push({
+      index: i,
+      questId: getInt(index, plain, `questBoardList[${i}].QuestId`),
+      requestId: getInt(index, plain, `questBoardList[${i}].requetId`),
+      deliveries
+    })
+  }
+  return out
+}
+
+function projectRequests(index: GvasIndex, plain: Uint8Array): FfrRequest[] {
+  const out: FfrRequest[] = []
+  for (let i = 0; index.fields.has(`request.DataMap{${i}}.key`); i++) {
+    out.push({
+      index: i,
+      id: getInt(index, plain, `request.DataMap{${i}}.key`),
+      progressIndex: getInt(index, plain, `request.DataMap{${i}}.value.ProgressIndex`)
+    })
+  }
+  return out
+}
+
+function projectColosseum(index: GvasIndex, plain: Uint8Array): FfrColosseum[] {
+  const out: FfrColosseum[] = []
+  for (let i = 0; index.fields.has(`colosseumProgress.RankBattle{${i}}.value.ID`); i++) {
+    out.push({
+      index: i,
+      id: getInt(index, plain, `colosseumProgress.RankBattle{${i}}.value.ID`),
+      clearCount: getInt(index, plain, `colosseumProgress.RankBattle{${i}}.value.ClearCount`)
+    })
+  }
+  return out
+}
+
+function projectShops(index: GvasIndex, plain: Uint8Array): FfrShopRow[] {
+  const n = countPrefix(index, 'shop', 'ItemId')
+  const out: FfrShopRow[] = []
+  for (let i = 0; i < n; i++) {
+    out.push({
+      index: i,
+      itemId: getInt(index, plain, `shop[${i}].ItemId`),
+      shopId: getInt(index, plain, `shop[${i}].ShopID`),
+      maxOrderNum: getInt(index, plain, `shop[${i}].MaxOrderNum`),
+      currentBuyNum: getInt(index, plain, `shop[${i}].CurrentBuyNum`)
+    })
+  }
+  return out
+}
+
+function projectArtifacts(index: GvasIndex, plain: Uint8Array): FfrArtifact[] {
+  const out: FfrArtifact[] = []
+  if (!index.maps.has('artifactList')) return out
+  for (let i = 0; index.fields.has(`artifactList{${i}}.key`); i++) {
+    out.push({
+      index: i,
+      itemId: getInt(index, plain, `artifactList{${i}}.key`),
+      active: index.bools.get(`artifactList{${i}}.value.IsActive`) ?? false
     })
   }
   return out
@@ -90,6 +190,8 @@ function projectMaps(index: GvasIndex, plain: Uint8Array): FfrMapEntry[] {
 
 export function projectState(relativePath: string, header: Uint8Array, plain: Uint8Array): FinalFantasyResonanceState {
   const index = parseGvasIndex(plain)
+  let progressFlagCount = 0
+  while (index.fields.has(`Progress.Progress[${progressFlagCount}]`)) progressFlagCount++
   return {
     relativePath,
     header,
@@ -101,20 +203,21 @@ export function projectState(relativePath: string, header: Uint8Array, plain: Ui
     inventory: projectInventory(index, plain),
     units: projectUnits(index, plain),
     visions: projectVisions(index, plain),
-    maps: projectMaps(index, plain)
+    maps: projectMaps(index, plain),
+    bestiary: projectBestiary(index, plain),
+    quests: projectQuests(index, plain),
+    requests: projectRequests(index, plain),
+    colosseum: projectColosseum(index, plain),
+    shops: projectShops(index, plain),
+    artifacts: projectArtifacts(index, plain),
+    progressFlagCount,
+    hasArtifactList: index.maps.has('artifactList')
   }
 }
 
-/** Re-project lists after plain/index mutation. */
 export function refreshProjection(state: FinalFantasyResonanceState): void {
-  const { index, plain } = state
-  state.currentMoney = getInt(index, plain, 'Player.currentMoney')
-  state.playTime = getInt(index, plain, 'Player.PlayTime')
-  state.winNum = getInt(index, plain, 'Player.WinNum')
-  state.inventory = projectInventory(index, plain)
-  state.units = projectUnits(index, plain)
-  state.visions = projectVisions(index, plain)
-  state.maps = projectMaps(index, plain)
+  const next = projectState(state.relativePath, state.header, state.plain)
+  Object.assign(state, next)
 }
 
 export function setCurrentMoney(state: FinalFantasyResonanceState, value: number): void {
@@ -181,4 +284,95 @@ export function setMapFlag(
   if (flag === 'bIsKnown') m.known = value
   if (flag === 'bIsVisited') m.visited = value
   if (flag === 'bIsCleared') m.cleared = value
+}
+
+export function setBestiaryDefeat(state: FinalFantasyResonanceState, index: number, defeatNum: number): void {
+  const n = Math.max(0, Math.trunc(defeatNum))
+  setInt(state.plain, state.index, `unitList[${index}].defeatNum`, n)
+  const row = state.bestiary.find((x) => x.index === index)
+  if (row) row.defeatNum = n
+}
+
+export function setBestiaryAnalyzed(state: FinalFantasyResonanceState, index: number, value: boolean): void {
+  const path = `unitList[${index}].IsAnalyzed`
+  const ref = state.index.boolRefs.get(path)
+  if (!ref) return
+  setBool(state.plain, ref, value)
+  state.index.bools.set(path, value)
+  const row = state.bestiary.find((x) => x.index === index)
+  if (row) row.isAnalyzed = value
+}
+
+/** Mark Libra-analyzed and set every analyzedElments value true. */
+export function libraScanEnemy(state: FinalFantasyResonanceState, index: number): void {
+  setBestiaryAnalyzed(state, index, true)
+  const row = state.bestiary.find((x) => x.index === index)
+  if (!row) return
+  for (const el of row.elements) {
+    const path = `unitList[${index}].analyzedElments{${el.index}}.value`
+    const ref = state.index.boolRefs.get(path)
+    if (!ref) continue
+    setBool(state.plain, ref, true)
+    state.index.bools.set(path, true)
+    el.value = true
+  }
+}
+
+export function libraScanAll(state: FinalFantasyResonanceState): void {
+  for (const row of state.bestiary) libraScanEnemy(state, row.index)
+}
+
+export function setQuestDeliveryQty(
+  state: FinalFantasyResonanceState,
+  questIndex: number,
+  deliveryIndex: number,
+  quantity: number
+): void {
+  const n = Math.max(0, Math.trunc(quantity))
+  setInt(state.plain, state.index, `questBoardList[${questIndex}].KilledCount[${deliveryIndex}].DeliveryQuantity`, n)
+  const q = state.quests.find((x) => x.index === questIndex)
+  const d = q?.deliveries.find((x) => x.index === deliveryIndex)
+  if (d) d.quantity = n
+}
+
+export function setRequestProgress(state: FinalFantasyResonanceState, index: number, progressIndex: number): void {
+  setInt(state.plain, state.index, `request.DataMap{${index}}.value.ProgressIndex`, Math.trunc(progressIndex))
+  const row = state.requests.find((x) => x.index === index)
+  if (row) row.progressIndex = Math.trunc(progressIndex)
+}
+
+export function setColosseumClear(state: FinalFantasyResonanceState, index: number, clearCount: number): void {
+  const n = Math.max(0, Math.trunc(clearCount))
+  setInt(state.plain, state.index, `colosseumProgress.RankBattle{${index}}.value.ClearCount`, n)
+  const row = state.colosseum.find((x) => x.index === index)
+  if (row) row.clearCount = n
+}
+
+export function setShopBuyNum(state: FinalFantasyResonanceState, index: number, currentBuyNum: number): void {
+  const n = Math.max(0, Math.trunc(currentBuyNum))
+  setInt(state.plain, state.index, `shop[${index}].CurrentBuyNum`, n)
+  const row = state.shops.find((x) => x.index === index)
+  if (row) row.currentBuyNum = n
+}
+
+export function restockAllShops(state: FinalFantasyResonanceState): void {
+  for (const row of state.shops) setShopBuyNum(state, row.index, 0)
+}
+
+export function resetAllTreasureChests(state: FinalFantasyResonanceState): void {
+  for (const [path, ref] of state.index.boolRefs) {
+    if (!path.includes('treasureBoxList') || !path.endsWith('.IsOpen')) continue
+    setBool(state.plain, ref, false)
+    state.index.bools.set(path, false)
+  }
+}
+
+export function setArtifactActive(state: FinalFantasyResonanceState, index: number, active: boolean): void {
+  const path = `artifactList{${index}}.value.IsActive`
+  const ref = state.index.boolRefs.get(path)
+  if (!ref) return
+  setBool(state.plain, ref, active)
+  state.index.bools.set(path, active)
+  const row = state.artifacts.find((x) => x.index === index)
+  if (row) row.active = active
 }

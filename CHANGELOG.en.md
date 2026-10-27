@@ -6,7 +6,7 @@
 
 ### Added
 
-- **FINAL FANTASY RESONANCE**: `GameSaveData*.sav` (SVHD + AES-256-ECB + UE5.5 GVAS); Gil / party / items add / visions / maps; quick actions; Clean-room implementation
+- **FINAL FANTASY RESONANCE**: `GameSaveData*.sav` (SVHD + AES-256-ECB + UE5.5 GVAS); Gil / party / items / visions / maps / bestiary Libra / journal / artifacts (when present); quick actions (shop restock, chest reset, …); Clean-room implementation
 
 ## [0.15.0] - 2026-10-26
 

@@ -6,7 +6,7 @@
 
 ### 新增
 
-- **最终幻想：共鸣**：`GameSaveData*.sav`（SVHD + AES-256-ECB + UE5.5 GVAS）；Gil / 角色 / 物品增删 / 幻象 / 地图；快捷动作；Clean-room 实现
+- **最终幻想：共鸣**：`GameSaveData*.sav`（SVHD + AES-256-ECB + UE5.5 GVAS）；Gil / 角色 / 物品增删 / 幻象 / 地图 / 图鉴 Libra / 日志（任务·委托·斗技场）/ 神器（有字段时）；快捷动作（商店限购、宝箱重置等）；Clean-room 实现
 
 ## [0.15.0] - 2026-10-26
 

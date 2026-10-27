@@ -410,7 +410,10 @@ export const en: MessageTree = {
       status: 'Party',
       items: 'Items',
       visions: 'Visions',
-      maps: 'Maps'
+      maps: 'Maps',
+      bestiary: 'Bestiary',
+      journal: 'Journal',
+      artifacts: 'Artifacts'
     },
     hint: {
       quitAndCloud: 'Quit the game completely and temporarily disable Steam Cloud before editing.'
@@ -431,6 +434,7 @@ export const en: MessageTree = {
     },
     items: {
       id: 'Item ID',
+      name: 'Name',
       num: 'Qty',
       add: 'Add / set qty'
     },
@@ -447,9 +451,51 @@ export const en: MessageTree = {
       visited: 'Visited',
       cleared: 'Cleared'
     },
+    bestiary: {
+      filter: 'Search ID / name',
+      id: 'SaveId',
+      name: 'Name',
+      defeat: 'Defeats',
+      analyzed: 'Libra',
+      yes: 'Scanned',
+      no: 'Not scanned',
+      actions: 'Actions',
+      libra: 'Libra',
+      libraAll: 'Libra-scan all'
+    },
+    journal: {
+      storyReadonly: 'Story Progress flags: {0} entries (read-only).',
+      quests: 'Quest board',
+      questId: 'Quest ID',
+      deliveryId: 'Delivery ID',
+      quantity: 'Qty',
+      requests: 'Requests',
+      requestId: 'Request ID',
+      progress: 'Progress index',
+      colosseum: 'Colosseum',
+      coloId: 'Battle ID',
+      clearCount: 'Clears',
+      shops: 'Shop limits (read-only table; use quick action to restock)',
+      shopsHint: 'Use toolbar “Restock shops” to zero CurrentBuyNum.',
+      shopId: 'Shop',
+      itemId: 'Item',
+      bought: 'Bought',
+      maxOrder: 'Max'
+    },
+    artifacts: {
+      missing:
+        'This save has no artifactList (the game may omit it until you own an artifact).',
+      id: 'Item ID',
+      name: 'Name',
+      active: 'Active',
+      add: 'Add artifact'
+    },
     actions: {
       maxMoney: 'Max Gil',
-      revealMaps: 'Reveal all maps'
+      revealMaps: 'Reveal all maps',
+      libraAll: 'Libra-scan all',
+      restockShops: 'Restock shops',
+      resetChests: 'Reset opened chests'
     }
   },
   dc: {

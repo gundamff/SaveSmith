@@ -21,9 +21,12 @@ Format: `SVHD` header + AES-256-ECB body + SHA-1; plaintext is UE5.5+ GVAS.
 - **Items:** stack qty; add by ID (clamped 0–99)
 - **Visions:** awakening; max synchro points
 - **Maps:** known / visited / cleared
-- **Actions:** max Gil, reveal maps
+- **Bestiary:** `unitList` defeat counts + Libra (`IsAnalyzed` / `analyzedElments`)
+- **Journal:** quest deliveries, request progress, colosseum clears; shop table read-only; **story Progress flags read-only**
+- **Artifacts:** only when `artifactList` exists (often missing early)
+- **Actions:** max Gil, reveal maps, Libra-all, restock shops, reset opened chests
 
-Not yet: artifacts, bestiary/Libra, deep Journal, full name/icon catalog. Story progress is left alone by default.
+Names: `catalog/names.json` via `scripts/ffr-derive-catalog.mts` (empty → `#id`).
 
 ## Notes
 

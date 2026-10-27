@@ -32,6 +32,48 @@ export interface FfrMapEntry {
   cleared: boolean
 }
 
+export interface FfrBestiaryEntry {
+  index: number
+  saveId: number
+  defeatNum: number
+  isAnalyzed: boolean
+  /** analyzedElments map indices with current bool */
+  elements: Array<{ index: number; key: string; value: boolean }>
+}
+
+export interface FfrQuestBoard {
+  index: number
+  questId: number
+  requestId: number
+  deliveries: Array<{ index: number; id: number; quantity: number }>
+}
+
+export interface FfrRequest {
+  index: number
+  id: number
+  progressIndex: number
+}
+
+export interface FfrColosseum {
+  index: number
+  id: number
+  clearCount: number
+}
+
+export interface FfrShopRow {
+  index: number
+  itemId: number
+  shopId: number
+  maxOrderNum: number
+  currentBuyNum: number
+}
+
+export interface FfrArtifact {
+  index: number
+  itemId: number
+  active: boolean
+}
+
 export interface FinalFantasyResonanceState {
   relativePath: string
   header: Uint8Array
@@ -45,4 +87,13 @@ export interface FinalFantasyResonanceState {
   units: FfrUnit[]
   visions: FfrVision[]
   maps: FfrMapEntry[]
+  bestiary: FfrBestiaryEntry[]
+  quests: FfrQuestBoard[]
+  requests: FfrRequest[]
+  colosseum: FfrColosseum[]
+  shops: FfrShopRow[]
+  artifacts: FfrArtifact[]
+  /** Story flag array length; values are not exposed for editing. */
+  progressFlagCount: number
+  hasArtifactList: boolean
 }

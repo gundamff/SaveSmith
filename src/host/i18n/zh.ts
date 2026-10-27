@@ -408,7 +408,10 @@ export const zh: MessageTree = {
       status: '角色',
       items: '物品',
       visions: '幻象',
-      maps: '地图'
+      maps: '地图',
+      bestiary: '图鉴',
+      journal: '日志',
+      artifacts: '神器'
     },
     hint: {
       quitAndCloud: '请先完全退出游戏，并暂时关闭 Steam 云同步，再改档保存。'
@@ -429,6 +432,7 @@ export const zh: MessageTree = {
     },
     items: {
       id: '物品 ID',
+      name: '名称',
       num: '数量',
       add: '添加 / 覆盖数量'
     },
@@ -445,9 +449,50 @@ export const zh: MessageTree = {
       visited: '已访问',
       cleared: '已通关'
     },
+    bestiary: {
+      filter: '搜索 ID / 名称',
+      id: 'SaveId',
+      name: '名称',
+      defeat: '击败数',
+      analyzed: 'Libra',
+      yes: '已扫描',
+      no: '未扫描',
+      actions: '操作',
+      libra: 'Libra',
+      libraAll: '全部 Libra 扫描'
+    },
+    journal: {
+      storyReadonly: '主线 Progress 旗标共 {0} 项，只读（防坏档）。',
+      quests: '任务板',
+      questId: '任务 ID',
+      deliveryId: '交付 ID',
+      quantity: '交付数量',
+      requests: '委托',
+      requestId: '委托 ID',
+      progress: '进度索引',
+      colosseum: '斗技场',
+      coloId: '战 ID',
+      clearCount: '通关次数',
+      shops: '商店限购（只读表；用快捷动作补货）',
+      shopsHint: '点工具栏「商店限购重置」把 CurrentBuyNum 清零。',
+      shopId: '店',
+      itemId: '物品',
+      bought: '已购',
+      maxOrder: '上限'
+    },
+    artifacts: {
+      missing: '当前存档没有 artifactList（未获得神器时游戏可能不写入该字段）。获得至少一个神器后再来编辑。',
+      id: '物品 ID',
+      name: '名称',
+      active: '启用',
+      add: '添加神器'
+    },
     actions: {
       maxMoney: 'Gil 拉满',
-      revealMaps: '地图全知/已访问'
+      revealMaps: '地图全知/已访问',
+      libraAll: '图鉴全部 Libra',
+      restockShops: '商店限购重置',
+      resetChests: '重置已开宝箱'
     }
   },
   dc: {
