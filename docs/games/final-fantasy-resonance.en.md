@@ -26,7 +26,7 @@ Format: `SVHD` header + AES-256-ECB body + SHA-1; plaintext is UE5.5+ GVAS.
 - **Artifacts:** only when `artifactList` exists (often missing early)
 - **Actions:** max Gil, reveal maps, Libra-all, restock shops, reset opened chests
 
-Names: `catalog/names.json` via `scripts/ffr-derive-catalog.mts` (empty → `#id`).
+Names: `catalog/names.json` (~800+ English labels; UI shows `Name (#id)`. zh currently mirrors en). Regenerate with `scripts/ffr-derive-catalog.mts`.
 
 ## Notes
 
