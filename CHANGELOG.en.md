@@ -4,9 +4,13 @@
 
 ## [Unreleased]
 
+## [0.16.0] - 2026-10-27
+
+FINAL FANTASY RESONANCE save editing.
+
 ### Added
 
-- **FINAL FANTASY RESONANCE**: `GameSaveData*.sav` (SVHD + AES-256-ECB + UE5.5 GVAS); Gil / party / items / visions / maps / bestiary Libra / journal / artifacts (when present); quick actions (shop restock, chest reset, …); Clean-room implementation
+- **FINAL FANTASY RESONANCE**: `GameSaveData*.sav` (SVHD + AES-256-ECB + UE5.5 GVAS); Gil / party / items / visions / maps / bestiary Libra; named equipment & consumable dropdowns (job-filtered); quick actions (unlock gear · visions · materials pack, shop restock, chest reset, …); Simplified Chinese name catalog; Steam store-header cover; Clean-room implementation
 
 ## [0.15.0] - 2026-10-26
 

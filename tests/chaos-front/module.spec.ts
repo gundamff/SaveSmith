@@ -77,7 +77,8 @@ describe('chaosFrontModule catalog / locate', () => {
       'dragon-sword',
       'eslabong',
       'ace-combat-8',
-      'belmonts-curse'
+      'belmonts-curse',
+      'final-fantasy-resonance'
     ])
     expect(modules[0]).toBe(chaosFrontModule)
     expect(modules[3]).toBe(wanderburgModule)

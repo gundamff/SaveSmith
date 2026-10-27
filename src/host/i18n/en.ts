@@ -431,13 +431,16 @@ export const en: MessageTree = {
       mp: 'MP',
       weapon: 'Weapon',
       armor: 'Armor',
-      vision: 'Vision'
+      vision: 'Vision',
+      equipHint:
+        'Weapons/armor are filtered by class (e.g. Fina = bows only). Visions list owned entries. Wrong weapon types can crash the game.'
     },
     items: {
       id: 'Item ID',
       name: 'Name',
       num: 'Qty',
-      add: 'Add / set qty'
+      add: 'Add / set qty',
+      pick: 'Pick item'
     },
     visions: {
       id: 'Vision ID',
@@ -468,11 +471,15 @@ export const en: MessageTree = {
     },
     journal: {
       storyReadonly: 'Story Progress flags: {0} entries (read-only).',
+      safeHint:
+        'No quest/request delete here. The sidebar Backup “Delete” only removes a local backup file, not save data.',
       quests: 'Quest board',
+      questsReadonly: 'Delivery quantities are read-only — editing them often soft-locks or crashes the game.',
       questId: 'Quest ID',
       deliveryId: 'Delivery ID',
       quantity: 'Qty',
       requests: 'Requests',
+      requestsReadonly: 'Request progress is read-only (same reason).',
       requestId: 'Request ID',
       progress: 'Progress index',
       colosseum: 'Colosseum',
@@ -495,6 +502,9 @@ export const en: MessageTree = {
     },
     actions: {
       maxMoney: 'Max Gil',
+      unlockGear: 'Unlock gear / consumables',
+      unlockVisions: 'Unlock all visions',
+      materialsPack: 'Materials pack (adamantite / shards / keys)',
       revealMaps: 'Reveal all maps',
       libraAll: 'Libra-scan all',
       restockShops: 'Restock shops',

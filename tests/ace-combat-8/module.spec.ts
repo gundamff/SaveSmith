@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { modules } from '@host/registry'
 import { aceCombat8Module } from '../../src/games/ace-combat-8'
-import { belmontsCurseModule } from '../../src/games/belmonts-curse'
+import { finalFantasyResonanceModule } from '../../src/games/final-fantasy-resonance'
 import { loadCampaignPatch, readCampaignView } from '../../src/games/ace-combat-8/model/campaignSave'
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -24,7 +24,7 @@ describe('aceCombat8Module catalog / locate / registry', () => {
     expect(aceCombat8Module.locate.identifyAnyOf).toContain('Campaign.sav')
     expect(modules.map((m) => m.id)).toContain('ace-combat-8')
     expect(modules[7]).toBe(aceCombat8Module)
-    expect(modules.at(-1)).toBe(belmontsCurseModule)
+    expect(modules.at(-1)).toBe(finalFantasyResonanceModule)
   })
 })
 

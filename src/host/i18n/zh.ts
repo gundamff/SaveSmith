@@ -429,13 +429,15 @@ export const zh: MessageTree = {
       mp: 'MP',
       weapon: '武器',
       armor: '防具',
-      vision: '幻象'
+      vision: '幻象',
+      equipHint: '武器/防具按角色职业过滤（例如菲娜只能选弓）；幻象仅列出存档已有项。乱装异类武器可能导致游戏崩溃。'
     },
     items: {
       id: '物品 ID',
       name: '名称',
       num: '数量',
-      add: '添加 / 覆盖数量'
+      add: '添加 / 覆盖数量',
+      pick: '选择物品'
     },
     visions: {
       id: '幻象 ID',
@@ -466,11 +468,14 @@ export const zh: MessageTree = {
     },
     journal: {
       storyReadonly: '主线 Progress 旗标共 {0} 项，只读（防坏档）。',
+      safeHint: '本页不提供「删除」任务/委托。侧栏备份列表的「删除」只删本地备份文件，不会改存档内容。',
       quests: '任务板',
+      questsReadonly: '任务交付数量只读：改数量/进度极易让游戏卡死或崩溃。',
       questId: '任务 ID',
       deliveryId: '交付 ID',
       quantity: '交付数量',
       requests: '委托',
+      requestsReadonly: '委托进度只读（同上）。',
       requestId: '委托 ID',
       progress: '进度索引',
       colosseum: '斗技场',
@@ -492,6 +497,9 @@ export const zh: MessageTree = {
     },
     actions: {
       maxMoney: 'Gil 拉满',
+      unlockGear: '补全装备/消耗品',
+      unlockVisions: '补全幻象列表',
+      materialsPack: '材料包（精金/石板/魔石/钥匙）',
       revealMaps: '地图全知/已访问',
       libraAll: '图鉴全部 Libra',
       restockShops: '商店限购重置',
