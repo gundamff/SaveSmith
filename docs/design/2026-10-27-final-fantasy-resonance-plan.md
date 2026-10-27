@@ -197,11 +197,11 @@ describe('svhd', () => {
 | 不碰 Option | locate/slots 过滤 |
 | 真档门控 | 各测试 `FFR_SAVE` |
 
-## 附录：字段路径探路
+## 附录：字段路径探路（本机真档已确认）
 
-实现 Task 2 时对解密 plain 跑路径 dump，把确认的 `Gil` / `inventory` / `unitParameterList` 等路径回填本附录（替换下列占位）：
-
-- Gil: （探路后填写）
+- Gil: `Player.currentMoney`（另有 `spentMoney` / `earnedMoney`）
 - inventory: `inventory[i].ItemId` / `inventory[i].Num`
-- artifacts: `artifactList`
-- maps: `Map.perMapSaveDataMap`
+- units: `unitParameterList[i].{UnitId,Experience,HitPoint,MagicPoint,EquipWeaponId,EquipArmorId,equipVisionId}`
+- visions: `visionList[i].ID` / `awakeningPoint` / `synchroPoints{j}.{key,value}`
+- maps: `Map.perMapSaveDataMap{i}.key` + `value.bIsKnown|bIsVisited|bIsCleared`
+- artifacts: 早期档可能无 `artifactList`（待后续真档补齐）

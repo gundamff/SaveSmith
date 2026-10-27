@@ -52,6 +52,7 @@
 | [Eslabong](docs/games/eslabong.md) | shirowita | 已支持（EA，格式可能变） | [中文](docs/games/eslabong.md) · [English](docs/games/eslabong.en.md) |
 | [皇牌空战 8 / ACE COMBAT 8](docs/games/ace-combat-8.md) | Bandai Namco Entertainment | 已支持（战役 MRP / 周目 / 机体涂装徽章 / 任务评级） | [中文](docs/games/ace-combat-8.md) · [English](docs/games/ace-combat-8.en.md) |
 | [恶魔城：贝尔蒙特的诅咒 / Castlevania: Belmont's Curse](docs/games/belmonts-curse.md) | KONAMI | 已支持（角色标量；背包 / 塔罗可写） | [中文](docs/games/belmonts-curse.md) · [English](docs/games/belmonts-curse.en.md) |
+| [最终幻想：共鸣 / FINAL FANTASY RESONANCE](docs/games/final-fantasy-resonance.md) | Square Enix | 已支持（Gil / 角色 / 物品 / 幻象 / 地图；SVHD+AES） | [中文](docs/games/final-fantasy-resonance.md) · [English](docs/games/final-fantasy-resonance.en.md) |
 
 新增游戏时：补模块 + 在本表加一行 + 在 `docs/games/` 写独立说明。
 

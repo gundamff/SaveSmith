@@ -404,6 +404,54 @@ export const en: MessageTree = {
       statusOff: 'Locked'
     }
   },
+  ffr: {
+    tabs: {
+      records: 'Records',
+      status: 'Party',
+      items: 'Items',
+      visions: 'Visions',
+      maps: 'Maps'
+    },
+    hint: {
+      quitAndCloud: 'Quit the game completely and temporarily disable Steam Cloud before editing.'
+    },
+    records: {
+      gil: 'Gil (currentMoney)',
+      playTime: 'Play time (seconds)',
+      winNum: 'Battles won'
+    },
+    status: {
+      unitId: 'Unit ID',
+      experience: 'EXP',
+      hp: 'HP',
+      mp: 'MP',
+      weapon: 'Weapon ID',
+      armor: 'Armor ID',
+      vision: 'Vision ID'
+    },
+    items: {
+      id: 'Item ID',
+      num: 'Qty',
+      add: 'Add / set qty'
+    },
+    visions: {
+      id: 'Vision ID',
+      awakening: 'Awakening',
+      synchroSum: 'Synchro sum',
+      actions: 'Actions',
+      maxSynchro: 'Max synchro'
+    },
+    maps: {
+      mapId: 'Map ID',
+      known: 'Known',
+      visited: 'Visited',
+      cleared: 'Cleared'
+    },
+    actions: {
+      maxMoney: 'Max Gil',
+      revealMaps: 'Reveal all maps'
+    }
+  },
   dc: {
     tabs: {
       resources: 'Resources',
@@ -509,6 +557,10 @@ export const en: MessageTree = {
     BC_LEVEL: 'Invalid level (must be an integer ≥ 1): {0}',
     BC_SCALAR: 'Invalid value for field {0}: {1}',
     BC_INV_DUP: 'Duplicate inventory item ID: {0}',
-    BC_EQUIP_ORPHAN: 'Equipped {0} is not in inventory: {1}'
+    BC_EQUIP_ORPHAN: 'Equipped {0} is not in inventory: {1}',
+    CHECKSUM_MISMATCH: 'Checksum mismatch: {0}',
+    FFR_MONEY: 'Invalid Gil: {0}',
+    FFR_ITEM_NUM: 'Invalid qty for item {0}: {1}',
+    FFR_GVAS: 'GVAS structure is corrupt; refusing save'
   }
 }

@@ -402,6 +402,54 @@ export const zh: MessageTree = {
       statusOff: '未解锁'
     }
   },
+  ffr: {
+    tabs: {
+      records: '记录',
+      status: '角色',
+      items: '物品',
+      visions: '幻象',
+      maps: '地图'
+    },
+    hint: {
+      quitAndCloud: '请先完全退出游戏，并暂时关闭 Steam 云同步，再改档保存。'
+    },
+    records: {
+      gil: 'Gil（currentMoney）',
+      playTime: '游戏时长（秒）',
+      winNum: '战斗胜利次数'
+    },
+    status: {
+      unitId: '单位 ID',
+      experience: '经验',
+      hp: 'HP',
+      mp: 'MP',
+      weapon: '武器 ID',
+      armor: '防具 ID',
+      vision: '幻象 ID'
+    },
+    items: {
+      id: '物品 ID',
+      num: '数量',
+      add: '添加 / 覆盖数量'
+    },
+    visions: {
+      id: '幻象 ID',
+      awakening: '觉醒',
+      synchroSum: '同步点合计',
+      actions: '操作',
+      maxSynchro: '同步点拉满'
+    },
+    maps: {
+      mapId: '地图 ID',
+      known: '已知',
+      visited: '已访问',
+      cleared: '已通关'
+    },
+    actions: {
+      maxMoney: 'Gil 拉满',
+      revealMaps: '地图全知/已访问'
+    }
+  },
   dc: {
     tabs: {
       resources: '资源',
@@ -505,6 +553,10 @@ export const zh: MessageTree = {
     BC_LEVEL: '等级无效（须为 ≥1 的整数）：{0}',
     BC_SCALAR: '字段 {0} 数值无效：{1}',
     BC_INV_DUP: '背包存在重复物品 ID：{0}',
-    BC_EQUIP_ORPHAN: '装备槽 {0} 的物品不在背包中：{1}'
+    BC_EQUIP_ORPHAN: '装备槽 {0} 的物品不在背包中：{1}',
+    CHECKSUM_MISMATCH: '存档校验失败：{0}',
+    FFR_MONEY: 'Gil 无效：{0}',
+    FFR_ITEM_NUM: '物品 {0} 数量无效：{1}',
+    FFR_GVAS: 'GVAS 结构已损坏，拒绝保存'
   }
 }

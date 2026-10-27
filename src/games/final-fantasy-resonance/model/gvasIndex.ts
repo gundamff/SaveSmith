@@ -317,3 +317,96 @@ export function padAes(plain: Uint8Array, end: number, block = 16): Uint8Array {
   out.set(plain.subarray(0, Math.min(end, plain.length)))
   return out
 }
+
+export function setBool(plain: Uint8Array, ref: BoolRef, value: boolean): void {
+  if (ref.tagged) {
+    plain[ref.off] = value ? plain[ref.off]! | FLAG_BOOL : plain[ref.off]! & ~FLAG_BOOL
+  } else {
+    plain[ref.off] = value ? 1 : 0
+  }
+}
+
+function concatBytes(parts: Uint8Array[]): Uint8Array {
+  let n = 0
+  for (const p of parts) n += p.length
+  const out = new Uint8Array(n)
+  let o = 0
+  for (const p of parts) {
+    out.set(p, o)
+    o += p.length
+  }
+  return out
+}
+
+function i32Bytes(v: number): Uint8Array {
+  const b = new Uint8Array(4)
+  new DataView(b.buffer).setInt32(0, v | 0, true)
+  return b
+}
+
+export function fstringBytes(text: string): Uint8Array {
+  const body = new TextEncoder().encode(text + '\0')
+  return concatBytes([i32Bytes(body.length), body])
+}
+
+/** Minimal IntProperty tag used when appending inventory structs. */
+export function intPropertyTag(name: string, value: number): Uint8Array {
+  // name + typeName + innerCount(0) + size(4) + flags(0) + int32 value
+  const tail = new Uint8Array(13)
+  const v = new DataView(tail.buffer)
+  v.setInt32(0, 0, true)
+  v.setInt32(4, 4, true)
+  tail[8] = 0
+  v.setInt32(9, value | 0, true)
+  return concatBytes([fstringBytes(name), fstringBytes('IntProperty'), tail])
+}
+
+export function boolPropertyTag(name: string, value: boolean): Uint8Array {
+  // name + typeName + innerCount(0) + size(0) + flags(value in 0x10)
+  const tail = new Uint8Array(9)
+  const v = new DataView(tail.buffer)
+  v.setInt32(0, 0, true)
+  v.setInt32(4, 0, true)
+  tail[8] = value ? FLAG_BOOL : 0
+  return concatBytes([fstringBytes(name), fstringBytes('BoolProperty'), tail])
+}
+
+export function noneTag(): Uint8Array {
+  return fstringBytes('None')
+}
+
+/**
+ * Append serialized entry bytes to an ArrayProperty or MapProperty, bumping counts
+ * and ancestor tag sizes. Returns a new buffer (AES-padded).
+ */
+export function appendEntry(
+  plain: Uint8Array,
+  index: GvasIndex,
+  path: string,
+  data: Uint8Array,
+  kind: 'arrays' | 'maps',
+  entryCount = 1
+): Uint8Array {
+  const arr = kind === 'arrays' ? index.arrays.get(path) : index.maps.get(path)
+  if (!arr) throw new ModuleError('MISSING_FIELD', [path])
+  const end = index.end
+  const out = new Uint8Array(end + data.length + 4 + 16)
+  out.set(plain.subarray(0, arr.end), 0)
+  out.set(data, arr.end)
+  out.set(plain.subarray(arr.end, end), arr.end + data.length)
+  const v = new DataView(out.buffer)
+  v.setInt32(arr.countOff, v.getInt32(arr.countOff, true) + entryCount, true)
+  for (const [tp, sizeOff] of index.tags) {
+    if (tp === path || path.startsWith(tp + '.') || path.startsWith(tp + '[')) {
+      v.setInt32(sizeOff, v.getInt32(sizeOff, true) + data.length, true)
+    }
+  }
+  let len = end + data.length
+  const rem = len % 16
+  if (rem) len += 16 - rem
+  return out.subarray(0, len)
+}
+
+export function inventoryItemBytes(itemId: number, num: number): Uint8Array {
+  return concatBytes([intPropertyTag('ItemId', itemId), intPropertyTag('Num', num), noneTag()])
+}

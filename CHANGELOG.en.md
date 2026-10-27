@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- **FINAL FANTASY RESONANCE**: `GameSaveData*.sav` (SVHD + AES-256-ECB + UE5.5 GVAS); Gil / party / items add / visions / maps; quick actions; Clean-room implementation
+
 ## [0.15.0] - 2026-10-26
 
 Castlevania: Belmont's Curse support (character / inventory / Tarot).
