@@ -1,1 +1,3322 @@
-{}
+{
+  "item:24": {
+    "en": "Smoke Bomb",
+    "zh": "Smoke Bomb"
+  },
+  "item:206": {
+    "en": "Shuriken",
+    "zh": "Shuriken"
+  },
+  "item:207": {
+    "en": "Fuma Shuriken",
+    "zh": "Fuma Shuriken"
+  },
+  "item:208": {
+    "en": "Chef’s Knife",
+    "zh": "Chef’s Knife"
+  },
+  "item:12": {
+    "en": "Echo Herb",
+    "zh": "Echo Herb"
+  },
+  "item:14": {
+    "en": "X-Potion",
+    "zh": "X-Potion"
+  },
+  "item:22": {
+    "en": "Elixir",
+    "zh": "Elixir"
+  },
+  "item:3": {
+    "en": "Ether",
+    "zh": "Ether"
+  },
+  "item:18": {
+    "en": "X-Ether",
+    "zh": "X-Ether"
+  },
+  "item:20": {
+    "en": "Turbo Ether",
+    "zh": "Turbo Ether"
+  },
+  "item:500": {
+    "en": "Tent",
+    "zh": "Tent"
+  },
+  "item:2": {
+    "en": "Hi-Potion",
+    "zh": "Hi-Potion"
+  },
+  "item:4": {
+    "en": "Phoenix Down",
+    "zh": "Phoenix Down"
+  },
+  "item:37": {
+    "en": "Phoenix Pinion",
+    "zh": "Phoenix Pinion"
+  },
+  "item:1": {
+    "en": "Potion",
+    "zh": "Potion"
+  },
+  "item:33": {
+    "en": "Mist X-Potion",
+    "zh": "Mist X-Potion"
+  },
+  "item:34": {
+    "en": "Mist Ether",
+    "zh": "Mist Ether"
+  },
+  "item:36": {
+    "en": "Mist X-Ether",
+    "zh": "Mist X-Ether"
+  },
+  "item:35": {
+    "en": "Mist Turbo Ether",
+    "zh": "Mist Turbo Ether"
+  },
+  "item:32": {
+    "en": "Mist Hi-Potion",
+    "zh": "Mist Hi-Potion"
+  },
+  "item:31": {
+    "en": "Mist Potion",
+    "zh": "Mist Potion"
+  },
+  "item:13": {
+    "en": "Unicorn Horn",
+    "zh": "Unicorn Horn"
+  },
+  "item:23": {
+    "en": "Megalixir",
+    "zh": "Megalixir"
+  },
+  "item:8": {
+    "en": "Remedy",
+    "zh": "Remedy"
+  },
+  "item:19": {
+    "en": "Healing Spring",
+    "zh": "Healing Spring"
+  },
+  "item:212": {
+    "en": "Earth Scroll I",
+    "zh": "Earth Scroll I"
+  },
+  "item:203": {
+    "en": "Earth Scroll II",
+    "zh": "Earth Scroll II"
+  },
+  "item:26": {
+    "en": "Knife of Blind",
+    "zh": "Knife of Blind"
+  },
+  "item:9": {
+    "en": "Knife of Poison",
+    "zh": "Knife of Poison"
+  },
+  "item:7": {
+    "en": "Antidote Herb",
+    "zh": "Antidote Herb"
+  },
+  "item:11": {
+    "en": "Smelling Salts",
+    "zh": "Smelling Salts"
+  },
+  "item:214": {
+    "en": "Water Scroll I",
+    "zh": "Water Scroll I"
+  },
+  "item:205": {
+    "en": "Water Scroll II",
+    "zh": "Water Scroll II"
+  },
+  "item:210": {
+    "en": "Ice Scroll I",
+    "zh": "Ice Scroll I"
+  },
+  "item:201": {
+    "en": "Ice Scroll II",
+    "zh": "Ice Scroll II"
+  },
+  "item:27": {
+    "en": "Knife of Silence",
+    "zh": "Knife of Silence"
+  },
+  "item:28": {
+    "en": "Knife of Confuse",
+    "zh": "Knife of Confuse"
+  },
+  "item:209": {
+    "en": "Flame Scroll I",
+    "zh": "Flame Scroll I"
+  },
+  "item:200": {
+    "en": "Flame Scroll II",
+    "zh": "Flame Scroll II"
+  },
+  "item:10": {
+    "en": "Eye Drops",
+    "zh": "Eye Drops"
+  },
+  "item:17": {
+    "en": "Herb of Awakening",
+    "zh": "Herb of Awakening"
+  },
+  "item:30": {
+    "en": "Knife of Sleep",
+    "zh": "Knife of Sleep"
+  },
+  "item:16": {
+    "en": "Gold Needle",
+    "zh": "Gold Needle"
+  },
+  "item:602": {
+    "en": "Large Golden Shell",
+    "zh": "Large Golden Shell"
+  },
+  "item:600": {
+    "en": "Small Golden Shell",
+    "zh": "Small Golden Shell"
+  },
+  "item:601": {
+    "en": "Golden Shell",
+    "zh": "Golden Shell"
+  },
+  "item:213": {
+    "en": "Lightning Scroll I",
+    "zh": "Lightning Scroll I"
+  },
+  "item:204": {
+    "en": "Lightning Scroll II",
+    "zh": "Lightning Scroll II"
+  },
+  "item:211": {
+    "en": "Wind Scroll I",
+    "zh": "Wind Scroll I"
+  },
+  "item:202": {
+    "en": "Wind Scroll II",
+    "zh": "Wind Scroll II"
+  },
+  "item:29": {
+    "en": "Knife of Paralysis",
+    "zh": "Knife of Paralysis"
+  },
+  "item:10705": {
+    "en": "A-Type Sniper R",
+    "zh": "A-Type Sniper R"
+  },
+  "item:12026": {
+    "en": "Zephyr Cloak",
+    "zh": "Zephyr Cloak"
+  },
+  "item:11302": {
+    "en": "Iron Armor",
+    "zh": "Iron Armor"
+  },
+  "item:10404": {
+    "en": "Iron Hammer",
+    "zh": "Iron Hammer"
+  },
+  "item:10812": {
+    "en": "Iron Baton",
+    "zh": "Iron Baton"
+  },
+  "item:10106": {
+    "en": "Icebrand",
+    "zh": "Icebrand"
+  },
+  "item:11019": {
+    "en": "Astral Jacket",
+    "zh": "Astral Jacket"
+  },
+  "item:10218": {
+    "en": "Astral Blade",
+    "zh": "Astral Blade"
+  },
+  "item:11032": {
+    "en": "Adamite Jacket",
+    "zh": "Adamite Jacket"
+  },
+  "item:10419": {
+    "en": "Analysis Hammer",
+    "zh": "Analysis Hammer"
+  },
+  "item:10690": {
+    "en": "Abyss",
+    "zh": "Abyss"
+  },
+  "item:10194": {
+    "en": "Apocalypse",
+    "zh": "Apocalypse"
+  },
+  "item:12029": {
+    "en": "Alarm Earrings",
+    "zh": "Alarm Earrings"
+  },
+  "item:11021": {
+    "en": "Arcane Coat",
+    "zh": "Arcane Coat"
+  },
+  "item:10120": {
+    "en": "Arcana Blade",
+    "zh": "Arcana Blade"
+  },
+  "item:10799": {
+    "en": "Arcturus",
+    "zh": "Arcturus"
+  },
+  "item:10797": {
+    "en": "Arcturus+",
+    "zh": "Arcturus+"
+  },
+  "item:12095": {
+    "en": "Ultima Reactor",
+    "zh": "Ultima Reactor"
+  },
+  "item:10399": {
+    "en": "Artemis Bow",
+    "zh": "Artemis Bow"
+  },
+  "item:10397": {
+    "en": "Artemis Bow+",
+    "zh": "Artemis Bow+"
+  },
+  "item:11018": {
+    "en": "Anti-Magic Gear",
+    "zh": "Anti-Magic Gear"
+  },
+  "item:10522": {
+    "en": "Arch Drain",
+    "zh": "Arch Drain"
+  },
+  "item:10412": {
+    "en": "Arc Hammer",
+    "zh": "Arc Hammer"
+  },
+  "item:10713": {
+    "en": "Arcane Long Rifle",
+    "zh": "Arcane Long Rifle"
+  },
+  "item:11529": {
+    "en": "Arch Robe",
+    "zh": "Arch Robe"
+  },
+  "item:12047": {
+    "en": "Trick Coin",
+    "zh": "Trick Coin"
+  },
+  "item:10323": {
+    "en": "Ydalir",
+    "zh": "Ydalir"
+  },
+  "item:12023": {
+    "en": "Earrings",
+    "zh": "Earrings"
+  },
+  "item:11530": {
+    "en": "Illusory Robe",
+    "zh": "Illusory Robe"
+  },
+  "item:10815": {
+    "en": "Impact Wand",
+    "zh": "Impact Wand"
+  },
+  "item:11522": {
+    "en": "Aegis Robe",
+    "zh": "Aegis Robe"
+  },
+  "item:10899": {
+    "en": "Wizard’s Rod",
+    "zh": "Wizard’s Rod"
+  },
+  "item:10897": {
+    "en": "Wizard’s Rod+",
+    "zh": "Wizard’s Rod+"
+  },
+  "item:11315": {
+    "en": "Armor of Gales",
+    "zh": "Armor of Gales"
+  },
+  "item:10426": {
+    "en": "War Hammer",
+    "zh": "War Hammer"
+  },
+  "item:10811": {
+    "en": "War Pick",
+    "zh": "War Pick"
+  },
+  "item:10723": {
+    "en": "Ultra Magnum",
+    "zh": "Ultra Magnum"
+  },
+  "item:10510": {
+    "en": "Book of Eibon",
+    "zh": "Book of Eibon"
+  },
+  "item:10195": {
+    "en": "Excalibur",
+    "zh": "Excalibur"
+  },
+  "item:12067": {
+    "en": "Foe Attractor",
+    "zh": "Foe Attractor"
+  },
+  "item:10390": {
+    "en": "Elysium",
+    "zh": "Elysium"
+  },
+  "item:10308": {
+    "en": "Elfin Bow",
+    "zh": "Elfin Bow"
+  },
+  "item:12014": {
+    "en": "Hermes Sandals",
+    "zh": "Hermes Sandals"
+  },
+  "item:11007": {
+    "en": "Engineer’s Jacket",
+    "zh": "Engineer’s Jacket"
+  },
+  "item:12054": {
+    "en": "Enchanted Ring",
+    "zh": "Enchanted Ring"
+  },
+  "item:10600": {
+    "en": "Empress Birch",
+    "zh": "Empress Birch"
+  },
+  "item:11028": {
+    "en": "Aethereal Chestplate",
+    "zh": "Aethereal Chestplate"
+  },
+  "item:11317": {
+    "en": "Ether Plate",
+    "zh": "Ether Plate"
+  },
+  "item:10122": {
+    "en": "Ether’s Light",
+    "zh": "Ether’s Light"
+  },
+  "item:12103": {
+    "en": "Omega Badge",
+    "zh": "Omega Badge"
+  },
+  "item:11318": {
+    "en": "Oracle’s Armor",
+    "zh": "Oracle’s Armor"
+  },
+  "item:10699": {
+    "en": "Rugged Whip",
+    "zh": "Rugged Whip"
+  },
+  "item:10108": {
+    "en": "Kaiser Sword",
+    "zh": "Kaiser Sword"
+  },
+  "item:10790": {
+    "en": "Caelum Renatum",
+    "zh": "Caelum Renatum"
+  },
+  "item:10817": {
+    "en": "Catastrophe",
+    "zh": "Catastrophe"
+  },
+  "item:10708": {
+    "en": "Culverin",
+    "zh": "Culverin"
+  },
+  "item:10614": {
+    "en": "Cursed Whip",
+    "zh": "Cursed Whip"
+  },
+  "item:12072": {
+    "en": "Cursed Ring",
+    "zh": "Cursed Ring"
+  },
+  "item:10721": {
+    "en": "Gatling Gun",
+    "zh": "Gatling Gun"
+  },
+  "item:10123": {
+    "en": "Guardian Sword",
+    "zh": "Guardian Sword"
+  },
+  "item:11323": {
+    "en": "Guardian’s Plate",
+    "zh": "Guardian’s Plate"
+  },
+  "item:10226": {
+    "en": "Guardbreaker",
+    "zh": "Guardbreaker"
+  },
+  "item:10314": {
+    "en": "Gandiva",
+    "zh": "Gandiva"
+  },
+  "item:10320": {
+    "en": "Cure Drop",
+    "zh": "Cure Drop"
+  },
+  "item:11327": {
+    "en": "Gear Plate",
+    "zh": "Gear Plate"
+  },
+  "item:10710": {
+    "en": "Quicksilver",
+    "zh": "Quicksilver"
+  },
+  "item:11015": {
+    "en": "Crown Vest",
+    "zh": "Crown Vest"
+  },
+  "item:11301": {
+    "en": "Crystal Armor",
+    "zh": "Crystal Armor"
+  },
+  "item:10100": {
+    "en": "Crimson Saber",
+    "zh": "Crimson Saber"
+  },
+  "item:10107": {
+    "en": "Claymore",
+    "zh": "Claymore"
+  },
+  "item:10310": {
+    "en": "Crescent Bow",
+    "zh": "Crescent Bow"
+  },
+  "item:10402": {
+    "en": "Cross Pein Hammer",
+    "zh": "Cross Pein Hammer"
+  },
+  "item:11328": {
+    "en": "Gladiator’s Armor",
+    "zh": "Gladiator’s Armor"
+  },
+  "item:10111": {
+    "en": "Greatsword",
+    "zh": "Greatsword"
+  },
+  "item:10309": {
+    "en": "Greatbow",
+    "zh": "Greatbow"
+  },
+  "item:10423": {
+    "en": "Great Mace",
+    "zh": "Great Mace"
+  },
+  "item:10706": {
+    "en": "Kokytos",
+    "zh": "Kokytos"
+  },
+  "item:10311": {
+    "en": "Composite Bow",
+    "zh": "Composite Bow"
+  },
+  "item:10230": {
+    "en": "Gorgon Sword",
+    "zh": "Gorgon Sword"
+  },
+  "item:11304": {
+    "en": "Golden Armor",
+    "zh": "Golden Armor"
+  },
+  "item:12083": {
+    "en": "Golem Core",
+    "zh": "Golem Core"
+  },
+  "item:10424": {
+    "en": "Golem Hammer",
+    "zh": "Golem Hammer"
+  },
+  "item:10209": {
+    "en": "Samurai’s Katana",
+    "zh": "Samurai’s Katana"
+  },
+  "item:11006": {
+    "en": "Surcoat",
+    "zh": "Surcoat"
+  },
+  "item:11029": {
+    "en": "Xibalba Coat",
+    "zh": "Xibalba Coat"
+  },
+  "item:10306": {
+    "en": "Shortbow",
+    "zh": "Shortbow"
+  },
+  "item:11506": {
+    "en": "Silk Robe",
+    "zh": "Silk Robe"
+  },
+  "item:11303": {
+    "en": "Silver Chestplate",
+    "zh": "Silver Chestplate"
+  },
+  "item:12082": {
+    "en": "Sylph’s Tiara",
+    "zh": "Sylph’s Tiara"
+  },
+  "item:11305": {
+    "en": "Shielded Armor",
+    "zh": "Shielded Armor"
+  },
+  "item:12040": {
+    "en": "Jeweled Ring",
+    "zh": "Jeweled Ring"
+  },
+  "item:12030": {
+    "en": "Swift Badge",
+    "zh": "Swift Badge"
+  },
+  "item:12074": {
+    "en": "Scar Orb",
+    "zh": "Scar Orb"
+  },
+  "item:11320": {
+    "en": "Scale Mail",
+    "zh": "Scale Mail"
+  },
+  "item:10421": {
+    "en": "Scorpion Tail",
+    "zh": "Scorpion Tail"
+  },
+  "item:10406": {
+    "en": "Slam Hammer",
+    "zh": "Slam Hammer"
+  },
+  "item:10810": {
+    "en": "Striking Staff",
+    "zh": "Striking Staff"
+  },
+  "item:12071": {
+    "en": "Sniper’s Eye",
+    "zh": "Sniper’s Eye"
+  },
+  "item:11022": {
+    "en": "Spell Jacket",
+    "zh": "Spell Jacket"
+  },
+  "item:10715": {
+    "en": "Spellfire",
+    "zh": "Spellfire"
+  },
+  "item:10607": {
+    "en": "Sleipnir’s Tail",
+    "zh": "Sleipnir’s Tail"
+  },
+  "item:10403": {
+    "en": "Sledgehammer",
+    "zh": "Sledgehammer"
+  },
+  "item:10720": {
+    "en": "Jackpot Gun",
+    "zh": "Jackpot Gun"
+  },
+  "item:11027": {
+    "en": "Swallow Scales",
+    "zh": "Swallow Scales"
+  },
+  "item:12101": {
+    "en": "Super Ribbon",
+    "zh": "Super Ribbon"
+  },
+  "item:10190": {
+    "en": "Save the Vermillion",
+    "zh": "Save the Vermillion"
+  },
+  "item:10509": {
+    "en": "Celaeno Fragments",
+    "zh": "Celaeno Fragments"
+  },
+  "item:10321": {
+    "en": "Seraphim Bow",
+    "zh": "Seraphim Bow"
+  },
+  "item:10820": {
+    "en": "Seraph’s Rod",
+    "zh": "Seraph’s Rod"
+  },
+  "item:12018": {
+    "en": "Safety Bit",
+    "zh": "Safety Bit"
+  },
+  "item:10115": {
+    "en": "Soul Sabre",
+    "zh": "Soul Sabre"
+  },
+  "item:12078": {
+    "en": "Solar Pendant",
+    "zh": "Solar Pendant"
+  },
+  "item:12024": {
+    "en": "Talisman",
+    "zh": "Talisman"
+  },
+  "item:10416": {
+    "en": "Bullseye Mace",
+    "zh": "Bullseye Mace"
+  },
+  "item:11016": {
+    "en": "Diamond Chestplate",
+    "zh": "Diamond Chestplate"
+  },
+  "item:11314": {
+    "en": "Diamond Armor",
+    "zh": "Diamond Armor"
+  },
+  "item:12041": {
+    "en": "Champion’s Belt",
+    "zh": "Champion’s Belt"
+  },
+  "item:11005": {
+    "en": "Tunic",
+    "zh": "Tunic"
+  },
+  "item:12010": {
+    "en": "Chocobo Down Charm",
+    "zh": "Chocobo Down Charm"
+  },
+  "item:12053": {
+    "en": "Chocobo Nitro",
+    "zh": "Chocobo Nitro"
+  },
+  "item:11322": {
+    "en": "Tyr’s Armor",
+    "zh": "Tyr’s Armor"
+  },
+  "item:10719": {
+    "en": "Impetus Breaker",
+    "zh": "Impetus Breaker"
+  },
+  "item:10604": {
+    "en": "Death Adder",
+    "zh": "Death Adder"
+  },
+  "item:12085": {
+    "en": "Demon’s Ring",
+    "zh": "Demon’s Ring"
+  },
+  "item:10722": {
+    "en": "Loose Cannon",
+    "zh": "Loose Cannon"
+  },
+  "item:10498": {
+    "en": "Thor’s Hammer",
+    "zh": "Thor’s Hammer"
+  },
+  "item:10496": {
+    "en": "Thor’s Hammer+",
+    "zh": "Thor’s Hammer+"
+  },
+  "item:11307": {
+    "en": "Knight Armor",
+    "zh": "Knight Armor"
+  },
+  "item:11001": {
+    "en": "Knight’s Jacket",
+    "zh": "Knight’s Jacket"
+  },
+  "item:11026": {
+    "en": "Shadowstep Garb",
+    "zh": "Shadowstep Garb"
+  },
+  "item:10121": {
+    "en": "Knight’s Sword",
+    "zh": "Knight’s Sword"
+  },
+  "item:10407": {
+    "en": "Nightbreaker",
+    "zh": "Nightbreaker"
+  },
+  "item:10104": {
+    "en": "Knight’s Blade",
+    "zh": "Knight’s Blade"
+  },
+  "item:12050": {
+    "en": "Knight’s Medallion",
+    "zh": "Knight’s Medallion"
+  },
+  "item:10511": {
+    "en": "Pnakotic Manuscript",
+    "zh": "Pnakotic Manuscript"
+  },
+  "item:10512": {
+    "en": "Necronomicon",
+    "zh": "Necronomicon"
+  },
+  "item:10119": {
+    "en": "Nocturne",
+    "zh": "Nocturne"
+  },
+  "item:10819": {
+    "en": "High Caster",
+    "zh": "High Caster"
+  },
+  "item:10704": {
+    "en": "Hastur Long Barrel",
+    "zh": "Hastur Long Barrel"
+  },
+  "item:12035": {
+    "en": "Headband",
+    "zh": "Headband"
+  },
+  "item:12084": {
+    "en": "Halo Ring",
+    "zh": "Halo Ring"
+  },
+  "item:12064": {
+    "en": "Heart Anklet",
+    "zh": "Heart Anklet"
+  },
+  "item:11523": {
+    "en": "Vita Cloak",
+    "zh": "Vita Cloak"
+  },
+  "item:12063": {
+    "en": "Vitality Charm",
+    "zh": "Vitality Charm"
+  },
+  "item:10109": {
+    "en": "Bastard Sword",
+    "zh": "Bastard Sword"
+  },
+  "item:10422": {
+    "en": "Buster Mace",
+    "zh": "Buster Mace"
+  },
+  "item:10516": {
+    "en": "Battle Grimoire",
+    "zh": "Battle Grimoire"
+  },
+  "item:10814": {
+    "en": "Battle Staff",
+    "zh": "Battle Staff"
+  },
+  "item:10818": {
+    "en": "Barrier Staff",
+    "zh": "Barrier Staff"
+  },
+  "item:10124": {
+    "en": "Variable Steel",
+    "zh": "Variable Steel"
+  },
+  "item:10718": {
+    "en": "Barrier Bane",
+    "zh": "Barrier Bane"
+  },
+  "item:12013": {
+    "en": "Barrier Ring",
+    "zh": "Barrier Ring"
+  },
+  "item:10717": {
+    "en": "Barrel Blazer",
+    "zh": "Barrel Blazer"
+  },
+  "item:10495": {
+    "en": "Pilebunker",
+    "zh": "Pilebunker"
+  },
+  "item:10716": {
+    "en": "Pulse Cannon",
+    "zh": "Pulse Cannon"
+  },
+  "item:10610": {
+    "en": "Power Whip",
+    "zh": "Power Whip"
+  },
+  "item:12002": {
+    "en": "Power Stone",
+    "zh": "Power Stone"
+  },
+  "item:12021": {
+    "en": "Power Wristbands",
+    "zh": "Power Wristbands"
+  },
+  "item:10608": {
+    "en": "Beast Killer",
+    "zh": "Beast Killer"
+  },
+  "item:10415": {
+    "en": "Piercing Mace",
+    "zh": "Piercing Mace"
+  },
+  "item:10417": {
+    "en": "Clown Hammer",
+    "zh": "Clown Hammer"
+  },
+  "item:10408": {
+    "en": "Warpick",
+    "zh": "Warpick"
+  },
+  "item:10701": {
+    "en": "Peacemaker",
+    "zh": "Peacemaker"
+  },
+  "item:10698": {
+    "en": "Fire Birch",
+    "zh": "Fire Birch"
+  },
+  "item:10696": {
+    "en": "Fire Birch+",
+    "zh": "Fire Birch+"
+  },
+  "item:10702": {
+    "en": "Firefly",
+    "zh": "Firefly"
+  },
+  "item:11306": {
+    "en": "Phalanx",
+    "zh": "Phalanx"
+  },
+  "item:10117": {
+    "en": "Falchion",
+    "zh": "Falchion"
+  },
+  "item:11527": {
+    "en": "Phantom Robe",
+    "zh": "Phantom Robe"
+  },
+  "item:10816": {
+    "en": "Rod of Focus",
+    "zh": "Rod of Focus"
+  },
+  "item:11313": {
+    "en": "Force Armor",
+    "zh": "Force Armor"
+  },
+  "item:11319": {
+    "en": "Fortress Gear",
+    "zh": "Fortress Gear"
+  },
+  "item:10128": {
+    "en": "Flamberge",
+    "zh": "Flamberge"
+  },
+  "item:10302": {
+    "en": "Floral Arc",
+    "zh": "Floral Arc"
+  },
+  "item:10105": {
+    "en": "Flametongue",
+    "zh": "Flametongue"
+  },
+  "item:10110": {
+    "en": "Blood Sword",
+    "zh": "Blood Sword"
+  },
+  "item:11014": {
+    "en": "Brigandine",
+    "zh": "Brigandine"
+  },
+  "item:12081": {
+    "en": "Azure Amulet",
+    "zh": "Azure Amulet"
+  },
+  "item:10114": {
+    "en": "Stagger Blade",
+    "zh": "Stagger Blade"
+  },
+  "item:10103": {
+    "en": "Bladed Shield",
+    "zh": "Bladed Shield"
+  },
+  "item:10405": {
+    "en": "Heroic Hammer",
+    "zh": "Heroic Hammer"
+  },
+  "item:10101": {
+    "en": "Bronze Sword",
+    "zh": "Bronze Sword"
+  },
+  "item:11004": {
+    "en": "Bronze Chestplate",
+    "zh": "Bronze Chestplate"
+  },
+  "item:10401": {
+    "en": "Bronze Hammer",
+    "zh": "Bronze Hammer"
+  },
+  "item:11321": {
+    "en": "Protective Gear",
+    "zh": "Protective Gear"
+  },
+  "item:12012": {
+    "en": "Protect Ring",
+    "zh": "Protect Ring"
+  },
+  "item:12033": {
+    "en": "Hairband",
+    "zh": "Hairband"
+  },
+  "item:10317": {
+    "en": "Heavy Crossbow",
+    "zh": "Heavy Crossbow"
+  },
+  "item:11520": {
+    "en": "Behemoth Suit",
+    "zh": "Behemoth Suit"
+  },
+  "item:11504": {
+    "en": "White Dress",
+    "zh": "White Dress"
+  },
+  "item:10800": {
+    "en": "White Roselia",
+    "zh": "White Roselia"
+  },
+  "item:11033": {
+    "en": "Lorica Sancta",
+    "zh": "Lorica Sancta"
+  },
+  "item:11017": {
+    "en": "Bone Mail",
+    "zh": "Bone Mail"
+  },
+  "item:12031": {
+    "en": "Poison Charm",
+    "zh": "Poison Charm"
+  },
+  "item:10712": {
+    "en": "Magi-Blaster",
+    "zh": "Magi-Blaster"
+  },
+  "item:12062": {
+    "en": "Arcane Pendant",
+    "zh": "Arcane Pendant"
+  },
+  "item:10703": {
+    "en": "Musketoon",
+    "zh": "Musketoon"
+  },
+  "item:12059": {
+    "en": "Mastery Pendant",
+    "zh": "Mastery Pendant"
+  },
+  "item:12090": {
+    "en": "Mastery Ring",
+    "zh": "Mastery Ring"
+  },
+  "item:10807": {
+    "en": "Mystletainn",
+    "zh": "Mystletainn"
+  },
+  "item:11326": {
+    "en": "Mythril Armor",
+    "zh": "Mythril Armor"
+  },
+  "item:10711": {
+    "en": "Mythril Cannon",
+    "zh": "Mythril Cannon"
+  },
+  "item:11009": {
+    "en": "Mythril Vest",
+    "zh": "Mythril Vest"
+  },
+  "item:10801": {
+    "en": "Mythril Rod",
+    "zh": "Mythril Rod"
+  },
+  "item:11519": {
+    "en": "Minerva Bustier",
+    "zh": "Minerva Bustier"
+  },
+  "item:10427": {
+    "en": "Mjollnir",
+    "zh": "Mjollnir"
+  },
+  "item:11528": {
+    "en": "Mirage Coat",
+    "zh": "Mirage Coat"
+  },
+  "item:11025": {
+    "en": "Mirage Jacket",
+    "zh": "Mirage Jacket"
+  },
+  "item:11099": {
+    "en": "Mirage Vest",
+    "zh": "Mirage Vest"
+  },
+  "item:11097": {
+    "en": "Mirage Vest+",
+    "zh": "Mirage Vest+"
+  },
+  "item:10229": {
+    "en": "Murasame",
+    "zh": "Murasame"
+  },
+  "item:10118": {
+    "en": "Moon Saber",
+    "zh": "Moon Saber"
+  },
+  "item:11308": {
+    "en": "Lunar Plate",
+    "zh": "Lunar Plate"
+  },
+  "item:10322": {
+    "en": "Moon Rain",
+    "zh": "Moon Rain"
+  },
+  "item:10813": {
+    "en": "Pole Mace",
+    "zh": "Pole Mace"
+  },
+  "item:10315": {
+    "en": "Compound Bow",
+    "zh": "Compound Bow"
+  },
+  "item:10400": {
+    "en": "Mechabo Hammer",
+    "zh": "Mechabo Hammer"
+  },
+  "item:10490": {
+    "en": "Mechabo Hammer SUPER",
+    "zh": "Mechabo Hammer SUPER"
+  },
+  "item:10411": {
+    "en": "Morning Star",
+    "zh": "Morning Star"
+  },
+  "item:10196": {
+    "en": "Lightbringer",
+    "zh": "Lightbringer"
+  },
+  "item:12077": {
+    "en": "Life Charm",
+    "zh": "Life Charm"
+  },
+  "item:12009": {
+    "en": "Libra Lenses",
+    "zh": "Libra Lenses"
+  },
+  "item:10199": {
+    "en": "Ragnarok",
+    "zh": "Ragnarok"
+  },
+  "item:10197": {
+    "en": "Ragnarok+",
+    "zh": "Ragnarok+"
+  },
+  "item:10599": {
+    "en": "Last Resort",
+    "zh": "Last Resort"
+  },
+  "item:10597": {
+    "en": "Last Resort+",
+    "zh": "Last Resort+"
+  },
+  "item:10611": {
+    "en": "Rush Whip",
+    "zh": "Rush Whip"
+  },
+  "item:10709": {
+    "en": "Repeater Rifle",
+    "zh": "Repeater Rifle"
+  },
+  "item:12011": {
+    "en": "Reflect Ring",
+    "zh": "Reflect Ring"
+  },
+  "item:12065": {
+    "en": "Ribbon",
+    "zh": "Ribbon"
+  },
+  "item:10300": {
+    "en": "Reincarnation",
+    "zh": "Reincarnation"
+  },
+  "item:10603": {
+    "en": "Lunar Whip",
+    "zh": "Lunar Whip"
+  },
+  "item:10113": {
+    "en": "Lunar Sword",
+    "zh": "Lunar Sword"
+  },
+  "item:10519": {
+    "en": "Luminous Grimoire",
+    "zh": "Luminous Grimoire"
+  },
+  "item:10508": {
+    "en": "R’lyeh Text",
+    "zh": "R’lyeh Text"
+  },
+  "item:10324": {
+    "en": "Rune Arch",
+    "zh": "Rune Arch"
+  },
+  "item:10714": {
+    "en": "Rune Shooter",
+    "zh": "Rune Shooter"
+  },
+  "item:11020": {
+    "en": "Rune Scales",
+    "zh": "Rune Scales"
+  },
+  "item:10112": {
+    "en": "Rune Blade",
+    "zh": "Rune Blade"
+  },
+  "item:10304": {
+    "en": "Rune Bow",
+    "zh": "Rune Bow"
+  },
+  "item:12058": {
+    "en": "Ring of Rage",
+    "zh": "Ring of Rage"
+  },
+  "item:11000": {
+    "en": "Leather Armor",
+    "zh": "Leather Armor"
+  },
+  "item:10601": {
+    "en": "Leather Whip",
+    "zh": "Leather Whip"
+  },
+  "item:11030": {
+    "en": "Jacket of Restoration",
+    "zh": "Jacket of Restoration"
+  },
+  "item:11008": {
+    "en": "Red Jacket",
+    "zh": "Red Jacket"
+  },
+  "item:10700": {
+    "en": "Renatus Duo",
+    "zh": "Renatus Duo"
+  },
+  "item:10217": {
+    "en": "Laserblade",
+    "zh": "Laserblade"
+  },
+  "item:10808": {
+    "en": "Laevateinn",
+    "zh": "Laevateinn"
+  },
+  "item:10312": {
+    "en": "Loxley Bow",
+    "zh": "Loxley Bow"
+  },
+  "item:11525": {
+    "en": "Rock Cloak",
+    "zh": "Rock Cloak"
+  },
+  "item:10102": {
+    "en": "Longsword",
+    "zh": "Longsword"
+  },
+  "item:10307": {
+    "en": "Longbow",
+    "zh": "Longbow"
+  },
+  "item:10890": {
+    "en": "Roselia",
+    "zh": "Roselia"
+  },
+  "item:11599": {
+    "en": "Lordly Robes",
+    "zh": "Lordly Robes"
+  },
+  "item:11597": {
+    "en": "Lordly Robes+",
+    "zh": "Lordly Robes+"
+  },
+  "item:12076": {
+    "en": "Vampire Charm",
+    "zh": "Vampire Charm"
+  },
+  "item:10211": {
+    "en": "Hototogisu",
+    "zh": "Hototogisu"
+  },
+  "item:10806": {
+    "en": "Unyielding Staff",
+    "zh": "Unyielding Staff"
+  },
+  "item:10127": {
+    "en": "Indomitable",
+    "zh": "Indomitable"
+  },
+  "item:10212": {
+    "en": "Shiranui",
+    "zh": "Shiranui"
+  },
+  "item:10395": {
+    "en": "Yoichi Bow",
+    "zh": "Yoichi Bow"
+  },
+  "item:10205": {
+    "en": "Kuki",
+    "zh": "Kuki"
+  },
+  "item:10804": {
+    "en": "Vajra Staff",
+    "zh": "Vajra Staff"
+  },
+  "item:10299": {
+    "en": "Sasuke’s Blade",
+    "zh": "Sasuke’s Blade"
+  },
+  "item:10297": {
+    "en": "Sasuke’s Blade+",
+    "zh": "Sasuke’s Blade+"
+  },
+  "item:12000": {
+    "en": "Earrings of Health",
+    "zh": "Earrings of Health"
+  },
+  "item:11034": {
+    "en": "Chestplate of Preparation",
+    "zh": "Chestplate of Preparation"
+  },
+  "item:10506": {
+    "en": "Codex Asura",
+    "zh": "Codex Asura"
+  },
+  "item:10116": {
+    "en": "Sword of Trials",
+    "zh": "Sword of Trials"
+  },
+  "item:11316": {
+    "en": "Devout’s Armor",
+    "zh": "Devout’s Armor"
+  },
+  "item:10216": {
+    "en": "Osafune",
+    "zh": "Osafune"
+  },
+  "item:12032": {
+    "en": "Monk’s Prayer Beads",
+    "zh": "Monk’s Prayer Beads"
+  },
+  "item:10221": {
+    "en": "Rikudo",
+    "zh": "Rikudo"
+  },
+  "item:10802": {
+    "en": "Resonate Staff",
+    "zh": "Resonate Staff"
+  },
+  "item:12049": {
+    "en": "Calm Armlet",
+    "zh": "Calm Armlet"
+  },
+  "item:10316": {
+    "en": "Rock Piercer",
+    "zh": "Rock Piercer"
+  },
+  "item:10515": {
+    "en": "Book of Strength",
+    "zh": "Book of Strength"
+  },
+  "item:11012": {
+    "en": "Power Vest",
+    "zh": "Power Vest"
+  },
+  "item:10126": {
+    "en": "Hero’s Blade",
+    "zh": "Hero’s Blade"
+  },
+  "item:12007": {
+    "en": "Ring of Retaliation",
+    "zh": "Ring of Retaliation"
+  },
+  "item:12087": {
+    "en": "Anti-Magic Studs",
+    "zh": "Anti-Magic Studs"
+  },
+  "item:10497": {
+    "en": "Ancient Hammer",
+    "zh": "Ancient Hammer"
+  },
+  "item:11598": {
+    "en": "Ancient Cloak",
+    "zh": "Ancient Cloak"
+  },
+  "item:10898": {
+    "en": "Ancient Rod",
+    "zh": "Ancient Rod"
+  },
+  "item:10298": {
+    "en": "Ancient Katana",
+    "zh": "Ancient Katana"
+  },
+  "item:10198": {
+    "en": "Ancient Greatsword",
+    "zh": "Ancient Greatsword"
+  },
+  "item:10398": {
+    "en": "Ancient Bow",
+    "zh": "Ancient Bow"
+  },
+  "item:10598": {
+    "en": "Ancient Tome",
+    "zh": "Ancient Tome"
+  },
+  "item:11098": {
+    "en": "Ancient Garment",
+    "zh": "Ancient Garment"
+  },
+  "item:11398": {
+    "en": "Ancient Cuirass",
+    "zh": "Ancient Cuirass"
+  },
+  "item:12098": {
+    "en": "Ancient Accessory",
+    "zh": "Ancient Accessory"
+  },
+  "item:10798": {
+    "en": "Ancient Firearm",
+    "zh": "Ancient Firearm"
+  },
+  "item:10697": {
+    "en": "Ancient Whip",
+    "zh": "Ancient Whip"
+  },
+  "item:11511": {
+    "en": "Cleric’s Surplice",
+    "zh": "Cleric’s Surplice"
+  },
+  "item:10207": {
+    "en": "Dodanuki",
+    "zh": "Dodanuki"
+  },
+  "item:12055": {
+    "en": "Amulet of Magic Absorption",
+    "zh": "Amulet of Magic Absorption"
+  },
+  "item:12044": {
+    "en": "Mole Doll",
+    "zh": "Mole Doll"
+  },
+  "item:11300": {
+    "en": "Stout Armor",
+    "zh": "Stout Armor"
+  },
+  "item:10305": {
+    "en": "Midnight Longbow",
+    "zh": "Midnight Longbow"
+  },
+  "item:10499": {
+    "en": "Gaia Hammer",
+    "zh": "Gaia Hammer"
+  },
+  "item:11518": {
+    "en": "Gaia Gear",
+    "zh": "Gaia Gear"
+  },
+  "item:12017": {
+    "en": "Angel Ring",
+    "zh": "Angel Ring"
+  },
+  "item:11505": {
+    "en": "Angelic Vesture",
+    "zh": "Angelic Vesture"
+  },
+  "item:10296": {
+    "en": "Murakumo",
+    "zh": "Murakumo"
+  },
+  "item:10590": {
+    "en": "Codex Providentiae",
+    "zh": "Codex Providentiae"
+  },
+  "item:10505": {
+    "en": "The Savant General",
+    "zh": "The Savant General"
+  },
+  "item:10396": {
+    "en": "Faerie Bow",
+    "zh": "Faerie Bow"
+  },
+  "item:11524": {
+    "en": "Guarding Gown",
+    "zh": "Guarding Gown"
+  },
+  "item:12048": {
+    "en": "Protector’s Seal",
+    "zh": "Protector’s Seal"
+  },
+  "item:10313": {
+    "en": "Oracle Bow",
+    "zh": "Oracle Bow"
+  },
+  "item:10418": {
+    "en": "Inquisitor’s Gavel",
+    "zh": "Inquisitor’s Gavel"
+  },
+  "item:11515": {
+    "en": "Devout’s Robe",
+    "zh": "Devout’s Robe"
+  },
+  "item:10213": {
+    "en": "Kogarasumaru",
+    "zh": "Kogarasumaru"
+  },
+  "item:10227": {
+    "en": "Iwakirimaru",
+    "zh": "Iwakirimaru"
+  },
+  "item:10520": {
+    "en": "Annihilaticon",
+    "zh": "Annihilaticon"
+  },
+  "item:12060": {
+    "en": "Stagger Ring",
+    "zh": "Stagger Ring"
+  },
+  "item:12061": {
+    "en": "Adept’s Monocle",
+    "zh": "Adept’s Monocle"
+  },
+  "item:12005": {
+    "en": "Lucky Bell",
+    "zh": "Lucky Bell"
+  },
+  "item:11526": {
+    "en": "Mirage Robe",
+    "zh": "Mirage Robe"
+  },
+  "item:10220": {
+    "en": "Genmato",
+    "zh": "Genmato"
+  },
+  "item:11011": {
+    "en": "Shinobi Gear",
+    "zh": "Shinobi Gear"
+  },
+  "item:10605": {
+    "en": "Shinobi’s Kusarigama",
+    "zh": "Shinobi’s Kusarigama"
+  },
+  "item:11023": {
+    "en": "Ninja Gear",
+    "zh": "Ninja Gear"
+  },
+  "item:12016": {
+    "en": "Berserker Ring",
+    "zh": "Berserker Ring"
+  },
+  "item:10410": {
+    "en": "Dreadwing Mallet",
+    "zh": "Dreadwing Mallet"
+  },
+  "item:12052": {
+    "en": "Blessed Pendant",
+    "zh": "Blessed Pendant"
+  },
+  "item:10518": {
+    "en": "Blessed Cults",
+    "zh": "Blessed Cults"
+  },
+  "item:10414": {
+    "en": "Demon’s Maul",
+    "zh": "Demon’s Maul"
+  },
+  "item:12075": {
+    "en": "Evil Eye",
+    "zh": "Evil Eye"
+  },
+  "item:12057": {
+    "en": "Hairpin of Grace",
+    "zh": "Hairpin of Grace"
+  },
+  "item:12068": {
+    "en": "Warrior’s Bandana",
+    "zh": "Warrior’s Bandana"
+  },
+  "item:10420": {
+    "en": "Fortune’s Maul",
+    "zh": "Fortune’s Maul"
+  },
+  "item:10208": {
+    "en": "Uchigatana",
+    "zh": "Uchigatana"
+  },
+  "item:11035": {
+    "en": "Blessed Cuirass",
+    "zh": "Blessed Cuirass"
+  },
+  "item:11013": {
+    "en": "Kenpo Gi",
+    "zh": "Kenpo Gi"
+  },
+  "item:10513": {
+    "en": "Total Calisthenics",
+    "zh": "Total Calisthenics"
+  },
+  "item:11510": {
+    "en": "Solar Eclipse Robe",
+    "zh": "Solar Eclipse Robe"
+  },
+  "item:12045": {
+    "en": "Scintillating Ring",
+    "zh": "Scintillating Ring"
+  },
+  "item:12019": {
+    "en": "Star Pendant",
+    "zh": "Star Pendant"
+  },
+  "item:10525": {
+    "en": "Book of the Stars",
+    "zh": "Book of the Stars"
+  },
+  "item:10409": {
+    "en": "Star Shatterer",
+    "zh": "Star Shatterer"
+  },
+  "item:12056": {
+    "en": "Moonlight Ring",
+    "zh": "Moonlight Ring"
+  },
+  "item:10204": {
+    "en": "Tsukiyo no Tachi",
+    "zh": "Tsukiyo no Tachi"
+  },
+  "item:11509": {
+    "en": "Lunar Eclipse Robe",
+    "zh": "Lunar Eclipse Robe"
+  },
+  "item:11503": {
+    "en": "Cotton Robe",
+    "zh": "Cotton Robe"
+  },
+  "item:10202": {
+    "en": "Sakura-Fubuki",
+    "zh": "Sakura-Fubuki"
+  },
+  "item:11399": {
+    "en": "Tatenashi Armor",
+    "zh": "Tatenashi Armor"
+  },
+  "item:11397": {
+    "en": "Tatenashi Armor+",
+    "zh": "Tatenashi Armor+"
+  },
+  "item:11311": {
+    "en": "Polaris Cuirass",
+    "zh": "Polaris Cuirass"
+  },
+  "item:11024": {
+    "en": "Hoodwink Garb",
+    "zh": "Hoodwink Garb"
+  },
+  "item:10290": {
+    "en": "Shisui",
+    "zh": "Shisui"
+  },
+  "item:10295": {
+    "en": "Masamune",
+    "zh": "Masamune"
+  },
+  "item:10517": {
+    "en": "Index of War",
+    "zh": "Index of War"
+  },
+  "item:10514": {
+    "en": "Illegible Lexicon",
+    "zh": "Illegible Lexicon"
+  },
+  "item:12039": {
+    "en": "Aquatic Veil",
+    "zh": "Aquatic Veil"
+  },
+  "item:11310": {
+    "en": "Glacial Armor",
+    "zh": "Glacial Armor"
+  },
+  "item:12079": {
+    "en": "Snow Spirit’s Scarf",
+    "zh": "Snow Spirit’s Scarf"
+  },
+  "item:12042": {
+    "en": "Tiara of Frost",
+    "zh": "Tiara of Frost"
+  },
+  "item:10206": {
+    "en": "Hyosetsumaru",
+    "zh": "Hyosetsumaru"
+  },
+  "item:12096": {
+    "en": "Genji Gloves",
+    "zh": "Genji Gloves"
+  },
+  "item:11396": {
+    "en": "Genji Armor",
+    "zh": "Genji Armor"
+  },
+  "item:11513": {
+    "en": "Elegant Robe",
+    "zh": "Elegant Robe"
+  },
+  "item:12006": {
+    "en": "Fire Sprite Earrings",
+    "zh": "Fire Sprite Earrings"
+  },
+  "item:11309": {
+    "en": "Carmine Armor",
+    "zh": "Carmine Armor"
+  },
+  "item:12001": {
+    "en": "Adept’s Armlet",
+    "zh": "Adept’s Armlet"
+  },
+  "item:11325": {
+    "en": "Beast Hunter’s Armor",
+    "zh": "Beast Hunter’s Armor"
+  },
+  "item:10130": {
+    "en": "Knight’s Greatsword",
+    "zh": "Knight’s Greatsword"
+  },
+  "item:10524": {
+    "en": "Tome of Grace",
+    "zh": "Tome of Grace"
+  },
+  "item:10526": {
+    "en": "Book of the Cosmos",
+    "zh": "Book of the Cosmos"
+  },
+  "item:12027": {
+    "en": "Gale Hairpin",
+    "zh": "Gale Hairpin"
+  },
+  "item:12008": {
+    "en": "Aeolian Misanga",
+    "zh": "Aeolian Misanga"
+  },
+  "item:11516": {
+    "en": "White Robe",
+    "zh": "White Robe"
+  },
+  "item:11500": {
+    "en": "Leather Robe",
+    "zh": "Leather Robe"
+  },
+  "item:12028": {
+    "en": "Brigand’s Gloves",
+    "zh": "Brigand’s Gloves"
+  },
+  "item:10318": {
+    "en": "Ballista",
+    "zh": "Ballista"
+  },
+  "item:10222": {
+    "en": "Hasaito",
+    "zh": "Hasaito"
+  },
+  "item:10129": {
+    "en": "Malice Breaker",
+    "zh": "Malice Breaker"
+  },
+  "item:10325": {
+    "en": "Kagura Longbow",
+    "zh": "Kagura Longbow"
+  },
+  "item:10500": {
+    "en": "Codex Belli",
+    "zh": "Codex Belli"
+  },
+  "item:12102": {
+    "en": "Dragon Seal",
+    "zh": "Dragon Seal"
+  },
+  "item:10609": {
+    "en": "Dragon Whisker",
+    "zh": "Dragon Whisker"
+  },
+  "item:11501": {
+    "en": "Spirit Veil",
+    "zh": "Spirit Veil"
+  },
+  "item:12100": {
+    "en": "Rose Circlet",
+    "zh": "Rose Circlet"
+  },
+  "item:10200": {
+    "en": "Shiden",
+    "zh": "Shiden"
+  },
+  "item:11329": {
+    "en": "Lorica Apocalyptica",
+    "zh": "Lorica Apocalyptica"
+  },
+  "item:12034": {
+    "en": "Insulated Gloves",
+    "zh": "Insulated Gloves"
+  },
+  "item:11031": {
+    "en": "Scarlet Vest",
+    "zh": "Scarlet Vest"
+  },
+  "item:10210": {
+    "en": "Rasetsu",
+    "zh": "Rasetsu"
+  },
+  "item:12070": {
+    "en": "Gentleman Thief’s Monocle",
+    "zh": "Gentleman Thief’s Monocle"
+  },
+  "item:10413": {
+    "en": "Divine Mallet",
+    "zh": "Divine Mallet"
+  },
+  "item:12051": {
+    "en": "Crest of Criticality",
+    "zh": "Crest of Criticality"
+  },
+  "item:11003": {
+    "en": "Prickly Straitjacket",
+    "zh": "Prickly Straitjacket"
+  },
+  "item:10612": {
+    "en": "Thorn Whip",
+    "zh": "Thorn Whip"
+  },
+  "item:10125": {
+    "en": "Briar Edge",
+    "zh": "Briar Edge"
+  },
+  "item:10214": {
+    "en": "Kiku-Ichimonji",
+    "zh": "Kiku-Ichimonji"
+  },
+  "item:11312": {
+    "en": "Armor of Dusk",
+    "zh": "Armor of Dusk"
+  },
+  "item:11531": {
+    "en": "Feather Robes",
+    "zh": "Feather Robes"
+  },
+  "item:11010": {
+    "en": "Rose Jacket",
+    "zh": "Rose Jacket"
+  },
+  "item:11514": {
+    "en": "Robe of Roses",
+    "zh": "Robe of Roses"
+  },
+  "item:10215": {
+    "en": "Kotetsu",
+    "zh": "Kotetsu"
+  },
+  "item:10606": {
+    "en": "Whip Blade",
+    "zh": "Whip Blade"
+  },
+  "item:10615": {
+    "en": "Serpent Bone Whip",
+    "zh": "Serpent Bone Whip"
+  },
+  "item:10507": {
+    "en": "Codex Pestis",
+    "zh": "Codex Pestis"
+  },
+  "item:10613": {
+    "en": "Whip of Affliction",
+    "zh": "Whip of Affliction"
+  },
+  "item:12025": {
+    "en": "Precognizant Beads",
+    "zh": "Precognizant Beads"
+  },
+  "item:12069": {
+    "en": "Circlet of Enlightenment",
+    "zh": "Circlet of Enlightenment"
+  },
+  "item:11507": {
+    "en": "Bard’s Tunic",
+    "zh": "Bard’s Tunic"
+  },
+  "item:11324": {
+    "en": "Plate of Providence",
+    "zh": "Plate of Providence"
+  },
+  "item:11521": {
+    "en": "Protective Overcoat",
+    "zh": "Protective Overcoat"
+  },
+  "item:11512": {
+    "en": "Sage’s Robe",
+    "zh": "Sage’s Robe"
+  },
+  "item:10523": {
+    "en": "Sage’s Journal",
+    "zh": "Sage’s Journal"
+  },
+  "item:10805": {
+    "en": "Staff of the Magi",
+    "zh": "Staff of the Magi"
+  },
+  "item:12038": {
+    "en": "Philosopher’s Stone",
+    "zh": "Philosopher’s Stone"
+  },
+  "item:10231": {
+    "en": "Carbide Blade",
+    "zh": "Carbide Blade"
+  },
+  "item:10228": {
+    "en": "Vibroblade",
+    "zh": "Vibroblade"
+  },
+  "item:10319": {
+    "en": "Deafening Bow",
+    "zh": "Deafening Bow"
+  },
+  "item:12066": {
+    "en": "Warding Bell",
+    "zh": "Warding Bell"
+  },
+  "item:12073": {
+    "en": "Dark Rosary",
+    "zh": "Dark Rosary"
+  },
+  "item:10201": {
+    "en": "Nodachi",
+    "zh": "Nodachi"
+  },
+  "item:12099": {
+    "en": "Gold Hairpin",
+    "zh": "Gold Hairpin"
+  },
+  "item:12097": {
+    "en": "Gold Hairpin+",
+    "zh": "Gold Hairpin+"
+  },
+  "item:12086": {
+    "en": "Adamantine Beads",
+    "zh": "Adamantine Beads"
+  },
+  "item:12015": {
+    "en": "Iron Sandals",
+    "zh": "Iron Sandals"
+  },
+  "item:10301": {
+    "en": "Silver Bow",
+    "zh": "Silver Bow"
+  },
+  "item:12046": {
+    "en": "Silver Key",
+    "zh": "Silver Key"
+  },
+  "item:10803": {
+    "en": "Silver Staff",
+    "zh": "Silver Staff"
+  },
+  "item:10707": {
+    "en": "Silver-Round Rifle",
+    "zh": "Silver-Round Rifle"
+  },
+  "item:12020": {
+    "en": "Silver-Rimmed Glasses",
+    "zh": "Silver-Rimmed Glasses"
+  },
+  "item:10223": {
+    "en": "Sundering Odachi",
+    "zh": "Sundering Odachi"
+  },
+  "item:12022": {
+    "en": "Bulletproof Vest",
+    "zh": "Bulletproof Vest"
+  },
+  "item:10203": {
+    "en": "Ashura",
+    "zh": "Ashura"
+  },
+  "item:10294": {
+    "en": "Mutsunokami",
+    "zh": "Mutsunokami"
+  },
+  "item:10225": {
+    "en": "Kumobashiri",
+    "zh": "Kumobashiri"
+  },
+  "item:12080": {
+    "en": "Thunder God’s Earrings",
+    "zh": "Thunder God’s Earrings"
+  },
+  "item:11508": {
+    "en": "Cape of the Raiju",
+    "zh": "Cape of the Raiju"
+  },
+  "item:10602": {
+    "en": "Shock Whip",
+    "zh": "Shock Whip"
+  },
+  "item:10219": {
+    "en": "Reito",
+    "zh": "Reito"
+  },
+  "item:12004": {
+    "en": "Idaten’s Shoes",
+    "zh": "Idaten’s Shoes"
+  },
+  "item:10303": {
+    "en": "Fujin’s Bow",
+    "zh": "Fujin’s Bow"
+  },
+  "item:12043": {
+    "en": "Fujin’s Fuda",
+    "zh": "Fujin’s Fuda"
+  },
+  "item:10504": {
+    "en": "Knightly Tactics",
+    "zh": "Knightly Tactics"
+  },
+  "item:10224": {
+    "en": "Kikokusenga",
+    "zh": "Kikokusenga"
+  },
+  "item:10425": {
+    "en": "Oni Maul",
+    "zh": "Oni Maul"
+  },
+  "item:10521": {
+    "en": "Anatomy of Magic",
+    "zh": "Anatomy of Magic"
+  },
+  "item:10503": {
+    "en": "Master’s Grimoire",
+    "zh": "Master’s Grimoire"
+  },
+  "item:10502": {
+    "en": "Adept’s Grimoire",
+    "zh": "Adept’s Grimoire"
+  },
+  "item:10501": {
+    "en": "Disciple’s Grimoire",
+    "zh": "Disciple’s Grimoire"
+  },
+  "item:12003": {
+    "en": "Mage’s Glasses",
+    "zh": "Mage’s Glasses"
+  },
+  "item:11502": {
+    "en": "Sorcerer’s Habit",
+    "zh": "Sorcerer’s Habit"
+  },
+  "item:12036": {
+    "en": "Mage’s Shard",
+    "zh": "Mage’s Shard"
+  },
+  "item:12037": {
+    "en": "Mage’s Stone",
+    "zh": "Mage’s Stone"
+  },
+  "item:10327": {
+    "en": "Spellblade’s Bow",
+    "zh": "Spellblade’s Bow"
+  },
+  "item:10809": {
+    "en": "Whale Whisker",
+    "zh": "Whale Whisker"
+  },
+  "item:10326": {
+    "en": "Bow of the Hawk",
+    "zh": "Bow of the Hawk"
+  },
+  "item:11517": {
+    "en": "Black Robe",
+    "zh": "Black Robe"
+  },
+  "item:11002": {
+    "en": "Black Garb",
+    "zh": "Black Garb"
+  },
+  "enemy:13080": {
+    "en": "Aileen",
+    "zh": "Aileen"
+  },
+  "unit:13080": {
+    "en": "Aileen",
+    "zh": "Aileen"
+  },
+  "enemy:13017": {
+    "en": "Amelia",
+    "zh": "Amelia"
+  },
+  "unit:13017": {
+    "en": "Amelia",
+    "zh": "Amelia"
+  },
+  "enemy:13051": {
+    "en": "Ayaka",
+    "zh": "Ayaka"
+  },
+  "unit:13051": {
+    "en": "Ayaka",
+    "zh": "Ayaka"
+  },
+  "enemy:10452": {
+    "en": "Ifrit",
+    "zh": "Ifrit"
+  },
+  "unit:10452": {
+    "en": "Ifrit",
+    "zh": "Ifrit"
+  },
+  "enemy:13100": {
+    "en": "Warrior of Light",
+    "zh": "Warrior of Light"
+  },
+  "unit:13100": {
+    "en": "Warrior of Light",
+    "zh": "Warrior of Light"
+  },
+  "enemy:13102": {
+    "en": "Onion Knight",
+    "zh": "Onion Knight"
+  },
+  "unit:13102": {
+    "en": "Onion Knight",
+    "zh": "Onion Knight"
+  },
+  "enemy:10456": {
+    "en": "Odin",
+    "zh": "Odin"
+  },
+  "unit:10456": {
+    "en": "Odin",
+    "zh": "Odin"
+  },
+  "enemy:10455": {
+    "en": "Carbuncle",
+    "zh": "Carbuncle"
+  },
+  "unit:10455": {
+    "en": "Carbuncle",
+    "zh": "Carbuncle"
+  },
+  "enemy:13033": {
+    "en": "Camille",
+    "zh": "Camille"
+  },
+  "unit:13033": {
+    "en": "Camille",
+    "zh": "Camille"
+  },
+  "enemy:13130": {
+    "en": "Clive",
+    "zh": "Clive"
+  },
+  "unit:13130": {
+    "en": "Clive",
+    "zh": "Clive"
+  },
+  "enemy:13110": {
+    "en": "Cloud",
+    "zh": "Cloud"
+  },
+  "unit:13110": {
+    "en": "Cloud",
+    "zh": "Cloud"
+  },
+  "enemy:1008": {
+    "en": "Sakura",
+    "zh": "Sakura"
+  },
+  "unit:1008": {
+    "en": "Sakura",
+    "zh": "Sakura"
+  },
+  "enemy:13060": {
+    "en": "Charlotte",
+    "zh": "Charlotte"
+  },
+  "unit:13060": {
+    "en": "Charlotte",
+    "zh": "Charlotte"
+  },
+  "enemy:13123": {
+    "en": "Shantotto",
+    "zh": "Shantotto"
+  },
+  "unit:13123": {
+    "en": "Shantotto",
+    "zh": "Shantotto"
+  },
+  "enemy:10453": {
+    "en": "Shiva",
+    "zh": "Shiva"
+  },
+  "unit:10453": {
+    "en": "Shiva",
+    "zh": "Shiva"
+  },
+  "enemy:1007": {
+    "en": "Jake",
+    "zh": "Jake"
+  },
+  "unit:1007": {
+    "en": "Jake",
+    "zh": "Jake"
+  },
+  "enemy:13118": {
+    "en": "Zidane",
+    "zh": "Zidane"
+  },
+  "unit:13118": {
+    "en": "Zidane",
+    "zh": "Zidane"
+  },
+  "enemy:13116": {
+    "en": "Squall",
+    "zh": "Squall"
+  },
+  "unit:13116": {
+    "en": "Squall",
+    "zh": "Squall"
+  },
+  "enemy:10451": {
+    "en": "Siren",
+    "zh": "Siren"
+  },
+  "unit:10451": {
+    "en": "Siren",
+    "zh": "Siren"
+  },
+  "enemy:13103": {
+    "en": "Cecil",
+    "zh": "Cecil"
+  },
+  "unit:13103": {
+    "en": "Cecil",
+    "zh": "Cecil"
+  },
+  "enemy:13113": {
+    "en": "Sephiroth",
+    "zh": "Sephiroth"
+  },
+  "unit:13113": {
+    "en": "Sephiroth",
+    "zh": "Sephiroth"
+  },
+  "enemy:10457": {
+    "en": "Titan",
+    "zh": "Titan"
+  },
+  "unit:10457": {
+    "en": "Titan",
+    "zh": "Titan"
+  },
+  "enemy:13108": {
+    "en": "Terra",
+    "zh": "Terra"
+  },
+  "unit:13108": {
+    "en": "Terra",
+    "zh": "Terra"
+  },
+  "enemy:13120": {
+    "en": "Tidus",
+    "zh": "Tidus"
+  },
+  "unit:13120": {
+    "en": "Tidus",
+    "zh": "Tidus"
+  },
+  "enemy:13024": {
+    "en": "Tronn",
+    "zh": "Tronn"
+  },
+  "unit:13024": {
+    "en": "Tronn",
+    "zh": "Tronn"
+  },
+  "enemy:1005": {
+    "en": "Nichol",
+    "zh": "Nichol"
+  },
+  "unit:1005": {
+    "en": "Nichol",
+    "zh": "Nichol"
+  },
+  "enemy:13128": {
+    "en": "Noctis",
+    "zh": "Noctis"
+  },
+  "unit:13128": {
+    "en": "Noctis",
+    "zh": "Noctis"
+  },
+  "enemy:13105": {
+    "en": "Bartz",
+    "zh": "Bartz"
+  },
+  "unit:13105": {
+    "en": "Bartz",
+    "zh": "Bartz"
+  },
+  "enemy:10458": {
+    "en": "Bahamut",
+    "zh": "Bahamut"
+  },
+  "unit:10458": {
+    "en": "Bahamut",
+    "zh": "Bahamut"
+  },
+  "enemy:13027": {
+    "en": "Victoria",
+    "zh": "Victoria"
+  },
+  "unit:13027": {
+    "en": "Victoria",
+    "zh": "Victoria"
+  },
+  "enemy:1003": {
+    "en": "Fina",
+    "zh": "Fina"
+  },
+  "unit:1003": {
+    "en": "Fina",
+    "zh": "Fina"
+  },
+  "enemy:13101": {
+    "en": "Firion",
+    "zh": "Firion"
+  },
+  "unit:13101": {
+    "en": "Firion",
+    "zh": "Firion"
+  },
+  "enemy:13127": {
+    "en": "Y’shtola",
+    "zh": "Y’shtola"
+  },
+  "unit:13127": {
+    "en": "Y’shtola",
+    "zh": "Y’shtola"
+  },
+  "enemy:13125": {
+    "en": "Lightning",
+    "zh": "Lightning"
+  },
+  "unit:13125": {
+    "en": "Lightning",
+    "zh": "Lightning"
+  },
+  "enemy:1002": {
+    "en": "Lasswell",
+    "zh": "Lasswell"
+  },
+  "unit:1002": {
+    "en": "Lasswell",
+    "zh": "Lasswell"
+  },
+  "enemy:10454": {
+    "en": "Ramuh",
+    "zh": "Ramuh"
+  },
+  "unit:10454": {
+    "en": "Ramuh",
+    "zh": "Ramuh"
+  },
+  "enemy:1004": {
+    "en": "Lid",
+    "zh": "Lid"
+  },
+  "unit:1004": {
+    "en": "Lid",
+    "zh": "Lid"
+  },
+  "enemy:10459": {
+    "en": "Leviathan",
+    "zh": "Leviathan"
+  },
+  "unit:10459": {
+    "en": "Leviathan",
+    "zh": "Leviathan"
+  },
+  "enemy:13045": {
+    "en": "Leah",
+    "zh": "Leah"
+  },
+  "unit:13045": {
+    "en": "Leah",
+    "zh": "Leah"
+  },
+  "enemy:1001": {
+    "en": "Rain",
+    "zh": "Rain"
+  },
+  "unit:1001": {
+    "en": "Rain",
+    "zh": "Rain"
+  },
+  "enemy:13124": {
+    "en": "Vaan",
+    "zh": "Vaan"
+  },
+  "unit:13124": {
+    "en": "Vaan",
+    "zh": "Vaan"
+  },
+  "enemy:13062": {
+    "en": "Wilhelm",
+    "zh": "Wilhelm"
+  },
+  "unit:13062": {
+    "en": "Wilhelm",
+    "zh": "Wilhelm"
+  },
+  "enemy:1006": {
+    "en": "Archwitch Fina",
+    "zh": "Archwitch Fina"
+  },
+  "unit:1006": {
+    "en": "Archwitch Fina",
+    "zh": "Archwitch Fina"
+  },
+  "item:20016": {
+    "en": "Adamantite",
+    "zh": "Adamantite"
+  },
+  "item:29002": {
+    "en": "Gladiator’s Proof of Victory",
+    "zh": "Gladiator’s Proof of Victory"
+  },
+  "item:29001": {
+    "en": "Brawler’s Proof of Victory",
+    "zh": "Brawler’s Proof of Victory"
+  },
+  "item:29000": {
+    "en": "Fledgling’s Proof of Victory",
+    "zh": "Fledgling’s Proof of Victory"
+  },
+  "item:29003": {
+    "en": "Champion’s Proof of Victory",
+    "zh": "Champion’s Proof of Victory"
+  },
+  "item:20029": {
+    "en": "Dario’s Letter",
+    "zh": "Dario’s Letter"
+  },
+  "item:20028": {
+    "en": "Portrait of Dario",
+    "zh": "Portrait of Dario"
+  },
+  "item:20030": {
+    "en": "Ruby Fragment",
+    "zh": "Ruby Fragment"
+  },
+  "item:27007": {
+    "en": "Resonance Stone",
+    "zh": "Resonance Stone"
+  },
+  "item:20019": {
+    "en": "Dungeon Key",
+    "zh": "Dungeon Key"
+  },
+  "item:20008": {
+    "en": "Tunnel Key",
+    "zh": "Tunnel Key"
+  },
+  "item:20020": {
+    "en": "Dew of Reprieve",
+    "zh": "Dew of Reprieve"
+  },
+  "item:20033": {
+    "en": "Cabin Key",
+    "zh": "Cabin Key"
+  },
+  "item:20032": {
+    "en": "Broken Sword Blade",
+    "zh": "Broken Sword Blade"
+  },
+  "item:20031": {
+    "en": "Broken Sword Hilt",
+    "zh": "Broken Sword Hilt"
+  },
+  "item:20027": {
+    "en": "Super Salubrious Salad Stem",
+    "zh": "Super Salubrious Salad Stem"
+  },
+  "item:20024": {
+    "en": "Rushroom",
+    "zh": "Rushroom"
+  },
+  "item:20025": {
+    "en": "Pure Water",
+    "zh": "Pure Water"
+  },
+  "item:20023": {
+    "en": "Viscus Vitae",
+    "zh": "Viscus Vitae"
+  },
+  "item:20021": {
+    "en": "Throne Room Key",
+    "zh": "Throne Room Key"
+  },
+  "item:20005": {
+    "en": "White Jade Stone",
+    "zh": "White Jade Stone"
+  },
+  "item:25004": {
+    "en": "Tablet Shard",
+    "zh": "Tablet Shard"
+  },
+  "item:20009": {
+    "en": "Level 1 Lab Key Card",
+    "zh": "Level 1 Lab Key Card"
+  },
+  "item:20010": {
+    "en": "Level 2 Lab Key Card",
+    "zh": "Level 2 Lab Key Card"
+  },
+  "item:20011": {
+    "en": "Level 3 Lab Key Card",
+    "zh": "Level 3 Lab Key Card"
+  },
+  "item:20026": {
+    "en": "Convalescence Draught",
+    "zh": "Convalescence Draught"
+  },
+  "item:27008": {
+    "en": "High-Power Generator",
+    "zh": "High-Power Generator"
+  },
+  "item:29510": {
+    "en": "Archwitch’s Grimoire",
+    "zh": "Archwitch’s Grimoire"
+  },
+  "item:27006": {
+    "en": "Magi-tenna",
+    "zh": "Magi-tenna"
+  },
+  "item:29500": {
+    "en": "Magitek Armor Key",
+    "zh": "Magitek Armor Key"
+  },
+  "item:29520": {
+    "en": "Magitek Airship Passkey",
+    "zh": "Magitek Airship Passkey"
+  },
+  "item:25001": {
+    "en": "Magicite",
+    "zh": "Magicite"
+  },
+  "item:25000": {
+    "en": "Magicite Shard",
+    "zh": "Magicite Shard"
+  },
+  "item:25002": {
+    "en": "Magicite Cryst",
+    "zh": "Magicite Cryst"
+  },
+  "item:20007": {
+    "en": "Magic Tome",
+    "zh": "Magic Tome"
+  },
+  "item:20006": {
+    "en": "Black Jade Stone",
+    "zh": "Black Jade Stone"
+  },
+  "vision:13080": {
+    "en": "Aileen",
+    "zh": "Aileen"
+  },
+  "vision:13017": {
+    "en": "Amelia",
+    "zh": "Amelia"
+  },
+  "vision:13051": {
+    "en": "Ayaka",
+    "zh": "Ayaka"
+  },
+  "vision:13100": {
+    "en": "Warrior of Light",
+    "zh": "Warrior of Light"
+  },
+  "vision:13102": {
+    "en": "Onion Knight",
+    "zh": "Onion Knight"
+  },
+  "vision:13033": {
+    "en": "Camille",
+    "zh": "Camille"
+  },
+  "vision:13130": {
+    "en": "Clive",
+    "zh": "Clive"
+  },
+  "vision:13110": {
+    "en": "Cloud",
+    "zh": "Cloud"
+  },
+  "vision:13060": {
+    "en": "Charlotte",
+    "zh": "Charlotte"
+  },
+  "vision:13123": {
+    "en": "Shantotto",
+    "zh": "Shantotto"
+  },
+  "vision:13118": {
+    "en": "Zidane",
+    "zh": "Zidane"
+  },
+  "vision:13116": {
+    "en": "Squall",
+    "zh": "Squall"
+  },
+  "vision:13103": {
+    "en": "Cecil",
+    "zh": "Cecil"
+  },
+  "vision:13113": {
+    "en": "Sephiroth",
+    "zh": "Sephiroth"
+  },
+  "vision:13108": {
+    "en": "Terra",
+    "zh": "Terra"
+  },
+  "vision:13120": {
+    "en": "Tidus",
+    "zh": "Tidus"
+  },
+  "vision:13024": {
+    "en": "Tronn",
+    "zh": "Tronn"
+  },
+  "vision:13128": {
+    "en": "Noctis",
+    "zh": "Noctis"
+  },
+  "vision:13105": {
+    "en": "Bartz",
+    "zh": "Bartz"
+  },
+  "vision:13027": {
+    "en": "Victoria",
+    "zh": "Victoria"
+  },
+  "vision:13101": {
+    "en": "Firion",
+    "zh": "Firion"
+  },
+  "vision:13127": {
+    "en": "Y’shtola",
+    "zh": "Y’shtola"
+  },
+  "vision:13125": {
+    "en": "Lightning",
+    "zh": "Lightning"
+  },
+  "vision:13045": {
+    "en": "Leah",
+    "zh": "Leah"
+  },
+  "vision:13124": {
+    "en": "Vaan",
+    "zh": "Vaan"
+  },
+  "vision:13062": {
+    "en": "Wilhelm",
+    "zh": "Wilhelm"
+  },
+  "item:20018": {
+    "en": "牢屋の鍵",
+    "zh": "牢屋の鍵"
+  },
+  "item:30000": {
+    "en": "Tome of Sages",
+    "zh": "Tome of Sages"
+  },
+  "item:30001": {
+    "en": "Exodus",
+    "zh": "Exodus"
+  },
+  "item:30002": {
+    "en": "Choboco Saddle",
+    "zh": "Choboco Saddle"
+  },
+  "item:30003": {
+    "en": "Trick Coin",
+    "zh": "Trick Coin"
+  },
+  "item:30004": {
+    "en": "Sorcerer's Cape",
+    "zh": "Sorcerer's Cape"
+  },
+  "item:30005": {
+    "en": "Lordly Robes",
+    "zh": "Lordly Robes"
+  },
+  "item:30006": {
+    "en": "Premium Card",
+    "zh": "Premium Card"
+  },
+  "item:30007": {
+    "en": "Transporter",
+    "zh": "Transporter"
+  },
+  "item:30008": {
+    "en": "Soul Jade",
+    "zh": "Soul Jade"
+  },
+  "item:30009": {
+    "en": "Runic Bracer",
+    "zh": "Runic Bracer"
+  },
+  "item:30010": {
+    "en": "Bandit Cuff Links",
+    "zh": "Bandit Cuff Links"
+  },
+  "item:30011": {
+    "en": "Chocobo Saddle-Bike",
+    "zh": "Chocobo Saddle-Bike"
+  },
+  "item:30013": {
+    "en": "[TEMP] Airship skin",
+    "zh": "[TEMP] Airship skin"
+  },
+  "item:30014": {
+    "en": "[TEMP] EXP Suppressor",
+    "zh": "[TEMP] EXP Suppressor"
+  },
+  "item:30012": {
+    "en": "[TEMP] Increase movement speed",
+    "zh": "[TEMP] Increase movement speed"
+  },
+  "item:30015": {
+    "en": "Fury Ring",
+    "zh": "Fury Ring"
+  },
+  "item:30016": {
+    "en": "[TEMP] Enemy lure",
+    "zh": "[TEMP] Enemy lure"
+  },
+  "item:30017": {
+    "en": "Cursed Ring",
+    "zh": "Cursed Ring"
+  },
+  "item:30018": {
+    "en": "Sage's Scroll",
+    "zh": "Sage's Scroll"
+  },
+  "map:1000": {
+    "en": "World Map",
+    "zh": "World Map"
+  },
+  "map:5010": {
+    "en": "Battlefield",
+    "zh": "Battlefield"
+  },
+  "map:10040": {
+    "en": "Battlefield",
+    "zh": "Battlefield"
+  },
+  "map:10041": {
+    "en": "Battlefield",
+    "zh": "Battlefield"
+  },
+  "map:10045": {
+    "en": "Grandport Harbor",
+    "zh": "Grandport Harbor"
+  },
+  "map:20000": {
+    "en": "Airship",
+    "zh": "Airship"
+  },
+  "map:2000": {
+    "en": "Town of Mitra",
+    "zh": "Town of Mitra"
+  },
+  "map:2010": {
+    "en": "Grandshelt, the Royal Capital",
+    "zh": "Grandshelt, the Royal Capital"
+  },
+  "map:2011": {
+    "en": "Grandshelt, the Royal Capital",
+    "zh": "Grandshelt, the Royal Capital"
+  },
+  "map:2012": {
+    "en": "Grandshelt Castle",
+    "zh": "Grandshelt Castle"
+  },
+  "map:2013": {
+    "en": "Grandshelt, the Royal Capital",
+    "zh": "Grandshelt, the Royal Capital"
+  },
+  "map:2014": {
+    "en": "Grandshelt Castle",
+    "zh": "Grandshelt Castle"
+  },
+  "map:2015": {
+    "en": "Commercial District",
+    "zh": "Commercial District"
+  },
+  "map:2016": {
+    "en": "Colosseum",
+    "zh": "Colosseum"
+  },
+  "map:2017": {
+    "en": "Grandshelt, the Royal Capital",
+    "zh": "Grandshelt, the Royal Capital"
+  },
+  "map:3000": {
+    "en": "Earth Shrine",
+    "zh": "Earth Shrine"
+  },
+  "map:3001": {
+    "en": "Earth Shrine",
+    "zh": "Earth Shrine"
+  },
+  "map:3020": {
+    "en": "Grandshelt Castle",
+    "zh": "Grandshelt Castle"
+  },
+  "map:5198": {
+    "en": "Colosseum",
+    "zh": "Colosseum"
+  },
+  "map:10001": {
+    "en": "Lost Cave",
+    "zh": "Lost Cave"
+  },
+  "map:10020": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10216": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10218": {
+    "en": "Whirlpool Hollow",
+    "zh": "Whirlpool Hollow"
+  },
+  "map:10236": {
+    "en": "Sanctum of Clive",
+    "zh": "Sanctum of Clive"
+  },
+  "map:10237": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:2020": {
+    "en": "Village of Kol",
+    "zh": "Village of Kol"
+  },
+  "map:2030": {
+    "en": "Grandport Harbor",
+    "zh": "Grandport Harbor"
+  },
+  "map:2031": {
+    "en": "Oblivion Palace",
+    "zh": "Oblivion Palace"
+  },
+  "map:3030": {
+    "en": "Siren’s Tower",
+    "zh": "Siren’s Tower"
+  },
+  "map:3031": {
+    "en": "Cavern of Swords",
+    "zh": "Cavern of Swords"
+  },
+  "map:10051": {
+    "en": "Marauder Cave",
+    "zh": "Marauder Cave"
+  },
+  "map:10203": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10208": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10223": {
+    "en": "Sanctum of WoL",
+    "zh": "Sanctum of WoL"
+  },
+  "map:10228": {
+    "en": "Sanctum of Cloud",
+    "zh": "Sanctum of Cloud"
+  },
+  "map:2040": {
+    "en": "Town of Felicitas",
+    "zh": "Town of Felicitas"
+  },
+  "map:3040": {
+    "en": "Kolobos Ruins",
+    "zh": "Kolobos Ruins"
+  },
+  "map:10201": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10221": {
+    "en": "Sanctum of Terra",
+    "zh": "Sanctum of Terra"
+  },
+  "map:2050": {
+    "en": "Dwarven Forge",
+    "zh": "Dwarven Forge"
+  },
+  "map:2060": {
+    "en": "Dilmagia, the Machinopolis",
+    "zh": "Dilmagia, the Machinopolis"
+  },
+  "map:2061": {
+    "en": "Shipyard",
+    "zh": "Shipyard"
+  },
+  "map:3050": {
+    "en": "Mt. Thunderclap",
+    "zh": "Mt. Thunderclap"
+  },
+  "map:3060": {
+    "en": "Mobliz Shipyard",
+    "zh": "Mobliz Shipyard"
+  },
+  "map:3061": {
+    "en": "Mobliz Shipyard",
+    "zh": "Mobliz Shipyard"
+  },
+  "map:3062": {
+    "en": "Mobliz Shipyard",
+    "zh": "Mobliz Shipyard"
+  },
+  "map:3070": {
+    "en": "Wind Shrine",
+    "zh": "Wind Shrine"
+  },
+  "map:3290": {
+    "en": "Chamber of Arms",
+    "zh": "Chamber of Arms"
+  },
+  "map:5156": {
+    "en": "Research Center Ruins",
+    "zh": "Research Center Ruins"
+  },
+  "map:10052": {
+    "en": "Shoggoth Cave",
+    "zh": "Shoggoth Cave"
+  },
+  "map:10202": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10206": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10207": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10222": {
+    "en": "Sanctum of Noctis",
+    "zh": "Sanctum of Noctis"
+  },
+  "map:10226": {
+    "en": "Sanctum of Zidane",
+    "zh": "Sanctum of Zidane"
+  },
+  "map:10227": {
+    "en": "Sanctum of Onion Knight",
+    "zh": "Sanctum of Onion Knight"
+  },
+  "map:2070": {
+    "en": "Olderion, the Aquapolis",
+    "zh": "Olderion, the Aquapolis"
+  },
+  "map:2080": {
+    "en": "Lake Dorr",
+    "zh": "Lake Dorr"
+  },
+  "map:2081": {
+    "en": "Lake Dorr",
+    "zh": "Lake Dorr"
+  },
+  "map:2090": {
+    "en": "Town of Amore",
+    "zh": "Town of Amore"
+  },
+  "map:3080": {
+    "en": "Cave of Waters",
+    "zh": "Cave of Waters"
+  },
+  "map:3090": {
+    "en": "Old Town, Olderion",
+    "zh": "Old Town, Olderion"
+  },
+  "map:3091": {
+    "en": "Old Town, Olderion",
+    "zh": "Old Town, Olderion"
+  },
+  "map:3100": {
+    "en": "Waterfall Way",
+    "zh": "Waterfall Way"
+  },
+  "map:3110": {
+    "en": "Water Shrine",
+    "zh": "Water Shrine"
+  },
+  "map:3111": {
+    "en": "Ruby Cave",
+    "zh": "Ruby Cave"
+  },
+  "map:10053": {
+    "en": "Rukh Cave",
+    "zh": "Rukh Cave"
+  },
+  "map:10054": {
+    "en": "Mindflayer Cave",
+    "zh": "Mindflayer Cave"
+  },
+  "map:10059": {
+    "en": "Malboro Varietas Cave",
+    "zh": "Malboro Varietas Cave"
+  },
+  "map:10200": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10205": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10209": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10220": {
+    "en": "Sanctum of Tidus",
+    "zh": "Sanctum of Tidus"
+  },
+  "map:10225": {
+    "en": "Sanctum of Firion",
+    "zh": "Sanctum of Firion"
+  },
+  "map:10229": {
+    "en": "Sanctum of Squall",
+    "zh": "Sanctum of Squall"
+  },
+  "map:11000": {
+    "en": "Secluded Dwelling",
+    "zh": "Secluded Dwelling"
+  },
+  "map:2100": {
+    "en": "Mozul Station",
+    "zh": "Mozul Station"
+  },
+  "map:2101": {
+    "en": "Kellis Station",
+    "zh": "Kellis Station"
+  },
+  "map:2102": {
+    "en": "Capital Station",
+    "zh": "Capital Station"
+  },
+  "map:2110": {
+    "en": "Zoldaad, the Imperial Capital",
+    "zh": "Zoldaad, the Imperial Capital"
+  },
+  "map:2111": {
+    "en": "Zoldaad Castle Plaza",
+    "zh": "Zoldaad Castle Plaza"
+  },
+  "map:2112": {
+    "en": "Capital Market",
+    "zh": "Capital Market"
+  },
+  "map:2113": {
+    "en": "Imperial Residences",
+    "zh": "Imperial Residences"
+  },
+  "map:2114": {
+    "en": "Slums",
+    "zh": "Slums"
+  },
+  "map:2120": {
+    "en": "Rebel Hideout",
+    "zh": "Rebel Hideout"
+  },
+  "map:3120": {
+    "en": "Timber Tracks",
+    "zh": "Timber Tracks"
+  },
+  "map:3121": {
+    "en": "Phantom Train",
+    "zh": "Phantom Train"
+  },
+  "map:3130": {
+    "en": "Weapons Factory",
+    "zh": "Weapons Factory"
+  },
+  "map:3131": {
+    "en": "Weapons Factory",
+    "zh": "Weapons Factory"
+  },
+  "map:3140": {
+    "en": "Underground Tunnel",
+    "zh": "Underground Tunnel"
+  },
+  "map:3150": {
+    "en": "Dungeon",
+    "zh": "Dungeon"
+  },
+  "map:3160": {
+    "en": "Zoldaad Castle",
+    "zh": "Zoldaad Castle"
+  },
+  "map:5100": {
+    "en": "Zoldaad Castle",
+    "zh": "Zoldaad Castle"
+  },
+  "map:5140": {
+    "en": "Airship",
+    "zh": "Airship"
+  },
+  "map:10030": {
+    "en": "Infernal Hollow",
+    "zh": "Infernal Hollow"
+  },
+  "map:10031": {
+    "en": "Quarry Cave",
+    "zh": "Quarry Cave"
+  },
+  "map:10055": {
+    "en": "Gogmagog Cave",
+    "zh": "Gogmagog Cave"
+  },
+  "map:10056": {
+    "en": "Pyroviper Cave",
+    "zh": "Pyroviper Cave"
+  },
+  "map:10210": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10211": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10212": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10230": {
+    "en": "Sanctum of Shantotto",
+    "zh": "Sanctum of Shantotto"
+  },
+  "map:10231": {
+    "en": "Sanctum of Cecil",
+    "zh": "Sanctum of Cecil"
+  },
+  "map:10232": {
+    "en": "Sanctum of Y’shtola",
+    "zh": "Sanctum of Y’shtola"
+  },
+  "map:2130": {
+    "en": "Mysidia, the Magiapolis",
+    "zh": "Mysidia, the Magiapolis"
+  },
+  "map:2140": {
+    "en": "Village of Sunioo",
+    "zh": "Village of Sunioo"
+  },
+  "map:3180": {
+    "en": "Nameless Ruins",
+    "zh": "Nameless Ruins"
+  },
+  "map:3190": {
+    "en": "Arcane Library",
+    "zh": "Arcane Library"
+  },
+  "map:3200": {
+    "en": "Tower of Mysidia",
+    "zh": "Tower of Mysidia"
+  },
+  "map:3210": {
+    "en": "Fina’s Psyche",
+    "zh": "Fina’s Psyche"
+  },
+  "map:3211": {
+    "en": "Fina’s Psyche",
+    "zh": "Fina’s Psyche"
+  },
+  "map:3212": {
+    "en": "Fina’s Psyche",
+    "zh": "Fina’s Psyche"
+  },
+  "map:3213": {
+    "en": "Victoria’s Shrine",
+    "zh": "Victoria’s Shrine"
+  },
+  "map:5195": {
+    "en": "Fina’s Psyche",
+    "zh": "Fina’s Psyche"
+  },
+  "map:5197": {
+    "en": "Mysidia, the Magiapolis",
+    "zh": "Mysidia, the Magiapolis"
+  },
+  "map:10057": {
+    "en": "Salome Cave",
+    "zh": "Salome Cave"
+  },
+  "map:10058": {
+    "en": "Jotunn Cave",
+    "zh": "Jotunn Cave"
+  },
+  "map:10213": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10214": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10215": {
+    "en": "Sanctum of Light",
+    "zh": "Sanctum of Light"
+  },
+  "map:10233": {
+    "en": "Sanctum of Bartz",
+    "zh": "Sanctum of Bartz"
+  },
+  "map:10234": {
+    "en": "Sanctum of Lightning",
+    "zh": "Sanctum of Lightning"
+  },
+  "map:10235": {
+    "en": "Sanctum of Vaan",
+    "zh": "Sanctum of Vaan"
+  },
+  "map:2150": {
+    "en": "Gaberada, the Undertown",
+    "zh": "Gaberada, the Undertown"
+  },
+  "map:2160": {
+    "en": "Town of Duggle",
+    "zh": "Town of Duggle"
+  },
+  "map:3220": {
+    "en": "Research Center Ruins",
+    "zh": "Research Center Ruins"
+  },
+  "map:3230": {
+    "en": "Rugged Mountain Path",
+    "zh": "Rugged Mountain Path"
+  },
+  "map:3240": {
+    "en": "Gronoa Shrine",
+    "zh": "Gronoa Shrine"
+  },
+  "map:3250": {
+    "en": "Sanctissimus Shrine",
+    "zh": "Sanctissimus Shrine"
+  },
+  "map:10060": {
+    "en": "Bladerain Stele",
+    "zh": "Bladerain Stele"
+  },
+  "map:10062": {
+    "en": "Catacumba Cave",
+    "zh": "Catacumba Cave"
+  },
+  "map:10063": {
+    "en": "Necromonarch Cave",
+    "zh": "Necromonarch Cave"
+  },
+  "map:10064": {
+    "en": "Humbaba Cave",
+    "zh": "Humbaba Cave"
+  },
+  "map:2170": {
+    "en": "Town of Sian",
+    "zh": "Town of Sian"
+  },
+  "map:2180": {
+    "en": "Lake Ryusei",
+    "zh": "Lake Ryusei"
+  },
+  "map:2190": {
+    "en": "Abandoned Cabin",
+    "zh": "Abandoned Cabin"
+  },
+  "map:3010": {
+    "en": "Dragon’s Maw",
+    "zh": "Dragon’s Maw"
+  },
+  "map:3260": {
+    "en": "Mt. Reizan",
+    "zh": "Mt. Reizan"
+  },
+  "map:3270": {
+    "en": "Wandering Lands",
+    "zh": "Wandering Lands"
+  },
+  "map:3271": {
+    "en": "Forest Path",
+    "zh": "Forest Path"
+  },
+  "map:3272": {
+    "en": "Wandering Lands",
+    "zh": "Wandering Lands"
+  },
+  "map:5180": {
+    "en": "Wandering Lands",
+    "zh": "Wandering Lands"
+  },
+  "map:5181": {
+    "en": "Wandering Lands",
+    "zh": "Wandering Lands"
+  },
+  "map:10061": {
+    "en": "Tartarosaurus Cave",
+    "zh": "Tartarosaurus Cave"
+  },
+  "map:10065": {
+    "en": "Titanoraidos Cave",
+    "zh": "Titanoraidos Cave"
+  },
+  "map:10066": {
+    "en": "Malboro Menace Cave",
+    "zh": "Malboro Menace Cave"
+  },
+  "map:3280": {
+    "en": "Crystal Tower",
+    "zh": "Crystal Tower"
+  },
+  "map:3281": {
+    "en": "Crystal Tower",
+    "zh": "Crystal Tower"
+  },
+  "map:5150": {
+    "en": "Airship",
+    "zh": "Airship"
+  },
+  "map:5152": {
+    "en": "Airship",
+    "zh": "Airship"
+  },
+  "map:5153": {
+    "en": "Crystal Tower",
+    "zh": "Crystal Tower"
+  },
+  "map:5154": {
+    "en": "Crystal Tower",
+    "zh": "Crystal Tower"
+  },
+  "map:5190": {
+    "en": "Crystal Tower",
+    "zh": "Crystal Tower"
+  },
+  "map:5191": {
+    "en": "Crystal Tower",
+    "zh": "Crystal Tower"
+  },
+  "map:5192": {
+    "en": "Lake Dorr",
+    "zh": "Lake Dorr"
+  }
+}

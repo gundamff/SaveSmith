@@ -26,7 +26,7 @@
 - **神器**：仅当存档已有 `artifactList`（未获得神器前可能缺失）
 - **快捷动作**：Gil 拉满、地图全知、全部 Libra、商店限购重置、重置已开宝箱
 
-名称表：`catalog/names.json`（可用 `scripts/ffr-derive-catalog.mts` 生成；空表时显示 `#id`）。
+名称表：`catalog/names.json`（约 800+ 条英名；界面显示 `名称 (#id)`。中文暂与英文相同。可用 `scripts/ffr-derive-catalog.mts` 再生）。
 
 ## 注意
 

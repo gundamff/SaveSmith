@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { t } from '@host/i18n'
+import { t, locale } from '@host/i18n'
+import { catalogLabel } from '../catalog/names'
 import { setVisionAwakening, setVisionSynchro } from '../model/saveModel'
 import { useFfrEditor } from './inject'
 
@@ -8,9 +9,11 @@ const editor = useFfrEditor()
 
 const rows = computed(() => {
   void editor.rev
+  const loc = locale.value === 'zh' ? 'zh' : 'en'
   return editor.save.visions.map((v) => ({
     index: v.index,
     id: v.id,
+    name: catalogLabel('vision', v.id, loc),
     awakeningPoint: v.awakeningPoint,
     synchroSum: v.synchro.reduce((a, s) => a + s.value, 0),
     synchro: v.synchro.map((s) => ({ ...s }))
@@ -34,7 +37,7 @@ function maxSynchro(index: number) {
 <template>
   <div class="ffr-visions" :data-ss-rev="editor.rev">
     <el-table :data="rows" stripe height="480">
-      <el-table-column prop="id" :label="t('ffr.visions.id')" width="100" />
+      <el-table-column prop="name" :label="t('ffr.visions.name')" min-width="140" />
       <el-table-column :label="t('ffr.visions.awakening')" width="140">
         <template #default="{ row }">
           <el-input-number

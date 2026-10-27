@@ -425,12 +425,13 @@ export const en: MessageTree = {
     },
     status: {
       unitId: 'Unit ID',
+      name: 'Name',
       experience: 'EXP',
       hp: 'HP',
       mp: 'MP',
-      weapon: 'Weapon ID',
-      armor: 'Armor ID',
-      vision: 'Vision ID'
+      weapon: 'Weapon',
+      armor: 'Armor',
+      vision: 'Vision'
     },
     items: {
       id: 'Item ID',
@@ -440,6 +441,7 @@ export const en: MessageTree = {
     },
     visions: {
       id: 'Vision ID',
+      name: 'Name',
       awakening: 'Awakening',
       synchroSum: 'Synchro sum',
       actions: 'Actions',
@@ -447,6 +449,7 @@ export const en: MessageTree = {
     },
     maps: {
       mapId: 'Map ID',
+      name: 'Name',
       known: 'Known',
       visited: 'Visited',
       cleared: 'Cleared'

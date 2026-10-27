@@ -423,12 +423,13 @@ export const zh: MessageTree = {
     },
     status: {
       unitId: '单位 ID',
+      name: '角色',
       experience: '经验',
       hp: 'HP',
       mp: 'MP',
-      weapon: '武器 ID',
-      armor: '防具 ID',
-      vision: '幻象 ID'
+      weapon: '武器',
+      armor: '防具',
+      vision: '幻象'
     },
     items: {
       id: '物品 ID',
@@ -438,6 +439,7 @@ export const zh: MessageTree = {
     },
     visions: {
       id: '幻象 ID',
+      name: '名称',
       awakening: '觉醒',
       synchroSum: '同步点合计',
       actions: '操作',
@@ -445,6 +447,7 @@ export const zh: MessageTree = {
     },
     maps: {
       mapId: '地图 ID',
+      name: '名称',
       known: '已知',
       visited: '已访问',
       cleared: '已通关'
