@@ -36,11 +36,12 @@ describe('phantom-blade-zero catalog API', () => {
     expect(getPbzItem('missing')).toBeUndefined()
   })
 
-  it('uses the requested language and falls back to the available translation', () => {
+  it('uses the requested language and avoids Chinese fallback in English UI', () => {
     const sample = getPbzItem('Weapon_Material_01')
     expect(sample).toBeDefined()
     expect(pbzItemName(sample!, 'zh')).toBe('铸造金属')
-    expect(pbzItemName(sample!, 'en')).toBe('铸造金属')
+    expect(pbzItemName(sample!, 'en')).toBe('Weapon Material 01')
+    expect(pbzItemName(getPbzItem('Item_Traversing')!, 'en')).toBe('Item Traversing')
 
     const englishOnly: PbzCatalogItem = {
       ...sample!,
@@ -48,6 +49,7 @@ describe('phantom-blade-zero catalog API', () => {
       en: 'Official English',
     }
     expect(pbzItemName(englishOnly, 'zh')).toBe('Official English')
+    expect(pbzItemName(englishOnly, 'en')).toBe('Official English')
   })
 
   it('localizes unknown items while preserving the raw ID', () => {

@@ -24,13 +24,21 @@ export function getPbzItem(id: string): PbzCatalogItem | undefined {
   return itemsById.get(id)
 }
 
+export function humanizePbzItemId(id: string): string {
+  return id.replace(/_/g, ' ').trim()
+}
+
 export function pbzItemName(
   item: PbzCatalogItem,
   language: 'zh' | 'en' = locale.value
 ): string {
-  return language === 'zh'
-    ? item.zh || item.en || `${t('pbz.resources.unknownItem')} (${item.id})`
-    : item.en || item.zh || `${t('pbz.resources.unknownItem')} (${item.id})`
+  if (language === 'zh') {
+    return item.zh || item.en || `${t('pbz.resources.unknownItem')} (${item.id})`
+  }
+  if (item.en) return item.en
+  // Build 26266538 ships no English strings for these keys; do not fall back to Chinese.
+  if (item.zh) return humanizePbzItemId(item.id)
+  return `${t('pbz.resources.unknownItem')} (${item.id})`
 }
 
 export function searchPbzItems(

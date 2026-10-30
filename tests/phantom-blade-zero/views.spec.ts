@@ -624,7 +624,7 @@ describe('PBZ item view runtime behavior', () => {
     const enRows = table.props.data as Array<{ name: string }>
 
     expect(enRows).not.toBe(zhRows)
-    expect(enRows[0]!.name).toBe('铸造金属')
+    expect(enRows[0]!.name).toBe('Weapon Material 01')
     expect(nodeText(root)).toContain('Add item')
   })
 

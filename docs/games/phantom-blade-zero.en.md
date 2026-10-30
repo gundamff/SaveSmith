@@ -27,7 +27,7 @@ The resources page keeps internal slot selection and splits inventory into two t
 - Material amounts are limited to `0..9999`; raising `CurrentAmount` above its old `MaxAmount` raises `MaxAmount` with it
 - Consumables currently include only the audited `Item_Traversing` (穿行符). Amounts may be edited or added. SaveSmith caps it at `0..99`; that is an application safety limit, not an official directory value
 - Adding an item that already exists increases its amount instead of creating a duplicate record
-- Names come from build `26266538` Simplified Chinese resources. This build's English resources contain no translations for these 28 item-name keys, so English UI falls back to Chinese names instead of inventing English ones
+- Names come from build `26266538` Simplified Chinese resources. This build's English resources contain no translations for these 28 item-name keys, so English UI shows readable IDs such as `Weapon Material 01` instead of inventing English copy or falling back to Chinese
 
 Threshold collectibles such as memory flowers, black-stone fragments, and killing-aura amber are unsupported, as are weapons, accessories, quest items, keys, story items, equipment levels, achievements, DLC, and settings saves.
 
