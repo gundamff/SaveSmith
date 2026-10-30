@@ -605,7 +605,8 @@ export const en: MessageTree = {
       current: 'Current',
       max: 'Historical max',
       target: 'Target',
-      materialName: 'Material {0}'
+      materialName: 'Material {0}',
+      unknownItem: 'Unknown item'
     }
   },
   error: {

@@ -116,6 +116,7 @@ const REQUIRED_KEYS = [
   'pbz.resources.max',
   'pbz.resources.target',
   'pbz.resources.materialName',
+  'pbz.resources.unknownItem',
   'error.PBZ_INVALID_BLOCK',
   'error.PBZ_AUTH_FAILED',
   'error.PBZ_INVALID_CONTAINER',

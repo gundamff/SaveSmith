@@ -599,7 +599,8 @@ export const zh: MessageTree = {
       current: '当前数量',
       max: '历史最大数量',
       target: '目标数量',
-      materialName: '材料 {0}'
+      materialName: '材料 {0}',
+      unknownItem: '未知物品'
     }
   },
   error: {

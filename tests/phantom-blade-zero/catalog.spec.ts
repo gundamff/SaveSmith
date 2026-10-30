@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it } from 'vitest'
 import {
   getPbzItem,
   pbzCatalog,
@@ -6,6 +6,11 @@ import {
   searchPbzItems,
   type PbzCatalogItem,
 } from '../../src/games/phantom-blade-zero/catalog'
+import { setLocale } from '../../src/host/i18n'
+
+afterEach(() => {
+  setLocale('zh')
+})
 
 describe('phantom-blade-zero catalog API', () => {
   it('exposes only the audited immutable catalog rows', () => {
@@ -43,6 +48,21 @@ describe('phantom-blade-zero catalog API', () => {
       en: 'Official English',
     }
     expect(pbzItemName(englishOnly, 'zh')).toBe('Official English')
+  })
+
+  it('localizes unknown items while preserving the raw ID', () => {
+    const unnamed: PbzCatalogItem = {
+      id: 'Raw_Item_ID',
+      category: 'weapon-material',
+      zh: '',
+      en: '',
+      maxAmount: 9999,
+    }
+
+    setLocale('zh')
+    expect(pbzItemName(unnamed, 'zh')).toBe('未知物品 (Raw_Item_ID)')
+    setLocale('en')
+    expect(pbzItemName(unnamed, 'en')).toBe('Unknown item (Raw_Item_ID)')
   })
 
   it('searches real material names and IDs case-insensitively', () => {
