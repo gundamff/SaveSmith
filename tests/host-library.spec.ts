@@ -6,7 +6,7 @@ import { modules } from '@host/registry'
 describe('registry', () => {
   it('registers compiled game modules in registry order', () => {
     expect(Array.isArray(modules)).toBe(true)
-    expect(modules).toHaveLength(10)
+    expect(modules).toHaveLength(11)
     expect(modules.map((m) => m.id)).toEqual([
       'chaos-front',
       'chaos-galaxy-2',
@@ -17,7 +17,8 @@ describe('registry', () => {
       'eslabong',
       'ace-combat-8',
       'belmonts-curse',
-      'final-fantasy-resonance'
+      'final-fantasy-resonance',
+      'phantom-blade-zero'
     ])
   })
 })

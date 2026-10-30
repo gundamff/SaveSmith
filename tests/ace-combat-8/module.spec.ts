@@ -24,7 +24,7 @@ describe('aceCombat8Module catalog / locate / registry', () => {
     expect(aceCombat8Module.locate.identifyAnyOf).toContain('Campaign.sav')
     expect(modules.map((m) => m.id)).toContain('ace-combat-8')
     expect(modules[7]).toBe(aceCombat8Module)
-    expect(modules.at(-1)).toBe(finalFantasyResonanceModule)
+    expect(modules[9]).toBe(finalFantasyResonanceModule)
   })
 })
 

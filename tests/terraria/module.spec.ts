@@ -45,7 +45,8 @@ describe('terrariaModule catalog / locate / registry', () => {
       'eslabong',
       'ace-combat-8',
       'belmonts-curse',
-      'final-fantasy-resonance'
+      'final-fantasy-resonance',
+      'phantom-blade-zero'
     ])
     expect(modules).toContain(terrariaModule)
   })

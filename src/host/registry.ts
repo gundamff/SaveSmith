@@ -7,6 +7,7 @@ import { deadCellsModule } from '../games/dead-cells'
 import { dragonSwordModule } from '../games/dragon-sword'
 import { eslabongModule } from '../games/eslabong'
 import { finalFantasyResonanceModule } from '../games/final-fantasy-resonance'
+import { phantomBladeZeroModule } from '../games/phantom-blade-zero'
 import { terrariaModule } from '../games/terraria'
 import { wanderburgModule } from '../games/wanderburg'
 
@@ -20,5 +21,6 @@ export const modules: GameModule[] = [
   eslabongModule,
   aceCombat8Module,
   belmontsCurseModule,
-  finalFantasyResonanceModule
+  finalFantasyResonanceModule,
+  phantomBladeZeroModule
 ]

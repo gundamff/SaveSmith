@@ -43,7 +43,8 @@ describe('wanderburgModule catalog / locate / registry', () => {
       'eslabong',
       'ace-combat-8',
       'belmonts-curse',
-      'final-fantasy-resonance'
+      'final-fantasy-resonance',
+      'phantom-blade-zero'
     ])
     expect(modules[0]).toBe(chaosFrontModule)
     expect(modules[1]).toBe(chaosGalaxy2Module)
