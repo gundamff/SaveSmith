@@ -1,4 +1,4 @@
-# 《影之刃零 / Phantom Blade Zero》存档模块设计
+﻿# 《影之刃零 / Phantom Blade Zero》存档模块设计
 
 日期：2026-10-30  
 模块 id：`phantom-blade-zero`  
@@ -6,6 +6,9 @@
 路径：标准通道 · savesmith-add-game + superpowers brainstorming
 
 ## 背景
+
+更新后续航（解密 / 解包复盘）：[2026-10-30-phantom-blade-zero-re-playbook.md](./2026-10-30-phantom-blade-zero-re-playbook.md)
+
 
 - 游戏：《影之刃零 / Phantom Blade Zero》
 - Steam AppID：`4115450`

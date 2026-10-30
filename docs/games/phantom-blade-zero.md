@@ -1,4 +1,4 @@
-# 影之刃零（Phantom Blade Zero）
+﻿# 影之刃零（Phantom Blade Zero）
 
 非官方、仅限单机的存档修改支持。权利人及开发：S-GAME Studio；发行：S-GAME Publishing。Steam AppID `4115450`。
 
@@ -46,4 +46,4 @@ Oodle 读取使用 Clean-room 构建的 MIT [`oozextract 0.5.7`](../../src/games
 
 封面来自 Steam App `4115450` 商店 header，版权属权利人，仅用于 SaveSmith 库页识别。
 
-实现边界与格式细节见[设计文档](../design/2026-10-30-phantom-blade-zero-design.md)。
+实现边界与格式细节见[设计文档](../design/2026-10-30-phantom-blade-zero-design.md)。游戏更新后的解密 / 资源解包复盘见[续航手册](../design/2026-10-30-phantom-blade-zero-re-playbook.md)。

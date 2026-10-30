@@ -1,10 +1,12 @@
-# Changelog
+﻿# Changelog
 
 [中文](CHANGELOG.md) | **English**
 
 ## [Unreleased]
 
 ### Added
+
+- **Phantom Blade Zero**: add save-crypto and asset-unpack playbook so game updates can be revalidated layer by layer without rediscovering the format
 
 - **Phantom Blade Zero**: official Simplified Chinese names for 27 weapon-upgrade materials and 12 growth items; resources page splits into Weapon Upgrade Materials / Growth tabs, with searchable add and delete for inventory records
 - **Phantom Blade Zero**: Chinese UI labels `Dust` as 意识尘埃; when English resources are empty, English UI shows a readable ID instead of inventing copy or falling back to Chinese

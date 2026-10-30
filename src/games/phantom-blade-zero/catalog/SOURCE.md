@@ -1,4 +1,4 @@
-# Phantom Blade Zero item catalog provenance
+﻿# Phantom Blade Zero item catalog provenance
 
 This catalog was derived from the local Steam build `26266538`
 (`CL-301524_JKS-17219`) on 2026-10-30. It is not a transcription from a wiki
@@ -76,6 +76,9 @@ Deletion removes the inventory key from `Inventory.InventoryInfos` entirely
 (same shape as never having owned the item).
 
 ## Regeneration
+
+Full save-crypto and FModel unpack steps for game updates: [docs/design/2026-10-30-phantom-blade-zero-re-playbook.md](../../../../docs/design/2026-10-30-phantom-blade-zero-re-playbook.md).
+
 
 ```powershell
 $env:PBZ_EXPORT_DIR="$env:TEMP\pbz-item-export"

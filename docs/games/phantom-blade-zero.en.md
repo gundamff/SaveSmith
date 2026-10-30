@@ -1,4 +1,4 @@
-# Phantom Blade Zero
+﻿# Phantom Blade Zero
 
 Unofficial, offline-only save editing. Rights holder and developer: S-GAME Studio. Publisher: S-GAME Publishing. Steam AppID `4115450`.
 
@@ -46,4 +46,4 @@ Oodle reads use a clean-room, MIT-licensed [`oozextract 0.5.7`](../../src/games/
 
 The cover is the Steam App `4115450` store header. Copyright remains with the rights holders; it is used only to identify the game in the SaveSmith library.
 
-See the [design document](../design/2026-10-30-phantom-blade-zero-design.md) for format details and implementation boundaries.
+See the [design document](../design/2026-10-30-phantom-blade-zero-design.md) for format details and implementation boundaries. After a game update, use the [RE / unpack playbook](../design/2026-10-30-phantom-blade-zero-re-playbook.md) (Chinese) instead of rediscovering save crypto and asset export from scratch.
