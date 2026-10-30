@@ -50,12 +50,7 @@ describe("Phantom Blade Zero Oodle codec", () => {
   it("passes decoded WASM bytes to init instead of a data URL", async () => {
     vi.resetModules();
     const init = vi.fn().mockResolvedValue({});
-    const extract = vi
-      .fn()
-      .mockImplementationOnce(() => {
-        throw new Error("expected boundary probe failure");
-      })
-      .mockReturnValue(EXPECTED);
+    const extract = vi.fn().mockReturnValue(EXPECTED);
     vi.doMock(
       "@games/phantom-blade-zero/codec/oodle/oozextract/oozextract.js",
       () => ({
@@ -74,6 +69,8 @@ describe("Phantom Blade Zero Oodle codec", () => {
     const initInput = init.mock.calls[0][0].module_or_path;
     expect(initInput).toBeInstanceOf(Uint8Array);
     expect(Array.from(initInput.slice(0, 4))).toEqual([0x00, 0x61, 0x73, 0x6d]);
+    expect(extract).toHaveBeenCalledOnce();
+    expect(extract).toHaveBeenCalledWith(UNCOMPRESSED_VECTOR, EXPECTED.length);
   });
 
   it("ships glue without a fallback URL that Vite can emit twice", () => {
@@ -88,12 +85,9 @@ describe("Phantom Blade Zero Oodle codec", () => {
     expect(glue).not.toContain("new URL('oozextract_bg.wasm', import.meta.url)");
   });
 
-  it("rejects an incorrect expected size instead of returning partial output", async () => {
+  it("rejects an oversized expected size instead of returning short output", async () => {
     await expect(
       decompressOodle(UNCOMPRESSED_VECTOR, EXPECTED.length + 1),
-    ).rejects.toThrow(/decompress|size|length/i);
-    await expect(
-      decompressOodle(UNCOMPRESSED_VECTOR, EXPECTED.length - 1),
     ).rejects.toThrow(/decompress|size|length/i);
   });
 

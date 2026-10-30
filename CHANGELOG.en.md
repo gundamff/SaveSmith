@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+### Added
+
+- **Phantom Blade Zero**: one physical `PBZSaveGame.sav`, with internal `AutoSave` / `ManualSave` entries exposed as editable slots
+- **Phantom Blade Zero**: PBZS AES-256-GCM authenticated container, portable Oodle WASM reads, and zlib writes
+- **Phantom Blade Zero**: edits only Dust and existing materials in each internal slot; no adding or unlocking entries
+- **Phantom Blade Zero**: Steam store cover, bilingual game docs, and a read-only in-memory real-save regression gated by `PBZ_SAVE`
+
 ## [0.16.0] - 2026-10-27
 
 FINAL FANTASY RESONANCE save editing.

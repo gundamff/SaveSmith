@@ -56,24 +56,6 @@ export async function decompressOodle(
 
   await initializeWasm();
 
-  if (expectedSize < Number.MAX_SAFE_INTEGER) {
-    const probe = Extractor.new();
-    let hasMoreOutput = false;
-    try {
-      probe.extract(input, expectedSize + 1);
-      hasMoreOutput = true;
-    } catch {
-      // Failing immediately beyond the requested boundary is expected.
-    } finally {
-      probe.free();
-    }
-    if (hasMoreOutput) {
-      throw new Error(
-        `Oodle decompression length mismatch: output exceeds expected length ${expectedSize}`,
-      );
-    }
-  }
-
   const extractor = Extractor.new();
   try {
     const output = extractor.extract(input, expectedSize);

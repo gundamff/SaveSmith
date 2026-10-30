@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+### 新增
+
+- **影之刃零**：支持单一物理主档 `PBZSaveGame.sav`，并将内部 `AutoSave` / `ManualSave` 显示为可编辑槽位
+- **影之刃零**：支持 PBZS AES-256-GCM 认证容器、Oodle portable WASM 读取与 zlib 写回
+- **影之刃零**：仅编辑各内部槽的 Dust 与已存在材料，不新增或解锁条目
+- **影之刃零**：Steam 商店封面、双语游戏文档，以及由 `PBZ_SAVE` 门控的只读真档内存回归
+
 ## [0.16.0] - 2026-10-27
 
 新增《最终幻想：共鸣》存档编辑。

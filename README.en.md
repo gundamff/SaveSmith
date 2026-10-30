@@ -53,6 +53,7 @@ Per-game editable fields, default paths, and caveats live in the docs linked bel
 | [ACE COMBAT 8](docs/games/ace-combat-8.en.md) | Bandai Namco Entertainment | Supported (campaign MRP / NG+ / aircraft skins emblems / mission ranks) | [English](docs/games/ace-combat-8.en.md) · [中文](docs/games/ace-combat-8.md) |
 | [Castlevania: Belmont's Curse](docs/games/belmonts-curse.en.md) | KONAMI | Supported (scalars; inventory / Tarot writable) | [English](docs/games/belmonts-curse.en.md) · [中文](docs/games/belmonts-curse.md) |
 | [FINAL FANTASY RESONANCE](docs/games/final-fantasy-resonance.en.md) | Square Enix | Supported (Gil / party / items / visions / maps; SVHD+AES) | [English](docs/games/final-fantasy-resonance.en.md) · [中文](docs/games/final-fantasy-resonance.md) |
+| [Phantom Blade Zero](docs/games/phantom-blade-zero.en.md) | S-GAME Studio | Supported (Dust / existing materials; verified build 26266538; offline only) | [English](docs/games/phantom-blade-zero.en.md) · [中文](docs/games/phantom-blade-zero.md) |
 
 When adding a game: ship the module, add a row here, and write `docs/games/<id>.md` (+ `.en.md`).
 
