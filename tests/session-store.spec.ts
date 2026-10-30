@@ -14,6 +14,7 @@ import type {
   PhantomBladeZeroState
 } from '@games/phantom-blade-zero/parse'
 import {
+  reconcileSlotSelection,
   requestSlotSelection
 } from '@games/phantom-blade-zero/views/slotSelection'
 import { dummyModule, type DummyState } from './dummyModule'
@@ -522,9 +523,17 @@ describe('useSessionStore', () => {
     const store = useSessionStore()
     await store.openGame(phantomBladeZeroModule, 'D:\\saves')
     await store.loadSlot('pbz-main')
+    let localSelectedSlotName = 'AutoSave1'
+    expect(
+      requestSlotSelection(
+        (store.state as PhantomBladeZeroState).model,
+        localSelectedSlotName,
+        () => true
+      )
+    ).toBe(true)
     store.mutate((value) => {
       const current = value as PhantomBladeZeroState
-      setDust(current.model, 'ManualSave1', 11)
+      setDust(current.model, localSelectedSlotName, 21)
       return current
     })
 
@@ -532,10 +541,24 @@ describe('useSessionStore', () => {
 
     const committed = store.state as PhantomBladeZeroState
     expect(committed.model.slots.every(({ dirty }) => !dirty)).toBe(true)
+    expect(committed.model.selectedSlotName).toBe('ManualSave1')
+    localSelectedSlotName = reconcileSlotSelection(
+      committed.model,
+      localSelectedSlotName
+    )
+    expect(localSelectedSlotName).toBe('AutoSave1')
+    expect(committed.model.selectedSlotName).toBe('AutoSave1')
+    expect(store.dirty).toBe(false)
+
     const confirm = vi.fn(() => true)
-    expect(
-      requestSlotSelection(committed.model, 'AutoSave1', confirm)
-    ).toBe(true)
+    const changed = requestSlotSelection(
+      committed.model,
+      'ManualSave1',
+      confirm
+    )
+    if (changed) localSelectedSlotName = 'ManualSave1'
+    expect(changed).toBe(true)
+    expect(localSelectedSlotName).toBe('ManualSave1')
     expect(confirm).not.toHaveBeenCalled()
 
     const [serializedAgain] = await phantomBladeZeroModule.serialize(committed)

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { t } from '@host/i18n'
 import {
   isEditableSlotName,
@@ -9,11 +9,25 @@ import {
   setMaterialAmount
 } from '../model/saveModel'
 import { usePbzEditor } from './inject'
-import { requestSlotSelection } from './slotSelection'
+import {
+  reconcileSlotSelection,
+  requestSlotSelection
+} from './slotSelection'
 
 const editor = usePbzEditor()
 const filter = ref('')
 const selectedSlotName = ref(editor.save.model.selectedSlotName ?? '')
+
+watch(
+  () => editor.rev,
+  () => {
+    selectedSlotName.value = reconcileSlotSelection(
+      editor.save.model,
+      selectedSlotName.value
+    )
+  },
+  { flush: 'sync' }
+)
 
 const editableSlots = computed(() => {
   void editor.rev

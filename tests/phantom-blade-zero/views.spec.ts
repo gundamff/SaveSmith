@@ -8,7 +8,10 @@ import {
   type PbzEditableSlot
 } from '../../src/games/phantom-blade-zero/model/saveModel'
 import { usePbzEditor } from '../../src/games/phantom-blade-zero/views/inject'
-import { requestSlotSelection } from '../../src/games/phantom-blade-zero/views/slotSelection'
+import {
+  reconcileSlotSelection,
+  requestSlotSelection
+} from '../../src/games/phantom-blade-zero/views/slotSelection'
 import { pbzViews } from '../../src/games/phantom-blade-zero/views'
 
 const SRC = join(__dirname, '../../src')
@@ -123,6 +126,24 @@ describe('PBZ slot selection', () => {
     expect(model.selectedSlotName).toBe('AutoSave1')
     expect(dirty.dirty).toBe(true)
   })
+
+  it('restores a still-valid local selection into a clean replacement model', () => {
+    const model = createSaveModel([
+      slot('AutoSave1'),
+      slot('ManualSave2')
+    ])
+
+    expect(reconcileSlotSelection(model, 'ManualSave2')).toBe('ManualSave2')
+    expect(model.selectedSlotName).toBe('ManualSave2')
+    expect(model.slots.every(({ dirty }) => !dirty)).toBe(true)
+  })
+
+  it('falls back when the local selection no longer exists', () => {
+    const model = createSaveModel([slot('AutoSave1')])
+
+    expect(reconcileSlotSelection(model, 'ManualSave2')).toBe('AutoSave1')
+    expect(model.selectedSlotName).toBe('AutoSave1')
+  })
 })
 
 describe('PBZ views', () => {
@@ -158,5 +179,18 @@ describe('PBZ views', () => {
     expect(text).toMatch(/model\.slots/)
     expect(text).toMatch(/AutoSave|isEditableSlotName/)
     expect(text).not.toMatch(/markDirty\([^)]*requestSlotSelection/s)
+  })
+
+  it('reconciles local slot selection on editor revision without marking dirty', () => {
+    const text = readFileSync(
+      join(SRC, 'games/phantom-blade-zero/views/ResourcesTab.vue'),
+      'utf8'
+    )
+    expect(text).toMatch(/watch\s*\(/)
+    expect(text).toMatch(/editor\.rev/)
+    expect(text).toMatch(/reconcileSlotSelection/)
+    expect(text).not.toMatch(
+      /markDirty\([^)]*reconcileSlotSelection/s
+    )
   })
 })
