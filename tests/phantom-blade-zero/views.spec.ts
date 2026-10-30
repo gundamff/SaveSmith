@@ -38,8 +38,8 @@ function stateWith(model = createSaveModel([slot('AutoSave1')])): PhantomBladeZe
 
 describe('usePbzEditor', () => {
   it('throws PBZ_EDITOR_INJECT when provide is missing', () => {
-    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
     const app = createApp({ setup() { return () => null } })
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
     try {
       expect(() => app.runWithContext(() => usePbzEditor())).toThrow('PBZ_EDITOR_INJECT')
       expect(warn.mock.calls.map(([message]) => message)).toEqual([
