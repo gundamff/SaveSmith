@@ -1,20 +1,8 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
-import { ElMessage } from 'element-plus'
-import { t, translateError } from '@host/i18n'
-import {
-  getPbzItem,
-  pbzItemName,
-  searchPbzItems,
-  type PbzCatalogItem,
-  type PbzItemCategory
-} from '../catalog'
-import {
-  addInventoryItem,
-  projectInventory,
-  type PbzEditableSlot
-} from '../model/saveModel'
-import { usePbzEditor } from './inject'
+import { t } from '@host/i18n'
+import type { PbzItemCategory } from '../catalog'
+import type { PbzEditableSlot } from '../model/saveModel'
+import { useAddItemDialogController } from './itemViewController'
 
 const props = defineProps<{
   category: PbzItemCategory
@@ -22,49 +10,16 @@ const props = defineProps<{
 }>()
 
 const open = defineModel<boolean>({ required: true })
-const editor = usePbzEditor()
-const selectedId = ref<string | null>(null)
-const amount = ref(1)
-const options = ref<PbzCatalogItem[]>([])
-
-const selectedItem = computed(() =>
-  selectedId.value ? getPbzItem(selectedId.value) : undefined
-)
-const maxAmount = computed(() => selectedItem.value?.maxAmount ?? 1)
-const existingIds = computed(() => {
-  void editor.rev
-  return new Set(projectInventory(props.slot, props.category).map(({ id }) => id))
-})
-const isExisting = computed(() =>
-  selectedId.value !== null && existingIds.value.has(selectedId.value)
-)
-
-watch(open, (visible) => {
-  if (!visible) return
-  selectedId.value = null
-  amount.value = 1
-  options.value = searchPbzItems(props.category, '')
-})
-
-function search(query: string): void {
-  options.value = searchPbzItems(props.category, query)
-}
-
-function optionLabel(item: PbzCatalogItem): string {
-  return `${pbzItemName(item)} · ${item.id}`
-}
-
-function confirmAdd(): void {
-  if (!selectedId.value || !Number.isSafeInteger(amount.value)) return
-  try {
-    editor.markDirty(() =>
-      addInventoryItem(editor.save.model, props.slot.name, selectedId.value!, amount.value)
-    )
-    open.value = false
-  } catch (error) {
-    ElMessage.error(translateError(error))
-  }
-}
+const {
+  selectedId,
+  amount,
+  options,
+  maxAmount,
+  isExisting,
+  search,
+  optionLabel,
+  confirmAdd
+} = useAddItemDialogController(props, open)
 </script>
 
 <template>

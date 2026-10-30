@@ -1,55 +1,18 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { t } from '@host/i18n'
-import {
-  getPbzItem,
-  pbzItemName,
-  type PbzItemCategory
-} from '../catalog'
-import {
-  projectInventory,
-  setInventoryAmount,
-  type PbzEditableSlot
-} from '../model/saveModel'
+import type { PbzItemCategory } from '../catalog'
+import type { PbzEditableSlot } from '../model/saveModel'
 import AddItemDialog from './AddItemDialog.vue'
-import { usePbzEditor } from './inject'
+import { useInventoryCategoryController } from './itemViewController'
 
 const props = defineProps<{
   category: PbzItemCategory
   slot: PbzEditableSlot
 }>()
 
-const editor = usePbzEditor()
-const filter = ref('')
 const addOpen = ref(false)
-
-const rows = computed(() => {
-  void editor.rev
-  const needle = filter.value.trim().toLocaleLowerCase()
-  return projectInventory(props.slot, props.category)
-    .flatMap((row) => {
-      const item = getPbzItem(row.id)
-      if (!item) return []
-      return [{
-        ...row,
-        name: pbzItemName(item),
-        editMaxAmount: item.maxAmount,
-        item
-      }]
-    })
-    .filter(({ id, item }) =>
-      !needle || [id, item.zh, item.en].some((value) =>
-        value.toLocaleLowerCase().includes(needle)
-      )
-    )
-})
-
-function changeAmount(id: string, value: number | undefined): void {
-  if (value === undefined || !Number.isSafeInteger(value)) return
-  editor.markDirty(() =>
-    setInventoryAmount(editor.save.model, props.slot.name, id, value)
-  )
-}
+const { filter, rows, changeAmount } = useInventoryCategoryController(props)
 </script>
 
 <template>
