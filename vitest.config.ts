@@ -4,6 +4,7 @@ import path from 'node:path'
 
 export default defineConfig({
   plugins: [vue()],
+  assetsInclude: ['**/*.wasm'],
   test: { include: ['tests/**/*.spec.ts'], environment: 'node' },
   resolve: {
     alias: {
