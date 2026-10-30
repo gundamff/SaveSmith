@@ -53,7 +53,7 @@
 | [皇牌空战 8 / ACE COMBAT 8](docs/games/ace-combat-8.md) | Bandai Namco Entertainment | 已支持（战役 MRP / 周目 / 机体涂装徽章 / 任务评级） | [中文](docs/games/ace-combat-8.md) · [English](docs/games/ace-combat-8.en.md) |
 | [恶魔城：贝尔蒙特的诅咒 / Castlevania: Belmont's Curse](docs/games/belmonts-curse.md) | KONAMI | 已支持（角色标量；背包 / 塔罗可写） | [中文](docs/games/belmonts-curse.md) · [English](docs/games/belmonts-curse.en.md) |
 | [最终幻想：共鸣 / FINAL FANTASY RESONANCE](docs/games/final-fantasy-resonance.md) | Square Enix | 已支持（Gil / 角色 / 物品 / 幻象 / 地图；SVHD+AES） | [中文](docs/games/final-fantasy-resonance.md) · [English](docs/games/final-fantasy-resonance.en.md) |
-| [影之刃零 / Phantom Blade Zero](docs/games/phantom-blade-zero.md) | S-GAME Studio | 已支持（Dust / 已有材料；已验证 build 26266538；仅限离线单机） | [中文](docs/games/phantom-blade-zero.md) · [English](docs/games/phantom-blade-zero.en.md) |
+| [影之刃零 / Phantom Blade Zero](docs/games/phantom-blade-zero.md) | S-GAME Studio | 已支持（意识尘埃 / 强化材料 / 穿行符；可搜索添加；已验证 build 26266538；仅限离线单机） | [中文](docs/games/phantom-blade-zero.md) · [English](docs/games/phantom-blade-zero.en.md) |
 
 新增游戏时：补模块 + 在本表加一行 + 在 `docs/games/` 写独立说明。
 

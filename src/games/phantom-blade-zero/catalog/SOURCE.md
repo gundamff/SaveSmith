@@ -29,8 +29,11 @@ Normalized CUE4Parse exports:
 
 Chinese names are resolved by localization namespace/key from the
 `zh-Hans` resources. The build's `en` resources contain no translations for
-these 28 item-name keys, so `en` is intentionally empty; no English name was
-invented or transliterated.
+these 28 item-name keys, so catalog `en` is intentionally empty; English UI
+falls back to Chinese names. No English name was invented or transliterated.
+
+`Player.Dust` is labeled 意识尘埃 in Chinese UI. The same `en` localization
+pass found no Dust translation, so English UI keeps `Dust`.
 
 ## Selection and exclusions
 

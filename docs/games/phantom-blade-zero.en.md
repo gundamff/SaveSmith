@@ -20,11 +20,16 @@ The format is PBZS v3: AES-256-GCM authenticated encryption, Oodle for reading c
 
 ## Editable scope
 
-- `Player.Dust` in each existing `AutoSaveN` / `ManualSaveN`
-- Amounts of existing `Weapon_Material_*` entries
-- Material amounts are limited to `0..9999`; raising `CurrentAmount` above its old `MaxAmount` raises `MaxAmount` with it
+The resources page keeps internal slot selection and splits inventory into two tabs: **Weapon Upgrade Materials** and **Consumables**.
 
-Adding or unlocking materials is unsupported. Equipment levels, story, quests, achievements, DLC, and settings saves are not edited.
+- `Player.Dust` is shown as 意识尘埃 in Chinese; the storage field remains `Dust`. English UI keeps `Dust` because this build's `en` resources have no translation
+- 27 weapon-upgrade materials: edit existing amounts, or search by official Simplified Chinese name / raw ID and add missing ones
+- Material amounts are limited to `0..9999`; raising `CurrentAmount` above its old `MaxAmount` raises `MaxAmount` with it
+- Consumables currently include only the audited `Item_Traversing` (穿行符). Amounts may be edited or added. SaveSmith caps it at `0..99`; that is an application safety limit, not an official directory value
+- Adding an item that already exists increases its amount instead of creating a duplicate record
+- Names come from build `26266538` Simplified Chinese resources. This build's English resources contain no translations for these 28 item-name keys, so English UI falls back to Chinese names instead of inventing English ones
+
+Threshold collectibles such as memory flowers, black-stone fragments, and killing-aura amber are unsupported, as are weapons, accessories, quest items, keys, story items, equipment levels, achievements, DLC, and settings saves.
 
 ## Safety
 

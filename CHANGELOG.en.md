@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+### Added
+
+- **Phantom Blade Zero**: official Simplified Chinese names for 27 weapon-upgrade materials and Traversing Charm; resources page splits into Weapon Upgrade Materials / Consumables tabs, with searchable add for missing catalog items
+- **Phantom Blade Zero**: Chinese UI labels `Dust` as 意识尘埃; English names fall back to Chinese when the game `en` resources have no translation
+- **Phantom Blade Zero**: Traversing Charm is capped at SaveSmith's safety limit `0..99` because the resources provide no official stack limit
+
 ## [0.17.0] - 2026-10-30
 
 ### Added

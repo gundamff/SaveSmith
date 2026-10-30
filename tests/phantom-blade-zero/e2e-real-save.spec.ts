@@ -1,8 +1,11 @@
 import { readFileSync } from 'node:fs'
 import { beforeAll, describe, expect, it } from 'vitest'
+import { pbzCatalog, type PbzItemCategory } from '../../src/games/phantom-blade-zero/catalog'
 import { parse, serialize, validate, type PhantomBladeZeroState } from '../../src/games/phantom-blade-zero/parse'
 import { parsePbzsContainer } from '../../src/games/phantom-blade-zero/codec/container'
 import {
+  addInventoryItem,
+  projectInventory,
   projectResources,
   setDust,
   setMaterialAmount
@@ -11,6 +14,7 @@ import {
 const SAVE = process.env.PBZ_SAVE
 const MAX_DUST = 99_999_999
 const MAX_MATERIAL_AMOUNT = 9999
+const FIXED_DATE = new Date(2026, 9, 30, 18, 20, 30)
 
 describe.skipIf(!SAVE)('phantom-blade-zero real save (PBZ_SAVE)', () => {
   let originalBytes: Uint8Array
@@ -123,4 +127,71 @@ describe.skipIf(!SAVE)('phantom-blade-zero real save (PBZ_SAVE)', () => {
       expect(Buffer.compare(after.slots[index]!.sealedBytes, slot.sealedBytes)).toBe(0)
     }
   })
+
+  it('adds an absent weapon-upgrade material in memory and preserves every other sealed slot', async (context) => {
+    await expectAbsentCatalogAdd(context, 'weapon-material')
+  })
+
+  it('adds an absent traversing consumable in memory and preserves every other sealed slot', async (context) => {
+    await expectAbsentCatalogAdd(context, 'consumable')
+  })
+
+  async function expectAbsentCatalogAdd(
+    context: { skip: (reason?: string) => void },
+    category: PbzItemCategory
+  ): Promise<void> {
+    const state = await parseOriginal()
+    const target = findAbsentCatalogItem(state, category)
+    if (!target) {
+      context.skip(`no absent ${category} in this save`)
+      return
+    }
+
+    addInventoryItem(state.model, target.slotName, target.item.id, 1, FIXED_DATE)
+    expect(validate(state)).toEqual([])
+
+    const [serialized] = await serialize(state)
+    const reparsed = await parse([serialized!])
+    const editedSlot = reparsed.model.slots.find(({ name }) => name === target.slotName)!
+    const infos = inventoryInfos(editedSlot.document)
+    const record = infos[target.item.id] as Record<string, unknown>
+
+    expect(validate(reparsed)).toEqual([])
+    expect(record).toMatchObject({
+      CurrentAmount: 1,
+      MaxAmount: category === 'consumable' ? target.item.maxAmount : 1,
+      FirstAddTime: '2026.10.30-18.20.30',
+      DirtyTime: '2026.10.30-18.20.30'
+    })
+    expect(Number.isSafeInteger(record.AcquiredCycle)).toBe(true)
+    expect(projectInventory(editedSlot, category).some(({ id }) => id === target.item.id)).toBe(true)
+
+    const after = await parsePbzsContainer(serialized!.bytes)
+    expect(after.slots.map(({ entry }) => entry.name)).toEqual(
+      state.container.slots.map(({ entry }) => entry.name)
+    )
+    for (const [index, slot] of state.container.slots.entries()) {
+      if (slot.entry.name === target.slotName) continue
+      expect(Buffer.compare(after.slots[index]!.sealedBytes, slot.sealedBytes)).toBe(0)
+    }
+  }
 })
+
+function findAbsentCatalogItem(
+  state: PhantomBladeZeroState,
+  category: PbzItemCategory
+): { slotName: string; item: (typeof pbzCatalog)[number] } | null {
+  for (const slot of state.model.slots) {
+    const existing = new Set(projectInventory(slot, category).map(({ id }) => id))
+    const item = pbzCatalog.find((candidate) =>
+      candidate.category === category && !existing.has(candidate.id)
+    )
+    if (item) return { slotName: slot.name, item }
+  }
+  return null
+}
+
+function inventoryInfos(document: Record<string, unknown>): Record<string, unknown> {
+  const inventory = document.Inventory as Record<string, unknown>
+  return inventory.InventoryInfos as Record<string, unknown>
+}
