@@ -106,6 +106,16 @@ const REQUIRED_KEYS = [
   'pbz.resources.slot',
   'pbz.resources.slotDirty',
   'pbz.resources.dust',
+  'pbz.resources.weaponMaterials',
+  'pbz.resources.consumables',
+  'pbz.resources.addItem',
+  'pbz.resources.addTitle',
+  'pbz.resources.addSearchPlaceholder',
+  'pbz.resources.amount',
+  'pbz.resources.cancel',
+  'pbz.resources.confirm',
+  'pbz.resources.addExistingHint',
+  'pbz.resources.addNewHint',
   'pbz.resources.materials',
   'pbz.resources.filterPlaceholder',
   'pbz.resources.setAll9999',
@@ -209,6 +219,23 @@ describe('host i18n', () => {
     expect(t('pbz.resources.materialName', '01')).toBe('材料 01')
     setLocale('en')
     expect(t('pbz.resources.materialName', '01')).toBe('Material 01')
+  })
+
+  it('uses the verified Dust copy in both locales', () => {
+    setLocale('zh')
+    expect(t('pbz.resources.dust')).toBe('意识尘埃')
+    setLocale('en')
+    expect(t('pbz.resources.dust')).toBe('Dust')
+    expect(t('pbz.resources.dust')).not.toBe('Dust field')
+  })
+
+  it('uses category-neutral item filtering copy', () => {
+    setLocale('zh')
+    expect(t('pbz.resources.filterPlaceholder')).toBe('按物品名称或原始 ID 筛选')
+    expect(t('pbz.resources.empty')).toBe('没有已有物品或筛选无结果')
+    setLocale('en')
+    expect(t('pbz.resources.filterPlaceholder')).toBe('Filter by item name or raw ID')
+    expect(t('pbz.resources.empty')).toBe('No existing items or no filter matches')
   })
 
   it('translateError uses error.{code} when present', () => {

@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { createApp } from 'vue'
 import { describe, expect, it, vi } from 'vitest'
@@ -15,6 +15,11 @@ import {
 import { pbzViews } from '../../src/games/phantom-blade-zero/views'
 
 const SRC = join(__dirname, '../../src')
+
+function source(relativePath: string): string {
+  const path = join(SRC, relativePath)
+  return existsSync(path) ? readFileSync(path, 'utf8') : ''
+}
 
 function slot(name: string, dirty = false): PbzEditableSlot {
   return {
@@ -152,21 +157,59 @@ describe('PBZ views', () => {
     expect(pbzViews[0]).toMatchObject({ id: 'resources', labelKey: 'pbz.tabs.resources' })
   })
 
-  it('uses reactive projections, whitelisted mutators, and controlled number inputs', () => {
-    const text = readFileSync(
-      join(SRC, 'games/phantom-blade-zero/views/ResourcesTab.vue'),
-      'utf8'
-    )
-    expect(text).toMatch(/void editor\.rev/)
+  it('integrates named weapon-material and consumable category tabs', () => {
+    const text = source('games/phantom-blade-zero/views/ResourcesTab.vue')
+    expect(text).toMatch(/InventoryCategoryTab/)
+    expect(text).toMatch(/weapon-material/)
+    expect(text).toMatch(/consumable/)
     expect(text).toMatch(/projectResources/)
     expect(text).toMatch(/setDust/)
-    expect(text).toMatch(/setMaterialAmount/)
-    expect(text).toMatch(/setAllExistingMaterials/)
     expect(text).toMatch(/markDirty/)
-    expect(text).toMatch(/update:model-value|@update:model-value/)
-    expect(text).toMatch(/filter/i)
-    expect(text).not.toMatch(/v-model\s*=\s*["'][^"']*(document|save|model)/)
-    expect(text).not.toMatch(/@tauri|node:fs|from\s+['"]fs['"]/)
+  })
+
+  it('projects and filters existing category rows through catalog names', () => {
+    const text = source('games/phantom-blade-zero/views/InventoryCategoryTab.vue')
+    expect(text).toMatch(/projectInventory/)
+    expect(text).toMatch(/pbzItemName/)
+    expect(text).toMatch(/getPbzItem/)
+    expect(text).toMatch(/setInventoryAmount/)
+    expect(text).toMatch(/AddItemDialog/)
+    expect(text).toMatch(/markDirty/)
+    expect(text).toMatch(/item\.zh/)
+    expect(text).toMatch(/item\.en/)
+  })
+
+  it('searches the category catalog and adds through the model mutator', () => {
+    const text = source('games/phantom-blade-zero/views/AddItemDialog.vue')
+    expect(text).toMatch(/searchPbzItems/)
+    expect(text).toMatch(/addInventoryItem/)
+    expect(text).toMatch(/maxAmount/)
+    expect(text).toMatch(/markDirty/)
+    expect(text).toMatch(/Number\.isSafeInteger/)
+  })
+
+  it('keeps the add dialog open and reports model errors', () => {
+    const text = source('games/phantom-blade-zero/views/AddItemDialog.vue')
+    expect(text).toMatch(
+      /try\s*{[\s\S]*markDirty[\s\S]*open\.value\s*=\s*false[\s\S]*catch[\s\S]*ElMessage\.error/
+    )
+  })
+
+  it('keeps PBZ item components away from documents and filesystem APIs', () => {
+    for (const file of [
+      'ResourcesTab.vue',
+      'InventoryCategoryTab.vue',
+      'AddItemDialog.vue'
+    ]) {
+      const text = source(`games/phantom-blade-zero/views/${file}`)
+      expect(text, file).not.toMatch(
+        /(?:\.document\b|\[['"]document['"]\])\s*(?:=|\.|\[)/
+      )
+      expect(text, file).not.toMatch(/@tauri|node:fs|from\s+['"]fs['"]/)
+      expect(text, file).not.toMatch(
+        /v-model\s*=\s*["'][^"']*(document|save|model)/
+      )
+    }
   })
 
   it('switches slots outside markDirty and limits options to editable model slots', () => {
