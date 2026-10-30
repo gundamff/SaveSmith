@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [0.17.0] - 2026-10-30
+
 ### Added
 
 - **Phantom Blade Zero**: one physical `PBZSaveGame.sav`, with internal `AutoSave` / `ManualSave` entries exposed as editable slots

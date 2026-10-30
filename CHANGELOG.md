@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [0.17.0] - 2026-10-30
+
 ### 新增
 
 - **影之刃零**：支持单一物理主档 `PBZSaveGame.sav`，并将内部 `AutoSave` / `ManualSave` 显示为可编辑槽位
