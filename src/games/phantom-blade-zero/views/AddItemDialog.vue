@@ -13,10 +13,12 @@ const open = defineModel<boolean>({ required: true })
 const {
   selectedId,
   amount,
+  query,
   options,
   maxAmount,
   isExisting,
   optionLabel,
+  selectItem,
   confirmAdd
 } = useAddItemDialogController(props, open)
 </script>
@@ -25,20 +27,31 @@ const {
   <el-dialog v-model="open" :title="t('pbz.resources.addTitle')" width="560px">
     <el-form label-width="100px">
       <el-form-item :label="t('pbz.resources.name')">
-        <el-select
-          v-model="selectedId"
-          filterable
-          clearable
-          :placeholder="t('pbz.resources.addSearchPlaceholder')"
-          style="width: 100%"
-        >
-          <el-option
-            v-for="item in options"
-            :key="item.id"
-            :label="optionLabel(item)"
-            :value="item.id"
+        <div class="pbz-add-catalog">
+          <el-input
+            v-model="query"
+            clearable
+            :placeholder="t('pbz.resources.addSearchPlaceholder')"
           />
-        </el-select>
+          <div class="pbz-add-catalog__list" role="listbox">
+            <el-empty
+              v-if="options.length === 0"
+              :description="t('pbz.resources.empty')"
+            />
+            <button
+              v-for="item in options"
+              :key="item.id"
+              type="button"
+              class="pbz-add-catalog__row"
+              :class="{ 'is-selected': selectedId === item.id }"
+              role="option"
+              :aria-selected="selectedId === item.id"
+              @click="selectItem(item.id)"
+            >
+              <span class="pbz-add-catalog__name">{{ optionLabel(item) }}</span>
+            </button>
+          </div>
+        </div>
       </el-form-item>
 
       <el-form-item :label="t('pbz.resources.amount')">
@@ -66,3 +79,51 @@ const {
     </template>
   </el-dialog>
 </template>
+
+<style scoped>
+.pbz-add-catalog {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+}
+
+.pbz-add-catalog__list {
+  max-height: 280px;
+  overflow: auto;
+  border: 1px solid var(--el-border-color);
+  border-radius: 4px;
+  background: var(--el-fill-color-blank);
+}
+
+.pbz-add-catalog__row {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 8px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--el-border-color-lighter);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pbz-add-catalog__row:last-child {
+  border-bottom: 0;
+}
+
+.pbz-add-catalog__row:hover {
+  background: var(--el-fill-color-light);
+}
+
+.pbz-add-catalog__row.is-selected {
+  background: var(--el-color-primary-light-9);
+  color: var(--el-color-primary);
+}
+
+.pbz-add-catalog__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+</style>

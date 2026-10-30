@@ -329,13 +329,11 @@ const AddControllerHarness = defineComponent({
     })
     const controller = useAddItemDialogController(props, open)
     return () => h('dialog-stub', { open: open.value }, open.value ? [
-      h('select-stub', {
-        value: controller.selectedId.value,
-        draft: controller.selectedId.value ?? '__empty__',
-        onUpdateModelValue: (value: string) => {
-          controller.selectedId.value = value
-        }
-      }),
+      h('div', { class: 'pbz-add-catalog__list' }, controller.options.value.map((item) =>
+        h('button', {
+          onClick: () => controller.selectItem(item.id)
+        }, controller.optionLabel(item))
+      )),
       h('input-number-stub', {
         value: controller.amount.value,
         onUpdateModelValue: (value: number) => {
@@ -385,8 +383,27 @@ async function openAddDialog(root: MemoryNode, open: Ref<boolean>): Promise<void
   expect(findNode(root, 'dialog-stub').props.open).toBe(true)
 }
 
+function findCatalogOption(root: MemoryNode, id: string): MemoryNode {
+  const visit = (node: MemoryNode): MemoryNode | null => {
+    if (
+      (node.type === 'button' || node.type === 'button-stub') &&
+      nodeText(node).includes(id)
+    ) {
+      return node
+    }
+    for (const child of node.children) {
+      const found = visit(child)
+      if (found) return found
+    }
+    return null
+  }
+  const found = visit(root)
+  if (!found) throw new Error(`Missing catalog option: ${id}`)
+  return found
+}
+
 function fillAddDialog(root: MemoryNode, id: string, amount: number): void {
-  emit(findNode(root, 'select-stub'), 'onUpdateModelValue', id)
+  emit(findCatalogOption(root, id), 'onClick')
   emit(findNode(root, 'input-number-stub'), 'onUpdateModelValue', amount)
 }
 
@@ -540,10 +557,11 @@ describe('PBZ item view runtime behavior', () => {
 
     const html = await renderToString(app)
 
-    expect(html).toContain('select-stub')
     expect(html).toContain('input-number-stub')
     expect(html).toContain('确认添加')
     expect(html).toContain('铸造金属')
+    expect(html).toContain('Weapon_Material_01')
+    expect(html).toContain('Item_Traversing')
   })
 
   it('closes after a successful existing-item add without creating a duplicate key', async () => {
@@ -627,8 +645,8 @@ describe('PBZ item view runtime behavior', () => {
     expect(inventoryInfos(second).Item_Traversing).toMatchObject({ CurrentAmount: 2 })
 
     await openAddDialog(mounted.root, mounted.open)
-    expect(findNode(mounted.root, 'select-stub').props.draft).toBe('__empty__')
     expect(findNode(mounted.root, 'input-number-stub').props.value).toBe(1)
+    expect(nodeText(mounted.root)).toContain('Item_Traversing')
     fillAddDialog(mounted.root, 'Item_Traversing', 1)
     emit(findButton(mounted.root, '确认添加'), 'onClick')
     await nextTick()
@@ -669,23 +687,25 @@ describe('PBZ views', () => {
     expect(component).toMatch(/@update:model-value/)
   })
 
-  it('lists the full category catalog in a local filterable dropdown', () => {
+  it('lists the full category catalog in a visible selectable list', () => {
     const component = source('games/phantom-blade-zero/views/AddItemDialog.vue')
     const text = source('games/phantom-blade-zero/views/itemViewController.ts')
-    expect(text).toMatch(/searchPbzItems\(props\.category,\s*''\)/)
+    expect(text).toMatch(/searchPbzItems\(props\.category,\s*query\.value\)/)
     expect(text).toMatch(/addInventoryItem/)
     expect(text).toMatch(/maxAmount/)
     expect(text).toMatch(/markDirty/)
     expect(text).toMatch(/Number\.isSafeInteger/)
+    expect(text).toMatch(/function selectItem/)
     expect(component).toMatch(/useAddItemDialogController/)
-    expect(component).toMatch(/filterable/)
+    expect(component).toMatch(/pbz-add-catalog__list/)
+    expect(component).toMatch(/v-for="item in options"/)
+    expect(component).toMatch(/@click="selectItem\(item\.id\)"/)
+    expect(component).not.toMatch(/<el-select/)
     expect(component).not.toMatch(/\bremote\b/)
-    expect(component).not.toMatch(/remote-method/)
-    expect(component).toMatch(/v-model="selectedId"/)
     expect(component).toMatch(/@click="confirmAdd"/)
   })
 
-  it('exposes every catalog row for the selected category', () => {
+  it('exposes every catalog row for the selected category when the query is empty', () => {
     const editable = slot('AutoSave1')
     const { root } = mountMemory(
       defineComponent({

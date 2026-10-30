@@ -594,7 +594,7 @@ export const zh: MessageTree = {
       consumables: '消耗品',
       addItem: '添加物品',
       addTitle: '添加物品',
-      addSearchPlaceholder: '点击展开全部，或按名称 / ID 筛选',
+      addSearchPlaceholder: '筛选物品名称或 ID（可留空浏览全部）',
       amount: '数量',
       cancel: '取消',
       confirm: '确认添加',
