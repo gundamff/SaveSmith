@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   PBZS_BUILD_KEY,
+  PBZS_MAGIC,
   sealPbzsBlock,
   unsealPbzsBlock,
 } from "@games/phantom-blade-zero/crypto/pbzsCrypto";
@@ -60,6 +61,31 @@ describe("PBZS AES-256-GCM blocks", () => {
       sealPbzsBlock(FIXED_PLAIN, DEFAULT_KEY, FIXED_NONCE),
     ).resolves.toEqual(FIXED_BLOCK);
     await expect(unsealPbzsBlock(FIXED_BLOCK)).resolves.toEqual(FIXED_PLAIN);
+  });
+
+  it("keeps standard magic validation isolated from exported metadata mutation", async () => {
+    const original = PBZS_MAGIC[0]!;
+    try {
+      PBZS_MAGIC[0] = 0x00;
+      await expect(unsealPbzsBlock(FIXED_BLOCK)).resolves.toEqual(FIXED_PLAIN);
+    } finally {
+      PBZS_MAGIC[0] = original;
+    }
+  });
+
+  it("keeps sealed output magic isolated from exported metadata mutation", async () => {
+    const original = PBZS_MAGIC[0]!;
+    try {
+      PBZS_MAGIC[0] = 0x00;
+      const sealed = await sealPbzsBlock(
+        FIXED_PLAIN,
+        DEFAULT_KEY,
+        FIXED_NONCE,
+      );
+      expect(sealed.slice(0, 4)).toEqual(hex("50425a53"));
+    } finally {
+      PBZS_MAGIC[0] = original;
+    }
   });
 
   it("round-trips synthetic binary plaintext", async () => {

@@ -1,6 +1,8 @@
 import { ModuleError } from "@sdk/error";
 
-export const PBZS_MAGIC = Uint8Array.from([0x50, 0x42, 0x5a, 0x53]);
+const INTERNAL_PBZS_MAGIC = Uint8Array.from([0x50, 0x42, 0x5a, 0x53]);
+
+export const PBZS_MAGIC = INTERNAL_PBZS_MAGIC.slice();
 export const PBZS_VERSION = 1;
 export const PBZS_BUILD = 26266538;
 export const PBZS_BUILD_KEY_SHA256 =
@@ -67,8 +69,8 @@ function validateHeader(block: Uint8Array): number {
   if (block.length < HEADER_SIZE) {
     throw invalid("header is truncated");
   }
-  for (let i = 0; i < PBZS_MAGIC.length; i++) {
-    if (block[i] !== PBZS_MAGIC[i]) {
+  for (let i = 0; i < INTERNAL_PBZS_MAGIC.length; i++) {
+    if (block[i] !== INTERNAL_PBZS_MAGIC[i]) {
       throw invalid("magic");
     }
   }
@@ -145,7 +147,7 @@ export async function sealPbzsBlock(
     );
     const ciphertextLength = encrypted.length - TAG_SIZE;
     const block = new Uint8Array(SEALED_OVERHEAD + ciphertextLength);
-    block.set(PBZS_MAGIC);
+    block.set(INTERNAL_PBZS_MAGIC);
     block[4] = PBZS_VERSION;
     block[5] = 1;
     block.set(actualNonce, HEADER_SIZE);
