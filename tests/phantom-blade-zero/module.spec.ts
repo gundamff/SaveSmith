@@ -27,6 +27,9 @@ function document(dust: number, currentAmount = 3, maxAmount = 5): Record<string
         Weapon_Material_01: {
           CurrentAmount: currentAmount,
           MaxAmount: maxAmount,
+          FirstAddTime: '2026.10.30-18.20.30',
+          DirtyTime: '2026.10.30-18.20.30',
+          AcquiredCycle: 0,
           UnknownField: 'preserved'
         }
       }

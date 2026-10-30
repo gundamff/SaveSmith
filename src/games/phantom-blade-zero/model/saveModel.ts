@@ -5,7 +5,11 @@ import {
   type PbzCatalogItem,
   type PbzItemCategory
 } from '../catalog'
-import { createInventoryRecord, formatPbzTime } from './inventoryRecord'
+import {
+  createInventoryRecord,
+  formatPbzTime,
+  isPbzTime
+} from './inventoryRecord'
 
 const EDITABLE_SLOT_NAME = /^(?:AutoSave|ManualSave)\d+$/
 const MAX_DUST = 99_999_999
@@ -190,7 +194,10 @@ export function addInventoryItem(
 ): void {
   const item = requireCatalogItem(id)
   requireAmount(item, amount, false)
-  if (!(now instanceof Date) || Number.isNaN(now.getTime())) {
+  try {
+    if (!(now instanceof Date)) throw new RangeError('invalid Date')
+    formatPbzTime(now)
+  } catch {
     throw new ModuleError('PBZ_INVALID_EDIT', [id])
   }
   const slot = requireSlot(model, slotName)
@@ -286,37 +293,9 @@ function validateDocument(slot: PbzEditableSlot, issues: ValidationIssue[]): voi
   for (const [id, value] of Object.entries(infosValue)) {
     const item = getPbzItem(id)
     if (!item) continue
-    if (!isPlainObject(value)) {
-      issues.push({
-        code: item.category === 'weapon-material'
-          ? 'PBZ_INVALID_MATERIAL'
-          : 'PBZ_INVALID_INVENTORY_ITEM',
-        args: [slot.name, id]
-      })
-      continue
-    }
-
-    const current = value.CurrentAmount
-    const max = value.MaxAmount
-    if (!isIntegerInRange(current, 0, item.maxAmount)) {
-      issues.push({
-        code: item.category === 'weapon-material'
-          ? 'PBZ_INVALID_MATERIAL_AMOUNT'
-          : 'PBZ_INVALID_INVENTORY_AMOUNT',
-        args: [slot.name, id]
-      })
-    }
-    if (
-      !isSafeInteger(max) ||
-      max < 0 ||
-      (isSafeInteger(current) && max < current)
-    ) {
-      issues.push({
-        code: item.category === 'weapon-material'
-          ? 'PBZ_INVALID_MATERIAL_MAX'
-          : 'PBZ_INVALID_INVENTORY_MAX',
-        args: [slot.name, id]
-      })
+    const code = inventoryRecordIssueCode(value, item)
+    if (code) {
+      issues.push({ code, args: [slot.name, id] })
     }
   }
 }
@@ -381,20 +360,43 @@ function readProjectedInventoryItem(
   item: PbzCatalogItem
 ): InventoryRecord | null {
   const value = infos[item.id]
-  if (!isPlainObject(value)) return null
-  if (
-    !isIntegerInRange(value.CurrentAmount, 0, item.maxAmount) ||
-    !isSafeInteger(value.MaxAmount) ||
-    value.MaxAmount < value.CurrentAmount ||
-    value.MaxAmount < 0
-  ) {
-    return null
-  }
+  if (inventoryRecordIssueCode(value, item) !== null || !isPlainObject(value)) return null
   return {
     record: value,
-    currentAmount: value.CurrentAmount,
-    maxAmount: value.MaxAmount
+    currentAmount: value.CurrentAmount as number,
+    maxAmount: value.MaxAmount as number
   }
+}
+
+function inventoryRecordIssueCode(
+  value: unknown,
+  item: PbzCatalogItem
+): string | null {
+  const recordCode = item.category === 'weapon-material'
+    ? 'PBZ_INVALID_MATERIAL'
+    : 'PBZ_INVALID_INVENTORY_ITEM'
+  if (!isPlainObject(value)) return recordCode
+  if (!isIntegerInRange(value.CurrentAmount, 0, item.maxAmount)) {
+    return item.category === 'weapon-material'
+      ? 'PBZ_INVALID_MATERIAL_AMOUNT'
+      : 'PBZ_INVALID_INVENTORY_AMOUNT'
+  }
+  if (
+    !isIntegerInRange(value.MaxAmount, 0, Number.MAX_SAFE_INTEGER) ||
+    value.MaxAmount < value.CurrentAmount
+  ) {
+    return item.category === 'weapon-material'
+      ? 'PBZ_INVALID_MATERIAL_MAX'
+      : 'PBZ_INVALID_INVENTORY_MAX'
+  }
+  if (
+    !isPbzTime(value.FirstAddTime) ||
+    !isPbzTime(value.DirtyTime) ||
+    !isIntegerInRange(value.AcquiredCycle, 0, Number.MAX_SAFE_INTEGER)
+  ) {
+    return recordCode
+  }
+  return null
 }
 
 function requireInventoryInfos(slot: PbzEditableSlot): Record<string, unknown> {

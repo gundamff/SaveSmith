@@ -35,23 +35,23 @@ function document(overrides: Record<string, unknown> = {}): Record<string, unkno
         Weapon_Material_02: {
           CurrentAmount: 3,
           MaxAmount: 35,
-          FirstAddTime: 'synthetic',
-          DirtyTime: 'synthetic',
+          FirstAddTime: '2026.10.30-18.20.30',
+          DirtyTime: '2026.10.30-18.20.30',
           AcquiredCycle: 1,
           extra: { preserved: true }
         },
         Weapon_Material_01: {
           CurrentAmount: 7,
           MaxAmount: 7,
-          FirstAddTime: 'synthetic',
-          DirtyTime: 'synthetic',
+          FirstAddTime: '2026.10.30-18.20.30',
+          DirtyTime: '2026.10.30-18.20.30',
           AcquiredCycle: 1
         },
         Item_Traversing: {
           CurrentAmount: 2,
           MaxAmount: 10,
-          FirstAddTime: 'synthetic',
-          DirtyTime: 'synthetic',
+          FirstAddTime: '2026.10.30-18.20.30',
+          DirtyTime: '2026.10.30-18.20.30',
           AcquiredCycle: 1
         },
         Quest_Item: {
@@ -77,6 +77,13 @@ function expectModuleError(action: () => unknown, code: string, args?: Array<str
     expect((error as ModuleError).code).toBe(code)
     if (args) expect((error as ModuleError).args).toEqual(args)
   }
+}
+
+function localDateWithYear(year: number): Date {
+  const value = new Date(0)
+  value.setFullYear(year, 0, 2)
+  value.setHours(3, 4, 5, 0)
+  return value
 }
 
 describe('phantom-blade-zero save model', () => {
@@ -140,7 +147,13 @@ describe('phantom-blade-zero save model', () => {
     const editable = slot('ManualSave2', {
       Inventory: {
         InventoryInfos: {
-          Weapon_Material_03: { CurrentAmount: 1, MaxAmount: 2 },
+          Weapon_Material_03: {
+            CurrentAmount: 1,
+            MaxAmount: 2,
+            FirstAddTime: '2026.10.30-18.20.30',
+            DirtyTime: '2026.10.30-18.20.30',
+            AcquiredCycle: 1
+          },
           Weapon_Material_04: [],
           Weapon_Material_05: { CurrentAmount: 1 },
           Weapon_Material_06: { CurrentAmount: 1.5, MaxAmount: 2 },
@@ -305,7 +318,7 @@ describe('phantom-blade-zero save model', () => {
     expect(result.Inventory.InventoryInfos.Weapon_Material_02).toMatchObject({
       CurrentAmount: 50,
       MaxAmount: 50,
-      FirstAddTime: 'synthetic',
+      FirstAddTime: '2026.10.30-18.20.30',
       extra: { preserved: true }
     })
     expect(result.Inventory.InventoryInfos.Quest_Item).toEqual({
@@ -387,6 +400,76 @@ describe('phantom-blade-zero save model', () => {
     )
   })
 
+  it.each([
+    ['missing CurrentAmount', (record: Record<string, unknown>) => delete record.CurrentAmount],
+    ['fractional CurrentAmount', (record: Record<string, unknown>) => {
+      record.CurrentAmount = 1.5
+    }],
+    ['missing MaxAmount', (record: Record<string, unknown>) => delete record.MaxAmount],
+    ['MaxAmount below CurrentAmount', (record: Record<string, unknown>) => {
+      record.MaxAmount = 1
+    }],
+    ['missing FirstAddTime', (record: Record<string, unknown>) => delete record.FirstAddTime],
+    ['non-string FirstAddTime', (record: Record<string, unknown>) => {
+      record.FirstAddTime = 2026
+    }],
+    ['malformed FirstAddTime', (record: Record<string, unknown>) => {
+      record.FirstAddTime = '2026-10-30 18:20:30'
+    }],
+    ['missing DirtyTime', (record: Record<string, unknown>) => delete record.DirtyTime],
+    ['malformed DirtyTime', (record: Record<string, unknown>) => {
+      record.DirtyTime = '2026.10.30'
+    }],
+    ['missing AcquiredCycle', (record: Record<string, unknown>) => delete record.AcquiredCycle],
+    ['negative AcquiredCycle', (record: Record<string, unknown>) => {
+      record.AcquiredCycle = -1
+    }],
+    ['fractional AcquiredCycle', (record: Record<string, unknown>) => {
+      record.AcquiredCycle = 1.5
+    }]
+  ])('rejects catalog record with %s across read, edit, add, and save', (_label, mutate) => {
+    const editable = slot()
+    const model = createSaveModel([editable])
+    const infos = (editable.document.Inventory as Record<string, Record<string, unknown>>)
+      .InventoryInfos
+    const record = infos.Weapon_Material_02!
+    mutate(record)
+    const before = structuredClone(record)
+
+    expect(projectInventory(editable, 'weapon-material').some(
+      ({ id }) => id === 'Weapon_Material_02'
+    )).toBe(false)
+    expectModuleError(
+      () => setInventoryAmount(model, editable.name, 'Weapon_Material_02', 4),
+      'PBZ_INVALID_EDIT'
+    )
+    expect(record).toEqual(before)
+    expectModuleError(
+      () => addInventoryItem(model, editable.name, 'Weapon_Material_02', 1),
+      'PBZ_INVALID_EDIT'
+    )
+    expect(record).toEqual(before)
+    expect(validateSaveModel(model)).not.toEqual([])
+    expectModuleError(() => serializeDirtySlots(model), 'PBZ_INVALID_EDIT')
+    expect(record).toEqual(before)
+    expect(editable.dirty).toBe(false)
+  })
+
+  it('leaves malformed non-catalog records outside validation and serialization gates', () => {
+    const editable = slot()
+    const model = createSaveModel([editable])
+    const infos = (editable.document.Inventory as Record<string, Record<string, unknown>>)
+      .InventoryInfos
+    infos.Item_Piece_Excluded = {
+      CurrentAmount: 'broken',
+      FirstAddTime: null
+    }
+    editable.dirty = true
+
+    expect(validateSaveModel(model)).toEqual([])
+    expect(serializeDirtySlots(model).has(editable.name)).toBe(true)
+  })
+
   it('edits catalog inventory within category limits and preserves unknown fields', () => {
     const editable = slot()
     const model = createSaveModel([editable])
@@ -398,8 +481,8 @@ describe('phantom-blade-zero save model', () => {
     expect(material).toMatchObject({
       CurrentAmount: 40,
       MaxAmount: 40,
-      FirstAddTime: 'synthetic',
-      DirtyTime: 'synthetic',
+      FirstAddTime: '2026.10.30-18.20.30',
+      DirtyTime: '2026.10.30-18.20.30',
       AcquiredCycle: 1,
       extra: { preserved: true }
     })
@@ -438,6 +521,47 @@ describe('phantom-blade-zero save model', () => {
     expect(infos.Weapon_Material_03).toMatchObject({ CurrentAmount: 5, MaxAmount: 5 })
     expect(Object.keys(infos).filter((id) => id === 'Weapon_Material_03')).toHaveLength(1)
     expect(editable.dirty).toBe(true)
+  })
+
+  it('pads local years below 1000 to exactly four digits', () => {
+    const editable = slot()
+    const model = createSaveModel([editable])
+    const infos = (editable.document.Inventory as Record<string, Record<string, unknown>>)
+      .InventoryInfos
+
+    addInventoryItem(
+      model,
+      editable.name,
+      'Weapon_Material_03',
+      1,
+      localDateWithYear(42)
+    )
+
+    expect(infos.Weapon_Material_03).toMatchObject({
+      FirstAddTime: '0042.01.02-03.04.05',
+      DirtyTime: '0042.01.02-03.04.05'
+    })
+  })
+
+  it('atomically rejects representable local years above four digits', () => {
+    const editable = slot()
+    const model = createSaveModel([editable])
+    const infos = (editable.document.Inventory as Record<string, Record<string, unknown>>)
+      .InventoryInfos
+    const before = structuredClone(infos)
+    const overFourDigits = localDateWithYear(10_000)
+
+    expect(Number.isNaN(overFourDigits.getTime())).toBe(false)
+    expectModuleError(
+      () => addInventoryItem(model, editable.name, 'Weapon_Material_02', 1, overFourDigits),
+      'PBZ_INVALID_EDIT'
+    )
+    expectModuleError(
+      () => addInventoryItem(model, editable.name, 'Weapon_Material_03', 1, overFourDigits),
+      'PBZ_INVALID_EDIT'
+    )
+    expect(infos).toEqual(before)
+    expect(editable.dirty).toBe(false)
   })
 
   it('adds to an existing item once, updates its dirty time, and rejects overflow atomically', () => {
