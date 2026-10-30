@@ -1,0 +1,198 @@
+[
+  {
+    "id": "Item_Traversing",
+    "category": "consumable",
+    "zh": "穿行符",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_01",
+    "category": "weapon-material",
+    "zh": "铸造金属",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_02",
+    "category": "weapon-material",
+    "zh": "抛光铸造金属",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_03",
+    "category": "weapon-material",
+    "zh": "无瑕铸造金属",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_04",
+    "category": "weapon-material",
+    "zh": "双生金属",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_05",
+    "category": "weapon-material",
+    "zh": "抛光双生金属",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_06",
+    "category": "weapon-material",
+    "zh": "无瑕双生金属",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_07",
+    "category": "weapon-material",
+    "zh": "长板金属",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_08",
+    "category": "weapon-material",
+    "zh": "抛光长板金属",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_09",
+    "category": "weapon-material",
+    "zh": "无瑕长板金属",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_10",
+    "category": "weapon-material",
+    "zh": "溶剂",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_11",
+    "category": "weapon-material",
+    "zh": "浓缩溶剂",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_12",
+    "category": "weapon-material",
+    "zh": "熔合万物之溶剂",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_13",
+    "category": "weapon-material",
+    "zh": "异铜锭",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_14",
+    "category": "weapon-material",
+    "zh": "天外异铜",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_15",
+    "category": "weapon-material",
+    "zh": "万锻天外异铜",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_16",
+    "category": "weapon-material",
+    "zh": "魔火炭",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_17",
+    "category": "weapon-material",
+    "zh": "热魔火炭",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_18",
+    "category": "weapon-material",
+    "zh": "极热魔火炭",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_19",
+    "category": "weapon-material",
+    "zh": "机关齿轮",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_20",
+    "category": "weapon-material",
+    "zh": "精密机关齿轮",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_21",
+    "category": "weapon-material",
+    "zh": "嬴式机关齿轮",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_22",
+    "category": "weapon-material",
+    "zh": "古木",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_23",
+    "category": "weapon-material",
+    "zh": "天樟古木",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_24",
+    "category": "weapon-material",
+    "zh": "禁忌天樟古木",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_25",
+    "category": "weapon-material",
+    "zh": "招魂香灰",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_26",
+    "category": "weapon-material",
+    "zh": "迷幻香灰",
+    "en": "",
+    "maxAmount": 9999
+  },
+  {
+    "id": "Weapon_Material_27",
+    "category": "weapon-material",
+    "zh": "供奉圣母的香灰",
+    "en": "",
+    "maxAmount": 9999
+  }
+]
