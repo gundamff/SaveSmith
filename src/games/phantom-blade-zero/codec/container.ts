@@ -186,10 +186,16 @@ export async function serializePbzsContainer(
   const rebuilt: PbzsSlotBlock[] = [];
   let relativeOffset = 0;
   for (const slot of container.slots) {
+    validateCompression(slot.entry.compression, slot.entry.name);
     const dirtyPayload = dirtyPayloads.get(slot.entry.name);
     let sealedBytes: Uint8Array;
     let entry: PbzsDirectoryEntry;
     if (dirtyPayload === undefined) {
+      validateBlockHeader(
+        slot.sealedBytes,
+        slot.entry.sealed,
+        `slot ${slot.entry.name}`,
+      );
       sealedBytes = slot.sealedBytes.slice();
       entry = { ...slot.entry };
     } else {
@@ -362,6 +368,16 @@ function validateBlockHeader(
   }
   if (block[6] !== 0 || block[7] !== 0) {
     throw invalid(`${label} reserved bytes`);
+  }
+}
+
+function validateCompression(compression: number, slotName: string): void {
+  if (
+    !Number.isInteger(compression) ||
+    compression < 0 ||
+    compression > 0xff
+  ) {
+    throw invalid(`slot ${slotName} compression is not u8`);
   }
 }
 

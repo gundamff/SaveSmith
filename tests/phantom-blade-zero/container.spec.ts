@@ -173,6 +173,66 @@ describe("PBZS v3 container", () => {
     );
   });
 
+  it.each([-1, 1.5, 256, 257, Number.NaN, Number.POSITIVE_INFINITY])(
+    "rejects mutable compression value %s instead of truncating it",
+    async (compression) => {
+      const parsed = await parsePbzsContainer(await standardFixture());
+      parsed.slots[0]!.entry.compression = compression;
+
+      await expectCode(
+        serializePbzsContainer(parsed, new Map()),
+        "PBZ_INVALID_CONTAINER",
+      );
+    },
+  );
+
+  it.each([
+    ["short", (bytes: Uint8Array) => bytes.slice(0, 7)],
+    ["magic", (bytes: Uint8Array) => {
+      const damaged = bytes.slice();
+      damaged[0] = 0;
+      return damaged;
+    }],
+    ["version", (bytes: Uint8Array) => {
+      const damaged = bytes.slice();
+      damaged[4] = 2;
+      return damaged;
+    }],
+    ["reserved", (bytes: Uint8Array) => {
+      const damaged = bytes.slice();
+      damaged[6] = 1;
+      return damaged;
+    }],
+    ["sealed flag", (bytes: Uint8Array) => {
+      const damaged = bytes.slice();
+      damaged[5] = 2;
+      return damaged;
+    }],
+  ])("rejects a mutable clean slot with a %s block header", async (
+    _name,
+    damage,
+  ) => {
+    const parsed = await parsePbzsContainer(await standardFixture());
+    parsed.slots[0]!.sealedBytes = damage(
+      parsed.slots[0]!.sealedBytes,
+    );
+
+    await expectCode(
+      serializePbzsContainer(parsed, new Map()),
+      "PBZ_INVALID_CONTAINER",
+    );
+  });
+
+  it("rejects mutable clean slot sealed metadata disagreement", async () => {
+    const parsed = await parsePbzsContainer(await standardFixture());
+    parsed.slots[0]!.entry.sealed = 0;
+
+    await expectCode(
+      serializePbzsContainer(parsed, new Map()),
+      "PBZ_INVALID_CONTAINER",
+    );
+  });
+
   it.each([
     ["magic", 0, 0x00],
     ["version", 4, 0x02],
