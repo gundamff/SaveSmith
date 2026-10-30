@@ -2,6 +2,7 @@ import type { GameModule } from '@sdk/types'
 import { locate } from './locate'
 import { parse, serialize, validate, type PhantomBladeZeroState } from './parse'
 import { listSlots } from './slots'
+import { pbzViews } from './views'
 
 export type { PhantomBladeZeroState }
 
@@ -29,5 +30,5 @@ export const phantomBladeZeroModule: GameModule<PhantomBladeZeroState> = {
   validate,
   actions: () => [],
   applyAction: (state) => state,
-  views: []
+  views: pbzViews
 }

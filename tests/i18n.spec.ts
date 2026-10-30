@@ -100,7 +100,42 @@ const REQUIRED_KEYS = [
   'dc.blueprints.itemId',
   'dc.blueprints.name',
   'dc.runes.name',
-  'dc.runes.unlockAll'
+  'dc.runes.unlockAll',
+  'pbz.tabs.resources',
+  'pbz.resources.warning',
+  'pbz.resources.slot',
+  'pbz.resources.slotDirty',
+  'pbz.resources.dust',
+  'pbz.resources.materials',
+  'pbz.resources.filterPlaceholder',
+  'pbz.resources.setAll9999',
+  'pbz.resources.empty',
+  'pbz.resources.name',
+  'pbz.resources.id',
+  'pbz.resources.current',
+  'pbz.resources.max',
+  'pbz.resources.target',
+  'pbz.resources.materialName',
+  'error.PBZ_INVALID_BLOCK',
+  'error.PBZ_AUTH_FAILED',
+  'error.PBZ_INVALID_CONTAINER',
+  'error.PBZ_UNSUPPORTED_COMPRESSION',
+  'error.PBZ_DECOMPRESSION_FAILED',
+  'error.PBZ_SLOT_READ_ONLY',
+  'error.PBZ_INVALID_JSON',
+  'error.PBZ_INVALID_EDIT',
+  'error.PBZ_NO_EDITABLE_SLOTS',
+  'error.PBZ_INVALID_SLOT',
+  'error.PBZ_DUPLICATE_SLOT',
+  'error.PBZ_INVALID_SELECTION',
+  'error.PBZ_INVALID_DOCUMENT',
+  'error.PBZ_INVALID_PLAYER',
+  'error.PBZ_INVALID_DUST',
+  'error.PBZ_INVALID_INVENTORY',
+  'error.PBZ_INVALID_INVENTORY_INFOS',
+  'error.PBZ_INVALID_MATERIAL',
+  'error.PBZ_INVALID_MATERIAL_AMOUNT',
+  'error.PBZ_INVALID_MATERIAL_MAX'
 ] as const
 
 afterEach(() => {
@@ -166,6 +201,13 @@ describe('host i18n', () => {
 
   it('interpolates numbered placeholders on the resolved string', () => {
     expect(t('hello {0}', 'world')).toBe('hello world')
+  })
+
+  it('interpolates the PBZ generic material name in both locales', () => {
+    setLocale('zh')
+    expect(t('pbz.resources.materialName', '01')).toBe('材料 01')
+    setLocale('en')
+    expect(t('pbz.resources.materialName', '01')).toBe('Material 01')
   })
 
   it('translateError uses error.{code} when present', () => {

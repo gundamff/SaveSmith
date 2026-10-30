@@ -580,6 +580,28 @@ export const zh: MessageTree = {
       }
     }
   },
+  pbz: {
+    tabs: {
+      resources: '资源'
+    },
+    resources: {
+      warning:
+        '当前仅验证 build 26266538。修改前请完全退出游戏；Steam 云存档可能回滚修改。本工具非官方，仅限单机使用。',
+      slot: '内部槽位',
+      slotDirty: '当前槽的修改仍会保留，并在保存时一起写入。确定切换槽位吗？',
+      dust: 'Dust',
+      materials: '材料',
+      filterPlaceholder: '按材料名称或原始 ID 筛选',
+      setAll9999: '已有材料全部设为 9999',
+      empty: '没有已有材料或筛选无结果',
+      name: '通用名称',
+      id: 'ID',
+      current: '当前数量',
+      max: '历史最大数量',
+      target: '目标数量',
+      materialName: '材料 {0}'
+    }
+  },
   error: {
     EMPTY_SERIALIZE: '序列化结果为空或字节无效，已拒绝写入',
     UNKNOWN_ACTION: '未知动作：{0}',
@@ -613,6 +635,26 @@ export const zh: MessageTree = {
     CHECKSUM_MISMATCH: '存档校验失败：{0}',
     FFR_MONEY: 'Gil 无效：{0}',
     FFR_ITEM_NUM: '物品 {0} 数量无效：{1}',
-    FFR_GVAS: 'GVAS 结构已损坏，拒绝保存'
+    FFR_GVAS: 'GVAS 结构已损坏，拒绝保存',
+    PBZ_INVALID_BLOCK: 'PBZS 数据块无效：{0}',
+    PBZ_AUTH_FAILED: 'PBZS 认证失败：可能是游戏更新或存档损坏，已拒绝写入',
+    PBZ_INVALID_CONTAINER: 'PBZS 容器无效：{0}',
+    PBZ_UNSUPPORTED_COMPRESSION: '槽位 {0} 使用不支持的压缩格式',
+    PBZ_DECOMPRESSION_FAILED: '槽位 {0} 解压失败',
+    PBZ_SLOT_READ_ONLY: '槽位 {0} 为只读',
+    PBZ_INVALID_JSON: '槽位 {0} 的 JSON 无效',
+    PBZ_INVALID_EDIT: 'PBZ 修改无效：{0}',
+    PBZ_NO_EDITABLE_SLOTS: '没有可编辑的 AutoSave/ManualSave 槽位',
+    PBZ_INVALID_SLOT: '槽位名称无效：{0}',
+    PBZ_DUPLICATE_SLOT: '存在重复槽位：{0}',
+    PBZ_INVALID_SELECTION: '当前槽位选择无效：{0}',
+    PBZ_INVALID_DOCUMENT: '槽位 {0} 的文档无效',
+    PBZ_INVALID_PLAYER: '槽位 {0} 缺少有效 Player',
+    PBZ_INVALID_DUST: '槽位 {0} 的 Dust 无效',
+    PBZ_INVALID_INVENTORY: '槽位 {0} 的 Inventory 无效',
+    PBZ_INVALID_INVENTORY_INFOS: '槽位 {0} 的 InventoryInfos 无效',
+    PBZ_INVALID_MATERIAL: '槽位 {0} 的材料 {1} 无效',
+    PBZ_INVALID_MATERIAL_AMOUNT: '槽位 {0} 的材料 {1} 当前数量无效',
+    PBZ_INVALID_MATERIAL_MAX: '槽位 {0} 的材料 {1} 历史最大数量无效'
   }
 }

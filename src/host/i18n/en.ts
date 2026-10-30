@@ -585,6 +585,29 @@ export const en: MessageTree = {
       }
     }
   },
+  pbz: {
+    tabs: {
+      resources: 'Resources'
+    },
+    resources: {
+      warning:
+        'Only build 26266538 has been verified. Fully quit the game before editing; Steam Cloud may roll back changes. This is an unofficial tool for single-player use only.',
+      slot: 'Internal slot',
+      slotDirty:
+        'Changes in the current slot will remain and will be written together when you save. Switch slots?',
+      dust: 'Dust',
+      materials: 'Materials',
+      filterPlaceholder: 'Filter by material name or raw ID',
+      setAll9999: 'Set all existing materials to 9999',
+      empty: 'No existing materials or no filter matches',
+      name: 'Generic name',
+      id: 'ID',
+      current: 'Current',
+      max: 'Historical max',
+      target: 'Target',
+      materialName: 'Material {0}'
+    }
+  },
   error: {
     EMPTY_SERIALIZE: 'Serialize produced an empty or invalid payload; write aborted',
     UNKNOWN_ACTION: 'Unknown action: {0}',
@@ -620,6 +643,27 @@ export const en: MessageTree = {
     CHECKSUM_MISMATCH: 'Checksum mismatch: {0}',
     FFR_MONEY: 'Invalid Gil: {0}',
     FFR_ITEM_NUM: 'Invalid qty for item {0}: {1}',
-    FFR_GVAS: 'GVAS structure is corrupt; refusing save'
+    FFR_GVAS: 'GVAS structure is corrupt; refusing save',
+    PBZ_INVALID_BLOCK: 'Invalid PBZS block: {0}',
+    PBZ_AUTH_FAILED:
+      'PBZS authentication failed: the game may have updated or the save is corrupted; write rejected',
+    PBZ_INVALID_CONTAINER: 'Invalid PBZS container: {0}',
+    PBZ_UNSUPPORTED_COMPRESSION: 'Slot {0} uses an unsupported compression format',
+    PBZ_DECOMPRESSION_FAILED: 'Failed to decompress slot {0}',
+    PBZ_SLOT_READ_ONLY: 'Slot {0} is read-only',
+    PBZ_INVALID_JSON: 'Slot {0} contains invalid JSON',
+    PBZ_INVALID_EDIT: 'Invalid PBZ edit: {0}',
+    PBZ_NO_EDITABLE_SLOTS: 'No editable AutoSave/ManualSave slots',
+    PBZ_INVALID_SLOT: 'Invalid slot name: {0}',
+    PBZ_DUPLICATE_SLOT: 'Duplicate slot: {0}',
+    PBZ_INVALID_SELECTION: 'Invalid selected slot: {0}',
+    PBZ_INVALID_DOCUMENT: 'Invalid document in slot {0}',
+    PBZ_INVALID_PLAYER: 'Slot {0} has no valid Player',
+    PBZ_INVALID_DUST: 'Invalid Dust in slot {0}',
+    PBZ_INVALID_INVENTORY: 'Invalid Inventory in slot {0}',
+    PBZ_INVALID_INVENTORY_INFOS: 'Invalid InventoryInfos in slot {0}',
+    PBZ_INVALID_MATERIAL: 'Invalid material {1} in slot {0}',
+    PBZ_INVALID_MATERIAL_AMOUNT: 'Invalid current amount for material {1} in slot {0}',
+    PBZ_INVALID_MATERIAL_MAX: 'Invalid historical max for material {1} in slot {0}'
   }
 }
