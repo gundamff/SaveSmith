@@ -2,6 +2,7 @@ import initOozextract, {
   Extractor,
 } from "./oozextract/oozextract.js";
 import wasmUrl from "./oozextract/oozextract_bg.wasm?inline";
+import { MAX_PBZS_SLOT_UNCOMPRESSED_SIZE } from "../limits";
 
 let initialization: Promise<void> | undefined;
 
@@ -21,9 +22,12 @@ function decodeInlineWasm(dataUrl: string): Uint8Array {
 function initializeWasm(): Promise<void> {
   // A rejected initialization remains cached: repeated calls must report the
   // same terminal load failure rather than retrying an invalid bundled module.
-  initialization ??= initOozextract({
-    module_or_path: decodeInlineWasm(wasmUrl),
-  })
+  initialization ??= Promise.resolve()
+    .then(() =>
+      initOozextract({
+        module_or_path: decodeInlineWasm(wasmUrl),
+      }),
+    )
     .then(() => undefined)
     .catch((cause: unknown) => {
       throw errorWithCause(
@@ -52,6 +56,9 @@ export async function decompressOodle(
     throw new RangeError(
       "expectedSize must be a safe non-negative integer",
     );
+  }
+  if (expectedSize > MAX_PBZS_SLOT_UNCOMPRESSED_SIZE) {
+    throw new RangeError("expectedSize exceeds the 16 MiB slot limit");
   }
 
   await initializeWasm();

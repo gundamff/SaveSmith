@@ -21,6 +21,9 @@ describe("Phantom Blade Zero Oodle codec", () => {
     vi.doUnmock(
       "@games/phantom-blade-zero/codec/oodle/oozextract/oozextract.js",
     );
+    vi.doUnmock(
+      "@games/phantom-blade-zero/codec/oodle/oozextract/oozextract_bg.wasm?inline",
+    );
     vi.resetModules();
   });
 
@@ -113,6 +116,32 @@ describe("Phantom Blade Zero Oodle codec", () => {
     ).rejects.toThrow(/length mismatch: expected \d+, got \d+/i);
   });
 
+  it("rejects an over-limit expected size before calling the extractor", async () => {
+    vi.resetModules();
+    const extract = vi.fn();
+    vi.doMock(
+      "@games/phantom-blade-zero/codec/oodle/oozextract/oozextract.js",
+      () => ({
+        default: vi.fn().mockResolvedValue({}),
+        Extractor: {
+          new: vi.fn(() => ({ extract, free: vi.fn() })),
+        },
+      }),
+    );
+
+    const { decompressOodle: decompressWithObservedExtractor } = await import(
+      "@games/phantom-blade-zero/codec/oodle"
+    );
+
+    await expect(
+      decompressWithObservedExtractor(
+        UNCOMPRESSED_VECTOR,
+        16 * 1024 * 1024 + 1,
+      ),
+    ).rejects.toThrow(/expectedSize.*16 MiB|slot limit/i);
+    expect(extract).not.toHaveBeenCalled();
+  });
+
   it("rejects a damaged Oodle stream", async () => {
     await expect(
       decompressOodle(Uint8Array.from([0xff, 0xff, 0x00]), 8),
@@ -145,5 +174,40 @@ describe("Phantom Blade Zero Oodle codec", () => {
     await expect(
       decompressWithBrokenWasm(UNCOMPRESSED_VECTOR, EXPECTED.length),
     ).rejects.toThrow(/initialize Oodle WASM.*synthetic load failure/i);
+  });
+
+  it("wraps synchronous inline-WASM decode failures with their cause", async () => {
+    vi.resetModules();
+    const init = vi.fn();
+    vi.doMock(
+      "@games/phantom-blade-zero/codec/oodle/oozextract/oozextract.js",
+      () => ({
+        default: init,
+        Extractor: class {},
+      }),
+    );
+    vi.doMock(
+      "@games/phantom-blade-zero/codec/oodle/oozextract/oozextract_bg.wasm?inline",
+      () => ({
+        default: "data:application/wasm;base64,%%%",
+      }),
+    );
+
+    const { decompressOodle: decompressWithInvalidInlineWasm } = await import(
+      "@games/phantom-blade-zero/codec/oodle"
+    );
+    const failure = await decompressWithInvalidInlineWasm(
+      UNCOMPRESSED_VECTOR,
+      EXPECTED.length,
+    ).catch((error: unknown) => error);
+
+    expect(failure).toBeInstanceOf(Error);
+    expect((failure as Error).message).toMatch(
+      /Failed to initialize Oodle WASM/i,
+    );
+    expect((failure as Error & { cause?: unknown }).cause).toBeInstanceOf(
+      Error,
+    );
+    expect(init).not.toHaveBeenCalled();
   });
 });

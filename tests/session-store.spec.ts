@@ -1,9 +1,23 @@
 import { createPinia, setActivePinia } from 'pinia'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { ModuleError } from '@sdk/error'
 import type { GameModule, SlotBytes } from '@sdk/types'
 import type { BackupInfoDto } from '@host/tauri'
+import { phantomBladeZeroModule } from '@games/phantom-blade-zero'
+import {
+  parsePbzsContainer
+} from '@games/phantom-blade-zero/codec/container'
+import {
+  setDust
+} from '@games/phantom-blade-zero/model/saveModel'
+import type {
+  PhantomBladeZeroState
+} from '@games/phantom-blade-zero/parse'
+import {
+  requestSlotSelection
+} from '@games/phantom-blade-zero/views/slotSelection'
 import { dummyModule, type DummyState } from './dummyModule'
+import { makePbzsFixture } from './phantom-blade-zero/fixtures'
 import {
   resetSessionIo,
   setSessionIo,
@@ -395,6 +409,140 @@ describe('useSessionStore', () => {
     expect(store.dirty).toBe(false)
     expect(dec(store.original.find((f) => f.relativePath === 'save.txt')!.bytes)).toBe('999')
     expect(dec(store.original.find((f) => f.relativePath === 'meta.txt')!.bytes)).toBe('meta')
+  })
+
+  it('save reparses committed bytes so module-internal dirty state becomes clean', async () => {
+    interface InternalState {
+      gold: number
+      internalDirty: boolean
+    }
+    let serializeCalls = 0
+    const internalDirtyModule: GameModule<InternalState> = {
+      ...dummyModule,
+      parse(files) {
+        return {
+          gold: Number(dec(files[0]!.bytes)),
+          internalDirty: false
+        }
+      },
+      serialize(nextState) {
+        serializeCalls++
+        return [{ relativePath: 'save.txt', bytes: enc(String(nextState.gold)) }]
+      },
+      validate() {
+        return []
+      }
+    }
+    const io = createMemoryIo({ 'save.txt': enc('10') })
+    setSessionIo(io)
+    const store = useSessionStore()
+    await store.openGame(internalDirtyModule, 'D:\\saves')
+    await store.loadSlot('slot-0')
+    store.mutate((value) => {
+      const current = value as InternalState
+      current.gold = 11
+      current.internalDirty = true
+      return current
+    })
+    const editedState = store.state
+    const revisionBeforeSave = store.revision
+
+    await expect(store.save()).resolves.toEqual([])
+
+    expect(store.state).not.toBe(editedState)
+    expect(store.state).toEqual({ gold: 11, internalDirty: false })
+    expect(store.dirty).toBe(false)
+    expect(store.revision).toBe(revisionBeforeSave + 1)
+    expect(io.writes).toHaveLength(1)
+
+    await expect(store.save()).resolves.toEqual([])
+    expect(store.state).toEqual({ gold: 11, internalDirty: false })
+    expect(io.writes).toHaveLength(1)
+    expect(serializeCalls).toBe(2)
+  })
+
+  it('save prevalidates serialized bytes before writing and preserves dirty state on parse failure', async () => {
+    const rejecting: GameModule<DummyState> = {
+      ...dummyModule,
+      parse(files) {
+        const value = Number(dec(files[0]!.bytes))
+        if (value === 999) throw new ModuleError('PARSE_FAILED', ['synthetic'])
+        return { gold: value }
+      }
+    }
+    const io = createMemoryIo({ 'save.txt': enc('10') })
+    setSessionIo(io)
+    const store = useSessionStore()
+    await store.openGame(rejecting, 'D:\\saves')
+    await store.loadSlot('slot-0')
+    store.runAction('fill')
+    const editedState = store.state
+
+    await expect(store.save()).rejects.toMatchObject({ code: 'PARSE_FAILED' })
+
+    expect(io.writes).toHaveLength(0)
+    expect(store.state).toBe(editedState)
+    expect(store.dirty).toBe(true)
+  })
+
+  it('save preserves current state and dirty flags when an atomic write fails', async () => {
+    const io = createMemoryIo({ 'save.txt': enc('10') })
+    io.writeAtomic = async () => {
+      throw new Error('synthetic disk failure')
+    }
+    setSessionIo(io)
+    const store = useSessionStore()
+    await store.openGame(dummyModule, 'D:\\saves')
+    await store.loadSlot('slot-0')
+    store.runAction('fill')
+    const editedState = store.state
+
+    await expect(store.save()).rejects.toThrow('synthetic disk failure')
+
+    expect(store.state).toBe(editedState)
+    expect(store.dirty).toBe(true)
+    expect(dec(store.original[0]!.bytes)).toBe('10')
+  })
+
+  it('PBZ host save rebuilds clean slot state and does not retain historical dirty slots', async () => {
+    const bytes = await makePbzsFixture([
+      {
+        name: 'ManualSave1',
+        compression: 0,
+        payload: enc('{"Player":{"Dust":10},"Inventory":{"InventoryInfos":{}}}')
+      },
+      {
+        name: 'AutoSave1',
+        compression: 0,
+        payload: enc('{"Player":{"Dust":20},"Inventory":{"InventoryInfos":{}}}')
+      }
+    ])
+    const io = createMemoryIo({ 'PBZSaveGame.sav': bytes })
+    setSessionIo(io)
+    const store = useSessionStore()
+    await store.openGame(phantomBladeZeroModule, 'D:\\saves')
+    await store.loadSlot('pbz-main')
+    store.mutate((value) => {
+      const current = value as PhantomBladeZeroState
+      setDust(current.model, 'ManualSave1', 11)
+      return current
+    })
+
+    await expect(store.save()).resolves.toEqual([])
+
+    const committed = store.state as PhantomBladeZeroState
+    expect(committed.model.slots.every(({ dirty }) => !dirty)).toBe(true)
+    const confirm = vi.fn(() => true)
+    expect(
+      requestSlotSelection(committed.model, 'AutoSave1', confirm)
+    ).toBe(true)
+    expect(confirm).not.toHaveBeenCalled()
+
+    const [serializedAgain] = await phantomBladeZeroModule.serialize(committed)
+    const reparsedAgain = await parsePbzsContainer(serializedAgain!.bytes)
+    expect(reparsedAgain.slots.map(({ sealedBytes }) => sealedBytes)).toEqual(
+      committed.container.slots.map(({ sealedBytes }) => sealedBytes)
+    )
   })
 
   it('save rejects empty serialize via assertSerializeSane', async () => {

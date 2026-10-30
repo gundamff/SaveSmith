@@ -2,6 +2,10 @@ import { ModuleError } from "@sdk/error";
 
 import { decompressOodle } from "./oodle";
 import {
+  MAX_PBZS_SLOT_UNCOMPRESSED_SIZE,
+  MAX_PBZS_TOTAL_UNCOMPRESSED_SIZE,
+} from "./limits";
+import {
   sealPbzsBlock,
   unsealPbzsBlock,
 } from "../crypto/pbzsCrypto";
@@ -68,6 +72,7 @@ export async function parsePbzsContainer(
   }
 
   const entries = parseDirectoryEntries(directoryPlain, slotCount);
+  validateUncompressedSizes(entries);
   const slotRegionLength = raw.length - directoryEnd;
   const slots: PbzsSlotBlock[] = [];
   let expectedOffset = 0;
@@ -100,6 +105,7 @@ export async function parsePbzsContainer(
     );
     const sealedBytes = raw.slice(absoluteStart, absoluteEnd);
     validateBlockHeader(sealedBytes, entry.sealed, `slot ${entry.name}`);
+    await authenticateSealedBlock(sealedBytes, entry.sealed);
     slots.push({ entry, sealedBytes });
     expectedOffset = blockEnd;
   }
@@ -187,15 +193,19 @@ export async function serializePbzsContainer(
   let relativeOffset = 0;
   for (const slot of container.slots) {
     validateCompression(slot.entry.compression, slot.entry.name);
+    validateBlockHeader(
+      slot.sealedBytes,
+      slot.entry.sealed,
+      `slot ${slot.entry.name}`,
+    );
+    await authenticateSealedBlock(
+      slot.sealedBytes,
+      slot.entry.sealed,
+    );
     const dirtyPayload = dirtyPayloads.get(slot.entry.name);
     let sealedBytes: Uint8Array;
     let entry: PbzsDirectoryEntry;
     if (dirtyPayload === undefined) {
-      validateBlockHeader(
-        slot.sealedBytes,
-        slot.entry.sealed,
-        `slot ${slot.entry.name}`,
-      );
       sealedBytes = slot.sealedBytes.slice();
       entry = { ...slot.entry };
     } else {
@@ -336,6 +346,23 @@ function parseDirectoryEntries(
   return entries;
 }
 
+function validateUncompressedSizes(
+  entries: readonly PbzsDirectoryEntry[],
+): void {
+  let total = 0;
+  for (const entry of entries) {
+    if (entry.uncompressedSize > MAX_PBZS_SLOT_UNCOMPRESSED_SIZE) {
+      throw invalid(
+        `slot ${entry.name} uncompressed size exceeds 16 MiB`,
+      );
+    }
+    total += entry.uncompressedSize;
+    if (total > MAX_PBZS_TOTAL_UNCOMPRESSED_SIZE) {
+      throw invalid("total uncompressed size exceeds 64 MiB");
+    }
+  }
+}
+
 async function unsealDirectory(block: Uint8Array): Promise<Uint8Array> {
   try {
     return await unsealPbzsBlock(block);
@@ -344,6 +371,15 @@ async function unsealDirectory(block: Uint8Array): Promise<Uint8Array> {
       throw error;
     }
     throw invalid("directory block");
+  }
+}
+
+async function authenticateSealedBlock(
+  block: Uint8Array,
+  sealed: 0 | 1,
+): Promise<void> {
+  if (sealed === 1) {
+    await unsealPbzsBlock(block);
   }
 }
 
@@ -458,7 +494,31 @@ async function inflate(payload: Uint8Array): Promise<Uint8Array> {
   const stream = new Blob([new Uint8Array(payload)])
     .stream()
     .pipeThrough(new DecompressionStream("deflate"));
-  return new Uint8Array(await new Response(stream).arrayBuffer());
+  const reader = stream.getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      const chunk = new Uint8Array(value);
+      total += chunk.length;
+      if (total > MAX_PBZS_SLOT_UNCOMPRESSED_SIZE) {
+        await reader.cancel("PBZS slot exceeds 16 MiB");
+        throw new Error("inflated slot exceeds 16 MiB");
+      }
+      chunks.push(chunk);
+    }
+  } finally {
+    reader.releaseLock();
+  }
+  const output = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    output.set(chunk, offset);
+    offset += chunk.length;
+  }
+  return output;
 }
 
 async function deflate(
@@ -532,3 +592,8 @@ export type {
   PbzsDirectoryEntry,
   PbzsSlotBlock,
 } from "../model/types";
+
+export {
+  MAX_PBZS_SLOT_UNCOMPRESSED_SIZE,
+  MAX_PBZS_TOTAL_UNCOMPRESSED_SIZE,
+} from "./limits";

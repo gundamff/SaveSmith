@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  MAX_PBZS_SLOT_UNCOMPRESSED_SIZE,
+  MAX_PBZS_TOTAL_UNCOMPRESSED_SIZE,
   parsePbzsContainer,
   readSlotPayload,
   serializePbzsContainer,
@@ -161,6 +163,33 @@ describe("PBZS v3 container", () => {
       parsed.slots[0]!.sealedBytes,
     );
   });
+
+  it.each([
+    ["read-only special", "__Advanced__", 0],
+    ["unknown compression", "FutureSlot", 77],
+  ])(
+    "rejects a bad tag in a %s slot during parse and serialize",
+    async (_kind, name, compression) => {
+      const raw = await makePbzsFixture([
+        { name, compression, payload: encoder.encode("opaque") },
+      ]);
+      const offset = await slotOffset(raw, 0);
+      const damagedRaw = raw.slice();
+      damagedRaw[offset + 20] ^= 0x80;
+
+      await expectCode(
+        parsePbzsContainer(damagedRaw),
+        "PBZ_AUTH_FAILED",
+      );
+
+      const parsed = await parsePbzsContainer(raw);
+      parsed.slots[0]!.sealedBytes[20] ^= 0x80;
+      await expectCode(
+        serializePbzsContainer(parsed, new Map()),
+        "PBZ_AUTH_FAILED",
+      );
+    },
+  );
 
   it("rejects an unknown dirty name", async () => {
     const parsed = await parsePbzsContainer(await standardFixture());
@@ -383,6 +412,84 @@ describe("PBZS v3 container", () => {
     );
   });
 
+  it("accepts the single-slot uncompressed-size boundary and rejects one byte over it", async () => {
+    expect(MAX_PBZS_SLOT_UNCOMPRESSED_SIZE).toBe(16 * 1024 * 1024);
+    const raw = await makePbzsFixture([
+      { name: "boundary", compression: 0, payload: Uint8Array.of(1) },
+    ]);
+    const plain = await directoryPlain(raw);
+    const location = directoryEntryLocations(plain, 1)[0]!;
+    writeU32(
+      plain,
+      location.uncompressedSizeOffset,
+      MAX_PBZS_SLOT_UNCOMPRESSED_SIZE,
+    );
+    await expect(
+      parsePbzsContainer(await replaceDirectory(raw, plain)),
+    ).resolves.toBeDefined();
+
+    writeU32(
+      plain,
+      location.uncompressedSizeOffset,
+      MAX_PBZS_SLOT_UNCOMPRESSED_SIZE + 1,
+    );
+    await expectCode(
+      parsePbzsContainer(await replaceDirectory(raw, plain)),
+      "PBZ_INVALID_CONTAINER",
+    );
+  });
+
+  it("accepts the total uncompressed-size boundary and rejects one byte over it", async () => {
+    expect(MAX_PBZS_TOTAL_UNCOMPRESSED_SIZE).toBe(64 * 1024 * 1024);
+    const slots = Array.from({ length: 5 }, (_, index) => ({
+      name: `slot-${index}`,
+      compression: 0,
+      payload: Uint8Array.of(index),
+    }));
+    const raw = await makePbzsFixture(slots);
+    const plain = await directoryPlain(raw);
+    const locations = directoryEntryLocations(plain, slots.length);
+    for (let index = 0; index < 4; index++) {
+      writeU32(
+        plain,
+        locations[index]!.uncompressedSizeOffset,
+        MAX_PBZS_SLOT_UNCOMPRESSED_SIZE,
+      );
+    }
+    writeU32(plain, locations[4]!.uncompressedSizeOffset, 0);
+    await expect(
+      parsePbzsContainer(await replaceDirectory(raw, plain)),
+    ).resolves.toBeDefined();
+
+    writeU32(plain, locations[4]!.uncompressedSizeOffset, 1);
+    await expectCode(
+      parsePbzsContainer(await replaceDirectory(raw, plain)),
+      "PBZ_INVALID_CONTAINER",
+    );
+  });
+
+  it("rejects a zlib stream as soon as inflated output exceeds the slot limit", async () => {
+    const expanded = new Uint8Array(
+      MAX_PBZS_SLOT_UNCOMPRESSED_SIZE + 1,
+    );
+    const compressed = await deflate(expanded);
+    const parsed = await parsePbzsContainer(
+      await makePbzsFixture([
+        {
+          name: "bomb",
+          compression: 1,
+          payload: compressed,
+          uncompressedSize: 1,
+        },
+      ]),
+    );
+
+    await expectCode(
+      readSlotPayload(parsed, "bomb"),
+      "PBZ_DECOMPRESSION_FAILED",
+    );
+  });
+
   it.each([
     ["raw length", 0, encoder.encode("abc"), 4],
     ["zlib length", 1, encoder.encode("abc"), 4],
@@ -410,12 +517,11 @@ describe("PBZS v3 container", () => {
     },
   );
 
-  it("preserves a slot authentication failure", async () => {
+  it("preserves a slot authentication failure during parse", async () => {
     const raw = await standardFixture();
     const offset = await slotOffset(raw, 0);
     raw[offset + 20] ^= 0x80;
-    const parsed = await parsePbzsContainer(raw);
-    await expectCode(readSlotPayload(parsed, "raw"), "PBZ_AUTH_FAILED");
+    await expectCode(parsePbzsContainer(raw), "PBZ_AUTH_FAILED");
   });
 
   it("rejects a missing slot name on read", async () => {

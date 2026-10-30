@@ -252,15 +252,23 @@ export const useSessionStore = defineStore('session', () => {
       if (issues.length) return issues
       const next = await mod.serialize(state.value)
       assertSerializeSane(next)
+      const committedFiles: SlotBytes[] = next.map((file) => ({
+        relativePath: file.relativePath,
+        bytes: new Uint8Array(file.bytes)
+      }))
+      const committedState = wrapState(await mod.parse(committedFiles))
       const changed = changedFiles(original.value, next)
       for (const file of changed) {
         await sessionIo.writeAtomic(saveDir.value, file.relativePath, file.bytes)
       }
-      original.value = next.map((file) => ({
+      state.value = committedState
+      original.value = committedFiles.map((file) => ({
         relativePath: file.relativePath,
         bytes: file.bytes
       }))
       dirty.value = false
+      revision.value++
+      triggerRef(state)
       const sessionFiles =
         slots.value.find((s) => s.id === currentSlotId.value)?.sessionFiles ??
         next.map((f) => f.relativePath)
