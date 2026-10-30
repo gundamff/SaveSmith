@@ -1,198 +1,314 @@
 [
   {
+    "id": "Ac_Material_1",
+    "category": "consumable",
+    "zh": "污秽残晶",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "Ac_Material_4",
+    "category": "consumable",
+    "zh": "提纯靛晶",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "I_060002",
+    "category": "consumable",
+    "zh": "榕树之心",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "Item_001",
+    "category": "consumable",
+    "zh": "黑石",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": true
+  },
+  {
+    "id": "Item_002",
+    "category": "consumable",
+    "zh": "杀气琥珀",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": true
+  },
+  {
+    "id": "Item_Piece_001",
+    "category": "consumable",
+    "zh": "黑石碎片",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": true
+  },
+  {
+    "id": "Item_Piece_002",
+    "category": "consumable",
+    "zh": "杀气琥珀碎片",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": true
+  },
+  {
     "id": "Item_Traversing",
     "category": "consumable",
     "zh": "穿行符",
     "en": "",
-    "maxAmount": 99
+    "maxAmount": 99,
+    "thresholdRisk": false
+  },
+  {
+    "id": "Medi_Material_1",
+    "category": "consumable",
+    "zh": "学徒药师记忆",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "Medi_Material_2",
+    "category": "consumable",
+    "zh": "熟练药师记忆",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "Medi_Material_3",
+    "category": "consumable",
+    "zh": "大师药师记忆",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "ShaqiHexin",
+    "category": "consumable",
+    "zh": "杀气核心",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_01",
     "category": "weapon-material",
     "zh": "铸造金属",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_02",
     "category": "weapon-material",
     "zh": "抛光铸造金属",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_03",
     "category": "weapon-material",
     "zh": "无瑕铸造金属",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_04",
     "category": "weapon-material",
     "zh": "双生金属",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_05",
     "category": "weapon-material",
     "zh": "抛光双生金属",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_06",
     "category": "weapon-material",
     "zh": "无瑕双生金属",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_07",
     "category": "weapon-material",
     "zh": "长板金属",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_08",
     "category": "weapon-material",
     "zh": "抛光长板金属",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_09",
     "category": "weapon-material",
     "zh": "无瑕长板金属",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_10",
     "category": "weapon-material",
     "zh": "溶剂",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_11",
     "category": "weapon-material",
     "zh": "浓缩溶剂",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_12",
     "category": "weapon-material",
     "zh": "熔合万物之溶剂",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_13",
     "category": "weapon-material",
     "zh": "异铜锭",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_14",
     "category": "weapon-material",
     "zh": "天外异铜",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_15",
     "category": "weapon-material",
     "zh": "万锻天外异铜",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_16",
     "category": "weapon-material",
     "zh": "魔火炭",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_17",
     "category": "weapon-material",
     "zh": "热魔火炭",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_18",
     "category": "weapon-material",
     "zh": "极热魔火炭",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_19",
     "category": "weapon-material",
     "zh": "机关齿轮",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_20",
     "category": "weapon-material",
     "zh": "精密机关齿轮",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_21",
     "category": "weapon-material",
     "zh": "嬴式机关齿轮",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_22",
     "category": "weapon-material",
     "zh": "古木",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_23",
     "category": "weapon-material",
     "zh": "天樟古木",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_24",
     "category": "weapon-material",
     "zh": "禁忌天樟古木",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_25",
     "category": "weapon-material",
     "zh": "招魂香灰",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_26",
     "category": "weapon-material",
     "zh": "迷幻香灰",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   },
   {
     "id": "Weapon_Material_27",
     "category": "weapon-material",
     "zh": "供奉圣母的香灰",
     "en": "",
-    "maxAmount": 9999
+    "maxAmount": 9999,
+    "thresholdRisk": false
   }
 ]

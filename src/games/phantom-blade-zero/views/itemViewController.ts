@@ -1,6 +1,6 @@
 import { computed, ref, watch, type Ref } from 'vue'
-import { ElMessage } from 'element-plus'
-import { translateError } from '@host/i18n'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { t, translateError } from '@host/i18n'
 import {
   getPbzItem,
   pbzItemName,
@@ -11,6 +11,7 @@ import {
 import {
   addInventoryItem,
   projectInventory,
+  removeInventoryItem,
   setInventoryAmount,
   type PbzEditableSlot
 } from '../model/saveModel'
@@ -52,7 +53,32 @@ export function useInventoryCategoryController(props: ItemViewProps) {
     )
   }
 
-  return { filter, rows, changeAmount }
+  async function removeItem(id: string): Promise<void> {
+    const item = getPbzItem(id)
+    if (!item) return
+    try {
+      await ElMessageBox.confirm(
+        t('pbz.resources.deleteConfirm', pbzItemName(item), id),
+        t('pbz.resources.deleteTitle'),
+        {
+          type: 'warning',
+          confirmButtonText: t('pbz.resources.delete'),
+          cancelButtonText: t('pbz.resources.cancel')
+        }
+      )
+    } catch {
+      return
+    }
+    try {
+      editor.markDirty(() =>
+        removeInventoryItem(editor.save.model, props.slot.name, id)
+      )
+    } catch (error) {
+      ElMessage.error(translateError(error))
+    }
+  }
+
+  return { filter, rows, changeAmount, removeItem }
 }
 
 export function useAddItemDialogController(
@@ -76,6 +102,7 @@ export function useAddItemDialogController(
   const isExisting = computed(() =>
     selectedId.value !== null && existingIds.value.has(selectedId.value)
   )
+  const thresholdRisk = computed(() => selectedItem.value?.thresholdRisk === true)
 
   function resetDraft(): void {
     selectedId.value = null
@@ -121,6 +148,7 @@ export function useAddItemDialogController(
     options,
     maxAmount,
     isExisting,
+    thresholdRisk,
     optionLabel,
     selectItem,
     confirmAdd

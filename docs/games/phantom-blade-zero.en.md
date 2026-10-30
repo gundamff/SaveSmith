@@ -20,16 +20,18 @@ The format is PBZS v3: AES-256-GCM authenticated encryption, Oodle for reading c
 
 ## Editable scope
 
-The resources page keeps internal slot selection and splits inventory into two tabs: **Weapon Upgrade Materials** and **Consumables**.
+The resources page keeps internal slot selection and splits inventory into two tabs: **Weapon Upgrade Materials** and **Growth**.
 
 - `Player.Dust` is shown as 意识尘埃 in Chinese; the storage field remains `Dust`. English UI keeps `Dust` because this build's `en` resources have no translation
-- 27 weapon-upgrade materials: edit existing amounts, or search by official Simplified Chinese name / raw ID and add missing ones
+- 27 weapon-upgrade materials: edit existing amounts, search by official Simplified Chinese name / raw ID to add missing ones, or delete inventory records
 - Material amounts are limited to `0..9999`; raising `CurrentAmount` above its old `MaxAmount` raises `MaxAmount` with it
-- Consumables currently include only the audited `Item_Traversing` (穿行符). Amounts may be edited or added. SaveSmith caps it at `0..99`; that is an application safety limit, not an official directory value
-- Adding an item that already exists increases its amount instead of creating a duplicate record
-- Names come from build `26266538` Simplified Chinese resources. This build's English resources contain no translations for these 28 item-name keys, so English UI shows readable IDs such as `Weapon Material 01` instead of inventing English copy or falling back to Chinese
+- Growth covers in-game progression items: black stone / killing-aura amber and fragments, sha-qi core, banyan heart, accessory/medicine upgrade materials, and Traversing Charm (12 rows)
+- Traversing Charm is capped at `0..99` by SaveSmith; other growth items use `0..9999`
+- Black stone / amber and their fragments show a threshold-risk warning; players decide whether to edit them
+- Adding an item that already exists increases its amount instead of creating a duplicate; delete removes the key from `InventoryInfos`
+- Names come from build `26266538` Simplified Chinese resources. This build's English resources contain no translations for these item-name keys, so English UI shows readable IDs such as `Weapon Material 01` instead of inventing English copy or falling back to Chinese
 
-Threshold collectibles such as memory flowers, black-stone fragments, and killing-aura amber are unsupported, as are weapons, accessories, quest items, keys, story items, equipment levels, achievements, DLC, and settings saves.
+Memory flowers, snap-soul materials, books, and quest / narrative placeholders remain unsupported, as do equipment levels, achievements, DLC, and settings saves.
 
 ## Safety
 

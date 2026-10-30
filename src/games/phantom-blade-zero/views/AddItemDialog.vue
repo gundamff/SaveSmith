@@ -17,6 +17,7 @@ const {
   options,
   maxAmount,
   isExisting,
+  thresholdRisk,
   optionLabel,
   selectItem,
   confirmAdd
@@ -68,6 +69,12 @@ const {
         :closable="false"
         :type="isExisting ? 'warning' : 'info'"
         :title="t(isExisting ? 'pbz.resources.addExistingHint' : 'pbz.resources.addNewHint')"
+      />
+      <el-alert
+        v-if="thresholdRisk"
+        :closable="false"
+        type="warning"
+        :title="t('pbz.resources.thresholdRiskHint')"
       />
     </el-form>
 

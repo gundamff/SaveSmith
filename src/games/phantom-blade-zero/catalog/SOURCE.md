@@ -29,7 +29,7 @@ Normalized CUE4Parse exports:
 
 Chinese names are resolved by localization namespace/key from the
 `zh-Hans` resources. The build's `en` resources contain no translations for
-these 28 item-name keys, so catalog `en` is intentionally empty. English UI
+these item-name keys, so catalog `en` is intentionally empty. English UI
 therefore shows a readable ID form such as `Weapon Material 01` /
 `Item Traversing` instead of inventing English game text or falling back to
 Chinese.
@@ -39,43 +39,41 @@ pass found no Dust translation, so English UI keeps `Dust`.
 
 ## Selection and exclusions
 
-The output contains 28 rows:
+The output contains 39 rows:
 
 - 27 `Weapon_Material_*` rows whose resource classification is
   `ItemDetailType::Material` plus either
   `WeaponUpgradeMaterial` or `ShaChiWeaponUpgradeMaterial`
-- one explicitly audited ordinary consumable, `Item_Traversing` (穿行符)
+- 12 growth (`consumable` category) rows matching in-game 养成 materials:
+  - black stone / killing-aura amber and their fragments (`Item_001`,
+    `Item_002`, `Item_Piece_001`, `Item_Piece_002`) — flagged
+    `thresholdRisk: true`
+  - sha-qi core (`ShaqiHexin`)
+  - core progression (`I_060002` 榕树之心)
+  - accessory upgrade materials (`Ac_Material_1`, `Ac_Material_4`)
+  - medicine upgrade materials (`Medi_Material_1`..`3`)
+  - ordinary consumable `Item_Traversing` (穿行符)
 
-`Item_Traversing` is narrowly allowlisted from three independent signals:
-its `DT_InventoryData` material row, multiple `DT_ShopItemTable` sale rows,
-and complete records observed in seven real-save slots. The generator does
-not generalize this classification to other `EItemTypes::Item` rows.
+Excluded: snap-soul materials, memory flowers, books, quest / narrative
+placeholders, and weapon / sha-qi return tokens. Players may still hold those
+IDs in saves; SaveSmith simply does not project or edit them.
 
-Excluded candidates include black stone, killing-aura amber, their
-threshold fragments, memory flowers, and the return-to-bell narrative
-placeholder. Their IDs and names are not emitted.
-
-The game resources do not provide an official stack limit for
-`Item_Traversing`. SaveSmith therefore applies a conservative application
-safety limit of `0..99`; its catalog `maxAmount` of `99` is not an official
-game-directory value. Weapon materials retain the existing SaveSmith ceiling
-of `0..9999`. Real-save `MaxAmount` is observed to track per-record state
-rather than a stable item definition, so save values are not copied into this
-static catalog.
+`Item_Traversing` keeps the conservative application safety limit of `0..99`.
+Other growth items and weapon materials use `0..9999`. Real-save `MaxAmount`
+tracks per-record state rather than a stable item definition, so save values
+are not copied into this static catalog.
 
 ## Real-save shape audit
 
 The save under `Saved/SaveGames/Steam/<SteamID64>/PBZSaveGame.sav` was parsed
-in memory through the existing PBZ module. The sample-free report recorded:
-
-- 7 consumable records
-- 48 weapon-material records
-- 209 excluded other records
-
-Every observed record shape had the same five required fields:
+in memory through the existing PBZ module. The sample-free report recorded
+identical five required fields on every observed inventory record:
 `AcquiredCycle`, `CurrentAmount`, `DirtyTime`, `FirstAddTime`, and
 `MaxAmount`. Amount/cycle fields were numbers and time fields were strings.
 No IDs, names, values, timestamps, or save bytes were written to that report.
+
+Deletion removes the inventory key from `Inventory.InventoryInfos` entirely
+(same shape as never having owned the item).
 
 ## Regeneration
 

@@ -12,7 +12,7 @@ const props = defineProps<{
 }>()
 
 const addOpen = ref(false)
-const { filter, rows, changeAmount } = useInventoryCategoryController(props)
+const { filter, rows, changeAmount, removeItem } = useInventoryCategoryController(props)
 </script>
 
 <template>
@@ -54,6 +54,13 @@ const { filter, rows, changeAmount } = useInventoryCategoryController(props)
             :step="1"
             @update:model-value="(value) => changeAmount(row.id, value ?? undefined)"
           />
+        </template>
+      </el-table-column>
+      <el-table-column :label="t('pbz.resources.actions')" width="100" fixed="right">
+        <template #default="{ row }">
+          <el-button type="danger" link @click="removeItem(row.id)">
+            {{ t('pbz.resources.delete') }}
+          </el-button>
         </template>
       </el-table-column>
     </el-table>

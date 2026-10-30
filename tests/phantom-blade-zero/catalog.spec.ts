@@ -12,9 +12,24 @@ afterEach(() => {
   setLocale('zh')
 })
 
+const GROWTH_IDS = [
+  'Ac_Material_1',
+  'Ac_Material_4',
+  'I_060002',
+  'Item_001',
+  'Item_002',
+  'Item_Piece_001',
+  'Item_Piece_002',
+  'Item_Traversing',
+  'Medi_Material_1',
+  'Medi_Material_2',
+  'Medi_Material_3',
+  'ShaqiHexin',
+] as const
+
 describe('phantom-blade-zero catalog API', () => {
   it('exposes only the audited immutable catalog rows', () => {
-    expect(pbzCatalog).toHaveLength(28)
+    expect(pbzCatalog).toHaveLength(39)
     expect(pbzCatalog.every((row) =>
       row.category === 'weapon-material' || row.category === 'consumable'
     )).toBe(true)
@@ -31,9 +46,17 @@ describe('phantom-blade-zero catalog API', () => {
       zh: '穿行符',
       en: '',
       maxAmount: 99,
+      thresholdRisk: false,
     })
     expect(getPbzItem('item_traversing')).toBeUndefined()
     expect(getPbzItem('missing')).toBeUndefined()
+  })
+
+  it('marks threshold collectibles for UI warnings', () => {
+    expect(getPbzItem('Item_Piece_001')?.thresholdRisk).toBe(true)
+    expect(getPbzItem('Item_001')?.thresholdRisk).toBe(true)
+    expect(getPbzItem('ShaqiHexin')?.thresholdRisk).toBe(false)
+    expect(getPbzItem('Weapon_Material_01')?.thresholdRisk).toBe(false)
   })
 
   it('uses the requested language and avoids Chinese fallback in English UI', () => {
@@ -59,6 +82,7 @@ describe('phantom-blade-zero catalog API', () => {
       zh: '',
       en: '',
       maxAmount: 9999,
+      thresholdRisk: false,
     }
 
     setLocale('zh')
@@ -77,14 +101,16 @@ describe('phantom-blade-zero catalog API', () => {
 
   it('limits empty searches to the requested category', () => {
     expect(searchPbzItems('weapon-material', '')).toHaveLength(27)
-    expect(searchPbzItems('consumable', '   ')).toEqual([
-      getPbzItem('Item_Traversing'),
-    ])
+    expect(searchPbzItems('consumable', '   ').map(({ id }) => id).sort()).toEqual([...GROWTH_IDS])
   })
 
-  it('does not expose threshold collectibles through search', () => {
+  it('exposes growth items and excludes memory flowers / books', () => {
+    expect(searchPbzItems('consumable', '黑石碎片').map(({ id }) => id)).toEqual(['Item_Piece_001'])
+    expect(searchPbzItems('consumable', '杀气琥珀').map(({ id }) => id).sort()).toEqual([
+      'Item_002',
+      'Item_Piece_002',
+    ])
     expect(searchPbzItems('consumable', '记忆之花')).toEqual([])
-    expect(searchPbzItems('consumable', '黑石碎片')).toEqual([])
-    expect(searchPbzItems('consumable', '杀气琥珀')).toEqual([])
+    expect(getPbzItem('FA_0300')).toBeUndefined()
   })
 })

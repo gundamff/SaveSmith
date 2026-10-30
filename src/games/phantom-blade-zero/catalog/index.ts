@@ -9,12 +9,15 @@ export interface PbzCatalogItem {
   readonly zh: string
   readonly en: string
   readonly maxAmount: number
+  /** Threshold / fragment collectibles: editing may affect game thresholds. */
+  readonly thresholdRisk: boolean
 }
 
 export const pbzCatalog: readonly PbzCatalogItem[] = Object.freeze(
   items.map((item) => Object.freeze({
     ...item,
     category: item.category as PbzItemCategory,
+    thresholdRisk: Boolean(item.thresholdRisk),
   }))
 )
 

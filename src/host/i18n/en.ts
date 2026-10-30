@@ -597,7 +597,7 @@ export const en: MessageTree = {
         'Changes in the current slot will remain and will be written together when you save. Switch slots?',
       dust: 'Dust',
       weaponMaterials: 'Weapon Upgrade Materials',
-      consumables: 'Consumables',
+      consumables: 'Growth',
       addItem: 'Add item',
       addTitle: 'Add item',
       addSearchPlaceholder: 'Filter by name or ID (leave empty to browse all)',
@@ -607,6 +607,12 @@ export const en: MessageTree = {
       addExistingHint:
         'This item already exists. Confirming will increase its amount without creating a duplicate record.',
       addNewHint: 'Confirming will create a new item record.',
+      thresholdRiskHint:
+        'This item may participate in in-game thresholds or synthesis. Unusual amounts can affect progress or cause odd behavior; edit at your own risk.',
+      delete: 'Delete',
+      deleteTitle: 'Delete item',
+      deleteConfirm: 'Remove “{0}” ({1}) from the inventory? The record will be deleted entirely.',
+      actions: 'Actions',
       materials: 'Materials',
       filterPlaceholder: 'Filter by item name or raw ID',
       setAll9999: 'Set all existing materials to 9999',

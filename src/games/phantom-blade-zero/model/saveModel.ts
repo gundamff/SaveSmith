@@ -219,6 +219,20 @@ export function addInventoryItem(
   slot.dirty = true
 }
 
+export function removeInventoryItem(
+  model: PbzSaveModel,
+  slotName: string,
+  id: string
+): void {
+  const item = requireCatalogItem(id)
+  const slot = requireSlot(model, slotName)
+  const infos = requireInventoryInfos(slot)
+  const existing = readProjectedInventoryItem(infos, item)
+  if (!existing) throw new ModuleError('PBZ_INVALID_EDIT', [id])
+  delete infos[id]
+  slot.dirty = true
+}
+
 export function serializeDirtySlots(model: PbzSaveModel): ReadonlyMap<string, Uint8Array> {
   const issues = validateSaveModel(model)
   if (issues.length > 0) {

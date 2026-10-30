@@ -8,6 +8,7 @@ import {
   parseEditableSlot,
   projectInventory,
   projectResources,
+  removeInventoryItem,
   selectSlot,
   serializeDirtySlots,
   setAllExistingMaterials,
@@ -657,6 +658,48 @@ describe('phantom-blade-zero save model', () => {
           .InventoryInfos.Weapon_Material_03 as Record<string, unknown>
       ).AcquiredCycle
     ).toBe(5)
+  })
+
+  it('removes a catalog inventory record entirely and dirties the slot', () => {
+    const editable = slot()
+    const model = createSaveModel([editable])
+    const infos = (editable.document.Inventory as Record<string, Record<string, unknown>>)
+      .InventoryInfos
+
+    removeInventoryItem(model, editable.name, 'Item_Traversing')
+    expect(infos).not.toHaveProperty('Item_Traversing')
+    expect(projectInventory(editable, 'consumable')).toEqual([])
+    expect(editable.dirty).toBe(true)
+
+    expectModuleError(
+      () => removeInventoryItem(model, editable.name, 'Item_Traversing'),
+      'PBZ_INVALID_EDIT'
+    )
+    expectModuleError(
+      () => removeInventoryItem(model, editable.name, 'Quest_Item'),
+      'PBZ_INVALID_EDIT'
+    )
+  })
+
+  it('adds and projects threshold growth items from the catalog', () => {
+    const editable = slot()
+    const model = createSaveModel([editable])
+    const now = new Date(2026, 9, 30, 18, 20, 30)
+
+    addInventoryItem(model, editable.name, 'Item_Piece_001', 4, now)
+    expect(
+      (editable.document.Inventory as Record<string, Record<string, unknown>>)
+        .InventoryInfos.Item_Piece_001
+    ).toEqual({
+      CurrentAmount: 4,
+      MaxAmount: 9999,
+      FirstAddTime: '2026.10.30-18.20.30',
+      DirtyTime: '2026.10.30-18.20.30',
+      AcquiredCycle: 2
+    })
+    expect(projectInventory(editable, 'consumable').some(({ id }) => id === 'Item_Piece_001')).toBe(
+      true
+    )
   })
 
   it('refuses record creation when no current or existing cycle can be proven', () => {
