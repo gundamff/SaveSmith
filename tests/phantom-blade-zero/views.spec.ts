@@ -38,8 +38,18 @@ function stateWith(model = createSaveModel([slot('AutoSave1')])): PhantomBladeZe
 
 describe('usePbzEditor', () => {
   it('throws PBZ_EDITOR_INJECT when provide is missing', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
     const app = createApp({ setup() { return () => null } })
-    expect(() => app.runWithContext(() => usePbzEditor())).toThrow('PBZ_EDITOR_INJECT')
+    try {
+      expect(() => app.runWithContext(() => usePbzEditor())).toThrow('PBZ_EDITOR_INJECT')
+      expect(warn.mock.calls.map(([message]) => message)).toEqual([
+        '[Vue warn]: injection "savesmithState" not found.',
+        '[Vue warn]: injection "savesmithMutate" not found.',
+        '[Vue warn]: injection "savesmithRev" not found.'
+      ])
+    } finally {
+      warn.mockRestore()
+    }
   })
 
   it('tracks the latest state and markDirty calls mutate exactly once', () => {
