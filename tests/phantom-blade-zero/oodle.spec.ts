@@ -91,6 +91,28 @@ describe("Phantom Blade Zero Oodle codec", () => {
     ).rejects.toThrow(/decompress|size|length/i);
   });
 
+  it("rejects when the extractor returns fewer bytes than expected", async () => {
+    vi.resetModules();
+    const extract = vi.fn().mockReturnValue(EXPECTED.slice(0, -1));
+    vi.doMock(
+      "@games/phantom-blade-zero/codec/oodle/oozextract/oozextract.js",
+      () => ({
+        default: vi.fn().mockResolvedValue({}),
+        Extractor: {
+          new: vi.fn(() => ({ extract, free: vi.fn() })),
+        },
+      }),
+    );
+
+    const { decompressOodle: decompressWithShortOutput } = await import(
+      "@games/phantom-blade-zero/codec/oodle"
+    );
+
+    await expect(
+      decompressWithShortOutput(UNCOMPRESSED_VECTOR, EXPECTED.length),
+    ).rejects.toThrow(/length mismatch: expected \d+, got \d+/i);
+  });
+
   it("rejects a damaged Oodle stream", async () => {
     await expect(
       decompressOodle(Uint8Array.from([0xff, 0xff, 0x00]), 8),

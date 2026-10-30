@@ -72,6 +72,10 @@ describe.skipIf(!SAVE)('phantom-blade-zero real save (PBZ_SAVE)', () => {
     const reparsed = await parse([serialized!])
 
     expect(validate(reparsed)).toEqual([])
+    expect(reparsed.container.slots).toHaveLength(before.container.slots.length)
+    expect(reparsed.container.slots.map(({ entry }) => entry.name)).toEqual(
+      before.container.slots.map(({ entry }) => entry.name)
+    )
     for (const [index, slot] of reparsed.container.slots.entries()) {
       expect(Buffer.compare(slot.sealedBytes, before.container.slots[index]!.sealedBytes)).toBe(0)
     }
@@ -106,18 +110,17 @@ describe.skipIf(!SAVE)('phantom-blade-zero real save (PBZ_SAVE)', () => {
       context.skip('all editable Dust and material values are already at their limits')
       return
     }
-    const untouched = new Map(
-      state.container.slots
-        .filter(({ entry }) => entry.name !== edit.slotName)
-        .map(({ entry, sealedBytes }) => [entry.name, sealedBytes])
-    )
 
     const [serialized] = await serialize(state)
     const after = await parsePbzsContainer(serialized!.bytes)
 
-    for (const slot of after.slots) {
-      const expected = untouched.get(slot.entry.name)
-      if (expected) expect(Buffer.compare(slot.sealedBytes, expected)).toBe(0)
+    expect(after.slots).toHaveLength(state.container.slots.length)
+    expect(after.slots.map(({ entry }) => entry.name)).toEqual(
+      state.container.slots.map(({ entry }) => entry.name)
+    )
+    for (const [index, slot] of state.container.slots.entries()) {
+      if (slot.entry.name === edit.slotName) continue
+      expect(Buffer.compare(after.slots[index]!.sealedBytes, slot.sealedBytes)).toBe(0)
     }
   })
 })
