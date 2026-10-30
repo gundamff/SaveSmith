@@ -18,7 +18,7 @@
 - Chinese names fall back to English; English names fall back to Chinese; an absent name renders as an explicit unknown label plus raw ID.
 - `Player.Dust` remains the storage field and is displayed as `意识尘埃` in Chinese.
 - New records are allowed only after the real-save audit proves the complete category schema; no arbitrary sibling cloning.
-- Material amounts remain `0..9999`; consumables use their catalog stack limit.
+- Material amounts remain `0..9999`; the current build's only supported consumable is `Item_Traversing`, limited by SaveSmith to `0..99` because the resources provide no official stack limit.
 - Existing unknown JSON fields and every unmodified sealed slot remain preserved.
 
 ---
@@ -89,7 +89,7 @@ if (!auditedShapes.every((shape) =>
 }
 ```
 
-If ordinary consumables have additional required fields or category-specific side effects, stop this task and remove those entries from the addable catalog rather than inventing defaults.
+If ordinary consumables have additional required fields or category-specific side effects, stop this task and remove those entries from the addable catalog rather than inventing defaults. For build `26266538`, the audited consumable whitelist is exactly `Item_Traversing`; its `maxAmount` is the SaveSmith safety limit `99`, not an official resource value.
 
 - [ ] **Step 3: Write the failing catalog-source test**
 

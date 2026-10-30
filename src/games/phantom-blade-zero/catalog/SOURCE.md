@@ -50,9 +50,13 @@ Excluded candidates include black stone, killing-aura amber, their
 threshold fragments, memory flowers, and the return-to-bell narrative
 placeholder. Their IDs and names are not emitted.
 
-`maxAmount` is the existing PBZ editor creation ceiling (`9999`). Real-save
-`MaxAmount` is observed to track per-record state rather than a stable item
-definition, so save values are not copied into this static catalog.
+The game resources do not provide an official stack limit for
+`Item_Traversing`. SaveSmith therefore applies a conservative application
+safety limit of `0..99`; its catalog `maxAmount` of `99` is not an official
+game-directory value. Weapon materials retain the existing SaveSmith ceiling
+of `0..9999`. Real-save `MaxAmount` is observed to track per-record state
+rather than a stable item definition, so save values are not copied into this
+static catalog.
 
 ## Real-save shape audit
 

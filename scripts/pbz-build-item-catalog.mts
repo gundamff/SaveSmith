@@ -18,6 +18,9 @@ type ItemRow = {
   maxAmount: number
 }
 
+const MATERIAL_MAX_AMOUNT = 9999
+const TRAVERSING_SAFE_MAX_AMOUNT = 99
+
 const exportRoot = process.env.PBZ_EXPORT_DIR
 if (!exportRoot) throw new Error('PBZ_EXPORT_DIR is required')
 
@@ -44,7 +47,9 @@ for (const source of zhById.values()) {
     category,
     zh: source.name,
     en: english.name,
-    maxAmount: 9999
+    maxAmount: category === 'consumable'
+      ? TRAVERSING_SAFE_MAX_AMOUNT
+      : MATERIAL_MAX_AMOUNT
   })
 }
 

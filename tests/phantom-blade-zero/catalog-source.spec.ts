@@ -18,4 +18,14 @@ describe('phantom-blade-zero item catalog', () => {
     const text = JSON.stringify(items)
     expect(text).not.toMatch(/记忆之花|黑石碎片|杀气琥珀/)
   })
+
+  it('locks the catalog to the audited category allowlists', () => {
+    const consumables = items.filter(({ category }) => category === 'consumable')
+    expect(consumables.map(({ id }) => id)).toEqual(['Item_Traversing'])
+    expect(consumables[0]?.maxAmount).toBe(99)
+
+    const materials = items.filter(({ category }) => category === 'weapon-material')
+    expect(materials).toHaveLength(27)
+    expect(materials.every(({ id }) => id.startsWith('Weapon_Material_'))).toBe(true)
+  })
 })
