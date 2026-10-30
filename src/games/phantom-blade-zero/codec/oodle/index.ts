@@ -5,8 +5,25 @@ import wasmUrl from "./oozextract/oozextract_bg.wasm?inline";
 
 let initialization: Promise<void> | undefined;
 
+function decodeInlineWasm(dataUrl: string): Uint8Array {
+  const separator = dataUrl.indexOf(",");
+  if (
+    separator < 0 ||
+    !dataUrl.slice(0, separator).endsWith(";base64")
+  ) {
+    throw new Error("Bundled Oodle WASM is not a base64 data URL");
+  }
+
+  const binary = atob(dataUrl.slice(separator + 1));
+  return Uint8Array.from(binary, (character) => character.charCodeAt(0));
+}
+
 function initializeWasm(): Promise<void> {
-  initialization ??= initOozextract({ module_or_path: wasmUrl })
+  // A rejected initialization remains cached: repeated calls must report the
+  // same terminal load failure rather than retrying an invalid bundled module.
+  initialization ??= initOozextract({
+    module_or_path: decodeInlineWasm(wasmUrl),
+  })
     .then(() => undefined)
     .catch((cause: unknown) => {
       throw errorWithCause(
