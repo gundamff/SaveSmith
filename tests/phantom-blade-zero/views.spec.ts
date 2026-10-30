@@ -669,17 +669,43 @@ describe('PBZ views', () => {
     expect(component).toMatch(/@update:model-value/)
   })
 
-  it('searches the category catalog and adds through the model mutator', () => {
+  it('lists the full category catalog in a local filterable dropdown', () => {
     const component = source('games/phantom-blade-zero/views/AddItemDialog.vue')
     const text = source('games/phantom-blade-zero/views/itemViewController.ts')
-    expect(text).toMatch(/searchPbzItems/)
+    expect(text).toMatch(/searchPbzItems\(props\.category,\s*''\)/)
     expect(text).toMatch(/addInventoryItem/)
     expect(text).toMatch(/maxAmount/)
     expect(text).toMatch(/markDirty/)
     expect(text).toMatch(/Number\.isSafeInteger/)
     expect(component).toMatch(/useAddItemDialogController/)
+    expect(component).toMatch(/filterable/)
+    expect(component).not.toMatch(/\bremote\b/)
+    expect(component).not.toMatch(/remote-method/)
     expect(component).toMatch(/v-model="selectedId"/)
     expect(component).toMatch(/@click="confirmAdd"/)
+  })
+
+  it('exposes every catalog row for the selected category', () => {
+    const editable = slot('AutoSave1')
+    const { root } = mountMemory(
+      defineComponent({
+        setup() {
+          usePbzEditor()
+          const controller = useAddItemDialogController(
+            { category: 'weapon-material', slot: editable },
+            ref(true)
+          )
+          return () => h('options-stub', {
+            count: controller.options.value.length,
+            categories: controller.options.value.map(({ category }) => category).join(',')
+          })
+        }
+      }),
+      stateWith(createSaveModel([editable]))
+    )
+    const node = findNode(root, 'options-stub')
+    expect(node.props.count).toBe(27)
+    expect(String(node.props.categories).split(',').every((value) => value === 'weapon-material')).toBe(true)
   })
 
   it('keeps the add dialog open and reports model errors', () => {

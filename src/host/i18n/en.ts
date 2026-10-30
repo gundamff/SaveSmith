@@ -600,7 +600,7 @@ export const en: MessageTree = {
       consumables: 'Consumables',
       addItem: 'Add item',
       addTitle: 'Add item',
-      addSearchPlaceholder: 'Search by Chinese name, English name, or raw ID',
+      addSearchPlaceholder: 'Click to browse all, or filter by name / ID',
       amount: 'Amount',
       cancel: 'Cancel',
       confirm: 'Add',

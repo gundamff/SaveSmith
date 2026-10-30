@@ -62,7 +62,7 @@ export function useAddItemDialogController(
   const editor = usePbzEditor()
   const selectedId = ref<string | null>(null)
   const amount = ref(1)
-  const options = ref<PbzCatalogItem[]>([])
+  const options = computed(() => searchPbzItems(props.category, ''))
 
   const selectedItem = computed(() =>
     selectedId.value ? getPbzItem(selectedId.value) : undefined
@@ -79,7 +79,6 @@ export function useAddItemDialogController(
   function resetDraft(): void {
     selectedId.value = null
     amount.value = 1
-    options.value = searchPbzItems(props.category, '')
   }
 
   watch(open, (visible) => {
@@ -92,10 +91,6 @@ export function useAddItemDialogController(
       open.value = false
     }
   )
-
-  function search(query: string): void {
-    options.value = searchPbzItems(props.category, query)
-  }
 
   function optionLabel(item: PbzCatalogItem): string {
     return `${pbzItemName(item)} · ${item.id}`
@@ -119,7 +114,6 @@ export function useAddItemDialogController(
     options,
     maxAmount,
     isExisting,
-    search,
     optionLabel,
     confirmAdd
   }

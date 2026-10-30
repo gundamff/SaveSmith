@@ -16,7 +16,6 @@ const {
   options,
   maxAmount,
   isExisting,
-  search,
   optionLabel,
   confirmAdd
 } = useAddItemDialogController(props, open)
@@ -29,8 +28,7 @@ const {
         <el-select
           v-model="selectedId"
           filterable
-          remote
-          :remote-method="search"
+          clearable
           :placeholder="t('pbz.resources.addSearchPlaceholder')"
           style="width: 100%"
         >
