@@ -21,6 +21,14 @@
 - Material amounts remain `0..9999`; the current build's only supported consumable is `Item_Traversing`, limited by SaveSmith to `0..99` because the resources provide no official stack limit.
 - Existing unknown JSON fields and every unmodified sealed slot remain preserved.
 
+## Status
+
+- Task 1 complete: catalog extraction, 27 weapon materials, `Item_Traversing` only, SOURCE hashes.
+- Task 2 complete: localized catalog lookup and search.
+- Task 3 complete: verified record templates and add-or-increase writes.
+- Task 4 complete except English Dust: Chinese UI uses `意识尘埃`; English still uses `Dust` because the shipped `en` localization has no translation for this currency or the 28 item-name keys. Do not invent English names.
+- Task 5 remaining: gated add regressions, user docs, HANDTEST, CHANGELOG, README, automated verification, and in-game add acceptance.
+
 ---
 
 ### Task 1: Extract, audit, and generate the item catalog
@@ -494,6 +502,8 @@ git commit -m "feat(pbz): add named material and consumable tabs"
 - Modify: `docs/HANDTEST.md`
 - Modify: `CHANGELOG.md`
 - Modify: `CHANGELOG.en.md`
+- Modify: `README.md`
+- Modify: `README.en.md`
 
 **Interfaces:**
 - Consumes: complete catalog/model/UI behavior.
@@ -526,7 +536,9 @@ Expected: PBZ tests PASS and hashes match.
 
 - [ ] **Step 3: Update user and hand-test documentation**
 
-Document official names, the two categories, add-vs-increase behavior, category limits, exclusions, and backup requirement. HANDTEST must require separate backup-copy checks for a previously absent material and a previously absent consumable.
+Document official names, the two categories, add-vs-increase behavior, category limits, exclusions, and backup requirement. HANDTEST must require separate backup-copy checks for a previously absent material and a previously absent consumable. README support rows must no longer say materials cannot be added.
+
+If the game `en` localization still has no Dust name, keep English `Dust`, document the missing translation in `SOURCE.md`, and do not transliterate `意识尘埃`.
 
 - [ ] **Step 4: Run final automated verification**
 
