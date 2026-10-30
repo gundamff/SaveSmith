@@ -24,7 +24,7 @@ function document(dust: number, currentAmount = 3, maxAmount = 5): Record<string
     Player: { Dust: dust },
     Inventory: {
       InventoryInfos: {
-        Weapon_Material_Iron: {
+        Weapon_Material_01: {
           CurrentAmount: currentAmount,
           MaxAmount: maxAmount,
           UnknownField: 'preserved'
@@ -221,20 +221,20 @@ describe('phantom-blade-zero parse and serialize', () => {
 
   it('keeps material CurrentAmount/MaxAmount rules through the complete module chain', async () => {
     const state = await parse([{ relativePath: 'PBZSaveGame.sav', bytes: await fixture() }])
-    setMaterialAmount(state.model, 'AutoSave1', 'Weapon_Material_Iron', 12)
+    setMaterialAmount(state.model, 'AutoSave1', 'Weapon_Material_01', 12)
     const [output] = await serialize(state)
     const reparsed = await parse([output!])
     const auto = reparsed.model.slots.find(({ name }) => name === 'AutoSave1')!
 
     expect(projectResources(auto).materials).toEqual([
-      { id: 'Weapon_Material_Iron', currentAmount: 12, maxAmount: 12 }
+      { id: 'Weapon_Material_01', currentAmount: 12, maxAmount: 12 }
     ])
     expect(
       (
         (
           auto.document.Inventory as Record<string, unknown>
         ).InventoryInfos as Record<string, Record<string, unknown>>
-      ).Weapon_Material_Iron!.UnknownField
+      ).Weapon_Material_01!.UnknownField
     ).toBe('preserved')
   })
 })

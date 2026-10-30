@@ -1,15 +1,18 @@
 import { describe, expect, it } from 'vitest'
 import { ModuleError } from '../../src/sdk/error'
 import {
+  addInventoryItem,
   createSaveModel,
   getSelectedSlot,
   isEditableSlotName,
   parseEditableSlot,
+  projectInventory,
   projectResources,
   selectSlot,
   serializeDirtySlots,
   setAllExistingMaterials,
   setDust,
+  setInventoryAmount,
   setMaterialAmount,
   validateSaveModel,
   type PbzEditableSlot
@@ -25,18 +28,31 @@ function document(overrides: Record<string, unknown> = {}): Record<string, unkno
   return {
     UnknownRoot: { preserved: true },
     Player: { Dust: 10, title: 'unknown-player-field' },
+    PBZGameSystem: { CycleCount: 2 },
     Inventory: {
       inventoryExtra: 'preserved',
       InventoryInfos: {
-        Weapon_Material_Z: {
+        Weapon_Material_02: {
           CurrentAmount: 3,
           MaxAmount: 35,
           FirstAddTime: 'synthetic',
+          DirtyTime: 'synthetic',
+          AcquiredCycle: 1,
           extra: { preserved: true }
         },
-        Weapon_Material_A: {
+        Weapon_Material_01: {
           CurrentAmount: 7,
-          MaxAmount: 7
+          MaxAmount: 7,
+          FirstAddTime: 'synthetic',
+          DirtyTime: 'synthetic',
+          AcquiredCycle: 1
+        },
+        Item_Traversing: {
+          CurrentAmount: 2,
+          MaxAmount: 10,
+          FirstAddTime: 'synthetic',
+          DirtyTime: 'synthetic',
+          AcquiredCycle: 1
         },
         Quest_Item: {
           CurrentAmount: 1,
@@ -111,8 +127,8 @@ describe('phantom-blade-zero save model', () => {
     expect(first).toEqual({
       dust: 10,
       materials: [
-        { id: 'Weapon_Material_A', currentAmount: 7, maxAmount: 7 },
-        { id: 'Weapon_Material_Z', currentAmount: 3, maxAmount: 35 }
+        { id: 'Weapon_Material_01', currentAmount: 7, maxAmount: 7 },
+        { id: 'Weapon_Material_02', currentAmount: 3, maxAmount: 35 }
       ]
     })
 
@@ -124,17 +140,18 @@ describe('phantom-blade-zero save model', () => {
     const editable = slot('ManualSave2', {
       Inventory: {
         InventoryInfos: {
-          Weapon_Material_Good: { CurrentAmount: 1, MaxAmount: 2 },
-          Weapon_Material_Array: [],
-          Weapon_Material_Missing: { CurrentAmount: 1 },
-          Weapon_Material_Float: { CurrentAmount: 1.5, MaxAmount: 2 },
+          Weapon_Material_03: { CurrentAmount: 1, MaxAmount: 2 },
+          Weapon_Material_04: [],
+          Weapon_Material_05: { CurrentAmount: 1 },
+          Weapon_Material_06: { CurrentAmount: 1.5, MaxAmount: 2 },
+          Weapon_Material_NotCataloged: { CurrentAmount: 1, MaxAmount: 2 },
           Other: { CurrentAmount: 1, MaxAmount: 2 }
         }
       }
     })
 
     expect(projectResources(editable).materials).toEqual([
-      { id: 'Weapon_Material_Good', currentAmount: 1, maxAmount: 2 }
+      { id: 'Weapon_Material_03', currentAmount: 1, maxAmount: 2 }
     ])
   })
 
@@ -177,18 +194,18 @@ describe('phantom-blade-zero save model', () => {
     const editable = slot()
     const model = createSaveModel([editable])
 
-    setMaterialAmount(model, editable.name, 'Weapon_Material_Z', 40)
+    setMaterialAmount(model, editable.name, 'Weapon_Material_02', 40)
     expect(projectResources(editable).materials[1]).toEqual({
-      id: 'Weapon_Material_Z',
+      id: 'Weapon_Material_02',
       currentAmount: 40,
       maxAmount: 40
     })
-    setMaterialAmount(model, editable.name, 'Weapon_Material_Z', 2)
+    setMaterialAmount(model, editable.name, 'Weapon_Material_02', 2)
     expect(projectResources(editable).materials[1]!.maxAmount).toBe(40)
 
     const clean = slot('AutoSave3')
     const cleanModel = createSaveModel([clean])
-    setMaterialAmount(cleanModel, clean.name, 'Weapon_Material_A', 7)
+    setMaterialAmount(cleanModel, clean.name, 'Weapon_Material_01', 7)
     expect(clean.dirty).toBe(false)
   })
 
@@ -203,7 +220,7 @@ describe('phantom-blade-zero save model', () => {
       const keys = Object.keys(infos)
 
       expectModuleError(
-        () => setMaterialAmount(model, editable.name, 'Weapon_Material_A', value),
+        () => setMaterialAmount(model, editable.name, 'Weapon_Material_01', value),
         'PBZ_INVALID_EDIT'
       )
       expect(Object.keys(infos)).toEqual(keys)
@@ -229,11 +246,11 @@ describe('phantom-blade-zero save model', () => {
       'PBZ_INVALID_EDIT',
       ['Quest_Item']
     )
-    ;(infos.Weapon_Material_A as Record<string, unknown>).MaxAmount = 'broken'
+    ;(infos.Weapon_Material_01 as Record<string, unknown>).MaxAmount = 'broken'
     expectModuleError(
-      () => setMaterialAmount(model, editable.name, 'Weapon_Material_A', 1),
+      () => setMaterialAmount(model, editable.name, 'Weapon_Material_01', 1),
       'PBZ_INVALID_EDIT',
-      ['Weapon_Material_A']
+      ['Weapon_Material_01']
     )
     expect(Object.keys(infos)).toEqual(keys)
   })
@@ -277,7 +294,7 @@ describe('phantom-blade-zero save model', () => {
     const clean = slot('AutoSave1')
     const model = createSaveModel([dirty, clean])
 
-    setMaterialAmount(model, dirty.name, 'Weapon_Material_Z', 50)
+    setMaterialAmount(model, dirty.name, 'Weapon_Material_02', 50)
     const serialized = serializeDirtySlots(model)
     expect([...serialized.keys()]).toEqual(['ManualSave1'])
 
@@ -285,7 +302,7 @@ describe('phantom-blade-zero save model', () => {
     expect(result.UnknownRoot).toEqual({ preserved: true })
     expect(result.Player.title).toBe('unknown-player-field')
     expect(result.Inventory.inventoryExtra).toBe('preserved')
-    expect(result.Inventory.InventoryInfos.Weapon_Material_Z).toMatchObject({
+    expect(result.Inventory.InventoryInfos.Weapon_Material_02).toMatchObject({
       CurrentAmount: 50,
       MaxAmount: 50,
       FirstAddTime: 'synthetic',
@@ -306,8 +323,8 @@ describe('phantom-blade-zero save model', () => {
     const infos = (
       first.document.Inventory as Record<string, unknown>
     ).InventoryInfos as Record<string, unknown>
-    ;(infos.Weapon_Material_A as Record<string, unknown>).CurrentAmount = 10_000
-    ;(infos.Weapon_Material_Z as Record<string, unknown>).MaxAmount = 1
+    ;(infos.Weapon_Material_01 as Record<string, unknown>).CurrentAmount = 10_000
+    ;(infos.Weapon_Material_02 as Record<string, unknown>).MaxAmount = 1
 
     const codes = validateSaveModel(model).map((issue) => issue.code)
     expect(codes).toContain('PBZ_INVALID_SELECTION')
@@ -337,6 +354,205 @@ describe('phantom-blade-zero save model', () => {
       'PBZ_INVALID_EDIT',
       ['PBZ_INVALID_DUST']
     )
+  })
+
+  it('projects only catalog-known inventory rows by category', () => {
+    const editable = slot()
+
+    expect(projectInventory(editable, 'consumable')).toEqual([
+      {
+        id: 'Item_Traversing',
+        category: 'consumable',
+        currentAmount: 2,
+        maxAmount: 99
+      }
+    ])
+    expect(projectInventory(editable, 'weapon-material')).toEqual([
+      {
+        id: 'Weapon_Material_01',
+        category: 'weapon-material',
+        currentAmount: 7,
+        maxAmount: 7
+      },
+      {
+        id: 'Weapon_Material_02',
+        category: 'weapon-material',
+        currentAmount: 3,
+        maxAmount: 35
+      }
+    ])
+    expectModuleError(
+      () => projectInventory(editable, 'unsupported' as 'consumable'),
+      'PBZ_INVALID_EDIT'
+    )
+  })
+
+  it('edits catalog inventory within category limits and preserves unknown fields', () => {
+    const editable = slot()
+    const model = createSaveModel([editable])
+    const infos = (editable.document.Inventory as Record<string, Record<string, unknown>>)
+      .InventoryInfos
+    const material = infos.Weapon_Material_02 as Record<string, unknown>
+
+    setInventoryAmount(model, editable.name, 'Weapon_Material_02', 40)
+    expect(material).toMatchObject({
+      CurrentAmount: 40,
+      MaxAmount: 40,
+      FirstAddTime: 'synthetic',
+      DirtyTime: 'synthetic',
+      AcquiredCycle: 1,
+      extra: { preserved: true }
+    })
+    setInventoryAmount(model, editable.name, 'Item_Traversing', 99)
+    expectModuleError(
+      () => setInventoryAmount(model, editable.name, 'Item_Traversing', 100),
+      'PBZ_INVALID_EDIT'
+    )
+    expectModuleError(
+      () => setInventoryAmount(model, editable.name, 'Quest_Item', 1),
+      'PBZ_INVALID_EDIT'
+    )
+    expectModuleError(
+      () => setInventoryAmount(model, editable.name, 'Item_Piece_Anything', 1),
+      'PBZ_INVALID_EDIT'
+    )
+  })
+
+  it('creates the exact canonical record using local calendar fields and current cycle', () => {
+    const editable = slot()
+    const model = createSaveModel([editable])
+    const now = new Date(2026, 9, 30, 18, 20, 30)
+
+    addInventoryItem(model, editable.name, 'Weapon_Material_03', 3, now)
+
+    const infos = (editable.document.Inventory as Record<string, Record<string, unknown>>)
+      .InventoryInfos
+    expect(infos.Weapon_Material_03).toEqual({
+      CurrentAmount: 3,
+      MaxAmount: 3,
+      FirstAddTime: '2026.10.30-18.20.30',
+      DirtyTime: '2026.10.30-18.20.30',
+      AcquiredCycle: 2
+    })
+    addInventoryItem(model, editable.name, 'Weapon_Material_03', 2, now)
+    expect(infos.Weapon_Material_03).toMatchObject({ CurrentAmount: 5, MaxAmount: 5 })
+    expect(Object.keys(infos).filter((id) => id === 'Weapon_Material_03')).toHaveLength(1)
+    expect(editable.dirty).toBe(true)
+  })
+
+  it('adds to an existing item once, updates its dirty time, and rejects overflow atomically', () => {
+    const editable = slot()
+    const model = createSaveModel([editable])
+    const now = new Date(2026, 9, 30, 18, 20, 30)
+    const infos = (editable.document.Inventory as Record<string, Record<string, unknown>>)
+      .InventoryInfos
+
+    addInventoryItem(model, editable.name, 'Weapon_Material_02', 2, now)
+    expect(infos.Weapon_Material_02).toMatchObject({
+      CurrentAmount: 5,
+      MaxAmount: 35,
+      DirtyTime: '2026.10.30-18.20.30',
+      extra: { preserved: true }
+    })
+    expect(Object.keys(infos).filter((id) => id === 'Weapon_Material_02')).toHaveLength(1)
+
+    const before = structuredClone(infos.Item_Traversing)
+    expectModuleError(
+      () => addInventoryItem(model, editable.name, 'Item_Traversing', 98, now),
+      'PBZ_INVALID_EDIT'
+    )
+    expect(infos.Item_Traversing).toEqual(before)
+  })
+
+  it('rejects an invalid injected time without partially changing an existing item', () => {
+    const editable = slot()
+    const model = createSaveModel([editable])
+    const infos = (editable.document.Inventory as Record<string, Record<string, unknown>>)
+      .InventoryInfos
+    const before = structuredClone(infos.Weapon_Material_02)
+
+    expectModuleError(
+      () => addInventoryItem(model, editable.name, 'Weapon_Material_02', 1, new Date(Number.NaN)),
+      'PBZ_INVALID_EDIT'
+    )
+    expect(infos.Weapon_Material_02).toEqual(before)
+    expect(editable.dirty).toBe(false)
+  })
+
+  it('fails closed for missing hosts, unknown ids, malformed rows, and invalid additions', () => {
+    const withoutInventory = slot('AutoSave7', { Inventory: undefined })
+    delete withoutInventory.document.Inventory
+    const withoutInfos = slot('AutoSave8', { Inventory: {} })
+    const malformed = slot('AutoSave9')
+    const malformedInfos = (
+      malformed.document.Inventory as Record<string, Record<string, unknown>>
+    ).InventoryInfos
+    malformedInfos.Weapon_Material_03 = { CurrentAmount: 1 }
+    malformedInfos.Weapon_Material_05 = undefined as unknown as Record<string, unknown>
+
+    for (const [editable, id, amount] of [
+      [withoutInventory, 'Weapon_Material_03', 1],
+      [withoutInfos, 'Weapon_Material_03', 1],
+      [malformed, 'Weapon_Material_03', 1],
+      [malformed, 'Weapon_Material_05', 1],
+      [malformed, 'Item_Piece_Forbidden', 1],
+      [malformed, 'Weapon_Material_04', 0],
+      [malformed, 'Weapon_Material_04', 10_000]
+    ] as const) {
+      const model = createSaveModel([editable])
+      expectModuleError(
+        () => addInventoryItem(model, editable.name, id, amount),
+        'PBZ_INVALID_EDIT'
+      )
+      expect(editable.dirty).toBe(false)
+    }
+  })
+
+  it('falls back to the highest valid acquired cycle and persists after reparse', () => {
+    const editable = slot()
+    delete editable.document.PBZGameSystem
+    const infos = (editable.document.Inventory as Record<string, Record<string, unknown>>)
+      .InventoryInfos
+    ;(infos.Weapon_Material_01 as Record<string, unknown>).AcquiredCycle = 3
+    ;(infos.Weapon_Material_02 as Record<string, unknown>).AcquiredCycle = 5
+    const model = createSaveModel([editable])
+
+    addInventoryItem(
+      model,
+      editable.name,
+      'Weapon_Material_03',
+      4,
+      new Date(2026, 9, 30, 18, 20, 30)
+    )
+    const serialized = serializeDirtySlots(model).get(editable.name)!
+    const reparsed = parseEditableSlot(editable.name, serialized)
+
+    expect(
+      (
+        (reparsed.document.Inventory as Record<string, Record<string, unknown>>)
+          .InventoryInfos.Weapon_Material_03 as Record<string, unknown>
+      ).AcquiredCycle
+    ).toBe(5)
+  })
+
+  it('refuses record creation when no current or existing cycle can be proven', () => {
+    const editable = slot()
+    delete editable.document.PBZGameSystem
+    const infos = (editable.document.Inventory as Record<string, Record<string, unknown>>)
+      .InventoryInfos
+    for (const value of Object.values(infos)) {
+      if (value && typeof value === 'object' && !Array.isArray(value)) {
+        delete (value as Record<string, unknown>).AcquiredCycle
+      }
+    }
+    const model = createSaveModel([editable])
+
+    expectModuleError(
+      () => addInventoryItem(model, editable.name, 'Weapon_Material_03', 1),
+      'PBZ_INVALID_EDIT'
+    )
+    expect(infos).not.toHaveProperty('Weapon_Material_03')
+    expect(editable.dirty).toBe(false)
   })
 
   it('supports an empty model and reports duplicate slots without crashing', () => {

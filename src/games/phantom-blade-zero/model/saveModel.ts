@@ -1,10 +1,22 @@
 import { ModuleError } from '../../../sdk/error'
 import type { ValidationIssue } from '../../../sdk/types'
+import {
+  getPbzItem,
+  type PbzCatalogItem,
+  type PbzItemCategory
+} from '../catalog'
+import { createInventoryRecord, formatPbzTime } from './inventoryRecord'
 
 const EDITABLE_SLOT_NAME = /^(?:AutoSave|ManualSave)\d+$/
-const MATERIAL_ID = /^Weapon_Material_/
 const MAX_DUST = 99_999_999
 const MAX_MATERIAL_AMOUNT = 9999
+
+export interface PbzInventoryItemView {
+  id: string
+  category: PbzItemCategory
+  currentAmount: number
+  maxAmount: number
+}
 
 export interface PbzMaterialView {
   id: string
@@ -23,7 +35,7 @@ export interface PbzSaveModel {
   selectedSlotName: string | null
 }
 
-interface MaterialRecord {
+interface InventoryRecord {
   record: Record<string, unknown>
   currentAmount: number
   maxAmount: number
@@ -72,26 +84,41 @@ export function projectResources(slot: PbzEditableSlot): {
 } {
   const player = getRecord(slot.document, 'Player')
   const dust = player?.Dust
-  const infos = getInventoryInfos(slot.document)
-  const materials: PbzMaterialView[] = []
-
-  if (infos) {
-    for (const id of Object.keys(infos).sort()) {
-      const material = readProjectedMaterial(infos, id)
-      if (material) {
-        materials.push({
-          id,
-          currentAmount: material.currentAmount,
-          maxAmount: material.maxAmount
-        })
-      }
-    }
-  }
+  const materials = projectInventory(slot, 'weapon-material').map(
+    ({ id, currentAmount, maxAmount }) => ({ id, currentAmount, maxAmount })
+  )
 
   return {
     dust: typeof dust === 'number' ? dust : Number.NaN,
     materials
   }
+}
+
+export function projectInventory(
+  slot: PbzEditableSlot,
+  category: PbzItemCategory
+): PbzInventoryItemView[] {
+  if (category !== 'weapon-material' && category !== 'consumable') {
+    throw new ModuleError('PBZ_INVALID_EDIT', [category])
+  }
+
+  const infos = getInventoryInfos(slot.document)
+  if (!infos) return []
+
+  const projected: PbzInventoryItemView[] = []
+  for (const id of Object.keys(infos).sort()) {
+    const item = getPbzItem(id)
+    if (!item || item.category !== category) continue
+    const existing = readProjectedInventoryItem(infos, item)
+    if (!existing) continue
+    projected.push({
+      id,
+      category,
+      currentAmount: existing.currentAmount,
+      maxAmount: category === 'consumable' ? item.maxAmount : existing.maxAmount
+    })
+  }
+  return projected
 }
 
 export function setDust(model: PbzSaveModel, slotName: string, value: number): void {
@@ -116,13 +143,11 @@ export function setMaterialAmount(
   id: string,
   value: number
 ): void {
-  if (!isIntegerInRange(value, 0, MAX_MATERIAL_AMOUNT)) {
+  const item = getPbzItem(id)
+  if (!item || item.category !== 'weapon-material') {
     throw new ModuleError('PBZ_INVALID_EDIT', [id])
   }
-
-  const slot = requireSlot(model, slotName)
-  const material = requireEditableMaterial(slot, id)
-  applyMaterialAmount(slot, material, value)
+  setInventoryAmount(model, slotName, id, value)
 }
 
 export function setAllExistingMaterials(
@@ -135,12 +160,56 @@ export function setAllExistingMaterials(
   }
 
   const slot = requireSlot(model, slotName)
-  const materials = projectResources(slot).materials.map(({ id }) =>
-    requireEditableMaterial(slot, id)
+  const materials = projectInventory(slot, 'weapon-material').map(({ id }) =>
+    requireEditableInventoryItem(slot, requireCatalogItem(id))
   )
   for (const material of materials) {
-    applyMaterialAmount(slot, material, value)
+    applyInventoryAmount(slot, material, value)
   }
+}
+
+export function setInventoryAmount(
+  model: PbzSaveModel,
+  slotName: string,
+  id: string,
+  value: number
+): void {
+  const item = requireCatalogItem(id)
+  requireAmount(item, value, true)
+  const slot = requireSlot(model, slotName)
+  const existing = requireEditableInventoryItem(slot, item)
+  applyInventoryAmount(slot, existing, value)
+}
+
+export function addInventoryItem(
+  model: PbzSaveModel,
+  slotName: string,
+  id: string,
+  amount: number,
+  now = new Date()
+): void {
+  const item = requireCatalogItem(id)
+  requireAmount(item, amount, false)
+  if (!(now instanceof Date) || Number.isNaN(now.getTime())) {
+    throw new ModuleError('PBZ_INVALID_EDIT', [id])
+  }
+  const slot = requireSlot(model, slotName)
+  const infos = requireInventoryInfos(slot)
+
+  if (Object.prototype.hasOwnProperty.call(infos, id)) {
+    const existing = readProjectedInventoryItem(infos, item)
+    if (!existing) throw new ModuleError('PBZ_INVALID_EDIT', [id])
+    const nextAmount = existing.currentAmount + amount
+    if (!isIntegerInRange(nextAmount, 0, item.maxAmount)) {
+      throw new ModuleError('PBZ_INVALID_EDIT', [id])
+    }
+    applyInventoryAmount(slot, existing, nextAmount)
+    existing.record.DirtyTime = formatPbzTime(now)
+    return
+  }
+
+  infos[id] = createInventoryRecord(item, amount, now, readAcquiredCycle(slot))
+  slot.dirty = true
 }
 
 export function serializeDirtySlots(model: PbzSaveModel): ReadonlyMap<string, Uint8Array> {
@@ -215,23 +284,39 @@ function validateDocument(slot: PbzEditableSlot, issues: ValidationIssue[]): voi
   }
 
   for (const [id, value] of Object.entries(infosValue)) {
-    if (!MATERIAL_ID.test(id)) continue
+    const item = getPbzItem(id)
+    if (!item) continue
     if (!isPlainObject(value)) {
-      issues.push({ code: 'PBZ_INVALID_MATERIAL', args: [slot.name, id] })
+      issues.push({
+        code: item.category === 'weapon-material'
+          ? 'PBZ_INVALID_MATERIAL'
+          : 'PBZ_INVALID_INVENTORY_ITEM',
+        args: [slot.name, id]
+      })
       continue
     }
 
     const current = value.CurrentAmount
     const max = value.MaxAmount
-    if (!isIntegerInRange(current, 0, MAX_MATERIAL_AMOUNT)) {
-      issues.push({ code: 'PBZ_INVALID_MATERIAL_AMOUNT', args: [slot.name, id] })
+    if (!isIntegerInRange(current, 0, item.maxAmount)) {
+      issues.push({
+        code: item.category === 'weapon-material'
+          ? 'PBZ_INVALID_MATERIAL_AMOUNT'
+          : 'PBZ_INVALID_INVENTORY_AMOUNT',
+        args: [slot.name, id]
+      })
     }
     if (
       !isSafeInteger(max) ||
       max < 0 ||
       (isSafeInteger(current) && max < current)
     ) {
-      issues.push({ code: 'PBZ_INVALID_MATERIAL_MAX', args: [slot.name, id] })
+      issues.push({
+        code: item.category === 'weapon-material'
+          ? 'PBZ_INVALID_MATERIAL_MAX'
+          : 'PBZ_INVALID_INVENTORY_MAX',
+        args: [slot.name, id]
+      })
     }
   }
 }
@@ -257,44 +342,82 @@ function requireSlot(model: PbzSaveModel, name: string): PbzEditableSlot {
   return slot
 }
 
-function requireEditableMaterial(slot: PbzEditableSlot, id: string): MaterialRecord {
-  const infos = getInventoryInfos(slot.document)
-  const material = infos ? readProjectedMaterial(infos, id) : null
-  if (
-    !material ||
-    !isIntegerInRange(material.currentAmount, 0, MAX_MATERIAL_AMOUNT) ||
-    material.maxAmount < 0 ||
-    material.maxAmount < material.currentAmount
-  ) {
-    throw new ModuleError('PBZ_INVALID_EDIT', [id])
-  }
-  return material
+function requireCatalogItem(id: string): PbzCatalogItem {
+  const item = getPbzItem(id)
+  if (!item) throw new ModuleError('PBZ_INVALID_EDIT', [id])
+  return item
 }
 
-function applyMaterialAmount(
+function requireAmount(item: PbzCatalogItem, amount: number, allowZero: boolean): void {
+  const minimum = allowZero ? 0 : 1
+  if (!isIntegerInRange(amount, minimum, item.maxAmount)) {
+    throw new ModuleError('PBZ_INVALID_EDIT', [item.id])
+  }
+}
+
+function requireEditableInventoryItem(
   slot: PbzEditableSlot,
-  material: MaterialRecord,
+  item: PbzCatalogItem
+): InventoryRecord {
+  const infos = getInventoryInfos(slot.document)
+  const existing = infos ? readProjectedInventoryItem(infos, item) : null
+  if (!existing) throw new ModuleError('PBZ_INVALID_EDIT', [item.id])
+  return existing
+}
+
+function applyInventoryAmount(
+  slot: PbzEditableSlot,
+  existing: InventoryRecord,
   value: number
 ): void {
-  if (material.currentAmount === value) return
-  material.record.CurrentAmount = value
-  if (value > material.maxAmount) material.record.MaxAmount = value
+  if (existing.currentAmount === value) return
+  existing.record.CurrentAmount = value
+  if (value > existing.maxAmount) existing.record.MaxAmount = value
   slot.dirty = true
 }
 
-function readProjectedMaterial(
+function readProjectedInventoryItem(
   infos: Record<string, unknown>,
-  id: string
-): MaterialRecord | null {
-  if (!MATERIAL_ID.test(id)) return null
-  const value = infos[id]
+  item: PbzCatalogItem
+): InventoryRecord | null {
+  const value = infos[item.id]
   if (!isPlainObject(value)) return null
-  if (!isSafeInteger(value.CurrentAmount) || !isSafeInteger(value.MaxAmount)) return null
+  if (
+    !isIntegerInRange(value.CurrentAmount, 0, item.maxAmount) ||
+    !isSafeInteger(value.MaxAmount) ||
+    value.MaxAmount < value.CurrentAmount ||
+    value.MaxAmount < 0
+  ) {
+    return null
+  }
   return {
     record: value,
     currentAmount: value.CurrentAmount,
     maxAmount: value.MaxAmount
   }
+}
+
+function requireInventoryInfos(slot: PbzEditableSlot): Record<string, unknown> {
+  const infos = getInventoryInfos(slot.document)
+  if (!infos) throw new ModuleError('PBZ_INVALID_EDIT', [slot.name])
+  return infos
+}
+
+function readAcquiredCycle(slot: PbzEditableSlot): number {
+  const gameSystem = getRecord(slot.document, 'PBZGameSystem')
+  if (gameSystem && isIntegerInRange(gameSystem.CycleCount, 0, Number.MAX_SAFE_INTEGER)) {
+    return gameSystem.CycleCount
+  }
+
+  const infos = requireInventoryInfos(slot)
+  const cycles = Object.values(infos).flatMap((value) => {
+    if (!isPlainObject(value)) return []
+    return isIntegerInRange(value.AcquiredCycle, 0, Number.MAX_SAFE_INTEGER)
+      ? [value.AcquiredCycle]
+      : []
+  })
+  if (cycles.length === 0) throw new ModuleError('PBZ_INVALID_EDIT', [slot.name])
+  return Math.max(...cycles)
 }
 
 function getInventoryInfos(document: Record<string, unknown>): Record<string, unknown> | null {
