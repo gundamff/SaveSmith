@@ -608,7 +608,7 @@ export const en: MessageTree = {
         'This item already exists. Confirming will increase its amount without creating a duplicate record.',
       addNewHint: 'Confirming will create a new item record.',
       thresholdRiskHint:
-        'This item may participate in in-game thresholds or synthesis. Unusual amounts can affect progress or cause odd behavior; edit at your own risk.',
+        'Cumulative threshold items (black stone / amber, etc.): editing amounts usually does not crash, but permanent bonuses typically do not apply (the game may track progress elsewhere). Edit at your own risk.',
       delete: 'Delete',
       deleteTitle: 'Delete item',
       deleteConfirm: 'Remove “{0}” ({1}) from the inventory? The record will be deleted entirely.',

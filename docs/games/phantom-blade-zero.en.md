@@ -27,11 +27,20 @@ The resources page keeps internal slot selection and splits inventory into two t
 - Material amounts are limited to `0..9999`; raising `CurrentAmount` above its old `MaxAmount` raises `MaxAmount` with it
 - Growth covers in-game progression items: black stone / killing-aura amber and fragments, sha-qi core, banyan heart, accessory/medicine upgrade materials, and Traversing Charm (12 rows)
 - Traversing Charm is capped at `0..99` by SaveSmith; other growth items use `0..9999`
-- Black stone / amber and their fragments show a threshold-risk warning; players decide whether to edit them
 - Adding an item that already exists increases its amount instead of creating a duplicate; delete removes the key from `InventoryInfos`
 - Names come from build `26266538` Simplified Chinese resources. This build's English resources contain no translations for these item-name keys, so English UI shows readable IDs such as `Weapon Material 01` instead of inventing English copy or falling back to Chinese
 
-Memory flowers, snap-soul materials, books, and quest / narrative placeholders remain unsupported, as do equipment levels, achievements, DLC, and settings saves.
+### Observed in-game effects (build 26266538)
+
+| Kind | Examples | After editing |
+|------|----------|---------------|
+| Dust / weapon materials | `Dust`, `Weapon_Material_*` | Amounts are usable in-game (e.g. weapon upgrades spend materials) |
+| Ordinary growth stacks | Traversing Charm, accessory/medicine mats | Visible in inventory and generally usable |
+| **Cumulative thresholds** | Black stone / amber and their **fragments** (collect N for a permanent bonus) | **Usually does not crash**; inventory count can change, but **permanent bonus thresholds typically do not apply** (the game may track progress in other fields) |
+
+Black stone / amber and fragments still show a threshold warning in the add dialog. Prefer Dust and weapon materials when you want changes that take effect immediately.
+
+Memory flowers, snap-soul materials, books, and quest / narrative placeholders remain unsupported, as do equipment levels, achievements, DLC, and settings saves. More editable surfaces are planned.
 
 ## Safety
 

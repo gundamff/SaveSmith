@@ -4,13 +4,18 @@
 
 ## [Unreleased]
 
+## [0.17.1] - 2026-10-31
+
 ### Added
 
-- **Phantom Blade Zero**: add save-crypto and asset-unpack playbook so game updates can be revalidated layer by layer without rediscovering the format
+- **Phantom Blade Zero**: expand growth catalog to 12 items (black stone/amber and fragments, sha-qi core, banyan heart, accessory/medicine mats, Traversing Charm, …) with searchable add and inventory delete
+- **Phantom Blade Zero**: resources tabs Weapon Upgrade Materials / Growth; Chinese Dust label 意识尘埃; readable IDs when English strings are empty
+- **Phantom Blade Zero**: save-crypto / asset-unpack playbook; promo copy and covers for Bilibili
 
-- **Phantom Blade Zero**: official Simplified Chinese names for 27 weapon-upgrade materials and 12 growth items; resources page splits into Weapon Upgrade Materials / Growth tabs, with searchable add and delete for inventory records
-- **Phantom Blade Zero**: Chinese UI labels `Dust` as 意识尘埃; when English resources are empty, English UI shows a readable ID instead of inventing copy or falling back to Chinese
-- **Phantom Blade Zero**: Traversing Charm is capped at SaveSmith's safety limit `0..99`; threshold growth items (black stone / amber) are editable with an explicit risk warning
+### Notes
+
+- **Phantom Blade Zero**: cumulative threshold items (e.g. black-stone fragments) usually do not crash when amounts are edited, but permanent bonuses typically do not apply; documented in UI and game docs
+- **Phantom Blade Zero**: Traversing Charm remains capped at SaveSmith safety limit `0..99`
 
 ## [0.17.0] - 2026-10-30
 
