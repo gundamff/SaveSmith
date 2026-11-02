@@ -231,6 +231,7 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 - [ ] 库页能找到存档目录；列出 Autosave / Slot 01…
 - [ ] 载入后不改直接保存 → 游戏能读档（硬门槛）
 - [ ] 改 Gil +7 → 保存 → 游戏内金钱正确
+- [ ] （可选）手选 Switch 导出目录（无 `.sav` 后缀的 `GameSaveData0`）能列出槽位；改 Gil 后文件仍无后缀、长度不变
 
 ### FFR2. 物品 / 角色 / 地图（副本）
 

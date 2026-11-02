@@ -39,4 +39,18 @@ describe('ffr module', () => {
     const again = parse([{ relativePath: out[0]!.relativePath, bytes: out[0]!.bytes }])
     expect(again.inventory.some((r) => r.itemId === 999001 && r.num === 3)).toBe(true)
   })
+
+  it('roundtrips money on extensionless Switch dump when FFR_NS_SAVE is set', () => {
+    const path = process.env.FFR_NS_SAVE
+    if (!path) return
+    const bytes = new Uint8Array(readFileSync(path))
+    const state = parse([{ relativePath: 'GameSaveData0', bytes }])
+    const before = state.currentMoney
+    setCurrentMoney(state, before + 7)
+    const out = serialize(state)
+    expect(out[0]!.relativePath).toBe('GameSaveData0')
+    expect(out[0]!.bytes.length).toBe(bytes.length)
+    const again = parse([{ relativePath: out[0]!.relativePath, bytes: out[0]!.bytes }])
+    expect(again.currentMoney).toBe(before + 7)
+  })
 })

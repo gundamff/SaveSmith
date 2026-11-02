@@ -2,7 +2,8 @@ import type { ListedFiles, SlotInfo } from '@sdk/types'
 import { decryptSvhd } from './crypto/svhd'
 import { getInt, parseGvasIndex } from './model/gvasIndex'
 
-const SAVE = /^GameSaveData(\d+)\.sav$/i
+/** Steam: `GameSaveDataN.sav`; Switch export: `GameSaveDataN` (no suffix). */
+const SAVE = /^GameSaveData(\d+)(?:\.sav)?$/i
 
 function basename(relativePath: string): string {
   const normalized = relativePath.replace(/\\/g, '/')

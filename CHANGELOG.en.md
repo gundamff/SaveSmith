@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.17.3] - 2026-11-02
+
+### Added
+
+- **FINAL FANTASY RESONANCE**: Recognize Nintendo Switch export dumps (extensionless `GameSaveDataN`); pick a JKSV/Checkpoint folder to edit (same format as PC)
+
 ## [0.17.2] - 2026-11-02
 
 ### Added

@@ -4,6 +4,8 @@
 
 ## 存档位置
 
+### Steam / PC
+
 `%LOCALAPPDATA%\FFRS\Steam\<SteamID64>\`
 
 | 文件 | 说明 |
@@ -11,6 +13,14 @@
 | `GameSaveData0.sav` | 自动档 |
 | `GameSaveDataN.sav` | 手动槽 N |
 | `OptionSaveData.sav` / `EnhancedInputUserSettings.sav` | **不修改** |
+
+### Nintendo Switch（导出档）
+
+格式与 PC **相同**（`SVHD` + 同密钥 AES + GVAS）。JKSV / Checkpoint 等导出目录通常为 Title ID 文件夹（如 `0100B8A026F14000`），文件名为 **无后缀** 的 `GameSaveData0` / `GameSaveData1`。
+
+1. 用自备工具从主机导出存档到 PC。
+2. 在存档酱里**手选**该导出文件夹（不会自动扫 Switch 机内路径）。
+3. 改完后按原样导回；注入 / 校验以外的风险自负。
 
 格式：`SVHD` 头 + AES-256-ECB 体 + SHA-1；解密后为 UE5.5+ GVAS。
 

@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.17.3] - 2026-11-02
+
+### 新增
+
+- **最终幻想：共鸣**：识别 Nintendo Switch 导出档（无 `.sav` 后缀的 `GameSaveDataN`）；手选 JKSV/Checkpoint 目录即可编辑（格式与 PC 相同）
+
 ## [0.17.2] - 2026-11-02
 
 ### 新增

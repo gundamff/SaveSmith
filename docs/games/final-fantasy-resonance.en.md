@@ -4,6 +4,8 @@ Unofficial save editing. Rights holder: Square Enix. Developer: LANCARSE. Steam 
 
 ## Save location
 
+### Steam / PC
+
 `%LOCALAPPDATA%\FFRS\Steam\<SteamID64>\`
 
 | File | Notes |
@@ -11,6 +13,14 @@ Unofficial save editing. Rights holder: Square Enix. Developer: LANCARSE. Steam 
 | `GameSaveData0.sav` | Autosave |
 | `GameSaveDataN.sav` | Manual slot N |
 | `OptionSaveData.sav` / `EnhancedInputUserSettings.sav` | **Not edited** |
+
+### Nintendo Switch (exported dumps)
+
+Same format as PC (`SVHD` + same AES key + GVAS). JKSV / Checkpoint dumps usually live under a title-id folder (e.g. `0100B8A026F14000`) with **extensionless** `GameSaveData0` / `GameSaveData1`.
+
+1. Export the save to PC with your own tool.
+2. In SaveSmith, **pick that folder manually** (no auto Switch path probe).
+3. Import the edited dump back; reinjection risk is on you.
 
 Format: `SVHD` header + AES-256-ECB body + SHA-1; plaintext is UE5.5+ GVAS.
 
