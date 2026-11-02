@@ -10,10 +10,25 @@ import {
   formatPbzTime,
   isPbzTime
 } from './inventoryRecord'
+import { collectBossRecordIssues } from './bossRecords'
+
+export {
+  projectBossRecords,
+  projectDeathMeta,
+  setBossDeathCount,
+  setDiedTimes,
+  type BossRecordView
+} from './bossRecords'
 
 const EDITABLE_SLOT_NAME = /^(?:AutoSave|ManualSave)\d+$/
 const MAX_DUST = 99_999_999
+/** Edit / bulk-set ceiling for weapon materials (catalog default). */
 const MAX_MATERIAL_AMOUNT = 9999
+/**
+ * Structural upper bound for existing inventory stacks.
+ * Live saves can exceed catalog edit caps (e.g. farm after set-all-9999); those must still validate.
+ */
+const MAX_INVENTORY_STACK = 99_999_999
 
 export interface PbzInventoryItemView {
   id: string
@@ -179,9 +194,12 @@ export function setInventoryAmount(
   value: number
 ): void {
   const item = requireCatalogItem(id)
-  requireAmount(item, value, true)
   const slot = requireSlot(model, slotName)
   const existing = requireEditableInventoryItem(slot, item)
+  const ceiling = Math.max(item.maxAmount, existing.currentAmount)
+  if (!isIntegerInRange(value, 0, ceiling)) {
+    throw new ModuleError('PBZ_INVALID_EDIT', [item.id])
+  }
   applyInventoryAmount(slot, existing, value)
 }
 
@@ -290,6 +308,8 @@ function validateDocument(slot: PbzEditableSlot, issues: ValidationIssue[]): voi
     issues.push({ code: 'PBZ_INVALID_DUST', args: [slot.name] })
   }
 
+  collectBossRecordIssues(slot, issues)
+
   const inventoryValue = slot.document.Inventory
   if (inventoryValue === undefined) return
   if (!isPlainObject(inventoryValue)) {
@@ -390,7 +410,8 @@ function inventoryRecordIssueCode(
     ? 'PBZ_INVALID_MATERIAL'
     : 'PBZ_INVALID_INVENTORY_ITEM'
   if (!isPlainObject(value)) return recordCode
-  if (!isIntegerInRange(value.CurrentAmount, 0, item.maxAmount)) {
+  // Accept live stacks above catalog edit caps; reject only corrupt / absurd values.
+  if (!isIntegerInRange(value.CurrentAmount, 0, MAX_INVENTORY_STACK)) {
     return item.category === 'weapon-material'
       ? 'PBZ_INVALID_MATERIAL_AMOUNT'
       : 'PBZ_INVALID_INVENTORY_AMOUNT'

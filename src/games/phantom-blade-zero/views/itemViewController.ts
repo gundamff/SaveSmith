@@ -35,7 +35,8 @@ export function useInventoryCategoryController(props: ItemViewProps) {
         return [{
           ...row,
           name: pbzItemName(item),
-          editMaxAmount: item.maxAmount,
+          // Allow reducing (or keeping) stacks that already exceed the catalog edit cap.
+          editMaxAmount: Math.max(item.maxAmount, row.currentAmount),
           item
         }]
       })

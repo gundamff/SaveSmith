@@ -658,8 +658,10 @@ describe('PBZ item view runtime behavior', () => {
 
 describe('PBZ views', () => {
   it('registers the single resources view', () => {
-    expect(pbzViews).toHaveLength(1)
+    expect(pbzViews).toHaveLength(2)
     expect(pbzViews[0]).toMatchObject({ id: 'resources', labelKey: 'pbz.tabs.resources' })
+    expect(pbzViews[1]).toMatchObject({ id: 'records', labelKey: 'pbz.tabs.records' })
+    expect(t('pbz.tabs.records')).toBeTruthy()
   })
 
   it('integrates named weapon-material and consumable category tabs', () => {

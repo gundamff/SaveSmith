@@ -4,6 +4,21 @@
 
 ## [Unreleased]
 
+## [0.17.2] - 2026-11-02
+
+### Added
+
+- **Phantom Blade Zero**: new Records tab for total deaths and per-boss death counts (encountered bosses)
+- **Library**: sort game cards by last opened time; among unused games, ones with a save folder rank first
+
+### Fixed
+
+- **Phantom Blade Zero**: live material stacks above the catalog edit cap (e.g. gear >9999) no longer invalidate the whole save
+
+### Notes
+
+- **Phantom Blade Zero**: dirty slots are rewritten as zlib; if HeyBox or similar viewers fail to parse, load and save once in-game before syncing
+
 ## [0.17.1] - 2026-10-31
 
 ### Added

@@ -587,7 +587,21 @@ export const en: MessageTree = {
   },
   pbz: {
     tabs: {
-      resources: 'Resources'
+      resources: 'Resources',
+      records: 'Records'
+    },
+    records: {
+      diedTimes: 'Total deaths',
+      heyboxHint:
+        'For HeyBox and similar record viewers to parse the save, load it in-game and save once after editing (SaveSmith rewrites dirty slots as zlib; some viewers only accept the game’s original Oodle compression).',
+      bossName: 'Boss',
+      bossId: 'ID',
+      difficulty: 'Difficulty key',
+      deathCount: 'Deaths to boss',
+      defeated: 'Defeated',
+      yes: 'Yes',
+      no: 'No',
+      empty: 'No editable boss records in this slot'
     },
     resources: {
       warning:

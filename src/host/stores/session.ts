@@ -3,6 +3,7 @@ import { markRaw, nextTick, ref, shallowRef, triggerRef } from 'vue'
 import { assertSerializeSane, changedFiles, matchSlotFilePatterns } from '@sdk/session'
 import type { GameModule, ListedFile, SlotBytes, SlotInfo, ValidationIssue } from '@sdk/types'
 import { translateError } from '../i18n'
+import { touchLibraryRecent } from '../libraryOrder'
 import {
   deleteBackup,
   listBackups,
@@ -185,6 +186,7 @@ export const useSessionStore = defineStore('session', () => {
     game.value = markRaw(mod)
     saveDir.value = dir
     clearDraft()
+    touchLibraryRecent(mod.id)
     await refreshSlots()
   }
 

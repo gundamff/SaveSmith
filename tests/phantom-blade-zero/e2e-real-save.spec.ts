@@ -13,7 +13,10 @@ import {
 
 const SAVE = process.env.PBZ_SAVE
 const MAX_DUST = 99_999_999
+/** Catalog edit ceiling used when choosing a safe in-memory increment. */
 const MAX_MATERIAL_AMOUNT = 9999
+/** Structural bound for existing stacks (live saves may exceed the edit ceiling). */
+const MAX_INVENTORY_STACK = 99_999_999
 const FIXED_DATE = new Date(2026, 9, 30, 18, 20, 30)
 
 describe.skipIf(!SAVE)('phantom-blade-zero real save (PBZ_SAVE)', () => {
@@ -63,7 +66,7 @@ describe.skipIf(!SAVE)('phantom-blade-zero real save (PBZ_SAVE)', () => {
       for (const material of resources.materials) {
         expect(material.id).toMatch(/^Weapon_Material_/)
         expect(material.currentAmount).toBeGreaterThanOrEqual(0)
-        expect(material.currentAmount).toBeLessThanOrEqual(MAX_MATERIAL_AMOUNT)
+        expect(material.currentAmount).toBeLessThanOrEqual(MAX_INVENTORY_STACK)
         expect(material.maxAmount).toBeGreaterThanOrEqual(material.currentAmount)
       }
     }

@@ -1,8 +1,13 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { documentDir, homeDir } from '@tauri-apps/api/path'
 import type { GameModule } from '@sdk/types'
 import { t } from '../i18n'
+import {
+  readLibraryRecents,
+  sortLibraryModules,
+  type LibraryRecents
+} from '../libraryOrder'
 import { confirmSaveDir, probeModuleSaveDir } from '../probe'
 import { modules } from '../registry'
 import { listDirNames, pickFolder } from '../tauri'
@@ -13,6 +18,14 @@ const emit = defineEmits<{
 }>()
 
 const detected = ref<Record<string, string>>({})
+const recents = ref<LibraryRecents>(readLibraryRecents())
+
+const sortedModules = computed(() =>
+  sortLibraryModules(modules, {
+    lastOpenedAt: recents.value,
+    hasSaveDir: (id) => Boolean(detected.value[id])
+  })
+)
 
 onMounted(() => {
   void probeAll()
@@ -86,7 +99,7 @@ function onOpen(mod: GameModule): void {
     </header>
     <div class="grid">
       <GameCard
-        v-for="mod in modules"
+        v-for="mod in sortedModules"
         :key="mod.id"
         :module="mod"
         :detected-dir="detected[mod.id]"

@@ -18,11 +18,14 @@ The only physical main save is `PBZSaveGame.sav`. SaveSmith exposes its internal
 
 The format is PBZS v3: AES-256-GCM authenticated encryption, Oodle for reading compressed slots, and zlib for rewritten slots. Authentication or parsing failure blocks saving.
 
+**HeyBox / similar record viewers:** Dirty slots are rewritten as zlib. The game loads them fine; if a viewer fails to parse, load the save in-game and save once (the game often rewrites Oodle), then re-upload to the viewer.
+
 ## Editable scope
 
-The resources page keeps internal slot selection and splits inventory into two tabs: **Weapon Upgrade Materials** and **Growth**.
+The resources page keeps internal slot selection and splits inventory into two tabs: **Weapon Upgrade Materials** and **Growth**. There is also a top-level **Records** tab (total deaths and per-boss death counts for encountered bosses).
 
 - `Player.Dust` is shown as 意识尘埃 in Chinese; the storage field remains `Dust`. English UI keeps `Dust` because this build's `en` resources have no translation
+- Records: `PBZDeathMeta.DiedTimes`; per-boss deaths via `BossRecord.*.Records.*.AttemptCount` (HeyBox skull semantics `AttemptCount − KillCount`; does not edit `KillCount` / clear flags)
 - 27 weapon-upgrade materials: edit existing amounts, search by official Simplified Chinese name / raw ID to add missing ones, or delete inventory records
 - Material amounts are limited to `0..9999`; raising `CurrentAmount` above its old `MaxAmount` raises `MaxAmount` with it
 - Growth covers in-game progression items: black stone / killing-aura amber and fragments, sha-qi core, banyan heart, accessory/medicine upgrade materials, and Traversing Charm (12 rows)

@@ -582,7 +582,21 @@ export const zh: MessageTree = {
   },
   pbz: {
     tabs: {
-      resources: '资源'
+      resources: '资源',
+      records: '战绩'
+    },
+    records: {
+      diedTimes: '累计身陨',
+      heyboxHint:
+        '如需小黑盒等战绩查看器正常解析，请保存后先进入游戏加载并再保存一次（本工具写回为 zlib，部分查看器只认游戏原用的 Oodle 压缩）。',
+      bossName: 'BOSS',
+      bossId: 'ID',
+      difficulty: '难度键',
+      deathCount: '被击杀次数',
+      defeated: '已击败',
+      yes: '是',
+      no: '否',
+      empty: '当前槽没有可编辑的 BOSS 战绩记录'
     },
     resources: {
       warning:

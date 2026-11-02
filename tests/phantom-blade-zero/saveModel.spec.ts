@@ -6,18 +6,23 @@ import {
   getSelectedSlot,
   isEditableSlotName,
   parseEditableSlot,
+  projectBossRecords,
+  projectDeathMeta,
   projectInventory,
   projectResources,
   removeInventoryItem,
   selectSlot,
   serializeDirtySlots,
   setAllExistingMaterials,
+  setBossDeathCount,
+  setDiedTimes,
   setDust,
   setInventoryAmount,
   setMaterialAmount,
   validateSaveModel,
   type PbzEditableSlot
 } from '../../src/games/phantom-blade-zero/model/saveModel'
+import { getBossDisplayName } from '../../src/games/phantom-blade-zero/catalog/bosses'
 
 const encoder = new TextEncoder()
 
@@ -337,7 +342,7 @@ describe('phantom-blade-zero save model', () => {
     const infos = (
       first.document.Inventory as Record<string, unknown>
     ).InventoryInfos as Record<string, unknown>
-    ;(infos.Weapon_Material_01 as Record<string, unknown>).CurrentAmount = 10_000
+    ;(infos.Weapon_Material_01 as Record<string, unknown>).CurrentAmount = 100_000_000
     ;(infos.Weapon_Material_02 as Record<string, unknown>).MaxAmount = 1
 
     const codes = validateSaveModel(model).map((issue) => issue.code)
@@ -346,6 +351,43 @@ describe('phantom-blade-zero save model', () => {
     expect(codes).toContain('PBZ_INVALID_DUST')
     expect(codes).toContain('PBZ_INVALID_MATERIAL_AMOUNT')
     expect(codes).toContain('PBZ_INVALID_MATERIAL_MAX')
+  })
+
+  it('accepts live material stacks above the catalog edit cap without blocking the slot', () => {
+    const editable = slot('AutoSave0', {
+      Inventory: {
+        InventoryInfos: {
+          Weapon_Material_19: {
+            CurrentAmount: 10004,
+            MaxAmount: 10004,
+            FirstAddTime: '2026.10.30-18.20.30',
+            DirtyTime: '2026.10.30-18.20.30',
+            AcquiredCycle: 1
+          }
+        }
+      }
+    })
+    const model = createSaveModel([editable])
+
+    expect(projectInventory(editable, 'weapon-material')).toEqual([
+      { id: 'Weapon_Material_19', category: 'weapon-material', currentAmount: 10004, maxAmount: 10004 }
+    ])
+    expect(validateSaveModel(model)).toEqual([])
+
+    setInventoryAmount(model, editable.name, 'Weapon_Material_19', 10004)
+    expect(editable.dirty).toBe(false)
+    setInventoryAmount(model, editable.name, 'Weapon_Material_19', 9999)
+    expect(
+      (
+        (editable.document.Inventory as Record<string, Record<string, unknown>>)
+          .InventoryInfos.Weapon_Material_19 as Record<string, unknown>
+      ).CurrentAmount
+    ).toBe(9999)
+
+    expectModuleError(
+      () => setInventoryAmount(model, editable.name, 'Weapon_Material_19', 10005),
+      'PBZ_INVALID_EDIT'
+    )
   })
 
   it('reports unsafe public document mutations instead of throwing', () => {
@@ -728,5 +770,114 @@ describe('phantom-blade-zero save model', () => {
     expect(getSelectedSlot(empty)).toBeNull()
     expect(validateSaveModel(empty)).toEqual([])
     expect(serializeDirtySlots(empty).size).toBe(0)
+  })
+
+  it('projects DiedTimes and writes without dropping PBZDeathMeta extras', () => {
+    const editable = slot('AutoSave0', {
+      PBZDeathMeta: { _v: 1, DiedTimes: 57, note: 'keep-me' }
+    })
+    expect(projectDeathMeta(editable)).toEqual({ diedTimes: 57 })
+
+    const model = createSaveModel([editable])
+    setDiedTimes(model, editable.name, 3)
+    expect(editable.document.PBZDeathMeta).toEqual({ _v: 1, DiedTimes: 3, note: 'keep-me' })
+    expect(editable.dirty).toBe(true)
+    expect(projectDeathMeta(editable)).toEqual({ diedTimes: 3 })
+  })
+
+  it('rejects invalid DiedTimes edits and reports NaN when meta is missing', () => {
+    const missing = slot()
+    expect(Number.isNaN(projectDeathMeta(missing).diedTimes)).toBe(true)
+
+    const editable = slot('ManualSave1', {
+      PBZDeathMeta: { _v: 1, DiedTimes: 1 }
+    })
+    const model = createSaveModel([editable])
+    for (const value of [-1, 1.5, 100_000_000, Number.NaN]) {
+      expectModuleError(() => setDiedTimes(model, editable.name, value), 'PBZ_INVALID_EDIT')
+    }
+    expect(editable.dirty).toBe(false)
+  })
+
+  it('projects boss death counts as AttemptCount minus KillCount', () => {
+    const editable = slot('AutoSave0', {
+      BossRecord: {
+        BP_Monster_PengMeng_Axe: {
+          ClassPath: '/x/BP_Monster_PengMeng_Axe_C',
+          Records: {
+            '0_2': { AttemptCount: 16, KillCount: 1, BestTimeMs: 204362, extra: true }
+          }
+        },
+        BP_Monster_MoTian_LongZhu_01: {
+          ClassPath: '/x/BP_Monster_MoTian_LongZhu_01_C',
+          Records: {
+            '0_2': { AttemptCount: 15 }
+          }
+        },
+        BP_Monster_Broken: {
+          Records: { '0_2': { AttemptCount: 'nope' } }
+        }
+      }
+    })
+
+    expect(projectBossRecords(editable)).toEqual([
+      {
+        bossId: 'BP_Monster_MoTian_LongZhu_01',
+        difficultyKey: '0_2',
+        deathCount: 15,
+        killCount: 0,
+        defeated: false,
+        bestTimeMs: null
+      },
+      {
+        bossId: 'BP_Monster_PengMeng_Axe',
+        difficultyKey: '0_2',
+        deathCount: 15,
+        killCount: 1,
+        defeated: true,
+        bestTimeMs: 204362
+      }
+    ])
+    expect(getBossDisplayName('BP_Monster_PengMeng_Axe', 'zh')).toContain('彭猛')
+  })
+
+  it('sets boss death counts by rewriting AttemptCount only', () => {
+    const editable = slot('AutoSave0', {
+      BossRecord: {
+        BP_Monster_PengMeng_Axe: {
+          ClassPath: '/x/C',
+          Records: {
+            '0_2': { AttemptCount: 16, KillCount: 1, BestTimeMs: 10, extra: true }
+          }
+        },
+        BP_Monster_MoTian_LongZhu_01: {
+          ClassPath: '/x/C',
+          Records: {
+            '0_2': { AttemptCount: 15 }
+          }
+        }
+      }
+    })
+    const model = createSaveModel([editable])
+    const records = editable.document.BossRecord as Record<
+      string,
+      { Records: Record<string, Record<string, unknown>> }
+    >
+
+    setBossDeathCount(model, editable.name, 'BP_Monster_PengMeng_Axe', '0_2', 0)
+    expect(records.BP_Monster_PengMeng_Axe.Records).toEqual({
+      '0_2': { AttemptCount: 1, KillCount: 1, BestTimeMs: 10, extra: true }
+    })
+
+    setBossDeathCount(model, editable.name, 'BP_Monster_MoTian_LongZhu_01', '0_2', 2)
+    expect(records.BP_Monster_MoTian_LongZhu_01.Records).toEqual({
+      '0_2': { AttemptCount: 2 }
+    })
+    expect(editable.dirty).toBe(true)
+
+    expectModuleError(
+      () => setBossDeathCount(model, editable.name, 'BP_Monster_Missing', '0_2', 1),
+      'PBZ_INVALID_EDIT'
+    )
   })
 })
