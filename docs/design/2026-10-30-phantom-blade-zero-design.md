@@ -97,7 +97,7 @@ u32 sealedBlockLength
 | 装备等级 | 一期不编辑；玩家可用材料在游戏内升级 |
 | 特殊槽 | `__Advanced__`、`__Achievements__` 只读透传 |
 | Oodle 读取 | 自建 MIT `oozextract` WASM |
-| 写回压缩 | 统一写标准 zlib（`algo=1`） |
+| 写回压缩 | 统一写 Oodle stored（`algo=2`，`0xCC06` 分块；历史曾用 zlib） |
 | GPL 包 | 不使用 `ooz-wasm`（GPL-3.0-or-later），避免污染本仓 MIT 许可 |
 | 物理槽位 | 宿主只打开 `PBZSaveGame.sav`；内部槽位由模块 UI 选择 |
 
@@ -107,7 +107,7 @@ u32 sealedBlockLength
 2. 严格验证和解析 PBZS v3 容器、AES-GCM 密封块、Oodle/zlib 数据及 JSON。
 3. 在模块内选择 `AutoSave*` / `ManualSave*`，编辑 Dust 与已有材料数量。
 4. 未修改的非目录块必须字节透传；目录因偏移 / 长度变化统一重建并重新密封；修改槽位保留未知 JSON 字段。
-5. 使用 zlib 重建修改槽位，重建目录偏移并以 AES-GCM 密封。
+5. 使用 Oodle stored（`algo=2`）重建修改槽位，重建目录偏移并以 AES-GCM 密封。
 6. GCM、边界、解压、JSON 或白名单验证失败时拒绝写盘。
 
 ## 非目标
@@ -193,7 +193,7 @@ slotFilePatterns: ["PBZSaveGame.sav"]
   → 校验解压长度 + UTF-8 JSON
   → 投影内部槽位、Dust 与已有材料
   → UI 修改白名单，标记对应内部槽 dirty
-  → dirty 槽 JSON 序列化 + zlib；未改非目录块字节透传
+  → dirty 槽 JSON 序列化 + Oodle stored（algo=2）；未改非目录块字节透传
   → 重建目录相对偏移与长度
   → 新 nonce + AES-GCM 密封目录 / 修改块
   → 宿主备份 + 原子写

@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.17.5] - 2026-11-03
+
+### Changed
+
+- **Phantom Blade Zero**: dirty slots rewrite as Oodle stored (`compression=2`, `0xCC06` chunks) instead of zlib; Oodle-only viewers (e.g. HeyBox) generally parse them
+
 ## [0.17.4] - 2026-11-03
 
 ### Added

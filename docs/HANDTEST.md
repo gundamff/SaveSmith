@@ -265,7 +265,7 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 
 - [ ] 在**副本**中不改字段保存
 - [ ] 游戏载入该档 → 游戏内保存 → 完全退出 → 二次载入，均正常
-- [x] Oodle 读取 → zlib 写回且 JSON 不变的真档内存链已通过自动回归
+- [x] Oodle 读取 → Oodle stored 写回且 JSON 不变的真档内存链已通过自动回归（历史曾用 zlib）
 
 ### PBZ3. 最小有害性
 

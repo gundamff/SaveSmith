@@ -589,7 +589,7 @@ export const zh: MessageTree = {
     progress: {
       cycleDisplay: '周目（第 N 周目）',
       cycleHint:
-        '只读。界面按 max(CycleCount, 历史履历条数)+1 估算（通关后 CycleCount 常仍为 0）。游戏内「第 N 周目」不靠改 CycleCount 生效；强行写入只会弄脏存档（zlib），对周目无益且可能让小黑盒等查看器解析失败。不改 CycleRecords。',
+        '只读。界面按 max(CycleCount, 历史履历条数)+1 估算（通关后 CycleCount 常仍为 0）。游戏内「第 N 周目」不靠改 CycleCount 生效；强行写入对周目无益。不改 CycleRecords。',
       gameTime: '游戏时间',
       hours: '时',
       minutes: '分',
@@ -602,7 +602,7 @@ export const zh: MessageTree = {
     records: {
       diedTimes: '累计身陨',
       heyboxHint:
-        '本工具改过的槽写回为 zlib；小黑盒等若只认 Oodle，可能解析失败。进游戏再保存不保证能变回 Oodle——请先自备改前备份。',
+        '脏槽写回为 Oodle stored（algo=2，无真实压缩），小黑盒等只认 Oodle 的查看器一般可解析。仍非游戏同款压缩器——请先自备改前备份。',
       bossName: 'BOSS',
       bossId: 'ID',
       difficulty: '难度键',

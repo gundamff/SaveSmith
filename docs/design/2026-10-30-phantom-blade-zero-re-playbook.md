@@ -132,21 +132,22 @@ u32 sealedBlockLength
 | 步骤 | 行为 |
 |------|------|
 | 读 | 密封块 AES-GCM 认证 → 按 algo 解压 |
-| 写脏槽 | JSON → **标准 zlib（algo=1）** → 新 nonce + GCM 密封 |
+| 写脏槽 | JSON → **Oodle stored（algo=2，`0xCC06` 分块）** → 新 nonce + GCM 密封 |
 | 未改槽 | **整块密封字节透传** |
 | 目录 | **始终按最终偏移/长度重建并重新密封** |
 
-已实证：原 Oodle 槽改为 zlib 后，游戏可载入 / 保存 / 二次载入。不要捆绑官方 Oodle 编码器；读取用仓内 MIT `oozextract` WASM。
+已实证：原 Oodle 槽改为 zlib 后，游戏可载入 / 保存 / 二次载入。  
+另已探针：`0xCC06` stored 分帧可被 oozextract / 游戏侧解码接受；脏槽现写 **algo=2 stored**（无真实压缩，兼容只认 Oodle 的查看器）。不要捆绑官方 Oodle 编码器；读取用仓内 MIT `oozextract` WASM。
 
 ---
 
-## 4. 压缩：Oodle 读、zlib 写
+## 4. 压缩：Oodle 读、Oodle stored 写
 
 | algo | 含义 | SaveSmith |
 |------|------|-----------|
 | 0 | 原样 | 可读 |
-| 1 | zlib / deflate | 读 + **写** |
-| 2 | Oodle Mermaid 族 | **只读**（`codec/oodle`，oozextract 0.5.7 portable WASM） |
+| 1 | zlib / deflate | 可读（历史写回路径） |
+| 2 | Oodle Mermaid 族 | 读 + **写（stored `0xCC06`，非官方压缩器）** |
 
 更新后若出现未知 algo：对应该槽拒绝编辑；目录整体异常则拒绝载入。  
 Oodle 许可与复现：`src/games/phantom-blade-zero/codec/oodle/UPSTREAM.md`。

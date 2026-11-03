@@ -16,9 +16,9 @@ The only physical main save is `PBZSaveGame.sav`. SaveSmith exposes its internal
 - `__Advanced__` and `__Achievements__` are special slots preserved read-only.
 - Settings saves are unsupported.
 
-The format is PBZS v3: AES-256-GCM authenticated encryption, Oodle for reading compressed slots, and zlib for rewritten slots. Authentication or parsing failure blocks saving.
+The format is PBZS v3: AES-256-GCM authenticated encryption; raw / zlib / Oodle slots are readable; dirty slots are rewritten as Oodle stored (`compression=2`, `0xCC06` chunks, no real compression). Authentication or parsing failure blocks saving.
 
-**HeyBox / similar record viewers:** Dirty slots are rewritten as zlib; the game still loads them. Viewers that only accept Oodle may fail. An in-game re-save does **not** reliably convert those slots back to Oodle — keep a pre-edit backup.
+**HeyBox / similar record viewers:** Dirty slots are marked Oodle and generally parse in Oodle-only viewers. This is still not the game’s compressor — keep a pre-edit backup.
 
 ## Editable scope
 
@@ -56,7 +56,7 @@ Memory flowers, snap-soul materials, books, and quest / narrative placeholders r
 
 ## Oodle and artwork
 
-Oodle reads use a clean-room, MIT-licensed [`oozextract 0.5.7`](../../src/games/phantom-blade-zero/codec/oodle/UPSTREAM.md) portable WASM build. SaveSmith does not use GPL `ooz-wasm` and does not bundle an official Oodle DLL. See the bundled [`LICENSE`](../../src/games/phantom-blade-zero/codec/oodle/LICENSE).
+Oodle reads use a clean-room, MIT-licensed [`oozextract 0.5.7`](../../src/games/phantom-blade-zero/codec/oodle/UPSTREAM.md) portable WASM build; dirty writes use stored framing that the same decoder accepts (not an official compressor). SaveSmith does not use GPL `ooz-wasm` and does not bundle an official Oodle DLL. See the bundled [`LICENSE`](../../src/games/phantom-blade-zero/codec/oodle/LICENSE).
 
 The cover is the Steam App `4115450` store header. Copyright remains with the rights holders; it is used only to identify the game in the SaveSmith library.
 

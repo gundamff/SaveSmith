@@ -1,6 +1,6 @@
 import { ModuleError } from "@sdk/error";
 
-import { decompressOodle } from "./oodle";
+import { compressOodleStored, decompressOodle } from "./oodle";
 import {
   MAX_PBZS_SLOT_UNCOMPRESSED_SIZE,
   MAX_PBZS_TOTAL_UNCOMPRESSED_SIZE,
@@ -210,11 +210,11 @@ export async function serializePbzsContainer(
       entry = { ...slot.entry };
     } else {
       const payloadCopy = dirtyPayload.slice();
-      const compressed = await deflate(payloadCopy, slot.entry.name);
+      const compressed = await compressOodleStored(payloadCopy);
       sealedBytes = await sealPbzsBlock(compressed);
       entry = {
         ...slot.entry,
-        compression: 1,
+        compression: 2,
         sealed: 1,
         uncompressedSize: payloadCopy.length,
       };
@@ -519,20 +519,6 @@ async function inflate(payload: Uint8Array): Promise<Uint8Array> {
     offset += chunk.length;
   }
   return output;
-}
-
-async function deflate(
-  payload: Uint8Array,
-  slotName: string,
-): Promise<Uint8Array> {
-  try {
-    const stream = new Blob([new Uint8Array(payload)])
-      .stream()
-      .pipeThrough(new CompressionStream("deflate"));
-    return new Uint8Array(await new Response(stream).arrayBuffer());
-  } catch {
-    throw new ModuleError("PBZ_DECOMPRESSION_FAILED", [slotName]);
-  }
 }
 
 function requireRemaining(

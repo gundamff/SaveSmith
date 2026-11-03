@@ -16,9 +16,9 @@
 - `__Advanced__`、`__Achievements__` 是特殊槽，仅只读透传。
 - 设置档不受支持。
 
-格式为 PBZS v3：AES-256-GCM 认证加密；读取 Oodle 压缩槽，修改后用 zlib 写回。认证或解析失败会停止写入。
+格式为 PBZS v3：AES-256-GCM 认证加密；可读 raw / zlib / Oodle 槽；脏槽写回为 Oodle stored（`compression=2`，`0xCC06` 分块，无真实压缩）。认证或解析失败会停止写入。
 
-**小黑盒等战绩查看器：** 本工具改过的槽为 zlib；游戏可加载。若查看器只认 Oodle，可能解析失败。进游戏再保存**不保证**把该槽变回 Oodle——请先保留改前备份。
+**小黑盒等战绩查看器：** 脏槽标记为 Oodle，一般可被只认 Oodle 的查看器解析。这不是游戏同款压缩器——请先保留改前备份。
 
 ## 可编辑范围
 
@@ -56,7 +56,7 @@
 
 ## Oodle 与素材
 
-Oodle 读取使用 Clean-room 构建的 MIT [`oozextract 0.5.7`](../../src/games/phantom-blade-zero/codec/oodle/UPSTREAM.md) portable WASM；不使用 GPL `ooz-wasm`，也不捆绑官方 Oodle DLL。许可证见模块内 [`LICENSE`](../../src/games/phantom-blade-zero/codec/oodle/LICENSE)。
+Oodle 读取使用 Clean-room 构建的 MIT [`oozextract 0.5.7`](../../src/games/phantom-blade-zero/codec/oodle/UPSTREAM.md) portable WASM；脏槽写回使用同解码器可识别的 stored 分帧（非官方压缩器）。不使用 GPL `ooz-wasm`，也不捆绑官方 Oodle DLL。许可证见模块内 [`LICENSE`](../../src/games/phantom-blade-zero/codec/oodle/LICENSE)。
 
 封面来自 Steam App `4115450` 商店 header，版权属权利人，仅用于 SaveSmith 库页识别。
 

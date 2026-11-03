@@ -2,7 +2,10 @@ import { readFileSync } from "node:fs";
 
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { decompressOodle } from "@games/phantom-blade-zero/codec/oodle";
+import {
+  compressOodleStored,
+  decompressOodle,
+} from "@games/phantom-blade-zero/codec/oodle";
 
 const UNCOMPRESSED_VECTOR = Uint8Array.from([
   0x4c,
@@ -31,6 +34,16 @@ describe("Phantom Blade Zero Oodle codec", () => {
     await expect(
       decompressOodle(UNCOMPRESSED_VECTOR, EXPECTED.length),
     ).resolves.toEqual(EXPECTED);
+  });
+
+  it("frames plaintext as Oodle stored blocks that round-trip through decompress", async () => {
+    const plain = new Uint8Array(0x40000 + 100).map((_, i) => i & 0xff)
+    const framed = await compressOodleStored(plain)
+    expect(framed[0]).toBe(0xcc)
+    expect(framed[1]).toBe(0x06)
+    // Two chunks ⇒ two 2-byte headers.
+    expect(framed.length).toBe(plain.length + 4)
+    await expect(decompressOodle(framed, plain.length)).resolves.toEqual(plain)
   });
 
   it("decompresses an upstream-derived LZB16 literal and back-reference vector", async () => {

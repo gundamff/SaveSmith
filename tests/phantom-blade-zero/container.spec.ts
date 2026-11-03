@@ -111,7 +111,7 @@ describe("PBZS v3 container", () => {
     );
   });
 
-  it("rewrites only a dirty slot as sealed zlib", async () => {
+  it("rewrites only a dirty slot as sealed Oodle stored blocks", async () => {
     const parsed = await parsePbzsContainer(await standardFixture());
     const untouched = parsed.slots.map(({ sealedBytes }) => sealedBytes.slice());
     const replacement = encoder.encode("new raw value");
@@ -123,7 +123,7 @@ describe("PBZS v3 container", () => {
 
     expect(reparsed.slots[0]!.entry).toMatchObject({
       name: "raw",
-      compression: 1,
+      compression: 2,
       sealed: 1,
       uncompressedSize: replacement.length,
       relativeOffset: 0,
