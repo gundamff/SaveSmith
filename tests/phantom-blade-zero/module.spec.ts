@@ -100,7 +100,7 @@ describe('phantom-blade-zero module metadata', () => {
       expect(summary).toMatch(/Steam Cloud|Steam 云/i)
       expect(summary).toMatch(/overwrite|覆盖/i)
     }
-    expect(phantomBladeZeroModule.views).toHaveLength(2)
+    expect(phantomBladeZeroModule.views).toHaveLength(3)
     expect(phantomBladeZeroModule.views[0]).toMatchObject({
       id: 'resources',
       labelKey: 'pbz.tabs.resources'
@@ -108,6 +108,10 @@ describe('phantom-blade-zero module metadata', () => {
     expect(phantomBladeZeroModule.views[1]).toMatchObject({
       id: 'records',
       labelKey: 'pbz.tabs.records'
+    })
+    expect(phantomBladeZeroModule.views[2]).toMatchObject({
+      id: 'progress',
+      labelKey: 'pbz.tabs.progress'
     })
     const state = await parse([
       { relativePath: 'PBZSaveGame.sav', bytes: await fixture() }

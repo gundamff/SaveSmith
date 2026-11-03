@@ -11,14 +11,22 @@ import {
   isPbzTime
 } from './inventoryRecord'
 import { collectBossRecordIssues } from './bossRecords'
+import { collectProgressIssues } from './progress'
 
 export {
   projectBossRecords,
   projectDeathMeta,
+  setBossBestTimeSeconds,
   setBossDeathCount,
   setDiedTimes,
   type BossRecordView
 } from './bossRecords'
+export {
+  projectProgress,
+  setCycleDisplay,
+  setGameTimeSeconds,
+  type ProgressView
+} from './progress'
 
 const EDITABLE_SLOT_NAME = /^(?:AutoSave|ManualSave)\d+$/
 const MAX_DUST = 99_999_999
@@ -309,6 +317,7 @@ function validateDocument(slot: PbzEditableSlot, issues: ValidationIssue[]): voi
   }
 
   collectBossRecordIssues(slot, issues)
+  collectProgressIssues(slot, issues)
 
   const inventoryValue = slot.document.Inventory
   if (inventoryValue === undefined) return

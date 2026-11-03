@@ -1,8 +1,17 @@
-﻿# Changelog
+# Changelog
 
 [中文](CHANGELOG.md) | **English**
 
 ## [Unreleased]
+
+### Added
+
+- **Phantom Blade Zero**: Progress tab for cycle week (`CycleCount`) and current-cycle game time (`HasGameTime` / `CurrentCycleGameTime`, dual-written)
+- **Phantom Blade Zero**: Records tab can edit boss best times where `BestTimeMs` already exists (whole-second precision)
+
+### Notes
+
+- **Phantom Blade Zero**: does not edit `CycleRecords`, endings, or nightmare cycles; sub-second `BestTimeMs` is lost when editing
 
 ## [0.17.3] - 2026-11-02
 

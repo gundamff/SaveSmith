@@ -1,4 +1,4 @@
-﻿# 影之刃零（Phantom Blade Zero）
+# 影之刃零（Phantom Blade Zero）
 
 非官方、仅限单机的存档修改支持。权利人及开发：S-GAME Studio；发行：S-GAME Publishing。Steam AppID `4115450`。
 
@@ -22,10 +22,12 @@
 
 ## 可编辑范围
 
-资源页显示内部槽位选择，以及两个分类 Tab：**武器强化材料**、**养成**。另有顶层 Tab：**战绩**（累计身陨、已遭遇 BOSS 的被击杀次数）。
+资源页显示内部槽位选择，以及两个分类 Tab：**武器强化材料**、**养成**。另有顶层 Tab：**战绩**（累计身陨、已遭遇 BOSS 的被击杀次数与 BOSS 最快用时）、**进度**（周目与游戏时间）。
 
 - `Player.Dust` 中文显示为游戏正式名称「意识尘埃」；内部字段仍是 `Dust`
-- 战绩：`PBZDeathMeta.DiedTimes`；`BossRecord.*.Records.*.AttemptCount`（按小黑盒头骨语义 `AttemptCount − KillCount` 编辑被击杀次数；不改 `KillCount` / 通关态）
+- 进度：`PBZGameSystem.CycleCount`（UI 显示「第 N 周目」，存盘值为 N−1，语义为游戏内已通关次数）；`HasGameTime` 与 `CurrentCycleGameTime`（HMS 编辑，写入时双写保持一致）。`CycleRecords` 仅只读计数，不支持改结局或噩梦周目
+- 战绩：`PBZDeathMeta.DiedTimes`；`BossRecord.*.Records.*.AttemptCount`（按小黑盒头骨语义 `AttemptCount − KillCount` 编辑被击杀次数；不改 `KillCount` / 通关态）；已有合法 `BestTimeMs` 的行可按整秒改最快用时（存盘为毫秒，SaveSmith 只接受整秒，亚秒会丢失）
+- 未遭遇 BOSS 或无有效 `BestTimeMs` 的行不能伪造用时
 - 27 种武器强化材料：可改已有数量，也可按正式中文名或内部 ID 搜索后添加，或从背包删除记录
 - 材料**编辑**上限为 `0..9999`；提高 `CurrentAmount` 超过原 `MaxAmount` 时会同步提高 `MaxAmount`。若真档已超过 9999（例如拉满后再掉落），仍可打开/保存，编辑器允许保留或下调，但不会再往上加超过该上限
 - 「养成」收录游戏内养成向条目：黑石/杀气琥珀及其碎片、杀气核心、榕树之心、饰品/药剂强化材料、穿行符等（共 12 项）

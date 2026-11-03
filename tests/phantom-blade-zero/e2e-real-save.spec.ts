@@ -5,7 +5,9 @@ import { parse, serialize, validate, type PhantomBladeZeroState } from '../../sr
 import { parsePbzsContainer } from '../../src/games/phantom-blade-zero/codec/container'
 import {
   addInventoryItem,
+  projectBossRecords,
   projectInventory,
+  projectProgress,
   projectResources,
   setDust,
   setMaterialAmount
@@ -52,6 +54,25 @@ describe.skipIf(!SAVE)('phantom-blade-zero real save (PBZ_SAVE)', () => {
     }
     return null
   }
+
+  it('projects progress scalars and some boss best times when present', async () => {
+    const state = await parseOriginal()
+    let sawProgress = false
+    let sawBest = false
+    let sawBossRow = false
+    for (const slot of state.model.slots) {
+      const p = projectProgress(slot)
+      if (p.hasGameSystem && p.cycleEditable && p.gameTimeEditable) sawProgress = true
+      for (const row of projectBossRecords(slot)) {
+        sawBossRow = true
+        if (row.bestTimeMs != null) sawBest = true
+      }
+    }
+    expect(sawProgress).toBe(true)
+    if (sawBossRow) {
+      expect(sawBest).toBe(true)
+    }
+  })
 
   it('parses editable slots and projects valid Dust and existing materials', async () => {
     const state = await parseOriginal()

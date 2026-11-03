@@ -588,7 +588,22 @@ export const en: MessageTree = {
   pbz: {
     tabs: {
       resources: 'Resources',
-      records: 'Records'
+      records: 'Records',
+      progress: 'Progress'
+    },
+    progress: {
+      cycleDisplay: 'Cycle (week N)',
+      cycleHint:
+        'Save field is CycleCount; the UI shows CycleCount+1. Trust in-game display; historical cycle records are not edited here.',
+      gameTime: 'Game time',
+      hours: 'h',
+      minutes: 'm',
+      seconds: 's',
+      cycleRecordsReadonly: '{0} historical cycle record(s) (read-only)',
+      timesMismatch:
+        'HasGameTime and CurrentCycleGameTime differ; saving game time will write the same value to both.',
+      empty: 'This slot has no PBZGameSystem progress block',
+      gameTimeDisabled: 'Paired game-time fields are missing; cannot edit'
     },
     records: {
       diedTimes: 'Total deaths',
@@ -601,7 +616,9 @@ export const en: MessageTree = {
       defeated: 'Defeated',
       yes: 'Yes',
       no: 'No',
-      empty: 'No editable boss records in this slot'
+      empty: 'No editable boss records in this slot',
+      bestTime: 'Best time',
+      bestTimeMissing: '—'
     },
     resources: {
       warning:
@@ -696,6 +713,9 @@ export const en: MessageTree = {
     PBZ_INVALID_INVENTORY_INFOS: 'Invalid InventoryInfos in slot {0}',
     PBZ_INVALID_MATERIAL: 'Invalid material {1} in slot {0}',
     PBZ_INVALID_MATERIAL_AMOUNT: 'Invalid current amount for material {1} in slot {0}',
-    PBZ_INVALID_MATERIAL_MAX: 'Invalid historical max for material {1} in slot {0}'
+    PBZ_INVALID_MATERIAL_MAX: 'Invalid historical max for material {1} in slot {0}',
+    PBZ_INVALID_CYCLE_COUNT: 'Invalid CycleCount in slot {0}',
+    PBZ_INVALID_GAME_TIME: 'Invalid game time in slot {0}',
+    PBZ_INVALID_BOSS_BEST_TIME: 'Invalid boss best time in slot {0}: {1}'
   }
 }

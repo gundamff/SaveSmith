@@ -1,5 +1,6 @@
 import { ModuleError } from '../../../sdk/error'
 import type { ValidationIssue } from '../../../sdk/types'
+import { isValidDurationSeconds } from './durationFormat'
 
 const MAX_COUNT = 99_999_999
 const EDITABLE_SLOT_NAME = /^(?:AutoSave|ManualSave)\d+$/
@@ -93,6 +94,32 @@ export function setBossDeathCount(
   slot.dirty = true
 }
 
+export function setBossBestTimeSeconds(
+  model: PbzDeathSaveModel,
+  slotName: string,
+  bossId: string,
+  difficultyKey: string,
+  seconds: number
+): void {
+  const slot = requireSlot(model, slotName)
+  if (!isValidDurationSeconds(seconds)) {
+    throw new ModuleError('PBZ_INVALID_EDIT', [bossId])
+  }
+
+  const root = getRecord(slot.document, 'BossRecord')
+  const boss = root ? getRecord(root, bossId) : null
+  const records = boss ? getRecord(boss, 'Records') : null
+  const entry = records ? getRecord(records, difficultyKey) : null
+  if (!entry || !isIntegerInRange(entry.BestTimeMs, 0, Number.MAX_SAFE_INTEGER)) {
+    throw new ModuleError('PBZ_INVALID_EDIT', [bossId])
+  }
+
+  const next = seconds * 1000
+  if (entry.BestTimeMs === next) return
+  entry.BestTimeMs = next
+  slot.dirty = true
+}
+
 export function collectBossRecordIssues(
   slot: PbzDeathEditableSlot,
   issues: ValidationIssue[]
@@ -119,6 +146,15 @@ export function collectBossRecordIssues(
       if (kill !== null && entryValue.AttemptCount < kill) {
         issues.push({
           code: 'PBZ_INVALID_BOSS_RECORD',
+          args: [slot.name, `${bossId}.${difficultyKey}`]
+        })
+      }
+      if (
+        entryValue.BestTimeMs !== undefined &&
+        !isIntegerInRange(entryValue.BestTimeMs, 0, Number.MAX_SAFE_INTEGER)
+      ) {
+        issues.push({
+          code: 'PBZ_INVALID_BOSS_BEST_TIME',
           args: [slot.name, `${bossId}.${difficultyKey}`]
         })
       }

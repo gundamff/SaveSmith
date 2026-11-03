@@ -583,7 +583,20 @@ export const zh: MessageTree = {
   pbz: {
     tabs: {
       resources: '资源',
-      records: '战绩'
+      records: '战绩',
+      progress: '进度'
+    },
+    progress: {
+      cycleDisplay: '周目（第 N 周目）',
+      cycleHint: '存档字段为 CycleCount；界面显示为 CycleCount+1。以游戏内为准，不修改历史周目履历。',
+      gameTime: '游戏时间',
+      hours: '时',
+      minutes: '分',
+      seconds: '秒',
+      cycleRecordsReadonly: '历史周目记录 {0} 条（只读）',
+      timesMismatch: 'HasGameTime 与 CurrentCycleGameTime 不一致；保存游戏时间时将写成同一值。',
+      empty: '当前槽没有 PBZGameSystem 进度块',
+      gameTimeDisabled: '缺少成对的游戏时间字段，无法编辑'
     },
     records: {
       diedTimes: '累计身陨',
@@ -596,7 +609,9 @@ export const zh: MessageTree = {
       defeated: '已击败',
       yes: '是',
       no: '否',
-      empty: '当前槽没有可编辑的 BOSS 战绩记录'
+      empty: '当前槽没有可编辑的 BOSS 战绩记录',
+      bestTime: '最佳用时',
+      bestTimeMissing: '—'
     },
     resources: {
       warning:
@@ -686,6 +701,9 @@ export const zh: MessageTree = {
     PBZ_INVALID_INVENTORY_INFOS: '槽位 {0} 的 InventoryInfos 无效',
     PBZ_INVALID_MATERIAL: '槽位 {0} 的材料 {1} 无效',
     PBZ_INVALID_MATERIAL_AMOUNT: '槽位 {0} 的材料 {1} 当前数量无效',
-    PBZ_INVALID_MATERIAL_MAX: '槽位 {0} 的材料 {1} 历史最大数量无效'
+    PBZ_INVALID_MATERIAL_MAX: '槽位 {0} 的材料 {1} 历史最大数量无效',
+    PBZ_INVALID_CYCLE_COUNT: '槽位 {0} 的 CycleCount 无效',
+    PBZ_INVALID_GAME_TIME: '槽位 {0} 的游戏时间无效',
+    PBZ_INVALID_BOSS_BEST_TIME: '槽位 {0} 的 BOSS 最佳用时无效：{1}'
   }
 }

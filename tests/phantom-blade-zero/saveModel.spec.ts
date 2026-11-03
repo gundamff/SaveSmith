@@ -14,11 +14,15 @@ import {
   selectSlot,
   serializeDirtySlots,
   setAllExistingMaterials,
+  setBossBestTimeSeconds,
   setBossDeathCount,
   setDiedTimes,
   setDust,
   setInventoryAmount,
   setMaterialAmount,
+  projectProgress,
+  setCycleDisplay,
+  setGameTimeSeconds,
   validateSaveModel,
   type PbzEditableSlot
 } from '../../src/games/phantom-blade-zero/model/saveModel'
@@ -879,5 +883,139 @@ describe('phantom-blade-zero save model', () => {
       () => setBossDeathCount(model, editable.name, 'BP_Monster_Missing', '0_2', 1),
       'PBZ_INVALID_EDIT'
     )
+  })
+
+  it('sets boss best time from seconds into BestTimeMs without touching kill fields', () => {
+    const editable = slot('AutoSave0', {
+      BossRecord: {
+        BP_Monster_PengMeng_Axe: {
+          Records: {
+            '0_2': { AttemptCount: 16, KillCount: 1, BestTimeMs: 204362, extra: true }
+          }
+        },
+        BP_Monster_MoTian_LongZhu_01: {
+          Records: { '0_2': { AttemptCount: 15 } }
+        }
+      }
+    })
+    const model = createSaveModel([editable])
+    setBossBestTimeSeconds(model, editable.name, 'BP_Monster_PengMeng_Axe', '0_2', 168)
+    const axe = (editable.document.BossRecord as any).BP_Monster_PengMeng_Axe.Records['0_2']
+    expect(axe).toEqual({
+      AttemptCount: 16,
+      KillCount: 1,
+      BestTimeMs: 168_000,
+      extra: true
+    })
+    expectModuleError(
+      () => setBossBestTimeSeconds(model, editable.name, 'BP_Monster_MoTian_LongZhu_01', '0_2', 10),
+      'PBZ_INVALID_EDIT'
+    )
+  })
+
+  it('projects progress and writes cycle display as CycleCount+1', () => {
+    const editable = slot('AutoSave0', {
+      PBZGameSystem: {
+        CycleCount: 0,
+        HasGameTime: 100,
+        CurrentCycleGameTime: 100,
+        CycleRecords: { '0': { Ending: 3 } },
+        keep: true
+      }
+    })
+    expect(projectProgress(editable)).toMatchObject({
+      cycleCount: 0,
+      cycleDisplay: 1,
+      gameTimeSeconds: 100,
+      cycleEditable: true,
+      gameTimeEditable: true,
+      cycleRecordCount: 1,
+      timesMismatch: false,
+      hasGameSystem: true
+    })
+    const model = createSaveModel([editable])
+    setCycleDisplay(model, editable.name, 2)
+    expect((editable.document.PBZGameSystem as Record<string, unknown>).CycleCount).toBe(1)
+    expect((editable.document.PBZGameSystem as Record<string, unknown>).keep).toBe(true)
+    expect((editable.document.PBZGameSystem as Record<string, unknown>).CycleRecords).toEqual({
+      '0': { Ending: 3 }
+    })
+  })
+
+  it('unifies HasGameTime and CurrentCycleGameTime on game time edit', () => {
+    const editable = slot('ManualSave1', {
+      PBZGameSystem: {
+        CycleCount: 1,
+        HasGameTime: 50,
+        CurrentCycleGameTime: 60
+      }
+    })
+    expect(projectProgress(editable).timesMismatch).toBe(true)
+    expect(projectProgress(editable).gameTimeSeconds).toBe(60)
+    const model = createSaveModel([editable])
+    setGameTimeSeconds(model, editable.name, 3661)
+    expect(editable.document.PBZGameSystem).toMatchObject({
+      HasGameTime: 3661,
+      CurrentCycleGameTime: 3661
+    })
+  })
+
+  it('rejects out-of-range cycle/time and disables when fields missing', () => {
+    const missingTime = slot('AutoSave0', { PBZGameSystem: { CycleCount: 0, HasGameTime: 1 } })
+    expect(projectProgress(missingTime).gameTimeEditable).toBe(false)
+    const model = createSaveModel([missingTime])
+    expectModuleError(() => setGameTimeSeconds(model, missingTime.name, 1), 'PBZ_INVALID_EDIT')
+    expectModuleError(() => setCycleDisplay(model, missingTime.name, 0), 'PBZ_INVALID_EDIT')
+    expectModuleError(() => setCycleDisplay(model, missingTime.name, 101), 'PBZ_INVALID_EDIT')
+  })
+
+  it('validateSaveModel reports invalid cycle count and game time fields', () => {
+    const badCycle = slot('AutoSave0', { PBZGameSystem: { CycleCount: -1 } })
+    expect(validateSaveModel(createSaveModel([badCycle]))).toContainEqual({
+      code: 'PBZ_INVALID_CYCLE_COUNT',
+      args: ['AutoSave0']
+    })
+
+    const badTime = slot('ManualSave1', {
+      PBZGameSystem: {
+        CycleCount: 0,
+        HasGameTime: 9_999_999,
+        CurrentCycleGameTime: 9_999_999
+      }
+    })
+    expect(validateSaveModel(createSaveModel([badTime]))).toContainEqual({
+      code: 'PBZ_INVALID_GAME_TIME',
+      args: ['ManualSave1']
+    })
+  })
+
+  it('validateSaveModel reports invalid boss BestTimeMs on existing records', () => {
+    const badBest = slot('AutoSave0', {
+      BossRecord: {
+        BP_Monster_PengMeng_Axe: {
+          Records: {
+            '0_2': { AttemptCount: 16, KillCount: 1, BestTimeMs: -1 }
+          }
+        }
+      }
+    })
+    expect(validateSaveModel(createSaveModel([badBest]))).toContainEqual({
+      code: 'PBZ_INVALID_BOSS_BEST_TIME',
+      args: ['AutoSave0', 'BP_Monster_PengMeng_Axe.0_2']
+    })
+
+    const fractionalBest = slot('ManualSave1', {
+      BossRecord: {
+        BP_Monster_PengMeng_Axe: {
+          Records: {
+            '0_2': { AttemptCount: 1, BestTimeMs: 100.5 }
+          }
+        }
+      }
+    })
+    expect(validateSaveModel(createSaveModel([fractionalBest]))).toContainEqual({
+      code: 'PBZ_INVALID_BOSS_BEST_TIME',
+      args: ['ManualSave1', 'BP_Monster_PengMeng_Axe.0_2']
+    })
   })
 })

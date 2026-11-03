@@ -657,11 +657,13 @@ describe('PBZ item view runtime behavior', () => {
 })
 
 describe('PBZ views', () => {
-  it('registers the single resources view', () => {
-    expect(pbzViews).toHaveLength(2)
+  it('registers resources, records, and progress views in order', () => {
+    expect(pbzViews).toHaveLength(3)
     expect(pbzViews[0]).toMatchObject({ id: 'resources', labelKey: 'pbz.tabs.resources' })
     expect(pbzViews[1]).toMatchObject({ id: 'records', labelKey: 'pbz.tabs.records' })
+    expect(pbzViews[2]).toMatchObject({ id: 'progress', labelKey: 'pbz.tabs.progress' })
     expect(t('pbz.tabs.records')).toBeTruthy()
+    expect(t('pbz.tabs.progress')).toBeTruthy()
   })
 
   it('integrates named weapon-material and consumable category tabs', () => {

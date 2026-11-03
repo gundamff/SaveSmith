@@ -3,9 +3,15 @@ import { computed, ref, watch } from 'vue'
 import { locale, t } from '@host/i18n'
 import { getBossDisplayName } from '../catalog/bosses'
 import {
+  hmsToTotalSeconds,
+  isValidDurationSeconds,
+  totalSecondsToHms
+} from '../model/durationFormat'
+import {
   isEditableSlotName,
   projectBossRecords,
   projectDeathMeta,
+  setBossBestTimeSeconds,
   setBossDeathCount,
   setDiedTimes
 } from '../model/saveModel'
@@ -83,6 +89,44 @@ function changeBossDeath(
     setBossDeathCount(editor.save.model, selectedSlotName.value, bossId, difficultyKey, value)
   )
 }
+
+function bossBestTimeSeconds(bestTimeMs: number | null): number | null {
+  if (bestTimeMs == null) return null
+  const seconds = Math.round(bestTimeMs / 1000)
+  return isValidDurationSeconds(seconds) ? seconds : null
+}
+
+function bossBestTimeHms(bestTimeMs: number | null): { hours: number; minutes: number; seconds: number } {
+  const seconds = bossBestTimeSeconds(bestTimeMs)
+  if (seconds === null) return { hours: 0, minutes: 0, seconds: 0 }
+  return totalSecondsToHms(seconds)
+}
+
+function changeBossBestTimePart(
+  bossId: string,
+  difficultyKey: string,
+  bestTimeMs: number | null,
+  part: 'hours' | 'minutes' | 'seconds',
+  value: number | undefined
+): void {
+  if (value === undefined || Number.isNaN(value)) return
+  const current = bossBestTimeHms(bestTimeMs)
+  const next = { ...current, [part]: value }
+  try {
+    const total = hmsToTotalSeconds(next)
+    editor.markDirty(() =>
+      setBossBestTimeSeconds(
+        editor.save.model,
+        selectedSlotName.value,
+        bossId,
+        difficultyKey,
+        total
+      )
+    )
+  } catch {
+    // ignore invalid partial HMS until complete
+  }
+}
 </script>
 
 <template>
@@ -151,6 +195,39 @@ function changeBossDeath(
           {{ row.defeated ? t('pbz.records.yes') : t('pbz.records.no') }}
         </template>
       </el-table-column>
+      <el-table-column :label="t('pbz.records.bestTime')" min-width="280">
+        <template #default="{ row }">
+          <span v-if="bossBestTimeSeconds(row.bestTimeMs) === null">
+            {{ t('pbz.records.bestTimeMissing') }}
+          </span>
+          <div v-else class="pbz-hms">
+            <el-input-number
+              :model-value="bossBestTimeHms(row.bestTimeMs).hours"
+              :min="0"
+              :max="999"
+              :step="1"
+              @update:model-value="(value) => changeBossBestTimePart(row.bossId, row.difficultyKey, row.bestTimeMs, 'hours', value ?? undefined)"
+            />
+            <span class="pbz-hms__label">{{ t('pbz.progress.hours') }}</span>
+            <el-input-number
+              :model-value="bossBestTimeHms(row.bestTimeMs).minutes"
+              :min="0"
+              :max="59"
+              :step="1"
+              @update:model-value="(value) => changeBossBestTimePart(row.bossId, row.difficultyKey, row.bestTimeMs, 'minutes', value ?? undefined)"
+            />
+            <span class="pbz-hms__label">{{ t('pbz.progress.minutes') }}</span>
+            <el-input-number
+              :model-value="bossBestTimeHms(row.bestTimeMs).seconds"
+              :min="0"
+              :max="59"
+              :step="1"
+              @update:model-value="(value) => changeBossBestTimePart(row.bossId, row.difficultyKey, row.bestTimeMs, 'seconds', value ?? undefined)"
+            />
+            <span class="pbz-hms__label">{{ t('pbz.progress.seconds') }}</span>
+          </div>
+        </template>
+      </el-table-column>
     </el-table>
     <p v-if="selectedSlot && bossRows.length === 0" class="pbz-empty">
       {{ t('pbz.records.empty') }}
@@ -176,5 +253,18 @@ function changeBossDeath(
   margin: 0;
   color: var(--el-text-color-secondary);
   font-size: 13px;
+}
+
+.pbz-hms {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.pbz-hms__label {
+  margin-right: 4px;
+  color: var(--el-text-color-secondary);
+  font-size: 12px;
 }
 </style>

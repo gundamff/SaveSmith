@@ -1,8 +1,17 @@
-﻿# 更新日志
+# 更新日志
 
 [**中文**](CHANGELOG.md) | [English](CHANGELOG.en.md)
 
 ## [Unreleased]
+
+### 新增
+
+- **影之刃零**：「进度」页可编辑周目（`CycleCount`）与本周目游戏时间（`HasGameTime` / `CurrentCycleGameTime` 双写）
+- **影之刃零**：「战绩」页可编辑已有 `BestTimeMs` 的 BOSS 最快用时（整秒精度）
+
+### 说明
+
+- **影之刃零**：不支持改 `CycleRecords`、结局或噩梦周目；`BestTimeMs` 亚秒在编辑时会丢失
 
 ## [0.17.3] - 2026-11-02
 

@@ -1,4 +1,4 @@
-﻿# Phantom Blade Zero
+# Phantom Blade Zero
 
 Unofficial, offline-only save editing. Rights holder and developer: S-GAME Studio. Publisher: S-GAME Publishing. Steam AppID `4115450`.
 
@@ -22,10 +22,12 @@ The format is PBZS v3: AES-256-GCM authenticated encryption, Oodle for reading c
 
 ## Editable scope
 
-The resources page keeps internal slot selection and splits inventory into two tabs: **Weapon Upgrade Materials** and **Growth**. There is also a top-level **Records** tab (total deaths and per-boss death counts for encountered bosses).
+The resources page keeps internal slot selection and splits inventory into two tabs: **Weapon Upgrade Materials** and **Growth**. There are also top-level **Records** (total deaths, per-boss death counts, and boss best times) and **Progress** (cycle week and game time).
 
 - `Player.Dust` is shown as 意识尘埃 in Chinese; the storage field remains `Dust`. English UI keeps `Dust` because this build's `en` resources have no translation
-- Records: `PBZDeathMeta.DiedTimes`; per-boss deaths via `BossRecord.*.Records.*.AttemptCount` (HeyBox skull semantics `AttemptCount − KillCount`; does not edit `KillCount` / clear flags)
+- Progress: `PBZGameSystem.CycleCount` (UI shows “week N”; stored value is N−1 — in-game clears completed); `HasGameTime` and `CurrentCycleGameTime` (HMS editors, dual-written on save). `CycleRecords` is read-only count only — no editing endings or nightmare cycles
+- Records: `PBZDeathMeta.DiedTimes`; per-boss deaths via `BossRecord.*.Records.*.AttemptCount` (HeyBox skull semantics `AttemptCount − KillCount`; does not edit `KillCount` / clear flags); rows with a valid existing `BestTimeMs` can be edited in whole seconds (stored as ms; sub-second precision is lost)
+- Rows for bosses you have not encountered, or without a valid `BestTimeMs`, cannot be given a fake best time
 - 27 weapon-upgrade materials: edit existing amounts, search by official Simplified Chinese name / raw ID to add missing ones, or delete inventory records
 - Material amounts are limited to `0..9999`; raising `CurrentAmount` above its old `MaxAmount` raises `MaxAmount` with it
 - Growth covers in-game progression items: black stone / killing-aura amber and fragments, sha-qi core, banyan heart, accessory/medicine upgrade materials, and Traversing Charm (12 rows)
