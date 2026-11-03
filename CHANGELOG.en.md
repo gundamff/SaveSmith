@@ -4,14 +4,19 @@
 
 ## [Unreleased]
 
+## [0.17.4] - 2026-11-03
+
 ### Added
 
-- **Phantom Blade Zero**: Progress tab for cycle week (`CycleCount`) and current-cycle game time (`HasGameTime` / `CurrentCycleGameTime`, dual-written)
+- **Phantom Blade Zero**: Progress tab — read-only cycle week; editable current-cycle game time (`HasGameTime` / `CurrentCycleGameTime`, dual-written)
 - **Phantom Blade Zero**: Records tab can edit boss best times where `BestTimeMs` already exists (whole-second precision)
+- **Phantom Blade Zero**: Boss Chinese names from Codex `DT_CodexEnemyDataTable` (covers common record IDs)
 
 ### Notes
 
+- **Phantom Blade Zero**: cycle week is read-only — in-game week is not driven by editing `CycleCount`; UI estimates `max(CycleCount, CycleRecords count)+1`
 - **Phantom Blade Zero**: does not edit `CycleRecords`, endings, or nightmare cycles; sub-second `BestTimeMs` is lost when editing
+- **Phantom Blade Zero**: dirty slots rewrite as zlib; Oodle-only viewers (e.g. HeyBox) may fail; in-game re-save does not reliably restore Oodle
 
 ## [0.17.3] - 2026-11-02
 

@@ -4,14 +4,19 @@
 
 ## [Unreleased]
 
+## [0.17.4] - 2026-11-03
+
 ### 新增
 
-- **影之刃零**：「进度」页可编辑周目（`CycleCount`）与本周目游戏时间（`HasGameTime` / `CurrentCycleGameTime` 双写）
+- **影之刃零**：「进度」页：只读展示周目；可编辑本周目游戏时间（`HasGameTime` / `CurrentCycleGameTime` 双写）
 - **影之刃零**：「战绩」页可编辑已有 `BestTimeMs` 的 BOSS 最快用时（整秒精度）
+- **影之刃零**：BOSS 中文名改为图鉴表 `DT_CodexEnemyDataTable` 正式名（覆盖常见战绩 ID）
 
 ### 说明
 
+- **影之刃零**：周目只读——游戏内「第 N 周目」不靠改 `CycleCount`；界面按 `max(CycleCount, CycleRecords 条数)+1` 估算
 - **影之刃零**：不支持改 `CycleRecords`、结局或噩梦周目；`BestTimeMs` 亚秒在编辑时会丢失
+- **影之刃零**：脏槽写回 zlib；小黑盒等若只认 Oodle 可能解析失败，进游戏再存不保证恢复 Oodle
 
 ## [0.17.3] - 2026-11-02
 

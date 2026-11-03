@@ -75,9 +75,24 @@ No IDs, names, values, timestamps, or save bytes were written to that report.
 Deletion removes the inventory key from `Inventory.InventoryInfos` entirely
 (same shape as never having owned the item).
 
+## Boss display names (`bosses.ts`)
+
+Boss / enemy UI names come from the same build's
+`/Game/PBZContent/DataTable/DT_CodexEnemyDataTable` field
+`Enemy_CH_Hans_Name` (already Simplified Chinese strings in the table).
+Mounted via CUE4Parse + the same USMAP / IoStore AES key as items; see the
+re-playbook §6. Two save-only IDs absent from the codex row keys are aliased:
+
+- `BP_Monster_HookMan` → 猎杀者：追命
+- `BP_Monster_YuCong` → 卅四号.混沌魔偶：“玉琮”
+
+English `en` is intentionally empty; UI falls back to a readable ID form.
+
 ## Regeneration
 
-Full save-crypto and FModel unpack steps for game updates: [docs/design/2026-10-30-phantom-blade-zero-re-playbook.md](../../../../docs/design/2026-10-30-phantom-blade-zero-re-playbook.md).
+Full save-crypto **and resource unpack** steps (tool download, AES/usmap/Oodle,
+FModel vs CUE4Parse, Codex Boss dump):  
+[docs/design/2026-10-30-phantom-blade-zero-re-playbook.md](../../../../docs/design/2026-10-30-phantom-blade-zero-re-playbook.md) **§6**.
 
 
 ```powershell

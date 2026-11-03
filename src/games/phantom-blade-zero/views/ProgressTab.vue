@@ -9,7 +9,6 @@ import {
 import {
   isEditableSlotName,
   projectProgress,
-  setCycleDisplay,
   setGameTimeSeconds
 } from '../model/saveModel'
 import { usePbzEditor } from './inject'
@@ -69,13 +68,6 @@ function changeSlot(targetSlotName: string): void {
   }
 }
 
-function changeCycleDisplay(value: number | undefined): void {
-  if (value === undefined || Number.isNaN(value)) return
-  editor.markDirty(() =>
-    setCycleDisplay(editor.save.model, selectedSlotName.value, value)
-  )
-}
-
 function changeGameTimePart(part: 'hours' | 'minutes' | 'seconds', value: number | undefined): void {
   if (value === undefined || Number.isNaN(value)) return
   const current = gameTimeHms.value
@@ -123,8 +115,7 @@ function changeGameTimePart(part: 'hours' | 'minutes' | 'seconds', value: number
             :min="1"
             :max="100"
             :step="1"
-            :disabled="!progress.cycleEditable"
-            @update:model-value="(value) => changeCycleDisplay(value ?? undefined)"
+            disabled
           />
         </el-form-item>
         <p class="pbz-hint">{{ t('pbz.progress.cycleHint') }}</p>

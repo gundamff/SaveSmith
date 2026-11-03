@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import items from '../../src/games/phantom-blade-zero/catalog/items.json'
+import {
+  getBossDisplayName,
+  listBossCatalogIds
+} from '../../src/games/phantom-blade-zero/catalog/bosses'
 
 const GROWTH_IDS = [
   'Ac_Material_1',
@@ -49,5 +53,21 @@ describe('phantom-blade-zero item catalog', () => {
     expect(materials).toHaveLength(27)
     expect(materials.every(({ id }) => id.startsWith('Weapon_Material_'))).toBe(true)
     expect(items).toHaveLength(39)
+  })
+})
+
+describe('phantom-blade-zero boss catalog', () => {
+  it('ships Codex-derived Chinese names for known bosses', () => {
+    const ids = listBossCatalogIds()
+    expect(ids.length).toBeGreaterThanOrEqual(177)
+    expect(new Set(ids).size).toBe(ids.length)
+    expect(getBossDisplayName('BP_Monster_PengMeng_Axe', 'zh')).toBe('斧老大：彭猛')
+    expect(getBossDisplayName('BP_Monster_ZuoShang', 'zh')).toContain('左殇')
+    expect(getBossDisplayName('BP_Monster_AHua_GuiTouDao', 'zh')).toContain('阿花')
+    // Save-only aliases not present as Codex row keys:
+    expect(getBossDisplayName('BP_Monster_HookMan', 'zh')).toContain('追命')
+    expect(getBossDisplayName('BP_Monster_YuCong', 'zh')).toContain('玉琮')
+    // Empty en falls back to readable ID:
+    expect(getBossDisplayName('BP_Monster_PengMeng_Axe', 'en')).toBe('PengMeng Axe')
   })
 })

@@ -170,23 +170,79 @@ Oodle 许可与复现：`src/games/phantom-blade-zero/codec/oodle/UPSTREAM.md`�
 
 ---
 
-## 6. 游戏资源解包（刷正式物品名）
+## 6. 游戏资源解包（刷物品名 / Boss 名）
 
-仅在需要刷新 `catalog/items.json` 时做。工具放在临时目录，**勿提交**。
+需要刷新 `catalog/items.json` 或 `catalog/bosses.ts` 时做。  
+工具、USMAP、原始导出一律放在 `%TEMP%`，**勿提交**。
+
+> **会话续航要点（2026-11-03 实证）**  
+> 本仓物品目录最初来自 FModel/CUE4Parse 导出的  
+> `%TEMP%\pbz-item-export\tables.{zh-Hans,en}.json`（带 `normalizedInventory`）。  
+> Boss 中文名**不依赖** `Game.locres`，直接读 DataTable 字段  
+> `DT_CodexEnemyDataTable.Enemy_CH_Hans_Name`。  
+> `retoc v0.1.5` 对本 build 的 `ProjectPBZ-Windows.utoc` 读 ContainerHeader  
+> 会失败（`failed to fill whole buffer`）；**导表请用 FModel 或 CUE4Parse**，不要卡在 retoc。
 
 ### 6.1 材料清单
 
-- 游戏：`...\PBZ\ProjectPBZ\Content\Paks\`（`ProjectPBZ-Windows.utoc` 等）
-- FModel（或等价 CUE4Parse 前端）
-- 与 build 匹配的 `.usmap`（见 §0）
-- IoStore AES key（见 §0；更新后可用 AESDumpster 对 Shipping EXE 再拖一次）
-- （可选）`retoc`：需要 legacy `.uasset` 时再用；纯导表用 FModel JSON 足够
+| 材料 | 用途 | 获取 |
+|------|------|------|
+| `...\PBZ\ProjectPBZ\Content\Paks\` | IoStore 资源根 | Steam 安装目录 |
+| IoStore AES key | 解密 pak/utoc | §0；更新后用 AESDumpster 拖 Shipping EXE |
+| `ProjectPBZ-5.7.4-301524-full.usmap` | 属性映射 | GitHub `KintaroModding/phantombladezero_pbzusmap` release `v1.0`（SHA-256 见 §0） |
+| `oodle-data-shared.dll` | CUE4Parse 解压 | `WorkingRobot/OodleUE` release `2026-01-25-1223` → `clang-cl-x64-release.zip` → `bin\oodle-data-shared.dll`（新版 CUE4Parse **不再**要 `oo2core_9_win64.dll`） |
+| .NET **10** SDK | 编译临时 C# 导表工具 | `winget install --id Microsoft.DotNet.SDK.10 -e`（CUE4Parse ≥`1.2.2.202607` 仅 `net10.0`） |
+| （可选）FModel | GUI 导出 | `4sval/FModel`；可替代 C# 工具 |
+| （可选）retoc | Zen↔Legacy | 本 build **导表不可靠**，仅作备用 |
 
-### 6.2 FModel 要点
+参考临时目录布局（可整段重建）：
 
-1. 添加游戏 Paks 目录；UE 版本对齐（本 build 为 UE 5.7 一带）。
-2. `Directory → AES` 填入 `0x…` IoStore key。
-3. Settings → 启用 Local Mapping File → 指向匹配 usmap。
+```text
+%TEMP%\pbz-task1-tools\
+  ProjectPBZ-5.7.4-301524-full.usmap
+  oodle\bin\oodle-data-shared.dll
+  pbzusmap\          # 可选：上游 usmap 仓库 clone
+  retoc\retoc.exe    # 可选
+%TEMP%\pbz-item-export\          # 物品：tables.zh-Hans.json / tables.en.json
+%TEMP%\pbz-boss-export\out2\     # Boss：DT_CodexEnemyDataTable.json 等
+```
+
+### 6.2 一键拉工具（PowerShell）
+
+```powershell
+$toolRoot = Join-Path $env:TEMP 'pbz-task1-tools'
+New-Item -ItemType Directory -Force $toolRoot | Out-Null
+
+# USMAP
+gh release download v1.0 -R KintaroModding/phantombladezero_pbzusmap `
+  -p 'ProjectPBZ-5.7.4-301524-full.usmap' -D $toolRoot --clobber
+
+# Oodle（取 oodle-data-shared.dll）
+gh release download 2026-01-25-1223 -R WorkingRobot/OodleUE `
+  -p 'clang-cl-x64-release.zip' -D $toolRoot --clobber
+Expand-Archive -Force (Join-Path $toolRoot 'clang-cl-x64-release.zip') (Join-Path $toolRoot 'oodle')
+
+# .NET 10（若 `dotnet --list-sdks` 无 10.x）
+winget install --id Microsoft.DotNet.SDK.10 -e --accept-package-agreements --accept-source-agreements
+```
+
+IoStore AES（同 §0，**不是**存档 PBZS key）：
+
+```text
+0x4BC8A51E5381325073F2BC7D4E3089CD557C4E9B7D453901C2C795518867E01D
+```
+
+Paks 路径示例：
+
+```text
+F:\SteamLibrary\steamapps\common\PBZ\ProjectPBZ\Content\Paks
+```
+
+### 6.3 FModel GUI 路径（物品表历史做法）
+
+1. 打开 Paks 目录；UE 版本对齐（本 build ≈ **UE 5.7**）。
+2. `Directory → AES` 填入上表 IoStore key（含 `0x`）。
+3. Settings → Local Mapping File → 指向匹配 `.usmap`。
 4. 导出至少：
 
 ```text
@@ -194,26 +250,89 @@ Oodle 许可与复现：`src/games/phantom-blade-zero/codec/oodle/UPSTREAM.md`�
 /Game/PBZContent/DataTable/Item/DT_InitItem
 /Game/PBZContent/DataTable/UI/DT_UsableItem
 /Game/PBZContent/DataTable/UI/DT_ShopItemTable
-zh-Hans / en 本地化资源
+/Game/PBZContent/DataTable/DT_CodexEnemyDataTable
+ProjectPBZ/Content/Localization/Game/zh-Hans/Game.locres   # 物品名；Boss 名可不靠它
+ProjectPBZ/Content/Localization/Game/en-US/Game.locres
 ```
 
-5. 把导出整理成带 `normalizedInventory` 的  
-   `tables.zh-Hans.json` / `tables.en.json`（字段：`id/name/itemType/detailType/materialType`），放入临时目录。
+5. 物品：整理成带 `normalizedInventory` 的  
+   `tables.zh-Hans.json` / `tables.en.json`  
+   （行字段：`id` / `name` / `itemType` / `detailType` / `materialType`），  
+   放入 `%TEMP%\pbz-item-export`。  
+   文档化指纹见 `catalog/SOURCE.md`。
 
-### 6.3 生成本仓目录
+### 6.4 CUE4Parse 控制台路径（2026-11-03 推荐，无 GUI）
+
+不必开 FModel。在 `%TEMP%` 建一次性 `net10.0` 控制台，引用 NuGet  
+`CUE4Parse` **`1.2.2.202610`**（或同系列需 `GAME_UE5_7` 的版本）。
+
+挂载骨架（与实证工具一致）：
+
+```csharp
+OodleHelper.Initialize(oodleDllPath); // oodle-data-shared.dll
+var provider = new DefaultFileProvider(
+    paksDir, SearchOption.TopDirectoryOnly,
+    new VersionContainer(EGame.GAME_UE5_7));
+provider.MappingsContainer = new FileUsmapTypeMappingsProvider(usmapPath);
+provider.Initialize();
+provider.SubmitKey(new FGuid(), new FAesKey(aesKeyWith0x));
+provider.PostMount();
+// mounted ≈ 31 万文件即正常
+```
+
+**Boss 名（已实证）：**
+
+```text
+软路径: /Game/PBZContent/DataTable/DT_CodexEnemyDataTable
+行键:   BP_Monster_*
+字段:   Enemy_CH_Hans_Name   (StrProperty，表内已是简中)
+        bIsBoss              (BoolProperty)
+        EnemyClass           (SoftObject → ClassPath 同源)
+```
+
+- 约 177 行 Codex；`bIsBoss==true` 约 75。  
+- 存档 `BossRecord` 可能多出 Codex 无行键的 ID，需别名（本 build）：  
+  - `BP_Monster_HookMan` → 猎杀者：追命  
+  - `BP_Monster_YuCong` → 卅四号.混沌魔偶：“玉琮”  
+- `Game.locres` 经 `LoadPackage` 会报 `cannot load non-UE package`；Boss **不必**解析 locres。  
+- 生成物写入 `catalog/bosses.ts`；`en` 可空，UI 回退可读 ID。
+
+**物品名：** 仍走 `DT_InventoryData` + zh-Hans 本地化（历史 `tables.*.json` 管线）；  
+字段与白名单见 `scripts/pbz-build-item-catalog.mts`。
+
+运行示例（路径按本机改）：
 
 ```powershell
-$env:PBZ_EXPORT_DIR="$env:TEMP\pbz-item-export"
-# 可选：对照真档记录形状（不落盘玩家数据）
-$env:PBZ_SAVE="...\PBZSaveGame.sav"
-npx vite-node scripts/pbz-discover-item-assets.mts
-node --experimental-strip-types scripts/pbz-build-item-catalog.mts
+$toolRoot = Join-Path $env:TEMP 'pbz-task1-tools'
+$paks     = 'F:\SteamLibrary\steamapps\common\PBZ\ProjectPBZ\Content\Paks'
+$aes      = '0x4BC8A51E5381325073F2BC7D4E3089CD557C4E9B7D453901C2C795518867E01D'
+$usmap    = Join-Path $toolRoot 'ProjectPBZ-5.7.4-301524-full.usmap'
+$oodle    = Join-Path $toolRoot 'oodle\bin\oodle-data-shared.dll'
+$outDir   = Join-Path $env:TEMP 'pbz-boss-export\out'
+# 自备 PbzBossDump.exe：LoadPackageObject/UDataTable.RowMap 导出 Enemy_CH_Hans_Name
+& $dumpExe $paks $aes $usmap $oodle $outDir
 ```
 
-生成器白名单与阈值标记说明：`scripts/pbz-build-item-catalog.mts`、  
+### 6.5 生成本仓目录
+
+```powershell
+# 物品
+$env:PBZ_EXPORT_DIR="$env:TEMP\pbz-item-export"
+$env:PBZ_SAVE="...\PBZSaveGame.sav"   # 可选：形状审计，不落盘玩家数据
+npx vite-node scripts/pbz-discover-item-assets.mts
+node --experimental-strip-types scripts/pbz-build-item-catalog.mts
+
+# Boss：用 §6.4 导出的 Codex JSON 生成 catalog/bosses.ts 后，
+# 用真档 BossRecord 键做覆盖检查（期望 miss=[] 或仅已知别名）：
+$env:PBZ_SAVE="...\PBZSaveGame.sav"
+# 只读解析 AutoSave0.BossRecord keys ∩ Codex 行键
+```
+
+说明：`scripts/pbz-build-item-catalog.mts`、  
 `src/games/phantom-blade-zero/catalog/SOURCE.md`。
 
-本 build 的 `en` 物品名键常为空：英文 UI 显示可读 ID（如 `Weapon Material 01`），**不**回退中文、不编造译名。
+本 build 的 `en` 物品/Boss 名键常为空：英文 UI 显示可读 ID  
+（如 `Weapon Material 01` / `PengMeng Axe`），**不**回退中文、不编造译名。
 
 ---
 
@@ -226,8 +345,9 @@ node --experimental-strip-types scripts/pbz-build-item-catalog.mts
 | Oodle WASM | `src/games/phantom-blade-zero/codec/oodle/` |
 | 解析入口 | `src/games/phantom-blade-zero/parse.ts` |
 | 编辑模型 | `src/games/phantom-blade-zero/model/saveModel.ts` |
-| 物品目录 | `src/games/phantom-blade-zero/catalog/` |
-| 目录生成 | `scripts/pbz-build-item-catalog.mts` |
+| 物品 / Boss 目录 | `src/games/phantom-blade-zero/catalog/`（`items.json` / `bosses.ts` / `SOURCE.md`） |
+| 物品目录生成 | `scripts/pbz-build-item-catalog.mts` |
+| 资源解包续航 | 本文件 §6 |
 | 用户说明 | `docs/games/phantom-blade-zero.md` |
 
 ---
@@ -255,3 +375,4 @@ node --experimental-strip-types scripts/pbz-build-item-catalog.mts
 | 日期 | 内容 |
 |------|------|
 | 2026-10-30 | 初版：汇总 PBZS 解密、容器、Oodle/zlib、FModel 解包与更新分流；锚定 build 26266538 |
+| 2026-11-03 | §6 扩写：CUE4Parse 无 GUI 导表、Oodle `oodle-data-shared.dll`、.NET 10、Codex Boss 名、`retoc` 对本 build 不可靠；工具拉起命令可复制 |

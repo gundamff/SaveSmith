@@ -38,7 +38,20 @@ export function projectProgress(slot: PbzProgressEditableSlot): ProgressView {
     rawCycleCount !== undefined &&
     isIntegerInRange(rawCycleCount, 0, MAX_CYCLE_COUNT)
   const cycleCount = cycleEditable ? rawCycleCount : Number.NaN
-  const cycleDisplay = Number.isFinite(cycleCount) ? cycleCount + 1 : Number.NaN
+
+  let cycleRecordCount = 0
+  if (system) {
+    const records = system.CycleRecords
+    if (isPlainObject(records)) {
+      cycleRecordCount = Object.keys(records).length
+    }
+  }
+
+  // In-game "week N" after a clear often keeps CycleCount at 0 while CycleRecords
+  // already holds completed cycles. Display uses the higher of the two.
+  const cycleDisplay = Number.isFinite(cycleCount)
+    ? Math.max(cycleCount, cycleRecordCount) + 1
+    : Number.NaN
 
   const hasGameTime = readOptionalNumber(system?.HasGameTime)
   const currentCycleGameTime = readOptionalNumber(system?.CurrentCycleGameTime)
@@ -51,14 +64,6 @@ export function projectProgress(slot: PbzProgressEditableSlot): ProgressView {
     typeof system?.HasGameTime === 'number' &&
     typeof system?.CurrentCycleGameTime === 'number' &&
     system.HasGameTime !== system.CurrentCycleGameTime
-
-  let cycleRecordCount = 0
-  if (system) {
-    const records = system.CycleRecords
-    if (isPlainObject(records)) {
-      cycleRecordCount = Object.keys(records).length
-    }
-  }
 
   return {
     cycleCount,
@@ -84,7 +89,14 @@ export function setCycleDisplay(
   if (!system || !isIntegerInRange(system.CycleCount, 0, MAX_CYCLE_COUNT)) {
     throw new ModuleError('PBZ_INVALID_EDIT', [slotName])
   }
-  if (!isIntegerInRange(displayWeek, 1, MAX_CYCLE_COUNT + 1)) {
+
+  let cycleRecordCount = 0
+  const records = system.CycleRecords
+  if (isPlainObject(records)) {
+    cycleRecordCount = Object.keys(records).length
+  }
+  const minDisplay = cycleRecordCount + 1
+  if (!isIntegerInRange(displayWeek, minDisplay, MAX_CYCLE_COUNT + 1)) {
     throw new ModuleError('PBZ_INVALID_EDIT', [slotName])
   }
 

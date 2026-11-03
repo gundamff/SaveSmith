@@ -18,14 +18,14 @@ The only physical main save is `PBZSaveGame.sav`. SaveSmith exposes its internal
 
 The format is PBZS v3: AES-256-GCM authenticated encryption, Oodle for reading compressed slots, and zlib for rewritten slots. Authentication or parsing failure blocks saving.
 
-**HeyBox / similar record viewers:** Dirty slots are rewritten as zlib. The game loads them fine; if a viewer fails to parse, load the save in-game and save once (the game often rewrites Oodle), then re-upload to the viewer.
+**HeyBox / similar record viewers:** Dirty slots are rewritten as zlib; the game still loads them. Viewers that only accept Oodle may fail. An in-game re-save does **not** reliably convert those slots back to Oodle — keep a pre-edit backup.
 
 ## Editable scope
 
 The resources page keeps internal slot selection and splits inventory into two tabs: **Weapon Upgrade Materials** and **Growth**. There are also top-level **Records** (total deaths, per-boss death counts, and boss best times) and **Progress** (cycle week and game time).
 
 - `Player.Dust` is shown as 意识尘埃 in Chinese; the storage field remains `Dust`. English UI keeps `Dust` because this build's `en` resources have no translation
-- Progress: `PBZGameSystem.CycleCount` (UI shows “week N”; stored value is N−1 — in-game clears completed); `HasGameTime` and `CurrentCycleGameTime` (HMS editors, dual-written on save). `CycleRecords` is read-only count only — no editing endings or nightmare cycles
+- Progress: cycle week is read-only (`max(CycleCount, CycleRecords count)+1`); in-game week is not driven by editing `CycleCount`, so SaveSmith does not offer that edit. `HasGameTime` / `CurrentCycleGameTime` remain editable (HMS, dual-written). `CycleRecords` are never edited
 - Records: `PBZDeathMeta.DiedTimes`; per-boss deaths via `BossRecord.*.Records.*.AttemptCount` (HeyBox skull semantics `AttemptCount − KillCount`; does not edit `KillCount` / clear flags); rows with a valid existing `BestTimeMs` can be edited in whole seconds (stored as ms; sub-second precision is lost)
 - Rows for bosses you have not encountered, or without a valid `BestTimeMs`, cannot be given a fake best time
 - 27 weapon-upgrade materials: edit existing amounts, search by official Simplified Chinese name / raw ID to add missing ones, or delete inventory records

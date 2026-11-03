@@ -18,14 +18,14 @@
 
 格式为 PBZS v3：AES-256-GCM 认证加密；读取 Oodle 压缩槽，修改后用 zlib 写回。认证或解析失败会停止写入。
 
-**小黑盒等战绩查看器：** 本工具改过的槽为 zlib。游戏可直接加载；若查看器解析失败，请进游戏加载该档并再保存一次（游戏常会写回 Oodle），然后再交给查看器。
+**小黑盒等战绩查看器：** 本工具改过的槽为 zlib；游戏可加载。若查看器只认 Oodle，可能解析失败。进游戏再保存**不保证**把该槽变回 Oodle——请先保留改前备份。
 
 ## 可编辑范围
 
 资源页显示内部槽位选择，以及两个分类 Tab：**武器强化材料**、**养成**。另有顶层 Tab：**战绩**（累计身陨、已遭遇 BOSS 的被击杀次数与 BOSS 最快用时）、**进度**（周目与游戏时间）。
 
 - `Player.Dust` 中文显示为游戏正式名称「意识尘埃」；内部字段仍是 `Dust`
-- 进度：`PBZGameSystem.CycleCount`（UI 显示「第 N 周目」，存盘值为 N−1，语义为游戏内已通关次数）；`HasGameTime` 与 `CurrentCycleGameTime`（HMS 编辑，写入时双写保持一致）。`CycleRecords` 仅只读计数，不支持改结局或噩梦周目
+- 进度：周目只读展示（`max(CycleCount, CycleRecords 条数)+1`）；游戏内周目不靠改 `CycleCount` 生效，故不提供编辑。可编辑 `HasGameTime` / `CurrentCycleGameTime`（HMS，双写）。不改 `CycleRecords`
 - 战绩：`PBZDeathMeta.DiedTimes`；`BossRecord.*.Records.*.AttemptCount`（按小黑盒头骨语义 `AttemptCount − KillCount` 编辑被击杀次数；不改 `KillCount` / 通关态）；已有合法 `BestTimeMs` 的行可按整秒改最快用时（存盘为毫秒，SaveSmith 只接受整秒，亚秒会丢失）
 - 未遭遇 BOSS 或无有效 `BestTimeMs` 的行不能伪造用时
 - 27 种武器强化材料：可改已有数量，也可按正式中文名或内部 ID 搜索后添加，或从背包删除记录

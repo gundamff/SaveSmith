@@ -594,7 +594,7 @@ export const en: MessageTree = {
     progress: {
       cycleDisplay: 'Cycle (week N)',
       cycleHint:
-        'Save field is CycleCount; the UI shows CycleCount+1. Trust in-game display; historical cycle records are not edited here.',
+        'Read-only. UI estimates week as max(CycleCount, CycleRecords count)+1 (after a clear, CycleCount often stays 0). In-game “week N” is not driven by editing CycleCount; writing it only dirties the slot (zlib), does not change the week, and may break HeyBox-style viewers. CycleRecords are never edited.',
       gameTime: 'Game time',
       hours: 'h',
       minutes: 'm',
@@ -608,7 +608,7 @@ export const en: MessageTree = {
     records: {
       diedTimes: 'Total deaths',
       heyboxHint:
-        'For HeyBox and similar record viewers to parse the save, load it in-game and save once after editing (SaveSmith rewrites dirty slots as zlib; some viewers only accept the game’s original Oodle compression).',
+        'Dirty slots are rewritten as zlib. Viewers that only accept Oodle (e.g. HeyBox) may fail to parse. An in-game re-save does not reliably convert back to Oodle — keep a pre-edit backup.',
       bossName: 'Boss',
       bossId: 'ID',
       difficulty: 'Difficulty key',

@@ -913,8 +913,23 @@ describe('phantom-blade-zero save model', () => {
     )
   })
 
-  it('projects progress and writes cycle display as CycleCount+1', () => {
-    const editable = slot('AutoSave0', {
+  it('projects cycle display as max(CycleCount, CycleRecords)+1', () => {
+    const fresh = slot('ManualSave1', {
+      PBZGameSystem: {
+        CycleCount: 0,
+        HasGameTime: 10,
+        CurrentCycleGameTime: 10,
+        CycleRecords: {}
+      }
+    })
+    expect(projectProgress(fresh)).toMatchObject({
+      cycleCount: 0,
+      cycleDisplay: 1,
+      cycleRecordCount: 0,
+      cycleEditable: true
+    })
+
+    const afterClear = slot('AutoSave0', {
       PBZGameSystem: {
         CycleCount: 0,
         HasGameTime: 100,
@@ -923,9 +938,9 @@ describe('phantom-blade-zero save model', () => {
         keep: true
       }
     })
-    expect(projectProgress(editable)).toMatchObject({
+    expect(projectProgress(afterClear)).toMatchObject({
       cycleCount: 0,
-      cycleDisplay: 1,
+      cycleDisplay: 2,
       gameTimeSeconds: 100,
       cycleEditable: true,
       gameTimeEditable: true,
@@ -933,13 +948,19 @@ describe('phantom-blade-zero save model', () => {
       timesMismatch: false,
       hasGameSystem: true
     })
-    const model = createSaveModel([editable])
-    setCycleDisplay(model, editable.name, 2)
-    expect((editable.document.PBZGameSystem as Record<string, unknown>).CycleCount).toBe(1)
-    expect((editable.document.PBZGameSystem as Record<string, unknown>).keep).toBe(true)
-    expect((editable.document.PBZGameSystem as Record<string, unknown>).CycleRecords).toEqual({
+
+    const model = createSaveModel([afterClear])
+    setCycleDisplay(model, afterClear.name, 3)
+    expect((afterClear.document.PBZGameSystem as Record<string, unknown>).CycleCount).toBe(2)
+    expect((afterClear.document.PBZGameSystem as Record<string, unknown>).keep).toBe(true)
+    expect((afterClear.document.PBZGameSystem as Record<string, unknown>).CycleRecords).toEqual({
       '0': { Ending: 3 }
     })
+    // Cannot set display below completed CycleRecords floor (1 record → min week 2).
+    expectModuleError(() => setCycleDisplay(model, afterClear.name, 1), 'PBZ_INVALID_EDIT')
+    // Same as current display / no-op write of CycleCount=1 is allowed (week 2).
+    setCycleDisplay(model, afterClear.name, 2)
+    expect((afterClear.document.PBZGameSystem as Record<string, unknown>).CycleCount).toBe(1)
   })
 
   it('unifies HasGameTime and CurrentCycleGameTime on game time edit', () => {

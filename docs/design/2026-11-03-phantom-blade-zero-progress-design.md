@@ -49,8 +49,8 @@
 | 游戏时间 UI | `时:分:秒` ↔ 总秒 |
 | 游戏时间写回 | `HasGameTime` 与 `CurrentCycleGameTime` **写成同一秒数** |
 | BOSS 用时 UI | 同为 `时:分:秒`；写回 `seconds * 1000`（亚秒丢弃） |
-| 周目 UI | 「第 X 周目」= `CycleCount + 1`；写回 `X - 1` |
-| `CycleCount` 范围 | `0..99`（UI 第 1..100 周目） |
+| 周目 UI | 「第 X 周目」= `max(CycleCount, CycleRecords 条数) + 1`；写回只改 `CycleCount = X - 1`，且 `X ≥ 履历条数 + 1` |
+| `CycleCount` 范围 | `0..99`（UI 下限由履历抬高，上限第 100 周目） |
 | 游戏时间秒范围 | `0..3599999`（约 `999:59:59`） |
 | `CycleRecords` | 最多只读旁注条数，不编辑 |
 
