@@ -6,6 +6,7 @@ import AboutDialog from './components/AboutDialog.vue'
 import DonateDialog from './components/DonateDialog.vue'
 import EditorPage from './components/EditorPage.vue'
 import LibraryPage from './components/LibraryPage.vue'
+import ToastHost from './components/ToastHost.vue'
 import { APP_NAME, brandDisplayName } from './config'
 import { locale, setLocale, t } from './i18n'
 import { currentSlotLabel, windowTitle } from './sessionContext'
@@ -91,6 +92,7 @@ async function onOpen(game: GameModule, dir: string): Promise<void> {
       @donate="openDonateFromAbout"
     />
     <DonateDialog :open="donateOpen" @close="donateOpen = false" />
+    <ToastHost />
   </div>
 </template>
 

@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia'
 import { markRaw, nextTick, ref, shallowRef, triggerRef } from 'vue'
+import { ModuleError } from '@sdk/error'
 import { assertSerializeSane, changedFiles, matchSlotFilePatterns } from '@sdk/session'
 import type { GameModule, ListedFile, SlotBytes, SlotInfo, ValidationIssue } from '@sdk/types'
 import { translateError } from '../i18n'
 import { touchLibraryRecent } from '../libraryOrder'
+import { logError, logEvent } from '../logger'
 import {
   deleteBackup,
   listBackups,
@@ -27,6 +29,18 @@ export interface SessionIo {
   restoreBackup(dir: string, relativePath: string, name: string): Promise<void>
   deleteBackup(dir: string, name: string): Promise<void>
   listRelativeFilePaths?(dir: string, maxDepth?: number): Promise<string[]>
+}
+
+export type SaveOutcome =
+  | { kind: 'saved'; fileCount: number; at: number }
+  | { kind: 'noChanges'; at: number }
+  | { kind: 'invalid'; issues: ValidationIssue[]; at: number }
+  | { kind: 'failed'; at: number }
+
+export interface SessionErrorDetail {
+  message: string
+  stack: string | null
+  at: number
 }
 
 const defaultIo: SessionIo = {
@@ -85,6 +99,10 @@ export const useSessionStore = defineStore('session', () => {
   const dirty = ref(false)
   const backups = ref<SessionBackup[]>([])
   const loadError = ref<string | null>(null)
+  /** Result of the most recent save attempt, consumed by the editor for user feedback. */
+  const lastSave = ref<SaveOutcome | null>(null)
+  /** Most recent save/load failure, used by the error dialog and diagnostics. */
+  const lastError = ref<SessionErrorDetail | null>(null)
   /** Bumps on each in-place edit so markRaw save trees still force view re-render. */
   const revision = ref(0)
   /** True while parse/save/restore is in flight — host shows a blocking overlay. */
@@ -121,6 +139,8 @@ export const useSessionStore = defineStore('session', () => {
     dirty.value = false
     backups.value = []
     loadError.value = null
+    lastSave.value = null
+    lastError.value = null
     revision.value = 0
   }
 
@@ -136,6 +156,7 @@ export const useSessionStore = defineStore('session', () => {
       names = await sessionIo.listDirNames(dir)
     } catch (e) {
       loadError.value = translateError(e)
+      logError(`refresh slots failed: list dir ${dir}`, e)
       slots.value = []
       return
     }
@@ -158,6 +179,7 @@ export const useSessionStore = defineStore('session', () => {
         }
       } catch (e) {
         loadError.value = translateError(e)
+        logError(`refresh slots failed: scan ${dir}`, e)
         slots.value = []
         return
       }
@@ -187,6 +209,7 @@ export const useSessionStore = defineStore('session', () => {
     saveDir.value = dir
     clearDraft()
     touchLibraryRecent(mod.id)
+    logEvent('info', `open game id=${mod.id} name=${mod.catalog.name.zh} dir=${dir}`)
     await refreshSlots()
   }
 
@@ -196,6 +219,10 @@ export const useSessionStore = defineStore('session', () => {
     const slot = slots.value.find((s) => s.id === slotId)
     if (!mod || !dir || !slot) {
       loadError.value = slotId
+      logEvent(
+        'warn',
+        `load slot failed: slot=${slotId} not found game=${mod?.id ?? '-'} dir=${dir || '-'}`
+      )
       return
     }
     await withBusy('editor.busyParse', async () => {
@@ -211,6 +238,10 @@ export const useSessionStore = defineStore('session', () => {
       }
       if (files.length === 0) {
         loadError.value = slot.sessionFiles[0] ?? slotId
+        logEvent(
+          'warn',
+          `load slot failed: no readable session files slot=${slotId} files=${slot.sessionFiles.join(',')}`
+        )
         return
       }
       try {
@@ -225,6 +256,7 @@ export const useSessionStore = defineStore('session', () => {
         await refreshBackups(slot.sessionFiles)
       } catch (e) {
         loadError.value = translateError(e)
+        logError(`load slot failed: parse error slot=${slotId}`, e)
       }
     })
   }
@@ -249,34 +281,90 @@ export const useSessionStore = defineStore('session', () => {
   async function save(): Promise<ValidationIssue[]> {
     const mod = game.value
     if (!mod || state.value == null) return []
+    const slot = currentSlotId.value ?? '-'
+    const startedAt = Date.now()
+    logEvent('info', `save start game=${mod.id} slot=${slot} dir=${saveDir.value}`)
     return withBusy('editor.busySave', async () => {
-      const issues = mod.validate(state.value)
-      if (issues.length) return issues
-      const next = await mod.serialize(state.value)
-      assertSerializeSane(next)
-      const committedFiles: SlotBytes[] = next.map((file) => ({
-        relativePath: file.relativePath,
-        bytes: new Uint8Array(file.bytes)
-      }))
-      const committedState = wrapState(await mod.parse(committedFiles))
-      const changed = changedFiles(original.value, next)
-      for (const file of changed) {
-        await sessionIo.writeAtomic(saveDir.value, file.relativePath, file.bytes)
+      try {
+        const issues = mod.validate(state.value)
+        if (issues.length) {
+          const at = Date.now()
+          const message = issues
+            .map((issue) => translateError(new ModuleError(issue.code, issue.args)))
+            .join('\n')
+          lastSave.value = { kind: 'invalid', issues, at }
+          lastError.value = { message, stack: null, at }
+          logEvent(
+            'warn',
+            `save validation failed game=${mod.id} slot=${slot}: ${message.replace(/\r?\n/g, ' | ')}`
+          )
+          return issues
+        }
+
+        const next = await mod.serialize(state.value)
+        assertSerializeSane(next)
+        const committedFiles: SlotBytes[] = next.map((file) => ({
+          relativePath: file.relativePath,
+          bytes: new Uint8Array(file.bytes)
+        }))
+        const committedState = wrapState(await mod.parse(committedFiles))
+        const changed = changedFiles(original.value, next)
+
+        if (changed.length === 0) {
+          state.value = committedState
+          original.value = committedFiles.map((file) => ({
+            relativePath: file.relativePath,
+            bytes: file.bytes
+          }))
+          dirty.value = false
+          revision.value++
+          triggerRef(state)
+          lastSave.value = { kind: 'noChanges', at: Date.now() }
+          lastError.value = null
+          logEvent('info', `save skipped: no changes game=${mod.id} slot=${slot}`)
+          return []
+        }
+
+        for (const file of changed) {
+          try {
+            await sessionIo.writeAtomic(saveDir.value, file.relativePath, file.bytes)
+          } catch (e) {
+            logError(`write_atomic failed path=${file.relativePath}`, e)
+            throw e
+          }
+        }
+
+        state.value = committedState
+        original.value = committedFiles.map((file) => ({
+          relativePath: file.relativePath,
+          bytes: file.bytes
+        }))
+        dirty.value = false
+        revision.value++
+        triggerRef(state)
+        const sessionFiles =
+          slots.value.find((s) => s.id === currentSlotId.value)?.sessionFiles ??
+          next.map((f) => f.relativePath)
+        await refreshBackups(sessionFiles)
+        await refreshSlots()
+        lastSave.value = { kind: 'saved', fileCount: changed.length, at: Date.now() }
+        lastError.value = null
+        logEvent(
+          'info',
+          `save success game=${mod.id} slot=${slot} files=${changed.length} durationMs=${Date.now() - startedAt}`
+        )
+        return []
+      } catch (e) {
+        const at = Date.now()
+        lastSave.value = { kind: 'failed', at }
+        lastError.value = {
+          message: translateError(e),
+          stack: e instanceof Error ? e.stack?.trim() ?? null : null,
+          at
+        }
+        logError(`save failed game=${mod.id} slot=${slot}`, e)
+        throw e
       }
-      state.value = committedState
-      original.value = committedFiles.map((file) => ({
-        relativePath: file.relativePath,
-        bytes: file.bytes
-      }))
-      dirty.value = false
-      revision.value++
-      triggerRef(state)
-      const sessionFiles =
-        slots.value.find((s) => s.id === currentSlotId.value)?.sessionFiles ??
-        next.map((f) => f.relativePath)
-      await refreshBackups(sessionFiles)
-      await refreshSlots()
-      return []
     })
   }
 
@@ -313,6 +401,8 @@ export const useSessionStore = defineStore('session', () => {
     dirty,
     backups,
     loadError,
+    lastSave,
+    lastError,
     revision,
     busy,
     busyMessageKey,

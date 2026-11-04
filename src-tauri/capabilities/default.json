@@ -14,7 +14,11 @@
     "allow-list-backups",
     "allow-restore-backup",
     "allow-delete-backup",
+    "allow-list-dir-entries",
     "allow-app-version",
+    "allow-log-dir",
+    "allow-log-append",
+    "allow-log-tail",
     "allow-open-external"
   ]
 }

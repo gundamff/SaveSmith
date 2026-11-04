@@ -1,9 +1,10 @@
 mod fs_ops;
+mod logging;
 
 use std::fs;
 use std::path::Path;
 
-use fs_ops::BackupInfo;
+use fs_ops::{BackupInfo, DirEntryInfo};
 use tauri_plugin_dialog::DialogExt;
 use tauri_plugin_opener::OpenerExt;
 
@@ -79,8 +80,28 @@ fn delete_backup(dir: String, name: String) -> Result<(), String> {
 }
 
 #[tauri::command]
+fn list_dir_entries(dir: String) -> Result<Vec<DirEntryInfo>, String> {
+    fs_ops::list_dir_entries(Path::new(&dir))
+}
+
+#[tauri::command]
 fn app_version() -> String {
     env!("CARGO_PKG_VERSION").to_string()
+}
+
+#[tauri::command]
+fn log_dir() -> Result<String, String> {
+    Ok(logging::default_logs_dir().to_string_lossy().into_owned())
+}
+
+#[tauri::command]
+async fn log_append(level: String, message: String) -> Result<(), String> {
+    logging::append_entry(&level, &message)
+}
+
+#[tauri::command]
+async fn log_tail(lines: u32) -> Result<Vec<String>, String> {
+    logging::tail(lines as usize)
 }
 
 #[tauri::command]
@@ -105,7 +126,11 @@ pub fn run() {
             list_backups,
             restore_backup,
             delete_backup,
+            list_dir_entries,
             app_version,
+            log_dir,
+            log_append,
+            log_tail,
             open_external
         ])
         .run(tauri::generate_context!())
