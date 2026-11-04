@@ -6,6 +6,13 @@ export interface BackupInfoDto {
   size: number
 }
 
+export interface DirEntryDto {
+  name: string
+  size: number
+  modifiedMs: number
+  isDir: boolean
+}
+
 function toUint8Array(data: unknown): Uint8Array {
   if (data instanceof Uint8Array) {
     return data
@@ -67,8 +74,24 @@ export function deleteBackup(dir: string, name: string): Promise<void> {
   return invoke('delete_backup', { dir, name })
 }
 
+export function listDirEntries(dir: string): Promise<DirEntryDto[]> {
+  return invoke<DirEntryDto[]>('list_dir_entries', { dir })
+}
+
 export function appVersion(): Promise<string> {
   return invoke<string>('app_version')
+}
+
+export function logAppend(level: string, message: string): Promise<void> {
+  return invoke('log_append', { level, message })
+}
+
+export function logDir(): Promise<string> {
+  return invoke<string>('log_dir')
+}
+
+export function logTail(lines = 50): Promise<string[]> {
+  return invoke<string[]>('log_tail', { lines })
 }
 
 export function openExternal(url: string): Promise<void> {

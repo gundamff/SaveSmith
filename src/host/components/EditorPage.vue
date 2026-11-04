@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import { computed, nextTick, provide, ref, toRef, watch } from 'vue'
 import { ModuleError } from '@sdk/error'
-import { t, translateError } from '../i18n'
+import { copyText } from '../clipboard'
+import { copyDiagnostics } from '../diagnosticsService'
+import { formatClockTime, formatErrorDetails } from '../diagnostics'
+import { locale, t, translateError } from '../i18n'
 import { openExternal } from '../tauri'
 import { useSessionStore } from '../stores/session'
+import { pushToast } from '../toast'
+import { getAppVersion } from '../version'
 import BackupPanel from './BackupPanel.vue'
+import ErrorDialog from './ErrorDialog.vue'
 import SlotList from './SlotList.vue'
 
 const DS_CID_DB_URL = 'https://dragonswordawakening.th.gl/'
@@ -21,6 +27,12 @@ const activeViewId = ref<string | null>(null)
 const viewBusy = ref(false)
 const mountedViewId = ref<string | null>(null)
 const panelMode = ref<'edit' | 'backups'>('edit')
+const errorDialog = ref<{
+  title: string
+  message: string
+  stack?: string | null
+  at: number
+} | null>(null)
 
 watch(
   views,
@@ -84,17 +96,66 @@ async function onSelectSlot(slotId: string): Promise<void> {
   await store.loadSlot(slotId)
 }
 
+function validationMessage(issues: Array<{ code: string; args: Array<string | number> }>): string {
+  return issues
+    .map((issue) => translateError(new ModuleError(issue.code, issue.args)))
+    .join('\n')
+}
+
 async function onSave(): Promise<void> {
   try {
     const issues = await store.save()
     if (issues.length) {
-      window.alert(
-        issues.map((issue) => translateError(new ModuleError(issue.code, issue.args))).join('\n')
+      errorDialog.value = {
+        title: t('editor.validationFailed'),
+        message: validationMessage(issues),
+        stack: null,
+        at: store.lastSave?.at ?? Date.now()
+      }
+      return
+    }
+
+    const outcome = store.lastSave
+    if (outcome?.kind === 'saved') {
+      pushToast(
+        t('editor.savedToast', outcome.fileCount, formatClockTime(outcome.at)),
+        'success'
       )
+    } else if (outcome?.kind === 'noChanges') {
+      pushToast(t('editor.noChangesToast'), 'info')
     }
   } catch (e) {
-    window.alert(translateError(e))
+    const detail = store.lastError
+    errorDialog.value = {
+      title: t('editor.saveFailed'),
+      message: detail?.message ?? translateError(e),
+      stack: detail?.stack ?? (e instanceof Error ? e.stack ?? null : null),
+      at: detail?.at ?? Date.now()
+    }
   }
+}
+
+async function onCopyErrorDetails(): Promise<void> {
+  const dialog = errorDialog.value
+  if (!dialog) return
+  const version = await getAppVersion()
+  const text = formatErrorDetails(
+    {
+      message: dialog.message,
+      stack: dialog.stack ?? null,
+      at: dialog.at,
+      version: version || 'unknown',
+      saveDir: store.saveDir
+    },
+    locale.value
+  )
+  const ok = await copyText(text)
+  pushToast(ok ? t('editor.copyOk') : t('editor.copyFailed'), ok ? 'success' : 'error')
+}
+
+async function onCopyDiagnostics(): Promise<void> {
+  const ok = await copyDiagnostics()
+  pushToast(ok ? t('diagnostics.copied') : t('diagnostics.copyFailed'), ok ? 'success' : 'error')
 }
 
 async function onRestore(relativePath: string, backupName: string): Promise<void> {
@@ -145,6 +206,9 @@ function openCidDb(): void {
       >
         {{ t('editor.backups') }}
       </button>
+      <button type="button" :disabled="store.busy" @click="onCopyDiagnostics">
+        {{ t('diagnostics.copy') }}
+      </button>
       <span v-if="store.dirty" class="dirty">{{ t('editor.dirty') }}</span>
       <p v-if="store.loadError" class="err">{{ store.loadError }}</p>
     </div>
@@ -185,6 +249,14 @@ function openCidDb(): void {
         />
       </div>
     </div>
+    <ErrorDialog
+      :open="errorDialog !== null"
+      :title="errorDialog?.title ?? ''"
+      :message="errorDialog?.message ?? ''"
+      :stack="errorDialog?.stack ?? null"
+      @close="errorDialog = null"
+      @copy="onCopyErrorDetails"
+    />
     <div
       v-if="overlayMessage"
       class="busy-overlay"

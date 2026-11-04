@@ -44,7 +44,21 @@ export const zh: MessageTree = {
     busyParse: '正在解析存档…',
     busySave: '正在保存…',
     busyView: '正在加载面板…',
-    backups: '备份'
+    backups: '备份',
+    savedToast: '已保存 {0} 个文件 · {1}',
+    noChangesToast: '没有改动需要保存',
+    validationFailed: '校验失败',
+    saveFailed: '保存失败',
+    copyDetails: '复制详情',
+    copyOk: '已复制',
+    copyFailed: '复制失败，请重试',
+    stackTrace: '堆栈',
+    close: '关闭'
+  },
+  diagnostics: {
+    copy: '复制诊断信息',
+    copied: '诊断信息已复制',
+    copyFailed: '复制失败，请重试'
   },
   slots: {
     load: '载入',

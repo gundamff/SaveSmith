@@ -44,7 +44,21 @@ export const en: MessageTree = {
     busyParse: 'Parsing save…',
     busySave: 'Saving…',
     busyView: 'Loading panel…',
-    backups: 'Backups'
+    backups: 'Backups',
+    savedToast: 'Saved {0} file(s) · {1}',
+    noChangesToast: 'No changes to save',
+    validationFailed: 'Validation failed',
+    saveFailed: 'Save failed',
+    copyDetails: 'Copy details',
+    copyOk: 'Copied',
+    copyFailed: 'Copy failed, please try again',
+    stackTrace: 'Stack trace',
+    close: 'Close'
+  },
+  diagnostics: {
+    copy: 'Copy diagnostics',
+    copied: 'Diagnostics copied',
+    copyFailed: 'Copy failed, please try again'
   },
   slots: {
     load: 'Load',

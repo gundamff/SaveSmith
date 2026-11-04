@@ -39,9 +39,29 @@ description = "Enables the delete_backup command."
 commands.allow = ["delete_backup"]
 
 [[permission]]
+identifier = "allow-list-dir-entries"
+description = "Enables the list_dir_entries command."
+commands.allow = ["list_dir_entries"]
+
+[[permission]]
 identifier = "allow-app-version"
 description = "Enables the app_version command."
 commands.allow = ["app_version"]
+
+[[permission]]
+identifier = "allow-log-dir"
+description = "Enables the log_dir command."
+commands.allow = ["log_dir"]
+
+[[permission]]
+identifier = "allow-log-append"
+description = "Enables the log_append command."
+commands.allow = ["log_append"]
+
+[[permission]]
+identifier = "allow-log-tail"
+description = "Enables the log_tail command."
+commands.allow = ["log_tail"]
 
 [[permission]]
 identifier = "allow-open-external"

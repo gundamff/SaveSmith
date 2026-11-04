@@ -13,6 +13,15 @@ pub struct BackupInfo {
     pub size: u64,
 }
 
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct DirEntryInfo {
+    pub name: String,
+    pub size: u64,
+    pub modified_ms: u64,
+    pub is_dir: bool,
+}
+
 pub fn safe_join(dir: &Path, relative: &str) -> Result<PathBuf, String> {
     if relative.contains("..") {
         return Err("path must not contain '..'".into());
@@ -274,6 +283,27 @@ fn civil_from_days(z: i64) -> (i32, u32, u32) {
     (y as i32, m as u32, d as u32)
 }
 
+pub fn list_dir_entries(dir: &Path) -> Result<Vec<DirEntryInfo>, String> {
+    let mut out = Vec::new();
+    for entry in fs::read_dir(dir).map_err(|e| e.to_string())? {
+        let entry = entry.map_err(|e| e.to_string())?;
+        let meta = entry.metadata().map_err(|e| e.to_string())?;
+        out.push(DirEntryInfo {
+            name: entry.file_name().to_string_lossy().into_owned(),
+            size: if meta.is_dir() { 0 } else { meta.len() },
+            modified_ms: mtime_ms(&meta),
+            is_dir: meta.is_dir(),
+        });
+    }
+    out.sort_by(|a, b| {
+        a.name
+            .to_lowercase()
+            .cmp(&b.name.to_lowercase())
+            .then_with(|| a.name.cmp(&b.name))
+    });
+    Ok(out)
+}
+
 pub fn list_relative_file_paths(root: &Path, max_depth: u32) -> Result<Vec<String>, String> {
     let mut out = Vec::new();
     fn walk(
@@ -445,6 +475,24 @@ mod tests {
             delete_backup(dir.path(), name).unwrap();
             assert!(!path.exists(), "should delete {name}");
         }
+    }
+
+    #[test]
+    fn list_dir_entries_reports_size_mtime_and_kind() {
+        let dir = tempdir().unwrap();
+        fs::write(dir.path().join("save.dat"), b"12345").unwrap();
+        fs::create_dir(dir.path().join("backup")).unwrap();
+
+        let entries = list_dir_entries(dir.path()).unwrap();
+
+        let save = entries.iter().find(|e| e.name == "save.dat").unwrap();
+        assert_eq!(save.size, 5);
+        assert!(!save.is_dir);
+        assert!(save.modified_ms > 0);
+
+        let backup = entries.iter().find(|e| e.name == "backup").unwrap();
+        assert!(backup.is_dir);
+        assert_eq!(backup.size, 0);
     }
 
     #[test]

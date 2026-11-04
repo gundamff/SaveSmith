@@ -2,8 +2,11 @@
 import { computed, onMounted, ref } from 'vue'
 import brandLogo from '../assets/brand/cundang-chan.png'
 import { DONATION_URL, GITHUB_REPO_URL, brandDisplayName } from '../config'
+import { copyDiagnostics } from '../diagnosticsService'
 import { locale, t } from '../i18n'
-import { appVersion, openExternal } from '../tauri'
+import { openExternal } from '../tauri'
+import { pushToast } from '../toast'
+import { getAppVersion } from '../version'
 
 defineProps<{
   open: boolean
@@ -18,15 +21,16 @@ const version = ref('')
 const displayBrand = computed(() => brandDisplayName(locale.value))
 
 onMounted(async () => {
-  try {
-    version.value = await appVersion()
-  } catch {
-    version.value = ''
-  }
+  version.value = await getAppVersion()
 })
 
 function openUrl(url: string): void {
   void openExternal(url)
+}
+
+async function copyReport(): Promise<void> {
+  const ok = await copyDiagnostics()
+  pushToast(ok ? t('diagnostics.copied') : t('diagnostics.copyFailed'), ok ? 'success' : 'error')
 }
 </script>
 
@@ -45,6 +49,7 @@ function openUrl(url: string): void {
         <button v-if="DONATION_URL" type="button" @click="emit('donate')">
           {{ t('about.donate') }}
         </button>
+        <button type="button" @click="copyReport">{{ t('diagnostics.copy') }}</button>
         <button type="button" @click="emit('close')">{{ t('about.close') }}</button>
       </div>
     </div>
