@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+## [0.17.6] - 2026-11-04
+
+### Added
+
+- **Host**: save success / no-change toasts; validation and write failures open a copyable error dialog
+- **Host**: one-click diagnostics copy (version, OS, module, slot, save-dir listing, last error, log tail)
+- **Host**: local logs at `%AppData%/SaveSmith/logs/savesmith-YYYYMMDD.log`
+
 ## [0.17.5] - 2026-11-03
 
 ### Changed
