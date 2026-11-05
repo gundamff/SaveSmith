@@ -260,6 +260,7 @@ export function removeInventoryItem(
 }
 
 export function serializeDirtySlots(model: PbzSaveModel): ReadonlyMap<string, Uint8Array> {
+  healDirtyInventoryStackCeilings(model)
   const issues = validateSaveModel(model)
   if (issues.length > 0) {
     throw new ModuleError('PBZ_INVALID_EDIT', [issues[0]!.code])
@@ -398,6 +399,28 @@ function applyInventoryAmount(
   slot.dirty = true
 }
 
+/** Raise MaxAmount to CurrentAmount on dirty slots before write (live-save inconsistency). */
+function healDirtyInventoryStackCeilings(model: PbzSaveModel): void {
+  for (const slot of model.slots) {
+    if (!slot.dirty) continue
+    const infos = getInventoryInfos(slot.document)
+    if (!infos) continue
+    for (const [id, value] of Object.entries(infos)) {
+      const item = getPbzItem(id)
+      if (!item || !isPlainObject(value)) continue
+      if (
+        !isIntegerInRange(value.CurrentAmount, 0, MAX_INVENTORY_STACK) ||
+        !isIntegerInRange(value.MaxAmount, 0, Number.MAX_SAFE_INTEGER)
+      ) {
+        continue
+      }
+      if (value.MaxAmount < value.CurrentAmount) {
+        value.MaxAmount = value.CurrentAmount
+      }
+    }
+  }
+}
+
 function readProjectedInventoryItem(
   infos: Record<string, unknown>,
   item: PbzCatalogItem
@@ -419,16 +442,15 @@ function inventoryRecordIssueCode(
     ? 'PBZ_INVALID_MATERIAL'
     : 'PBZ_INVALID_INVENTORY_ITEM'
   if (!isPlainObject(value)) return recordCode
-  // Accept live stacks above catalog edit caps; reject only corrupt / absurd values.
+  // Accept live stacks above catalog edit caps, and CurrentAmount > MaxAmount
+  // (other editors / game state). Reject only corrupt / absurd values.
+  // Dirty serialize heals MaxAmount up via healDirtyInventoryStackCeilings.
   if (!isIntegerInRange(value.CurrentAmount, 0, MAX_INVENTORY_STACK)) {
     return item.category === 'weapon-material'
       ? 'PBZ_INVALID_MATERIAL_AMOUNT'
       : 'PBZ_INVALID_INVENTORY_AMOUNT'
   }
-  if (
-    !isIntegerInRange(value.MaxAmount, 0, Number.MAX_SAFE_INTEGER) ||
-    value.MaxAmount < value.CurrentAmount
-  ) {
+  if (!isIntegerInRange(value.MaxAmount, 0, Number.MAX_SAFE_INTEGER)) {
     return item.category === 'weapon-material'
       ? 'PBZ_INVALID_MATERIAL_MAX'
       : 'PBZ_INVALID_INVENTORY_MAX'

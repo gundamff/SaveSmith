@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.17.7] - 2026-11-05
+
+### 修复
+
+- **影之刃零**：已有堆叠 `CurrentAmount > MaxAmount` 时不再报 `PBZ_INVALID_INVENTORY_MAX` 阻断整槽保存；脏槽写回时自动将 `MaxAmount` 抬到不少于 `CurrentAmount`（战绩等非背包改动也不再被卡住）
+
 ## [0.17.6] - 2026-11-04
 
 ### 新增

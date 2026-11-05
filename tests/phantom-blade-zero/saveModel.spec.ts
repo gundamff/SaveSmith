@@ -347,7 +347,7 @@ describe('phantom-blade-zero save model', () => {
       first.document.Inventory as Record<string, unknown>
     ).InventoryInfos as Record<string, unknown>
     ;(infos.Weapon_Material_01 as Record<string, unknown>).CurrentAmount = 100_000_000
-    ;(infos.Weapon_Material_02 as Record<string, unknown>).MaxAmount = 1
+    ;(infos.Weapon_Material_02 as Record<string, unknown>).MaxAmount = -1
 
     const codes = validateSaveModel(model).map((issue) => issue.code)
     expect(codes).toContain('PBZ_INVALID_SELECTION')
@@ -392,6 +392,78 @@ describe('phantom-blade-zero save model', () => {
       () => setInventoryAmount(model, editable.name, 'Weapon_Material_19', 10005),
       'PBZ_INVALID_EDIT'
     )
+  })
+
+  it('accepts live stacks where CurrentAmount exceeds MaxAmount and still projects them', () => {
+    const editable = slot('AutoSave0', {
+      Inventory: {
+        InventoryInfos: {
+          Weapon_Material_19: {
+            CurrentAmount: 50000,
+            MaxAmount: 9999,
+            FirstAddTime: '2026.10.30-18.20.30',
+            DirtyTime: '2026.10.30-18.20.30',
+            AcquiredCycle: 1
+          },
+          Item_Traversing: {
+            CurrentAmount: 120,
+            MaxAmount: 99,
+            FirstAddTime: '2026.10.30-18.20.30',
+            DirtyTime: '2026.10.30-18.20.30',
+            AcquiredCycle: 1
+          }
+        }
+      }
+    })
+    const model = createSaveModel([editable])
+
+    expect(projectInventory(editable, 'weapon-material')).toEqual([
+      {
+        id: 'Weapon_Material_19',
+        category: 'weapon-material',
+        currentAmount: 50000,
+        maxAmount: 9999
+      }
+    ])
+    expect(projectInventory(editable, 'consumable')).toEqual([
+      {
+        id: 'Item_Traversing',
+        category: 'consumable',
+        currentAmount: 120,
+        maxAmount: 99
+      }
+    ])
+    expect(validateSaveModel(model)).toEqual([])
+  })
+
+  it('heals MaxAmount on dirty serialize so death edits are not blocked by oversized stacks', () => {
+    const editable = slot('AutoSave0', {
+      PBZDeathMeta: { _v: 1, DiedTimes: 10 },
+      Inventory: {
+        InventoryInfos: {
+          Weapon_Material_19: {
+            CurrentAmount: 50000,
+            MaxAmount: 9999,
+            FirstAddTime: '2026.10.30-18.20.30',
+            DirtyTime: '2026.10.30-18.20.30',
+            AcquiredCycle: 1
+          }
+        }
+      }
+    })
+    const model = createSaveModel([editable])
+    setDiedTimes(model, editable.name, 4)
+
+    const payloads = serializeDirtySlots(model)
+    expect(payloads.has(editable.name)).toBe(true)
+    const infos = (
+      editable.document.Inventory as { InventoryInfos: Record<string, Record<string, unknown>> }
+    ).InventoryInfos
+    expect(infos.Weapon_Material_19).toMatchObject({
+      CurrentAmount: 50000,
+      MaxAmount: 50000
+    })
+    expect((editable.document.PBZDeathMeta as { DiedTimes: number }).DiedTimes).toBe(4)
   })
 
   it('reports unsafe public document mutations instead of throwing', () => {
@@ -453,8 +525,8 @@ describe('phantom-blade-zero save model', () => {
       record.CurrentAmount = 1.5
     }],
     ['missing MaxAmount', (record: Record<string, unknown>) => delete record.MaxAmount],
-    ['MaxAmount below CurrentAmount', (record: Record<string, unknown>) => {
-      record.MaxAmount = 1
+    ['negative MaxAmount', (record: Record<string, unknown>) => {
+      record.MaxAmount = -1
     }],
     ['missing FirstAddTime', (record: Record<string, unknown>) => delete record.FirstAddTime],
     ['non-string FirstAddTime', (record: Record<string, unknown>) => {

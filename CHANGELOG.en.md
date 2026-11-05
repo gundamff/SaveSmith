@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.17.7] - 2026-11-05
+
+### Fixed
+
+- **Phantom Blade Zero**: stacks with `CurrentAmount > MaxAmount` no longer fail the whole slot with `PBZ_INVALID_INVENTORY_MAX`; dirty serialize raises `MaxAmount` to at least `CurrentAmount` so death/records edits are not blocked
+
 ## [0.17.6] - 2026-11-04
 
 ### Added
