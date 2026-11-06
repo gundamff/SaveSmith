@@ -46,16 +46,16 @@ const { filter, rows, changeLevel, removeItem } = useEquipmentCategoryController
       <el-table-column :label="t('pbz.resources.level')" width="190">
         <template #default="{ row }">
           <el-input-number
-            :model-value="row.level"
-            :min="0"
-            :max="row.editMaxLevel"
+            :model-value="row.displayLevel"
+            :min="category === 'accessory' ? 0 : 1"
+            :max="row.displayMaxLevel"
             :step="1"
             @update:model-value="(value) => changeLevel(row.id, value ?? undefined)"
           />
         </template>
       </el-table-column>
       <el-table-column
-        prop="maxLevel"
+        prop="displayCatalogMax"
         :label="t('pbz.resources.catalogMaxLevel')"
         width="120"
       />

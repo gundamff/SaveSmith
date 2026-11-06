@@ -15,8 +15,8 @@ const {
   level,
   query,
   options,
+  minLevel,
   maxLevel,
-  isExisting,
   optionLabel,
   selectItem,
   confirmAdd,
@@ -57,7 +57,7 @@ const {
       <el-form-item :label="t('pbz.resources.level')">
         <el-input-number
           v-model="level"
-          :min="0"
+          :min="minLevel"
           :max="maxLevel"
           :step="1"
         />
@@ -66,14 +66,8 @@ const {
       <el-alert
         v-if="selectedId"
         :closable="false"
-        :type="isExisting ? 'warning' : 'info'"
-        :title="
-          t(
-            isExisting
-              ? 'pbz.resources.addExistingEquipmentHint'
-              : 'pbz.resources.addNewEquipmentHint',
-          )
-        "
+        type="info"
+        :title="t('pbz.resources.addNewEquipmentHint')"
       />
     </el-form>
 

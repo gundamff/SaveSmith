@@ -10,9 +10,13 @@ import {
 } from '../catalog/equipmentCatalog'
 import {
   addEquipment,
+  fromDisplayLevel,
+  minDisplayLevel,
   projectEquipment,
   removeEquipment,
   setEquipmentLevel,
+  toDisplayLevel,
+  toDisplayMax,
 } from '../model/equipment'
 import type { PbzEditableSlot } from '../model/saveModel'
 import { usePbzEditor } from './inject'
@@ -36,6 +40,9 @@ export function useEquipmentCategoryController(props: EquipmentViewProps) {
           {
             ...row,
             name: pbzEquipmentName(item),
+            displayLevel: toDisplayLevel(row.category, row.level),
+            displayMaxLevel: toDisplayMax(row.category, row.editMaxLevel),
+            displayCatalogMax: row.maxLevel,
             item,
           },
         ]
@@ -49,11 +56,12 @@ export function useEquipmentCategoryController(props: EquipmentViewProps) {
       )
   })
 
-  function changeLevel(id: string, value: number | undefined): void {
-    if (value === undefined || !Number.isSafeInteger(value)) return
+  function changeLevel(id: string, displayValue: number | undefined): void {
+    if (displayValue === undefined || !Number.isSafeInteger(displayValue)) return
+    const internal = fromDisplayLevel(props.category, displayValue)
     try {
       editor.markDirty(() =>
-        setEquipmentLevel(editor.save.model, props.slot.name, id, value),
+        setEquipmentLevel(editor.save.model, props.slot.name, id, internal),
       )
     } catch (error) {
       ElMessage.error(translateError(error))
@@ -101,26 +109,28 @@ export function useAddEquipmentDialogController(
 ) {
   const editor = usePbzEditor()
   const selectedId = ref<string | null>(null)
-  const level = ref(0)
+  const level = ref(minDisplayLevel(props.category))
   const query = ref('')
-  const options = computed(() => searchPbzEquipment(props.category, query.value))
-  const selectedItem = computed(() =>
-    selectedId.value ? getPbzEquipment(selectedId.value) : undefined,
-  )
-  const maxLevel = computed(() => selectedItem.value?.maxLevel ?? 0)
   const existingIds = computed(() => {
     void editor.rev
     return new Set(
       projectEquipment(props.slot, props.category).map(({ id }) => id),
     )
   })
-  const isExisting = computed(
-    () => selectedId.value !== null && existingIds.value.has(selectedId.value),
+  const options = computed(() =>
+    searchPbzEquipment(props.category, query.value).filter(
+      (item) => !existingIds.value.has(item.id),
+    ),
   )
+  const selectedItem = computed(() =>
+    selectedId.value ? getPbzEquipment(selectedId.value) : undefined,
+  )
+  const maxLevel = computed(() => selectedItem.value?.maxLevel ?? minDisplayLevel(props.category))
+  const minLevel = computed(() => minDisplayLevel(props.category))
 
   function resetDraft(): void {
     selectedId.value = null
-    level.value = 0
+    level.value = minDisplayLevel(props.category)
     query.value = ''
   }
 
@@ -136,6 +146,9 @@ export function useAddEquipmentDialogController(
   watch(selectedItem, (item) => {
     if (!item) return
     if (level.value > item.maxLevel) level.value = item.maxLevel
+    if (level.value < minDisplayLevel(item.category)) {
+      level.value = minDisplayLevel(item.category)
+    }
   })
 
   function selectItem(id: string): void {
@@ -148,13 +161,14 @@ export function useAddEquipmentDialogController(
 
   function confirmAdd(): void {
     if (!selectedId.value) return
+    const internal = fromDisplayLevel(props.category, level.value)
     try {
       editor.markDirty(() =>
         addEquipment(
           editor.save.model,
           props.slot.name,
           selectedId.value!,
-          level.value,
+          internal,
         ),
       )
       open.value = false
@@ -168,8 +182,8 @@ export function useAddEquipmentDialogController(
     level,
     query,
     options,
+    minLevel,
     maxLevel,
-    isExisting,
     optionLabel,
     selectItem,
     confirmAdd,

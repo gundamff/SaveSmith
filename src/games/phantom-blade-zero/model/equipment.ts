@@ -25,9 +25,52 @@ const LEVEL_FIELD: Record<PbzEquipmentCategory, string> = {
 export interface PbzEquipmentView {
   id: string
   category: PbzEquipmentCategory
+  /** 0-based strengthen count (WeaponLevel/ShaChiWeaponLevel = level + 1). */
   level: number
+  /** Catalog ceiling (weapons: max game/WeaponLevel; accessories: max CurrentLevel). */
   maxLevel: number
+  /** 0-based edit ceiling (may exceed catalog when the save is already higher). */
   editMaxLevel: number
+}
+
+/** Main / phantom grades are stored as WeaponLevel = strengthen + 1. */
+export function isWeaponGradeCategory(
+  category: PbzEquipmentCategory,
+): boolean {
+  return category === 'main-weapon' || category === 'phantom-weapon'
+}
+
+/** Catalog `maxLevel` for weapons is the max game grade (WeaponLevel). */
+export function maxInternalLevel(item: PbzEquipmentItem): number {
+  if (isWeaponGradeCategory(item.category)) {
+    return Math.max(0, item.maxLevel - 1)
+  }
+  return item.maxLevel
+}
+
+export function toDisplayLevel(
+  category: PbzEquipmentCategory,
+  internalLevel: number,
+): number {
+  return isWeaponGradeCategory(category) ? internalLevel + 1 : internalLevel
+}
+
+export function fromDisplayLevel(
+  category: PbzEquipmentCategory,
+  displayLevel: number,
+): number {
+  return isWeaponGradeCategory(category) ? displayLevel - 1 : displayLevel
+}
+
+export function minDisplayLevel(category: PbzEquipmentCategory): number {
+  return isWeaponGradeCategory(category) ? 1 : 0
+}
+
+export function toDisplayMax(
+  category: PbzEquipmentCategory,
+  internalMax: number,
+): number {
+  return isWeaponGradeCategory(category) ? internalMax + 1 : internalMax
 }
 
 export function projectEquipment(
@@ -44,7 +87,7 @@ export function projectEquipment(
     if (!isPlainObject(value)) continue
     const level = readUiLevel(category, value)
     if (level === null) continue
-    const editMaxLevel = Math.max(item.maxLevel, level)
+    const editMaxLevel = Math.max(maxInternalLevel(item), level)
     rows.push({
       id,
       category,
@@ -116,7 +159,7 @@ export function setEquipmentLevel(
   if (current === null) {
     throw new ModuleError('PBZ_INVALID_EDIT', [id])
   }
-  const ceiling = Math.max(item.maxLevel, current)
+  const ceiling = Math.max(maxInternalLevel(item), current)
   if (!isIntegerInRange(uiLevel, 0, ceiling)) {
     throw new ModuleError('PBZ_INVALID_EDIT', [id])
   }
@@ -233,7 +276,7 @@ function requireUiLevel(
   uiLevel: number,
   allowExistingCeiling: boolean,
 ): void {
-  const max = allowExistingCeiling ? 999 : item.maxLevel
+  const max = allowExistingCeiling ? 999 : maxInternalLevel(item)
   if (!isIntegerInRange(uiLevel, 0, max)) {
     throw new ModuleError('PBZ_INVALID_EDIT', [item.id])
   }
