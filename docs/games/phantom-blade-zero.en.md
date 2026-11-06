@@ -22,7 +22,7 @@ The format is PBZS v3: AES-256-GCM authenticated encryption; raw / zlib / Oodle 
 
 ## Editable scope
 
-The resources page keeps internal slot selection and splits inventory into two tabs: **Weapon Upgrade Materials** and **Growth**. There are also top-level **Records** (total deaths, per-boss death counts, and boss best times) and **Progress** (cycle week and game time).
+The resources page keeps internal slot selection and tabs for **Weapon Upgrade Materials**, **Growth**, **Main weapons**, **Phantom weapons**, and **Accessories**. There are also top-level **Records** and **Progress**.
 
 - `Player.Dust` is shown as 意识尘埃 in Chinese; the storage field remains `Dust`. English UI keeps `Dust` because this build's `en` resources have no translation
 - Progress: cycle week is read-only (`max(CycleCount, CycleRecords count)+1`); in-game week is not driven by editing `CycleCount`, so SaveSmith does not offer that edit. `HasGameTime` / `CurrentCycleGameTime` remain editable (HMS, dual-written). `CycleRecords` are never edited
@@ -33,6 +33,7 @@ The resources page keeps internal slot selection and splits inventory into two t
 - Growth covers in-game progression items: black stone / killing-aura amber and fragments, sha-qi core, banyan heart, accessory/medicine upgrade materials, and Traversing Charm (12 rows)
 - Traversing Charm is capped at `0..99` by SaveSmith; other growth items use `0..9999`
 - Adding an item that already exists increases its amount instead of creating a duplicate; delete removes the key from `InventoryInfos`
+- **Main / phantom weapons and accessories** (unique gear): add, set upgrade level, or delete via static `equipment.json`. **May corrupt saves** — tabs show a strong warning; backup first. Equipped main/phantom weapons cannot be deleted; deleting an accessory clears matching `AccessoryIDs` entries to `"None"`
 - Names come from build `26266538` Simplified Chinese resources. This build's English resources contain no translations for these item-name keys, so English UI shows readable IDs such as `Weapon Material 01` instead of inventing English copy or falling back to Chinese
 
 ### Observed in-game effects (build 26266538)
@@ -45,7 +46,7 @@ The resources page keeps internal slot selection and splits inventory into two t
 
 Black stone / amber and fragments still show a threshold warning in the add dialog. Prefer Dust and weapon materials when you want changes that take effect immediately.
 
-Memory flowers, snap-soul materials, books, and quest / narrative placeholders remain unsupported, as do equipment levels, achievements, DLC, and settings saves. More editable surfaces are planned.
+Memory flowers, snap-soul materials, books, and quest / narrative placeholders remain unsupported, as do medicines, appearance wardrobe, achievements, DLC, and settings saves. Soul-temper fields are not separately editable this round. More editable surfaces are planned.
 
 ## Safety
 

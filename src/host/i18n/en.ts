@@ -643,20 +643,37 @@ export const en: MessageTree = {
       dust: 'Dust',
       weaponMaterials: 'Weapon Upgrade Materials',
       consumables: 'Growth',
+      mainWeapons: 'Main weapons',
+      phantomWeapons: 'Phantom weapons',
+      accessories: 'Accessories',
+      equipmentRisk:
+        'Warning: editing main weapons / phantom weapons / accessories may corrupt the save or cause odd behavior. Effects are not verified item-by-item. Fully quit the game first and always keep a backup (SaveSmith backup or your own copy).',
       addItem: 'Add item',
+      addEquipment: 'Add equipment',
       addTitle: 'Add item',
+      addEquipmentTitle: 'Add equipment',
       addSearchPlaceholder: 'Filter by name or ID (leave empty to browse all)',
       amount: 'Amount',
+      level: 'Upgrade level',
+      catalogMaxLevel: 'Catalog max',
       cancel: 'Cancel',
       confirm: 'Add',
       addExistingHint:
         'This item already exists. Confirming will increase its amount without creating a duplicate record.',
       addNewHint: 'Confirming will create a new item record.',
+      addExistingEquipmentHint:
+        'This equipment already exists. Confirming keeps the higher upgrade level without creating a duplicate.',
+      addNewEquipmentHint:
+        'Confirming will create a new unique equipment record (quantity is always 1).',
       thresholdRiskHint:
         'Cumulative threshold items (black stone / amber, etc.): editing amounts usually does not crash, but permanent bonuses typically do not apply (the game may track progress elsewhere). Edit at your own risk.',
+      equippedRefuseDelete:
+        'That weapon is currently equipped. Unequip or switch it in-game before deleting.',
       delete: 'Delete',
       deleteTitle: 'Delete item',
       deleteConfirm: 'Remove “{0}” ({1}) from the inventory? The record will be deleted entirely.',
+      deleteEquipmentConfirm:
+        'Delete equipment “{0}” ({1})? The record will be removed entirely. Confirm you have a backup first.',
       actions: 'Actions',
       materials: 'Materials',
       filterPlaceholder: 'Filter by item name or raw ID',

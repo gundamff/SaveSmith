@@ -2,7 +2,7 @@
 
 日期：2026-11-06  
 模块 id：`phantom-blade-zero`  
-状态：设计已确认（待写计划 / 实现）  
+状态：已实现（待手测 / 发版）  
 前置设计：[2026-10-30-phantom-blade-zero-design.md](./2026-10-30-phantom-blade-zero-design.md)  
 字段对照：PBZ-Editor（MIT，`qry6868/PBZ-Editor`）公开布局；**不复制**其源码 / UI / 读包图标  
 路径：标准通道 · brainstorming → 本文 → writing-plans → TDD 实现

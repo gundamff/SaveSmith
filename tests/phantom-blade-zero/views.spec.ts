@@ -666,11 +666,15 @@ describe('PBZ views', () => {
     expect(t('pbz.tabs.progress')).toBeTruthy()
   })
 
-  it('integrates named weapon-material and consumable category tabs', () => {
+  it('integrates inventory and equipment category tabs', () => {
     const text = source('games/phantom-blade-zero/views/ResourcesTab.vue')
     expect(text).toMatch(/InventoryCategoryTab/)
+    expect(text).toMatch(/EquipmentCategoryTab/)
     expect(text).toMatch(/weapon-material/)
     expect(text).toMatch(/consumable/)
+    expect(text).toMatch(/main-weapon/)
+    expect(text).toMatch(/phantom-weapon/)
+    expect(text).toMatch(/accessory/)
     expect(text).toMatch(/projectResources/)
     expect(text).toMatch(/setDust/)
     expect(text).toMatch(/markDirty/)

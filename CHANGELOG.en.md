@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+### Added
+
+- **Phantom Blade Zero**: Resources tab can edit main weapons / phantom weapons / accessories (add, upgrade level, delete); strong corrupt-save + backup warning
+
+### Notes
+
+- **Phantom Blade Zero**: refuses deleting equipped main/phantom weapons; accessory delete clears matching `AccessoryIDs` slots; per-item effects are not verified
+
 ## [0.17.7] - 2026-11-05
 
 ### Fixed
