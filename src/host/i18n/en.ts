@@ -733,7 +733,7 @@ export const en: MessageTree = {
     PBZ_SLOT_READ_ONLY: 'Slot {0} is read-only',
     PBZ_INVALID_JSON: 'Slot {0} contains invalid JSON',
     PBZ_INVALID_EDIT: 'Invalid PBZ edit: {0}',
-    PBZ_NO_EDITABLE_SLOTS: 'No editable AutoSave/ManualSave slots',
+    PBZ_NO_EDITABLE_SLOTS: 'No editable AutoSave/ManualSave/NightmareRun slots',
     PBZ_INVALID_SLOT: 'Invalid slot name: {0}',
     PBZ_DUPLICATE_SLOT: 'Duplicate slot: {0}',
     PBZ_INVALID_SELECTION: 'Invalid selected slot: {0}',

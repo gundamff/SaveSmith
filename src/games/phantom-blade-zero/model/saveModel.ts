@@ -13,6 +13,9 @@ import {
 import { collectBossRecordIssues } from './bossRecords'
 import { collectEquipmentIssues } from './equipment'
 import { collectProgressIssues } from './progress'
+import { isEditableSlotName } from './editableSlotName'
+
+export { isEditableSlotName }
 
 export {
   projectBossRecords,
@@ -29,7 +32,6 @@ export {
   type ProgressView
 } from './progress'
 
-const EDITABLE_SLOT_NAME = /^(?:AutoSave|ManualSave)\d+$/
 const MAX_DUST = 99_999_999
 /** Edit / bulk-set ceiling for weapon materials (catalog default). */
 const MAX_MATERIAL_AMOUNT = 9999
@@ -67,10 +69,6 @@ interface InventoryRecord {
   record: Record<string, unknown>
   currentAmount: number
   maxAmount: number
-}
-
-export function isEditableSlotName(name: string): boolean {
-  return EDITABLE_SLOT_NAME.test(name)
 }
 
 export function parseEditableSlot(name: string, payload: Uint8Array): PbzEditableSlot {

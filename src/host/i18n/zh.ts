@@ -721,7 +721,7 @@ export const zh: MessageTree = {
     PBZ_SLOT_READ_ONLY: '槽位 {0} 为只读',
     PBZ_INVALID_JSON: '槽位 {0} 的 JSON 无效',
     PBZ_INVALID_EDIT: 'PBZ 修改无效：{0}',
-    PBZ_NO_EDITABLE_SLOTS: '没有可编辑的 AutoSave/ManualSave 槽位',
+    PBZ_NO_EDITABLE_SLOTS: '没有可编辑的 AutoSave/ManualSave/NightmareRun 槽位',
     PBZ_INVALID_SLOT: '槽位名称无效：{0}',
     PBZ_DUPLICATE_SLOT: '存在重复槽位：{0}',
     PBZ_INVALID_SELECTION: '当前槽位选择无效：{0}',

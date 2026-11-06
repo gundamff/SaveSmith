@@ -1,9 +1,9 @@
 import { ModuleError } from '../../../sdk/error'
 import type { ValidationIssue } from '../../../sdk/types'
 import { isValidDurationSeconds } from './durationFormat'
+import { isEditableSlotName } from './editableSlotName'
 
 const MAX_CYCLE_COUNT = 99
-const EDITABLE_SLOT_NAME = /^(?:AutoSave|ManualSave)\d+$/
 
 export interface PbzProgressEditableSlot {
   name: string
@@ -159,7 +159,7 @@ function readOptionalNumber(value: unknown): number | null {
 }
 
 function requireSlot(model: PbzProgressSaveModel, name: string): PbzProgressEditableSlot {
-  if (!EDITABLE_SLOT_NAME.test(name)) {
+  if (!isEditableSlotName(name)) {
     throw new ModuleError('PBZ_INVALID_EDIT', [name])
   }
   const slot = model.slots.find((candidate) => candidate.name === name)

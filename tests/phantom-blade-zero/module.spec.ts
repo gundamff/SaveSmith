@@ -185,6 +185,20 @@ describe('phantom-blade-zero parse and serialize', () => {
     )
   })
 
+  it('treats NightmareRun slots as editable and persists Dust edits', async () => {
+    const bytes = await makePbzsFixture([
+      { name: '__Advanced__', compression: 0, payload: encoder.encode('opaque') },
+      { name: 'NightmareRun0', compression: 0, payload: json(document(11)) }
+    ])
+    const state = await parse([{ relativePath: 'PBZSaveGame.sav', bytes }])
+    expect(state.model.slots.map(({ name }) => name)).toEqual(['NightmareRun0'])
+    expect(state.model.selectedSlotName).toBe('NightmareRun0')
+    setDust(state.model, 'NightmareRun0', 88)
+    const [output] = await serialize(state)
+    const reparsed = await parse([output!])
+    expect(projectResources(reparsed.model.slots[0]!).dust).toBe(88)
+  })
+
   it('returns a stable validation snapshot and blocks invalid serialization', async () => {
     const state = await parse([{ relativePath: 'PBZSaveGame.sav', bytes: await fixture() }])
     ;(state.model.slots[0]!.document.Player as Record<string, unknown>).Dust = -1

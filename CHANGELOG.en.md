@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.17.9] - 2026-11-06
+
+### Added
+
+- **Phantom Blade Zero**: internal `NightmareRunN` slots (NG+ / high difficulty) are editable like AutoSave/ManualSave; **not yet verified against a real Nightmare save** — back up first
+
 ## [0.17.8] - 2026-11-06
 
 ### Added

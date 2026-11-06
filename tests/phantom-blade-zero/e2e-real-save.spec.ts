@@ -78,7 +78,11 @@ describe.skipIf(!SAVE)('phantom-blade-zero real save (PBZ_SAVE)', () => {
     const state = await parseOriginal()
 
     expect(state.model.slots.length).toBeGreaterThan(0)
-    expect(state.model.slots.every(({ name }) => /^(?:AutoSave|ManualSave)\d+$/.test(name))).toBe(true)
+    expect(
+      state.model.slots.every(({ name }) =>
+        /^(?:AutoSave|ManualSave|NightmareRun)\d+$/.test(name)
+      )
+    ).toBe(true)
     for (const slot of state.model.slots) {
       const resources = projectResources(slot)
       expect(Number.isSafeInteger(resources.dust)).toBe(true)

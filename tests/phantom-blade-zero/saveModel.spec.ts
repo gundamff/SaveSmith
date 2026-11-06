@@ -97,12 +97,16 @@ function localDateWithYear(year: number): Date {
 }
 
 describe('phantom-blade-zero save model', () => {
-  it('recognizes only numbered auto and manual save slots', () => {
+  it('recognizes numbered AutoSave, ManualSave, and NightmareRun slots', () => {
     expect(isEditableSlotName('AutoSave0')).toBe(true)
     expect(isEditableSlotName('ManualSave42')).toBe(true)
+    expect(isEditableSlotName('NightmareRun0')).toBe(true)
+    expect(isEditableSlotName('NightmareRun12')).toBe(true)
     expect(isEditableSlotName('__Advanced__')).toBe(false)
     expect(isEditableSlotName('__Achievements__')).toBe(false)
     expect(isEditableSlotName('ManualSave')).toBe(false)
+    expect(isEditableSlotName('NightmareRun')).toBe(false)
+    expect(isEditableSlotName('nightmarerun0')).toBe(false)
     expect(isEditableSlotName('Unknown1')).toBe(false)
   })
 
@@ -310,6 +314,17 @@ describe('phantom-blade-zero save model', () => {
     expect(second.dirty).toBe(true)
     expectModuleError(() => selectSlot(model, 'AutoSave99'), 'PBZ_INVALID_EDIT', ['AutoSave99'])
     expectModuleError(() => selectSlot(model, '__Advanced__'), 'PBZ_INVALID_EDIT', ['__Advanced__'])
+  })
+
+  it('parses, selects, and serializes NightmareRun slots like AutoSave', () => {
+    const editable = parseEditableSlot('NightmareRun0', payload(document()))
+    const model = createSaveModel([editable])
+    selectSlot(model, 'NightmareRun0')
+    setDust(model, 'NightmareRun0', 100)
+    const serialized = serializeDirtySlots(model)
+    expect([...serialized.keys()]).toEqual(['NightmareRun0'])
+    const result = JSON.parse(new TextDecoder().decode(serialized.get('NightmareRun0')!))
+    expect(result.Player.Dust).toBe(100)
   })
 
   it('serializes only dirty slots and preserves unknown fields', () => {

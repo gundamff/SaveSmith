@@ -6,9 +6,8 @@ import {
   type PbzEquipmentItem,
 } from '../catalog/equipmentCatalog'
 import { formatPbzTime } from './inventoryRecord'
+import { isEditableSlotName } from './editableSlotName'
 import type { PbzEditableSlot, PbzSaveModel } from './saveModel'
-
-const EDITABLE_SLOT_NAME = /^(?:AutoSave|ManualSave)\d+$/
 
 const CATEGORY_FIELD: Record<PbzEquipmentCategory, string> = {
   'main-weapon': 'MainWeaponInfos',
@@ -289,7 +288,7 @@ function requireEquipment(id: string): PbzEquipmentItem {
 }
 
 function requireSlot(model: PbzSaveModel, name: string): PbzEditableSlot {
-  if (!EDITABLE_SLOT_NAME.test(name)) {
+  if (!isEditableSlotName(name)) {
     throw new ModuleError('PBZ_INVALID_EDIT', [name])
   }
   const slot = model.slots.find((candidate) => candidate.name === name)

@@ -259,7 +259,14 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 
 - [ ] 存档目录只出现一个物理槽 `PBZSaveGame.sav`
 - [ ] 页面内部列出已有 `AutoSave` / `ManualSave` 槽
+- [ ] 若容器含 `NightmareRunN`，也应出现在可编辑列表（与 Auto/Manual 同权）
 - [ ] `__Advanced__`、`__Achievements__` 等特殊槽不出现在可编辑列表
+
+### PBZ1b. NightmareRun（有二周目真档才测；无则跳过并记）
+
+- [ ] 副本上打开含 `NightmareRun0` 的档，槽可选、可改 Dust/材料并保存
+- [ ] 游戏载入该 Nightmare 槽 → 游戏内保存 → 完全退出 → 二次载入正常
+- [ ] **说明：** 发布前合成 fixture 已覆盖；真档对拍仍依赖社区/本机二周目档
 
 ### PBZ2. Clean 往返
 

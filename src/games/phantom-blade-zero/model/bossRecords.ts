@@ -1,9 +1,9 @@
 import { ModuleError } from '../../../sdk/error'
 import type { ValidationIssue } from '../../../sdk/types'
 import { isValidDurationSeconds } from './durationFormat'
+import { isEditableSlotName } from './editableSlotName'
 
 const MAX_COUNT = 99_999_999
-const EDITABLE_SLOT_NAME = /^(?:AutoSave|ManualSave)\d+$/
 
 export interface PbzDeathEditableSlot {
   name: string
@@ -193,7 +193,7 @@ function readOptionalKillCount(entry: Record<string, unknown>): number | null {
 }
 
 function requireSlot(model: PbzDeathSaveModel, name: string): PbzDeathEditableSlot {
-  if (!EDITABLE_SLOT_NAME.test(name)) {
+  if (!isEditableSlotName(name)) {
     throw new ModuleError('PBZ_INVALID_EDIT', [name])
   }
   const slot = model.slots.find((candidate) => candidate.name === name)
