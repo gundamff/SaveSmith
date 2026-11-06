@@ -2,9 +2,11 @@ import { describe, expect, it } from 'vitest'
 
 import {
   addEquipment,
+  fromDisplayLevel,
   projectEquipment,
   removeEquipment,
   setEquipmentLevel,
+  toDisplayLevel,
 } from '@games/phantom-blade-zero/model/equipment'
 import type { PbzSaveModel } from '@games/phantom-blade-zero/model/saveModel'
 
@@ -26,17 +28,30 @@ function slotDoc(inventory: Record<string, unknown>): PbzSaveModel {
 }
 
 describe('PBZ equipment model', () => {
-  it('maps UI level to WeaponLevel = UI + 1 for main weapons', () => {
+  it('maps 0-based strengthen count to WeaponLevel = count + 1', () => {
     const model = slotDoc({ MainWeaponInfos: {} })
     addEquipment(model, 'AutoSave0', 'WoodenSword', 3)
     const rows = projectEquipment(model.slots[0]!, 'main-weapon')
     expect(rows).toEqual([
       expect.objectContaining({ id: 'WoodenSword', level: 3 }),
     ])
+    expect(toDisplayLevel('main-weapon', rows[0]!.level)).toBe(4)
     const record = (model.slots[0]!.document as any).Inventory.MainWeaponInfos
       .WoodenSword
     expect(record.WeaponLevel).toBe(4)
     expect(record.HasUIRedPoint).toBe(true)
+  })
+
+  it('shows game grade 20 when WeaponLevel is 20', () => {
+    const model = slotDoc({
+      MainWeaponInfos: {
+        WoodenSword: { WeaponLevel: 20, HasUIRedPoint: false },
+      },
+    })
+    const [row] = projectEquipment(model.slots[0]!, 'main-weapon')
+    expect(row!.level).toBe(19)
+    expect(toDisplayLevel('main-weapon', row!.level)).toBe(20)
+    expect(fromDisplayLevel('main-weapon', 20)).toBe(19)
   })
 
   it('maps phantom UI level to ShaChiWeaponLevel = UI + 1', () => {

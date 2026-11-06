@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [0.17.8] - 2026-11-06
+
 ### Added
 
 - **Phantom Blade Zero**: Resources tab can edit main weapons / phantom weapons / accessories (add, upgrade level, delete); strong corrupt-save + backup warning
@@ -11,6 +13,7 @@
 ### Notes
 
 - **Phantom Blade Zero**: refuses deleting equipped main/phantom weapons; accessory delete clears matching `AccessoryIDs` slots; per-item effects are not verified
+- **Phantom Blade Zero**: add list hides owned items; main/phantom UI levels match in-game grades (0-based strengthen count + 1)
 
 ## [0.17.7] - 2026-11-05
 

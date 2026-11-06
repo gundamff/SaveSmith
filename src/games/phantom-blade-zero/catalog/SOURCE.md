@@ -108,6 +108,11 @@ source, UI, icons, or runtime pak reader.
 
 Counts at generation time: 29 main-weapon, 27 phantom-weapon, 73 accessory.
 
+Weapon / phantom `maxLevel` is the max **game grade** (stored `WeaponLevel` /
+`ShaChiWeaponLevel`). The editor keeps a 0-based strengthen count internally
+and shows `count + 1` in the UI so a save with `WeaponLevel: 20` displays as 20.
+Accessory `maxLevel` is max `CurrentLevel` (no +1).
+
 ## Regeneration
 
 Full save-crypto **and resource unpack** steps (tool download, AES/usmap/Oodle,
