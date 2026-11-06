@@ -11,6 +11,7 @@ import {
   isPbzTime
 } from './inventoryRecord'
 import { collectBossRecordIssues } from './bossRecords'
+import { collectEquipmentIssues } from './equipment'
 import { collectProgressIssues } from './progress'
 
 export {
@@ -319,6 +320,7 @@ function validateDocument(slot: PbzEditableSlot, issues: ValidationIssue[]): voi
 
   collectBossRecordIssues(slot, issues)
   collectProgressIssues(slot, issues)
+  collectEquipmentIssues(slot, issues)
 
   const inventoryValue = slot.document.Inventory
   if (inventoryValue === undefined) return

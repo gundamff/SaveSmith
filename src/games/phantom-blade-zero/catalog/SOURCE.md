@@ -88,6 +88,26 @@ re-playbook §6. Two save-only IDs absent from the codex row keys are aliased:
 
 English `en` is intentionally empty; UI falls back to a readable ID form.
 
+## Equipment catalog (`equipment.json`)
+
+Unique gear rows (main weapons / phantom weapons / accessories) were derived
+from the same Steam build `26266538` on 2026-11-06 by reading local IoStore
+tables:
+
+- `DT_WeaponData`
+- `DT_ShaqiWeaponData`
+- `DT_Accessory`
+
+plus `zh-Hans` / `en-US` Game.locres names. Experimental / unsupported rows
+were filtered out. Accessory `maxLevel` comes from table upgrade text keys;
+weapon / phantom rows without a table max use SaveSmith default `20`.
+
+Field layout for save writes follows publicly documented PBZ inventory
+semantics (MIT reference tooling); SaveSmith does not ship that project's
+source, UI, icons, or runtime pak reader.
+
+Counts at generation time: 29 main-weapon, 27 phantom-weapon, 73 accessory.
+
 ## Regeneration
 
 Full save-crypto **and resource unpack** steps (tool download, AES/usmap/Oodle,
@@ -101,6 +121,10 @@ $env:PBZ_SAVE="F:\SteamLibrary\steamapps\common\PBZ\ProjectPBZ\Saved\SaveGames\S
 npx vite-node scripts/pbz-discover-item-assets.mts
 node --experimental-strip-types scripts/pbz-build-item-catalog.mts
 ```
+
+Equipment JSON refresh (after producing a local `catalog.json` from the
+installed game with a MIT IoStore reader):  
+`node --experimental-strip-types scripts/pbz-build-equipment-catalog.mts`
 
 AES keys, USMAP bytes, raw game exports, player saves, player identifiers,
 tool binaries, and temporary reports are not redistributed.

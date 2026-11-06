@@ -1,0 +1,905 @@
+[
+  {
+    "id": "AC_ActHit",
+    "category": "accessory",
+    "zh": "影动猎杀仪",
+    "en": "HUNTER'S INSIGHT",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ActHitShachi",
+    "category": "accessory",
+    "zh": "ActHitShachi",
+    "en": "",
+    "maxLevel": 0
+  },
+  {
+    "id": "AC_AnimMovement",
+    "category": "accessory",
+    "zh": "舞扇",
+    "en": "Dance Fan",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Attack",
+    "category": "accessory",
+    "zh": "筋力绑带",
+    "en": "BATTLE WRAPS",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_BigHit",
+    "category": "accessory",
+    "zh": "绝望护符",
+    "en": "Talisman of Despair",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Bleed",
+    "category": "accessory",
+    "zh": "雪与血",
+    "en": "Snow and Blood",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_BreakAttack",
+    "category": "accessory",
+    "zh": "追杀令",
+    "en": "TOKEN OF PURSUIT",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_BreakDrink",
+    "category": "accessory",
+    "zh": "静心小葫芦",
+    "en": "CALMING GOURD",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_BreakRecover",
+    "category": "accessory",
+    "zh": "沉香念珠",
+    "en": "AGARWOOD PRAYER BEADS",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_BreakRegen",
+    "category": "accessory",
+    "zh": "慈母护符",
+    "en": "MOTHER'S TALISMAN",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_BreakShield",
+    "category": "accessory",
+    "zh": "破盾符",
+    "en": "SHIELDBREAKER TALISMAN",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Chaos",
+    "category": "accessory",
+    "zh": "混沌狂戒",
+    "en": "Chaos Ring",
+    "maxLevel": 2
+  },
+  {
+    "id": "AC_Combo",
+    "category": "accessory",
+    "zh": "碧血云天",
+    "en": "Crimson Resolve",
+    "maxLevel": 2
+  },
+  {
+    "id": "AC_Control",
+    "category": "accessory",
+    "zh": "细线球",
+    "en": "FINE THREAD",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Counter",
+    "category": "accessory",
+    "zh": "反击护腕",
+    "en": "Counterstrike Bracers",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Deflect",
+    "category": "accessory",
+    "zh": "神机指环",
+    "en": "SHENJI'S RING",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Double",
+    "category": "accessory",
+    "zh": "妙手连环",
+    "en": "QUICK HAND PAIR",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Drink",
+    "category": "accessory",
+    "zh": "香薰药盒",
+    "en": "MEDICINE CASE",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_DrinkCost",
+    "category": "accessory",
+    "zh": "深宅药罐",
+    "en": "Manor Medicine Pot",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_EasyExecution",
+    "category": "accessory",
+    "zh": "EasyExecution",
+    "en": "",
+    "maxLevel": 0
+  },
+  {
+    "id": "AC_Electrified",
+    "category": "accessory",
+    "zh": "月雷华灯",
+    "en": "Thundermoon Lantern",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ElementRegen",
+    "category": "accessory",
+    "zh": "灭法拂尘丝",
+    "en": "Acolyte Whisk",
+    "maxLevel": 2
+  },
+  {
+    "id": "AC_Elemental",
+    "category": "accessory",
+    "zh": "羽扇残羽",
+    "en": "Feather Fan Plume",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ElementalResistance",
+    "category": "accessory",
+    "zh": "ElementalResistance",
+    "en": "",
+    "maxLevel": 0
+  },
+  {
+    "id": "AC_EvadePhantom",
+    "category": "accessory",
+    "zh": "影魅面具",
+    "en": "Wraith Mask",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Execution",
+    "category": "accessory",
+    "zh": "万杀巧锁",
+    "en": "DEATHLOCK",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ExecutionSwitchCool",
+    "category": "accessory",
+    "zh": "刽子手头巾",
+    "en": "Executioner's Headscarf",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Frost",
+    "category": "accessory",
+    "zh": "灭法冰棱",
+    "en": "Acolyte Icicle",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Health",
+    "category": "accessory",
+    "zh": "珍玩妖织",
+    "en": "JEWEL'S KNOT",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_HealthResistance",
+    "category": "accessory",
+    "zh": "古甲残片",
+    "en": "ANCIENT ARMOR FRAGMENT",
+    "maxLevel": 2
+  },
+  {
+    "id": "AC_HeavyAttackCost",
+    "category": "accessory",
+    "zh": "正气凌然",
+    "en": "LINGRAN'S PENDANT",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_HeavyAttackDamage",
+    "category": "accessory",
+    "zh": "残破容器",
+    "en": "Broken Vessel",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_HeavyAttackShachi",
+    "category": "accessory",
+    "zh": "独孤绝印",
+    "en": "SEAL OF DUGU",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Ignite",
+    "category": "accessory",
+    "zh": "瑞狮火球",
+    "en": "Auspicious Lion Fireball",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Long",
+    "category": "accessory",
+    "zh": "妙手千钧",
+    "en": "QUICK HAND MIGHT",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Loot",
+    "category": "accessory",
+    "zh": "聚宝盆",
+    "en": "Treasure Basin",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_LowHealth",
+    "category": "accessory",
+    "zh": "绝地求生令",
+    "en": "Desperate Stand",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_LowShachi",
+    "category": "accessory",
+    "zh": "同心双鱼佩",
+    "en": "Twin Fish Pendant",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_MagicWeapon",
+    "category": "accessory",
+    "zh": "百相傩面",
+    "en": "Nuo Mask",
+    "maxLevel": 2
+  },
+  {
+    "id": "AC_MartialWeapon",
+    "category": "accessory",
+    "zh": "粗糙煌心",
+    "en": "Crude Radiant Heart",
+    "maxLevel": 2
+  },
+  {
+    "id": "AC_PerfectFrame",
+    "category": "accessory",
+    "zh": "浑源经脉仪",
+    "en": "REFLEX DEVICE",
+    "maxLevel": 2
+  },
+  {
+    "id": "AC_PhysicalResistance",
+    "category": "accessory",
+    "zh": "PhysicalResistance",
+    "en": "",
+    "maxLevel": 0
+  },
+  {
+    "id": "AC_Poison",
+    "category": "accessory",
+    "zh": "猛毒袋",
+    "en": "Venom Pouch",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_PoisonRegen",
+    "category": "accessory",
+    "zh": "活木符",
+    "en": "Livingwood Talisman",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_PowerWeapon",
+    "category": "accessory",
+    "zh": "力士神像",
+    "en": "Guardian Idol",
+    "maxLevel": 2
+  },
+  {
+    "id": "AC_RandomDrink",
+    "category": "accessory",
+    "zh": "开光玉佩",
+    "en": "Blessed Jade Pendant",
+    "maxLevel": 2
+  },
+  {
+    "id": "AC_Ranged",
+    "category": "accessory",
+    "zh": "神射之眼",
+    "en": "Sharpshooter's Eye",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_RangedWeapon",
+    "category": "accessory",
+    "zh": "无相神镜",
+    "en": "Formless Divine Mirror",
+    "maxLevel": 2
+  },
+  {
+    "id": "AC_Regen",
+    "category": "accessory",
+    "zh": "Regen",
+    "en": "",
+    "maxLevel": 0
+  },
+  {
+    "id": "AC_ResistBleed",
+    "category": "accessory",
+    "zh": "凝血符",
+    "en": "Congeal talisman",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ResistFire",
+    "category": "accessory",
+    "zh": "辟火符",
+    "en": "Flameward",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ResistIce",
+    "category": "accessory",
+    "zh": "防冰符",
+    "en": "Frostward",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ResistNonBreak",
+    "category": "accessory",
+    "zh": "坚岩护腕",
+    "en": "BOULDERGUARD",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ResistPoison",
+    "category": "accessory",
+    "zh": "食物防腐罐",
+    "en": "PRESERVATION JAR",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ResistRanged",
+    "category": "accessory",
+    "zh": "避箭护符",
+    "en": "ARROWWARD",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ResistThunder",
+    "category": "accessory",
+    "zh": "避雷符",
+    "en": "Thunderward",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Resistance",
+    "category": "accessory",
+    "zh": "Resistance",
+    "en": "",
+    "maxLevel": 0
+  },
+  {
+    "id": "AC_Rider",
+    "category": "accessory",
+    "zh": "斩骑符",
+    "en": "Cavalrybane",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Shachi",
+    "category": "accessory",
+    "zh": "弦音护符",
+    "en": "RESONANCE TALISMAN",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ShachiAttack",
+    "category": "accessory",
+    "zh": "白山密令",
+    "en": "BAISHAN WRIT",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ShachiCool",
+    "category": "accessory",
+    "zh": "胭脂盒",
+    "en": "Rouge Box",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ShachiRegen",
+    "category": "accessory",
+    "zh": "杀气头巾",
+    "en": "Sha-Chi Headscarf",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_ShachiWeapon",
+    "category": "accessory",
+    "zh": "暗源方块",
+    "en": "Remnant Spark Cube",
+    "maxLevel": 2
+  },
+  {
+    "id": "AC_SpiritShadow",
+    "category": "accessory",
+    "zh": "暗源小笼",
+    "en": "REMNANT SPARK CAGE",
+    "maxLevel": 2
+  },
+  {
+    "id": "AC_Stance",
+    "category": "accessory",
+    "zh": "机簧护心镜",
+    "en": "BRASS CHEST GUARD",
+    "maxLevel": 2
+  },
+  {
+    "id": "AC_Stealth",
+    "category": "accessory",
+    "zh": "屏息绑带",
+    "en": "SILENT WRAP",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Summon",
+    "category": "accessory",
+    "zh": "Summon",
+    "en": "",
+    "maxLevel": 0
+  },
+  {
+    "id": "AC_SummonDuration",
+    "category": "accessory",
+    "zh": "人偶木心",
+    "en": "A PUPPET'S WOODEN HEART",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_SwitchEndure",
+    "category": "accessory",
+    "zh": "神奇刀鞘",
+    "en": "Miraculous Scabbard",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_Tang",
+    "category": "accessory",
+    "zh": "妙手在握",
+    "en": "QUICK HAND PENDANT",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_TimerEndure",
+    "category": "accessory",
+    "zh": "百战魔躯",
+    "en": "Battleforged",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_UltimateBreak",
+    "category": "accessory",
+    "zh": "绝技护符",
+    "en": "Ultimate Talisman",
+    "maxLevel": 1
+  },
+  {
+    "id": "AC_UltimateCharge",
+    "category": "accessory",
+    "zh": "无名大师的扳指",
+    "en": "Nameless Thumb Ring",
+    "maxLevel": 2
+  },
+  {
+    "id": "BaiShanShuangJian",
+    "category": "main-weapon",
+    "zh": "白山风雷剑",
+    "en": "BAISHAN STORMSWORDS",
+    "maxLevel": 20
+  },
+  {
+    "id": "BaiYing",
+    "category": "main-weapon",
+    "zh": "白影",
+    "en": "WHITESHADOW",
+    "maxLevel": 20
+  },
+  {
+    "id": "ChiZheCanJian",
+    "category": "main-weapon",
+    "zh": "痴者残剑",
+    "en": "THE FANATIC'S BROKEN BLADE",
+    "maxLevel": 20
+  },
+  {
+    "id": "CiGuHunDun",
+    "category": "main-weapon",
+    "zh": "刺骨混沌",
+    "en": "FREEZING CHAOS",
+    "maxLevel": 20
+  },
+  {
+    "id": "Double",
+    "category": "main-weapon",
+    "zh": "黑伤双刃",
+    "en": "SANGUINE TWIN",
+    "maxLevel": 20
+  },
+  {
+    "id": "DualHook",
+    "category": "main-weapon",
+    "zh": "别离残钩",
+    "en": "PARTING HOOKS",
+    "maxLevel": 20
+  },
+  {
+    "id": "FangHuaXieShan",
+    "category": "main-weapon",
+    "zh": "圣母邪扇",
+    "en": "THE LADY'S FAN",
+    "maxLevel": 20
+  },
+  {
+    "id": "GuiTouBlade",
+    "category": "main-weapon",
+    "zh": "红妆鬼斩",
+    "en": "SCARLET WRAITHBLADE",
+    "maxLevel": 20
+  },
+  {
+    "id": "HeiMoShang",
+    "category": "main-weapon",
+    "zh": "黑魔伤",
+    "en": "INFERNAL ROUGE",
+    "maxLevel": 20
+  },
+  {
+    "id": "HorizontalBlade",
+    "category": "main-weapon",
+    "zh": "荡寇凶刃",
+    "en": "JUGGERNAUT",
+    "maxLevel": 20
+  },
+  {
+    "id": "IronBlade",
+    "category": "main-weapon",
+    "zh": "残钢刃",
+    "en": "JAGGED STEEL",
+    "maxLevel": 20
+  },
+  {
+    "id": "JadeDualChakram",
+    "category": "main-weapon",
+    "zh": "玉双环",
+    "en": "SEAMLESS DEATH",
+    "maxLevel": 20
+  },
+  {
+    "id": "Jigsaw",
+    "category": "main-weapon",
+    "zh": "断肢锯",
+    "en": "BONESAW",
+    "maxLevel": 20
+  },
+  {
+    "id": "Long",
+    "category": "main-weapon",
+    "zh": "长形黑伤",
+    "en": "SANGUINE REACH",
+    "maxLevel": 20
+  },
+  {
+    "id": "LuanYing",
+    "category": "main-weapon",
+    "zh": "乱莺剑",
+    "en": "WILD ORIOLE SWORD",
+    "maxLevel": 20
+  },
+  {
+    "id": "MoQie",
+    "category": "main-weapon",
+    "zh": "魔切",
+    "en": "",
+    "maxLevel": 20
+  },
+  {
+    "id": "PoJun",
+    "category": "main-weapon",
+    "zh": "破军",
+    "en": "ARMYBREAKER",
+    "maxLevel": 20
+  },
+  {
+    "id": "RenOuQingTongJian",
+    "category": "main-weapon",
+    "zh": "天玄青铜剑",
+    "en": "TIANXUAN BRONZE SWORD",
+    "maxLevel": 20
+  },
+  {
+    "id": "RenOuYanYueDao",
+    "category": "main-weapon",
+    "zh": "偃月刀",
+    "en": "CRESCENT BLADE",
+    "maxLevel": 20
+  },
+  {
+    "id": "SlitheringSword",
+    "category": "main-weapon",
+    "zh": "灵蛇软剑",
+    "en": "SOFT SNAKE SWORD",
+    "maxLevel": 20
+  },
+  {
+    "id": "SnakeDual",
+    "category": "main-weapon",
+    "zh": "白蟒赤练",
+    "en": "WHITE SERPENT & CRIMSON VIPER",
+    "maxLevel": 20
+  },
+  {
+    "id": "Tang",
+    "category": "main-weapon",
+    "zh": "黑伤",
+    "en": "SANGUINE",
+    "maxLevel": 20
+  },
+  {
+    "id": "TianShaShuangYue",
+    "category": "main-weapon",
+    "zh": "天煞双钺",
+    "en": "SUNDERING DUAL AXES",
+    "maxLevel": 20
+  },
+  {
+    "id": "WoodenSword",
+    "category": "main-weapon",
+    "zh": "木制黑伤",
+    "en": "WOODEN SANGUINE",
+    "maxLevel": 20
+  },
+  {
+    "id": "XieHuo",
+    "category": "main-weapon",
+    "zh": "炽刃",
+    "en": "BLAZING EDGE",
+    "maxLevel": 20
+  },
+  {
+    "id": "YuuBlade",
+    "category": "main-weapon",
+    "zh": "妖锯",
+    "en": "FIEND SAWS",
+    "maxLevel": 20
+  },
+  {
+    "id": "ZhanMaBlade",
+    "category": "main-weapon",
+    "zh": "亡命斩马刀",
+    "en": "OUTLAW WARBLADE",
+    "maxLevel": 20
+  },
+  {
+    "id": "ZhuGuangBaoQi",
+    "category": "main-weapon",
+    "zh": "珠光宝气",
+    "en": "",
+    "maxLevel": 20
+  },
+  {
+    "id": "ZiMingJian",
+    "category": "main-weapon",
+    "zh": "紫冥剑",
+    "en": "AUREATE",
+    "maxLevel": 20
+  },
+  {
+    "id": "BaWangLianQiu",
+    "category": "phantom-weapon",
+    "zh": "伤害能力",
+    "en": "Damage",
+    "maxLevel": 20
+  },
+  {
+    "id": "BrutalAxe",
+    "category": "phantom-weapon",
+    "zh": "巨凶斧",
+    "en": "DREAD AXE",
+    "maxLevel": 20
+  },
+  {
+    "id": "CaoOuSiXian",
+    "category": "phantom-weapon",
+    "zh": "操偶铃铛",
+    "en": "PUPPETEER'S BELL",
+    "maxLevel": 20
+  },
+  {
+    "id": "CuiXinPiPa",
+    "category": "phantom-weapon",
+    "zh": "催心琵琶",
+    "en": "HEARTREND PIPA",
+    "maxLevel": 20
+  },
+  {
+    "id": "DuYanGong",
+    "category": "phantom-weapon",
+    "zh": "独眼弓",
+    "en": "ONE-EYED BOW",
+    "maxLevel": 20
+  },
+  {
+    "id": "HuangJinHuoChong",
+    "category": "phantom-weapon",
+    "zh": "黄金火铳",
+    "en": "GOLDBLAZE",
+    "maxLevel": 20
+  },
+  {
+    "id": "HuoLiuXing",
+    "category": "phantom-weapon",
+    "zh": "火流星",
+    "en": "Blaze",
+    "maxLevel": 20
+  },
+  {
+    "id": "JianKeZhaoJiLing",
+    "category": "phantom-weapon",
+    "zh": "剑客召集令",
+    "en": "SWORDSMAN'S SUMMON",
+    "maxLevel": 20
+  },
+  {
+    "id": "JinGua",
+    "category": "phantom-weapon",
+    "zh": "长柄金瓜",
+    "en": "BASHPOLE",
+    "maxLevel": 20
+  },
+  {
+    "id": "KuYeSiZhuChuan",
+    "category": "phantom-weapon",
+    "zh": "苦叶寺珠串",
+    "en": "KUYE TEMPLE PRAYER BEADS",
+    "maxLevel": 20
+  },
+  {
+    "id": "LionHead",
+    "category": "phantom-weapon",
+    "zh": "烈焰狮头",
+    "en": "FLAMING MANE",
+    "maxLevel": 20
+  },
+  {
+    "id": "MiaoShouFeiDao",
+    "category": "phantom-weapon",
+    "zh": "妙手飞刀",
+    "en": "FLYING DAGGER",
+    "maxLevel": 20
+  },
+  {
+    "id": "MoShou",
+    "category": "phantom-weapon",
+    "zh": "伤害能力",
+    "en": "Damage",
+    "maxLevel": 20
+  },
+  {
+    "id": "Mojian",
+    "category": "phantom-weapon",
+    "zh": "墨血无痕",
+    "en": "INK CUT",
+    "maxLevel": 20
+  },
+  {
+    "id": "NiTouChe",
+    "category": "phantom-weapon",
+    "zh": "泥头车",
+    "en": "WAR WAGON",
+    "maxLevel": 20
+  },
+  {
+    "id": "ShachiHook",
+    "category": "phantom-weapon",
+    "zh": "追命锁镰",
+    "en": "HUNTER'S CHAIN SICKLE",
+    "maxLevel": 20
+  },
+  {
+    "id": "TanLang",
+    "category": "phantom-weapon",
+    "zh": "贪狼",
+    "en": "WOLFJAW",
+    "maxLevel": 20
+  },
+  {
+    "id": "ThunderSpear",
+    "category": "phantom-weapon",
+    "zh": "雷霆枪",
+    "en": "THUNDER SPEAR",
+    "maxLevel": 20
+  },
+  {
+    "id": "TieGongZhuQuanTao",
+    "category": "phantom-weapon",
+    "zh": "铁拳套",
+    "en": "IRON GAUNTLETS",
+    "maxLevel": 20
+  },
+  {
+    "id": "TigerCannon",
+    "category": "phantom-weapon",
+    "zh": "虎炮",
+    "en": "TIGER CANNON",
+    "maxLevel": 20
+  },
+  {
+    "id": "UnnamedBow",
+    "category": "phantom-weapon",
+    "zh": "羽弓",
+    "en": "FEATHER BOW",
+    "maxLevel": 20
+  },
+  {
+    "id": "XuKongHuaShan",
+    "category": "phantom-weapon",
+    "zh": "虚空华扇",
+    "en": "INANIS' RADIANT FAN",
+    "maxLevel": 20
+  },
+  {
+    "id": "XueDiZi",
+    "category": "phantom-weapon",
+    "zh": "血滴子",
+    "en": "FLYING GUILLOTINE",
+    "maxLevel": 20
+  },
+  {
+    "id": "XueSeLingDang",
+    "category": "phantom-weapon",
+    "zh": "召唤物生命",
+    "en": "Summon Health",
+    "maxLevel": 20
+  },
+  {
+    "id": "YouLongCha",
+    "category": "phantom-weapon",
+    "zh": "游龙叉",
+    "en": "LOONG TRIDENT",
+    "maxLevel": 20
+  },
+  {
+    "id": "YouLongTou",
+    "category": "phantom-weapon",
+    "zh": "游龙头",
+    "en": "YOU LOONG'S DELUGE",
+    "maxLevel": 20
+  },
+  {
+    "id": "ZhuoBiDun",
+    "category": "phantom-weapon",
+    "zh": "拙壁盾",
+    "en": "BASTION",
+    "maxLevel": 20
+  }
+]

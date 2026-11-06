@@ -7,15 +7,19 @@ import {
   setDust
 } from '../model/saveModel'
 import type { PbzItemCategory } from '../catalog'
+import type { PbzEquipmentCategory } from '../catalog/equipmentCatalog'
+import EquipmentCategoryTab from './EquipmentCategoryTab.vue'
 import InventoryCategoryTab from './InventoryCategoryTab.vue'
 import { usePbzEditor } from './inject'
+
+type ResourcesTabName = PbzItemCategory | PbzEquipmentCategory
 import {
   reconcileSlotSelection,
   requestSlotSelection
 } from './slotSelection'
 
 const editor = usePbzEditor()
-const activeCategory = ref<PbzItemCategory>('weapon-material')
+const activeCategory = ref<ResourcesTabName>('weapon-material')
 const selectedSlotName = ref(editor.save.model.selectedSlotName ?? '')
 
 watch(
@@ -111,6 +115,24 @@ function changeDust(value: number | undefined): void {
         name="consumable"
       >
         <InventoryCategoryTab category="consumable" :slot="selectedSlot" />
+      </el-tab-pane>
+      <el-tab-pane
+        :label="t('pbz.resources.mainWeapons')"
+        name="main-weapon"
+      >
+        <EquipmentCategoryTab category="main-weapon" :slot="selectedSlot" />
+      </el-tab-pane>
+      <el-tab-pane
+        :label="t('pbz.resources.phantomWeapons')"
+        name="phantom-weapon"
+      >
+        <EquipmentCategoryTab category="phantom-weapon" :slot="selectedSlot" />
+      </el-tab-pane>
+      <el-tab-pane
+        :label="t('pbz.resources.accessories')"
+        name="accessory"
+      >
+        <EquipmentCategoryTab category="accessory" :slot="selectedSlot" />
       </el-tab-pane>
     </el-tabs>
   </div>
