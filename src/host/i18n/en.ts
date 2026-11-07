@@ -747,6 +747,7 @@ export const en: MessageTree = {
     PBZ_INVALID_MATERIAL_MAX: 'Invalid historical max for material {1} in slot {0}',
     PBZ_INVALID_CYCLE_COUNT: 'Invalid CycleCount in slot {0}',
     PBZ_INVALID_GAME_TIME: 'Invalid game time in slot {0}',
-    PBZ_INVALID_BOSS_BEST_TIME: 'Invalid boss best time in slot {0}: {1}'
+    PBZ_INVALID_BOSS_BEST_TIME: 'Invalid boss best time in slot {0}: {1}',
+    PBZ_INVALID_EQUIPMENT: 'Invalid equipment record in slot {0}: {1}'
   }
 }

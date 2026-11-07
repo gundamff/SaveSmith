@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+## [0.17.10] - 2026-11-07
+
+### Fixed
+
+- **Phantom Blade Zero**: equipment records missing `WeaponLevel` / `ShaChiWeaponLevel` / `CurrentLevel` (common before first strengthen) no longer fail the whole slot with `PBZ_INVALID_EQUIPMENT` (missing fields read as level 0)
+- **Host**: add zh/en copy for `PBZ_INVALID_EQUIPMENT` (slot + equipment id)
+
 ## [0.17.9] - 2026-11-06
 
 ### Added

@@ -263,11 +263,12 @@ function readUiLevel(
   record: Record<string, unknown>,
 ): number | null {
   const raw = record[LEVEL_FIELD[category]]
+  // Live saves often omit the level until first strengthen; default UI 0
+  // (weapons: stored grade 1). Match PBZ-Editor inventory_level semantics.
+  if (raw === undefined) return 0
   if (!isIntegerInRange(raw, 0, 999)) return null
   if (category === 'accessory') return raw
-  // Stored WeaponLevel / ShaChiWeaponLevel starts at 1 for UI 0.
-  if (raw < 1) return null
-  return raw - 1
+  return Math.max(1, raw) - 1
 }
 
 function requireUiLevel(

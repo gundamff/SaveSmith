@@ -2,13 +2,15 @@ import { describe, expect, it } from 'vitest'
 
 import {
   addEquipment,
+  collectEquipmentIssues,
   fromDisplayLevel,
   projectEquipment,
   removeEquipment,
   setEquipmentLevel,
   toDisplayLevel,
 } from '@games/phantom-blade-zero/model/equipment'
-import type { PbzSaveModel } from '@games/phantom-blade-zero/model/saveModel'
+import type { PbzEditableSlot, PbzSaveModel } from '@games/phantom-blade-zero/model/saveModel'
+import type { ValidationIssue } from '@sdk/types'
 
 function slotDoc(inventory: Record<string, unknown>): PbzSaveModel {
   return {
@@ -108,5 +110,55 @@ describe('PBZ equipment model', () => {
       (model.slots[0]!.document as any).Inventory.AccessoryInfos.AC_Loot
         .CurrentLevel,
     ).toBe(1)
+  })
+
+  it('treats missing ShaChiWeaponLevel as strengthen 0 and does not invalidate', () => {
+    const model = slotDoc({
+      ShaChiWeaponInfo: {
+        CaoOuSiXian: {
+          AcquiredCycle: 0,
+          FirstAcquiredCycle: 0,
+          DirtyTime: '2026.11.06-22.01.06',
+          AlreadySnapSoul: false,
+        },
+      },
+    })
+    const [row] = projectEquipment(model.slots[0]!, 'phantom-weapon')
+    expect(row).toEqual(
+      expect.objectContaining({ id: 'CaoOuSiXian', level: 0 }),
+    )
+    const issues: ValidationIssue[] = []
+    collectEquipmentIssues(model.slots[0]! as PbzEditableSlot, issues)
+    expect(issues).toEqual([])
+  })
+
+  it('treats missing WeaponLevel / CurrentLevel as 0 without invalidating', () => {
+    const model = slotDoc({
+      MainWeaponInfos: {
+        WoodenSword: { DateTime: '2026.11.06-22.01.06', AlreadySnapSoul: 0 },
+      },
+      AccessoryInfos: {
+        AC_Loot: { DirtyTime: '2026.11.06-22.01.06', AcquiredCycle: 0 },
+      },
+    })
+    expect(projectEquipment(model.slots[0]!, 'main-weapon')[0]?.level).toBe(0)
+    expect(projectEquipment(model.slots[0]!, 'accessory')[0]?.level).toBe(0)
+    const issues: ValidationIssue[] = []
+    collectEquipmentIssues(model.slots[0]! as PbzEditableSlot, issues)
+    expect(issues).toEqual([])
+  })
+
+  it('still rejects non-integer equipment levels', () => {
+    const model = slotDoc({
+      ShaChiWeaponInfo: {
+        CaoOuSiXian: { ShaChiWeaponLevel: 1.5, AlreadySnapSoul: false },
+      },
+    })
+    const issues: ValidationIssue[] = []
+    collectEquipmentIssues(model.slots[0]! as PbzEditableSlot, issues)
+    expect(issues).toContainEqual({
+      code: 'PBZ_INVALID_EQUIPMENT',
+      args: ['AutoSave0', 'CaoOuSiXian'],
+    })
   })
 })

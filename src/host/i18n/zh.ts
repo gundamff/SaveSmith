@@ -735,6 +735,7 @@ export const zh: MessageTree = {
     PBZ_INVALID_MATERIAL_MAX: '槽位 {0} 的材料 {1} 历史最大数量无效',
     PBZ_INVALID_CYCLE_COUNT: '槽位 {0} 的 CycleCount 无效',
     PBZ_INVALID_GAME_TIME: '槽位 {0} 的游戏时间无效',
-    PBZ_INVALID_BOSS_BEST_TIME: '槽位 {0} 的 BOSS 最佳用时无效：{1}'
+    PBZ_INVALID_BOSS_BEST_TIME: '槽位 {0} 的 BOSS 最佳用时无效：{1}',
+    PBZ_INVALID_EQUIPMENT: '槽位 {0} 的装备记录无效：{1}'
   }
 }

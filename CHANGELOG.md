@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+## [0.17.10] - 2026-11-07
+
+### 修复
+
+- **影之刃零**：未强化装备可能缺少 `WeaponLevel` / `ShaChiWeaponLevel` / `CurrentLevel` 时，不再误报 `PBZ_INVALID_EQUIPMENT` 阻断整槽保存（缺字段按 0 级读取）
+- **宿主**：补全 `PBZ_INVALID_EQUIPMENT` 中英文错误文案（含槽位与装备 id）
+
 ## [0.17.9] - 2026-11-06
 
 ### 新增
