@@ -127,7 +127,8 @@ this build’s `lang_en_US` cells for those rows are empty.
 
 The catalog enumerates cycles `0..99` (same upper bound as
 `model/progress.ts` `MAX_CYCLE_COUNT`) × difficulties `0..4` → **500** rows.
-`order = cycle * 10 + difficulty` for stable dropdown sorting.
+`order = cycle * 10 + difficulty` for stable dropdown sorting (assumes
+`EDifficultMode` stays single-digit ordinals `0..4`).
 
 Regenerate:
 
