@@ -27,7 +27,7 @@
 
 - `Player.Dust` 中文显示为游戏正式名称「意识尘埃」；内部字段仍是 `Dust`
 - 进度：周目只读展示（`max(CycleCount, CycleRecords 条数)+1`）；游戏内周目不靠改 `CycleCount` 生效，故不提供编辑。可编辑 `HasGameTime` / `CurrentCycleGameTime`（HMS，双写）。不改 `CycleRecords`
-- 战绩：`PBZDeathMeta.DiedTimes`；`BossRecord.*.Records.*.AttemptCount`（按小黑盒头骨语义 `AttemptCount − KillCount` 编辑被击杀次数；不改 `KillCount` / 通关态）；已有合法 `BestTimeMs` 的行可按整秒改最快用时（存盘为毫秒，SaveSmith 只接受整秒，亚秒会丢失）
+- 战绩：`PBZDeathMeta.DiedTimes`；`BossRecord.*.Records.*.AttemptCount`（按小黑盒头骨语义 `AttemptCount − KillCount` 编辑被击杀次数；不改 `KillCount` / 通关态）；已有合法 `BestTimeMs` 的行可按整秒改最快用时（存盘为毫秒，SaveSmith 只接受整秒，亚秒会丢失）；已有战绩可按白名单下拉将整条记录挂到另一难度键（目标难度已有记录则拒绝；不伪造未遭遇的通关）
 - 未遭遇 BOSS 或无有效 `BestTimeMs` 的行不能伪造用时
 - 27 种武器强化材料：可改已有数量，也可按正式中文名或内部 ID 搜索后添加，或从背包删除记录
 - 材料**编辑**上限为 `0..9999`；提高 `CurrentAmount` 超过原 `MaxAmount` 时会同步提高 `MaxAmount`。若真档已超过 9999（例如拉满后再掉落），仍可打开/保存，编辑器允许保留或下调，但不会再往上加超过该上限

@@ -27,7 +27,7 @@ The resources page keeps internal slot selection and tabs for **Weapon Upgrade M
 
 - `Player.Dust` is shown as 意识尘埃 in Chinese; the storage field remains `Dust`. English UI keeps `Dust` because this build's `en` resources have no translation
 - Progress: cycle week is read-only (`max(CycleCount, CycleRecords count)+1`); in-game week is not driven by editing `CycleCount`, so SaveSmith does not offer that edit. `HasGameTime` / `CurrentCycleGameTime` remain editable (HMS, dual-written). `CycleRecords` are never edited
-- Records: `PBZDeathMeta.DiedTimes`; per-boss deaths via `BossRecord.*.Records.*.AttemptCount` (HeyBox skull semantics `AttemptCount − KillCount`; does not edit `KillCount` / clear flags); rows with a valid existing `BestTimeMs` can be edited in whole seconds (stored as ms; sub-second precision is lost)
+- Records: `PBZDeathMeta.DiedTimes`; per-boss deaths via `BossRecord.*.Records.*.AttemptCount` (HeyBox skull semantics `AttemptCount − KillCount`; does not edit `KillCount` / clear flags); rows with a valid existing `BestTimeMs` can be edited in whole seconds (stored as ms; sub-second precision is lost); existing rows can be re-hung onto another whitelisted difficulty key via dropdown (refuses if the target slot already has a record; does not fabricate clears)
 - Rows for bosses you have not encountered, or without a valid `BestTimeMs`, cannot be given a fake best time
 - 27 weapon-upgrade materials: edit existing amounts, search by official Simplified Chinese name / raw ID to add missing ones, or delete inventory records
 - Material amounts are limited to `0..9999`; raising `CurrentAmount` above its old `MaxAmount` raises `MaxAmount` with it

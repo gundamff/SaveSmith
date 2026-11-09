@@ -626,7 +626,8 @@ export const zh: MessageTree = {
       no: '否',
       empty: '当前槽没有可编辑的 BOSS 战绩记录',
       bestTime: '最佳用时',
-      bestTimeMissing: '—'
+      bestTimeMissing: '—',
+      difficultyRisk: '修改 BOSS 战绩难度可能影响游戏内或小黑盒展示，请先备份存档。'
     },
     resources: {
       warning:

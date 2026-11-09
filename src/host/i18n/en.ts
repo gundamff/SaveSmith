@@ -632,7 +632,9 @@ export const en: MessageTree = {
       no: 'No',
       empty: 'No editable boss records in this slot',
       bestTime: 'Best time',
-      bestTimeMissing: '—'
+      bestTimeMissing: '—',
+      difficultyRisk:
+        'Changing boss record difficulty may affect in-game or HeyBox display. Back up your save first.'
     },
     resources: {
       warning:

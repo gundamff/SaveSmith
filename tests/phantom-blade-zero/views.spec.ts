@@ -785,4 +785,21 @@ describe('PBZ views', () => {
       /markDirty\([^)]*reconcileSlotSelection/s
     )
   })
+
+  it('wires boss difficulty dropdown, risk copy, and translated errors on records tab', () => {
+    const component = source('games/phantom-blade-zero/views/RecordsTab.vue')
+    const zh = source('host/i18n/zh.ts')
+    const en = source('host/i18n/en.ts')
+    expect(component).toMatch(/setBossDifficultyKey/)
+    expect(component).toMatch(/listPbzBossDifficulties/)
+    expect(component).toMatch(/changeBossDifficulty/)
+    expect(component).toMatch(/translateError/)
+    expect(component).toMatch(/pbz\.records\.difficultyRisk/)
+    expect(zh).toMatch(/difficultyRisk:/)
+    expect(en).toMatch(/difficultyRisk:/)
+    setLocale('zh')
+    expect(t('pbz.records.difficultyRisk')).toMatch(/备份/)
+    setLocale('en')
+    expect(t('pbz.records.difficultyRisk')).toMatch(/Back up/i)
+  })
 })

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { locale, t } from '@host/i18n'
+import { ModuleError } from '@sdk/error'
+import { locale, t, translateError } from '@host/i18n'
+import { getPbzBossDifficulty, listPbzBossDifficulties, pbzBossDifficultyName } from '../catalog/bossDifficulties'
 import { getBossDisplayName } from '../catalog/bosses'
 import {
   hmsToTotalSeconds,
@@ -13,6 +15,7 @@ import {
   projectDeathMeta,
   setBossBestTimeSeconds,
   setBossDeathCount,
+  setBossDifficultyKey,
   setDiedTimes
 } from '../model/saveModel'
 import { usePbzEditor } from './inject'
@@ -23,6 +26,7 @@ import {
 
 const editor = usePbzEditor()
 const selectedSlotName = ref(editor.save.model.selectedSlotName ?? '')
+const catalogDifficulties = listPbzBossDifficulties()
 
 watch(
   () => editor.rev,
@@ -60,6 +64,30 @@ const bossRows = computed(() => {
     displayName: getBossDisplayName(row.bossId, language)
   }))
 })
+
+function difficultyLabel(key: string): string {
+  const language = locale.value === 'en' ? 'en' : 'zh'
+  return pbzBossDifficultyName(key, language)
+}
+
+function difficultyOptionsForRow(difficultyKey: string) {
+  if (getPbzBossDifficulty(difficultyKey)) return catalogDifficulties
+  return [
+    { key: difficultyKey, zh: difficultyKey, en: difficultyKey, order: -1 },
+    ...catalogDifficulties
+  ]
+}
+
+function changeBossDifficulty(bossId: string, fromKey: string, toKey: string | null): void {
+  if (!toKey || toKey === fromKey) return
+  try {
+    editor.markDirty(() =>
+      setBossDifficultyKey(editor.save.model, selectedSlotName.value, bossId, fromKey, toKey)
+    )
+  } catch (e) {
+    window.alert(translateError(e instanceof ModuleError ? e : e))
+  }
+}
 
 function changeSlot(targetSlotName: string): void {
   if (
@@ -145,6 +173,13 @@ function changeBossBestTimePart(
       show-icon
       :title="t('pbz.records.heyboxHint')"
     />
+    <el-alert
+      class="pbz-warning"
+      type="warning"
+      :closable="false"
+      show-icon
+      :title="t('pbz.records.difficultyRisk')"
+    />
 
     <el-form label-width="140px" class="pbz-form">
       <el-form-item :label="t('pbz.resources.slot')">
@@ -178,7 +213,21 @@ function changeBossBestTimePart(
         <template #default="{ row }">{{ row.displayName }}</template>
       </el-table-column>
       <el-table-column prop="bossId" :label="t('pbz.records.bossId')" min-width="200" />
-      <el-table-column prop="difficultyKey" :label="t('pbz.records.difficulty')" width="100" />
+      <el-table-column :label="t('pbz.records.difficulty')" min-width="140">
+        <template #default="{ row }">
+          <el-select
+            :model-value="row.difficultyKey"
+            @update:model-value="(value) => changeBossDifficulty(row.bossId, row.difficultyKey, value)"
+          >
+            <el-option
+              v-for="opt in difficultyOptionsForRow(row.difficultyKey)"
+              :key="opt.key"
+              :label="difficultyLabel(opt.key)"
+              :value="opt.key"
+            />
+          </el-select>
+        </template>
+      </el-table-column>
       <el-table-column :label="t('pbz.records.deathCount')" width="160">
         <template #default="{ row }">
           <el-input-number

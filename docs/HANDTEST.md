@@ -311,5 +311,6 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 
 - [ ] 进度 Tab：改「第 N 周目」与游戏时间 → 进游戏看摘要是否变化
 - [ ] 战绩 Tab：改一已有 BestTime 的 BOSS 用时 → 进游戏或战绩展示对照
+- [ ] 战绩 Tab：在副本上将某 BOSS 难度改到另一白名单键 → 进游戏或小黑盒确认记录挂在新难度下
 - [ ] 未遭遇 / 无 BestTimeMs 的行不可伪造用时
 - [ ] 小黑盒若解析失败：进游戏加载并再保存一次（zlib→Oodle）
