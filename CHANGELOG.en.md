@@ -4,9 +4,11 @@
 
 ## [Unreleased]
 
+## [0.17.11] - 2026-11-09
+
 ### Added
 
-- **Phantom Blade Zero**: Records tab dropdown to move an existing boss record to another whitelisted difficulty key; refuses when the target already has a record or the key is unknown
+- **Phantom Blade Zero**: Records tab filterable dropdown to move an existing boss record to another whitelisted difficulty key; refuses unknown or occupied targets with localized friendly errors
 
 ## [0.17.10] - 2026-11-07
 
