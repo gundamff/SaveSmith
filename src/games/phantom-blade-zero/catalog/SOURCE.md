@@ -113,6 +113,31 @@ Weapon / phantom `maxLevel` is the max **game grade** (stored `WeaponLevel` /
 and shows `count + 1` in the UI so a save with `WeaponLevel: 20` displays as 20.
 Accessory `maxLevel` is max `CurrentLevel` (no +1).
 
+## Boss difficulty whitelist (`bossDifficulties.json`)
+
+Steam build `26367565` (2026-11-09). Slot `BossRecord.*.Records` keys are
+`<CycleCount>_<EDifficultMode>` as documented in shipped gameplay script
+`ProjectPBZ/Content/JavaScript/Gameplay/BossCombatRecorder.js` (mounted via
+CUE4Parse; not redistributed). `EDifficultMode` ordinals `0..4` map to 辅助 /
+入阵者 / 破局者 / 逆天者 / 六十六天 (`UI_Setting_05` / `UI_Setting_06` /
+`UI_Setting_11`, `UI_SelectDifficutly_09` in
+`/Game/PBZContent/DataTable/Localizaion/DT_LocTable`). English display labels
+follow Start Menu asset names (`EasyDifficulty` … `NightMareDifficulty`) because
+this build’s `lang_en_US` cells for those rows are empty.
+
+The catalog enumerates cycles `0..99` (same upper bound as
+`model/progress.ts` `MAX_CYCLE_COUNT`) × difficulties `0..4` → **500** rows.
+`order = cycle * 10 + difficulty` for stable dropdown sorting.
+
+Regenerate:
+
+```powershell
+npx vite-node scripts/pbz-build-boss-difficulties.mts
+```
+
+Optional: set `PBZ_BOSS_DIFF_MAX_CYCLE` before running if the game raises the
+cycle cap in a future build.
+
 ## Regeneration
 
 Full save-crypto **and resource unpack** steps (tool download, AES/usmap/Oodle,

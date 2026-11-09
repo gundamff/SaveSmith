@@ -1,0 +1,3002 @@
+[
+  {
+    "key": "0_0",
+    "zh": "辅助",
+    "en": "Auxiliary",
+    "order": 0
+  },
+  {
+    "key": "0_1",
+    "zh": "入阵者",
+    "en": "Story",
+    "order": 1
+  },
+  {
+    "key": "0_2",
+    "zh": "破局者",
+    "en": "Normal",
+    "order": 2
+  },
+  {
+    "key": "0_3",
+    "zh": "逆天者",
+    "en": "Hard",
+    "order": 3
+  },
+  {
+    "key": "0_4",
+    "zh": "六十六天",
+    "en": "66 Days",
+    "order": 4
+  },
+  {
+    "key": "1_0",
+    "zh": "周目1 · 辅助",
+    "en": "Cycle 1 · Auxiliary",
+    "order": 10
+  },
+  {
+    "key": "1_1",
+    "zh": "周目1 · 入阵者",
+    "en": "Cycle 1 · Story",
+    "order": 11
+  },
+  {
+    "key": "1_2",
+    "zh": "周目1 · 破局者",
+    "en": "Cycle 1 · Normal",
+    "order": 12
+  },
+  {
+    "key": "1_3",
+    "zh": "周目1 · 逆天者",
+    "en": "Cycle 1 · Hard",
+    "order": 13
+  },
+  {
+    "key": "1_4",
+    "zh": "周目1 · 六十六天",
+    "en": "Cycle 1 · 66 Days",
+    "order": 14
+  },
+  {
+    "key": "2_0",
+    "zh": "周目2 · 辅助",
+    "en": "Cycle 2 · Auxiliary",
+    "order": 20
+  },
+  {
+    "key": "2_1",
+    "zh": "周目2 · 入阵者",
+    "en": "Cycle 2 · Story",
+    "order": 21
+  },
+  {
+    "key": "2_2",
+    "zh": "周目2 · 破局者",
+    "en": "Cycle 2 · Normal",
+    "order": 22
+  },
+  {
+    "key": "2_3",
+    "zh": "周目2 · 逆天者",
+    "en": "Cycle 2 · Hard",
+    "order": 23
+  },
+  {
+    "key": "2_4",
+    "zh": "周目2 · 六十六天",
+    "en": "Cycle 2 · 66 Days",
+    "order": 24
+  },
+  {
+    "key": "3_0",
+    "zh": "周目3 · 辅助",
+    "en": "Cycle 3 · Auxiliary",
+    "order": 30
+  },
+  {
+    "key": "3_1",
+    "zh": "周目3 · 入阵者",
+    "en": "Cycle 3 · Story",
+    "order": 31
+  },
+  {
+    "key": "3_2",
+    "zh": "周目3 · 破局者",
+    "en": "Cycle 3 · Normal",
+    "order": 32
+  },
+  {
+    "key": "3_3",
+    "zh": "周目3 · 逆天者",
+    "en": "Cycle 3 · Hard",
+    "order": 33
+  },
+  {
+    "key": "3_4",
+    "zh": "周目3 · 六十六天",
+    "en": "Cycle 3 · 66 Days",
+    "order": 34
+  },
+  {
+    "key": "4_0",
+    "zh": "周目4 · 辅助",
+    "en": "Cycle 4 · Auxiliary",
+    "order": 40
+  },
+  {
+    "key": "4_1",
+    "zh": "周目4 · 入阵者",
+    "en": "Cycle 4 · Story",
+    "order": 41
+  },
+  {
+    "key": "4_2",
+    "zh": "周目4 · 破局者",
+    "en": "Cycle 4 · Normal",
+    "order": 42
+  },
+  {
+    "key": "4_3",
+    "zh": "周目4 · 逆天者",
+    "en": "Cycle 4 · Hard",
+    "order": 43
+  },
+  {
+    "key": "4_4",
+    "zh": "周目4 · 六十六天",
+    "en": "Cycle 4 · 66 Days",
+    "order": 44
+  },
+  {
+    "key": "5_0",
+    "zh": "周目5 · 辅助",
+    "en": "Cycle 5 · Auxiliary",
+    "order": 50
+  },
+  {
+    "key": "5_1",
+    "zh": "周目5 · 入阵者",
+    "en": "Cycle 5 · Story",
+    "order": 51
+  },
+  {
+    "key": "5_2",
+    "zh": "周目5 · 破局者",
+    "en": "Cycle 5 · Normal",
+    "order": 52
+  },
+  {
+    "key": "5_3",
+    "zh": "周目5 · 逆天者",
+    "en": "Cycle 5 · Hard",
+    "order": 53
+  },
+  {
+    "key": "5_4",
+    "zh": "周目5 · 六十六天",
+    "en": "Cycle 5 · 66 Days",
+    "order": 54
+  },
+  {
+    "key": "6_0",
+    "zh": "周目6 · 辅助",
+    "en": "Cycle 6 · Auxiliary",
+    "order": 60
+  },
+  {
+    "key": "6_1",
+    "zh": "周目6 · 入阵者",
+    "en": "Cycle 6 · Story",
+    "order": 61
+  },
+  {
+    "key": "6_2",
+    "zh": "周目6 · 破局者",
+    "en": "Cycle 6 · Normal",
+    "order": 62
+  },
+  {
+    "key": "6_3",
+    "zh": "周目6 · 逆天者",
+    "en": "Cycle 6 · Hard",
+    "order": 63
+  },
+  {
+    "key": "6_4",
+    "zh": "周目6 · 六十六天",
+    "en": "Cycle 6 · 66 Days",
+    "order": 64
+  },
+  {
+    "key": "7_0",
+    "zh": "周目7 · 辅助",
+    "en": "Cycle 7 · Auxiliary",
+    "order": 70
+  },
+  {
+    "key": "7_1",
+    "zh": "周目7 · 入阵者",
+    "en": "Cycle 7 · Story",
+    "order": 71
+  },
+  {
+    "key": "7_2",
+    "zh": "周目7 · 破局者",
+    "en": "Cycle 7 · Normal",
+    "order": 72
+  },
+  {
+    "key": "7_3",
+    "zh": "周目7 · 逆天者",
+    "en": "Cycle 7 · Hard",
+    "order": 73
+  },
+  {
+    "key": "7_4",
+    "zh": "周目7 · 六十六天",
+    "en": "Cycle 7 · 66 Days",
+    "order": 74
+  },
+  {
+    "key": "8_0",
+    "zh": "周目8 · 辅助",
+    "en": "Cycle 8 · Auxiliary",
+    "order": 80
+  },
+  {
+    "key": "8_1",
+    "zh": "周目8 · 入阵者",
+    "en": "Cycle 8 · Story",
+    "order": 81
+  },
+  {
+    "key": "8_2",
+    "zh": "周目8 · 破局者",
+    "en": "Cycle 8 · Normal",
+    "order": 82
+  },
+  {
+    "key": "8_3",
+    "zh": "周目8 · 逆天者",
+    "en": "Cycle 8 · Hard",
+    "order": 83
+  },
+  {
+    "key": "8_4",
+    "zh": "周目8 · 六十六天",
+    "en": "Cycle 8 · 66 Days",
+    "order": 84
+  },
+  {
+    "key": "9_0",
+    "zh": "周目9 · 辅助",
+    "en": "Cycle 9 · Auxiliary",
+    "order": 90
+  },
+  {
+    "key": "9_1",
+    "zh": "周目9 · 入阵者",
+    "en": "Cycle 9 · Story",
+    "order": 91
+  },
+  {
+    "key": "9_2",
+    "zh": "周目9 · 破局者",
+    "en": "Cycle 9 · Normal",
+    "order": 92
+  },
+  {
+    "key": "9_3",
+    "zh": "周目9 · 逆天者",
+    "en": "Cycle 9 · Hard",
+    "order": 93
+  },
+  {
+    "key": "9_4",
+    "zh": "周目9 · 六十六天",
+    "en": "Cycle 9 · 66 Days",
+    "order": 94
+  },
+  {
+    "key": "10_0",
+    "zh": "周目10 · 辅助",
+    "en": "Cycle 10 · Auxiliary",
+    "order": 100
+  },
+  {
+    "key": "10_1",
+    "zh": "周目10 · 入阵者",
+    "en": "Cycle 10 · Story",
+    "order": 101
+  },
+  {
+    "key": "10_2",
+    "zh": "周目10 · 破局者",
+    "en": "Cycle 10 · Normal",
+    "order": 102
+  },
+  {
+    "key": "10_3",
+    "zh": "周目10 · 逆天者",
+    "en": "Cycle 10 · Hard",
+    "order": 103
+  },
+  {
+    "key": "10_4",
+    "zh": "周目10 · 六十六天",
+    "en": "Cycle 10 · 66 Days",
+    "order": 104
+  },
+  {
+    "key": "11_0",
+    "zh": "周目11 · 辅助",
+    "en": "Cycle 11 · Auxiliary",
+    "order": 110
+  },
+  {
+    "key": "11_1",
+    "zh": "周目11 · 入阵者",
+    "en": "Cycle 11 · Story",
+    "order": 111
+  },
+  {
+    "key": "11_2",
+    "zh": "周目11 · 破局者",
+    "en": "Cycle 11 · Normal",
+    "order": 112
+  },
+  {
+    "key": "11_3",
+    "zh": "周目11 · 逆天者",
+    "en": "Cycle 11 · Hard",
+    "order": 113
+  },
+  {
+    "key": "11_4",
+    "zh": "周目11 · 六十六天",
+    "en": "Cycle 11 · 66 Days",
+    "order": 114
+  },
+  {
+    "key": "12_0",
+    "zh": "周目12 · 辅助",
+    "en": "Cycle 12 · Auxiliary",
+    "order": 120
+  },
+  {
+    "key": "12_1",
+    "zh": "周目12 · 入阵者",
+    "en": "Cycle 12 · Story",
+    "order": 121
+  },
+  {
+    "key": "12_2",
+    "zh": "周目12 · 破局者",
+    "en": "Cycle 12 · Normal",
+    "order": 122
+  },
+  {
+    "key": "12_3",
+    "zh": "周目12 · 逆天者",
+    "en": "Cycle 12 · Hard",
+    "order": 123
+  },
+  {
+    "key": "12_4",
+    "zh": "周目12 · 六十六天",
+    "en": "Cycle 12 · 66 Days",
+    "order": 124
+  },
+  {
+    "key": "13_0",
+    "zh": "周目13 · 辅助",
+    "en": "Cycle 13 · Auxiliary",
+    "order": 130
+  },
+  {
+    "key": "13_1",
+    "zh": "周目13 · 入阵者",
+    "en": "Cycle 13 · Story",
+    "order": 131
+  },
+  {
+    "key": "13_2",
+    "zh": "周目13 · 破局者",
+    "en": "Cycle 13 · Normal",
+    "order": 132
+  },
+  {
+    "key": "13_3",
+    "zh": "周目13 · 逆天者",
+    "en": "Cycle 13 · Hard",
+    "order": 133
+  },
+  {
+    "key": "13_4",
+    "zh": "周目13 · 六十六天",
+    "en": "Cycle 13 · 66 Days",
+    "order": 134
+  },
+  {
+    "key": "14_0",
+    "zh": "周目14 · 辅助",
+    "en": "Cycle 14 · Auxiliary",
+    "order": 140
+  },
+  {
+    "key": "14_1",
+    "zh": "周目14 · 入阵者",
+    "en": "Cycle 14 · Story",
+    "order": 141
+  },
+  {
+    "key": "14_2",
+    "zh": "周目14 · 破局者",
+    "en": "Cycle 14 · Normal",
+    "order": 142
+  },
+  {
+    "key": "14_3",
+    "zh": "周目14 · 逆天者",
+    "en": "Cycle 14 · Hard",
+    "order": 143
+  },
+  {
+    "key": "14_4",
+    "zh": "周目14 · 六十六天",
+    "en": "Cycle 14 · 66 Days",
+    "order": 144
+  },
+  {
+    "key": "15_0",
+    "zh": "周目15 · 辅助",
+    "en": "Cycle 15 · Auxiliary",
+    "order": 150
+  },
+  {
+    "key": "15_1",
+    "zh": "周目15 · 入阵者",
+    "en": "Cycle 15 · Story",
+    "order": 151
+  },
+  {
+    "key": "15_2",
+    "zh": "周目15 · 破局者",
+    "en": "Cycle 15 · Normal",
+    "order": 152
+  },
+  {
+    "key": "15_3",
+    "zh": "周目15 · 逆天者",
+    "en": "Cycle 15 · Hard",
+    "order": 153
+  },
+  {
+    "key": "15_4",
+    "zh": "周目15 · 六十六天",
+    "en": "Cycle 15 · 66 Days",
+    "order": 154
+  },
+  {
+    "key": "16_0",
+    "zh": "周目16 · 辅助",
+    "en": "Cycle 16 · Auxiliary",
+    "order": 160
+  },
+  {
+    "key": "16_1",
+    "zh": "周目16 · 入阵者",
+    "en": "Cycle 16 · Story",
+    "order": 161
+  },
+  {
+    "key": "16_2",
+    "zh": "周目16 · 破局者",
+    "en": "Cycle 16 · Normal",
+    "order": 162
+  },
+  {
+    "key": "16_3",
+    "zh": "周目16 · 逆天者",
+    "en": "Cycle 16 · Hard",
+    "order": 163
+  },
+  {
+    "key": "16_4",
+    "zh": "周目16 · 六十六天",
+    "en": "Cycle 16 · 66 Days",
+    "order": 164
+  },
+  {
+    "key": "17_0",
+    "zh": "周目17 · 辅助",
+    "en": "Cycle 17 · Auxiliary",
+    "order": 170
+  },
+  {
+    "key": "17_1",
+    "zh": "周目17 · 入阵者",
+    "en": "Cycle 17 · Story",
+    "order": 171
+  },
+  {
+    "key": "17_2",
+    "zh": "周目17 · 破局者",
+    "en": "Cycle 17 · Normal",
+    "order": 172
+  },
+  {
+    "key": "17_3",
+    "zh": "周目17 · 逆天者",
+    "en": "Cycle 17 · Hard",
+    "order": 173
+  },
+  {
+    "key": "17_4",
+    "zh": "周目17 · 六十六天",
+    "en": "Cycle 17 · 66 Days",
+    "order": 174
+  },
+  {
+    "key": "18_0",
+    "zh": "周目18 · 辅助",
+    "en": "Cycle 18 · Auxiliary",
+    "order": 180
+  },
+  {
+    "key": "18_1",
+    "zh": "周目18 · 入阵者",
+    "en": "Cycle 18 · Story",
+    "order": 181
+  },
+  {
+    "key": "18_2",
+    "zh": "周目18 · 破局者",
+    "en": "Cycle 18 · Normal",
+    "order": 182
+  },
+  {
+    "key": "18_3",
+    "zh": "周目18 · 逆天者",
+    "en": "Cycle 18 · Hard",
+    "order": 183
+  },
+  {
+    "key": "18_4",
+    "zh": "周目18 · 六十六天",
+    "en": "Cycle 18 · 66 Days",
+    "order": 184
+  },
+  {
+    "key": "19_0",
+    "zh": "周目19 · 辅助",
+    "en": "Cycle 19 · Auxiliary",
+    "order": 190
+  },
+  {
+    "key": "19_1",
+    "zh": "周目19 · 入阵者",
+    "en": "Cycle 19 · Story",
+    "order": 191
+  },
+  {
+    "key": "19_2",
+    "zh": "周目19 · 破局者",
+    "en": "Cycle 19 · Normal",
+    "order": 192
+  },
+  {
+    "key": "19_3",
+    "zh": "周目19 · 逆天者",
+    "en": "Cycle 19 · Hard",
+    "order": 193
+  },
+  {
+    "key": "19_4",
+    "zh": "周目19 · 六十六天",
+    "en": "Cycle 19 · 66 Days",
+    "order": 194
+  },
+  {
+    "key": "20_0",
+    "zh": "周目20 · 辅助",
+    "en": "Cycle 20 · Auxiliary",
+    "order": 200
+  },
+  {
+    "key": "20_1",
+    "zh": "周目20 · 入阵者",
+    "en": "Cycle 20 · Story",
+    "order": 201
+  },
+  {
+    "key": "20_2",
+    "zh": "周目20 · 破局者",
+    "en": "Cycle 20 · Normal",
+    "order": 202
+  },
+  {
+    "key": "20_3",
+    "zh": "周目20 · 逆天者",
+    "en": "Cycle 20 · Hard",
+    "order": 203
+  },
+  {
+    "key": "20_4",
+    "zh": "周目20 · 六十六天",
+    "en": "Cycle 20 · 66 Days",
+    "order": 204
+  },
+  {
+    "key": "21_0",
+    "zh": "周目21 · 辅助",
+    "en": "Cycle 21 · Auxiliary",
+    "order": 210
+  },
+  {
+    "key": "21_1",
+    "zh": "周目21 · 入阵者",
+    "en": "Cycle 21 · Story",
+    "order": 211
+  },
+  {
+    "key": "21_2",
+    "zh": "周目21 · 破局者",
+    "en": "Cycle 21 · Normal",
+    "order": 212
+  },
+  {
+    "key": "21_3",
+    "zh": "周目21 · 逆天者",
+    "en": "Cycle 21 · Hard",
+    "order": 213
+  },
+  {
+    "key": "21_4",
+    "zh": "周目21 · 六十六天",
+    "en": "Cycle 21 · 66 Days",
+    "order": 214
+  },
+  {
+    "key": "22_0",
+    "zh": "周目22 · 辅助",
+    "en": "Cycle 22 · Auxiliary",
+    "order": 220
+  },
+  {
+    "key": "22_1",
+    "zh": "周目22 · 入阵者",
+    "en": "Cycle 22 · Story",
+    "order": 221
+  },
+  {
+    "key": "22_2",
+    "zh": "周目22 · 破局者",
+    "en": "Cycle 22 · Normal",
+    "order": 222
+  },
+  {
+    "key": "22_3",
+    "zh": "周目22 · 逆天者",
+    "en": "Cycle 22 · Hard",
+    "order": 223
+  },
+  {
+    "key": "22_4",
+    "zh": "周目22 · 六十六天",
+    "en": "Cycle 22 · 66 Days",
+    "order": 224
+  },
+  {
+    "key": "23_0",
+    "zh": "周目23 · 辅助",
+    "en": "Cycle 23 · Auxiliary",
+    "order": 230
+  },
+  {
+    "key": "23_1",
+    "zh": "周目23 · 入阵者",
+    "en": "Cycle 23 · Story",
+    "order": 231
+  },
+  {
+    "key": "23_2",
+    "zh": "周目23 · 破局者",
+    "en": "Cycle 23 · Normal",
+    "order": 232
+  },
+  {
+    "key": "23_3",
+    "zh": "周目23 · 逆天者",
+    "en": "Cycle 23 · Hard",
+    "order": 233
+  },
+  {
+    "key": "23_4",
+    "zh": "周目23 · 六十六天",
+    "en": "Cycle 23 · 66 Days",
+    "order": 234
+  },
+  {
+    "key": "24_0",
+    "zh": "周目24 · 辅助",
+    "en": "Cycle 24 · Auxiliary",
+    "order": 240
+  },
+  {
+    "key": "24_1",
+    "zh": "周目24 · 入阵者",
+    "en": "Cycle 24 · Story",
+    "order": 241
+  },
+  {
+    "key": "24_2",
+    "zh": "周目24 · 破局者",
+    "en": "Cycle 24 · Normal",
+    "order": 242
+  },
+  {
+    "key": "24_3",
+    "zh": "周目24 · 逆天者",
+    "en": "Cycle 24 · Hard",
+    "order": 243
+  },
+  {
+    "key": "24_4",
+    "zh": "周目24 · 六十六天",
+    "en": "Cycle 24 · 66 Days",
+    "order": 244
+  },
+  {
+    "key": "25_0",
+    "zh": "周目25 · 辅助",
+    "en": "Cycle 25 · Auxiliary",
+    "order": 250
+  },
+  {
+    "key": "25_1",
+    "zh": "周目25 · 入阵者",
+    "en": "Cycle 25 · Story",
+    "order": 251
+  },
+  {
+    "key": "25_2",
+    "zh": "周目25 · 破局者",
+    "en": "Cycle 25 · Normal",
+    "order": 252
+  },
+  {
+    "key": "25_3",
+    "zh": "周目25 · 逆天者",
+    "en": "Cycle 25 · Hard",
+    "order": 253
+  },
+  {
+    "key": "25_4",
+    "zh": "周目25 · 六十六天",
+    "en": "Cycle 25 · 66 Days",
+    "order": 254
+  },
+  {
+    "key": "26_0",
+    "zh": "周目26 · 辅助",
+    "en": "Cycle 26 · Auxiliary",
+    "order": 260
+  },
+  {
+    "key": "26_1",
+    "zh": "周目26 · 入阵者",
+    "en": "Cycle 26 · Story",
+    "order": 261
+  },
+  {
+    "key": "26_2",
+    "zh": "周目26 · 破局者",
+    "en": "Cycle 26 · Normal",
+    "order": 262
+  },
+  {
+    "key": "26_3",
+    "zh": "周目26 · 逆天者",
+    "en": "Cycle 26 · Hard",
+    "order": 263
+  },
+  {
+    "key": "26_4",
+    "zh": "周目26 · 六十六天",
+    "en": "Cycle 26 · 66 Days",
+    "order": 264
+  },
+  {
+    "key": "27_0",
+    "zh": "周目27 · 辅助",
+    "en": "Cycle 27 · Auxiliary",
+    "order": 270
+  },
+  {
+    "key": "27_1",
+    "zh": "周目27 · 入阵者",
+    "en": "Cycle 27 · Story",
+    "order": 271
+  },
+  {
+    "key": "27_2",
+    "zh": "周目27 · 破局者",
+    "en": "Cycle 27 · Normal",
+    "order": 272
+  },
+  {
+    "key": "27_3",
+    "zh": "周目27 · 逆天者",
+    "en": "Cycle 27 · Hard",
+    "order": 273
+  },
+  {
+    "key": "27_4",
+    "zh": "周目27 · 六十六天",
+    "en": "Cycle 27 · 66 Days",
+    "order": 274
+  },
+  {
+    "key": "28_0",
+    "zh": "周目28 · 辅助",
+    "en": "Cycle 28 · Auxiliary",
+    "order": 280
+  },
+  {
+    "key": "28_1",
+    "zh": "周目28 · 入阵者",
+    "en": "Cycle 28 · Story",
+    "order": 281
+  },
+  {
+    "key": "28_2",
+    "zh": "周目28 · 破局者",
+    "en": "Cycle 28 · Normal",
+    "order": 282
+  },
+  {
+    "key": "28_3",
+    "zh": "周目28 · 逆天者",
+    "en": "Cycle 28 · Hard",
+    "order": 283
+  },
+  {
+    "key": "28_4",
+    "zh": "周目28 · 六十六天",
+    "en": "Cycle 28 · 66 Days",
+    "order": 284
+  },
+  {
+    "key": "29_0",
+    "zh": "周目29 · 辅助",
+    "en": "Cycle 29 · Auxiliary",
+    "order": 290
+  },
+  {
+    "key": "29_1",
+    "zh": "周目29 · 入阵者",
+    "en": "Cycle 29 · Story",
+    "order": 291
+  },
+  {
+    "key": "29_2",
+    "zh": "周目29 · 破局者",
+    "en": "Cycle 29 · Normal",
+    "order": 292
+  },
+  {
+    "key": "29_3",
+    "zh": "周目29 · 逆天者",
+    "en": "Cycle 29 · Hard",
+    "order": 293
+  },
+  {
+    "key": "29_4",
+    "zh": "周目29 · 六十六天",
+    "en": "Cycle 29 · 66 Days",
+    "order": 294
+  },
+  {
+    "key": "30_0",
+    "zh": "周目30 · 辅助",
+    "en": "Cycle 30 · Auxiliary",
+    "order": 300
+  },
+  {
+    "key": "30_1",
+    "zh": "周目30 · 入阵者",
+    "en": "Cycle 30 · Story",
+    "order": 301
+  },
+  {
+    "key": "30_2",
+    "zh": "周目30 · 破局者",
+    "en": "Cycle 30 · Normal",
+    "order": 302
+  },
+  {
+    "key": "30_3",
+    "zh": "周目30 · 逆天者",
+    "en": "Cycle 30 · Hard",
+    "order": 303
+  },
+  {
+    "key": "30_4",
+    "zh": "周目30 · 六十六天",
+    "en": "Cycle 30 · 66 Days",
+    "order": 304
+  },
+  {
+    "key": "31_0",
+    "zh": "周目31 · 辅助",
+    "en": "Cycle 31 · Auxiliary",
+    "order": 310
+  },
+  {
+    "key": "31_1",
+    "zh": "周目31 · 入阵者",
+    "en": "Cycle 31 · Story",
+    "order": 311
+  },
+  {
+    "key": "31_2",
+    "zh": "周目31 · 破局者",
+    "en": "Cycle 31 · Normal",
+    "order": 312
+  },
+  {
+    "key": "31_3",
+    "zh": "周目31 · 逆天者",
+    "en": "Cycle 31 · Hard",
+    "order": 313
+  },
+  {
+    "key": "31_4",
+    "zh": "周目31 · 六十六天",
+    "en": "Cycle 31 · 66 Days",
+    "order": 314
+  },
+  {
+    "key": "32_0",
+    "zh": "周目32 · 辅助",
+    "en": "Cycle 32 · Auxiliary",
+    "order": 320
+  },
+  {
+    "key": "32_1",
+    "zh": "周目32 · 入阵者",
+    "en": "Cycle 32 · Story",
+    "order": 321
+  },
+  {
+    "key": "32_2",
+    "zh": "周目32 · 破局者",
+    "en": "Cycle 32 · Normal",
+    "order": 322
+  },
+  {
+    "key": "32_3",
+    "zh": "周目32 · 逆天者",
+    "en": "Cycle 32 · Hard",
+    "order": 323
+  },
+  {
+    "key": "32_4",
+    "zh": "周目32 · 六十六天",
+    "en": "Cycle 32 · 66 Days",
+    "order": 324
+  },
+  {
+    "key": "33_0",
+    "zh": "周目33 · 辅助",
+    "en": "Cycle 33 · Auxiliary",
+    "order": 330
+  },
+  {
+    "key": "33_1",
+    "zh": "周目33 · 入阵者",
+    "en": "Cycle 33 · Story",
+    "order": 331
+  },
+  {
+    "key": "33_2",
+    "zh": "周目33 · 破局者",
+    "en": "Cycle 33 · Normal",
+    "order": 332
+  },
+  {
+    "key": "33_3",
+    "zh": "周目33 · 逆天者",
+    "en": "Cycle 33 · Hard",
+    "order": 333
+  },
+  {
+    "key": "33_4",
+    "zh": "周目33 · 六十六天",
+    "en": "Cycle 33 · 66 Days",
+    "order": 334
+  },
+  {
+    "key": "34_0",
+    "zh": "周目34 · 辅助",
+    "en": "Cycle 34 · Auxiliary",
+    "order": 340
+  },
+  {
+    "key": "34_1",
+    "zh": "周目34 · 入阵者",
+    "en": "Cycle 34 · Story",
+    "order": 341
+  },
+  {
+    "key": "34_2",
+    "zh": "周目34 · 破局者",
+    "en": "Cycle 34 · Normal",
+    "order": 342
+  },
+  {
+    "key": "34_3",
+    "zh": "周目34 · 逆天者",
+    "en": "Cycle 34 · Hard",
+    "order": 343
+  },
+  {
+    "key": "34_4",
+    "zh": "周目34 · 六十六天",
+    "en": "Cycle 34 · 66 Days",
+    "order": 344
+  },
+  {
+    "key": "35_0",
+    "zh": "周目35 · 辅助",
+    "en": "Cycle 35 · Auxiliary",
+    "order": 350
+  },
+  {
+    "key": "35_1",
+    "zh": "周目35 · 入阵者",
+    "en": "Cycle 35 · Story",
+    "order": 351
+  },
+  {
+    "key": "35_2",
+    "zh": "周目35 · 破局者",
+    "en": "Cycle 35 · Normal",
+    "order": 352
+  },
+  {
+    "key": "35_3",
+    "zh": "周目35 · 逆天者",
+    "en": "Cycle 35 · Hard",
+    "order": 353
+  },
+  {
+    "key": "35_4",
+    "zh": "周目35 · 六十六天",
+    "en": "Cycle 35 · 66 Days",
+    "order": 354
+  },
+  {
+    "key": "36_0",
+    "zh": "周目36 · 辅助",
+    "en": "Cycle 36 · Auxiliary",
+    "order": 360
+  },
+  {
+    "key": "36_1",
+    "zh": "周目36 · 入阵者",
+    "en": "Cycle 36 · Story",
+    "order": 361
+  },
+  {
+    "key": "36_2",
+    "zh": "周目36 · 破局者",
+    "en": "Cycle 36 · Normal",
+    "order": 362
+  },
+  {
+    "key": "36_3",
+    "zh": "周目36 · 逆天者",
+    "en": "Cycle 36 · Hard",
+    "order": 363
+  },
+  {
+    "key": "36_4",
+    "zh": "周目36 · 六十六天",
+    "en": "Cycle 36 · 66 Days",
+    "order": 364
+  },
+  {
+    "key": "37_0",
+    "zh": "周目37 · 辅助",
+    "en": "Cycle 37 · Auxiliary",
+    "order": 370
+  },
+  {
+    "key": "37_1",
+    "zh": "周目37 · 入阵者",
+    "en": "Cycle 37 · Story",
+    "order": 371
+  },
+  {
+    "key": "37_2",
+    "zh": "周目37 · 破局者",
+    "en": "Cycle 37 · Normal",
+    "order": 372
+  },
+  {
+    "key": "37_3",
+    "zh": "周目37 · 逆天者",
+    "en": "Cycle 37 · Hard",
+    "order": 373
+  },
+  {
+    "key": "37_4",
+    "zh": "周目37 · 六十六天",
+    "en": "Cycle 37 · 66 Days",
+    "order": 374
+  },
+  {
+    "key": "38_0",
+    "zh": "周目38 · 辅助",
+    "en": "Cycle 38 · Auxiliary",
+    "order": 380
+  },
+  {
+    "key": "38_1",
+    "zh": "周目38 · 入阵者",
+    "en": "Cycle 38 · Story",
+    "order": 381
+  },
+  {
+    "key": "38_2",
+    "zh": "周目38 · 破局者",
+    "en": "Cycle 38 · Normal",
+    "order": 382
+  },
+  {
+    "key": "38_3",
+    "zh": "周目38 · 逆天者",
+    "en": "Cycle 38 · Hard",
+    "order": 383
+  },
+  {
+    "key": "38_4",
+    "zh": "周目38 · 六十六天",
+    "en": "Cycle 38 · 66 Days",
+    "order": 384
+  },
+  {
+    "key": "39_0",
+    "zh": "周目39 · 辅助",
+    "en": "Cycle 39 · Auxiliary",
+    "order": 390
+  },
+  {
+    "key": "39_1",
+    "zh": "周目39 · 入阵者",
+    "en": "Cycle 39 · Story",
+    "order": 391
+  },
+  {
+    "key": "39_2",
+    "zh": "周目39 · 破局者",
+    "en": "Cycle 39 · Normal",
+    "order": 392
+  },
+  {
+    "key": "39_3",
+    "zh": "周目39 · 逆天者",
+    "en": "Cycle 39 · Hard",
+    "order": 393
+  },
+  {
+    "key": "39_4",
+    "zh": "周目39 · 六十六天",
+    "en": "Cycle 39 · 66 Days",
+    "order": 394
+  },
+  {
+    "key": "40_0",
+    "zh": "周目40 · 辅助",
+    "en": "Cycle 40 · Auxiliary",
+    "order": 400
+  },
+  {
+    "key": "40_1",
+    "zh": "周目40 · 入阵者",
+    "en": "Cycle 40 · Story",
+    "order": 401
+  },
+  {
+    "key": "40_2",
+    "zh": "周目40 · 破局者",
+    "en": "Cycle 40 · Normal",
+    "order": 402
+  },
+  {
+    "key": "40_3",
+    "zh": "周目40 · 逆天者",
+    "en": "Cycle 40 · Hard",
+    "order": 403
+  },
+  {
+    "key": "40_4",
+    "zh": "周目40 · 六十六天",
+    "en": "Cycle 40 · 66 Days",
+    "order": 404
+  },
+  {
+    "key": "41_0",
+    "zh": "周目41 · 辅助",
+    "en": "Cycle 41 · Auxiliary",
+    "order": 410
+  },
+  {
+    "key": "41_1",
+    "zh": "周目41 · 入阵者",
+    "en": "Cycle 41 · Story",
+    "order": 411
+  },
+  {
+    "key": "41_2",
+    "zh": "周目41 · 破局者",
+    "en": "Cycle 41 · Normal",
+    "order": 412
+  },
+  {
+    "key": "41_3",
+    "zh": "周目41 · 逆天者",
+    "en": "Cycle 41 · Hard",
+    "order": 413
+  },
+  {
+    "key": "41_4",
+    "zh": "周目41 · 六十六天",
+    "en": "Cycle 41 · 66 Days",
+    "order": 414
+  },
+  {
+    "key": "42_0",
+    "zh": "周目42 · 辅助",
+    "en": "Cycle 42 · Auxiliary",
+    "order": 420
+  },
+  {
+    "key": "42_1",
+    "zh": "周目42 · 入阵者",
+    "en": "Cycle 42 · Story",
+    "order": 421
+  },
+  {
+    "key": "42_2",
+    "zh": "周目42 · 破局者",
+    "en": "Cycle 42 · Normal",
+    "order": 422
+  },
+  {
+    "key": "42_3",
+    "zh": "周目42 · 逆天者",
+    "en": "Cycle 42 · Hard",
+    "order": 423
+  },
+  {
+    "key": "42_4",
+    "zh": "周目42 · 六十六天",
+    "en": "Cycle 42 · 66 Days",
+    "order": 424
+  },
+  {
+    "key": "43_0",
+    "zh": "周目43 · 辅助",
+    "en": "Cycle 43 · Auxiliary",
+    "order": 430
+  },
+  {
+    "key": "43_1",
+    "zh": "周目43 · 入阵者",
+    "en": "Cycle 43 · Story",
+    "order": 431
+  },
+  {
+    "key": "43_2",
+    "zh": "周目43 · 破局者",
+    "en": "Cycle 43 · Normal",
+    "order": 432
+  },
+  {
+    "key": "43_3",
+    "zh": "周目43 · 逆天者",
+    "en": "Cycle 43 · Hard",
+    "order": 433
+  },
+  {
+    "key": "43_4",
+    "zh": "周目43 · 六十六天",
+    "en": "Cycle 43 · 66 Days",
+    "order": 434
+  },
+  {
+    "key": "44_0",
+    "zh": "周目44 · 辅助",
+    "en": "Cycle 44 · Auxiliary",
+    "order": 440
+  },
+  {
+    "key": "44_1",
+    "zh": "周目44 · 入阵者",
+    "en": "Cycle 44 · Story",
+    "order": 441
+  },
+  {
+    "key": "44_2",
+    "zh": "周目44 · 破局者",
+    "en": "Cycle 44 · Normal",
+    "order": 442
+  },
+  {
+    "key": "44_3",
+    "zh": "周目44 · 逆天者",
+    "en": "Cycle 44 · Hard",
+    "order": 443
+  },
+  {
+    "key": "44_4",
+    "zh": "周目44 · 六十六天",
+    "en": "Cycle 44 · 66 Days",
+    "order": 444
+  },
+  {
+    "key": "45_0",
+    "zh": "周目45 · 辅助",
+    "en": "Cycle 45 · Auxiliary",
+    "order": 450
+  },
+  {
+    "key": "45_1",
+    "zh": "周目45 · 入阵者",
+    "en": "Cycle 45 · Story",
+    "order": 451
+  },
+  {
+    "key": "45_2",
+    "zh": "周目45 · 破局者",
+    "en": "Cycle 45 · Normal",
+    "order": 452
+  },
+  {
+    "key": "45_3",
+    "zh": "周目45 · 逆天者",
+    "en": "Cycle 45 · Hard",
+    "order": 453
+  },
+  {
+    "key": "45_4",
+    "zh": "周目45 · 六十六天",
+    "en": "Cycle 45 · 66 Days",
+    "order": 454
+  },
+  {
+    "key": "46_0",
+    "zh": "周目46 · 辅助",
+    "en": "Cycle 46 · Auxiliary",
+    "order": 460
+  },
+  {
+    "key": "46_1",
+    "zh": "周目46 · 入阵者",
+    "en": "Cycle 46 · Story",
+    "order": 461
+  },
+  {
+    "key": "46_2",
+    "zh": "周目46 · 破局者",
+    "en": "Cycle 46 · Normal",
+    "order": 462
+  },
+  {
+    "key": "46_3",
+    "zh": "周目46 · 逆天者",
+    "en": "Cycle 46 · Hard",
+    "order": 463
+  },
+  {
+    "key": "46_4",
+    "zh": "周目46 · 六十六天",
+    "en": "Cycle 46 · 66 Days",
+    "order": 464
+  },
+  {
+    "key": "47_0",
+    "zh": "周目47 · 辅助",
+    "en": "Cycle 47 · Auxiliary",
+    "order": 470
+  },
+  {
+    "key": "47_1",
+    "zh": "周目47 · 入阵者",
+    "en": "Cycle 47 · Story",
+    "order": 471
+  },
+  {
+    "key": "47_2",
+    "zh": "周目47 · 破局者",
+    "en": "Cycle 47 · Normal",
+    "order": 472
+  },
+  {
+    "key": "47_3",
+    "zh": "周目47 · 逆天者",
+    "en": "Cycle 47 · Hard",
+    "order": 473
+  },
+  {
+    "key": "47_4",
+    "zh": "周目47 · 六十六天",
+    "en": "Cycle 47 · 66 Days",
+    "order": 474
+  },
+  {
+    "key": "48_0",
+    "zh": "周目48 · 辅助",
+    "en": "Cycle 48 · Auxiliary",
+    "order": 480
+  },
+  {
+    "key": "48_1",
+    "zh": "周目48 · 入阵者",
+    "en": "Cycle 48 · Story",
+    "order": 481
+  },
+  {
+    "key": "48_2",
+    "zh": "周目48 · 破局者",
+    "en": "Cycle 48 · Normal",
+    "order": 482
+  },
+  {
+    "key": "48_3",
+    "zh": "周目48 · 逆天者",
+    "en": "Cycle 48 · Hard",
+    "order": 483
+  },
+  {
+    "key": "48_4",
+    "zh": "周目48 · 六十六天",
+    "en": "Cycle 48 · 66 Days",
+    "order": 484
+  },
+  {
+    "key": "49_0",
+    "zh": "周目49 · 辅助",
+    "en": "Cycle 49 · Auxiliary",
+    "order": 490
+  },
+  {
+    "key": "49_1",
+    "zh": "周目49 · 入阵者",
+    "en": "Cycle 49 · Story",
+    "order": 491
+  },
+  {
+    "key": "49_2",
+    "zh": "周目49 · 破局者",
+    "en": "Cycle 49 · Normal",
+    "order": 492
+  },
+  {
+    "key": "49_3",
+    "zh": "周目49 · 逆天者",
+    "en": "Cycle 49 · Hard",
+    "order": 493
+  },
+  {
+    "key": "49_4",
+    "zh": "周目49 · 六十六天",
+    "en": "Cycle 49 · 66 Days",
+    "order": 494
+  },
+  {
+    "key": "50_0",
+    "zh": "周目50 · 辅助",
+    "en": "Cycle 50 · Auxiliary",
+    "order": 500
+  },
+  {
+    "key": "50_1",
+    "zh": "周目50 · 入阵者",
+    "en": "Cycle 50 · Story",
+    "order": 501
+  },
+  {
+    "key": "50_2",
+    "zh": "周目50 · 破局者",
+    "en": "Cycle 50 · Normal",
+    "order": 502
+  },
+  {
+    "key": "50_3",
+    "zh": "周目50 · 逆天者",
+    "en": "Cycle 50 · Hard",
+    "order": 503
+  },
+  {
+    "key": "50_4",
+    "zh": "周目50 · 六十六天",
+    "en": "Cycle 50 · 66 Days",
+    "order": 504
+  },
+  {
+    "key": "51_0",
+    "zh": "周目51 · 辅助",
+    "en": "Cycle 51 · Auxiliary",
+    "order": 510
+  },
+  {
+    "key": "51_1",
+    "zh": "周目51 · 入阵者",
+    "en": "Cycle 51 · Story",
+    "order": 511
+  },
+  {
+    "key": "51_2",
+    "zh": "周目51 · 破局者",
+    "en": "Cycle 51 · Normal",
+    "order": 512
+  },
+  {
+    "key": "51_3",
+    "zh": "周目51 · 逆天者",
+    "en": "Cycle 51 · Hard",
+    "order": 513
+  },
+  {
+    "key": "51_4",
+    "zh": "周目51 · 六十六天",
+    "en": "Cycle 51 · 66 Days",
+    "order": 514
+  },
+  {
+    "key": "52_0",
+    "zh": "周目52 · 辅助",
+    "en": "Cycle 52 · Auxiliary",
+    "order": 520
+  },
+  {
+    "key": "52_1",
+    "zh": "周目52 · 入阵者",
+    "en": "Cycle 52 · Story",
+    "order": 521
+  },
+  {
+    "key": "52_2",
+    "zh": "周目52 · 破局者",
+    "en": "Cycle 52 · Normal",
+    "order": 522
+  },
+  {
+    "key": "52_3",
+    "zh": "周目52 · 逆天者",
+    "en": "Cycle 52 · Hard",
+    "order": 523
+  },
+  {
+    "key": "52_4",
+    "zh": "周目52 · 六十六天",
+    "en": "Cycle 52 · 66 Days",
+    "order": 524
+  },
+  {
+    "key": "53_0",
+    "zh": "周目53 · 辅助",
+    "en": "Cycle 53 · Auxiliary",
+    "order": 530
+  },
+  {
+    "key": "53_1",
+    "zh": "周目53 · 入阵者",
+    "en": "Cycle 53 · Story",
+    "order": 531
+  },
+  {
+    "key": "53_2",
+    "zh": "周目53 · 破局者",
+    "en": "Cycle 53 · Normal",
+    "order": 532
+  },
+  {
+    "key": "53_3",
+    "zh": "周目53 · 逆天者",
+    "en": "Cycle 53 · Hard",
+    "order": 533
+  },
+  {
+    "key": "53_4",
+    "zh": "周目53 · 六十六天",
+    "en": "Cycle 53 · 66 Days",
+    "order": 534
+  },
+  {
+    "key": "54_0",
+    "zh": "周目54 · 辅助",
+    "en": "Cycle 54 · Auxiliary",
+    "order": 540
+  },
+  {
+    "key": "54_1",
+    "zh": "周目54 · 入阵者",
+    "en": "Cycle 54 · Story",
+    "order": 541
+  },
+  {
+    "key": "54_2",
+    "zh": "周目54 · 破局者",
+    "en": "Cycle 54 · Normal",
+    "order": 542
+  },
+  {
+    "key": "54_3",
+    "zh": "周目54 · 逆天者",
+    "en": "Cycle 54 · Hard",
+    "order": 543
+  },
+  {
+    "key": "54_4",
+    "zh": "周目54 · 六十六天",
+    "en": "Cycle 54 · 66 Days",
+    "order": 544
+  },
+  {
+    "key": "55_0",
+    "zh": "周目55 · 辅助",
+    "en": "Cycle 55 · Auxiliary",
+    "order": 550
+  },
+  {
+    "key": "55_1",
+    "zh": "周目55 · 入阵者",
+    "en": "Cycle 55 · Story",
+    "order": 551
+  },
+  {
+    "key": "55_2",
+    "zh": "周目55 · 破局者",
+    "en": "Cycle 55 · Normal",
+    "order": 552
+  },
+  {
+    "key": "55_3",
+    "zh": "周目55 · 逆天者",
+    "en": "Cycle 55 · Hard",
+    "order": 553
+  },
+  {
+    "key": "55_4",
+    "zh": "周目55 · 六十六天",
+    "en": "Cycle 55 · 66 Days",
+    "order": 554
+  },
+  {
+    "key": "56_0",
+    "zh": "周目56 · 辅助",
+    "en": "Cycle 56 · Auxiliary",
+    "order": 560
+  },
+  {
+    "key": "56_1",
+    "zh": "周目56 · 入阵者",
+    "en": "Cycle 56 · Story",
+    "order": 561
+  },
+  {
+    "key": "56_2",
+    "zh": "周目56 · 破局者",
+    "en": "Cycle 56 · Normal",
+    "order": 562
+  },
+  {
+    "key": "56_3",
+    "zh": "周目56 · 逆天者",
+    "en": "Cycle 56 · Hard",
+    "order": 563
+  },
+  {
+    "key": "56_4",
+    "zh": "周目56 · 六十六天",
+    "en": "Cycle 56 · 66 Days",
+    "order": 564
+  },
+  {
+    "key": "57_0",
+    "zh": "周目57 · 辅助",
+    "en": "Cycle 57 · Auxiliary",
+    "order": 570
+  },
+  {
+    "key": "57_1",
+    "zh": "周目57 · 入阵者",
+    "en": "Cycle 57 · Story",
+    "order": 571
+  },
+  {
+    "key": "57_2",
+    "zh": "周目57 · 破局者",
+    "en": "Cycle 57 · Normal",
+    "order": 572
+  },
+  {
+    "key": "57_3",
+    "zh": "周目57 · 逆天者",
+    "en": "Cycle 57 · Hard",
+    "order": 573
+  },
+  {
+    "key": "57_4",
+    "zh": "周目57 · 六十六天",
+    "en": "Cycle 57 · 66 Days",
+    "order": 574
+  },
+  {
+    "key": "58_0",
+    "zh": "周目58 · 辅助",
+    "en": "Cycle 58 · Auxiliary",
+    "order": 580
+  },
+  {
+    "key": "58_1",
+    "zh": "周目58 · 入阵者",
+    "en": "Cycle 58 · Story",
+    "order": 581
+  },
+  {
+    "key": "58_2",
+    "zh": "周目58 · 破局者",
+    "en": "Cycle 58 · Normal",
+    "order": 582
+  },
+  {
+    "key": "58_3",
+    "zh": "周目58 · 逆天者",
+    "en": "Cycle 58 · Hard",
+    "order": 583
+  },
+  {
+    "key": "58_4",
+    "zh": "周目58 · 六十六天",
+    "en": "Cycle 58 · 66 Days",
+    "order": 584
+  },
+  {
+    "key": "59_0",
+    "zh": "周目59 · 辅助",
+    "en": "Cycle 59 · Auxiliary",
+    "order": 590
+  },
+  {
+    "key": "59_1",
+    "zh": "周目59 · 入阵者",
+    "en": "Cycle 59 · Story",
+    "order": 591
+  },
+  {
+    "key": "59_2",
+    "zh": "周目59 · 破局者",
+    "en": "Cycle 59 · Normal",
+    "order": 592
+  },
+  {
+    "key": "59_3",
+    "zh": "周目59 · 逆天者",
+    "en": "Cycle 59 · Hard",
+    "order": 593
+  },
+  {
+    "key": "59_4",
+    "zh": "周目59 · 六十六天",
+    "en": "Cycle 59 · 66 Days",
+    "order": 594
+  },
+  {
+    "key": "60_0",
+    "zh": "周目60 · 辅助",
+    "en": "Cycle 60 · Auxiliary",
+    "order": 600
+  },
+  {
+    "key": "60_1",
+    "zh": "周目60 · 入阵者",
+    "en": "Cycle 60 · Story",
+    "order": 601
+  },
+  {
+    "key": "60_2",
+    "zh": "周目60 · 破局者",
+    "en": "Cycle 60 · Normal",
+    "order": 602
+  },
+  {
+    "key": "60_3",
+    "zh": "周目60 · 逆天者",
+    "en": "Cycle 60 · Hard",
+    "order": 603
+  },
+  {
+    "key": "60_4",
+    "zh": "周目60 · 六十六天",
+    "en": "Cycle 60 · 66 Days",
+    "order": 604
+  },
+  {
+    "key": "61_0",
+    "zh": "周目61 · 辅助",
+    "en": "Cycle 61 · Auxiliary",
+    "order": 610
+  },
+  {
+    "key": "61_1",
+    "zh": "周目61 · 入阵者",
+    "en": "Cycle 61 · Story",
+    "order": 611
+  },
+  {
+    "key": "61_2",
+    "zh": "周目61 · 破局者",
+    "en": "Cycle 61 · Normal",
+    "order": 612
+  },
+  {
+    "key": "61_3",
+    "zh": "周目61 · 逆天者",
+    "en": "Cycle 61 · Hard",
+    "order": 613
+  },
+  {
+    "key": "61_4",
+    "zh": "周目61 · 六十六天",
+    "en": "Cycle 61 · 66 Days",
+    "order": 614
+  },
+  {
+    "key": "62_0",
+    "zh": "周目62 · 辅助",
+    "en": "Cycle 62 · Auxiliary",
+    "order": 620
+  },
+  {
+    "key": "62_1",
+    "zh": "周目62 · 入阵者",
+    "en": "Cycle 62 · Story",
+    "order": 621
+  },
+  {
+    "key": "62_2",
+    "zh": "周目62 · 破局者",
+    "en": "Cycle 62 · Normal",
+    "order": 622
+  },
+  {
+    "key": "62_3",
+    "zh": "周目62 · 逆天者",
+    "en": "Cycle 62 · Hard",
+    "order": 623
+  },
+  {
+    "key": "62_4",
+    "zh": "周目62 · 六十六天",
+    "en": "Cycle 62 · 66 Days",
+    "order": 624
+  },
+  {
+    "key": "63_0",
+    "zh": "周目63 · 辅助",
+    "en": "Cycle 63 · Auxiliary",
+    "order": 630
+  },
+  {
+    "key": "63_1",
+    "zh": "周目63 · 入阵者",
+    "en": "Cycle 63 · Story",
+    "order": 631
+  },
+  {
+    "key": "63_2",
+    "zh": "周目63 · 破局者",
+    "en": "Cycle 63 · Normal",
+    "order": 632
+  },
+  {
+    "key": "63_3",
+    "zh": "周目63 · 逆天者",
+    "en": "Cycle 63 · Hard",
+    "order": 633
+  },
+  {
+    "key": "63_4",
+    "zh": "周目63 · 六十六天",
+    "en": "Cycle 63 · 66 Days",
+    "order": 634
+  },
+  {
+    "key": "64_0",
+    "zh": "周目64 · 辅助",
+    "en": "Cycle 64 · Auxiliary",
+    "order": 640
+  },
+  {
+    "key": "64_1",
+    "zh": "周目64 · 入阵者",
+    "en": "Cycle 64 · Story",
+    "order": 641
+  },
+  {
+    "key": "64_2",
+    "zh": "周目64 · 破局者",
+    "en": "Cycle 64 · Normal",
+    "order": 642
+  },
+  {
+    "key": "64_3",
+    "zh": "周目64 · 逆天者",
+    "en": "Cycle 64 · Hard",
+    "order": 643
+  },
+  {
+    "key": "64_4",
+    "zh": "周目64 · 六十六天",
+    "en": "Cycle 64 · 66 Days",
+    "order": 644
+  },
+  {
+    "key": "65_0",
+    "zh": "周目65 · 辅助",
+    "en": "Cycle 65 · Auxiliary",
+    "order": 650
+  },
+  {
+    "key": "65_1",
+    "zh": "周目65 · 入阵者",
+    "en": "Cycle 65 · Story",
+    "order": 651
+  },
+  {
+    "key": "65_2",
+    "zh": "周目65 · 破局者",
+    "en": "Cycle 65 · Normal",
+    "order": 652
+  },
+  {
+    "key": "65_3",
+    "zh": "周目65 · 逆天者",
+    "en": "Cycle 65 · Hard",
+    "order": 653
+  },
+  {
+    "key": "65_4",
+    "zh": "周目65 · 六十六天",
+    "en": "Cycle 65 · 66 Days",
+    "order": 654
+  },
+  {
+    "key": "66_0",
+    "zh": "周目66 · 辅助",
+    "en": "Cycle 66 · Auxiliary",
+    "order": 660
+  },
+  {
+    "key": "66_1",
+    "zh": "周目66 · 入阵者",
+    "en": "Cycle 66 · Story",
+    "order": 661
+  },
+  {
+    "key": "66_2",
+    "zh": "周目66 · 破局者",
+    "en": "Cycle 66 · Normal",
+    "order": 662
+  },
+  {
+    "key": "66_3",
+    "zh": "周目66 · 逆天者",
+    "en": "Cycle 66 · Hard",
+    "order": 663
+  },
+  {
+    "key": "66_4",
+    "zh": "周目66 · 六十六天",
+    "en": "Cycle 66 · 66 Days",
+    "order": 664
+  },
+  {
+    "key": "67_0",
+    "zh": "周目67 · 辅助",
+    "en": "Cycle 67 · Auxiliary",
+    "order": 670
+  },
+  {
+    "key": "67_1",
+    "zh": "周目67 · 入阵者",
+    "en": "Cycle 67 · Story",
+    "order": 671
+  },
+  {
+    "key": "67_2",
+    "zh": "周目67 · 破局者",
+    "en": "Cycle 67 · Normal",
+    "order": 672
+  },
+  {
+    "key": "67_3",
+    "zh": "周目67 · 逆天者",
+    "en": "Cycle 67 · Hard",
+    "order": 673
+  },
+  {
+    "key": "67_4",
+    "zh": "周目67 · 六十六天",
+    "en": "Cycle 67 · 66 Days",
+    "order": 674
+  },
+  {
+    "key": "68_0",
+    "zh": "周目68 · 辅助",
+    "en": "Cycle 68 · Auxiliary",
+    "order": 680
+  },
+  {
+    "key": "68_1",
+    "zh": "周目68 · 入阵者",
+    "en": "Cycle 68 · Story",
+    "order": 681
+  },
+  {
+    "key": "68_2",
+    "zh": "周目68 · 破局者",
+    "en": "Cycle 68 · Normal",
+    "order": 682
+  },
+  {
+    "key": "68_3",
+    "zh": "周目68 · 逆天者",
+    "en": "Cycle 68 · Hard",
+    "order": 683
+  },
+  {
+    "key": "68_4",
+    "zh": "周目68 · 六十六天",
+    "en": "Cycle 68 · 66 Days",
+    "order": 684
+  },
+  {
+    "key": "69_0",
+    "zh": "周目69 · 辅助",
+    "en": "Cycle 69 · Auxiliary",
+    "order": 690
+  },
+  {
+    "key": "69_1",
+    "zh": "周目69 · 入阵者",
+    "en": "Cycle 69 · Story",
+    "order": 691
+  },
+  {
+    "key": "69_2",
+    "zh": "周目69 · 破局者",
+    "en": "Cycle 69 · Normal",
+    "order": 692
+  },
+  {
+    "key": "69_3",
+    "zh": "周目69 · 逆天者",
+    "en": "Cycle 69 · Hard",
+    "order": 693
+  },
+  {
+    "key": "69_4",
+    "zh": "周目69 · 六十六天",
+    "en": "Cycle 69 · 66 Days",
+    "order": 694
+  },
+  {
+    "key": "70_0",
+    "zh": "周目70 · 辅助",
+    "en": "Cycle 70 · Auxiliary",
+    "order": 700
+  },
+  {
+    "key": "70_1",
+    "zh": "周目70 · 入阵者",
+    "en": "Cycle 70 · Story",
+    "order": 701
+  },
+  {
+    "key": "70_2",
+    "zh": "周目70 · 破局者",
+    "en": "Cycle 70 · Normal",
+    "order": 702
+  },
+  {
+    "key": "70_3",
+    "zh": "周目70 · 逆天者",
+    "en": "Cycle 70 · Hard",
+    "order": 703
+  },
+  {
+    "key": "70_4",
+    "zh": "周目70 · 六十六天",
+    "en": "Cycle 70 · 66 Days",
+    "order": 704
+  },
+  {
+    "key": "71_0",
+    "zh": "周目71 · 辅助",
+    "en": "Cycle 71 · Auxiliary",
+    "order": 710
+  },
+  {
+    "key": "71_1",
+    "zh": "周目71 · 入阵者",
+    "en": "Cycle 71 · Story",
+    "order": 711
+  },
+  {
+    "key": "71_2",
+    "zh": "周目71 · 破局者",
+    "en": "Cycle 71 · Normal",
+    "order": 712
+  },
+  {
+    "key": "71_3",
+    "zh": "周目71 · 逆天者",
+    "en": "Cycle 71 · Hard",
+    "order": 713
+  },
+  {
+    "key": "71_4",
+    "zh": "周目71 · 六十六天",
+    "en": "Cycle 71 · 66 Days",
+    "order": 714
+  },
+  {
+    "key": "72_0",
+    "zh": "周目72 · 辅助",
+    "en": "Cycle 72 · Auxiliary",
+    "order": 720
+  },
+  {
+    "key": "72_1",
+    "zh": "周目72 · 入阵者",
+    "en": "Cycle 72 · Story",
+    "order": 721
+  },
+  {
+    "key": "72_2",
+    "zh": "周目72 · 破局者",
+    "en": "Cycle 72 · Normal",
+    "order": 722
+  },
+  {
+    "key": "72_3",
+    "zh": "周目72 · 逆天者",
+    "en": "Cycle 72 · Hard",
+    "order": 723
+  },
+  {
+    "key": "72_4",
+    "zh": "周目72 · 六十六天",
+    "en": "Cycle 72 · 66 Days",
+    "order": 724
+  },
+  {
+    "key": "73_0",
+    "zh": "周目73 · 辅助",
+    "en": "Cycle 73 · Auxiliary",
+    "order": 730
+  },
+  {
+    "key": "73_1",
+    "zh": "周目73 · 入阵者",
+    "en": "Cycle 73 · Story",
+    "order": 731
+  },
+  {
+    "key": "73_2",
+    "zh": "周目73 · 破局者",
+    "en": "Cycle 73 · Normal",
+    "order": 732
+  },
+  {
+    "key": "73_3",
+    "zh": "周目73 · 逆天者",
+    "en": "Cycle 73 · Hard",
+    "order": 733
+  },
+  {
+    "key": "73_4",
+    "zh": "周目73 · 六十六天",
+    "en": "Cycle 73 · 66 Days",
+    "order": 734
+  },
+  {
+    "key": "74_0",
+    "zh": "周目74 · 辅助",
+    "en": "Cycle 74 · Auxiliary",
+    "order": 740
+  },
+  {
+    "key": "74_1",
+    "zh": "周目74 · 入阵者",
+    "en": "Cycle 74 · Story",
+    "order": 741
+  },
+  {
+    "key": "74_2",
+    "zh": "周目74 · 破局者",
+    "en": "Cycle 74 · Normal",
+    "order": 742
+  },
+  {
+    "key": "74_3",
+    "zh": "周目74 · 逆天者",
+    "en": "Cycle 74 · Hard",
+    "order": 743
+  },
+  {
+    "key": "74_4",
+    "zh": "周目74 · 六十六天",
+    "en": "Cycle 74 · 66 Days",
+    "order": 744
+  },
+  {
+    "key": "75_0",
+    "zh": "周目75 · 辅助",
+    "en": "Cycle 75 · Auxiliary",
+    "order": 750
+  },
+  {
+    "key": "75_1",
+    "zh": "周目75 · 入阵者",
+    "en": "Cycle 75 · Story",
+    "order": 751
+  },
+  {
+    "key": "75_2",
+    "zh": "周目75 · 破局者",
+    "en": "Cycle 75 · Normal",
+    "order": 752
+  },
+  {
+    "key": "75_3",
+    "zh": "周目75 · 逆天者",
+    "en": "Cycle 75 · Hard",
+    "order": 753
+  },
+  {
+    "key": "75_4",
+    "zh": "周目75 · 六十六天",
+    "en": "Cycle 75 · 66 Days",
+    "order": 754
+  },
+  {
+    "key": "76_0",
+    "zh": "周目76 · 辅助",
+    "en": "Cycle 76 · Auxiliary",
+    "order": 760
+  },
+  {
+    "key": "76_1",
+    "zh": "周目76 · 入阵者",
+    "en": "Cycle 76 · Story",
+    "order": 761
+  },
+  {
+    "key": "76_2",
+    "zh": "周目76 · 破局者",
+    "en": "Cycle 76 · Normal",
+    "order": 762
+  },
+  {
+    "key": "76_3",
+    "zh": "周目76 · 逆天者",
+    "en": "Cycle 76 · Hard",
+    "order": 763
+  },
+  {
+    "key": "76_4",
+    "zh": "周目76 · 六十六天",
+    "en": "Cycle 76 · 66 Days",
+    "order": 764
+  },
+  {
+    "key": "77_0",
+    "zh": "周目77 · 辅助",
+    "en": "Cycle 77 · Auxiliary",
+    "order": 770
+  },
+  {
+    "key": "77_1",
+    "zh": "周目77 · 入阵者",
+    "en": "Cycle 77 · Story",
+    "order": 771
+  },
+  {
+    "key": "77_2",
+    "zh": "周目77 · 破局者",
+    "en": "Cycle 77 · Normal",
+    "order": 772
+  },
+  {
+    "key": "77_3",
+    "zh": "周目77 · 逆天者",
+    "en": "Cycle 77 · Hard",
+    "order": 773
+  },
+  {
+    "key": "77_4",
+    "zh": "周目77 · 六十六天",
+    "en": "Cycle 77 · 66 Days",
+    "order": 774
+  },
+  {
+    "key": "78_0",
+    "zh": "周目78 · 辅助",
+    "en": "Cycle 78 · Auxiliary",
+    "order": 780
+  },
+  {
+    "key": "78_1",
+    "zh": "周目78 · 入阵者",
+    "en": "Cycle 78 · Story",
+    "order": 781
+  },
+  {
+    "key": "78_2",
+    "zh": "周目78 · 破局者",
+    "en": "Cycle 78 · Normal",
+    "order": 782
+  },
+  {
+    "key": "78_3",
+    "zh": "周目78 · 逆天者",
+    "en": "Cycle 78 · Hard",
+    "order": 783
+  },
+  {
+    "key": "78_4",
+    "zh": "周目78 · 六十六天",
+    "en": "Cycle 78 · 66 Days",
+    "order": 784
+  },
+  {
+    "key": "79_0",
+    "zh": "周目79 · 辅助",
+    "en": "Cycle 79 · Auxiliary",
+    "order": 790
+  },
+  {
+    "key": "79_1",
+    "zh": "周目79 · 入阵者",
+    "en": "Cycle 79 · Story",
+    "order": 791
+  },
+  {
+    "key": "79_2",
+    "zh": "周目79 · 破局者",
+    "en": "Cycle 79 · Normal",
+    "order": 792
+  },
+  {
+    "key": "79_3",
+    "zh": "周目79 · 逆天者",
+    "en": "Cycle 79 · Hard",
+    "order": 793
+  },
+  {
+    "key": "79_4",
+    "zh": "周目79 · 六十六天",
+    "en": "Cycle 79 · 66 Days",
+    "order": 794
+  },
+  {
+    "key": "80_0",
+    "zh": "周目80 · 辅助",
+    "en": "Cycle 80 · Auxiliary",
+    "order": 800
+  },
+  {
+    "key": "80_1",
+    "zh": "周目80 · 入阵者",
+    "en": "Cycle 80 · Story",
+    "order": 801
+  },
+  {
+    "key": "80_2",
+    "zh": "周目80 · 破局者",
+    "en": "Cycle 80 · Normal",
+    "order": 802
+  },
+  {
+    "key": "80_3",
+    "zh": "周目80 · 逆天者",
+    "en": "Cycle 80 · Hard",
+    "order": 803
+  },
+  {
+    "key": "80_4",
+    "zh": "周目80 · 六十六天",
+    "en": "Cycle 80 · 66 Days",
+    "order": 804
+  },
+  {
+    "key": "81_0",
+    "zh": "周目81 · 辅助",
+    "en": "Cycle 81 · Auxiliary",
+    "order": 810
+  },
+  {
+    "key": "81_1",
+    "zh": "周目81 · 入阵者",
+    "en": "Cycle 81 · Story",
+    "order": 811
+  },
+  {
+    "key": "81_2",
+    "zh": "周目81 · 破局者",
+    "en": "Cycle 81 · Normal",
+    "order": 812
+  },
+  {
+    "key": "81_3",
+    "zh": "周目81 · 逆天者",
+    "en": "Cycle 81 · Hard",
+    "order": 813
+  },
+  {
+    "key": "81_4",
+    "zh": "周目81 · 六十六天",
+    "en": "Cycle 81 · 66 Days",
+    "order": 814
+  },
+  {
+    "key": "82_0",
+    "zh": "周目82 · 辅助",
+    "en": "Cycle 82 · Auxiliary",
+    "order": 820
+  },
+  {
+    "key": "82_1",
+    "zh": "周目82 · 入阵者",
+    "en": "Cycle 82 · Story",
+    "order": 821
+  },
+  {
+    "key": "82_2",
+    "zh": "周目82 · 破局者",
+    "en": "Cycle 82 · Normal",
+    "order": 822
+  },
+  {
+    "key": "82_3",
+    "zh": "周目82 · 逆天者",
+    "en": "Cycle 82 · Hard",
+    "order": 823
+  },
+  {
+    "key": "82_4",
+    "zh": "周目82 · 六十六天",
+    "en": "Cycle 82 · 66 Days",
+    "order": 824
+  },
+  {
+    "key": "83_0",
+    "zh": "周目83 · 辅助",
+    "en": "Cycle 83 · Auxiliary",
+    "order": 830
+  },
+  {
+    "key": "83_1",
+    "zh": "周目83 · 入阵者",
+    "en": "Cycle 83 · Story",
+    "order": 831
+  },
+  {
+    "key": "83_2",
+    "zh": "周目83 · 破局者",
+    "en": "Cycle 83 · Normal",
+    "order": 832
+  },
+  {
+    "key": "83_3",
+    "zh": "周目83 · 逆天者",
+    "en": "Cycle 83 · Hard",
+    "order": 833
+  },
+  {
+    "key": "83_4",
+    "zh": "周目83 · 六十六天",
+    "en": "Cycle 83 · 66 Days",
+    "order": 834
+  },
+  {
+    "key": "84_0",
+    "zh": "周目84 · 辅助",
+    "en": "Cycle 84 · Auxiliary",
+    "order": 840
+  },
+  {
+    "key": "84_1",
+    "zh": "周目84 · 入阵者",
+    "en": "Cycle 84 · Story",
+    "order": 841
+  },
+  {
+    "key": "84_2",
+    "zh": "周目84 · 破局者",
+    "en": "Cycle 84 · Normal",
+    "order": 842
+  },
+  {
+    "key": "84_3",
+    "zh": "周目84 · 逆天者",
+    "en": "Cycle 84 · Hard",
+    "order": 843
+  },
+  {
+    "key": "84_4",
+    "zh": "周目84 · 六十六天",
+    "en": "Cycle 84 · 66 Days",
+    "order": 844
+  },
+  {
+    "key": "85_0",
+    "zh": "周目85 · 辅助",
+    "en": "Cycle 85 · Auxiliary",
+    "order": 850
+  },
+  {
+    "key": "85_1",
+    "zh": "周目85 · 入阵者",
+    "en": "Cycle 85 · Story",
+    "order": 851
+  },
+  {
+    "key": "85_2",
+    "zh": "周目85 · 破局者",
+    "en": "Cycle 85 · Normal",
+    "order": 852
+  },
+  {
+    "key": "85_3",
+    "zh": "周目85 · 逆天者",
+    "en": "Cycle 85 · Hard",
+    "order": 853
+  },
+  {
+    "key": "85_4",
+    "zh": "周目85 · 六十六天",
+    "en": "Cycle 85 · 66 Days",
+    "order": 854
+  },
+  {
+    "key": "86_0",
+    "zh": "周目86 · 辅助",
+    "en": "Cycle 86 · Auxiliary",
+    "order": 860
+  },
+  {
+    "key": "86_1",
+    "zh": "周目86 · 入阵者",
+    "en": "Cycle 86 · Story",
+    "order": 861
+  },
+  {
+    "key": "86_2",
+    "zh": "周目86 · 破局者",
+    "en": "Cycle 86 · Normal",
+    "order": 862
+  },
+  {
+    "key": "86_3",
+    "zh": "周目86 · 逆天者",
+    "en": "Cycle 86 · Hard",
+    "order": 863
+  },
+  {
+    "key": "86_4",
+    "zh": "周目86 · 六十六天",
+    "en": "Cycle 86 · 66 Days",
+    "order": 864
+  },
+  {
+    "key": "87_0",
+    "zh": "周目87 · 辅助",
+    "en": "Cycle 87 · Auxiliary",
+    "order": 870
+  },
+  {
+    "key": "87_1",
+    "zh": "周目87 · 入阵者",
+    "en": "Cycle 87 · Story",
+    "order": 871
+  },
+  {
+    "key": "87_2",
+    "zh": "周目87 · 破局者",
+    "en": "Cycle 87 · Normal",
+    "order": 872
+  },
+  {
+    "key": "87_3",
+    "zh": "周目87 · 逆天者",
+    "en": "Cycle 87 · Hard",
+    "order": 873
+  },
+  {
+    "key": "87_4",
+    "zh": "周目87 · 六十六天",
+    "en": "Cycle 87 · 66 Days",
+    "order": 874
+  },
+  {
+    "key": "88_0",
+    "zh": "周目88 · 辅助",
+    "en": "Cycle 88 · Auxiliary",
+    "order": 880
+  },
+  {
+    "key": "88_1",
+    "zh": "周目88 · 入阵者",
+    "en": "Cycle 88 · Story",
+    "order": 881
+  },
+  {
+    "key": "88_2",
+    "zh": "周目88 · 破局者",
+    "en": "Cycle 88 · Normal",
+    "order": 882
+  },
+  {
+    "key": "88_3",
+    "zh": "周目88 · 逆天者",
+    "en": "Cycle 88 · Hard",
+    "order": 883
+  },
+  {
+    "key": "88_4",
+    "zh": "周目88 · 六十六天",
+    "en": "Cycle 88 · 66 Days",
+    "order": 884
+  },
+  {
+    "key": "89_0",
+    "zh": "周目89 · 辅助",
+    "en": "Cycle 89 · Auxiliary",
+    "order": 890
+  },
+  {
+    "key": "89_1",
+    "zh": "周目89 · 入阵者",
+    "en": "Cycle 89 · Story",
+    "order": 891
+  },
+  {
+    "key": "89_2",
+    "zh": "周目89 · 破局者",
+    "en": "Cycle 89 · Normal",
+    "order": 892
+  },
+  {
+    "key": "89_3",
+    "zh": "周目89 · 逆天者",
+    "en": "Cycle 89 · Hard",
+    "order": 893
+  },
+  {
+    "key": "89_4",
+    "zh": "周目89 · 六十六天",
+    "en": "Cycle 89 · 66 Days",
+    "order": 894
+  },
+  {
+    "key": "90_0",
+    "zh": "周目90 · 辅助",
+    "en": "Cycle 90 · Auxiliary",
+    "order": 900
+  },
+  {
+    "key": "90_1",
+    "zh": "周目90 · 入阵者",
+    "en": "Cycle 90 · Story",
+    "order": 901
+  },
+  {
+    "key": "90_2",
+    "zh": "周目90 · 破局者",
+    "en": "Cycle 90 · Normal",
+    "order": 902
+  },
+  {
+    "key": "90_3",
+    "zh": "周目90 · 逆天者",
+    "en": "Cycle 90 · Hard",
+    "order": 903
+  },
+  {
+    "key": "90_4",
+    "zh": "周目90 · 六十六天",
+    "en": "Cycle 90 · 66 Days",
+    "order": 904
+  },
+  {
+    "key": "91_0",
+    "zh": "周目91 · 辅助",
+    "en": "Cycle 91 · Auxiliary",
+    "order": 910
+  },
+  {
+    "key": "91_1",
+    "zh": "周目91 · 入阵者",
+    "en": "Cycle 91 · Story",
+    "order": 911
+  },
+  {
+    "key": "91_2",
+    "zh": "周目91 · 破局者",
+    "en": "Cycle 91 · Normal",
+    "order": 912
+  },
+  {
+    "key": "91_3",
+    "zh": "周目91 · 逆天者",
+    "en": "Cycle 91 · Hard",
+    "order": 913
+  },
+  {
+    "key": "91_4",
+    "zh": "周目91 · 六十六天",
+    "en": "Cycle 91 · 66 Days",
+    "order": 914
+  },
+  {
+    "key": "92_0",
+    "zh": "周目92 · 辅助",
+    "en": "Cycle 92 · Auxiliary",
+    "order": 920
+  },
+  {
+    "key": "92_1",
+    "zh": "周目92 · 入阵者",
+    "en": "Cycle 92 · Story",
+    "order": 921
+  },
+  {
+    "key": "92_2",
+    "zh": "周目92 · 破局者",
+    "en": "Cycle 92 · Normal",
+    "order": 922
+  },
+  {
+    "key": "92_3",
+    "zh": "周目92 · 逆天者",
+    "en": "Cycle 92 · Hard",
+    "order": 923
+  },
+  {
+    "key": "92_4",
+    "zh": "周目92 · 六十六天",
+    "en": "Cycle 92 · 66 Days",
+    "order": 924
+  },
+  {
+    "key": "93_0",
+    "zh": "周目93 · 辅助",
+    "en": "Cycle 93 · Auxiliary",
+    "order": 930
+  },
+  {
+    "key": "93_1",
+    "zh": "周目93 · 入阵者",
+    "en": "Cycle 93 · Story",
+    "order": 931
+  },
+  {
+    "key": "93_2",
+    "zh": "周目93 · 破局者",
+    "en": "Cycle 93 · Normal",
+    "order": 932
+  },
+  {
+    "key": "93_3",
+    "zh": "周目93 · 逆天者",
+    "en": "Cycle 93 · Hard",
+    "order": 933
+  },
+  {
+    "key": "93_4",
+    "zh": "周目93 · 六十六天",
+    "en": "Cycle 93 · 66 Days",
+    "order": 934
+  },
+  {
+    "key": "94_0",
+    "zh": "周目94 · 辅助",
+    "en": "Cycle 94 · Auxiliary",
+    "order": 940
+  },
+  {
+    "key": "94_1",
+    "zh": "周目94 · 入阵者",
+    "en": "Cycle 94 · Story",
+    "order": 941
+  },
+  {
+    "key": "94_2",
+    "zh": "周目94 · 破局者",
+    "en": "Cycle 94 · Normal",
+    "order": 942
+  },
+  {
+    "key": "94_3",
+    "zh": "周目94 · 逆天者",
+    "en": "Cycle 94 · Hard",
+    "order": 943
+  },
+  {
+    "key": "94_4",
+    "zh": "周目94 · 六十六天",
+    "en": "Cycle 94 · 66 Days",
+    "order": 944
+  },
+  {
+    "key": "95_0",
+    "zh": "周目95 · 辅助",
+    "en": "Cycle 95 · Auxiliary",
+    "order": 950
+  },
+  {
+    "key": "95_1",
+    "zh": "周目95 · 入阵者",
+    "en": "Cycle 95 · Story",
+    "order": 951
+  },
+  {
+    "key": "95_2",
+    "zh": "周目95 · 破局者",
+    "en": "Cycle 95 · Normal",
+    "order": 952
+  },
+  {
+    "key": "95_3",
+    "zh": "周目95 · 逆天者",
+    "en": "Cycle 95 · Hard",
+    "order": 953
+  },
+  {
+    "key": "95_4",
+    "zh": "周目95 · 六十六天",
+    "en": "Cycle 95 · 66 Days",
+    "order": 954
+  },
+  {
+    "key": "96_0",
+    "zh": "周目96 · 辅助",
+    "en": "Cycle 96 · Auxiliary",
+    "order": 960
+  },
+  {
+    "key": "96_1",
+    "zh": "周目96 · 入阵者",
+    "en": "Cycle 96 · Story",
+    "order": 961
+  },
+  {
+    "key": "96_2",
+    "zh": "周目96 · 破局者",
+    "en": "Cycle 96 · Normal",
+    "order": 962
+  },
+  {
+    "key": "96_3",
+    "zh": "周目96 · 逆天者",
+    "en": "Cycle 96 · Hard",
+    "order": 963
+  },
+  {
+    "key": "96_4",
+    "zh": "周目96 · 六十六天",
+    "en": "Cycle 96 · 66 Days",
+    "order": 964
+  },
+  {
+    "key": "97_0",
+    "zh": "周目97 · 辅助",
+    "en": "Cycle 97 · Auxiliary",
+    "order": 970
+  },
+  {
+    "key": "97_1",
+    "zh": "周目97 · 入阵者",
+    "en": "Cycle 97 · Story",
+    "order": 971
+  },
+  {
+    "key": "97_2",
+    "zh": "周目97 · 破局者",
+    "en": "Cycle 97 · Normal",
+    "order": 972
+  },
+  {
+    "key": "97_3",
+    "zh": "周目97 · 逆天者",
+    "en": "Cycle 97 · Hard",
+    "order": 973
+  },
+  {
+    "key": "97_4",
+    "zh": "周目97 · 六十六天",
+    "en": "Cycle 97 · 66 Days",
+    "order": 974
+  },
+  {
+    "key": "98_0",
+    "zh": "周目98 · 辅助",
+    "en": "Cycle 98 · Auxiliary",
+    "order": 980
+  },
+  {
+    "key": "98_1",
+    "zh": "周目98 · 入阵者",
+    "en": "Cycle 98 · Story",
+    "order": 981
+  },
+  {
+    "key": "98_2",
+    "zh": "周目98 · 破局者",
+    "en": "Cycle 98 · Normal",
+    "order": 982
+  },
+  {
+    "key": "98_3",
+    "zh": "周目98 · 逆天者",
+    "en": "Cycle 98 · Hard",
+    "order": 983
+  },
+  {
+    "key": "98_4",
+    "zh": "周目98 · 六十六天",
+    "en": "Cycle 98 · 66 Days",
+    "order": 984
+  },
+  {
+    "key": "99_0",
+    "zh": "周目99 · 辅助",
+    "en": "Cycle 99 · Auxiliary",
+    "order": 990
+  },
+  {
+    "key": "99_1",
+    "zh": "周目99 · 入阵者",
+    "en": "Cycle 99 · Story",
+    "order": 991
+  },
+  {
+    "key": "99_2",
+    "zh": "周目99 · 破局者",
+    "en": "Cycle 99 · Normal",
+    "order": 992
+  },
+  {
+    "key": "99_3",
+    "zh": "周目99 · 逆天者",
+    "en": "Cycle 99 · Hard",
+    "order": 993
+  },
+  {
+    "key": "99_4",
+    "zh": "周目99 · 六十六天",
+    "en": "Cycle 99 · 66 Days",
+    "order": 994
+  }
+]
