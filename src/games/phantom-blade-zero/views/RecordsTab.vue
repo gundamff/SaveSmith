@@ -216,6 +216,7 @@ function changeBossBestTimePart(
       <el-table-column :label="t('pbz.records.difficulty')" min-width="140">
         <template #default="{ row }">
           <el-select
+            filterable
             :model-value="row.difficultyKey"
             @update:model-value="(value) => changeBossDifficulty(row.bossId, row.difficultyKey, value)"
           >
