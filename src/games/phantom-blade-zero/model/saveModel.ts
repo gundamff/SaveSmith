@@ -22,6 +22,7 @@ export {
   projectDeathMeta,
   setBossBestTimeSeconds,
   setBossDeathCount,
+  setBossDifficultyKey,
   setDiedTimes,
   type BossRecordView
 } from './bossRecords'

@@ -748,6 +748,10 @@ export const en: MessageTree = {
     PBZ_INVALID_CYCLE_COUNT: 'Invalid CycleCount in slot {0}',
     PBZ_INVALID_GAME_TIME: 'Invalid game time in slot {0}',
     PBZ_INVALID_BOSS_BEST_TIME: 'Invalid boss best time in slot {0}: {1}',
-    PBZ_INVALID_EQUIPMENT: 'Invalid equipment record in slot {0}: {1}'
+    PBZ_INVALID_EQUIPMENT: 'Invalid equipment record in slot {0}: {1}',
+    PBZ_BOSS_DIFFICULTY_UNKNOWN: 'Invalid difficulty: {0}',
+    PBZ_BOSS_DIFFICULTY_MISSING: 'Boss {0} has no record on difficulty "{1}" to move',
+    PBZ_BOSS_DIFFICULTY_CONFLICT:
+      'Cannot move {0} from "{1}" to "{2}": target difficulty already has a record'
   }
 }

@@ -736,6 +736,9 @@ export const zh: MessageTree = {
     PBZ_INVALID_CYCLE_COUNT: '槽位 {0} 的 CycleCount 无效',
     PBZ_INVALID_GAME_TIME: '槽位 {0} 的游戏时间无效',
     PBZ_INVALID_BOSS_BEST_TIME: '槽位 {0} 的 BOSS 最佳用时无效：{1}',
-    PBZ_INVALID_EQUIPMENT: '槽位 {0} 的装备记录无效：{1}'
+    PBZ_INVALID_EQUIPMENT: '槽位 {0} 的装备记录无效：{1}',
+    PBZ_BOSS_DIFFICULTY_UNKNOWN: '无效的难度：{0}',
+    PBZ_BOSS_DIFFICULTY_MISSING: 'BOSS {0} 没有「{1}」难度的战绩，无法改挂',
+    PBZ_BOSS_DIFFICULTY_CONFLICT: '无法将 {0} 从「{1}」改到「{2}」：目标难度已有记录'
   }
 }

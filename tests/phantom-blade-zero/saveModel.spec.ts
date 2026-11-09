@@ -16,6 +16,7 @@ import {
   setAllExistingMaterials,
   setBossBestTimeSeconds,
   setBossDeathCount,
+  setBossDifficultyKey,
   setDiedTimes,
   setDust,
   setInventoryAmount,
@@ -970,6 +971,78 @@ describe('phantom-blade-zero save model', () => {
       () => setBossDeathCount(model, editable.name, 'BP_Monster_Missing', '0_2', 1),
       'PBZ_INVALID_EDIT'
     )
+  })
+
+  it('moves a boss Records entry to another difficulty key', () => {
+    const editable = slot('AutoSave0', {
+      BossRecord: {
+        BP_Monster_PengMeng_Axe: {
+          ClassPath: '/x/C',
+          Records: {
+            '0_2': { AttemptCount: 16, KillCount: 1, BestTimeMs: 10, extra: true }
+          }
+        }
+      }
+    })
+    const model = createSaveModel([editable])
+    setBossDifficultyKey(model, 'AutoSave0', 'BP_Monster_PengMeng_Axe', '0_2', '0_3')
+    const records = (editable.document.BossRecord as any).BP_Monster_PengMeng_Axe.Records
+    expect(records['0_2']).toBeUndefined()
+    expect(records['0_3']).toEqual({
+      AttemptCount: 16,
+      KillCount: 1,
+      BestTimeMs: 10,
+      extra: true
+    })
+    expect(editable.dirty).toBe(true)
+  })
+
+  it('no-ops when fromKey === toKey', () => {
+    const editable = slot('AutoSave0', {
+      BossRecord: {
+        BP_Monster_PengMeng_Axe: {
+          Records: { '0_2': { AttemptCount: 1, KillCount: 1 } }
+        }
+      }
+    })
+    const model = createSaveModel([editable])
+    setBossDifficultyKey(model, 'AutoSave0', 'BP_Monster_PengMeng_Axe', '0_2', '0_2')
+    expect(editable.dirty).toBe(false)
+  })
+
+  it('refuses unknown toKey, missing fromKey, and conflicts with dedicated codes', () => {
+    const editable = slot('AutoSave0', {
+      BossRecord: {
+        BP_Monster_PengMeng_Axe: {
+          Records: {
+            '0_2': { AttemptCount: 1, KillCount: 1 },
+            '0_3': { AttemptCount: 2, KillCount: 1 }
+          }
+        }
+      }
+    })
+    const model = createSaveModel([editable])
+
+    expect(() =>
+      setBossDifficultyKey(model, 'AutoSave0', 'BP_Monster_PengMeng_Axe', '0_2', '9_9')
+    ).toThrow(ModuleError)
+    try {
+      setBossDifficultyKey(model, 'AutoSave0', 'BP_Monster_PengMeng_Axe', '0_2', '9_9')
+    } catch (e) {
+      expect((e as ModuleError).code).toBe('PBZ_BOSS_DIFFICULTY_UNKNOWN')
+    }
+
+    try {
+      setBossDifficultyKey(model, 'AutoSave0', 'BP_Monster_PengMeng_Axe', '0_1', '0_2')
+    } catch (e) {
+      expect((e as ModuleError).code).toBe('PBZ_BOSS_DIFFICULTY_MISSING')
+    }
+
+    try {
+      setBossDifficultyKey(model, 'AutoSave0', 'BP_Monster_PengMeng_Axe', '0_2', '0_3')
+    } catch (e) {
+      expect((e as ModuleError).code).toBe('PBZ_BOSS_DIFFICULTY_CONFLICT')
+    }
   })
 
   it('sets boss best time from seconds into BestTimeMs without touching kill fields', () => {

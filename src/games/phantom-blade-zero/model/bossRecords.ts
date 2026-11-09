@@ -1,5 +1,6 @@
 import { ModuleError } from '../../../sdk/error'
 import type { ValidationIssue } from '../../../sdk/types'
+import { getPbzBossDifficulty, pbzBossDifficultyName } from '../catalog/bossDifficulties'
 import { isValidDurationSeconds } from './durationFormat'
 import { isEditableSlotName } from './editableSlotName'
 
@@ -91,6 +92,42 @@ export function setBossDeathCount(
   }
   if (entry.AttemptCount === attemptCount) return
   entry.AttemptCount = attemptCount
+  slot.dirty = true
+}
+
+export function setBossDifficultyKey(
+  model: PbzDeathSaveModel,
+  slotName: string,
+  bossId: string,
+  fromKey: string,
+  toKey: string
+): void {
+  const slot = requireSlot(model, slotName)
+  if (fromKey === toKey) return
+
+  if (!getPbzBossDifficulty(toKey)) {
+    throw new ModuleError('PBZ_BOSS_DIFFICULTY_UNKNOWN', [pbzBossDifficultyName(toKey)])
+  }
+
+  const root = getRecord(slot.document, 'BossRecord')
+  const boss = root ? getRecord(root, bossId) : null
+  const records = boss ? getRecord(boss, 'Records') : null
+  if (!records || !Object.prototype.hasOwnProperty.call(records, fromKey)) {
+    throw new ModuleError('PBZ_BOSS_DIFFICULTY_MISSING', [
+      bossId,
+      pbzBossDifficultyName(fromKey)
+    ])
+  }
+  if (Object.prototype.hasOwnProperty.call(records, toKey)) {
+    throw new ModuleError('PBZ_BOSS_DIFFICULTY_CONFLICT', [
+      bossId,
+      pbzBossDifficultyName(fromKey),
+      pbzBossDifficultyName(toKey)
+    ])
+  }
+
+  records[toKey] = records[fromKey]
+  delete records[fromKey]
   slot.dirty = true
 }
 
