@@ -64,6 +64,48 @@ released after a manual review. That is expected behaviour, not a problem
 with the file. While a new build is under review the previous version stays
 downloadable from the Files tab. Reviews usually take a few hours on
 weekdays; updates submitted over the weekend are handled on the next
-business day. Builds are always available from GitHub Releases in the meantime:
-https://github.com/gundamff/SaveSmith/releases
+business day. The source code is public at https://github.com/gundamff/SaveSmith (MIT).
 ```
+
+## 2026-11-12 第二轮：11 个页面全部被隔离
+
+### 实况
+
+11 个页面 Files 页均显示 `Virus scan: ✗ Some suspicious files`。
+其中 **FFResonance 不同**：`status=under_moderation / available=False`，文件被隐藏，页面横幅指控
+「bypassing quarantine procedures with off-site download links」。
+
+### 根因
+
+PBZ 描述里有 3 处指向可执行文件的站外入口：
+
+- `Builds are also always available below.`
+- `Always available / 始终可下载：[url=.../releases]GitHub Releases[/url]`
+- `Release: https://github.com/gundamff/SaveSmith/releases/tag/v0.17.2`
+
+其余 10 个页面只有仓库根链接（Source），未构成下载入口。
+
+### 已处理
+
+- PBZ 描述：三处全部删除，API 复核 `releases=0`、`Always available=0`
+- 本文件末段「给用户的标准说明」也去掉 releases 链接（评论区回复同样不能导流站外）
+
+### 本次申诉（2026-11-12 发出，3 封，均至 support@nexusmods.com）
+
+| 邮件 | 覆盖页面 | 主题 | messageId |
+|---|---|---|---|
+| 1 | 9 个页面，同一文件 0.17.11 | Quarantine review request - SaveSmith v0.17.11 (9 pages, same build) | 1a1ce9fbfa693904 |
+| 2 | Terraria（0.17.10，独立构建） | Quarantine review request - SaveSmith v0.17.10 (Terraria page) | 1a1ce9ff54555fe8 |
+| 3 | FFResonance（回应站外链接指控） | Off-site download link removed - Final Fantasy Resonance page 329 | 1a1cea01b8e9afd3 |
+
+### 文件指纹
+
+- 9 页共用：9,809,920 字节，SHA256 `4d730846da0bc5005737f2e06446e4468d3a609495006010efaa010a4f0ed104`（2026-11-09 上传）
+- Terraria：9,824,768 字节，SHA256 `440ba45dc0984e83ee88d3bfb43069b25978628e10e63ca9543069ea62985701`（2026-11-09 上传）
+- FFResonance：同 0.17.11 构建，API 403 取不到 file_id，邮件里只给版本/大小/日期
+
+### 待办
+
+- [ ] 等回复；若 FFResonance 仍不解，按 staff 要求补源码审查材料
+- [ ] 归档旧版未批准文件（Oliver 11-08 明确说过归档可消除警告），本轮仍未做
+- [ ] PBZ 描述被编辑器加了 `[size=4][b]` 包裹，渲染偏粗，需手动整理一次
