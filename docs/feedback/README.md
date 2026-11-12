@@ -20,6 +20,17 @@
 
 `new` 待人工判断 → `confirmed` 已复现/已定位 → `fixed` 已在某版本修复 → `rejected` 不修（写原因）→ `waiting-user` 等对方回信息
 
+## 最近一次全平台巡检
+
+**2026-11-12 12:40（CST）**
+
+| 平台 | 覆盖 | 新增 | 处理 |
+|---|---|---|---|
+| B 站 | 8 个视频全量评论，2026-11-05 起未登记 2 条 | 0 条需求 | 2 条均为闲聊 / 游戏自身 bug 吐槽（`BV1m4xp6VEH7` 铸魂材料攻略下的"道具卡没"，非本工具），不登记 |
+| 抖音 | 3 条视频，`dy_patrol_all.mjs` | 0 条 | 6h 内无新评论 |
+| Nexus Mods | phantombladezero/365，page 1 共 25 条在页 | 3 条（2 条作者自发公告/回复，1 条用户提问） | 提问 179629218 已登记 features |
+| GitHub Issues | `gundamff/SaveSmith` open | 0 | — |
+
 ## 规则
 
 1. 对外回复过的，必须有一条对应记录，`reply_ref` 填回复的 rpid 或帖子链接。
