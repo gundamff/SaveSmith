@@ -1,0 +1,18 @@
+{
+  "buildNote": "Display names for OwnMapID / DT_MapData. zh from LetterTabIcon chapter assets (T_Chapter_*); en from community/glossary where available. Lookup is case-insensitive.",
+  "maps": [
+    { "id": "ZhuLinGuWu", "zh": "序章", "en": "Prologue", "order": 1 },
+    { "id": "XiGu", "zh": "悲泣溪谷", "en": "Weeping Creek Valley", "order": 2 },
+    { "id": "FuJiZhiLin", "zh": "血色森林", "en": "Crimson Forest", "order": 3 },
+    { "id": "LuJiaCun", "zh": "陆家村", "en": "Village of Lu", "order": 4 },
+    { "id": "PangZhen", "zh": "庞镇", "en": "Pangzhen Township", "order": 5 },
+    { "id": "HouJie", "zh": "后街", "en": "Backstreets", "order": 6 },
+    { "id": "ZhengDaoDaYing", "zh": "正道大营", "en": "Mandate Encampment", "order": 7 },
+    { "id": "MeiGuHu", "zh": "梅谷湖", "en": "Meigu Lake", "order": 8 },
+    { "id": "DengDingShanDao", "zh": "枷笼山", "en": "Mountain of Imprisonment", "order": 9 },
+    { "id": "MeiGu_YiJi", "zh": "梅谷遗迹", "en": "Meigu Ruins", "order": 10 },
+    { "id": "XiMeng", "zh": "戏梦山庄", "en": "Dreamplay Manor", "order": 11 },
+    { "id": "DuanHunYa", "zh": "断魂崖", "en": "Soulrend Cliff", "order": 12 },
+    { "id": "DuanHunShan", "zh": "断魂山", "en": "Mount Soulrend", "order": 13 }
+  ]
+}

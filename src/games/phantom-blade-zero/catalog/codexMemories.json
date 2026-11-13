@@ -1,0 +1,1492 @@
+{
+  "buildNote": "Full DT_InventoryData MemoryFlower + MemoryFlowerPetal; parentId=IntegrationItemID.",
+  "flowers": [
+    {
+      "id": "F_02001",
+      "zh": "虚空留下的记忆之花",
+      "en": "MEMORY FLOWER LEFT BY INANIS",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_13020",
+      "zh": "老根头的记忆之花",
+      "en": "OLD MAN GEN'S MEMORY FLOWER",
+      "ownMapId": "MeiGu_YiJi",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0201",
+      "zh": "白赤练的记忆之花",
+      "en": "BAI CHILIAN'S MEMORY FLOWER",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0202",
+      "zh": "有关“龙体之术”的记忆之花",
+      "en": "MEMORY FLOWER: ON PERFECT TRANSCENSION",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0203",
+      "zh": "有关“同门”的记忆之花",
+      "en": "MEMORY FLOWER: FELLOW DISCIPLES",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0205",
+      "zh": "虚空的记忆之花",
+      "en": "INANIS' MEMORY FLOWER",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": true
+    },
+    {
+      "id": "FA_0206",
+      "zh": "拳痴铁狂的记忆之花",
+      "en": "STONE HAND IRON FEVER'S MEMORY FLOWER",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0300",
+      "zh": "七星弟子的记忆之花",
+      "en": "MEMORY FLOWER OF THE SEVEN STARS",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": true
+    },
+    {
+      "id": "FA_0301",
+      "zh": "倩倩的记忆之花",
+      "en": "QIANQIAN'S MEMORY FLOWER",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0303",
+      "zh": "“龙体”反抗者的记忆之花",
+      "en": "MEMORY FLOWER OF TRANSCENSION DEFYERS",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0304",
+      "zh": "寻觅·记忆之花",
+      "en": "MEMORY FLOWER: THE SEARCH",
+      "ownMapId": "HouJie",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0310",
+      "zh": "双侠的记忆之花",
+      "en": "THE TWIN HEROES' MEMORY FLOWER",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0401",
+      "zh": "实验受害者的记忆之花",
+      "en": "EXPERIMENT VICTIM'S MEMORY FLOWER",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0501",
+      "zh": "萤火的记忆之花",
+      "en": "FIREFLY'S MEMORY FLOWER",
+      "ownMapId": "LuJiaCun",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": true
+    },
+    {
+      "id": "FA_0502",
+      "zh": "江湖人士的记忆之花",
+      "en": "WULIN FIGHTERS' MEMORY FLOWER",
+      "ownMapId": "LuJiaCun",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0503",
+      "zh": "陆家村村民的记忆之花",
+      "en": "MEMORY FLOWER OF THE VILLAGERS OF LU",
+      "ownMapId": "LuJiaCun",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0505",
+      "zh": "正道大师们的记忆之花",
+      "en": "MANDATE MASTERS' MEMORY FLOWER",
+      "ownMapId": "LuJiaCun",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0600",
+      "zh": "慈母心·记忆之花",
+      "en": "MEMORY FLOWER: A MOTHER'S HEART",
+      "ownMapId": "HouJie",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0601",
+      "zh": "关于“山庄实验”的记忆之花",
+      "en": "MEMORY FLOWER: ESTATE EXPERIMENTS",
+      "ownMapId": "HouJie",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0602",
+      "zh": "白雪儿·记忆之花",
+      "en": "MEMORY FLOWER: BAI XUE'ER",
+      "ownMapId": "HouJie",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0603",
+      "zh": "舞狮尊主的记忆之花",
+      "en": "MEMORY FLOWER OF THE LION DANCE GRANDMASTER",
+      "ownMapId": "HouJie",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0604",
+      "zh": "众正道头领的记忆之花",
+      "en": "MEMORY FLOWER OF MANDATE LEADERS",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0701",
+      "zh": "高员外的记忆之花",
+      "en": "PATRON GAO'S MEMORY FLOWER",
+      "ownMapId": "XiMeng",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0702",
+      "zh": "囚命弟子的记忆之花",
+      "en": "THREAD-BINDING DISCIPLE'S MEMORY FLOWER",
+      "ownMapId": "XiMeng",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0704",
+      "zh": "玉儿的记忆之花",
+      "en": "YU'ER'S MEMORY FLOWER",
+      "ownMapId": "XiMeng",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_0801",
+      "zh": "烟儿的记忆之花",
+      "en": "YAN'ER'S MEMORY FLOWER",
+      "ownMapId": "MeiGuHu",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": true
+    },
+    {
+      "id": "FA_0804",
+      "zh": "三面魔偶的记忆之花",
+      "en": "MEMORY FLOWER OF THE ABERRANT THREE-FACED PUPPET",
+      "ownMapId": "XiMeng",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_1100",
+      "zh": "相煎何急·记忆之花",
+      "en": "MEMORY FLOWER: BITTER KIN",
+      "ownMapId": "HouJie",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_1200",
+      "zh": "冷荼的记忆之花",
+      "en": "LENG TU'S MEMORY FLOWER",
+      "ownMapId": "XiMeng",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_1201",
+      "zh": "水行帮众的记忆之花",
+      "en": "BLACKWATER CREW'S MEMORY FLOWER",
+      "ownMapId": "MeiGuHu",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_1300",
+      "zh": "再会兄长·记忆之花",
+      "en": "MEMORY FLOWER: REUNION WITH BROTHER",
+      "ownMapId": "PangZhen",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_1301",
+      "zh": "关于“怪物”的记忆之花",
+      "en": "MEMORY FLOWER OF THE MONSTER",
+      "ownMapId": "DuanHunYa",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_1800",
+      "zh": "玄礼的记忆之花",
+      "en": "XUAN LI'S MEMORY FLOWER",
+      "ownMapId": "DuanHunYa",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_1802",
+      "zh": "风雪刀客的记忆之花",
+      "en": "BLIZZARD BLADEMASTER'S MEMORY FLOWER",
+      "ownMapId": "MeiGu_YiJi",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": true
+    },
+    {
+      "id": "FA_1803",
+      "zh": "有关“禁忌浊经”的记忆之花",
+      "en": "MEMORY FLOWER OF THE FORBIDDEN BLIGHT SCRIPTURE",
+      "ownMapId": "MeiGu_YiJi",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_1804",
+      "zh": "有关“闯入者”的记忆之花",
+      "en": "MEMORY FLOWER OF THE INTRUDER",
+      "ownMapId": "MeiGuHu",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FA_7000",
+      "zh": "关于“荒行子”的记忆之花",
+      "en": "MEMORY FLOWER ON HUANGXING",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": true
+    }
+  ],
+  "petals": [
+    {
+      "id": "F_02011",
+      "zh": "其一：唯一的救赎",
+      "en": "I. THE ONLY SALVATION",
+      "ownMapId": "",
+      "parentId": "FA_0201",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02012",
+      "zh": "其二：圣母谶言",
+      "en": "II. THE LADY'S PROPHECY",
+      "ownMapId": "",
+      "parentId": "FA_0201",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02021",
+      "zh": "其一：手谕",
+      "en": "I. THE HANDWRITTEN ORDER",
+      "ownMapId": "",
+      "parentId": "FA_0202",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02022",
+      "zh": "其二：同流合污还是贪生怕死？",
+      "en": "II. CORRUPTION OR COWARDICE?",
+      "ownMapId": "",
+      "parentId": "FA_0202",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02023",
+      "zh": "其三：崭新的力量",
+      "en": "III. A NEWFOUND POWER",
+      "ownMapId": "",
+      "parentId": "FA_0202",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02041",
+      "zh": "其四：抗争之法",
+      "en": "IV. THE MEANS TO RESIST",
+      "ownMapId": "",
+      "parentId": "FA_0202",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02031",
+      "zh": "其一：同门之谊",
+      "en": "I. BONDS OF FELLOWSHIP",
+      "ownMapId": "",
+      "parentId": "FA_0203",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02032",
+      "zh": "其二：三令五申",
+      "en": "II. ORDERS REITERATED",
+      "ownMapId": "",
+      "parentId": "FA_0203",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02033",
+      "zh": "其三：绝不姑息",
+      "en": "III. NO LENIENCY",
+      "ownMapId": "",
+      "parentId": "FA_0203",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02051",
+      "zh": "其一：弹奏",
+      "en": "I. THE PERFORMANCE",
+      "ownMapId": "",
+      "parentId": "FA_0205",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02052",
+      "zh": "其二：病重",
+      "en": "II.GRAVELY ILL",
+      "ownMapId": "",
+      "parentId": "FA_0205",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02053",
+      "zh": "其三：金玉阁",
+      "en": "III. THE GILDED LOTUS",
+      "ownMapId": "",
+      "parentId": "FA_0205",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02054",
+      "zh": "其四：不速之客",
+      "en": "IV. AN UNINVITED GUEST",
+      "ownMapId": "",
+      "parentId": "FA_0205",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02055",
+      "zh": "其五：移魂秘典",
+      "en": "V. SOUL DISPLACEMENT SCROLL",
+      "ownMapId": "",
+      "parentId": "FA_0205",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02056",
+      "zh": "其六：新生",
+      "en": "VI. NEW LIFE",
+      "ownMapId": "",
+      "parentId": "FA_0205",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02063",
+      "zh": "其一：衣钵",
+      "en": "I. THE LEGACY",
+      "ownMapId": "",
+      "parentId": "FA_0206",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_02064",
+      "zh": "其二：不同的道路",
+      "en": "II. DIFFERENT PATHS",
+      "ownMapId": "",
+      "parentId": "FA_0206",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03002",
+      "zh": "其一：毒药还是解药？",
+      "en": "I. POISON OR CURE?",
+      "ownMapId": "",
+      "parentId": "FA_0300",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03003",
+      "zh": "其二：空壳",
+      "en": "II. AN EMPTY SHELL",
+      "ownMapId": "",
+      "parentId": "FA_0300",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03004",
+      "zh": "其三：谁会在意？",
+      "en": "III. WHO WOULD CARE?",
+      "ownMapId": "",
+      "parentId": "FA_0300",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03005",
+      "zh": "其四：遥遥无期",
+      "en": "IV. BEYOND REACH",
+      "ownMapId": "",
+      "parentId": "FA_0300",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03006",
+      "zh": "其五：百利无弊",
+      "en": "V. ALL GAIN, NO LOSS",
+      "ownMapId": "",
+      "parentId": "FA_0300",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03007",
+      "zh": "其六：“公子”",
+      "en": "VI. \"MASTER BAI\"",
+      "ownMapId": "",
+      "parentId": "FA_0300",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03011",
+      "zh": "其一：往事",
+      "en": "I. THE PAST",
+      "ownMapId": "",
+      "parentId": "FA_0301",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03012",
+      "zh": "其二：外壳",
+      "en": "II. THE MASK",
+      "ownMapId": "",
+      "parentId": "FA_0301",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03013",
+      "zh": "其三：师父",
+      "en": "III. MASTER",
+      "ownMapId": "",
+      "parentId": "FA_0301",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03031",
+      "zh": "其一：追杀",
+      "en": "I. THE HUNT",
+      "ownMapId": "",
+      "parentId": "FA_0303",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03041",
+      "zh": "其二：分道扬镳",
+      "en": "II. PARTING WAYS",
+      "ownMapId": "",
+      "parentId": "FA_0303",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03042",
+      "zh": "其二：同赴",
+      "en": "II. TOGETHER",
+      "ownMapId": "",
+      "parentId": "FA_0304",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03043",
+      "zh": "其一：爱人的呼唤",
+      "en": "I. A LOVER'S CALL",
+      "ownMapId": "",
+      "parentId": "FA_0304",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03001",
+      "zh": "其二：自己的决定",
+      "en": "II. OWN DECISION",
+      "ownMapId": "",
+      "parentId": "FA_0310",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_03008",
+      "zh": "其一：正道的决定",
+      "en": "I. THE MANDATE'S DECISION",
+      "ownMapId": "",
+      "parentId": "FA_0310",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_04011",
+      "zh": "其一：有谁来……救救我？",
+      "en": "I. SOMEONE... PLEASE, SAVE ME...",
+      "ownMapId": "",
+      "parentId": "FA_0401",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_04012",
+      "zh": "其二：杀……杀！",
+      "en": "II. KILL... KILL!",
+      "ownMapId": "",
+      "parentId": "FA_0401",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_04013",
+      "zh": "其三：求生？求死？",
+      "en": "III. TO LIVE? OR TO DIE?",
+      "ownMapId": "",
+      "parentId": "FA_0401",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05011",
+      "zh": "其一：湖心",
+      "en": "I. HEART OF THE LAKE",
+      "ownMapId": "",
+      "parentId": "FA_0501",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05012",
+      "zh": "其二：幻术师聚落",
+      "en": "II. PHANTOM ART ILLUSIONISTS' SETTLEMENT",
+      "ownMapId": "",
+      "parentId": "FA_0501",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05013",
+      "zh": "其三：使者",
+      "en": "III. THE HERALD",
+      "ownMapId": "",
+      "parentId": "FA_0501",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05014",
+      "zh": "其四：祸端",
+      "en": "IV. THE SOURCE OF CALAMITY",
+      "ownMapId": "",
+      "parentId": "FA_0501",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05015",
+      "zh": "其五：杳无音信",
+      "en": "V. NO WORD",
+      "ownMapId": "",
+      "parentId": "FA_0501",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05016",
+      "zh": "其六：灭法之法",
+      "en": "VI. THE ACOLYTE",
+      "ownMapId": "",
+      "parentId": "FA_0501",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05021",
+      "zh": "其一：希望何在？",
+      "en": "I. WHERE LIES HOPE?",
+      "ownMapId": "",
+      "parentId": "FA_0502",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05041",
+      "zh": "其二：同生死！",
+      "en": "II. LIVE AND DIE TOGETHER",
+      "ownMapId": "",
+      "parentId": "FA_0502",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05031",
+      "zh": "其一：爱人重逢",
+      "en": "I. LOVERS' REUNION",
+      "ownMapId": "",
+      "parentId": "FA_0503",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05032",
+      "zh": "其二：是我儿吗？",
+      "en": "II. IS THAT MY SON?",
+      "ownMapId": "",
+      "parentId": "FA_0503",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05033",
+      "zh": "其三：孑然一身的解脱",
+      "en": "III. A SOLITARY RELEASE",
+      "ownMapId": "",
+      "parentId": "FA_0503",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05034",
+      "zh": "其四：那不是我爹！",
+      "en": "IV. THAT IS NOT MY FATHER!",
+      "ownMapId": "",
+      "parentId": "FA_0503",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05051",
+      "zh": "其一：正邪",
+      "en": "I. THE RIGHTEOUS AND EVIL",
+      "ownMapId": "",
+      "parentId": "FA_0505",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05052",
+      "zh": "其二：求愿",
+      "en": "II. A WISH",
+      "ownMapId": "",
+      "parentId": "FA_0505",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_05053",
+      "zh": "其三：阴谋",
+      "en": "III. THE CONSPIRACY",
+      "ownMapId": "",
+      "parentId": "FA_0505",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06001",
+      "zh": "其一：离家游子",
+      "en": "I. THE SON WHO LEFT HOME",
+      "ownMapId": "",
+      "parentId": "FA_0600",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06005",
+      "zh": "其二：大好前程",
+      "en": "II. A PROMISING FUTURE",
+      "ownMapId": "",
+      "parentId": "FA_0600",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06011",
+      "zh": "其一：失踪",
+      "en": "I. DISAPPEARANCES",
+      "ownMapId": "",
+      "parentId": "FA_0601",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06012",
+      "zh": "其二：暗道",
+      "en": "II. THE HIDDEN PASSAGE",
+      "ownMapId": "",
+      "parentId": "FA_0601",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06013",
+      "zh": "其三：消失的暗道",
+      "en": "III. THE VANISHED PASSAGE",
+      "ownMapId": "",
+      "parentId": "FA_0601",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06004",
+      "zh": "其一：儿时的老树",
+      "en": "I. THE OLD TREE",
+      "ownMapId": "",
+      "parentId": "FA_0602",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06022",
+      "zh": "其二：用心悔过",
+      "en": "II. A SINCERE REPENTANCE",
+      "ownMapId": "",
+      "parentId": "FA_0602",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06031",
+      "zh": "其一：贺年",
+      "en": "I. NEW YEAR'S GREETINGS",
+      "ownMapId": "",
+      "parentId": "FA_0603",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06032",
+      "zh": "其二：引荐",
+      "en": "II. THE INTRODUCTION",
+      "ownMapId": "",
+      "parentId": "FA_0603",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06033",
+      "zh": "其四：妙法",
+      "en": "IV. WONDROUS ART",
+      "ownMapId": "",
+      "parentId": "FA_0603",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06034",
+      "zh": "其五：变故",
+      "en": "V. THE UNEXPECTED TURN",
+      "ownMapId": "",
+      "parentId": "FA_0603",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06035",
+      "zh": "其六：木人",
+      "en": "VI. WOODEN MAN",
+      "ownMapId": "",
+      "parentId": "FA_0603",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06036",
+      "zh": "其三：虚实",
+      "en": "III. TRUTH AND ILLUSION",
+      "ownMapId": "",
+      "parentId": "FA_0603",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06041",
+      "zh": "其一：生离",
+      "en": "I. PARTING",
+      "ownMapId": "",
+      "parentId": "FA_0604",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06042",
+      "zh": "其二：非常之法",
+      "en": "II. EXTRAORDINARY MEANS",
+      "ownMapId": "",
+      "parentId": "FA_0604",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06043",
+      "zh": "其三：舍己",
+      "en": "III. SELF-SACRIFICE",
+      "ownMapId": "",
+      "parentId": "FA_0604",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06044",
+      "zh": "其四：绝境",
+      "en": "IV. DESPERATE STRAITS",
+      "ownMapId": "",
+      "parentId": "FA_0604",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06045",
+      "zh": "其五：末路",
+      "en": "V. DEAD END",
+      "ownMapId": "",
+      "parentId": "FA_0604",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06046",
+      "zh": "其六：最好的时候",
+      "en": "VI. THE GOLDEN DAYS",
+      "ownMapId": "",
+      "parentId": "FA_0604",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_07011",
+      "zh": "其一：囚命",
+      "en": "I. THREAD-BINDING SECT",
+      "ownMapId": "",
+      "parentId": "FA_0701",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_07012",
+      "zh": "其二：非议",
+      "en": "II. CRITICISM",
+      "ownMapId": "",
+      "parentId": "FA_0701",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_07013",
+      "zh": "其三：独占",
+      "en": "III. POSSESSION",
+      "ownMapId": "",
+      "parentId": "FA_0701",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_07021",
+      "zh": "其一：异常",
+      "en": "I. ABNORMALITY",
+      "ownMapId": "",
+      "parentId": "FA_0702",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_07022",
+      "zh": "其二：失踪",
+      "en": "II. GONE WITHOUT A TRACE",
+      "ownMapId": "",
+      "parentId": "FA_0702",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_07023",
+      "zh": "其三：梦差真身？",
+      "en": "III. THE HERALD'S TRUE FORM...?",
+      "ownMapId": "",
+      "parentId": "FA_0702",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_07024",
+      "zh": "其四：梦差真身！",
+      "en": "IV. THE HERALD'S TRUE FORM!",
+      "ownMapId": "",
+      "parentId": "FA_0702",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_07041",
+      "zh": "其一：挣扎",
+      "en": "I. STRUGGLE",
+      "ownMapId": "",
+      "parentId": "FA_0704",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_07042",
+      "zh": "其二：煌心实验",
+      "en": "II. THE RADIANT HEART EXPERIMENT",
+      "ownMapId": "",
+      "parentId": "FA_0704",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_07043",
+      "zh": "其三：圣躯",
+      "en": "III. THE PERFECT VESSEL",
+      "ownMapId": "",
+      "parentId": "FA_0704",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_08011",
+      "zh": "其一：浮华引",
+      "en": "I. ALLURE OF VANITY",
+      "ownMapId": "",
+      "parentId": "FA_0801",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_08012",
+      "zh": "其二：血脉",
+      "en": "II. BLOODLINE",
+      "ownMapId": "",
+      "parentId": "FA_0801",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_08013",
+      "zh": "其三：投湖",
+      "en": "III. INTO THE LAKE",
+      "ownMapId": "",
+      "parentId": "FA_0801",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_08014",
+      "zh": "其四：烟千岁",
+      "en": "IV. YAN QIANSUI",
+      "ownMapId": "",
+      "parentId": "FA_0801",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_08015",
+      "zh": "其五：供奉",
+      "en": "V. THE OFFERING",
+      "ownMapId": "",
+      "parentId": "FA_0801",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_08016",
+      "zh": "其六：物是人非",
+      "en": "VI. ALL HAS CHANGED",
+      "ownMapId": "",
+      "parentId": "FA_0801",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_08041",
+      "zh": "其一：游医",
+      "en": "I. THE WANDERING HEALER",
+      "ownMapId": "",
+      "parentId": "FA_0804",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_08042",
+      "zh": "其二：寒冰与混沌",
+      "en": "II. FROST AND CHAOS",
+      "ownMapId": "",
+      "parentId": "FA_0804",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_08043",
+      "zh": "其三：三魂合一",
+      "en": "III. THREE SOULS AS ONE",
+      "ownMapId": "",
+      "parentId": "FA_0804",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06002",
+      "zh": "其一：辜负",
+      "en": "I. BETRAYAL",
+      "ownMapId": "",
+      "parentId": "FA_1100",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_11001",
+      "zh": "其二：歧途",
+      "en": "II. THE WRONG PATH",
+      "ownMapId": "",
+      "parentId": "FA_1100",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_12001",
+      "zh": "其五：镜子和遗迹",
+      "en": "V. MIRRORS AND RUINS",
+      "ownMapId": "",
+      "parentId": "FA_1200",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FS_12001",
+      "zh": "其一：紫色碎片",
+      "en": "I. DISCORDANT SHARD",
+      "ownMapId": "",
+      "parentId": "FA_1200",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FS_12002",
+      "zh": "其二：分享",
+      "en": "II. SHARING",
+      "ownMapId": "",
+      "parentId": "FA_1200",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FS_12003",
+      "zh": "其三：无限煌心",
+      "en": "III. RADIANT HEART",
+      "ownMapId": "",
+      "parentId": "FA_1200",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FS_12004",
+      "zh": "其四：装载煌心之躯",
+      "en": "IV. VESSEL OF THE RADIANT HEART",
+      "ownMapId": "",
+      "parentId": "FA_1200",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FS_14001",
+      "zh": "其六：枯骨裂缝",
+      "en": "VI. RIFT OF BONES",
+      "ownMapId": "",
+      "parentId": "FA_1200",
+      "displayOrder": 0,
+      "isWhiteFlower": true
+    },
+    {
+      "id": "F_12011",
+      "zh": "其一：捕鱼",
+      "en": "I. FISHING",
+      "ownMapId": "",
+      "parentId": "FA_1201",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_12012",
+      "zh": "其二：游龙帮主",
+      "en": "II. YOU LOONG, THE CREW LEADER",
+      "ownMapId": "",
+      "parentId": "FA_1201",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_12013",
+      "zh": "其三：自愿改造",
+      "en": "III. VOLUNTARY TRANSCENSION",
+      "ownMapId": "",
+      "parentId": "FA_1201",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_12014",
+      "zh": "其四：捕旱鱼",
+      "en": "IV. FISHING ON DRY LAND",
+      "ownMapId": "",
+      "parentId": "FA_1201",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_06003",
+      "zh": "其一：断指",
+      "en": "I. THE SEVERED FINGER",
+      "ownMapId": "",
+      "parentId": "FA_1300",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_13001",
+      "zh": "其二：连枝",
+      "en": "II. KINDRED BRANCHES",
+      "ownMapId": "",
+      "parentId": "FA_1300",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_13011",
+      "zh": "其一：细腿",
+      "en": "I. SCRAWNY LEG",
+      "ownMapId": "",
+      "parentId": "FA_1301",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_13012",
+      "zh": "其二：内讧",
+      "en": "II. INFIGHTING",
+      "ownMapId": "",
+      "parentId": "FA_1301",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_13013",
+      "zh": "其三：主谋",
+      "en": "III. MASTERMIND",
+      "ownMapId": "",
+      "parentId": "FA_1301",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FS_18001",
+      "zh": "其一：玄家后人",
+      "en": "I. DESCENDANT OF THE XUAN CLAN",
+      "ownMapId": "",
+      "parentId": "FA_1800",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FS_18002",
+      "zh": "其四：梦华",
+      "en": "IV. MENG HUA",
+      "ownMapId": "",
+      "parentId": "FA_1800",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FS_18003",
+      "zh": "其二：天外之物",
+      "en": "II. OBJECT FROM BEYOND THE HEAVENS",
+      "ownMapId": "",
+      "parentId": "FA_1800",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FS_18004",
+      "zh": "其三：“龙”与“浊”",
+      "en": "III. \"LÓNG\" AND \"THE BLIGHT\"",
+      "ownMapId": "",
+      "parentId": "FA_1800",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FS_18005",
+      "zh": "其五：融于“浊”者",
+      "en": "V. FUSED WITH THE BLIGHT",
+      "ownMapId": "",
+      "parentId": "FA_1800",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "FS_18006",
+      "zh": "其六：掌控",
+      "en": "VI. CONTROL",
+      "ownMapId": "",
+      "parentId": "FA_1800",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_18021",
+      "zh": "其一：危机",
+      "en": "I. PERIL",
+      "ownMapId": "",
+      "parentId": "FA_1802",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_18022",
+      "zh": "其二：追凶",
+      "en": "II. PURSUIT",
+      "ownMapId": "",
+      "parentId": "FA_1802",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_18023",
+      "zh": "其三：深入",
+      "en": "III. INTO THE DEPTHS",
+      "ownMapId": "",
+      "parentId": "FA_1802",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_18024",
+      "zh": "其四：中计",
+      "en": "IV. THE TRAP",
+      "ownMapId": "",
+      "parentId": "FA_1802",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_18025",
+      "zh": "其五：狂乱",
+      "en": "V. FRENZY",
+      "ownMapId": "",
+      "parentId": "FA_1802",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_18026",
+      "zh": "其六：封印",
+      "en": "VI. THE SEAL",
+      "ownMapId": "",
+      "parentId": "FA_1802",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_18031",
+      "zh": "其一：开启之日",
+      "en": "I. THE DAY IT BEGAN",
+      "ownMapId": "",
+      "parentId": "FA_1803",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_18032",
+      "zh": "其二：无上力量",
+      "en": "II. SUPREME POWER",
+      "ownMapId": "",
+      "parentId": "FA_1803",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_18033",
+      "zh": "其三：归于覆没",
+      "en": "III. TOTAL RUIN",
+      "ownMapId": "",
+      "parentId": "FA_1803",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_18041",
+      "zh": "其一：外围突破",
+      "en": "I. BREAKING THROUGH",
+      "ownMapId": "",
+      "parentId": "FA_1804",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_18042",
+      "zh": "其二：探寻",
+      "en": "II. THE SEARCH",
+      "ownMapId": "",
+      "parentId": "FA_1804",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_70001",
+      "zh": "其一：守，守，守",
+      "en": "I. DEFEND. DEFEND. DEFEND.",
+      "ownMapId": "",
+      "parentId": "FA_7000",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_70002",
+      "zh": "其二：最后的支柱",
+      "en": "II. THE LAST PILLAR",
+      "ownMapId": "",
+      "parentId": "FA_7000",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_70003",
+      "zh": "其三：同道殊途",
+      "en": "III. DIFFERENT PATHS",
+      "ownMapId": "",
+      "parentId": "FA_7000",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_70004",
+      "zh": "其四：何以歼敌？",
+      "en": "IV. HOW TO DEFEAT THEM?",
+      "ownMapId": "",
+      "parentId": "FA_7000",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_70005",
+      "zh": "其五：诛邪",
+      "en": "V. ZHU XIE",
+      "ownMapId": "",
+      "parentId": "FA_7000",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "F_70006",
+      "zh": "其六：崭新的道路",
+      "en": "VI. A NEW PATH FORWARD",
+      "ownMapId": "",
+      "parentId": "FA_7000",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    }
+  ]
+}

@@ -4,6 +4,22 @@
 
 ## [Unreleased]
 
+## [0.17.12] - 2026-11-13
+
+### Added
+
+- **Phantom Blade Zero**: new Codex tab with three categories —
+  - **Enemies** (account-wide `__Advanced__.Codex`): per-row discover/reveal switches, one-click unlock, filter by status/kind/map; 177 entries
+  - **Books** (run slot `InventoryInfos`): 22 books + 218 pages as an expandable tree with per-page toggles and an "x/y pages" sub-progress that matches the in-game page count
+  - **Memories** (run slot): 37 memory flowers + 128 remnants as an expandable tree with per-remnant toggles and an "x/y remnants" sub-progress
+- Pages/remnants and their book/flower are independent save keys; unlocking a whole book/flower also grants its children
+- Added Chinese map-name catalog (`codexMaps`): `OwnMapID` shows the chapter's Chinese name and supports filtering by map
+
+### Notes
+
+- Memory category hint: filling it only writes the collected state; it does not trigger the in-game unlock animation or max-HP reward (requires completing in-game)
+- Enemy English names are not in this build's locres; the English UI shows a readable ID rather than inventing a translation
+
 ## [0.17.11] - 2026-11-09
 
 ### Added

@@ -8,6 +8,7 @@ import {
 import {
   createSaveModel,
   isEditableSlotName,
+  parseAdvancedSlot,
   parseEditableSlot,
   selectSlot,
   serializeDirtySlots,
@@ -38,7 +39,13 @@ export async function parse(files: SlotBytes[]): Promise<PhantomBladeZeroState> 
       throw new ModuleError('PBZ_NO_EDITABLE_SLOTS')
     }
 
-    const model = createSaveModel(editableSlots)
+    let advanced = null
+    if (container.slots.some(({ entry }) => entry.name === '__Advanced__')) {
+      const advancedPayload = await readSlotPayload(container, '__Advanced__')
+      advanced = parseAdvancedSlot(advancedPayload)
+    }
+
+    const model = createSaveModel(editableSlots, advanced)
     selectSlot(model, editableSlots[0]!.name)
     return { relativePath: file.relativePath, container, model }
   } catch (error) {

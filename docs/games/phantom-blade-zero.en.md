@@ -23,8 +23,9 @@ The format is PBZS v3: AES-256-GCM authenticated encryption; raw / zlib / Oodle 
 
 ## Editable scope
 
-The resources page keeps internal slot selection and tabs for **Weapon Upgrade Materials**, **Growth**, **Main weapons**, **Phantom weapons**, and **Accessories**. There are also top-level **Records** and **Progress**.
+The resources page keeps internal slot selection and tabs for **Weapon Upgrade Materials**, **Growth**, **Main weapons**, **Phantom weapons**, and **Accessories**. There are also top-level **Records**, **Progress**, and **Codex**.
 
+- **Codex (account-wide):** edits `__Advanced__.Codex` `DiscoveredEnemies` / `RevealedEnemies` (177 rows from `DT_CodexEnemyDataTable`). Search, status/kind filters, per-row toggles, unlock-all (discover + reveal). Does not edit `EnemyKillMapIDs`, bonus art/music, or achievements. Auto-backup before save; unlocking does not guarantee reward side effects.
 - `Player.Dust` is shown as 意识尘埃 in Chinese; the storage field remains `Dust`. English UI keeps `Dust` because this build's `en` resources have no translation
 - Progress: cycle week is read-only (`max(CycleCount, CycleRecords count)+1`); in-game week is not driven by editing `CycleCount`, so SaveSmith does not offer that edit. `HasGameTime` / `CurrentCycleGameTime` remain editable (HMS, dual-written). `CycleRecords` are never edited
 - Records: `PBZDeathMeta.DiedTimes`; per-boss deaths via `BossRecord.*.Records.*.AttemptCount` (HeyBox skull semantics `AttemptCount − KillCount`; does not edit `KillCount` / clear flags); rows with a valid existing `BestTimeMs` can be edited in whole seconds (stored as ms; sub-second precision is lost); existing rows can be re-hung onto another whitelisted difficulty key via dropdown (refuses if the target slot already has a record; does not fabricate clears)

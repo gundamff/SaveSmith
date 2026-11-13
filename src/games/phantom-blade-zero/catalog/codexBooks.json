@@ -1,0 +1,2167 @@
+{
+  "buildNote": "Full DT_InventoryData (CUE4Parse). Book=EItemTypes::Book, pages=BookPage; pages keyed Page_* or R_*, parentId=IntegrationItemID. zh from rowKey + editor EN where present.",
+  "books": [
+    {
+      "id": "Book_03",
+      "zh": "江湖异闻线索",
+      "en": "WULIN TALES",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_04",
+      "zh": "村民遗物调查",
+      "en": "INVESTIGATING THE VILLAGERS' BELONGINGS",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_05",
+      "zh": "庞镇众生相",
+      "en": "PEOPLE OF PANGZHEN",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_06",
+      "zh": "正道联盟拾遗",
+      "en": "FRAGMENTS OF THE MANDATE",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_08",
+      "zh": "杀气改造之谜",
+      "en": "MYSTERY OF TRANSCENSION",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_09",
+      "zh": "新娘阿花",
+      "en": "HUA THE BRIDE",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_10",
+      "zh": "昆仑三杰",
+      "en": "PILLARS OF KUNLUN",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_11",
+      "zh": "墨玑子的弟子们",
+      "en": "DISCIPLES OF MOJI",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_12",
+      "zh": "荒行子的背叛",
+      "en": "HUANGXING'S BETRAYAL",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_14",
+      "zh": "妙手小张珍宝清单",
+      "en": "QUICK HAND ZHANG'S RELIC LIST",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_15",
+      "zh": "左殇棋局",
+      "en": "ZUO SHANG'S GAME",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_16",
+      "zh": "囚命",
+      "en": "THREAD-BINDING SECT",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_17",
+      "zh": "梦差",
+      "en": "THE HERALD",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_19",
+      "zh": "圣母娘娘之谜",
+      "en": "MYSTERY OF THE LADY",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_20",
+      "zh": "各式发愿文",
+      "en": "PRAYERS AND VOWS",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_21",
+      "zh": "戏梦山庄的过往",
+      "en": "THE MIRAGE ESTATE'S PAST",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_22",
+      "zh": "水行帮拾遗",
+      "en": "FRAGMENTS OF THE BLACKWATER CREW",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_CS_01",
+      "zh": "沉思杂记",
+      "en": "REFLECTIONS",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_MengChai",
+      "zh": "梦差实验手札",
+      "en": "THE HERALD'S EXPERIMENT NOTES",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_MoJiZi",
+      "zh": "墨玑子绝笔",
+      "en": "MOJI'S FINAL LETTER",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_XC_01",
+      "zh": "“组织”",
+      "en": "THE ORDER",
+      "ownMapId": "",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Book_XiongFu",
+      "zh": "“四凶斧”案卷",
+      "en": "THE \"FOUR AXES\" CASE FILES",
+      "ownMapId": "XiGu",
+      "parentId": "",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    }
+  ],
+  "pages": [
+    {
+      "id": "Page_CS_01",
+      "zh": "影境武林",
+      "en": "",
+      "ownMapId": "",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_02",
+      "zh": "杀气是什么？",
+      "en": "",
+      "ownMapId": "",
+      "parentId": "Book_08",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_03",
+      "zh": "正道联盟",
+      "en": "",
+      "ownMapId": "",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_04",
+      "zh": "白山派",
+      "en": "",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_05",
+      "zh": "昆仑三杰是谁？",
+      "en": "",
+      "ownMapId": "",
+      "parentId": "Book_10",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_06",
+      "zh": "杀气改造",
+      "en": "",
+      "ownMapId": "",
+      "parentId": "Book_08",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_07",
+      "zh": "龙氏家族",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_08",
+      "zh": "暗魔天堡",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_10",
+      "zh": "机关术",
+      "en": "",
+      "ownMapId": "",
+      "parentId": "Book_08",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_11",
+      "zh": "里武林",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_12",
+      "zh": "庞镇",
+      "en": "",
+      "ownMapId": "",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_13",
+      "zh": "驿站，难得的休憩之所",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_14",
+      "zh": "伤其无血，毒火不侵，独畏雷击。",
+      "en": "Their wounds do not bleed, poison and flame cannot harm them, and only lightning can bring them down.",
+      "ownMapId": "XiGu",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_15",
+      "zh": "然若抵达，还需穿过一处山洞。",
+      "en": "you'll have to pass through a mountain cave to reach it.",
+      "ownMapId": "XiGu",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_16",
+      "zh": "血色森林",
+      "en": "",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_17",
+      "zh": "妙手小张是何许人？",
+      "en": "",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_18",
+      "zh": "陆家村",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_CS_19",
+      "zh": "八卦阁",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_XC_01",
+      "zh": "“组织”就是“组织”",
+      "en": "",
+      "ownMapId": "",
+      "parentId": "Book_XC_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_XC_02",
+      "zh": "冥主与冥使们",
+      "en": "",
+      "ownMapId": "",
+      "parentId": "Book_XC_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_XC_03",
+      "zh": "组织高手",
+      "en": "",
+      "ownMapId": "",
+      "parentId": "Book_XC_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_XC_04",
+      "zh": "鬼差和楔子",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_XC_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_XC_05",
+      "zh": "秘密酒馆",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_XC_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_XC_06",
+      "zh": "机关船和船坞",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_XC_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_XC_07",
+      "zh": "灭龙魔",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_XC_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "Page_XC_08",
+      "zh": "十一人阁",
+      "en": "",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_XC_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01001",
+      "zh": "绝望血书",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_04",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01002",
+      "zh": "《斧老大的绝笔信》",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_XiongFu",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01003",
+      "zh": "四凶斧之乱·惑乱",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_XiongFu",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01004",
+      "zh": "《武队长绝笔信》",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_XiongFu",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01005",
+      "zh": "谋士许丰的密信",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_XiongFu",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01006",
+      "zh": "明大掌门的回信",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_XiongFu",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01007",
+      "zh": "四凶斧之乱·祸乱",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_XiongFu",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01008",
+      "zh": "四凶斧之乱·混乱",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_XiongFu",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01009",
+      "zh": "《浑源石志·龙体改造篇》",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_08",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01010",
+      "zh": "“残钢刃”",
+      "en": "\"Jagged Steel\"",
+      "ownMapId": "XiGu",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01011",
+      "zh": "山村布告",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_04",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01012",
+      "zh": "蒙健",
+      "en": "Meng Jian",
+      "ownMapId": "XiGu",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01013",
+      "zh": "寻子启事",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_04",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01014",
+      "zh": "顾凌然上书明大掌门（文稿）",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_XiongFu",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01015",
+      "zh": "村民借据",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_04",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01016",
+      "zh": "废弃田契",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_04",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01017",
+      "zh": "龙氏大学士的立碑报告",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01018",
+      "zh": "媒婆的信",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_09",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01019",
+      "zh": "阿花父亲回信",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_09",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01020",
+      "zh": "阿辉的书信",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_09",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01021",
+      "zh": "石蒜花谷",
+      "en": "Spider Lily Valley",
+      "ownMapId": "XiGu",
+      "parentId": "Book_09",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01022",
+      "zh": "浓烟滚滚的高塔下",
+      "en": "smoke-filled tower...",
+      "ownMapId": "XiGu",
+      "parentId": "Book_09",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01023",
+      "zh": "浓烟滚滚的高塔下",
+      "en": "smoke-filled tower...",
+      "ownMapId": "XiGu",
+      "parentId": "Book_09",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01024",
+      "zh": "浓烟滚滚的高塔下",
+      "en": "smoke-filled tower...",
+      "ownMapId": "XiGu",
+      "parentId": "Book_09",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01025",
+      "zh": "战报",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01026",
+      "zh": "江湖客的投奔书信",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01027",
+      "zh": "弟子们对三杰的评价",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_10",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01028",
+      "zh": "杀气炉操作须知事项",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_08",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01029",
+      "zh": "驻守簿录",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01030",
+      "zh": "杀气塔勘探调查",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_08",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01031",
+      "zh": "物资清点记录",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01032",
+      "zh": "求援回信",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01033",
+      "zh": "给副官的手令",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_01034",
+      "zh": "多生在龙巢之外",
+      "en": "outside of Lóng lairs",
+      "ownMapId": "XiGu",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_02001",
+      "zh": "琴头",
+      "en": "Pipa Head",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_02002",
+      "zh": "荒行子手谕",
+      "en": "",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_12",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_02003",
+      "zh": "染血印章",
+      "en": "Bloodstained Seal",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_14",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_02004",
+      "zh": "正道榜文",
+      "en": "",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_02005",
+      "zh": "胡承泽",
+      "en": "Hu Chengze",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_02006",
+      "zh": "镜林游记",
+      "en": "",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_02007",
+      "zh": "与家人联络的信件（与伯父的联络信）",
+      "en": "",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_04",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_02008",
+      "zh": "命令函",
+      "en": "",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_15",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_02009",
+      "zh": "正道联盟军令状",
+      "en": "",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_02010",
+      "zh": "保护小姐的嘱托",
+      "en": "",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_04",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_02011",
+      "zh": "长吊桥前",
+      "en": "near the long suspension bridge",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_02012",
+      "zh": "员外的玉带",
+      "en": "a landowner's jade belt",
+      "ownMapId": "FuJiZhiLin",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03001",
+      "zh": "【墨玑子绝笔信】其一",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_MoJiZi",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03002",
+      "zh": "【墨玑子绝笔信】其二",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_MoJiZi",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03003",
+      "zh": "【墨玑子绝笔信】其三",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_MoJiZi",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03004",
+      "zh": "【墨玑子绝笔信】其四",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_MoJiZi",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03005",
+      "zh": "【墨玑子绝笔信】其五",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_MoJiZi",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03006",
+      "zh": "【墨玑子绝笔信】潦草标记的地图",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_MoJiZi",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03007",
+      "zh": "断裂铁剑",
+      "en": "Broken Iron Sword",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03008",
+      "zh": "正道联盟委任状",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_10",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03011",
+      "zh": "弟子家书",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03012",
+      "zh": "给倩倩的密信",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_11",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03013",
+      "zh": "“龙体之术”执行令",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_12",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03014",
+      "zh": "六宗门书",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_10",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03015",
+      "zh": "琴谱札记",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_10",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03016",
+      "zh": "女弟子文书",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_10",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03017",
+      "zh": "《龙体之术详解》的残页",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_12",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03018",
+      "zh": "正道大营工事图",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_10",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03019",
+      "zh": "公子来信",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_12",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03020",
+      "zh": "武学答疑",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_11",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03021",
+      "zh": "满月请帖",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_11",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03022",
+      "zh": "诗歌切磋函",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_11",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03023",
+      "zh": "未完成的论剑",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_11",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03025",
+      "zh": "爱管闲事弟子的遗书",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_11",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03026",
+      "zh": "赵笛的来信",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_11",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03027",
+      "zh": "医者的手记残页",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_08",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03028",
+      "zh": "赵笛三人的抵抗檄文",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_11",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03029",
+      "zh": "移魂人偶",
+      "en": "",
+      "ownMapId": "",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_03030",
+      "zh": "假身",
+      "en": "Reflection",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_04001",
+      "zh": "【梦差实验手札】娘娘圣躯",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_MengChai",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_040018",
+      "zh": "《夹着鸟羽的急信》（鸡毛文书）",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_040019",
+      "zh": "《升降梯开关遭劫》",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_04002",
+      "zh": "【梦差实验手札】零号人偶",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_MengChai",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_04003",
+      "zh": "【梦差实验手札】煌心",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_MengChai",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_04004",
+      "zh": "【梦差实验手札】圣躯完成",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_MengChai",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_04005",
+      "zh": "未发出的信函",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_17",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_04006",
+      "zh": "煌心工坊的规矩",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_17",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_04007",
+      "zh": "洞房花烛",
+      "en": "Wedding Candles",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_14",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_04008",
+      "zh": "移魂散配方手稿",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_04009",
+      "zh": "移魂散",
+      "en": "Soul Displacement Powder",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_04010",
+      "zh": "第七十九批废弃品清单",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_04902",
+      "zh": "《哑巴人偶图纸》",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_17",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05001",
+      "zh": "人偶基地营造图释",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05002",
+      "zh": "九十九号",
+      "en": "Number Ninety-Nine",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_17",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05003",
+      "zh": "《水井封锁告示》",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_04",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05005",
+      "zh": "【人偶基地簿书】空间拓展",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05006",
+      "zh": "尚未完成的《圣母经》",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_17",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05007",
+      "zh": "囚命者信函",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_17",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05008",
+      "zh": "“至高者”来信",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_17",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05009",
+      "zh": "关于“荡秽”的密报",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_17",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05010",
+      "zh": "类同七巧星",
+      "en": "similar to Still Poison",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05011",
+      "zh": "圣母告谕",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_19",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05012",
+      "zh": "法事榜文：如何面见圣母娘娘？",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_19",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05013",
+      "zh": "治丧簿",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_04",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05014",
+      "zh": "【坚守村民的日志】中秋",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_04",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05015",
+      "zh": "【坚守村民的日志】霜降",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_04",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05016",
+      "zh": "【人偶基地簿书】第一处实验基地",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05017",
+      "zh": "歌女人偶的书信",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05018",
+      "zh": "联剿策论",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_10",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05019",
+      "zh": "联合讨贼盟誓",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_15",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05020",
+      "zh": "花千笑：",
+      "en": "Hua Qianxiao",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_05021",
+      "zh": "给圣母的祷文",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_20",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06003",
+      "zh": "玉笔架",
+      "en": "Jade Brush Rest",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_14",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06005",
+      "zh": "无人理会的诉状",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06006",
+      "zh": "画押的契据",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06007",
+      "zh": "心脉经注",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_08",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06008",
+      "zh": "仓促写就的血书",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06009",
+      "zh": "未能寄出的书信",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06014",
+      "zh": "致爹爹长青",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06015",
+      "zh": "故人的绝笔信",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06016",
+      "zh": "镇民的日记·残页",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06017",
+      "zh": "签字的契据",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06018",
+      "zh": "给弟弟的道歉信",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06019",
+      "zh": "【谢园往事】其一",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06020",
+      "zh": "【谢园往事】其二",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06021",
+      "zh": "问诊簿",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06022",
+      "zh": "关于“花”的手札",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06024",
+      "zh": "【圣母宝卷】其一：庞声遇圣",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_19",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06025",
+      "zh": "【圣母宝卷】其二：木人换心",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_19",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06028",
+      "zh": "酒馆账簿",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06029",
+      "zh": "武生词",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06030",
+      "zh": "青衣词",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06031",
+      "zh": "字迹潦草的信件",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06032",
+      "zh": "青蛇屋",
+      "en": "Green Serpent House",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_XC_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06033",
+      "zh": "娘娘的嘱托",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06034",
+      "zh": "哥哥的来信（阿袖亲启）",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_06035",
+      "zh": "一首未署名的诗",
+      "en": "",
+      "ownMapId": "PangZhen",
+      "parentId": "Book_15",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070001",
+      "zh": "陆三迁绝笔：解元亲启",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070002",
+      "zh": "白雪儿……刺穿腹部……“瞧，大柱哥，那边的云像小兔子。”",
+      "en": "Bai Xue... abdomen pierced... \"Look, Dazhu. That cloud looks like a little rabbit.\"",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070003",
+      "zh": "周川发愿文",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_20",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070004",
+      "zh": "李幺妹发愿文",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_20",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070005",
+      "zh": "王益仁发愿文",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_20",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070006",
+      "zh": "不肖子孙三迁发愿文",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_20",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070007",
+      "zh": "被武当派涂抹的发愿文",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_20",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070008",
+      "zh": "无名的发愿文",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_20",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070009",
+      "zh": "血刀门发愿文",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_20",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07001",
+      "zh": "“无限煌心“的设计图样",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_15",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070010",
+      "zh": "霹雳堂陈虎头发愿",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_20",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070011",
+      "zh": "抗敌檄文",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_10",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070012",
+      "zh": "《沾血的日记》",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070013",
+      "zh": "不具名的字条",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_12",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070014",
+      "zh": "近卫队信神疏",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_19",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070015",
+      "zh": "缺损的《山道地图》",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070016",
+      "zh": "字迹纤细的日记",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070017",
+      "zh": "周平子的遗书（致雨玲书）",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_03",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_070018",
+      "zh": "潦草的日记",
+      "en": "",
+      "ownMapId": "DengDingShanDao",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07002",
+      "zh": "冷荼亲信的回报",
+      "en": "",
+      "ownMapId": "ZhengDaoDaYing",
+      "parentId": "Book_17",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07004",
+      "zh": "戏梦山庄图释",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_21",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07005",
+      "zh": "余成章",
+      "en": "Yu Chengzhang",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_21",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07007",
+      "zh": "废弃的武训",
+      "en": "",
+      "ownMapId": "XiMeng",
+      "parentId": "Book_21",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07008",
+      "zh": "三杰赋",
+      "en": "",
+      "ownMapId": "XiMeng",
+      "parentId": "Book_21",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07009",
+      "zh": "幻术要纪",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07010",
+      "zh": "关外草木图志",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07011",
+      "zh": "关外门派通考",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07013",
+      "zh": "记录：七巧玲珑与七巧星",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07014",
+      "zh": "记录：七巧解药",
+      "en": "",
+      "ownMapId": "LuJiaCun",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07015",
+      "zh": "独眼弓客的留书",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07016",
+      "zh": "三头小娃娃",
+      "en": "three-headed doll",
+      "ownMapId": "XiMeng",
+      "parentId": "Book_17",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07017",
+      "zh": "关于“玉琮”的研究笔录",
+      "en": "",
+      "ownMapId": "XiMeng",
+      "parentId": "Book_17",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07018",
+      "zh": "尊者以“镜”封禁遗迹",
+      "en": "The High Elder has sealed the ruins with a mirror",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_19",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07019",
+      "zh": "至高尊者法旨",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_19",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_07020",
+      "zh": "凌乱的字条",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_19",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_08001",
+      "zh": "观浊星盘",
+      "en": "Blight Astrolabe",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_14",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_11001",
+      "zh": "一封未署名的信",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_15",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_11002",
+      "zh": "紫色碎片手札",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_15",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_11003",
+      "zh": "青蛇屋密道图",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_15",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12001",
+      "zh": "【梦差实验手札】装载煌心",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_MengChai",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12003",
+      "zh": "【梦差实验手札】裂缝准备",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_MengChai",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12004",
+      "zh": "邪主的来信",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_16",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12005",
+      "zh": "将军铜镜",
+      "en": "General's Bronze Mirror",
+      "ownMapId": "XiMeng",
+      "parentId": "Book_14",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12006",
+      "zh": "宠物",
+      "en": "",
+      "ownMapId": "XiGu",
+      "parentId": "Book_17",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12007",
+      "zh": "讨贼告示",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_22",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12009",
+      "zh": "水行帮武帖",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_22",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12010",
+      "zh": "水行帮簿册",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_22",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12011",
+      "zh": "琐碎的游记残页",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_22",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12012",
+      "zh": "满是勾画的地图",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_22",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12013",
+      "zh": "搁浅的纸船",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_22",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12014",
+      "zh": "【停水忆录】其一：比试",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_22",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12015",
+      "zh": "【停水忆录】其二：盼头",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_22",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12016",
+      "zh": "【停水忆录】其三：输赢",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_22",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12017",
+      "zh": "华美的请帖",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12019",
+      "zh": "给京城孟大人的信",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_05",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_12020",
+      "zh": "梅谷六景",
+      "en": "",
+      "ownMapId": "MeiGuHu",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_13001",
+      "zh": "【梦差实验手札】备用圣躯",
+      "en": "",
+      "ownMapId": "XiMeng",
+      "parentId": "Book_MengChai",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_14001",
+      "zh": "封山令",
+      "en": "",
+      "ownMapId": "DuanHunShan",
+      "parentId": "Book_06",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_14004",
+      "zh": "圣母娘娘真身图",
+      "en": "",
+      "ownMapId": "XiMeng",
+      "parentId": "Book_19",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_14005",
+      "zh": "断魂山地志",
+      "en": "",
+      "ownMapId": "XiMeng",
+      "parentId": "Book_CS_01",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    },
+    {
+      "id": "R_14006",
+      "zh": "星表",
+      "en": "",
+      "ownMapId": "XiMeng",
+      "parentId": "Book_19",
+      "displayOrder": 0,
+      "isWhiteFlower": false
+    }
+  ]
+}

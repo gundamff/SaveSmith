@@ -61,10 +61,42 @@ export interface PbzEditableSlot {
   dirty: boolean
 }
 
+export interface PbzAdvancedState {
+  document: Record<string, unknown>
+  dirty: boolean
+}
+
 export interface PbzSaveModel {
   slots: PbzEditableSlot[]
   selectedSlotName: string | null
+  /** Account-wide `__Advanced__` JSON when parseable; null if missing/opaque. */
+  advanced: PbzAdvancedState | null
 }
+
+export {
+  clearCodexDiscovered,
+  clearCodexRevealed,
+  projectCodex,
+  setCodexDiscovered,
+  setCodexRevealed,
+  unlockAllCodex,
+  unlockAllCodexDiscovered,
+  unlockAllCodexRevealed,
+  type PbzCodexRowView,
+  type PbzCodexView
+} from './codex'
+export {
+  clearAllCodexBooks,
+  clearAllCodexMemories,
+  projectCodexBooks,
+  projectCodexMemories,
+  setCodexBookOwned,
+  setCodexMemoryOwned,
+  unlockAllCodexBooks,
+  unlockAllCodexMemories,
+  type PbzLiteratureRowView,
+  type PbzLiteratureView
+} from './literature'
 
 interface InventoryRecord {
   record: Record<string, unknown>
@@ -89,8 +121,22 @@ export function parseEditableSlot(name: string, payload: Uint8Array): PbzEditabl
   }
 }
 
-export function createSaveModel(slots: readonly PbzEditableSlot[]): PbzSaveModel {
-  return { slots: [...slots], selectedSlotName: null }
+export function createSaveModel(
+  slots: readonly PbzEditableSlot[],
+  advanced: PbzAdvancedState | null = null
+): PbzSaveModel {
+  return { slots: [...slots], selectedSlotName: null, advanced }
+}
+
+export function parseAdvancedSlot(payload: Uint8Array): PbzAdvancedState | null {
+  try {
+    const text = new TextDecoder('utf-8', { fatal: true }).decode(payload)
+    const parsed: unknown = JSON.parse(text)
+    if (!isPlainObject(parsed)) return null
+    return { document: parsed, dirty: false }
+  } catch {
+    return null
+  }
 }
 
 export function selectSlot(model: PbzSaveModel, name: string): void {
@@ -272,6 +318,12 @@ export function serializeDirtySlots(model: PbzSaveModel): ReadonlyMap<string, Ui
       if (slot.dirty) {
         serialized.set(slot.name, new TextEncoder().encode(JSON.stringify(slot.document)))
       }
+    }
+    if (model.advanced?.dirty) {
+      serialized.set(
+        '__Advanced__',
+        new TextEncoder().encode(JSON.stringify(model.advanced.document))
+      )
     }
   } catch {
     throw new ModuleError('PBZ_INVALID_EDIT', ['PBZ_INVALID_JSON'])

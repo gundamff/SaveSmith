@@ -657,13 +657,15 @@ describe('PBZ item view runtime behavior', () => {
 })
 
 describe('PBZ views', () => {
-  it('registers resources, records, and progress views in order', () => {
-    expect(pbzViews).toHaveLength(3)
+  it('registers resources, records, progress, and codex views in order', () => {
+    expect(pbzViews).toHaveLength(4)
     expect(pbzViews[0]).toMatchObject({ id: 'resources', labelKey: 'pbz.tabs.resources' })
     expect(pbzViews[1]).toMatchObject({ id: 'records', labelKey: 'pbz.tabs.records' })
     expect(pbzViews[2]).toMatchObject({ id: 'progress', labelKey: 'pbz.tabs.progress' })
+    expect(pbzViews[3]).toMatchObject({ id: 'codex', labelKey: 'pbz.tabs.codex' })
     expect(t('pbz.tabs.records')).toBeTruthy()
     expect(t('pbz.tabs.progress')).toBeTruthy()
+    expect(t('pbz.tabs.codex')).toBeTruthy()
   })
 
   it('integrates inventory and equipment category tabs', () => {

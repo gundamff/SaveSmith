@@ -858,7 +858,7 @@ describe('phantom-blade-zero save model', () => {
 
   it('supports an empty model and reports duplicate slots without crashing', () => {
     const empty = createSaveModel([])
-    expect(empty).toEqual({ slots: [], selectedSlotName: null })
+    expect(empty).toEqual({ slots: [], selectedSlotName: null, advanced: null })
     expect(getSelectedSlot(empty)).toBeNull()
     expect(validateSaveModel(empty)).toEqual([])
     expect(serializeDirtySlots(empty).size).toBe(0)

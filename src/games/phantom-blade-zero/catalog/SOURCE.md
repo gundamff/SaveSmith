@@ -54,9 +54,10 @@ The output contains 39 rows:
   - medicine upgrade materials (`Medi_Material_1`..`3`)
   - ordinary consumable `Item_Traversing` (穿行符)
 
-Excluded: snap-soul materials, memory flowers, books, quest / narrative
-placeholders, and weapon / sha-qi return tokens. Players may still hold those
-IDs in saves; SaveSmith simply does not project or edit them.
+Excluded from the **Resources** inventory catalog: snap-soul materials, memory
+flowers, books, quest / narrative placeholders, and weapon / sha-qi return
+tokens. Literature books / pages / memory flowers are edited on the Codex tab
+via separate catalogs (`codexBooks.json`, `codexMemories.json`), not here.
 
 `Item_Traversing` keeps the conservative application safety limit of `0..99`.
 Other growth items and weapon materials use `0..9999`. Real-save `MaxAmount`
@@ -74,6 +75,34 @@ No IDs, names, values, timestamps, or save bytes were written to that report.
 
 Deletion removes the inventory key from `Inventory.InventoryInfos` entirely
 (same shape as never having owned the item).
+
+## Enemy codex catalog (`codexEnemies.json`)
+
+Full enemy-codex rows (177) for the Codex tab come from
+`/Game/PBZContent/DataTable/DT_CodexEnemyDataTable` (CUE4Parse dump
+`%TEMP%\pbz-codex-export\out\DT_CodexEnemyDataTable.json`, 2026-11-13).
+Each row keeps `id`, Simplified Chinese name, `enemyClass` SoftObject path
+(same shape as `__Advanced__.Codex.DiscoveredEnemies` / `RevealedEnemies`),
+`isBoss`, `enemyType`, `ownMapId`, and `displayOrder`. Regenerate via the
+TEMP `PbzCodexDump` tool + `scripts/_pbz-analyze-codex.mts` (see
+`docs/design/2026-11-13-phantom-blade-zero-codex-research.md`). Do not commit
+raw IoStore dumps.
+
+## Literature books / memories (`codexBooks.json`, `codexMemories.json`)
+
+From the full `DT_InventoryData` dump (CUE4Parse `%TEMP%\pbz-lit-export\out\inventory-full.json`):
+
+- Books: `EItemTypes::Book` (22) + pages `EItemTypes::BookPage` (218)
+- Memories: `MemoryFlower` (37) + `MemoryFlowerPetal` remnants (128)
+
+`parentId` = `IntegrationItemID`. Page keys are mixed `Page_*` and `R_*`
+(most pages are `R_*`); petals are `F_*`. Do NOT filter by id prefix — the
+first pass missed ~192 `R_*` pages that way. Per-book page counts match the
+in-game page pips (e.g. `Book_08` 杀气改造之谜 = 8 pages).
+
+Owned state is per-run `Inventory.InventoryInfos[id]` (`CurrentAmount > 0`).
+Unlocking a book/flower also writes linked pages/petals. Chinese `_rowKey` plus
+editor-catalog EN where available. Map names reuse `codexMaps`.
 
 ## Boss display names (`bosses.ts`)
 
