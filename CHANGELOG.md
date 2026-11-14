@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### 新增
+
+- **影之刃零**：资源页可删除容器内全部 66 天 / `NightmareRun*` 槽位；保留 Auto/Manual；同步移除配对的 `NightmareCycleStart_*` / `NightmareLineStart_*`；若 `__Advanced__.LastContinueSlot` 指向已删槽则改写为剩余 Manual/Auto
+
 ## [0.17.12] - 2026-11-13
 
 ### 新增

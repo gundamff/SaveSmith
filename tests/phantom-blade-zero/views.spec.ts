@@ -680,6 +680,8 @@ describe('PBZ views', () => {
     expect(text).toMatch(/projectResources/)
     expect(text).toMatch(/setDust/)
     expect(text).toMatch(/markDirty/)
+    expect(text).toMatch(/deleteNightmareRunSlots/)
+    expect(text).toMatch(/deleteNightmareConfirm/)
   })
 
   it('projects and filters existing category rows through catalog names', () => {

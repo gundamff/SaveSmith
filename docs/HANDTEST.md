@@ -268,6 +268,12 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 - [ ] 游戏载入该 Nightmare 槽 → 游戏内保存 → 完全退出 → 二次载入正常
 - [ ] **说明：** 发布前合成 fixture 已覆盖；真档对拍仍依赖社区/本机二周目档
 
+### PBZ1c. 删除 66 天 / NightmareRun（副本；有档才测）
+
+- [ ] 资源页出现「删除全部 66 天槽位」；确认文案说明保留 Auto/Manual、清理快照与继续指针、不可撤销（靠备份）
+- [ ] 确认后 Auto/Manual 仍在；`NightmareRun*` 与配对 `NightmareCycleStart_*` / `NightmareLineStart_*` 消失；若原 `LastContinueSlot` 指向 Nightmare，保存后指向剩余 Auto/Manual
+- [ ] 游戏内「继续」不再指向已删 66 天槽；Auto/Manual 可正常载入
+
 ### PBZ2. Clean 往返
 
 - [ ] 在**副本**中不改字段保存

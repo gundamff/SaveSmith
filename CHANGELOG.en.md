@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- **Phantom Blade Zero**: Resources tab can delete all in-container 66-days / `NightmareRun*` slots; keeps Auto/Manual; removes paired `NightmareCycleStart_*` / `NightmareLineStart_*`; rewrites `__Advanced__.LastContinueSlot` to a remaining Manual/Auto when it pointed at a deleted slot
+
 ## [0.17.12] - 2026-11-13
 
 ### Added
