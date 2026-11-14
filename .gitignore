@@ -50,3 +50,6 @@ docs/promo/**/_audio/
 docs/promo/**/_work/
 docs/promo/**/_assemble.ps1
 
+
+# 成片不进仓库（归档在 D:/bots/work/savesmith/promo/archive）
+docs/promo/**/*.mp4
