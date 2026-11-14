@@ -13,9 +13,10 @@
 物理主档只有 `PBZSaveGame.sav`。SaveSmith 将其中的 `AutoSaveN` / `ManualSaveN` / `NightmareRunN`（二周目等高难内部槽）显示为可编辑内部槽位。
 
 - `1RealTime`、`2Hourly`、`3Daily` 是游戏自身的备份目录，不会显示为 SaveSmith 槽位。
-- `__Advanced__`、`__Achievements__` 是特殊槽，仅只读透传。
+- `__Achievements__` 只读透传；`__Advanced__` 默认同样透传，但图鉴会写 `Codex`，删除 66 天槽时可能改写 `LastContinueSlot`。
 - 设置档不受支持。
 - **`NightmareRun*` 尚未用玩家二周目真档对拍**（按与 Auto/Manual 同构假设开放）。修改前务必完全退出游戏并备份整个 SteamID64 存档目录。
+- **删除 66 天 / NightmareRun：** 资源页在检测到容器内存在 `NightmareRun` / `NightmareRunN` 时提供删除入口（确认后从目录移除这些槽，并清理配对快照与继续指针）。不删除 Auto/Manual。保存仍走宿主自动备份。
 
 格式为 PBZS v3：AES-256-GCM 认证加密；可读 raw / zlib / Oodle 槽；脏槽写回为 Oodle stored（`compression=2`，`0xCC06` 分块，无真实压缩）。认证或解析失败会停止写入。
 

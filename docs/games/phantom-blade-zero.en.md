@@ -13,9 +13,10 @@ Default directory:
 The only physical main save is `PBZSaveGame.sav`. SaveSmith exposes its internal `AutoSaveN` / `ManualSaveN` / `NightmareRunN` (NG+ / high-difficulty internal slots) entries as editable slots.
 
 - `1RealTime`, `2Hourly`, and `3Daily` are the game's own backup directories, not SaveSmith slots.
-- `__Advanced__` and `__Achievements__` are special slots preserved read-only.
+- `__Achievements__` is preserved read-only; `__Advanced__` is mostly passthrough, except Codex writes and rewriting `LastContinueSlot` when deleting 66-days slots.
 - Settings saves are unsupported.
 - **`NightmareRun*` has not been verified against a real NG+ player save** (opened under the same JSON shape assumption as Auto/Manual). Fully quit the game and back up the whole SteamID64 save folder before editing.
+- **Delete 66-days / NightmareRun:** The Resources tab offers deletion when the container has `NightmareRun` / `NightmareRunN` entries (after confirm: remove those directory slots, paired snapshots, and fix the continue pointer). Auto/Manual are kept. Saving still uses the host auto-backup.
 
 The format is PBZS v3: AES-256-GCM authenticated encryption; raw / zlib / Oodle slots are readable; dirty slots are rewritten as Oodle stored (`compression=2`, `0xCC06` chunks, no real compression). Authentication or parsing failure blocks saving.
 

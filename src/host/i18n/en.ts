@@ -719,6 +719,16 @@ export const en: MessageTree = {
       slot: 'Internal slot',
       slotDirty:
         'Changes in the current slot will remain and will be written together when you save. Switch slots?',
+      deleteNightmareTitle: 'Delete 66-days / NightmareRun slots',
+      deleteNightmareHint:
+        'Remove in-game 66-days (NightmareRun) slots from the PBZSaveGame.sav container. AutoSave / ManualSave are kept. Saving still uses the host auto-backup flow.',
+      deleteNightmareSlots: 'Will delete: {0}',
+      deleteNightmareButton: 'Delete all 66-days slots',
+      deleteNightmareConfirmButton: 'Delete',
+      deleteNightmareConfirm:
+        'This removes every 66-days / NightmareRun slot from the save container and deletes matching NightmareCycleStart_* / NightmareLineStart_* snapshots. If Continue Game still points at a deleted slot, it is rewritten to a remaining Auto/Manual slot. AutoSave and ManualSave are not deleted. This cannot be undone except from a backup. Continue?',
+      deleteNightmareDone: 'Removed {0} 66-days slot(s) (click Save to write to disk)',
+      deleteNightmareFailed: 'Failed to delete 66-days slots',
       dust: 'Dust',
       weaponMaterials: 'Weapon Upgrade Materials',
       consumables: 'Growth',
@@ -813,6 +823,7 @@ export const en: MessageTree = {
     PBZ_INVALID_JSON: 'Slot {0} contains invalid JSON',
     PBZ_INVALID_EDIT: 'Invalid PBZ edit: {0}',
     PBZ_NO_EDITABLE_SLOTS: 'No editable AutoSave/ManualSave/NightmareRun slots',
+    PBZ_EMPTY_CONTAINER: 'Deletion would leave the container with no slots; refused',
     PBZ_INVALID_SLOT: 'Invalid slot name: {0}',
     PBZ_DUPLICATE_SLOT: 'Duplicate slot: {0}',
     PBZ_INVALID_SELECTION: 'Invalid selected slot: {0}',
