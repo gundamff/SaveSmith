@@ -4,9 +4,18 @@
 
 ## [Unreleased]
 
+## [0.17.13] - 2026-11-15
+
 ### Added
 
 - **Phantom Blade Zero**: Resources tab can delete all in-container 66-days / `NightmareRun*` slots; keeps Auto/Manual; removes paired `NightmareCycleStart_*` / `NightmareLineStart_*`; rewrites `__Advanced__.LastContinueSlot` to a remaining Manual/Auto when it pointed at a deleted slot
+  - This has **not yet been verified against a real save**; back up before use (the tool also auto-backs up)
+
+### Fixed
+
+- **Phantom Blade Zero**: a single abnormal equipment entry no longer blocks saving the whole file. Previously, if any equipment's level field was a decimal or exceeded the old 999 cap, the entire save failed validation and every edit (records, materials, codex) was rejected. Such entries are now read by flooring to an integer instead of blocking saves
+- Equipment level ceiling raised from 999 to 999999; decimals accepted (floored)
+- Per-item validation on write is unchanged: illegal values are still rejected before saving
 
 ## [0.17.12] - 2026-11-13
 

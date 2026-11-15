@@ -212,6 +212,11 @@ export function collectEquipmentIssues(
   slot: PbzEditableSlot,
   issues: ValidationIssue[],
 ): void {
+  // 装备条目级的异常（等级读不出来、记录不是对象）不再阻断保存。
+  // 原因：校验结果是"整存"级别的，一件陈旧装备的异常会让战绩、材料、
+  // 图鉴等所有页面的改动都保存不了；而单条编辑时 setEquipmentLevel /
+  // requireUiLevel 自己会拒绝非法值，不需要靠全局体检兜底。
+  // 这里只保留分类容器本身损坏的检查——那种情况写进去会坏档。
   const inventory = getRecord(slot.document, 'Inventory')
   if (!inventory) return
 
@@ -221,19 +226,6 @@ export function collectEquipmentIssues(
     if (infos === undefined) continue
     if (!isPlainObject(infos)) {
       issues.push({ code: 'PBZ_INVALID_EQUIPMENT', args: [slot.name, field] })
-      continue
-    }
-    for (const [id, value] of Object.entries(infos)) {
-      const item = getPbzEquipment(id)
-      if (!item || item.category !== category) continue
-      if (!isPlainObject(value)) {
-        issues.push({ code: 'PBZ_INVALID_EQUIPMENT', args: [slot.name, id] })
-        continue
-      }
-      const level = readUiLevel(category, value)
-      if (level === null || level < 0 || level > 999) {
-        issues.push({ code: 'PBZ_INVALID_EQUIPMENT', args: [slot.name, id] })
-      }
     }
   }
 }
@@ -258,6 +250,12 @@ function applyLevel(
   }
 }
 
+/**
+ * 存档里等级字段的合理上限。游戏强化值可能远高于旧版的 999，
+ * 这里只用来挡住明显异常的数据，不作为业务上限。
+ */
+const MAX_UI_LEVEL = 999_999
+
 function readUiLevel(
   category: PbzEquipmentCategory,
   record: Record<string, unknown>,
@@ -266,9 +264,26 @@ function readUiLevel(
   // Live saves often omit the level until first strengthen; default UI 0
   // (weapons: stored grade 1). Match PBZ-Editor inventory_level semantics.
   if (raw === undefined) return 0
-  if (!isIntegerInRange(raw, 0, 999)) return null
-  if (category === 'accessory') return raw
-  return Math.max(1, raw) - 1
+
+  // 早先要求必须是 0~999 的整数，超出或带小数就返回 null，
+  // 结果一件陈旧装备会让整份存档校验失败、所有编辑都无法保存。
+  // 现在放宽成：接受浮点（向下取整）和更大的上限，只拒绝非数字与负数。
+  let value: number
+  if (typeof raw === 'number' && Number.isFinite(raw)) {
+    value = Math.floor(raw)
+  } else if (
+    typeof raw === 'string' &&
+    raw.trim() !== '' &&
+    Number.isFinite(Number(raw))
+  ) {
+    value = Math.floor(Number(raw))
+  } else {
+    return null
+  }
+  if (value < 0 || value > MAX_UI_LEVEL) return null
+
+  if (category === 'accessory') return value
+  return Math.max(1, value) - 1
 }
 
 function requireUiLevel(

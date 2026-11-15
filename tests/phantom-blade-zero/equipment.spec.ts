@@ -148,17 +148,38 @@ describe('PBZ equipment model', () => {
     expect(issues).toEqual([])
   })
 
-  it('still rejects non-integer equipment levels', () => {
+  it('reads non-integer equipment levels by flooring instead of blocking saves', () => {
     const model = slotDoc({
       ShaChiWeaponInfo: {
         CaoOuSiXian: { ShaChiWeaponLevel: 1.5, AlreadySnapSoul: false },
       },
     })
+    // 1.5 → floor 1 → UI level max(1, 1) - 1 = 0
+    expect(projectEquipment(model.slots[0]!, 'phantom-weapon')[0]?.level).toBe(0)
+    const issues: ValidationIssue[] = []
+    collectEquipmentIssues(model.slots[0]! as PbzEditableSlot, issues)
+    expect(issues).toEqual([])
+  })
+
+  it('does not block saves when an equipment level is far above the old 999 cap', () => {
+    const model = slotDoc({
+      ShaChiWeaponInfo: {
+        CaoOuSiXian: { ShaChiWeaponLevel: 5000, AlreadySnapSoul: false },
+      },
+    })
+    expect(projectEquipment(model.slots[0]!, 'phantom-weapon')[0]?.level).toBe(4999)
+    const issues: ValidationIssue[] = []
+    collectEquipmentIssues(model.slots[0]! as PbzEditableSlot, issues)
+    expect(issues).toEqual([])
+  })
+
+  it('still flags a broken equipment category container', () => {
+    const model = slotDoc({ ShaChiWeaponInfo: 'not-an-object' })
     const issues: ValidationIssue[] = []
     collectEquipmentIssues(model.slots[0]! as PbzEditableSlot, issues)
     expect(issues).toContainEqual({
       code: 'PBZ_INVALID_EQUIPMENT',
-      args: ['AutoSave0', 'CaoOuSiXian'],
+      args: ['AutoSave0', 'ShaChiWeaponInfo'],
     })
   })
 })

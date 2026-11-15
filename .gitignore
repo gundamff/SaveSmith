@@ -53,3 +53,6 @@ docs/promo/**/_assemble.ps1
 
 # 成片不进仓库（归档在 D:/bots/work/savesmith/promo/archive）
 docs/promo/**/*.mp4
+
+# 本地提交信息临时文件
+.gitmsg.tmp
