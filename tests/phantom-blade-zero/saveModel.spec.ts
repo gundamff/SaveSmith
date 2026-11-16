@@ -535,6 +535,39 @@ describe('phantom-blade-zero save model', () => {
     )
   })
 
+  it('projects, adds, edits, and removes snap-soul materials via InventoryInfos', () => {
+    const editable = slot()
+    const model = createSaveModel([editable])
+    const now = new Date(2026, 9, 30, 18, 20, 30)
+    const infos = (editable.document.Inventory as Record<string, Record<string, unknown>>)
+      .InventoryInfos
+
+    expect(projectInventory(editable, 'snap-soul-material')).toEqual([])
+
+    addInventoryItem(model, editable.name, 'TU_02001', 2, now)
+    expect(infos.TU_02001).toEqual({
+      CurrentAmount: 2,
+      MaxAmount: 9999,
+      FirstAddTime: '2026.10.30-18.20.30',
+      DirtyTime: '2026.10.30-18.20.30',
+      AcquiredCycle: 2
+    })
+    expect(projectInventory(editable, 'snap-soul-material')).toEqual([
+      {
+        id: 'TU_02001',
+        category: 'snap-soul-material',
+        currentAmount: 2,
+        maxAmount: 9999
+      }
+    ])
+
+    setInventoryAmount(model, editable.name, 'TU_02001', 5)
+    expect(infos.TU_02001).toMatchObject({ CurrentAmount: 5, MaxAmount: 9999 })
+    removeInventoryItem(model, editable.name, 'TU_02001')
+    expect(infos.TU_02001).toBeUndefined()
+    expect(projectInventory(editable, 'snap-soul-material')).toEqual([])
+  })
+
   it.each([
     ['missing CurrentAmount', (record: Record<string, unknown>) => delete record.CurrentAmount],
     ['fractional CurrentAmount', (record: Record<string, unknown>) => {

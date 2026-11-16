@@ -29,9 +29,11 @@ const GROWTH_IDS = [
 
 describe('phantom-blade-zero catalog API', () => {
   it('exposes only the audited immutable catalog rows', () => {
-    expect(pbzCatalog).toHaveLength(39)
+    expect(pbzCatalog).toHaveLength(112)
     expect(pbzCatalog.every((row) =>
-      row.category === 'weapon-material' || row.category === 'consumable'
+      row.category === 'weapon-material' ||
+      row.category === 'consumable' ||
+      row.category === 'snap-soul-material'
     )).toBe(true)
     expect(Object.isFrozen(pbzCatalog)).toBe(true)
     expect(pbzCatalog.every(Object.isFrozen)).toBe(true)
@@ -102,6 +104,7 @@ describe('phantom-blade-zero catalog API', () => {
   it('limits empty searches to the requested category', () => {
     expect(searchPbzItems('weapon-material', '')).toHaveLength(27)
     expect(searchPbzItems('consumable', '   ').map(({ id }) => id).sort()).toEqual([...GROWTH_IDS])
+    expect(searchPbzItems('snap-soul-material', '')).toHaveLength(73)
   })
 
   it('exposes growth items and excludes memory flowers / books', () => {
@@ -112,5 +115,19 @@ describe('phantom-blade-zero catalog API', () => {
     ])
     expect(searchPbzItems('consumable', '记忆之花')).toEqual([])
     expect(getPbzItem('FA_0300')).toBeUndefined()
+  })
+
+  it('looks up snap-soul materials by ID and Chinese name', () => {
+    expect(getPbzItem('TU_02001')).toEqual({
+      id: 'TU_02001',
+      category: 'snap-soul-material',
+      zh: '离别悲歌',
+      en: '',
+      maxAmount: 9999,
+      thresholdRisk: false,
+    })
+    expect(searchPbzItems('snap-soul-material', '离别').map(({ id }) => id)).toEqual(['TU_02001'])
+    expect(getPbzItem('I_000006')).toBeUndefined()
+    expect(pbzItemName(getPbzItem('TU_02001')!, 'en')).toBe('TU 02001')
   })
 })

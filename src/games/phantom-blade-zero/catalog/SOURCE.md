@@ -39,7 +39,7 @@ pass found no Dust translation, so English UI keeps `Dust`.
 
 ## Selection and exclusions
 
-The output contains 39 rows:
+The output contains 112 rows:
 
 - 27 `Weapon_Material_*` rows whose resource classification is
   `ItemDetailType::Material` plus either
@@ -53,16 +53,22 @@ The output contains 39 rows:
   - accessory upgrade materials (`Ac_Material_1`, `Ac_Material_4`)
   - medicine upgrade materials (`Medi_Material_1`..`3`)
   - ordinary consumable `Item_Traversing` (穿行符)
+- 73 snap-soul / 铸魂 materials (`snap-soul-material` category): `TU_*`
+  rows whose `MaterialType` is `WeaponSnapSoulMaterial` or
+  `ShaChiWeaponSnapSoulMaterial` (S3 finished mats and S1 fragments).
+  Placeholder `I_000006` (铸魂道具占位) stays excluded.
 
-Excluded from the **Resources** inventory catalog: snap-soul materials, memory
-flowers, books, quest / narrative placeholders, and weapon / sha-qi return
-tokens. Literature books / pages / memory flowers are edited on the Codex tab
-via separate catalogs (`codexBooks.json`, `codexMemories.json`), not here.
+Excluded from the **Resources** inventory catalog: memory flowers, books,
+quest / narrative placeholders, and weapon / sha-qi return tokens.
+Literature books / pages / memory flowers are edited on the Codex tab via
+separate catalogs (`codexBooks.json`, `codexMemories.json`), not here.
+Weapon `AlreadySnapSoul` / soul-temper fields remain unset in the equipment
+UI (setdefault on create only).
 
 `Item_Traversing` keeps the conservative application safety limit of `0..99`.
-Other growth items and weapon materials use `0..9999`. Real-save `MaxAmount`
-tracks per-record state rather than a stable item definition, so save values
-are not copied into this static catalog.
+Other growth items, weapon materials, and snap-soul materials use `0..9999`.
+Real-save `MaxAmount` tracks per-record state rather than a stable item
+definition, so save values are not copied into this static catalog.
 
 ## Real-save shape audit
 

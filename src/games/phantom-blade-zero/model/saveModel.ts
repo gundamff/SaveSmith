@@ -167,11 +167,23 @@ export function projectResources(slot: PbzEditableSlot): {
   }
 }
 
+function isInventoryCategory(category: PbzItemCategory): boolean {
+  return (
+    category === 'weapon-material' ||
+    category === 'consumable' ||
+    category === 'snap-soul-material'
+  )
+}
+
+function usesCatalogMaxAmount(category: PbzItemCategory): boolean {
+  return category === 'consumable' || category === 'snap-soul-material'
+}
+
 export function projectInventory(
   slot: PbzEditableSlot,
   category: PbzItemCategory
 ): PbzInventoryItemView[] {
-  if (category !== 'weapon-material' && category !== 'consumable') {
+  if (!isInventoryCategory(category)) {
     throw new ModuleError('PBZ_INVALID_EDIT', [category])
   }
 
@@ -188,7 +200,7 @@ export function projectInventory(
       id,
       category,
       currentAmount: existing.currentAmount,
-      maxAmount: category === 'consumable' ? item.maxAmount : existing.maxAmount
+      maxAmount: usesCatalogMaxAmount(category) ? item.maxAmount : existing.maxAmount
     })
   }
   return projected

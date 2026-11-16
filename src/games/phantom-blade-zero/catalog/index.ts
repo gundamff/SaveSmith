@@ -1,7 +1,7 @@
 import { locale, t } from '../../../host/i18n'
 import items from './items.json'
 
-export type PbzItemCategory = 'weapon-material' | 'consumable'
+export type PbzItemCategory = 'weapon-material' | 'consumable' | 'snap-soul-material'
 
 export interface PbzCatalogItem {
   readonly id: string

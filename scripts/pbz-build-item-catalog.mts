@@ -2,7 +2,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-type Category = 'weapon-material' | 'consumable'
+type Category = 'weapon-material' | 'consumable' | 'snap-soul-material'
 type ExportedRow = {
   id: string
   name: string
@@ -54,6 +54,13 @@ const WEAPON_MATERIALS = new Set([
   'EItemMaterialType::WeaponUpgradeMaterial',
   'EItemMaterialType::ShaChiWeaponUpgradeMaterial'
 ])
+const SNAP_SOUL_MATERIALS = new Set([
+  'EItemMaterialType::WeaponSnapSoulMaterial',
+  'EItemMaterialType::ShaChiWeaponSnapSoulMaterial'
+])
+/** Placeholder / narrative junk — never catalog as snap-soul. */
+const SNAP_SOUL_EXCLUDED_IDS = new Set(['I_000006'])
+const EXPECTED_SNAP_SOUL_COUNT = 73
 
 const exportRoot = process.env.PBZ_EXPORT_DIR
 if (!exportRoot) throw new Error('PBZ_EXPORT_DIR is required')
@@ -85,6 +92,7 @@ const output = rows
   .sort((a, b) => a.id.localeCompare(b.id))
 
 const weaponCount = output.filter(({ category }) => category === 'weapon-material').length
+const snapSoulCount = output.filter(({ category }) => category === 'snap-soul-material').length
 const consumableIds = output
   .filter(({ category }) => category === 'consumable')
   .map(({ id }) => id)
@@ -98,8 +106,12 @@ if (consumableIds.join() !== [...GROWTH_CONSUMABLE_IDS].sort().join()) {
     `PBZ growth consumable whitelist mismatch: ${consumableIds.join(',')}`
   )
 }
-if (output.length !== 27 + GROWTH_CONSUMABLE_IDS.size) {
-  throw new Error(`Expected ${27 + GROWTH_CONSUMABLE_IDS.size} rows, received ${output.length}`)
+if (snapSoulCount !== EXPECTED_SNAP_SOUL_COUNT) {
+  throw new Error(`Expected ${EXPECTED_SNAP_SOUL_COUNT} snap-soul rows, received ${snapSoulCount}`)
+}
+const expectedTotal = 27 + GROWTH_CONSUMABLE_IDS.size + EXPECTED_SNAP_SOUL_COUNT
+if (output.length !== expectedTotal) {
+  throw new Error(`Expected ${expectedTotal} rows, received ${output.length}`)
 }
 if (new Set(output.map(({ id }) => id)).size !== output.length) {
   throw new Error('Duplicate catalog IDs are not allowed')
@@ -119,7 +131,10 @@ writeFileSync(outputPath, `${JSON.stringify(output, null, 2)}\n`)
 
 const materials = output.filter(({ category }) => category === 'weapon-material').length
 const consumables = output.filter(({ category }) => category === 'consumable').length
-console.log(`Wrote ${output.length} PBZ items (${materials} materials, ${consumables} growth consumables)`)
+const snapSoul = output.filter(({ category }) => category === 'snap-soul-material').length
+console.log(
+  `Wrote ${output.length} PBZ items (${materials} materials, ${consumables} growth, ${snapSoul} snap-soul)`
+)
 
 function readRows(path: string): ExportedRow[] {
   const document: unknown = JSON.parse(readFileSync(path, 'utf8'))
@@ -164,6 +179,14 @@ function classify(row: ExportedRow): Category | null {
       throw new Error(`Unsupported weapon material classification for ${row.id}`)
     }
     return 'weapon-material'
+  }
+
+  if (SNAP_SOUL_MATERIALS.has(row.materialType)) {
+    if (SNAP_SOUL_EXCLUDED_IDS.has(row.id)) return null
+    if (row.itemType !== 'EItemTypes::Item') {
+      throw new Error(`Unsupported snap-soul itemType for ${row.id}`)
+    }
+    return 'snap-soul-material'
   }
 
   if (!GROWTH_CONSUMABLE_IDS.has(row.id)) return null
@@ -220,7 +243,9 @@ function assertGrowthClassification(row: ExportedRow): void {
 }
 
 function maxAmountFor(id: string, category: Category): number {
-  if (category === 'weapon-material') return MATERIAL_MAX_AMOUNT
+  if (category === 'weapon-material' || category === 'snap-soul-material') {
+    return MATERIAL_MAX_AMOUNT
+  }
   if (id === 'Item_Traversing') return TRAVERSING_SAFE_MAX_AMOUNT
   return GROWTH_MAX_AMOUNT
 }
@@ -236,6 +261,14 @@ function assertSameClassification(left: ExportedRow, right: ExportedRow): void {
 function accept(row: ItemRow): boolean {
   if (row.category === 'weapon-material') {
     return row.id.startsWith('Weapon_Material_') && row.maxAmount > 0
+  }
+  if (row.category === 'snap-soul-material') {
+    return (
+      row.id.startsWith('TU_') &&
+      !SNAP_SOUL_EXCLUDED_IDS.has(row.id) &&
+      row.maxAmount > 0 &&
+      row.thresholdRisk === false
+    )
   }
   return (
     row.category === 'consumable' &&

@@ -604,7 +604,8 @@ export const en: MessageTree = {
       resources: 'Resources',
       records: 'Records',
       progress: 'Progress',
-      codex: 'Codex'
+      codex: 'Codex',
+      nightmareRuns: '66-Day'
     },
     codex: {
       risk:
@@ -729,9 +730,11 @@ export const en: MessageTree = {
         'This removes every 66-days / NightmareRun slot from the save container and deletes matching NightmareCycleStart_* / NightmareLineStart_* snapshots. If Continue Game still points at a deleted slot, it is rewritten to a remaining Auto/Manual slot. AutoSave and ManualSave are not deleted. This cannot be undone except from a backup. Continue?',
       deleteNightmareDone: 'Removed {0} 66-days slot(s) (click Save to write to disk)',
       deleteNightmareFailed: 'Failed to delete 66-days slots',
+      deleteNightmareEmpty: 'This save has no 66-days / NightmareRun slots',
       dust: 'Dust',
       weaponMaterials: 'Weapon Upgrade Materials',
       consumables: 'Growth',
+      snapSoulMaterials: 'Snap-Soul Materials',
       mainWeapons: 'Main weapons',
       phantomWeapons: 'Phantom weapons',
       accessories: 'Accessories',

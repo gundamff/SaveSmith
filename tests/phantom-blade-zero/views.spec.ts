@@ -657,15 +657,20 @@ describe('PBZ item view runtime behavior', () => {
 })
 
 describe('PBZ views', () => {
-  it('registers resources, records, progress, and codex views in order', () => {
-    expect(pbzViews).toHaveLength(4)
+  it('registers resources, records, progress, codex, and nightmare-runs views in order', () => {
+    expect(pbzViews).toHaveLength(5)
     expect(pbzViews[0]).toMatchObject({ id: 'resources', labelKey: 'pbz.tabs.resources' })
     expect(pbzViews[1]).toMatchObject({ id: 'records', labelKey: 'pbz.tabs.records' })
     expect(pbzViews[2]).toMatchObject({ id: 'progress', labelKey: 'pbz.tabs.progress' })
     expect(pbzViews[3]).toMatchObject({ id: 'codex', labelKey: 'pbz.tabs.codex' })
+    expect(pbzViews[4]).toMatchObject({
+      id: 'nightmare-runs',
+      labelKey: 'pbz.tabs.nightmareRuns'
+    })
     expect(t('pbz.tabs.records')).toBeTruthy()
     expect(t('pbz.tabs.progress')).toBeTruthy()
     expect(t('pbz.tabs.codex')).toBeTruthy()
+    expect(t('pbz.tabs.nightmareRuns')).toBeTruthy()
   })
 
   it('integrates inventory and equipment category tabs', () => {
@@ -674,14 +679,23 @@ describe('PBZ views', () => {
     expect(text).toMatch(/EquipmentCategoryTab/)
     expect(text).toMatch(/weapon-material/)
     expect(text).toMatch(/consumable/)
+    expect(text).toMatch(/snap-soul-material/)
+    expect(text).toMatch(/pbz\.resources\.snapSoulMaterials/)
     expect(text).toMatch(/main-weapon/)
     expect(text).toMatch(/phantom-weapon/)
     expect(text).toMatch(/accessory/)
     expect(text).toMatch(/projectResources/)
     expect(text).toMatch(/setDust/)
     expect(text).toMatch(/markDirty/)
+    expect(text).not.toMatch(/deleteNightmareRunSlots/)
+  })
+
+  it('puts NightmareRun deletion on its own top-level tab', () => {
+    const text = source('games/phantom-blade-zero/views/NightmareRunsTab.vue')
     expect(text).toMatch(/deleteNightmareRunSlots/)
     expect(text).toMatch(/deleteNightmareConfirm/)
+    expect(text).toMatch(/deleteNightmareEmpty/)
+    expect(text).toMatch(/markDirty/)
   })
 
   it('projects and filters existing category rows through catalog names', () => {
@@ -750,6 +764,7 @@ describe('PBZ views', () => {
   it('keeps PBZ item components away from documents and filesystem APIs', () => {
     for (const file of [
       'ResourcesTab.vue',
+      'NightmareRunsTab.vue',
       'InventoryCategoryTab.vue',
       'AddItemDialog.vue',
       'itemViewController.ts'

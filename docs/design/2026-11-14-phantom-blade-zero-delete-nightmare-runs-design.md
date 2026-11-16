@@ -31,14 +31,14 @@
 | 快照配对 | 从待删 run JSON 收集 `NightmareLineageId` 及与已知后缀相同的字符串；删全部 run 时一并清孤儿快照；裸名 `NightmareCycleStart` / `NightmareLineStart` 随任一次删除清理 |
 | 继续指针 | 仅当 `__Advanced__` 可解析且含 `LastContinueSlot` 时改写；优先最高编号 ManualSave，其次 AutoSave，再次剩余 NightmareRun；opaque Advanced 无法改写（文档标明） |
 | 容器下限 | 删除后目录至少保留 1 槽，否则 `PBZ_INVALID_EDIT` |
-| UI | 资源页；检测到 NightmareRun 槽时显示危险按钮 + ElMessageBox 确认 |
+| UI | 顶层「66天」Tab；有 NightmareRun 时显示危险按钮 + ElMessageBox 确认；无则空状态 |
 | 测试 | 仅合成 fixture；禁止提交真实用户存档 |
 
 ## 架构
 
 - `model/nightmareRunSlots.ts`：名称判定、lineage 收集、继续指针回落
 - `model/deleteNightmareRuns.ts`：过滤目录 + 更新 model/advanced + 重选槽
-- `views/ResourcesTab.vue`：确认与调用
+- `views/NightmareRunsTab.vue`：确认与调用（由 `views/index.ts` 注册）
 - 写盘仍经宿主 `writeAtomic` + 自动备份
 
 ## 验收

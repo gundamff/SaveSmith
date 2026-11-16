@@ -4,6 +4,17 @@
 
 ## [Unreleased]
 
+## [0.17.14] - 2026-11-16
+
+### Added
+
+- **Phantom Blade Zero**: Resources tab adds a Snap-Soul Materials category for 73 `TU_*` items (`WeaponSnapSoulMaterial` / `ShaChiWeaponSnapSoulMaterial`); does not edit weapon `AlreadySnapSoul`
+- **Phantom Blade Zero**: deleting 66-days / `NightmareRun*` moves to a top-level **66-Day** tab (delete button when slots exist; empty state otherwise)
+
+### Notes
+
+- 66-days slot deletion was verified on a user-provided NightmareRun save: in-game load list no longer shows those slots; Auto/Manual load normally. Still back up before use (the tool also auto-backs up)
+
 ## [0.17.13] - 2026-11-15
 
 ### Added

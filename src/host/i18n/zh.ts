@@ -599,7 +599,8 @@ export const zh: MessageTree = {
       resources: '资源',
       records: '战绩',
       progress: '进度',
-      codex: '图鉴'
+      codex: '图鉴',
+      nightmareRuns: '66天'
     },
     codex: {
       risk:
@@ -720,9 +721,11 @@ export const zh: MessageTree = {
         '将从存档容器中删除全部 66 天 / NightmareRun 槽位，并移除对应的 NightmareCycleStart_* / NightmareLineStart_* 快照；若「继续游戏」仍指向已删槽位，会改写为剩余的 Auto/Manual 槽。AutoSave 与 ManualSave 不会删除。此操作不可撤销，只能从备份恢复。确定继续？',
       deleteNightmareDone: '已删除 {0} 个 66 天槽位（请再点保存写入磁盘）',
       deleteNightmareFailed: '删除 66 天槽位失败',
+      deleteNightmareEmpty: '当前存档没有 66 天 / NightmareRun 槽位',
       dust: '意识尘埃',
       weaponMaterials: '武器强化材料',
       consumables: '养成',
+      snapSoulMaterials: '铸魂材料',
       mainWeapons: '主武器',
       phantomWeapons: '影之武装',
       accessories: '饰品',

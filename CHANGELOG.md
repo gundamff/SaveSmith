@@ -4,6 +4,17 @@
 
 ## [Unreleased]
 
+## [0.17.14] - 2026-11-16
+
+### 新增
+
+- **影之刃零**：资源页新增「铸魂材料」分类，可编辑 73 条 `TU_*`（`WeaponSnapSoulMaterial` / `ShaChiWeaponSnapSoulMaterial`）背包数量；不改武器上的 `AlreadySnapSoul`
+- **影之刃零**：删除 66 天 / `NightmareRun*` 改为顶层独立「66天」Tab（有槽显示删除按钮，无槽显示空状态）
+
+### 说明
+
+- 删除 66 天槽已在用户提供的 NightmareRun 真档上验证：游戏内载入列表不再出现对应槽，Auto/Manual 可正常载入。使用前仍请备份（工具本身也会自动备份）
+
 ## [0.17.13] - 2026-11-15
 
 ### 新增

@@ -270,7 +270,7 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 
 ### PBZ1c. 删除 66 天 / NightmareRun（副本；有档才测）
 
-- [ ] 资源页出现「删除全部 66 天槽位」；确认文案说明保留 Auto/Manual、清理快照与继续指针、不可撤销（靠备份）
+- [ ] 顶层「66天」Tab 出现「删除全部 66 天槽位」；确认文案说明保留 Auto/Manual、清理快照与继续指针、不可撤销（靠备份）
 - [ ] 确认后 Auto/Manual 仍在；`NightmareRun*` 与配对 `NightmareCycleStart_*` / `NightmareLineStart_*` 消失；若原 `LastContinueSlot` 指向 Nightmare，保存后指向剩余 Auto/Manual
 - [ ] 游戏内「继续」不再指向已删 66 天槽；Auto/Manual 可正常载入
 

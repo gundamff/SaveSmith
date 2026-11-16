@@ -310,5 +310,589 @@
     "en": "",
     "maxAmount": 9999,
     "thresholdRisk": false
+  },
+  {
+    "id": "TU_01001",
+    "category": "snap-soul-material",
+    "zh": "鸽饲料",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_02001",
+    "category": "snap-soul-material",
+    "zh": "离别悲歌",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_02002",
+    "category": "snap-soul-material",
+    "zh": "拳心碎片1",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_03001",
+    "category": "snap-soul-material",
+    "zh": "戍边旗帜",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_03002",
+    "category": "snap-soul-material",
+    "zh": "戍边诗集",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_03003",
+    "category": "snap-soul-material",
+    "zh": "金色弹药",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_04001",
+    "category": "snap-soul-material",
+    "zh": "鞋跟加固零件",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_04003",
+    "category": "snap-soul-material",
+    "zh": "雷霆电核",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_05001",
+    "category": "snap-soul-material",
+    "zh": "残缺执念1",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_05003",
+    "category": "snap-soul-material",
+    "zh": "妙手心经",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_05004",
+    "category": "snap-soul-material",
+    "zh": "烈焰的训练狮头",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_05005",
+    "category": "snap-soul-material",
+    "zh": "蛇尸体1",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_06001",
+    "category": "snap-soul-material",
+    "zh": "义结金兰之歃血刀",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_06002",
+    "category": "snap-soul-material",
+    "zh": "老旧的木制梳子",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_06004",
+    "category": "snap-soul-material",
+    "zh": "锋锐乌金",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_06005",
+    "category": "snap-soul-material",
+    "zh": "强韧弓弦",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_07001",
+    "category": "snap-soul-material",
+    "zh": "舞者丝带",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_07002",
+    "category": "snap-soul-material",
+    "zh": "残缺执念2",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_08001",
+    "category": "snap-soul-material",
+    "zh": "朴素的剑穗",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_08002",
+    "category": "snap-soul-material",
+    "zh": "强化电锯",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_09001",
+    "category": "snap-soul-material",
+    "zh": "铁杀面具",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_09002",
+    "category": "snap-soul-material",
+    "zh": "宝鼎碎片1",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_09003",
+    "category": "snap-soul-material",
+    "zh": "宝鼎碎片2",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_09004",
+    "category": "snap-soul-material",
+    "zh": "宝鼎碎片3",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_0901",
+    "category": "snap-soul-material",
+    "zh": "复原的宝鼎",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_10001",
+    "category": "snap-soul-material",
+    "zh": "超合金镰头",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_10002",
+    "category": "snap-soul-material",
+    "zh": "白河帮规",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_10003",
+    "category": "snap-soul-material",
+    "zh": "强力水泵",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_11001",
+    "category": "snap-soul-material",
+    "zh": "夜明珠",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_11002",
+    "category": "snap-soul-material",
+    "zh": "青铜精华",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_11003",
+    "category": "snap-soul-material",
+    "zh": "六道门缉拿令",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_11004",
+    "category": "snap-soul-material",
+    "zh": "烧焦的掌门头颅",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_11005",
+    "category": "snap-soul-material",
+    "zh": "工匠的工具组",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_11006",
+    "category": "snap-soul-material",
+    "zh": "绣花鞋",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_11007",
+    "category": "snap-soul-material",
+    "zh": "白山派头带",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_11008",
+    "category": "snap-soul-material",
+    "zh": "蛇尸体2",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_11009",
+    "category": "snap-soul-material",
+    "zh": "蛇尸体3",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_1101",
+    "category": "snap-soul-material",
+    "zh": "蛇的记忆",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_11010",
+    "category": "snap-soul-material",
+    "zh": "蛇尸体4",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_11011",
+    "category": "snap-soul-material",
+    "zh": "养护机油",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_11012",
+    "category": "snap-soul-material",
+    "zh": "长明灯火",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_11013",
+    "category": "snap-soul-material",
+    "zh": "犬类的记忆",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_12001",
+    "category": "snap-soul-material",
+    "zh": "合金钢片",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_12002",
+    "category": "snap-soul-material",
+    "zh": "郎君的玉面",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_12003",
+    "category": "snap-soul-material",
+    "zh": "残留的头颅记忆",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_13001",
+    "category": "snap-soul-material",
+    "zh": "忠义英雄像",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_13004",
+    "category": "snap-soul-material",
+    "zh": "拳心碎片2",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_13005",
+    "category": "snap-soul-material",
+    "zh": "寒冰印",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_1302",
+    "category": "snap-soul-material",
+    "zh": "灭世拳心",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_14001",
+    "category": "snap-soul-material",
+    "zh": "梦差的丝线残余",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_15001",
+    "category": "snap-soul-material",
+    "zh": "炎火之握",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_150011",
+    "category": "snap-soul-material",
+    "zh": "冷却的炎火之握",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_150012",
+    "category": "snap-soul-material",
+    "zh": "炽热炎火",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_15002",
+    "category": "snap-soul-material",
+    "zh": "混沌双铁",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_150021",
+    "category": "snap-soul-material",
+    "zh": "混沌残铁之一",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_150022",
+    "category": "snap-soul-material",
+    "zh": "混沌残铁之二",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_17001",
+    "category": "snap-soul-material",
+    "zh": "暗魔天堡面具",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_18001",
+    "category": "snap-soul-material",
+    "zh": "最初的混沌容器",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_18008",
+    "category": "snap-soul-material",
+    "zh": "破碎龙体",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_18009",
+    "category": "snap-soul-material",
+    "zh": "男孩全套旧衣物",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_180091",
+    "category": "snap-soul-material",
+    "zh": "男孩的衣服",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_180092",
+    "category": "snap-soul-material",
+    "zh": "男孩的裤子",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_180093",
+    "category": "snap-soul-material",
+    "zh": "男孩的鞋",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_180094",
+    "category": "snap-soul-material",
+    "zh": "男孩的帽子",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_18010",
+    "category": "snap-soul-material",
+    "zh": "魔杀令",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_18011",
+    "category": "snap-soul-material",
+    "zh": "圣母头冠",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_18012",
+    "category": "snap-soul-material",
+    "zh": "紫火缭绕的披风",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_18013",
+    "category": "snap-soul-material",
+    "zh": "义体之核",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_19001",
+    "category": "snap-soul-material",
+    "zh": "洞察之眼",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_19002",
+    "category": "snap-soul-material",
+    "zh": "组织至高令牌",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_19004",
+    "category": "snap-soul-material",
+    "zh": "苦叶寺经卷",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_19005",
+    "category": "snap-soul-material",
+    "zh": "紫金之花",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
+  },
+  {
+    "id": "TU_19006",
+    "category": "snap-soul-material",
+    "zh": "不灭侠胆",
+    "en": "",
+    "maxAmount": 9999,
+    "thresholdRisk": false
   }
 ]

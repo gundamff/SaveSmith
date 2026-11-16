@@ -16,7 +16,7 @@ The only physical main save is `PBZSaveGame.sav`. SaveSmith exposes its internal
 - `__Achievements__` is preserved read-only; `__Advanced__` is mostly passthrough, except Codex writes and rewriting `LastContinueSlot` when deleting 66-days slots.
 - Settings saves are unsupported.
 - **`NightmareRun*` has not been verified against a real NG+ player save** (opened under the same JSON shape assumption as Auto/Manual). Fully quit the game and back up the whole SteamID64 save folder before editing.
-- **Delete 66-days / NightmareRun:** The Resources tab offers deletion when the container has `NightmareRun` / `NightmareRunN` entries (after confirm: remove those directory slots, paired snapshots, and fix the continue pointer). Auto/Manual are kept. Saving still uses the host auto-backup.
+- **Delete 66-days / NightmareRun:** Top-level **66-Day** tab. When `NightmareRun` / `NightmareRunN` exist, confirm to remove those directory slots, paired snapshots, and fix the continue pointer. Auto/Manual are kept. Saving still uses the host auto-backup.
 
 The format is PBZS v3: AES-256-GCM authenticated encryption; raw / zlib / Oodle slots are readable; dirty slots are rewritten as Oodle stored (`compression=2`, `0xCC06` chunks, no real compression). Authentication or parsing failure blocks saving.
 
@@ -24,7 +24,7 @@ The format is PBZS v3: AES-256-GCM authenticated encryption; raw / zlib / Oodle 
 
 ## Editable scope
 
-The resources page keeps internal slot selection and tabs for **Weapon Upgrade Materials**, **Growth**, **Main weapons**, **Phantom weapons**, and **Accessories**. There are also top-level **Records**, **Progress**, and **Codex**.
+The resources page keeps internal slot selection and tabs for **Weapon Upgrade Materials**, **Growth**, **Snap-Soul Materials**, **Main weapons**, **Phantom weapons**, and **Accessories**. There are also top-level **Records**, **Progress**, **Codex**, and **66-Day**.
 
 - **Codex (account-wide):** edits `__Advanced__.Codex` `DiscoveredEnemies` / `RevealedEnemies` (177 rows from `DT_CodexEnemyDataTable`). Search, status/kind filters, per-row toggles, unlock-all (discover + reveal). Does not edit `EnemyKillMapIDs`, bonus art/music, or achievements. Auto-backup before save; unlocking does not guarantee reward side effects.
 - `Player.Dust` is shown as 意识尘埃 in Chinese; the storage field remains `Dust`. English UI keeps `Dust` because this build's `en` resources have no translation
@@ -44,12 +44,13 @@ The resources page keeps internal slot selection and tabs for **Weapon Upgrade M
 | Kind | Examples | After editing |
 |------|----------|---------------|
 | Dust / weapon materials | `Dust`, `Weapon_Material_*` | Amounts are usable in-game (e.g. weapon upgrades spend materials) |
+| Snap-soul / temper mats | `TU_*` (`WeaponSnapSoulMaterial` / `ShaChiWeaponSnapSoulMaterial`) | Inventory amounts are editable for weapon snap-soul crafting. Does **not** edit weapon `AlreadySnapSoul` |
 | Ordinary growth stacks | Traversing Charm, accessory/medicine mats | Visible in inventory and generally usable |
 | **Cumulative thresholds** | Black stone / amber and their **fragments** (collect N for a permanent bonus) | **Usually does not crash**; inventory count can change, but **permanent bonus thresholds typically do not apply** (the game may track progress in other fields) |
 
 Black stone / amber and fragments still show a threshold warning in the add dialog. Prefer Dust and weapon materials when you want changes that take effect immediately.
 
-Memory flowers, snap-soul materials, books, and quest / narrative placeholders remain unsupported, as do medicines, appearance wardrobe, achievements, DLC, and settings saves. Soul-temper fields are not separately editable this round. More editable surfaces are planned.
+Memory flowers, books, and quest / narrative placeholders remain unsupported, as do medicines, appearance wardrobe, achievements, DLC, and settings saves. Weapon soul-temper fields (`AlreadySnapSoul`) are not separately editable this round. More editable surfaces are planned.
 
 ## Safety
 
