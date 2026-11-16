@@ -1,5 +1,6 @@
 import type { GameModule } from '@sdk/types'
 import { aceCombat8Module } from '../games/ace-combat-8'
+import { ballXPitModule } from '../games/ball-x-pit'
 import { belmontsCurseModule } from '../games/belmonts-curse'
 import { chaosFrontModule } from '../games/chaos-front'
 import { chaosGalaxy2Module } from '../games/chaos-galaxy-2'
@@ -22,5 +23,6 @@ export const modules: GameModule[] = [
   aceCombat8Module,
   belmontsCurseModule,
   finalFantasyResonanceModule,
-  phantomBladeZeroModule
+  phantomBladeZeroModule,
+  ballXPitModule
 ]

@@ -79,7 +79,8 @@ describe('chaosFrontModule catalog / locate', () => {
       'ace-combat-8',
       'belmonts-curse',
       'final-fantasy-resonance',
-      'phantom-blade-zero'
+      'phantom-blade-zero',
+      'ball-x-pit'
     ])
     expect(modules[0]).toBe(chaosFrontModule)
     expect(modules[3]).toBe(wanderburgModule)

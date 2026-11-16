@@ -769,6 +769,31 @@ export const zh: MessageTree = {
       unknownItem: '未知物品'
     }
   },
+  bxp: {
+    tabs: {
+      resources: '资源',
+      wiki: '图鉴'
+    },
+    resources: {
+      hint: '只改当前城镇余额（金钱/麦/木/石），不改生涯累计。请先完全退出游戏再保存。',
+      money: '金钱',
+      rice: '麦',
+      wood: '木',
+      stone: '石'
+    },
+    wiki: {
+      risk:
+        '点亮弹珠、被动与组合发现计数；不含敌人图鉴。可能影响成就/收集展示。请先退出游戏；主档与 backup 会一并写入。Steam Cloud 可能回滚。',
+      progress: '弹珠 {0}/{1} · 被动 {2}/{3} · 组合格 {4}/{5}',
+      unlockAll: '一键点亮图鉴',
+      unlockConfirm:
+        '将把未发现的弹珠、被动与组合计数标为已发现（已有正值保留）。确定继续？',
+      confirmTitle: '确认操作',
+      confirm: '确认',
+      cancel: '取消',
+      unlocked: '已点亮 {0} 处图鉴计数'
+    }
+  },
   error: {
     EMPTY_SERIALIZE: '序列化结果为空或字节无效，已拒绝写入',
     UNKNOWN_ACTION: '未知动作：{0}',
@@ -830,6 +855,19 @@ export const zh: MessageTree = {
     PBZ_INVALID_EQUIPMENT: '槽位 {0} 的装备记录无效：{1}',
     PBZ_BOSS_DIFFICULTY_UNKNOWN: '无效的难度：{0}',
     PBZ_BOSS_DIFFICULTY_MISSING: 'BOSS {0} 没有「{1}」难度的战绩，无法改挂',
-    PBZ_BOSS_DIFFICULTY_CONFLICT: '无法将 {0} 从「{1}」改到「{2}」：目标难度已有记录'
+    PBZ_BOSS_DIFFICULTY_CONFLICT: '无法将 {0} 从「{1}」改到「{2}」：目标难度已有记录',
+    BXP_BAD_HEADER: 'BALL x PIT 存档头无效',
+    BXP_BAD_TERMINATOR: 'BALL x PIT 存档尾无效',
+    BXP_SECTION_ORDER: 'BALL x PIT 存档段顺序异常，已拒绝写入',
+    BXP_TRAILING: 'BALL x PIT 存档尾部长度异常：{0}',
+    BXP_FIELD_COUNT: '字段 {0} 出现次数异常：{1}',
+    BXP_ARRAY_CANDIDATES: '字段 {0} 附近数组候选数异常：{1}',
+    BXP_TRUNCATED: '存档在偏移 {0} 处截断',
+    BXP_INT32_RANGE: '整数值超出 int32：{0}',
+    BXP_RESOURCE_RANGE: '资源 {0} 超出范围：{1}',
+    BXP_WIKI_BOUNDS: '图鉴段边界无效',
+    BXP_WIKI_EMPTY: '图鉴段缺少条目',
+    BXP_COMBO_ROWS: '组合行数 {0} 与弹珠数 {1} 不一致',
+    BXP_COMBO_MARKER: '组合数组缺少格式标记'
   }
 }

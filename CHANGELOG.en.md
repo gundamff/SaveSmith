@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+## [0.18.0] - 2026-11-16
+
+### Added
+
+- **BALL x PIT**: town resources (gold/wheat/wood/stone) + one-click ball/passive/combo encyclopedia unlock; patches main and `_backup` separately; no enemy bestiary
+- **BALL x PIT**: library cover from Steam library hero (App 2062430)
+
 ## [0.17.14] - 2026-11-16
 
 ### Added

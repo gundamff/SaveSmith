@@ -780,6 +780,31 @@ export const en: MessageTree = {
       unknownItem: 'Unknown item'
     }
   },
+  bxp: {
+    tabs: {
+      resources: 'Resources',
+      wiki: 'Encyclopedia'
+    },
+    resources: {
+      hint: 'Edits current town balances only (gold / wheat / wood / stone), not lifetime totals. Quit the game fully before saving.',
+      money: 'Gold',
+      rice: 'Wheat',
+      wood: 'Wood',
+      stone: 'Stone'
+    },
+    wiki: {
+      risk:
+        'Unlocks ball, passive, and combination discovery counters only — not the enemy bestiary. May affect achievements/collection UI. Quit the game first; main and backup saves are patched together. Steam Cloud may roll back edits.',
+      progress: 'Balls {0}/{1} · Passives {2}/{3} · Combo cells {4}/{5}',
+      unlockAll: 'Unlock encyclopedia',
+      unlockConfirm:
+        'Mark undiscovered balls, passives, and combination cells as discovered (existing positive values kept). Continue?',
+      confirmTitle: 'Confirm',
+      confirm: 'Confirm',
+      cancel: 'Cancel',
+      unlocked: 'Updated {0} encyclopedia counters'
+    }
+  },
   error: {
     EMPTY_SERIALIZE: 'Serialize produced an empty or invalid payload; write aborted',
     UNKNOWN_ACTION: 'Unknown action: {0}',
@@ -845,6 +870,19 @@ export const en: MessageTree = {
     PBZ_BOSS_DIFFICULTY_UNKNOWN: 'Invalid difficulty: {0}',
     PBZ_BOSS_DIFFICULTY_MISSING: 'Boss {0} has no record on difficulty "{1}" to move',
     PBZ_BOSS_DIFFICULTY_CONFLICT:
-      'Cannot move {0} from "{1}" to "{2}": target difficulty already has a record'
+      'Cannot move {0} from "{1}" to "{2}": target difficulty already has a record',
+    BXP_BAD_HEADER: 'BALL x PIT save has an invalid header',
+    BXP_BAD_TERMINATOR: 'BALL x PIT save has an invalid terminator',
+    BXP_SECTION_ORDER: 'BALL x PIT save sections are out of order; write refused',
+    BXP_TRAILING: 'BALL x PIT save has unexpected trailing bytes: {0}',
+    BXP_FIELD_COUNT: 'Field {0} occurs an unexpected number of times: {1}',
+    BXP_ARRAY_CANDIDATES: 'Unexpected array candidates near field {0}: {1}',
+    BXP_TRUNCATED: 'Save truncated at offset {0}',
+    BXP_INT32_RANGE: 'Integer out of int32 range: {0}',
+    BXP_RESOURCE_RANGE: 'Resource {0} out of range: {1}',
+    BXP_WIKI_BOUNDS: 'Invalid encyclopedia section bounds',
+    BXP_WIKI_EMPTY: 'Encyclopedia section has no entries',
+    BXP_COMBO_ROWS: 'Combo row count {0} does not match ball count {1}',
+    BXP_COMBO_MARKER: 'Combo array is missing its format marker'
   }
 }

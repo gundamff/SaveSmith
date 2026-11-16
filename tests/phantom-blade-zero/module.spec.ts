@@ -134,7 +134,7 @@ describe('phantom-blade-zero module metadata', () => {
 
     const ids = modules.map(({ id }) => id)
     expect(ids.filter((id) => id === phantomBladeZeroModule.id)).toHaveLength(1)
-    expect(modules.at(-1)).toBe(phantomBladeZeroModule)
+    expect(modules.map((m) => m.id)).toContain(phantomBladeZeroModule.id)
     expect(new Set(ids).size).toBe(ids.length)
   })
 })
