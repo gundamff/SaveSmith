@@ -4,6 +4,16 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- **Eslabong**: mercenary or item rows the game originally wrote above the editor cap no longer block an entire save when left unchanged. Edits that push a row past the limit relative to the value read are still rejected. The dialog names the mercenary/item and field.
+- **Phantom Blade Zero**: editing game time writes the same second count to every internal slot whose document was byte-identical to the edited slot before the change.
+- **Phantom Blade Zero**: when the last plaintext directory entry is all zeros from the slot-name length through the end, that entry is ignored instead of failing the container with an empty slot name. Other empty slot names still fail, with the entry index and offset.
+
+### Added
+
+- **Phantom Blade Zero**: on Codex → Memories, restore hidden Mandate memory flowers for upright faction leaders 1–6 (Indomitable Valor). Does not change backpack collection flags or restore flowers already picked up.
+
 ## [0.18.0] - 2026-11-16
 
 ### Added

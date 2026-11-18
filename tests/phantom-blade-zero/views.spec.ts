@@ -829,4 +829,13 @@ describe('PBZ views', () => {
     setLocale('en')
     expect(t('pbz.records.difficultyRisk')).toMatch(/Back up/i)
   })
+
+  it('keeps the cycle week control read-only', () => {
+    const text = source('games/phantom-blade-zero/views/ProgressTab.vue')
+    const start = text.indexOf('pbz.progress.cycleDisplay')
+    const end = text.indexOf('pbz.progress.timesMismatch')
+    const cycle = text.slice(start, end)
+    expect(cycle).toMatch(/disabled/)
+    expect(cycle).not.toMatch(/setCycleDisplay/)
+  })
 })
