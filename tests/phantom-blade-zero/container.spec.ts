@@ -336,6 +336,27 @@ describe("PBZS v3 container", () => {
     );
   });
 
+  it("ignores one trailing all-zero directory entry", async () => {
+    const raw = await makePbzsFixture([
+      { name: "AutoSave0", compression: 0, payload: encoder.encode("a") },
+      { name: "AutoSave1", compression: 0, payload: encoder.encode("b") },
+    ]);
+    const plain = await directoryPlain(raw);
+    const padded = new Uint8Array(plain.length + 16);
+    padded.set(plain);
+    const paddedView = new DataView(padded.buffer);
+    paddedView.setUint16(6, 3, true);
+    paddedView.setUint32(8, padded.length + 36, true);
+    const rebuilt = await replaceDirectory(raw, padded, false);
+    new DataView(rebuilt.buffer).setUint16(6, 3, true);
+
+    const container = await parsePbzsContainer(rebuilt);
+    expect(container.slots.map(({ entry }) => entry.name)).toEqual([
+      "AutoSave0",
+      "AutoSave1",
+    ]);
+  });
+
   it.each([
     ["non-zero first offset", 0, 1],
     ["out-of-order offset", 1, 0],

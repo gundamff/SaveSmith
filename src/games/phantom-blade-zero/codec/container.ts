@@ -299,7 +299,21 @@ function parseDirectoryEntries(
     const nameLength = plainView.getUint16(cursor, true);
     cursor += 2;
     if (nameLength === 0) {
-      throw invalid("empty slot name");
+      const start = cursor - 2;
+      let trailingZeros = index > 0 && index === count - 1;
+      if (trailingZeros) {
+        for (let offset = start; offset < plain.length; offset++) {
+          if (plain[offset] !== 0) {
+            trailingZeros = false;
+            break;
+          }
+        }
+      }
+      if (trailingZeros) {
+        cursor = plain.length;
+        break;
+      }
+      throw invalid(`empty slot name at entry ${index} offset ${start}`);
     }
     requireRemaining(
       plain,
