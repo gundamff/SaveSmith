@@ -2,6 +2,7 @@ import { ModuleError } from '../../../sdk/error'
 import type { ValidationIssue } from '../../../sdk/types'
 import { isValidDurationSeconds } from './durationFormat'
 import { isEditableSlotName } from './editableSlotName'
+import { applyToIdenticalSlots } from './identicalSlots'
 
 const MAX_CYCLE_COUNT = 99
 
@@ -116,18 +117,26 @@ export function setGameTimeSeconds(
   if (
     !system ||
     !isValidDurationSeconds(system.HasGameTime) ||
-    !isValidDurationSeconds(system.CurrentCycleGameTime)
+    !isValidDurationSeconds(system.CurrentCycleGameTime) ||
+    !isValidDurationSeconds(seconds)
   ) {
     throw new ModuleError('PBZ_INVALID_EDIT', [slotName])
   }
-  if (!isValidDurationSeconds(seconds)) {
-    throw new ModuleError('PBZ_INVALID_EDIT', [slotName])
-  }
 
-  if (system.HasGameTime === seconds && system.CurrentCycleGameTime === seconds) return
-  system.HasGameTime = seconds
-  system.CurrentCycleGameTime = seconds
-  slot.dirty = true
+  applyToIdenticalSlots(model.slots, slotName, (document) => {
+    const target = getRecord(document, 'PBZGameSystem')
+    if (
+      !target ||
+      !isValidDurationSeconds(target.HasGameTime) ||
+      !isValidDurationSeconds(target.CurrentCycleGameTime)
+    ) {
+      return false
+    }
+    if (target.HasGameTime === seconds && target.CurrentCycleGameTime === seconds) return false
+    target.HasGameTime = seconds
+    target.CurrentCycleGameTime = seconds
+    return true
+  })
 }
 
 export function collectProgressIssues(

@@ -1174,6 +1174,33 @@ describe('phantom-blade-zero save model', () => {
     })
   })
 
+  it('writes game time onto slots whose document matched before the edit', () => {
+    const time = {
+      PBZGameSystem: { CycleCount: 1, HasGameTime: 50, CurrentCycleGameTime: 60 }
+    }
+    const source = slot('AutoSave0', time)
+    const mirror = slot('AutoSave1', time)
+    const other = slot('ManualSave1', {
+      PBZGameSystem: { CycleCount: 1, HasGameTime: 10, CurrentCycleGameTime: 10 }
+    })
+    const model = createSaveModel([source, mirror, other])
+    setGameTimeSeconds(model, 'AutoSave0', 3661)
+    expect(source.document.PBZGameSystem).toMatchObject({
+      HasGameTime: 3661,
+      CurrentCycleGameTime: 3661
+    })
+    expect(mirror.document.PBZGameSystem).toMatchObject({
+      HasGameTime: 3661,
+      CurrentCycleGameTime: 3661
+    })
+    expect(mirror.dirty).toBe(true)
+    expect(other.document.PBZGameSystem).toMatchObject({
+      HasGameTime: 10,
+      CurrentCycleGameTime: 10
+    })
+    expect(other.dirty).toBe(false)
+  })
+
   it('rejects out-of-range cycle/time and disables when fields missing', () => {
     const missingTime = slot('AutoSave0', { PBZGameSystem: { CycleCount: 0, HasGameTime: 1 } })
     expect(projectProgress(missingTime).gameTimeEditable).toBe(false)
