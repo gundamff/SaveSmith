@@ -675,7 +675,12 @@ export const zh: MessageTree = {
       clearedDiscovered: '已清除发现列表',
       clearedRevealed: '已清除揭示列表',
       clearedBooks: '已清除书籍与书页',
-      clearedMemories: '已清除记忆与残片'
+      clearedMemories: '已清除记忆与残片',
+      restoreMandateFlowers: '恢复错过的正道头领记忆之花',
+      restoreMandateFlowersConfirm:
+        '只恢复仍被隐藏的正道头领记忆之花（隐藏目标点 1 到 6）。会去掉 OwnerVisible:false，把 EventTag 改成「帮助正道解脱」，并给所在 EventPipeline 补上同一标签。修改前与当前槽完全相同的内部槽会一起写。已拾取的花不动。确定继续？',
+      restoreMandateFlowersDone: '已恢复头领 {0}',
+      restoreMandateFlowersNone: '当前槽没有可恢复的正道头领记忆之花'
     },
     progress: {
       cycleDisplay: '周目（第 N 周目）',

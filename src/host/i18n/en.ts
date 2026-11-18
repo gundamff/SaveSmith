@@ -681,7 +681,12 @@ export const en: MessageTree = {
       clearedDiscovered: 'Cleared discovered list',
       clearedRevealed: 'Cleared revealed list',
       clearedBooks: 'Cleared books and pages',
-      clearedMemories: 'Cleared flowers and remnants'
+      clearedMemories: 'Cleared flowers and remnants',
+      restoreMandateFlowers: 'Restore missed Mandate leader flowers',
+      restoreMandateFlowersConfirm:
+        'Restores Mandate leader memory flowers that are still hidden (hidden objectives 1 through 6). Removes OwnerVisible:false, sets EventTag to the relief tag, and adds that tag to the enclosing EventPipeline. Internal slots whose document matched this one before the edit are updated too. Picked-up flowers are left alone. Continue?',
+      restoreMandateFlowersDone: 'Restored leaders {0}',
+      restoreMandateFlowersNone: 'This slot has no missed Mandate leader flowers'
     },
     progress: {
       cycleDisplay: 'Cycle (week N)',

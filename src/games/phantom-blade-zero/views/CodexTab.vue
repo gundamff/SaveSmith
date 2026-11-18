@@ -28,6 +28,8 @@ import {
   unlockAllCodexDiscovered,
   unlockAllCodexMemories,
   unlockAllCodexRevealed,
+  listMissedMandateFlowers,
+  restoreMissedMandateFlowers,
   type PbzLiteratureRowView
 } from '../model/saveModel'
 import { usePbzEditor } from './inject'
@@ -299,6 +301,22 @@ async function confirmDanger(messageKey: string): Promise<boolean> {
   }
 }
 
+async function onRestoreMandateFlowers(): Promise<void> {
+  const slot = editor.save.model.slots.find((candidate) => candidate.name === selectedSlotName.value)
+  if (!slot) return
+  const pending = listMissedMandateFlowers(slot.document)
+  if (pending.length === 0) {
+    ElMessage.info(t('pbz.codex.restoreMandateFlowersNone'))
+    return
+  }
+  if (!(await confirmDanger('pbz.codex.restoreMandateFlowersConfirm'))) return
+  let leaders: number[] = []
+  editor.markDirty(() => {
+    leaders = restoreMissedMandateFlowers(editor.save.model.slots, selectedSlotName.value).leaders
+  })
+  ElMessage.success(t('pbz.codex.restoreMandateFlowersDone', leaders.join(', ')))
+}
+
 async function onUnlockAll(): Promise<void> {
   if (category.value === 'enemies') {
     if (!(await confirmDanger('pbz.codex.unlockAllConfirm'))) return
@@ -515,6 +533,9 @@ async function onClearOwned(): Promise<void> {
         </el-button>
         <el-button type="danger" plain @click="onClearOwned">
           {{ category === 'books' ? t('pbz.codex.clearBooks') : t('pbz.codex.clearMemories') }}
+        </el-button>
+        <el-button v-if="category === 'memories'" @click="onRestoreMandateFlowers">
+          {{ t('pbz.codex.restoreMandateFlowers') }}
         </el-button>
       </div>
 
