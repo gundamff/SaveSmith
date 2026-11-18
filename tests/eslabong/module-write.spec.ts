@@ -209,6 +209,73 @@ describe('eslabongModule write path', () => {
     expect(eslabongModule.validate(state).some((i) => i.code === 'INVALID_ITEM')).toBe(true)
   })
 
+  it('does not block save when an out-of-range fighter still matches the parse snapshot', async () => {
+    const slot = await makeSlot(10)
+    const state = await eslabongModule.parse(slot.files)
+    const fighter = {
+      id: 'f-live',
+      displayName: 'Live',
+      level: MAX_LEVEL + 5,
+      experience: 0,
+      growthStyles: [],
+      birth: {},
+      growthBase: {},
+      career: {},
+      personality: {},
+      aiProfile: {},
+      skills: {},
+      injured: false,
+      injuryBattlesRemaining: 0,
+      injuryDescription: '',
+      equippedItemInstanceIds: [],
+      _ref: { resourceIndex: 0 }
+    } satisfies FighterRow
+    state.fighters = [fighter]
+    state.fighterBaseline = [
+      {
+        id: fighter.id,
+        level: fighter.level,
+        experience: fighter.experience,
+        injuryBattlesRemaining: fighter.injuryBattlesRemaining,
+        birth: {},
+        growthBase: {},
+        career: {},
+        personality: {},
+        aiProfile: {}
+      }
+    ]
+    expect(eslabongModule.validate(state).some((issue) => issue.code === 'INVALID_FIGHTER')).toBe(false)
+
+    fighter.level = MAX_LEVEL + 6
+    const issues = eslabongModule.validate(state)
+    expect(issues).toEqual([
+      { code: 'INVALID_FIGHTER', args: [0, 'f-live', 'level'] }
+    ])
+  })
+
+  it('names the item stat that drifted out of range', async () => {
+    const slot = await makeSlot(10)
+    const state = await eslabongModule.parse(slot.files)
+    state.items = [
+      {
+        instanceId: 'i1',
+        definitionId: 'REL_R_001',
+        quality: '',
+        exceptionalRoll: false,
+        equippedFighterId: '',
+        equippedSlot: -1,
+        inventorySlot: -1,
+        rolledModifiers: { hp_flat: 10 },
+        stats: [{ statId: 'hp_flat', amount: 999, ratio: 0 }],
+        _ref: { resourceIndex: 0 }
+      }
+    ]
+    state.itemBaseline = [{ instanceId: 'i1', stats: [{ statId: 'hp_flat', amount: 10 }] }]
+    expect(eslabongModule.validate(state)).toEqual([
+      { code: 'INVALID_ITEM', args: [0, 'REL_R_001', 'hp_flat'] }
+    ])
+  })
+
   it('actions max-progress and clear-injuries mutate fighters', async () => {
     const slot = await makeSlot(10)
     const state = await eslabongModule.parse(slot.files)

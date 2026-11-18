@@ -27,6 +27,23 @@ import {
 import { compressRscc, decompressRscc } from './rscc'
 import { parseSidecarBytes } from './sidecar'
 
+export interface FighterBoundSnapshot {
+  id: string
+  level: number
+  experience: number
+  injuryBattlesRemaining: number
+  birth: Record<string, number>
+  growthBase: Record<string, number>
+  career: Record<string, number>
+  personality: Record<string, number>
+  aiProfile: Record<string, number>
+}
+
+export interface ItemBoundSnapshot {
+  instanceId: string
+  stats: Array<{ statId: string; amount: number }>
+}
+
 export interface EslabongState {
   sidecar: Record<string, unknown>
   sidecarPath: string
@@ -35,9 +52,87 @@ export interface EslabongState {
   club: ClubResources
   fighters: FighterRow[]
   items: ItemRow[]
+  fighterBaseline: FighterBoundSnapshot[]
+  itemBaseline: ItemBoundSnapshot[]
   writeEnabled: boolean
   originalResBytes: Uint8Array
   originalSidecarBytes: Uint8Array
+}
+
+function snapshotFighter(row: FighterRow): FighterBoundSnapshot {
+  return {
+    id: row.id,
+    level: row.level,
+    experience: row.experience,
+    injuryBattlesRemaining: row.injuryBattlesRemaining,
+    birth: { ...row.birth },
+    growthBase: { ...row.growthBase },
+    career: { ...row.career },
+    personality: { ...row.personality },
+    aiProfile: { ...row.aiProfile }
+  }
+}
+
+function snapshotItem(row: ItemRow): ItemBoundSnapshot {
+  return {
+    instanceId: row.instanceId,
+    stats: row.stats.map((line) => ({ statId: line.statId, amount: line.amount }))
+  }
+}
+
+function sameRecord(left: Record<string, number>, right: Record<string, number> | undefined): boolean {
+  if (!right) return false
+  const keys = new Set([...Object.keys(left), ...Object.keys(right)])
+  for (const key of keys) {
+    if (left[key] !== right[key]) return false
+  }
+  return true
+}
+
+function unchanged(current: number, baseline: number | undefined): boolean {
+  return baseline !== undefined && current === baseline
+}
+
+function fighterViolations(row: FighterRow, base: FighterBoundSnapshot | undefined): string[] {
+  const matched = base !== undefined && base.id === row.id
+  const bad: string[] = []
+  const levelBounds = fighterLevelBounds()
+  const expBounds = fighterExpBounds()
+  const injuryBounds = injuryBattlesBounds()
+  const scalars: Array<[string, number, number | undefined]> = [
+    ['level', row.level, matched ? base!.level : undefined],
+    ['experience', row.experience, matched ? base!.experience : undefined],
+    ['injuryBattlesRemaining', row.injuryBattlesRemaining, matched ? base!.injuryBattlesRemaining : undefined]
+  ]
+  const ranges: Record<string, { min: number; max: number }> = {
+    level: levelBounds,
+    experience: expBounds,
+    injuryBattlesRemaining: injuryBounds
+  }
+  for (const [key, value, baseline] of scalars) {
+    const range = ranges[key]!
+    const legal = Number.isFinite(value) && value >= range.min && value <= range.max
+    if (!legal && !unchanged(value, baseline)) bad.push(key)
+  }
+  const groups: Array<[readonly string[], Record<string, number>, Record<string, number> | undefined]> = [
+    [FIGHTER_BIRTH_KEYS, row.birth, matched ? base!.birth : undefined],
+    [FIGHTER_GROWTH_BASE_KEYS, row.growthBase, matched ? base!.growthBase : undefined],
+    [FIGHTER_CAREER_KEYS, row.career, matched ? base!.career : undefined],
+    [FIGHTER_PERSONALITY_KEYS, row.personality, matched ? base!.personality : undefined],
+    [FIGHTER_AI_PROFILE_KEYS, row.aiProfile, matched ? base!.aiProfile : undefined]
+  ]
+  for (const [keys, values, baseline] of groups) {
+    for (const key of keys) {
+      const value = values[key]
+      if (value === undefined) continue
+      if (fighterFieldInBounds(key, value)) continue
+      if (matched && sameRecord({ [key]: value }, baseline && baseline[key] !== undefined ? { [key]: baseline[key] } : undefined)) {
+        continue
+      }
+      bad.push(key)
+    }
+  }
+  return bad
 }
 
 function basename(relativePath: string): string {
@@ -106,14 +201,19 @@ export async function parse(files: SlotBytes[]): Promise<EslabongState> {
     throw new ModuleError('PARSE_FAILED', ['resource'])
   }
 
+  const fighters = listFighters(resPlain)
+  const items = listOwnedItems(resPlain)
+
   return {
     sidecar,
     sidecarPath,
     resPath: res.relativePath,
     resPlain,
     club: readClub(resPlain),
-    fighters: listFighters(resPlain),
-    items: listOwnedItems(resPlain),
+    fighters,
+    items,
+    fighterBaseline: fighters.map(snapshotFighter),
+    itemBaseline: items.map(snapshotItem),
     writeEnabled: true,
     originalResBytes: res.bytes,
     originalSidecarBytes: json.bytes
@@ -183,58 +283,31 @@ export function validate(state: EslabongState): ValidationIssue[] {
     issues.push({ code: 'INVALID_CLUB', args: [] })
   }
 
-  const levelBounds = fighterLevelBounds()
-  const expBounds = fighterExpBounds()
-  const injuryBounds = injuryBattlesBounds()
-
   for (let i = 0; i < state.fighters.length; i++) {
-    const f = state.fighters[i]!
-    let bad = false
-    if (
-      !Number.isFinite(f.level) ||
-      f.level < levelBounds.min ||
-      f.level > levelBounds.max ||
-      !Number.isFinite(f.experience) ||
-      f.experience < expBounds.min ||
-      f.experience > expBounds.max ||
-      !Number.isFinite(f.injuryBattlesRemaining) ||
-      f.injuryBattlesRemaining < injuryBounds.min ||
-      f.injuryBattlesRemaining > injuryBounds.max
-    ) {
-      bad = true
-    }
-    for (const key of FIGHTER_BIRTH_KEYS) {
-      const v = f.birth[key]
-      if (v !== undefined && !fighterFieldInBounds(key, v)) bad = true
-    }
-    for (const key of FIGHTER_GROWTH_BASE_KEYS) {
-      const v = f.growthBase[key]
-      if (v !== undefined && !fighterFieldInBounds(key, v)) bad = true
-    }
-    for (const key of FIGHTER_CAREER_KEYS) {
-      const v = f.career[key]
-      if (v !== undefined && !fighterFieldInBounds(key, v)) bad = true
-    }
-    for (const key of FIGHTER_PERSONALITY_KEYS) {
-      const v = f.personality[key]
-      if (v !== undefined && !fighterFieldInBounds(key, v)) bad = true
-    }
-    for (const key of FIGHTER_AI_PROFILE_KEYS) {
-      const v = f.aiProfile[key]
-      if (v !== undefined && !fighterFieldInBounds(key, v)) bad = true
-    }
-    if (bad) {
-      issues.push({ code: 'INVALID_FIGHTER', args: [i, f.id || f.displayName] })
+    const row = state.fighters[i]!
+    const bad = fighterViolations(row, state.fighterBaseline?.[i])
+    if (bad.length > 0) {
+      issues.push({ code: 'INVALID_FIGHTER', args: [i, row.id || row.displayName, bad.join(',')] })
     }
   }
 
   for (let i = 0; i < state.items.length; i++) {
     const item = state.items[i]!
-    for (const line of item.stats) {
-      if (!line.statId || !itemStatInBounds(line.statId, line.amount)) {
-        issues.push({ code: 'INVALID_ITEM', args: [i, item.definitionId || item.instanceId] })
-        break
-      }
+    const base = state.itemBaseline?.[i]
+    const matched = base !== undefined && base.instanceId === item.instanceId
+    const bad: string[] = []
+    for (let lineIndex = 0; lineIndex < item.stats.length; lineIndex++) {
+      const line = item.stats[lineIndex]!
+      if (line.statId && itemStatInBounds(line.statId, line.amount)) continue
+      const previous = matched ? base!.stats[lineIndex] : undefined
+      if (previous && previous.statId === line.statId && previous.amount === line.amount) continue
+      bad.push(line.statId || `stats[${lineIndex}]`)
+    }
+    if (bad.length > 0) {
+      issues.push({
+        code: 'INVALID_ITEM',
+        args: [i, item.definitionId || item.instanceId, bad.join(',')]
+      })
     }
   }
 

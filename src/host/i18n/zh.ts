@@ -819,6 +819,8 @@ export const zh: MessageTree = {
     INVALID_FORMAT: '存档格式无效：{0}',
     OUT_OF_RANGE: '字段超出范围：{0}',
     INVALID_STATE: '存档状态无效：{0}',
+    INVALID_FIGHTER: '佣兵 {1}（#{0}）超出可编辑范围：{2}',
+    INVALID_ITEM: '物品 {1}（#{0}）词条超出可编辑范围：{2}',
     INVALID_JSON: '无法解析 JSON 文件：{0}',
     BC_LEVEL: '等级无效（须为 ≥1 的整数）：{0}',
     BC_SCALAR: '字段 {0} 数值无效：{1}',
