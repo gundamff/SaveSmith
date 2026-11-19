@@ -10,10 +10,6 @@
 - **Phantom Blade Zero**: editing game time writes the same second count to every internal slot whose document was byte-identical to the edited slot before the change.
 - **Phantom Blade Zero**: when the last plaintext directory entry is all zeros from the slot-name length through the end, that entry is ignored instead of failing the container with an empty slot name. Other empty slot names still fail, with the entry index and offset.
 
-### Added
-
-- **Phantom Blade Zero**: on Codex → Memories, restore hidden Mandate memory flowers for upright faction leaders 1–6 (Indomitable Valor). Does not change backpack collection flags or restore flowers already picked up.
-
 ## [0.18.0] - 2026-11-16
 
 ### Added

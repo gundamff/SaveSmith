@@ -698,14 +698,6 @@ describe('PBZ views', () => {
     expect(text).toMatch(/markDirty/)
   })
 
-  it('offers mandate-flower restore only from the codex memory actions', () => {
-    const text = source('games/phantom-blade-zero/views/CodexTab.vue')
-    expect(text).toMatch(/listMissedMandateFlowers/)
-    expect(text).toMatch(/restoreMissedMandateFlowers/)
-    expect(text).toMatch(/restoreMandateFlowersConfirm/)
-    expect(text).toMatch(/category === 'memories'/)
-  })
-
   it('projects and filters existing category rows through catalog names', () => {
     const component = source('games/phantom-blade-zero/views/InventoryCategoryTab.vue')
     const text = source('games/phantom-blade-zero/views/itemViewController.ts')
