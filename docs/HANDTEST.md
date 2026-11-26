@@ -359,7 +359,7 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 
 - [ ] 自动找到 `%USERPROFILE%\AppData\LocalLow\ProudmateEntertainment\重生2我独自逆袭`
 - [ ] 列出 `SaveData.dat` 内手动槽与自动槽；标题为 `SavedName` 或 UUID 前缀
-- [ ] 选择有进度且含部分白名单属性的槽，资源 Tab 只显示槽内已有的 7 项键
+- [ ] 选择任意有进度的槽，资源 Tab **始终显示 8 项**：体能/智慧/魅力/道德/酒量/行动力/金钱/压力
 
 ### R2IRA2. 零编辑往返
 
@@ -368,12 +368,13 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 
 ### R2IRA3. 最小有害性
 
-- [ ] 改金钱或体力 `+1`（或改到已知安全值）保存
-- [ ] 游戏内确认数值；其它槽与未存在属性的键未被新建
+- [ ] 改金钱或体能 `+1`（或改到已知安全值）保存
+- [ ] 游戏内确认数值；其它槽未被改写
 - [ ] 完全退出后二次载入正常
 
-### R2IRA4. 缺键槽
+### R2IRA4. 缺键补建（行动力等）
 
-- [ ] 打开早期/空槽：UI 提示无已解锁可编辑属性或只显示已有项
-- [ ] 保存后不出现新的 `property_Property_*` 键
+- [ ] 打开原先没有行动力键的槽：行动力显示为 0，改为 20 并保存
+- [ ] 游戏内确认行动力生效；存档出现 `property_Property_Execution`
+- [ ] 同法抽测酒量 `CapacityForLiquor`
 
