@@ -110,19 +110,125 @@ function findJsonStringEnd(text: string, openQuoteIndex: number): number {
   throw new ModuleError('INVALID_FORMAT', ['json string'])
 }
 
-function replaceJsonStringProperty(plain: string, propKey: string, unescapedStringValue: string): string {
+/** Top-level bag string values: closing quote must be followed by `,` or `}` (handles unescaped quotes inside malformed values). */
+function findTopLevelJsonStringEnd(text: string, openQuoteIndex: number): number {
+  if (text[openQuoteIndex] !== '"') throw new ModuleError('INVALID_FORMAT', ['json string'])
+  let i = openQuoteIndex + 1
+  while (i < text.length) {
+    const c = text[i]!
+    if (c === '\\') {
+      i += 2
+      continue
+    }
+    if (c === '"') {
+      let j = i + 1
+      while (j < text.length && /\s/.test(text[j]!)) j++
+      if (text[j] === ',' || text[j] === '}') return i + 1
+    }
+    i++
+  }
+  throw new ModuleError('INVALID_FORMAT', ['json string'])
+}
+
+function skipJsonValue(plain: string, start: number): number {
+  let i = start
+  while (i < plain.length && /\s/.test(plain[i]!)) i++
+  if (i >= plain.length) throw new ModuleError('INVALID_FORMAT', ['json value'])
+  const c = plain[i]!
+  if (c === '"') return findTopLevelJsonStringEnd(plain, i)
+  if (c === '{') {
+    let depth = 0
+    while (i < plain.length) {
+      const ch = plain[i]!
+      if (ch === '"') {
+        i = findJsonStringEnd(plain, i)
+        continue
+      }
+      if (ch === '{') depth++
+      else if (ch === '}') {
+        depth--
+        if (depth === 0) return i + 1
+      }
+      i++
+    }
+    throw new ModuleError('INVALID_FORMAT', ['json object'])
+  }
+  if (c === '[') {
+    let depth = 0
+    while (i < plain.length) {
+      const ch = plain[i]!
+      if (ch === '"') {
+        i = findJsonStringEnd(plain, i)
+        continue
+      }
+      if (ch === '[') depth++
+      else if (ch === ']') {
+        depth--
+        if (depth === 0) return i + 1
+      }
+      i++
+    }
+    throw new ModuleError('INVALID_FORMAT', ['json array'])
+  }
+  if (c === 't' || c === 'f' || c === 'n') {
+    const rest = plain.slice(i)
+    if (rest.startsWith('true')) return i + 4
+    if (rest.startsWith('false')) return i + 5
+    if (rest.startsWith('null')) return i + 4
+  }
+  while (i < plain.length && /[-+0-9.eE]/.test(plain[i]!)) i++
+  return i
+}
+
+function findTopLevelStringPropertyValueStart(plain: string, propKey: string): number {
   const keyToken = JSON.stringify(propKey)
-  const idx = plain.indexOf(keyToken)
-  if (idx < 0) throw new ModuleError('MISSING_FIELD', [propKey])
-  let i = idx + keyToken.length
-  while (i < plain.length && /\s/.test(plain[i]!)) i++
-  if (plain[i] !== ':') throw new ModuleError('INVALID_FORMAT', [propKey])
+  let i = 0
+  while (i < plain.length && plain[i] !== '{') i++
+  if (i >= plain.length) throw new ModuleError('INVALID_FORMAT', ['bag'])
   i++
-  while (i < plain.length && /\s/.test(plain[i]!)) i++
-  if (plain[i] !== '"') throw new ModuleError('INVALID_FORMAT', [propKey])
-  const end = findJsonStringEnd(plain, i)
+
+  while (i < plain.length) {
+    while (i < plain.length && /\s/.test(plain[i]!)) i++
+    if (plain[i] === '}') break
+
+    if (plain[i] !== '"') throw new ModuleError('INVALID_FORMAT', [propKey])
+    const keyStart = i
+    const keyEnd = findJsonStringEnd(plain, i)
+    const keyStr = plain.slice(keyStart, keyEnd)
+
+    if (keyStr === keyToken) {
+      i = keyEnd
+      while (i < plain.length && /\s/.test(plain[i]!)) i++
+      if (plain[i] !== ':') throw new ModuleError('INVALID_FORMAT', [propKey])
+      i++
+      while (i < plain.length && /\s/.test(plain[i]!)) i++
+      if (plain[i] !== '"') throw new ModuleError('INVALID_FORMAT', [propKey])
+      return i
+    }
+
+    i = keyEnd
+    while (i < plain.length && /\s/.test(plain[i]!)) i++
+    if (plain[i] !== ':') throw new ModuleError('INVALID_FORMAT', [propKey])
+    i++
+    i = skipJsonValue(plain, i)
+
+    while (i < plain.length && /\s/.test(plain[i]!)) i++
+    if (plain[i] === ',') {
+      i++
+      continue
+    }
+    if (plain[i] === '}') break
+    throw new ModuleError('INVALID_FORMAT', [propKey])
+  }
+
+  throw new ModuleError('MISSING_FIELD', [propKey])
+}
+
+function replaceJsonStringProperty(plain: string, propKey: string, unescapedStringValue: string): string {
+  const valueStart = findTopLevelStringPropertyValueStart(plain, propKey)
+  const end = findTopLevelJsonStringEnd(plain, valueStart)
   const escaped = JSON.stringify(unescapedStringValue)
-  return plain.slice(0, i) + escaped + plain.slice(end)
+  return plain.slice(0, valueStart) + escaped + plain.slice(end)
 }
 
 export function sealBag(args: {

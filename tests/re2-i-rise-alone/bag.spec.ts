@@ -97,4 +97,36 @@ describe('re2ira bag', () => {
     expect(rawPlain).toBe(plain)
     expect(bag.get('Language')).toBe('Chinese')
   })
+
+  it('sealBag matches top-level slot keys only; ignores decoy substring in another value', () => {
+    const manualDataKey = `${MANUAL_SLOT_ID}_Data`
+    const keyToken = JSON.stringify(manualDataKey)
+    const decoyInner = `X${keyToken}:Y`
+
+    const opened = openBagFromCipher(makeCipherFixture())
+    const autoBefore = readSavedDataJson(opened.bag, AUTO_SLOT_ID)
+    opened.rawPlain = `{"_decoy":"${decoyInner}",${opened.rawPlain.slice(1)}`
+    expect(opened.rawPlain.indexOf(keyToken)).toBeLessThan(opened.rawPlain.lastIndexOf(keyToken))
+
+    const manualJson = readSavedDataJson(opened.bag, MANUAL_SLOT_ID)
+    const parsed = parseSavedData(manualJson)
+    writeResource(parsed.Data, 'Money', 4242)
+    parsed.raw.Data = parsed.Data
+    const manualUpdated = stringifySavedData(parsed.raw)
+    setSlotSavedData(opened.bag, MANUAL_SLOT_ID, manualUpdated)
+
+    const sealed = sealBag({
+      bag: opened.bag,
+      rawPlain: opened.rawPlain,
+      originalCipher: opened.originalCipher,
+      dirtySlotIds: new Set([MANUAL_SLOT_ID])
+    })
+
+    const plainAfter = new TextDecoder().decode(decryptSaveDat(sealed))
+    const autoDataKey = `${AUTO_SLOT_ID}_Data`
+    expect(plainAfter).toContain(`"_decoy":"${decoyInner}"`)
+    expect(plainAfter).toContain(`${JSON.stringify(autoDataKey)}:${JSON.stringify(autoBefore)}`)
+    expect(plainAfter).toContain(`${keyToken}:${JSON.stringify(manualUpdated)}`)
+    expect(plainAfter).toContain('property_Property_Money\\":\\"4242')
+  })
 })
