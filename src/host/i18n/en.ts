@@ -808,14 +808,14 @@ export const en: MessageTree = {
   r2ira: {
     tabs: { resources: 'Resources' },
     resources: {
-      hint: 'Only edits properties already present in this slot; missing entries are not unlocked yet and will not be created. Quit the game first; Steam Cloud may roll back.',
-      empty: 'No unlocked editable properties in this slot yet',
-      Money: 'Money',
-      Stamina: 'Stamina',
-      Charm: 'Charm',
+      hint: 'All protagonist base stats are editable; missing keys are created on save. On-screen values may include temporary round buffs. Quit the game first; Steam Cloud may roll back.',
+      Stamina: 'Physique',
       Wisdom: 'Wisdom',
-      Execution: 'Execution',
+      Charm: 'Charm',
       Morality: 'Morality',
+      CapacityForLiquor: 'Alcohol tolerance',
+      Execution: 'Action points',
+      Money: 'Money',
       Pressure: 'Pressure'
     }
   },

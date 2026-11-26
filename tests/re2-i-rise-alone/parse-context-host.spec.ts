@@ -17,7 +17,9 @@ describe('ParseContext (host session slotId)', () => {
 
     expect(manual.slotId).toBe(MANUAL_SLOT_ID)
     expect(manual.kind).toBe('manual')
-    expect(Object.keys(manual.resources).sort()).toEqual(['Money', 'Stamina'])
+    expect(Object.keys(manual.resources).sort()).toEqual([...RESOURCE_KEYS].sort())
     expect(manual.resources.Money).toBe(100)
+    expect(manual.resources.Stamina).toBe(5)
+    expect(manual.resources.Execution).toBe(0)
   })
 })

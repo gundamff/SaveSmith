@@ -2,18 +2,29 @@ import { describe, expect, it } from 'vitest'
 import { ModuleError } from '@sdk/error'
 import {
   dataKey,
+  projectResources,
   readResources,
   writeResource,
   RESOURCE_KEYS
 } from '../../src/games/re2-i-rise-alone/model/resources'
 
 describe('re2ira resources', () => {
-  it('maps dataKey to property_Property_*', () => {
+  it('covers GetAllPropertyKey protagonist attrs', () => {
     expect(dataKey('Money')).toBe('property_Property_Money')
-    expect(RESOURCE_KEYS).toHaveLength(7)
+    expect(dataKey('CapacityForLiquor')).toBe('property_Property_CapacityForLiquor')
+    expect(RESOURCE_KEYS).toEqual([
+      'Stamina',
+      'Wisdom',
+      'Charm',
+      'Morality',
+      'CapacityForLiquor',
+      'Execution',
+      'Money',
+      'Pressure'
+    ])
   })
 
-  it('reads only whitelist keys and ignores non-integers', () => {
+  it('reads only whitelist keys and ignores favorability / non-integers', () => {
     const data: Record<string, string> = {
       property_Property_Money: '100',
       property_Property_Stamina: '5',
@@ -25,25 +36,27 @@ describe('re2ira resources', () => {
     expect(r.Stamina).toBe(5)
     expect(r.Charm).toBeUndefined()
     expect('MMFavorability' in r).toBe(false)
-    expect(Object.keys(r)).toHaveLength(2)
   })
 
-  it('writes existing resource and rejects missing keys', () => {
+  it('projects missing keys as 0 for the editor UI', () => {
+    const p = projectResources({ property_Property_Money: '10' })
+    expect(p.Money).toBe(10)
+    expect(p.Execution).toBe(0)
+    expect(p.CapacityForLiquor).toBe(0)
+    expect(Object.keys(p)).toHaveLength(RESOURCE_KEYS.length)
+  })
+
+  it('upserts missing whitelist keys', () => {
     const data: Record<string, string> = {
       property_Property_Money: '100'
     }
     writeResource(data, 'Money', 999)
+    writeResource(data, 'Execution', 20)
+    writeResource(data, 'CapacityForLiquor', 50)
     expect(readResources(data).Money).toBe(999)
-    expect(data.property_Property_Money).toBe('999')
-
-    expect(() => writeResource(data, 'Wisdom', 1)).toThrow(ModuleError)
-    try {
-      writeResource(data, 'Wisdom', 1)
-    } catch (e) {
-      expect(e).toBeInstanceOf(ModuleError)
-      expect((e as ModuleError).code).toBe('MISSING_FIELD')
-      expect((e as ModuleError).args).toEqual(['Wisdom'])
-    }
+    expect(readResources(data).Execution).toBe(20)
+    expect(readResources(data).CapacityForLiquor).toBe(50)
+    expect(data.property_Property_Execution).toBe('20')
   })
 
   it('rejects negative and non-integer values', () => {

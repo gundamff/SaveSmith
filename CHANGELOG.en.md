@@ -6,7 +6,7 @@
 
 ### Added
 
-- **Re2 I Rise Alone**: manual/auto slots inside single `SaveData.dat`; edit 7 character stats; no missing-key fill; no favorability/codex
+- **Re2 I Rise Alone**: manual/auto slots inside single `SaveData.dat`; all 8 protagonist base stats editable (missing keys created); no favorability/codex
 
 ## [0.18.1] - 2026-11-19
 

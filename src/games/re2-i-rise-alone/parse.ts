@@ -8,7 +8,7 @@ import {
   sealBag,
   type StringBag
 } from './model/bag'
-import { readResources, writeResource, type ResourceKey } from './model/resources'
+import { projectResources, writeResource, type ResourceKey } from './model/resources'
 
 export interface Re2IraState {
   relativePath: string
@@ -19,7 +19,7 @@ export interface Re2IraState {
   bag: StringBag
   savedRaw: Record<string, unknown>
   data: Record<string, string>
-  resources: Partial<Record<ResourceKey, number>>
+  resources: Record<ResourceKey, number>
   dirty: boolean
 }
 
@@ -43,7 +43,7 @@ export function parse(files: SlotBytes[], ctx?: ParseContext): Re2IraState {
     bag: opened.bag,
     savedRaw: parsed.raw,
     data: parsed.Data,
-    resources: readResources(parsed.Data),
+    resources: projectResources(parsed.Data),
     dirty: false
   }
 }
@@ -52,7 +52,7 @@ export function setResource(state: Re2IraState, key: ResourceKey, value: number)
   writeResource(state.data, key, value)
   state.savedRaw.Data = state.data
   state.bag.set(`${state.slotId}_Data`, JSON.stringify(state.savedRaw))
-  state.resources = readResources(state.data)
+  state.resources = projectResources(state.data)
   state.dirty = true
 }
 

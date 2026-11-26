@@ -16,19 +16,20 @@
 
 | 标签 | 内容 |
 |------|------|
-| 资源 | 当前槽 `Data` 中**已存在**的 7 项角色属性（十进制整数字符串） |
+| 资源 | 主角全部基础属性（对齐游戏 `GetAllPropertyKey`）；缺键保存时补建 |
 
 | UI | `Data` 键 |
 |----|-----------|
-| 金钱 | `property_Property_Money` |
-| 体力 | `property_Property_Stamina` |
-| 魅力 | `property_Property_Charm` |
+| 体能 | `property_Property_Stamina` |
 | 智慧 | `property_Property_Wisdom` |
-| 行动力 | `property_Property_Execution` |
+| 魅力 | `property_Property_Charm` |
 | 道德 | `property_Property_Morality` |
+| 酒量 | `property_Property_CapacityForLiquor` |
+| 行动力 | `property_Property_Execution` |
+| 金钱 | `property_Property_Money` |
 | 压力 | `property_Property_Pressure` |
 
-**规则：** 槽内没有的键不显示、不写入、不补建。
+**规则：** 八项始终显示；存档无键时编辑器按 0 展示，写入后补建。界面可能叠回合临时加成，与存档基数不完全一致。
 
 **不做：** 好感度（含 `MMFavorability` 等）、图鉴/解锁、物品增减、剧情旗、外层 mgr 袋、`CurKey` 等。
 

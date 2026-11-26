@@ -16,19 +16,20 @@ Unofficial save-editing notes. Rights holder **Proudmate Entertainment** (Steam 
 
 | Tab | Content |
 |-----|---------|
-| Resources | Up to 7 character stats **already present** in the slot `Data` (decimal integer strings) |
+| Resources | All protagonist base stats (`GetAllPropertyKey`); missing keys are created on save |
 
 | UI | `Data` key |
 |----|------------|
-| Money | `property_Property_Money` |
-| Stamina | `property_Property_Stamina` |
-| Charm | `property_Property_Charm` |
+| Physique | `property_Property_Stamina` |
 | Wisdom | `property_Property_Wisdom` |
-| Execution | `property_Property_Execution` |
+| Charm | `property_Property_Charm` |
 | Morality | `property_Property_Morality` |
+| Alcohol tolerance | `property_Property_CapacityForLiquor` |
+| Action points | `property_Property_Execution` |
+| Money | `property_Property_Money` |
 | Pressure | `property_Property_Pressure` |
 
-**Rule:** missing keys are not shown, written, or created.
+**Rule:** all eight fields are always shown; missing keys display as 0 and are created when you save. On-screen values may include temporary round buffs.
 
 **Out of scope:** favorability (including `MMFavorability`), codex/unlocks, items, story flags, outer mgr bag, `CurKey`, etc.
 

@@ -11,10 +11,6 @@ const resources = computed(() => {
   return editor.save.resources
 })
 
-const visibleKeys = computed(() =>
-  RESOURCE_KEYS.filter((k) => resources.value[k] !== undefined)
-)
-
 function change(key: ResourceKey, v: number | undefined): void {
   if (v === undefined || Number.isNaN(v)) return
   editor.markDirty(() => {
@@ -26,11 +22,10 @@ function change(key: ResourceKey, v: number | undefined): void {
 <template>
   <div class="r2ira-resources" :data-ss-rev="editor.rev">
     <p class="r2ira-hint">{{ t('r2ira.resources.hint') }}</p>
-    <p v-if="visibleKeys.length === 0" class="r2ira-empty">{{ t('r2ira.resources.empty') }}</p>
-    <el-form v-else label-width="120px" style="max-width: 420px">
-      <el-form-item v-for="key in visibleKeys" :key="key" :label="t(`r2ira.resources.${key}`)">
+    <el-form label-width="120px" style="max-width: 420px">
+      <el-form-item v-for="key in RESOURCE_KEYS" :key="key" :label="t(`r2ira.resources.${key}`)">
         <el-input-number
-          :model-value="resources[key]!"
+          :model-value="resources[key]"
           :min="0"
           :max="2147483647"
           @update:model-value="(v) => change(key, v ?? undefined)"
@@ -46,9 +41,5 @@ function change(key: ResourceKey, v: number | undefined): void {
   margin: 0 0 12px;
   max-width: 520px;
   line-height: 1.5;
-}
-.r2ira-empty {
-  color: var(--el-text-color-secondary);
-  margin: 0;
 }
 </style>

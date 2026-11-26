@@ -797,14 +797,14 @@ export const zh: MessageTree = {
   r2ira: {
     tabs: { resources: '资源' },
     resources: {
-      hint: '只改本槽已有属性；缺项表示尚未解锁，不会补建。请先退出游戏；Steam Cloud 可能回滚。',
-      empty: '当前槽尚无已解锁的可编辑属性',
-      Money: '金钱',
-      Stamina: '体力',
-      Charm: '魅力',
+      hint: '主角全部基础属性均可改；缺键会写入存档。界面显示可能含回合临时加成，与基数不完全一致。请先退出游戏；Steam Cloud 可能回滚。',
+      Stamina: '体能',
       Wisdom: '智慧',
-      Execution: '行动力',
+      Charm: '魅力',
       Morality: '道德',
+      CapacityForLiquor: '酒量',
+      Execution: '行动力',
+      Money: '金钱',
       Pressure: '压力'
     }
   },

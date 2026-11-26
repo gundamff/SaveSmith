@@ -23,8 +23,8 @@ export const re2IRiseAloneModule: GameModule<Re2IraState> = {
     publisher: 'Proudmate Entertainment',
     steamAppId: 3816120,
     summary: {
-      zh: '非官方存档修改器：7 项角色属性（金钱/体力/魅力/智慧/行动力/道德/压力）可编辑。请先退出游戏再改档；Steam Cloud 可能回滚。',
-      en: 'Unofficial save editor: edit 7 character stats (money, stamina, charm, wisdom, execution, morality, pressure). Quit the game first; Steam Cloud may roll back edits.'
+      zh: '非官方存档修改器：主角全部基础属性（体能/智慧/魅力/道德/酒量/行动力/金钱/压力）可编辑，缺键可补建。请先退出游戏再改档；Steam Cloud 可能回滚。',
+      en: 'Unofficial save editor: all protagonist base stats (physique, wisdom, charm, morality, alcohol tolerance, action points, money, pressure); missing keys are created. Quit the game first; Steam Cloud may roll back edits.'
     }
   },
   locate,

@@ -28,12 +28,26 @@ describe('re2IRiseAloneModule parse / serialize', () => {
     expect(out[0]!.bytes).toEqual(bytes)
   })
 
-  it('parse manual slot has only Money and Stamina resources', () => {
+  it('parse manual slot projects all attrs; missing keys as 0', () => {
     const bytes = makeCipherFixture()
     const state = parse([{ relativePath: 'SaveData.dat', bytes }], { slotId: MANUAL_SLOT_ID })
     expect(state.slotId).toBe(MANUAL_SLOT_ID)
     expect(state.kind).toBe('manual')
-    expect(Object.keys(state.resources).sort()).toEqual(['Money', 'Stamina'].sort())
+    expect(state.resources.Money).toBe(100)
+    expect(state.resources.Stamina).toBe(5)
+    expect(state.resources.Execution).toBe(0)
+    expect(state.resources.CapacityForLiquor).toBe(0)
+  })
+
+  it('upserts Execution on a slot that lacked the key', () => {
+    const bytes = makeCipherFixture()
+    const state = parse([{ relativePath: 'SaveData.dat', bytes }], { slotId: MANUAL_SLOT_ID })
+    setResource(state, 'Execution', 20)
+    const out = serialize(state)
+    const plainAfter = new TextDecoder().decode(decryptSaveDat(out[0]!.bytes))
+    const bagObj = JSON.parse(plainAfter) as Record<string, string>
+    const manualAfter = parseSavedData(bagObj[`${MANUAL_SLOT_ID}_Data`]!)
+    expect(readResources(manualAfter.Data).Execution).toBe(20)
   })
 
   it('Money patch leaves auto slot _Data unchanged', () => {
