@@ -13,6 +13,11 @@ describe('re2ira listSlots', () => {
     expect(slots.map((s) => s.id).sort()).toEqual([AUTO_SLOT_ID, MANUAL_SLOT_ID].sort())
     expect(slots.every((s) => s.readable)).toBe(true)
     expect(slots.every((s) => s.sessionFiles?.includes('SaveData.dat'))).toBe(true)
+    const manual = slots.find((s) => s.id === MANUAL_SLOT_ID)!
+    const auto = slots.find((s) => s.id === AUTO_SLOT_ID)!
+    const expectedTime = new Date(1700000000000).toLocaleString()
+    expect(manual.subtitle).toBe(`manual · R1 · ${expectedTime}`)
+    expect(auto.subtitle).toBe(`auto · R1 · ${expectedTime}`)
   })
 
   it('returns unreadable placeholder when bytes missing', () => {

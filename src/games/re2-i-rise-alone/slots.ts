@@ -19,7 +19,7 @@ export function listSlots(listed: ListedFiles): SlotInfo[] {
       exists: true,
       readable: true,
       title: m.savedName.trim() || m.id.slice(0, 8),
-      subtitle: `${m.kind === 'auto' ? '自动' : '手动'} · R${m.round}`,
+      subtitle: `${m.kind} · R${m.round} · ${new Date(m.timeMs).toLocaleString()}`,
       sessionFiles: ['SaveData.dat']
     }))
   } catch {

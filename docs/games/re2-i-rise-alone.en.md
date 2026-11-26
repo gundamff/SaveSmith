@@ -32,7 +32,7 @@ Unofficial save-editing notes. Rights holder **Proudmate Entertainment** (Steam 
 
 **Out of scope:** favorability (including `MMFavorability`), codex/unlocks, items, story flags, outer mgr bag, `CurKey`, etc.
 
-AES-192-ECB-PKCS7 encrypted UTF-8 JSON bag (clean-room). Key derived from in-game constants; no bundled third-party runtime.
+AES-192-ECB-PKCS7 encrypted UTF-8 JSON bag (clean-room). Key derived from in-game constants; decryption uses the existing SaveSmith dependency `node-forge`—no standalone runtime bundled with this game module.
 
 ## Notes
 

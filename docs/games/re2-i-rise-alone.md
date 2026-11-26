@@ -32,7 +32,7 @@
 
 **不做：** 好感度（含 `MMFavorability` 等）、图鉴/解锁、物品增减、剧情旗、外层 mgr 袋、`CurKey` 等。
 
-格式为 AES-192-ECB-PKCS7 加密的 UTF-8 JSON 袋（Clean-room）。密钥来自游戏内常量；不捆绑第三方运行时。
+格式为 AES-192-ECB-PKCS7 加密的 UTF-8 JSON 袋（Clean-room）。密钥来自游戏内常量；解密复用 SaveSmith 已有依赖 `node-forge`，不向本游戏模块捆绑独立运行时。
 
 ## 使用注意
 
