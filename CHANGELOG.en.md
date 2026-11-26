@@ -7,7 +7,6 @@
 ### Added
 
 - **Re2 I Rise Alone**: manual/auto slots inside single `SaveData.dat`; edit 7 character stats; no missing-key fill; no favorability/codex
-- **Re2 I Rise Alone**: library cover from Steam library hero (App 3816120)
 
 ## [0.18.1] - 2026-11-19
 

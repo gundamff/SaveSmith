@@ -1,6 +1,6 @@
 /**
  * Re2 I Rise Alone (重生2我独自逆袭) GameModule.
- * Cover: placeholder copied from internal module pattern; replace with Steam library hero (App 3816120) when available. © Proudmate Entertainment.
+ * Cover: temporary placeholder (not game artwork); replace with Steam library hero (App 3816120) when available. © Proudmate Entertainment.
  */
 import type { GameModule } from '@sdk/types'
 import { actions, applyAction } from './actions'
