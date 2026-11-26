@@ -351,3 +351,29 @@ WebView2 说明写在 [README.md](../README.md) / [README.en.md](../README.en.md
 - [ ] ����ͼ���Կ�ȱ�����ڲ��ģ�
 - [ ] ��Ϸ�����������԰�뿪ս
 
+## 重生2我独自逆袭（Re2 I Rise Alone）手测
+
+**警告：** 完全退出游戏；复制整个 `ProudmateEntertainment\重生2我独自逆袭` 目录中的 `SaveData.dat` 副本。注意 Steam Cloud 同步 `*.dat` 可能回滚。
+
+### R2IRA1. 探测与槽位
+
+- [ ] 自动找到 `%USERPROFILE%\AppData\LocalLow\ProudmateEntertainment\重生2我独自逆袭`
+- [ ] 列出 `SaveData.dat` 内手动槽与自动槽；标题为 `SavedName` 或 UUID 前缀
+- [ ] 选择有进度且含部分白名单属性的槽，资源 Tab 只显示槽内已有的 7 项键
+
+### R2IRA2. 零编辑往返
+
+- [ ] 在**副本**上不改任何字段保存
+- [ ] 游戏载入该档 → 游戏内保存 → 完全退出 → 二次载入，均正常
+
+### R2IRA3. 最小有害性
+
+- [ ] 改金钱或体力 `+1`（或改到已知安全值）保存
+- [ ] 游戏内确认数值；其它槽与未存在属性的键未被新建
+- [ ] 完全退出后二次载入正常
+
+### R2IRA4. 缺键槽
+
+- [ ] 打开早期/空槽：UI 提示无已解锁可编辑属性或只显示已有项
+- [ ] 保存后不出现新的 `property_Property_*` 键
+

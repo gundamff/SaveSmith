@@ -80,7 +80,8 @@ describe('chaosFrontModule catalog / locate', () => {
       'belmonts-curse',
       'final-fantasy-resonance',
       'phantom-blade-zero',
-      'ball-x-pit'
+      'ball-x-pit',
+      're2-i-rise-alone'
     ])
     expect(modules[0]).toBe(chaosFrontModule)
     expect(modules[3]).toBe(wanderburgModule)

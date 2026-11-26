@@ -55,6 +55,7 @@ Per-game editable fields, default paths, and caveats live in the docs linked bel
 | [FINAL FANTASY RESONANCE](docs/games/final-fantasy-resonance.en.md) | Square Enix | Supported (Gil / party / items / visions / maps; SVHD+AES) | [English](docs/games/final-fantasy-resonance.en.md) · [中文](docs/games/final-fantasy-resonance.md) |
 | [Phantom Blade Zero](docs/games/phantom-blade-zero.en.md) | S-GAME Studio | Supported (Dust / upgrade materials / Traversing Charm; searchable add; verified build 26266538; offline only) | [English](docs/games/phantom-blade-zero.en.md) · [中文](docs/games/phantom-blade-zero.md) |
 | [BALL x PIT](docs/games/ball-x-pit.en.md) | Kenny Sun / Devolver Digital | Supported (town resources + one-click ball/passive/combo encyclopedia unlock) | [English](docs/games/ball-x-pit.en.md) · [中文](docs/games/ball-x-pit.md) |
+| [Re2 I Rise Alone](docs/games/re2-i-rise-alone.en.md) | Proudmate Entertainment | Supported (7 character stats; no missing-key fill; no favorability/codex) | [English](docs/games/re2-i-rise-alone.en.md) · [中文](docs/games/re2-i-rise-alone.md) |
 
 When adding a game: ship the module, add a row here, and write `docs/games/<id>.md` (+ `.en.md`).
 

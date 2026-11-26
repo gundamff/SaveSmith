@@ -47,7 +47,8 @@ describe('terrariaModule catalog / locate / registry', () => {
       'belmonts-curse',
       'final-fantasy-resonance',
       'phantom-blade-zero',
-      'ball-x-pit'
+      'ball-x-pit',
+      're2-i-rise-alone'
     ])
     expect(modules).toContain(terrariaModule)
   })
