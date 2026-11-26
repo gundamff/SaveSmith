@@ -9,6 +9,7 @@ import { dragonSwordModule } from '../games/dragon-sword'
 import { eslabongModule } from '../games/eslabong'
 import { finalFantasyResonanceModule } from '../games/final-fantasy-resonance'
 import { phantomBladeZeroModule } from '../games/phantom-blade-zero'
+import { re2IRiseAloneModule } from '../games/re2-i-rise-alone'
 import { terrariaModule } from '../games/terraria'
 import { wanderburgModule } from '../games/wanderburg'
 
@@ -24,5 +25,6 @@ export const modules: GameModule[] = [
   belmontsCurseModule,
   finalFantasyResonanceModule,
   phantomBladeZeroModule,
-  ballXPitModule
+  ballXPitModule,
+  re2IRiseAloneModule
 ]
