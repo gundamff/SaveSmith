@@ -794,6 +794,20 @@ export const zh: MessageTree = {
       unlocked: '已点亮 {0} 处图鉴计数'
     }
   },
+  r2ira: {
+    tabs: { resources: '资源' },
+    resources: {
+      hint: '只改本槽已有属性；缺项表示尚未解锁，不会补建。请先退出游戏；Steam Cloud 可能回滚。',
+      empty: '当前槽尚无已解锁的可编辑属性',
+      Money: '金钱',
+      Stamina: '体力',
+      Charm: '魅力',
+      Wisdom: '智慧',
+      Execution: '行动力',
+      Morality: '道德',
+      Pressure: '压力'
+    }
+  },
   error: {
     EMPTY_SERIALIZE: '序列化结果为空或字节无效，已拒绝写入',
     UNKNOWN_ACTION: '未知动作：{0}',

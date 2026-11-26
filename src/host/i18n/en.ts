@@ -805,6 +805,20 @@ export const en: MessageTree = {
       unlocked: 'Updated {0} encyclopedia counters'
     }
   },
+  r2ira: {
+    tabs: { resources: 'Resources' },
+    resources: {
+      hint: 'Only edits properties already present in this slot; missing entries are not unlocked yet and will not be created. Quit the game first; Steam Cloud may roll back.',
+      empty: 'No unlocked editable properties in this slot yet',
+      Money: 'Money',
+      Stamina: 'Stamina',
+      Charm: 'Charm',
+      Wisdom: 'Wisdom',
+      Execution: 'Execution',
+      Morality: 'Morality',
+      Pressure: 'Pressure'
+    }
+  },
   error: {
     EMPTY_SERIALIZE: 'Serialize produced an empty or invalid payload; write aborted',
     UNKNOWN_ACTION: 'Unknown action: {0}',

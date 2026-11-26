@@ -2,11 +2,12 @@
  * Re2 I Rise Alone (重生2我独自逆袭) GameModule.
  * Cover: placeholder copied from internal module pattern; replace with Steam library hero (App 3816120) when available. © Proudmate Entertainment.
  */
-import type { GameModule, ViewSpec } from '@sdk/types'
+import type { GameModule } from '@sdk/types'
 import { actions, applyAction } from './actions'
 import { locate } from './locate'
 import { parse, serialize, validate, type Re2IraState } from './parse'
 import { listSlots } from './slots'
+import { re2IraViews } from './views'
 
 export type { Re2IraState }
 
@@ -33,6 +34,5 @@ export const re2IRiseAloneModule: GameModule<Re2IraState> = {
   validate,
   actions,
   applyAction,
-  // Task 5: resources tab views
-  views: [] as ViewSpec[]
+  views: re2IraViews
 }
