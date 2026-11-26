@@ -2,7 +2,7 @@
 
 [**中文**](re2-i-rise-alone.md) | [English](re2-i-rise-alone.en.md)
 
-非官方存档修改说明。权利人 **Proudmate Entertainment**（Steam AppID [3816120](https://store.steampowered.com/app/3816120/)）。与官方无关联。游戏库封面为临时占位图，待替换为 Steam 正式素材；届时版权归权利人。
+非官方存档修改说明。权利人 **Proudmate Entertainment**（Steam AppID [3816120](https://store.steampowered.com/app/3816120/)）。与官方无关联。游戏库封面取自 Steam library header，版权归权利人。
 
 ## 存档位置
 

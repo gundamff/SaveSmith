@@ -2,7 +2,7 @@
 
 [中文](re2-i-rise-alone.md) | **English**
 
-Unofficial save-editing notes. Rights holder **Proudmate Entertainment** (Steam AppID [3816120](https://store.steampowered.com/app/3816120/)). Not affiliated with the rights holder. Library cover is a temporary placeholder pending official Steam artwork; © the rights holder when replaced.
+Unofficial save-editing notes. Rights holder **Proudmate Entertainment** (Steam AppID [3816120](https://store.steampowered.com/app/3816120/)). Not affiliated with the rights holder. Library cover is the Steam library header; artwork © the rights holder.
 
 ## Save location
 

@@ -4,9 +4,12 @@
 
 ## [Unreleased]
 
+## [0.18.2] - 2026-11-26
+
 ### Added
 
 - **Re2 I Rise Alone**: manual/auto slots inside single `SaveData.dat`; all 8 protagonist base stats editable (missing keys created); no favorability/codex
+- **Re2 I Rise Alone**: library cover from Steam library header (App 3816120)
 
 ## [0.18.1] - 2026-11-19
 
