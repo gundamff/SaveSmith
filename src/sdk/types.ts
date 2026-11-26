@@ -76,12 +76,16 @@ export interface ViewSpec {
   component: Component
 }
 
+export interface ParseContext {
+  slotId: string
+}
+
 export interface GameModule<S = unknown> {
   id: string
   catalog: GameCatalog
   locate: SaveLocator
   listSlots(files: ListedFiles): SlotInfo[]
-  parse(files: SlotBytes[]): S | Promise<S>
+  parse(files: SlotBytes[], ctx?: ParseContext): S | Promise<S>
   serialize(state: S): SerializedFile[] | Promise<SerializedFile[]>
   validate(state: S): ValidationIssue[]
   actions(state: S): ActionSpec[]

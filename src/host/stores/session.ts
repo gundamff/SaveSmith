@@ -245,7 +245,7 @@ export const useSessionStore = defineStore('session', () => {
         return
       }
       try {
-        const parsed = wrapState(await mod.parse(files))
+        const parsed = wrapState(await mod.parse(files, { slotId }))
         currentSlotId.value = slotId
         state.value = parsed
         original.value = files
@@ -307,7 +307,8 @@ export const useSessionStore = defineStore('session', () => {
           relativePath: file.relativePath,
           bytes: new Uint8Array(file.bytes)
         }))
-        const committedState = wrapState(await mod.parse(committedFiles))
+        const ctx = currentSlotId.value ? { slotId: currentSlotId.value } : undefined
+        const committedState = wrapState(await mod.parse(committedFiles, ctx))
         const changed = changedFiles(original.value, next)
 
         if (changed.length === 0) {
