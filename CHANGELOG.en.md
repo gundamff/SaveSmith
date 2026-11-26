@@ -2,7 +2,7 @@
 
 [中文](CHANGELOG.md) | **English**
 
-## [0.18.2] - 2026-11-26
+## [Unreleased]
 
 ### Added
 
